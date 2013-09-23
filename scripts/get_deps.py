@@ -41,6 +41,6 @@ l=[
 	'org.eclipse.wst.server.core_1.4.100.v20130117_1140.jar',
 ]
 
-epath='/home/mark/install/eclipse-jee-juno-SR2-linux-gtk/plugins'
+epath='/home/mark/install/eclipse-jee/plugins'
 for x in l:
 	shutil.copyfile(os.path.join(epath,x),os.path.join('static',x))
