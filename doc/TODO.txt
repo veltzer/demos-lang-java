@@ -27,10 +27,11 @@ Build system:
 	to reduce the size of this project.
 	If I'm not happy with that then use maven to bring the jars
 	to ~/.m2.
-- seperate the java to it's own project (javaapi).
 
 Extreme:
 ========
+- do an example doing strace on a running java process that takes and releases
+	locks. Show that it uses futexes?!?
 - add an example showing how long it takes to take locks in java.
 	compare that to atomics.
 - do example of memory access reordering in Java.
