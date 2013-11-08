@@ -1,0 +1,14 @@
+Create large arrays of integers with random data and copy data between them.
+Do it in two ways:
+- using System.arraycopy.
+- using your own code.
+Repeat and rinse.
+Measure the time this takes. Use either:
+	System.currentTimeMillis()
+or
+	System.nanoTime()
+What are your results?
+What do you think about the accuracy of your measurements?
+
+References:
+https://blogs.oracle.com/dholmes/entry/inside_the_hotspot_vm_clocks
