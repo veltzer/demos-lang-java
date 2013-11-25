@@ -1,0 +1,62 @@
+Java basic course final test (Multiple choice test):
+
+parameters of type float are passed to methods:
+1. By reference
+2. By auto-boxing to type Float
+3. By value (correct)
+4. By cloning
+
+in java a class always inherits from:
+1. zero or one class.
+2. exactly one class (Object if not specified). (correct).
+3. many interfaces.
+4. exactly one interface.
+
+when building a java stream (input or output) the order of encapsulation of streams:
+(ObjectInputStream, GzipOutputStream, etc...). 
+1. doesn't matter (just the types matter).
+2. matters only if you repeat clasess.
+3. matters (correct).
+4. doesn't matter at all.
+
+variables of type String in java:
+1. Are mutable.
+2. Are immutable. (correct)
+3. Are multable under cloning.
+4. Are mutable or immutable according to whether you put the 'const' keyword in front of it.
+
+When you create an instance in Java the data (fields) of this object are stored:
+1. In the heap. (correct)
+2. On the stack.
+3. In the code segment.
+4. In the data segment.
+
+Objects in java are passed:
+1. By reference (the references are passed by value). (correct).
+2. By value.
+3. By copy.
+4. By name.
+
+How many types of inner classes are there in Java?
+1. Just one type (static).
+2. Two types (static and non static). (give points for this too).
+3. Three types (static, non static and anonymous) (correct)
+4. No types - all inner classes are just regular classes.
+
+The types Integer and int in Java:
+1. Are the same (totally interchangeable).
+2. Have many different features but are related language wise (storage, type). (correct).
+3. Have many different features but are not related language wise.
+4. Are the same but Integer is more advanced so you better use that and avoid using 'int'.
+
+When Java objects are stored in a HashMap in Java:
+1. You can change them in any way you see fit.
+2. You can change attributes of them which do not effect their hash function.
+3. If you want to change attributes which effect their hash function remove them from the hash, change and reinsert them.
+4. 2 and 3 are correct (correct).
+
+A abstract class in java:
+1. May not implement any methods.
+2. May not implement any interfaces.
+3. May implement methods. (correct)
+4. May not inherit from any class other than Object.
