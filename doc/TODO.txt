@@ -5,7 +5,7 @@ Now:
 - get ridd of the static jars in the static folder.
 	do that by either bringing them from maven
 	or by copying them from the eclipse installation.
-	what ever, as long as they will not longer be source files.
+	what ever, as long as they will no longer be source files.
 - separate this project to it's own tree and away from generic demos.
 	do it fresh, with no history (for obvious reasons)
 
