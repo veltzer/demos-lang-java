@@ -25,6 +25,7 @@ packs=[
 	'ant-doc',
 	'ant-optional',
 	'ant-contrib',
+	'libjna-java',
 ]
 
 args=['sudo','apt-get','install']
