@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 
 import subprocess
-import shutil
-import os.path
+import shutil # for rmtree, copyfile
+import os.path # for join, split
 import os # for mkdir
 
-shutil.rmtree('static',True)
+shutil.rmtree('static', True)
 os.mkdir('static')
 
 subprocess.check_call(['wget','http://maven.repository.paxle.net/org/jdesktop/jdic/jdic/0.9.5/jdic-0.9.5.jar','-O','static/jdic.jar'])
@@ -44,3 +44,10 @@ l=[
 epath='/home/mark/install/eclipse-jee/plugins'
 for x in l:
 	shutil.copyfile(os.path.join(epath,x),os.path.join('static',x))
+
+files=[
+	'/usr/share/java/jna.jar',
+	'/usr/share/java/jna-platform.jar',
+]
+for x in files:
+	shutil.copyfile(x,os.path.join('static',os.path.split(x)[1]))

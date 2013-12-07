@@ -78,6 +78,10 @@
     <!--   <property name="headerFile" value="${checkstyle.header.file}"/> -->
     <!--   <property name="fileExtensions" value="java"/> -->
     <!-- </module> -->
+	
+	<module name="SuppressionFilter">
+		<property name="file" value="support/suppressions.xml"/>
+	</module>
 
     <module name="TreeWalker">
 
@@ -201,6 +205,7 @@
         <module name="TodoComment"/>
 	-->
         <module name="UpperEll"/>
+
 
     </module>
 

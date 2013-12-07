@@ -18,7 +18,7 @@ abstract class ReadWriteReordering {
 	private static CyclicBarrier b = new CyclicBarrier(3);
 	private static final int COUNT = 40000;
 	private static int x, y, r1, r2;
-	private static final int DELAY_COUNT= 1000;
+	private static final int DELAY_COUNT = 1000;
 
 	private static class FirstThread extends Thread {
 		private volatile int rint;
