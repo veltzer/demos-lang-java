@@ -8,14 +8,14 @@ import java.net.ServerSocket;
 /**
  * This demo explores the behavior of the interruption system for thread interruption
  * in Java.
- * 
+ *
  * Conclusions:
  * - A CPU intensive thread that never does sleep, wait, IO or anything cannot be
  * stopped using interruption (see thread T1).
  * - A thread that calls sleep or wait a lot will be stopped (see thread T2).
  * - A thread doing sleep or wait will be stopped IN MID SLEEP (see thread T3).
  * - A thread that does IO and is stuck on it will not be stopped (see thread T4).
- * 
+ *
  * @author Mark Veltzer <mark@veltzer.net>
  */
 
@@ -63,7 +63,7 @@ public abstract class InterruptDemo {
 			}
 		}
 	}
-	
+
 	private static class T3 extends Thread {
 		@Override
 		public void run() {
@@ -77,7 +77,7 @@ public abstract class InterruptDemo {
 			}
 		}
 	}
-	
+
 	private static class T4 extends Thread {
 		@Override
 		public void run() {
@@ -87,10 +87,9 @@ public abstract class InterruptDemo {
 				s.accept();
 			} catch (IOException e) {
 				throw new RuntimeException(e);
-			}
-			finally {
+			} finally {
 				try {
-					if (s!=null) {
+					if (s != null) {
 						s.close();
 					}
 				} catch (IOException e) {
@@ -105,7 +104,7 @@ public abstract class InterruptDemo {
 		@Override
 		public void run() {
 			System.out.print("Enter your name: ");
-			BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 			try {
 				br.readLine();
 			} catch (IOException e) {
@@ -114,13 +113,13 @@ public abstract class InterruptDemo {
 			System.out.println("T5 ending");
 		}
 	}
-	
+
 	public static void main(String[] args) {
-		Thread t1=new T1();
-		Thread t2=new T2();
-		Thread t3=new T3();
-		Thread t4=new T4();
-		Thread t5=new T5();
+		Thread t1 = new T1();
+		Thread t2 = new T2();
+		Thread t3 = new T3();
+		Thread t4 = new T4();
+		Thread t5 = new T5();
 		t1.start();
 		t2.start();
 		t3.start();

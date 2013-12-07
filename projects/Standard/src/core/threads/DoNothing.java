@@ -12,7 +12,7 @@ package core.threads;
  *
  */
 
-public class DoNothing {
+public abstract class DoNothing {
 	public static void main(String[] args) {
 		try {
 			Thread.sleep(1000000);
