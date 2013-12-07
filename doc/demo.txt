@@ -1,0 +1,1 @@
+java -classpath projects/Standard/bin:static/jna.jar core.threads.ReadWriteReordering

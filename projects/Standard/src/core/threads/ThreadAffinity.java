@@ -72,7 +72,7 @@ abstract class ThreadAffinity {
         final CLibrary lib = CLibrary.INSTANCE;
         final int cpuMaskSize = Long.SIZE / 8;
         try {
-            final int ret = lib.schedSetaffinity(0, cpuMaskSize, new LongByReference(mask));
+            final int ret = lib.sched_setaffinity(0, cpuMaskSize, new LongByReference(mask));
             if (ret < 0) {
                 throw new RuntimeException("sched_setaffinity( 0, (" + cpuMaskSize + ") , &(" + mask + ") ) return " + ret);
             }
@@ -85,7 +85,7 @@ abstract class ThreadAffinity {
         final CLibrary lib = CLibrary.INSTANCE;
         final int cpuMaskSize = Long.SIZE / 8;
         try {
-            final int ret = lib.schedSetaffinity(
+            final int ret = lib.sched_setaffinity(
                     (int) threadID,
                     cpuMaskSize,
                     new LongByReference(mask)
@@ -103,7 +103,7 @@ abstract class ThreadAffinity {
     }
 
     public static Core currentCore() {
-        final int cpuSequence = CLibrary.INSTANCE.schedGetcpu();
+        final int cpuSequence = CLibrary.INSTANCE.sched_getcpu();
         return CORES[cpuSequence];
     }
 
@@ -123,8 +123,8 @@ abstract class ThreadAffinity {
         CLibrary INSTANCE = (CLibrary) Native.loadLibrary("c", CLibrary.class);
 
         int nice(final int increment);
-        int schedSetaffinity(final int pid, final int cpusetsize, final PointerType cpuset);
-        int schedGetcpu();
+        int sched_setaffinity(final int pid, final int cpusetsize, final PointerType cpuset);
+        int sched_getcpu();
     }
 
 	public static void main(final String[] args) {
