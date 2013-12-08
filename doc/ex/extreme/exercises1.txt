@@ -15,9 +15,12 @@ shared resource (whatever that resource is).
 A reader thread will use the object thus:
 	class ReaderThread extends Thread {
 		public void run() {
-			thelock.read();
-			// read the resource
-			thelock.readLeave();
+			try {
+				thelock.read();
+				// read the resource
+			} finally {
+				thelock.readLeave();
+			}
 		}
 	}
 A writer thread will do something similar for writing to the
