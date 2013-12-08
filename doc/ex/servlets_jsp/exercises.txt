@@ -6,7 +6,6 @@ JavaServer Pages
 Exercise book
 Version 1.4
 Page 1 of 19
-© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
 01-Servlet Basics - Exercises
 Exercise 1 – Hello World Servlet
 Exercise description:
@@ -30,7 +29,6 @@ Files to use:
 Run:
 http://localhost:8080/01-servlets_basics/lifecycle
 Page 2 of 19
-© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
 02-Servlet API - Exercises
 Exercise 3 – HTTP Request Snooping
 Exercise description:
@@ -62,7 +60,6 @@ random number between 1 and a defined maximum value. The user is asked to guess 
 If the guess is too high or too low, a proper message is displayed. If the guess is correct, a "You
 are a winner" message is displayed.
 Page 3 of 19
-© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
 NOTE: The user can make only one guess, after which the result is printed out. For each request
 a new random number is generated.
 The Servlet should read the defined maximum value from the ServletConfig object, which is
@@ -75,7 +72,6 @@ WEB-INF\web.xml
 Run:
 http://localhost:8080/02-servlets_api/random
 Page 4 of 19
-© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
 03-Cookies and Session Management - Exercises
 Exercise 6 – Cookies Servlet
 Exercise Description:
@@ -110,7 +106,6 @@ items from the inventory to his shopping cart, which is practically a list store
 HttpSession. The Servlet shows the shopping cart’s content and the total price of all the items on
 the cart.
 Page 5 of 19
-© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
 Exercise directory:
 <exercises>\cookies and sessions\
 Files to use:
@@ -119,7 +114,6 @@ Files to use:
 Run:
 http://localhost:8080/03-cookies_and_sessions/cart
 Page 6 of 19
-© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
 04-Using Databases with Servlets - Exercises
 Exercise 9 – Shopping Cart using a Database
 Exercise Description:
@@ -140,7 +134,6 @@ Access Database\Items.mdb
 Run:
 http://localhost:8080/04-database/dbCart
 Page 7 of 19
-© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
 05-JSP Basics - Exercises
 Exercise 10 – Hello World JSP
 Exercise Description:
@@ -153,7 +146,6 @@ hello.jsp
 Run:
 http://localhost:8080/05-Jsp_basic/hello.jsp
 Page 8 of 19
-© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
 06-JSP Syntax and Semantics - Exercises
 Exercise 11– Calendar
 Exercise Description:
@@ -178,7 +170,6 @@ preferences.jsp
 Run:
 http://localhost:8080/06-Jsp_syntax/preferences.jsp
 Page 9 of 19
-© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
 07-JSP and JavaBeans - Exercises
 Exercise 13 – HTML Table Helper Bean
 Exercise Description:
@@ -210,7 +201,6 @@ error.jsp
 Run:
 http://localhost:8080/07-Jsp_and_beans/newUser.jsp
 Page 10 of 19
-© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
 08-Requests Dispatching - Exercises
 Exercise 15 – Items’ Views
 Exercise Description:
@@ -228,7 +218,6 @@ list.jsp
 Run:
 http://localhost:8080/08-Dispatching/index.jsp
 Page 11 of 19
-© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
 11- Expression Language
 Exercise 20 – Expression Language
 Exercise Description:
@@ -276,7 +265,6 @@ Expression Value
 sin(11/7)
 0.9999998001333682
 Page 12 of 19
-© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
 Exercise directory:
 <exercises>\el\
 Files to use:
@@ -285,7 +273,6 @@ WEB-INF\app.tld
 Run:
 http://localhost:8080/11-el/index.jsp?colors=red&colors=blue
 Page 13 of 19
-© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
 Exercise 21 – JSF Hello World
 Exercise Description:
 Set up a JSF-based application, as demonstrated by the teacher. Create a simple "Hello World"
@@ -295,7 +282,6 @@ Exercise directory:
 Files to use:
 myfaces-core-1.1.3-bin.zip
 Page 14 of 19
-© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
 Exercise 22 – JSF Calculator Screen
 Exercise Description:
 Create a JSF calculator. The application's screen should look like this:
@@ -304,7 +290,6 @@ including the form itself.
 Exercise directory:
 <exercises>\ JSF-Calculator\
 Page 15 of 19
-© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
 Exercise 23 – JSF Calculator Content
 Exercise Description:
 Now, update the calculator to work properly:
@@ -325,7 +310,6 @@ displayed result will be "29", and this will be multiplied by whatever the user 
 Exercise directory:
 <exercises>\ JSF-Calculator\
 Page 16 of 19
-© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
 Exercise 24 – JSF Calculator, Continued
 Exercise Description:
 Add a link to the calculator; the link text should be "Scientific mode".
@@ -354,7 +338,6 @@ Files to use:
 sqrt.gif
 p2.gif
 Page 17 of 19
-© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
 Exercise 25 – JSF Validation
 Exercise Description:
 In this exercise, you will use both a validation method and a validator object.
@@ -366,7 +349,6 @@ operation is attempted, display an appropriate error message.
 Exercise directory:
 <exercises>\ JSF-Calculator\
 Page 18 of 19
-© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
 Exercise 26 – JSF Navigation
 Exercise Description:
 In this exercise, a navigation and login system will be added to our calculator application.
@@ -391,4 +373,3 @@ Files to use:
 homepage.html – contains the text that should appear in the homepage (without the links, etc.)
 help.html – contains the text for the help page (again, without the required links).
 Page 19 of 19
-© Copyright 2005 InterBit T&C LTD.

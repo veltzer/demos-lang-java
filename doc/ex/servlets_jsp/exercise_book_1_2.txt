@@ -4,7 +4,6 @@ Services
 Exercise book
 Version 1.2
 Page 1 of 9
-© Copyright 2003-2004 InterBit LTD.Java Web Services – Exercise book
 Ex1-HelloWorld
 HelloWorld Web service and clients demonstartion
 Exercise description:
@@ -22,7 +21,6 @@ Exercise steps:
 Additional steps:
 1. Us the VBScript client provided (hello.vbs) to test the web service.
 Page 2 of 9
-© Copyright 2003-2004 InterBit LTD.Java Web Services – Exercise book
 Ex2-Clients
 Web service Java clients
 Exercise description:
@@ -44,7 +42,6 @@ files.
 7. Write a DII client, none of the generated files are needed.
 8. Test the client, get the weather.
 Page 3 of 9
-© Copyright 2003-2004 InterBit LTD.Java Web Services – Exercise book
 Ex3-Web Services
 RPC and Message Web Services
 Exercise description:
@@ -75,7 +72,6 @@ Message sent successfully to {destination here}.
 3. Write the client as a DII web service client.
 4. Check the web service.
 Page 4 of 9
-© Copyright 2003-2004 InterBit LTD.Java Web Services – Exercise book
 Java
 IO
 Ex4-SAAJ
@@ -91,7 +87,6 @@ Exercise steps:
 2. Write the SAAJClient.
 3. Run the client and see that you get the same response as before.
 Page 5 of 9
-© Copyright 2003-2004 InterBit LTD.Java Web Services – Exercise book
 Ex5-WSDL
 Top-Down Server Development
 Exercise description:
@@ -111,7 +106,6 @@ that will return random or preset values.)
 5. Write a deployment descriptor (WSDD) for this class, and deploy it. (Note that Axis
 provides a skeleton for a WSDD file, but it is not sufficient.)
 Page 6 of 9
-© Copyright 2003-2004 InterBit LTD.Java Web Services – Exercise book
 Ex6-JAXB
 Object to XML mapping
 Exercise description:
@@ -137,7 +131,6 @@ g. Change the subject to something new.
 h. Marshal the object into a new XML file.
 4. Browse the new file, see that the new message is added.
 Page 7 of 9
-© Copyright 2003-2004 InterBit LTD.Java Web Services – Exercise book
 Ex7-Security
 Authentication and Authorization with AXIS
 Exercise description:
@@ -162,7 +155,6 @@ Call.setProperty(String properyName,String value)
 5. Check the client with a proper user and with an unauthorized user. See what happens with
 an invalid user.
 Page 8 of 9
-© Copyright 2003-2004 InterBit LTD.Java Web Services – Exercise book
 Ex8-J2EE Web Service
 Writing a J2EE 1.4 EJB based Web Service
 Exercise description:
@@ -197,4 +189,3 @@ request.
 5. Redeploy the service.
 6. Run the client and test the handler.
 Page 9 of 9
-© Copyright 2003-2004 InterBit LTD.

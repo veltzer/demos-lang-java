@@ -6,7 +6,6 @@ JavaServer Pages
 Exercise book
 Version 1.4
 Page 1 of 13
-© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
 01-Servlet Basics - Exercises
 Exercise 1 – Hello World Servlet
 Exercise description:
@@ -30,7 +29,6 @@ Files to use:
 Run:
 http://localhost:8080/01-servlets_basics/lifecycle
 Page 2 of 13
-© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
 02-Servlet API - Exercises
 Exercise 3 – HTTP Request Snooping
 Exercise description:
@@ -62,7 +60,6 @@ random number between 1 and a defined maximum value. The user is asked to guess 
 If the guess is too high or too low, a proper message is displayed. If the guess is correct, a "You
 are a winner" message is displayed.
 Page 3 of 13
-© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
 NOTE: The user can make only one guess, after which the result is printed out. For each request
 a new random number is generated.
 The Servlet should read the defined maximum value from the ServletConfig object, which is
@@ -75,7 +72,6 @@ WEB-INF\web.xml
 Run:
 http://localhost:8080/02-servlets_api/random
 Page 4 of 13
-© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
 03-Cookies and Session Management - Exercises
 Exercise 6 – Cookies Servlet
 Exercise Description:
@@ -110,7 +106,6 @@ items from the inventory to his shopping cart, which is practically a list store
 HttpSession. The Servlet shows the shopping cart’s content and the total price of all the items on
 the cart.
 Page 5 of 13
-© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
 Exercise directory:
 <exercises>\cookies and sessions\
 Files to use:
@@ -119,7 +114,6 @@ Files to use:
 Run:
 http://localhost:8080/03-cookies_and_sessions/cart
 Page 6 of 13
-© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
 04-Using Databases with Servlets - Exercises
 Exercise 9 – Shopping Cart using a Database
 Exercise Description:
@@ -140,7 +134,6 @@ Access Database\Items.mdb
 Run:
 http://localhost:8080/04-database/dbCart
 Page 7 of 13
-© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
 05-JSP Basics - Exercises
 Exercise 10 – Hello World JSP
 Exercise Description:
@@ -153,7 +146,6 @@ hello.jsp
 Run:
 http://localhost:8080/05-Jsp_basic/hello.jsp
 Page 8 of 13
-© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
 06-JSP Syntax and Semantics - Exercises
 Exercise 11– Calendar
 Exercise Description:
@@ -178,7 +170,6 @@ preferences.jsp
 Run:
 http://localhost:8080/06-Jsp_syntax/preferences.jsp
 Page 9 of 13
-© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
 07-JSP and JavaBeans - Exercises
 Exercise 13 – HTML Table Helper Bean
 Exercise Description:
@@ -210,7 +201,6 @@ error.jsp
 Run:
 http://localhost:8080/07-Jsp_and_beans/newUser.jsp
 Page 10 of 13
-© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
 08-Requests Dispatching - Exercises
 Exercise 15 – Items’ Views
 Exercise Description:
@@ -228,7 +218,6 @@ list.jsp
 Run:
 http://localhost:8080/08-Dispatching/index.jsp
 Page 11 of 13
-© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
 11- Expression Language
 Exercise 20 – Expression Language
 Exercise Description:
@@ -276,7 +265,6 @@ Expression Value
 sin(11/7)
 0.9999998001333682
 Page 12 of 13
-© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
 Exercise directory:
 <exercises>\el\
 Files to use:
@@ -285,4 +273,3 @@ WEB-INF\app.tld
 Run:
 http://localhost:8080/11-el/index.jsp?colors=red&colors=blue
 Page 13 of 13
-© Copyright 2005 InterBit T&C LTD.
