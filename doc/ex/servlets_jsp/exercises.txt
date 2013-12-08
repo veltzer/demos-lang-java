@@ -1,0 +1,394 @@
+Developing J2EE Web Applications
+D e v e l o p i n g J 2 E E
+W e b A p p l i c a t i o n s
+Using Servlets and
+JavaServer Pages
+Exercise book
+Version 1.4
+Page 1 of 19
+© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
+01-Servlet Basics - Exercises
+Exercise 1 – Hello World Servlet
+Exercise description:
+Write a simple "Hello World" Servlet. The Servlet should be based on a GenericServlet class
+and print "Hello world" when called.
+Exercise directory:
+<exercises>\servlets basics\
+Files to use:
+\exercise\HelloWorldServlet.java
+Run:
+http://localhost:8080/01-servlets_basics/hello
+Exercise 2 – Life Cycle Servlet
+Exercise description:
+Write a Servlet which prints a message to the standard output (not to the client) on every
+lifecycle phase (Instantiation, Initialization, Service and Destruction). Complete the needed
+methods with the proper messages.
+Exercise directory:
+<exercises>\servlets basics\
+Files to use:
+\exercise\LifeCycleServlet.java
+Run:
+http://localhost:8080/01-servlets_basics/lifecycle
+Page 2 of 19
+© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
+02-Servlet API - Exercises
+Exercise 3 – HTTP Request Snooping
+Exercise description:
+Write a Servlet which prints the details of the HTTP request that was sent from the browser. The
+Servlet should read the following request's parts (Request-Line, Request Headers) and send them
+back to the client as an HTML document.
+Exercise directory:
+<exercises>\servlets api\
+Files to use:
+\exercise\SnoopRequestServlet.java
+Run:
+http://localhost:8080/02-servlets_api/snoopRequest
+Exercise 4 – Simple Form Processing
+Exercise description:
+Write a Servlet that consists of a simple HTML form, which includes the following fields: First
+name, Last name, ID and Email. When the user submits the form, a POST request is sent to the
+Servlet, the Servlet reads the parameters from the request and sends them back to the client as an
+HTML table.
+Exercise directory:
+<exercises>\servlets api\
+Files to use:
+\exercise\FormServlet.java
+Run:
+http://localhost:8080/02-servlets_api/form
+Exercise 5 – Numbers Guessing
+Exercise description:
+Write a simple number-guessing game using a Servlet. While initializing, the Servlet creates a
+random number between 1 and a defined maximum value. The user is asked to guess the number.
+If the guess is too high or too low, a proper message is displayed. If the guess is correct, a "You
+are a winner" message is displayed.
+Page 3 of 19
+© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
+NOTE: The user can make only one guess, after which the result is printed out. For each request
+a new random number is generated.
+The Servlet should read the defined maximum value from the ServletConfig object, which is
+passed as a parameter to the init method. Add the needed element to the web.xml file.
+Exercise directory:
+<exercises>\servlets api\
+Files to use:
+\exercise\RandomServlet.java
+WEB-INF\web.xml
+Run:
+http://localhost:8080/02-servlets_api/random
+Page 4 of 19
+© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
+03-Cookies and Session Management - Exercises
+Exercise 6 – Cookies Servlet
+Exercise Description:
+Write a Servlet that stores cookies on the user’s computer. The user enters the name and value of
+the cookies in an HTML form and submits them to the server. The Servlet reads the parameters
+sent by the user and adds a new cookie to the client according to the parameters. The server
+prints the cookies it receives in each request.
+Exercise directory:
+<exercises>\cookies and sessions\
+Files to use:
+\exercise\CookiesServlet.java
+Run:
+http://localhost:8080/03-cookies_and_sessions/cookies
+Exercise 7 – Logging in using a Cookie
+Exercise Description:
+Write a Servlet containing a Login form with two fields (Username and Password). When the
+user logs in, he can mark a “remember my user name” checkbox for future log-ins.
+The Servlet stores the user name in a persistent Cookie (saved forever), and uses this Cookie for
+the next log-in to welcome the user back to the application (the user still needs to enter his
+password in order to login).
+Exercise directory:
+<exercises>\cookies and sessions\
+Files to use:
+\exercise\CookieFormServlet.java
+Run:
+http://localhost:8080/03-cookies_and_sessions/cookieForm
+Exercise 8 – Shopping Cart
+Exercise Description:
+Write a shopping cart Servlet, based on HttpServlet. The Servlet will create an “Items list”
+(inventory) that the user can buy and stores it in the ServletContext. The user is allowed to add
+items from the inventory to his shopping cart, which is practically a list stored in the
+HttpSession. The Servlet shows the shopping cart’s content and the total price of all the items on
+the cart.
+Page 5 of 19
+© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
+Exercise directory:
+<exercises>\cookies and sessions\
+Files to use:
+\exercise\CartServlet.java
+\exercise\Item.java
+Run:
+http://localhost:8080/03-cookies_and_sessions/cart
+Page 6 of 19
+© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
+04-Using Databases with Servlets - Exercises
+Exercise 9 – Shopping Cart using a Database
+Exercise Description:
+Write a shopping cart Servlet, based on HttpServlet. The Servlet reads the available items in the
+shop from a database table. The user is allowed to add items to his shopping cart. The Servlet
+shows the shopping cart and the total price of all the items on the cart.
+The design is based on the Data Access Objects (DAO) design pattern. The database is a
+Microsoft Access database used with a Jdbc-Odbc bridge driver.
+Create an ODBC Data Source Name (DSN) named "CartServlet" that will point to the .mdb file
+(located in the Database directory of the exercise).
+Exercise directory:
+<exercises>\database\
+Files to use:
+\exercise\DbCartServlet.java
+\exercise\Item.java
+\exercise\ItemDAO.java
+Access Database\Items.mdb
+Run:
+http://localhost:8080/04-database/dbCart
+Page 7 of 19
+© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
+05-JSP Basics - Exercises
+Exercise 10 – Hello World JSP
+Exercise Description:
+Write a simple “Hello World” JSP. Save and run it using the browser. Look for the generated
+Servlet, open it and find the "Hello World" text.
+Exercise directory:
+<exercises>\Jsp basic\
+Files to use:
+hello.jsp
+Run:
+http://localhost:8080/05-Jsp_basic/hello.jsp
+Page 8 of 19
+© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
+06-JSP Syntax and Semantics - Exercises
+Exercise 11– Calendar
+Exercise Description:
+Write a JSP that shows the current calendar parameters. The parameters to show are: day, month,
+year, day of week, day of year, hours, minutes, seconds, milliseconds and time zone. Use the
+java.util.Calendar class.
+Exercise directory:
+<exercises>\Jsp syntax\
+Files to use:
+calendar.jsp
+Run:
+http://localhost:8080/06-Jsp_syntax/calendar.jsp
+Exercise 12 – User’s Preferences
+Exercise Description:
+Write a JSP that allows the user to set his color preferences (Background and Text colors). The
+user uses two combo-boxes, one for background color, and one for text color. Both combo-boxes
+get their values from a Strings array. The preferences are kept in the session for future use.
+Exercise directory:
+<exercises>\Jsp syntax\
+Files to use:
+preferences.jsp
+Run:
+http://localhost:8080/06-Jsp_syntax/preferences.jsp
+Page 9 of 19
+© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
+07-JSP and JavaBeans - Exercises
+Exercise 13 – HTML Table Helper Bean
+Exercise Description:
+Write a JSP that uses a special JavaBean to draw HTML tables. The bean is called TableHelper
+and gets two parameters for each table: A two-dimensional String array (containing the table’s
+data) and the table’s background color. The html property of the bean returns the needed HTML
+code.
+Exercise directory:
+<exercises>\Jsp and Beans\
+Files to use:
+tables.jsp
+\exercise\TableHelper.java
+Run:
+http://localhost:8080/07-Jsp_and_beans/tables.jsp
+Exercise 14 – User Creation
+Exercise Description:
+Write two JSPs that handle the creation of new users. The first JSP is a simple HTML form with
+four fields (First name, Last name, ID and Email). The second JSP gets the request parameters
+and creates a User bean. It then calls the User.validate() method to validate the First name and
+Last name (Which must not be empty). The validate() method uses the JSP error page
+mechanism to an error, by throwing an Exception if a validation error occurs.
+Exercise directory:
+<exercises>\ Jsp and Beans\
+Files to use:
+newUser.jsp
+showUser.jsp
+error.jsp
+\exercise\User.java
+Run:
+http://localhost:8080/07-Jsp_and_beans/newUser.jsp
+Page 10 of 19
+© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
+08-Requests Dispatching - Exercises
+Exercise 15 – Items’ Views
+Exercise Description:
+Write a simple catalog application. The user can select how he wants to see the items in the
+catalog: as a list of items or as separate items. A controller Servlet receives the request and
+forwards it to the proper JSP.
+Exercise directory:
+<exercises>\ Dispatching\
+Files to use:
+index.jsp
+item.jsp
+list.jsp
+\exercise\ControllerServlet.java
+\exercise\Item.java
+Run:
+http://localhost:8080/08-Dispatching/index.jsp
+Page 11 of 19
+© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
+11- Expression Language
+Exercise 20 – Expression Language
+Exercise Description:
+Fill in the missing expressions using the JSP expression language.
+The first table demonstrate simple usage of literals and operands.
+The second table shows you how to use pre-defined (implicit) objects - the JSP syntax required
+for looping in the last three rows is provided.
+The last table demonstrates the usage of a user defined function, a .tld file skeleton is provided.
+The final output should look similar to this:
+Expression Language (EL) Exercise
+EL Literals and Operators
+Expression
+Value
+1==2 false
+1+2*3/4 2.5
+10%3 (mod) 1
+2>1&&"ab">"aaa" true
+empty null && empty "" && !empty "a" true
+true?1:2
+1
+EL Implicit Objects
+pageContext.servletContext.serverInfo Apache Tomcat/5.0.28
+pageContext.request.remoteHost 127.0.0.1
+pageContext.session org.apache.catalina.session.StandardSessionFacade@cf70f
+colored line for each value of the "colors"
+parameter in the url query-string • This line is red.
+• This line is blue.
+HTTP request headers • accept-encoding = gzip,deflate
+• connection = keep-alive
+• accept-language = en-us,en;q=0.5
+• host = localhost:8080
+• accept-charset = ISO-8859-1,utf-8;q=0.7,*;q=0.7
+• user-agent = Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.7)
+Gecko/20050421 Firefox/1.0.3 (Debian package 1.0.3-2)
+• cookie = JSESSIONID=9A0DB8B04DB179F1BBE8134D93D6451B
+• accept =
+text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plai
+n;q=0.8,image/png,*/*;q=0.5
+• keep-alive = 300
+HTTP cookies • name JSESSIONID
+domain
+value 9A0DB8B04DB179F1BBE8134D93D6451B
+EL function
+Expression Value
+sin(11/7)
+0.9999998001333682
+Page 12 of 19
+© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
+Exercise directory:
+<exercises>\el\
+Files to use:
+index.jsp
+WEB-INF\app.tld
+Run:
+http://localhost:8080/11-el/index.jsp?colors=red&colors=blue
+Page 13 of 19
+© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
+Exercise 21 – JSF Hello World
+Exercise Description:
+Set up a JSF-based application, as demonstrated by the teacher. Create a simple "Hello World"
+page using the <h:outputText> tag.
+Exercise directory:
+<exercises>\ JSF-Hello\
+Files to use:
+myfaces-core-1.1.3-bin.zip
+Page 14 of 19
+© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
+Exercise 22 – JSF Calculator Screen
+Exercise Description:
+Create a JSF calculator. The application's screen should look like this:
+In other words, an input box and five buttons. Make sure all components have proper IDs,
+including the form itself.
+Exercise directory:
+<exercises>\ JSF-Calculator\
+Page 15 of 19
+© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
+Exercise 23 – JSF Calculator Content
+Exercise Description:
+Now, update the calculator to work properly:
+•
+•
+•
+•
+Define a Backing Bean that will allow you to retrieve the value typed by the user.
+Define action listener methods, and wire them to the five different buttons.
+The backing bean should maintain the original value, so it can perform the calculation based
+on the previously-remembered value and the previously-entered operation.
+The calculation result should be stored as the display value.
+For example, if the user types in "13" and clicks "+", the backing bean should remember the "13"
+and the "+". Now, if the user types "16" and clicks "+", the display (input box) will be updated to
+"29".
+Ignore operator precedence issues; i.e., if the user types "13", "+", "16" and clicks "*", the
+displayed result will be "29", and this will be multiplied by whatever the user types next.
+Exercise directory:
+<exercises>\ JSF-Calculator\
+Page 16 of 19
+© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
+Exercise 24 – JSF Calculator, Continued
+Exercise Description:
+Add a link to the calculator; the link text should be "Scientific mode".
+When clicked, a set of new buttons will appear, for square-root and power-of-two. These are
+image buttons. In scientific mode, the link itself will change to "Standard mode" (see image).
+When "Standard mode" is clicked, the new buttons will disappear.
+There are several possible ways to add or remove the two buttons:
+•
+•
+•
+•
+Define them in the JSP file, with the rendered property set to false. Toggle the
+rendered property when the link is clicked.
+Define them in the JSP file, with the style property set to "display:none". Change the
+style property when the link is clicked.
+Do not define them in the JSP at all; add them to the component tree in the Java code
+which handles the link.
+Define them in the JSP inside a container, such as <h:panelGroup>. Toggle the
+rendered or style attributes of the panel group rather than of each individual button.
+The link itself should change its text when clicked, but it should not be replaced with a different
+link object (i.e., do not define two link objects, one visible and the other invisible at any given
+time. Use a single link that changes its caption).
+Exercise directory:
+<exercises>\ JSF-Calculator\
+Files to use:
+sqrt.gif
+p2.gif
+Page 17 of 19
+© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
+Exercise 25 – JSF Validation
+Exercise Description:
+In this exercise, you will use both a validation method and a validator object.
+First, add a validator object to the input box, for ensuring that it is a numeric value. Use the
+double-range validator, and specify the Java constants Double.MIN_VALUE and/or
+Double.MAX_VALUE. Also make sure that the field is marked as "required".
+Next, add a custom validator method to the action which handles division. If a division-by-zero
+operation is attempted, display an appropriate error message.
+Exercise directory:
+<exercises>\ JSF-Calculator\
+Page 18 of 19
+© Copyright 2005 InterBit T&C LTD.Developing J2EE Web Applications
+Exercise 26 – JSF Navigation
+Exercise Description:
+In this exercise, a navigation and login system will be added to our calculator application.
+We will create 3 new screens; the links from one screen to the other must all be based on the
+navigation system.
+1. The homepage will contain some simple "welcome" text.
+2. The help page will contain a brief help text.
+3. The login page will ask the user for a login name and a password.
+The fourth screen remains the calculator screen developed in the previous steps.
+The user login status should be maintained using a cookie. If the user is logged in, then the
+homepage will redirect immediately to the calculator page. Otherwise, the homepage will display
+a link to the help page and a link to the login page.
+The login page will include the usual username/password pair of fields. For simplicity, the
+program should accept any password that is identical to the login name. If the login is successful,
+the calculator page will be displayed; otherwise, the login page will re-display itself, with an
+error message, prompting the user to retry.
+The help page will contain a link titled "Enter", which should lead to the calculator page if the
+user is logged in, or to the login page if the user is not logged in.
+Exercise directory:
+<exercises>\ JSF-Calculator\
+Files to use:
+homepage.html – contains the text that should appear in the homepage (without the links, etc.)
+help.html – contains the text for the help page (again, without the required links).
+Page 19 of 19
+© Copyright 2005 InterBit T&C LTD.

@@ -1,0 +1,12 @@
+﻿Web application exercise
+Topics & Messages application
+
+1) First page:   Add User link and Login link.
+2) When clicking “Add User” show an “Add User Form” on submit return to first page.
+3) When clicking “Login” ask for login & password and if ok forward to main page.
+4) In main page show topics. (Show predefined topics).
+5) When clicking on topic, show messages of the topic.
+6) You can add a new message to the topic with an “Add Message link”.
+7) At each page display “Hello ‘username’”
+8) Near every message of the current user, show “*”.
+9) Add a “Logout” button.

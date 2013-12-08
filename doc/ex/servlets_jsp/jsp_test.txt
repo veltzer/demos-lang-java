@@ -1,0 +1,631 @@
+﻿JSP test – 15 questions per test - total 75
+Test 4 – Red
+Test 5 – Green
+Q in Turquoise are extra q for the OLM (won’t be used in the FBG)
+
+JSP course objectives - 
+1. Understand the HTTP protocol  (1 q – total 5 q)
+2.	Understand the role of web application in J2EE architecture (1 q – total 5 q)
+3.	Understand the web application Infrastructure, including logical differences between Servlets and JSP (3 q – total 15 q)
+4.	Customize Servlets (2 q – total 10 q)
+a. Request response
+b. HTTP session
+c. Understand life cycle event
+5.	The JSP lifecycle (1 q – total 5 q)
+6.	JSP syntax (4 q – total 20 q)
+a. Scripting elements
+b. Directives
+c. Actions
+7.	Use Java beans combining JSP (2 q – 10 q)
+8.	Understand the 2 MVC models for implementation of web application (1 q – 5 q)
+
+Objective 1. Understand the HTTP protocol
+
+1. Which of the following statements is correct regarding HTTP? (Old #1-q14)
+a. Client HTTP is used only in browsers 
+b. It is a binary protocol
+c. It is a W3C standard --> right
+d. It is an asynchronous protocol 
+
+2. Which of the following statements is true regarding HTTP request types? (Old #2-q1)
+a. A GET request can’t be used for sending information to the server
+b. A POST request can’t be used for sending information to the server
+c. a POST request can be used in a link
+d. The default request type in a form is GET   --> right
+
+
+3. Which of the following statements is correct regarding HTTP protocol? (Old #3-q1)
+a. It is stateless and can not maintain contextual information about a client
+b.	It is stateless protocol, we can use additional means to manage state over it --> right
+b. It is stateful thus maintaining contextual information about a client is done on the protocol level
+c. It is stateless and can maintain contextual information on the application level, only if a client is NOT working behind a proxy server
+
+4. Which of the following statements is INCORRECT regarding the HTTP GET and POST methods?
+a. A GET request can send an unlimited number of parameters --> right
+b. The parameters in a POST request are sent in the request’s body
+c. You can use a POST method for receiving a web page
+d. You can use a GET method for sending parameters.
+
+5. Which of the following is an advantage of using POST compared to GET?
+a. We can use a POST request in both links and forms
+b. We can bookmark a post request with its parameters
+c. We can attach cookies to POST.
+d. We can use POST for sending a large amount of data to the server. --> right
+
+Objective 2. Understand the role of web application in J2EE architecture
+
+6. Which of the following is correct regarding the MVC architecture? (Old #1-q4)
+a. Servlet is used as the Controller & JSP as a View --> right
+b. Servlet is used as the Model & JSP as a View
+c. Servlet is used as the Controller & JSP as the Model
+d. Servlet is used as a View & JSP as the Controller
+
+7. What are the four tiers in the standard J2EE architecture? (Old #2-q14)
+a. Client tier, Web tier, Business Logic Tier, Data tier --> right
+b. Client tier, Authentication tier, Web Tier, Data tier
+c. Client tier, Web tier, WebLogic Tier, Data tier
+d. Web tier, Business Logic Tier, Integration tier, Data tier
+
+8. Which of the following is usually be found in a Web tier of a J2EE system? (Old #3-q2)
+a. A Legacy System
+b. Enterprise Java beans
+c. Java beans  --> right
+d. Data access objects
+
+9. Where is a Servlet usually found? 
+a. Business logic tier
+b. Web tier --> right
+c. EIS (Enterprise Information system)
+d. None of the above
+
+10. What is the responsibility of the Web tier?
+a. To implement the business logic behind the presentation
+b. To implement the presentation of the data from the Business logic tier --> right
+c. To act as a facade to the business logic tier
+
+Objective 3. Understand the web application Infrastructure, include logical differences between Servlets and JSP
+
+11. Which of the following MUST be included in a basic Java Web Application? (Old #1-q5)
+a. Servlet
+b. WEB-INF dir --> right
+c. classes dir 
+d. JSP
+
+12. Which of the following web application components is NOT necessary when using only JSPs and Java Beans? (Old #1-q11)
+a. WEB-INF directory
+b. web.xml file
+c. classes directory
+d. lib directory --> right
+
+13. Which of the following statements describes correctly the role of JSPs? (#1)
+a. JSPs are very easy to code and therefore should implement most of the business
+b. JSPs focus on presenting data to the client  --> right
+c. JSPs are the only ones capable of working with Java Beans
+
+14. Which statement best describes the relationship between JSP and servlets? (Old #2-q2)
+a. All servlets are compiled to JSP pages for runtime usage
+b. All JSPs are compiled to servlets for runtime usage --> right
+c. JSP and servlets can NOT share resources
+d. JSP and servlets are competing technologies for generating dynamic content on web applications
+
+15. Which of the following can NOT be configured in web.xml? (Old #2-q3)
+a. Security
+b. URL mapping
+c. Ports --> right
+d. Automatic servlet loading on startup
+
+16. Which of the following statements is correct regarding JSP pages and Servlet applications? (Old #2-q4)
+a. Servlets may use “regular” (non-bean) classes while JSP pages may only use Java beans
+b. A first request to a JSP page usually operates slower than a request for a Servlet --> right
+c. Servlet can access PageContext defined by a JSP
+d. Two Servlets can communicate with each other, unlike two JSP pages
+
+17. Which of the following should NOT be placed below the WEB-INF folder in Web Applications? (Old #3-q3)
+a. Servlets
+b. Utility classes
+c. Web Pages
+d. JAR files
+
+18. What is the advantage of using JSPs over servlets? (Old #3-q4)
+a. JSPs don’t have Flow control problems
+b. JSPs are more efficient than servlets
+c. The Java code in JSP page is much more organized than the code within servlet --> right
+d. JSP is more html friendly than servlets
+
+19. Which of the following statement is correct regarding the usage of JSP and Servlets ? (#3)
+a. We usually use Servlets for business centered code and JSP for presentation centered code. --> right
+b. We usually use JSP for business centered code and Servlets for presentation centered code.
+c. Servlets are considered as a better technology since JSP doesn’t support the importing of external packages 
+d. JSP is considered as a better technology since Servlets don’t enable the usage of beans
+
+
+20. Why do we use the <url-pattern> element in a web.xml file ?
+a. To define the URL for finding the web application’s root folder.
+b. To map initial parameters to a Servlet
+c. To map a URL notation that will be used to access a Servlet. --> right
+
+21. Which of the following do we NOT expect to find under the classes folder?
+a. JSP files --> right
+b. Java beans
+c. Servlets
+
+22. Upon completion of the translation phase a JSP becomes:
+a. A POJO (Plain Old Java Object)
+b. A JavaBean
+c. An EJB
+d. A Servlet --> right
+
+23. What is the usage of Servlets\JSP mapping?
+a. To map incoming requests to the relevant component --> right
+b. To register components in the web container 
+c. To map web components with business components [like EJBs]
+d. To map components to server resources [like DataSource]
+
+24. What is the possible location for Java Beans used by JSPs?
+a. In the same directory as the JSPs
+b. Under the WEB-INF directory
+c. Archived in a jar located at WEB-INF\lib directory --> right
+d. Anywhere in the server
+
+25. Which of the following statements is correct regarding war files?
+a. Multiple war files can be embedded in a web module
+b. .war file is a single web module --> right
+c. .war file must hold servlets in it
+d. Some Web containers do not support war files, only expended directories
+
+Objective 4. Customize Servlets
+
+26. After clicking a link, a request for a servlet has just reached the container for the first time. In what order do the following activities occur as a result? (Old #1-q2)
+a. Init() is called, doGet() is called, destroy() is called
+b. Constructor is called, init() is called, doPost() is called
+c. Constructor is called, doPost() is called
+d. Constructor is called, init() is called, doGet() is called --> right
+
+27. What is the right way to pass a Java object from one servlet to another when handling a client single call? (Old #1-q9)
+a. Append the data to the servlet’s URL and forward the request
+b. Use request.setAttribute(..) method --> right
+c. Use session.setAttribute(..) method
+d. Perform encodeURL(..) operation
+
+28. Which of the following scope has the longest lifetime in Web Applications? (Old #2-q5)
+a. Session
+b. Request
+c. ServletContext --> right
+d. Page
+
+29. What is the value displayed by the browser after calling the below Servlet twice? (Old #2-q6)
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class Counter extends HttpServlet {
+protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+throws ServletException, IOException {
+    int counter=1;
+    resp.setContentType("text/html");
+    PrintWriter out = resp.getWriter();
+
+    out.println("<HTML><BODY>"+ counter +"</BODY></HTML>");
+    counter++;
+    out.close();
+    }
+}
+
+a. 1 --> right
+b. 2
+c. 3
+d. 4
+
+
+30. Which of the following can NOT be used as a scope when using servlet? (Old #3-q5)
+a. HttpServletRequest
+b. PageContext --> right
+c. HttpSession
+d. ServletContext
+
+31. You try to maintain an ArrayList of numbers but you find out they are not saved between the various requests from a client. Which of the following might have caused this problem? (Old #3-q6)
+a. You used getSession( ) instead of getSession(true)
+b. You have bound the ArrayList to the ServletContext 
+c. The client’s browser does not support cookies --> right
+d. You didn’t synchronize the ArrayList
+
+32. With which method call a binary output stream is created? (Old #3-q7)
+a. request.getWriter( )
+b. response.getWriter( )
+c. request.getOutputStream( )
+d. response.getOutputStream( ) --> right
+
+33. Which of the following is a consequence of the URI: (Old #2-q7)
+http://localhost:8080/hello/Hello;jsession=ab123f556 
+a. Using html hidden parameters for session tracking
+b. Using cookie based session tracking
+c. Using URL-rewriting for authentication
+d. Using URL-rewriting for session tracking --> right
+
+34. What is the most suitable component to generate the final web view sent to the client?
+a. JavaBean
+b. Plain JAVA class 
+c. JSP --> right
+d. Servlet
+
+35. What kind of technique does the server use in order to keep track of sessions? 
+a. Cookies
+b. URL rewriting
+c. IP addresses
+d. a and b --> right
+e. a and c
+
+Objective 5. The JSP lifecycle
+
+36. What is the output of calling 3 times the below page? (Old #1-q1) 
+
+<HTML><BODY>
+	<% int counter = 0; %>
+
+	This page had been called 
+     	<FONT class="counter">  <%= counter++ %>              
+          </FONT> times 
+</BODY></HTML>
+
+a. 0 --> right
+b. 1
+c. 2
+d. A compilation error
+
+37. A client waits for a first response from a Web Server. Which of the following requires the longest processing time on the server? (Old #2-q8)
+a. HTML page
+b. JSP --> right
+c. Servlet
+d. Image file
+
+38. Given the following JSP code: (Old #3-q11)
+
+<%! int counter = 0;%>
+<% counter++;%>
+
+What would be the value of counter after three users sent a request to the JSP at the same time?
+a. 1
+b. 2
+c. 3
+d. You can’t tell due to potential synchronization problems --> right
+
+39. Which of the following statements describes correctly the set of operations done by the Web container when calling a JSP for the first time?
+
+a. jspc, new instance, init, service --> right
+b. new instance, init, service
+c. init, service
+d. jspc, new instance, service
+
+40. Which of the following statements describes correctly the set of operations done by the Web container when calling an already loaded JSP?
+
+a. service, destroy, GC 
+b. check for modifications, init, service
+c. service, destroy
+d. check for modifications, service --> right
+
+Objective 6. JSP syntax
+
+41. Which of the following should be used in order to prevent a new session object from being created when calling a JSP? (Old #1-q6)
+a. Assigning null to the session
+b. Assigning null to the session attributes
+c. Using page directive  --> right
+d. Using request.getSession(false)
+
+42. Which statement is correct regarding the code below? (Old #1-q7)
+
+<html>
+     <body>
+<%! private void calc(int num1, int num2 ){
+               int sum= num1+num2;
+               out.print("the result is: "+sum);
+        }
+%>
+      <h1> Sum Numbers </h1></br>
+      <% int num1=request.getParameter("num1");
+             int num2=request.getParameter("num2");
+             calc(num1,num2);
+      %>
+     </body>
+</html>
+
+a. If num1=2 & num2=4 the result is 6
+b. The code will fail to compile --> right
+c. The Servlet created from this JSP  will fail to run
+d. The method calc(..) should be public
+
+43. Which statement is correct regarding the below code? (Old #1-q12)
+<%! int mX=0; %>
+<html>
+    <body>
+<% int x=99; 
+       int result=getNumber(x); %>
+<%=  result %>
+                </body>
+           </html>
+           <%! private int getNumber(int x){
+                         return  x+this.mX++;
+                  }
+           %>
+
+
+
+a. The code will fail to compile
+b. A runtime error will occur
+c. On the first call the client will get the number 100
+d. On the second call the client will get the number 100 --> right
+
+44. How many servlet classes are generated when calling the below JSP for the first time? (Old #1-q13)
+
+      index.jsp file content:
+      
+      <html>
+             <body>
+                     <%@ include file="logo.jsp"%>
+                     </hr>
+                     <jsp:include page="main.jsp"/>
+             </body>
+      </html>
+
+a. 1
+b. 2 --> right
+c. 3
+d. 0
+
+45. What is the meaning of: <%@page autoflush="false"%> (Old #1-q15) (#2)
+a. The JSP writer doesn't have to take care of flushing
+b. A flush operation must be performed programmatically  --> right
+c. A flush operation is performed automatically every 8kb
+d. The size of the buffer must be configured also using the 'buffer' attribute
+
+46. What JSP element might be needed for executing the following code? (Old #2-q9)
+
+<HTML><BODY>
+	<% int socketPort=0; %>
+	<%
+		try {
+			// Connect to Google:
+			Socket s = new Socket("64.233.161.99", 80);
+			socketPort = s.getPort();
+			s.close();
+		} catch (Exception e) {
+			out.println("Connection failed - "+ e);
+			out.close();
+			return;
+		}
+	%>
+	
+	You have contacted Google at port  <% out.println(socketPort); %>
+</BODY></HTML>
+
+a. An expression
+b. A page directive --> right
+c. A getProperty action
+d. A Bean action
+
+47. Where are the implicit JSP objects (e.g. request and out) visible? (Old #2-q10)
+a. <% %> and <%=%> --> right
+b. <%! %> and <%@ %>
+c. <% %> and <%! %>
+d. Anywhere within the JSP page
+
+48. Which of the following might be used inside a JSP page so it can function as an error page ? (Old #2-q15)
+a. <%@ page errorPage=“errorPageName.jsp” %>
+b. <%@ page isErrorPage=“true” %> --> right
+c. <jsp:page errorPage=“errorPageName.jsp” />
+d. <jsp:page isErrorPage=“true” />
+
+49. Which of the following should be used in order to override the init( ) method in JSP? (Old #3-q8)
+a. <% %>
+b. <%= %>
+c. <%! %> --> right
+d. <%@ %>
+
+50. What is the main difference between an include action and a forward action? (Old #3-q9)
+a. The include enables us to maintain request parameters and cookies while the forward doesn’t
+b. A forward can be performed by JSP only while the include can be performed by servlets and JSP
+c. The forward makes us lose the responsibility for the rest of the response while the include doesn’t --> right
+d. The include is done in request time (many times) while the forward is done in translation time (only once)
+
+51. Which comment styles reach the HTTP client? (Old #3-q10)
+a. <% //Comment %>
+b. <% /*Comment*/ %>
+c. <%-- Comment --%>
+d. <!-- Comment --> --> right
+
+52. Given the following page directive, which implicit objects are NOT available to the JSP page? (Old #3-q12)
+<%@page isErrorPage=”false” session=”false”%>
+a. session only
+b. exception only
+c. Both session and exception --> right
+
+53. Why will you use the @include directive in a page?
+a. To finish the output of the page and move the printing of the rest to a different page.
+b. To import a package which is not included automatically.
+c. To use an external bean 
+d. To embed the source of one JSP into the current page --> right
+
+54. Which of the following options is the equivalent to the next statement?
+ <%
+       out.println(i++);
+%>
+a. <%= i ++ %> --> right
+b. <% i++ %>
+c. <% System.out.println(i++); %>
+d.  <%= System.out.println(i++) %>
+
+55. What is the usage of the <jsp:param> action ?
+a. Attach data to the request --> right
+b. Receive an initial parameter from the ServletContext 
+c. Receive a parameter from the client’s request object
+d. None of the above
+
+56. Which kind of comment will prevent the JSP statement from being executed?
+a. //<input name="name" >
+b. <!--   <input name="name" > -- >
+c. <%-- <input name="name" > --%> --> right
+d. /* <input name="name" > */
+
+57. What is the most convenient way to print the value of integer i?
+a. <%= i %> --> right
+b. <%= out.write(i)%>
+c. <%= String.valueOf(i) %>
+d. <%= "" + i %>
+
+58. What will happen when we try to execute the following JSP?
+
+<%@page autoflush="false" buffer="1kb"%>
+<html> <body> Hello World ! </body> <html>
+
+a. The client will see the message "Hello World !"
+b. The client will get a client error message  (400-499) --> right
+c. The client will get a server error message (500-599)
+d. The client will get a blank screen --> right
+
+60. What will happen when trying to execute the following code?
+
+<% String message=request.getParameter("logMessage"); %>
+<%=try{
+              FileOutputStream out =new FileOutputStream("log.dat");
+              out.write(message);
+	  out.close();   
+      }catch(Exception e) {…}  
+ %>
+
+a. Every message sent to the JSP will be logged
+b. The JSP will not compile --> right
+c. The JSP will override the existing file with the new log message
+
+61. What is wrong with the following code?
+	<jsp:include page="/myServlet">
+		<jsp:param name="myProperty" value="10">
+	</jsp:include>
+
+a. <jsp:include> cannot contain <jsp:param> element
+b. <jsp:include> should be replaced by <%@ include>
+c. <jsp:param> element must be closed --> right
+d. <jsp:include> can point to JSPs only
+
+Objective 7. Use Java Beans combining JSP
+
+62. Assuming that CounterBean is correctly positioned inside a Web Application, what will be the result if we try to call counter.jsp? (Old #1-q3)
+
+package counters;
+public class CounterBean {
+            int counter=0;
+            public CounterBean(int aCounter) {
+     counter= aCounter;
+                        System.out.println(aCounter);
+            }
+            public void setCounter(int aCounter) {
+                        counter= aCounter;
+            }
+            public int getCounter() {
+                        counter++;
+                        return counter;
+            }
+}
+
+<!-- counter.jsp -->
+<jsp:useBean id="countBean" class="counters.CounterBean" />
+
+The counter is 
+<jsp:getProperty name="countBean" property="counter"/>
+
+
+a. “The counter is 0” is displayed in the browser
+b. “The counter is 1” is displayed in the browser
+c. “The counter is 2” is displayed in the browser
+d. A run time error is displayed in the browser --> right
+
+63. Which of the following statements is WRONG regarding the below statement?
+      <jsp:setProperty name="cart" property="itemID"/> (Old #1-q10)
+
+a. It is equal to: <% cart.setItemID(request.getParameter("itemID")); %>
+b. The bean class has a setItemID(..) method
+c. itemID value has to be a String --> right
+d. One of the request parameters is named 'itemID'
+
+64. Which of the following statements is correct regarding “page” and “request” scope? (Old #2-q11)
+a. The page scope usually lives “longer” than the request scope
+b. The request scope is a new alternative for the page scope hence they have the same life span
+c. The request scope usually lives “longer” than the page scope --> right
+d. Sometimes the request scope lives “longer” and sometimes the page scope outlives the request
+
+65. What is the java code that should be used in a servlet to retrieve the bean instance after the below JSP initiation? (Old #2-q12)
+           <jsp:useBean id="instance" class="beans.MyBean" scope="session"/>
+a. request.getAttribute("instance");
+b. beans.MyBean a=new beans.MyBean();
+c. session.setAttribute("instance",a);
+d. session.getAttribute("instance"); --> right
+
+66. Which of the following should be used in order to assign all request parameters to a JavaBean automatically? (Old #3-q13)
+a. “*” --> right
+b. “@”
+c. “All”
+d. “. “
+
+67. The JavaBean “phone” has a property named “number.” Which of the following is the correct way to obtain the property’s value? (Old #3-q14)
+a. <jsp:getProperty name=”number”/>
+b. <jsp:getProperty name=”phone.number”/>
+c. <jsp:getProperty name=”phone” property=”number”/> --> right
+d. <jsp:getProperty name=”phone” method=”getNumber”>
+
+68. What happens if a bean that holds the properties userName and password will be initiated via <jsp:setProperty name="theBean" property="*"/> while the http request contains just the username parameter?
+
+a. a runtime error caused by the client  will be thrown  [status 400-499]
+b. The property password won’t be set --> right
+c. a server runtime error will be thrown  [status 500-599]
+d. calling <jsp:getProperty name="theBean" property="password"/> will produce an error
+
+69. Which of the following Java Beans conventions is not required for executing the following code successfully?
+<jsp: useBean id = “MyBean” class = “beans.MyBean”/>
+<jsp: setProperty id = “MyBean” property = “*”/>
+
+a. Default constructor
+b. set method per field
+c. get method per field --> right
+
+Objective 8. Understand the 2 MVC models for implementation of web application
+
+70. What is the benefit of using MVC architecture in web application? (Old #1-q8)
+a. It defines the role of the components involved --> right
+b. It improves system scalability
+c. It improves the response time
+d. It improves system portability
+
+71. Which of the MVC models is usually considered as a better implementation for complex systems and why? (Old #2-q13)
+a. Model 1 is better since the maintenance of JSP pages is considered to be much easier than the maintenance of Servlets
+b. Model 1 is better since it enables us to combine everything into one single technology/API
+c. Model 2 is better since it enables us to focus our design in JSP and logic in Servlets --> right
+d. Model 2 is better since it helps us enhance the performance of the system comparing to the lower performance achieved by using Model 1
+
+72. The advantage in the MVC model is: (Old #3-q15)
+a. A mixture of JSP and Servlets enabling a clear cut between presentation and logic --> right
+b. A simple model that uses only one technology where Model, View and the Controller are implemented using Servlets
+c. A simple model that uses only one technology where Model, View and the Controller are implemented using JSP
+d. It separates the Controller into two sub-controllers, enabling easier development
+
+73. A Servlet bound an object of type “User” to the session using the name “userProperties”. Which of the following should be used to access this object from a JSP page ?
+a. <jsp:useBean id=“userProperties” class=“com.phonebook.User”/>
+b. <jsp:useBean id=“User” class=“com.phonebook.userProperties”/> --> right
+c. <jsp:getProperty id=“User” property=“userProperties”/>
+d. <% user.getUserProperties() %>
+
+74. Which of the following is correct regarding the next statement?
+<jsp:useBean id="cart" class="beans.shoppingCart" scope="request"/>
+a. The cart object will be available as long as the response is not finished. --> right
+b. The cart object will be available as long as the application server is not shut down.
+c. The cart object will be available as long as we are inside the JSP page which was requested.
+d. The cart object will be available as long as we don’t use the “request” implicit object.
+
+75. According to model 2 of MVC design pattern, what components should the web tier include?
+a. Servlets because JAVA code is easier to maintain
+b. JSP pages because of its easy development and flexibility
+c. Servlet as controller and JSP as presentation --> right
+d.  JSP as a controller and as presentation.
+
+76. According to model 2 of MVC design pattern, where should all business logic code reside?
+a. In JSP
+b. In Servlets
+c. Out of the web tier --> right
+d. At all levels
