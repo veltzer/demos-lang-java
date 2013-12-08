@@ -1,0 +1,60 @@
+﻿Exercises
+Note about the Exercises: Most exercises in this file ask the students to implement items that were explicitly described during the tutorial, and presented partially or fully by the tutor. The reason is that creating a different model for the assignment would be too time-consuming, and will cause the assignments to take too much course time. As they are, the exercises give the students an excellent review of the material, and a "hands-on" feeling, while still providing them with a "fallback" to the tutorial slides where they can find much help.
+
+Exercise 1: Hello World
+
+Use the New Plug-in Project wizard to create the Hello World plug-in described in Chapter 3.
+
+Exercise 2: SWT
+
+Use SWT to develop the following GUI screen (as a stand-alone application):
+
+
+
+a. Clicking on any of the buttons beneath "Font" will change the value in the font input box. The user can also type other font names in that input box.
+b. Selecting a font style (normal, bold, etc.) will change the input box above.
+c. Changing the font style or size will update the font-sample box (bottom right).
+d. The "size" input box will not accept non-numerical values.
+e. Clicking either "OK" or "Cancel" will close the application.
+
+Make your implementation as flexible as possible. Adding a new font button, for example, should not require any change to the layout.
+
+(Note: This assignment can take some time to students with no prior experience in layout-based GUI development. The tutor can choose to present only a subset of this assignment, or an alternative one.)
+
+
+
+
+Exercise 3: Creating a View
+
+Create the Eclipse View, "Address Book Browser", described during Chapter 7. (Model classes will be provided by the tutor.)
+
+Exercise 4: Polishing the View (Optional)
+
+Polish the view, as described in Chapter 8.
+
+Exercise 5: Creating an Editor
+
+Implement the ".adb" editor described in Chapter 9. 
+
+There is no need to create all four editor sections; if you do not have enough time, create only the "Name" and "Internet" sections.
+
+Try to polish the editor as much as possible; for example, selecting "None" as the IM client type should disable the IM name field.
+
+Exercise 6: Creating a Wizard (Optional)
+
+Create the "New .adb File" wizard describe in Chapter 11.
+
+Try to reuse as much code as possible from your solution to Exercise 5, without code duplication. This might require changing some of the editor pages so that they are initialized in special stand-alone classes (e.g., subclasses of Form and Section).
+
+Exercise 7: Creating Preferences Page
+
+Create a preferences page for the .adb editor, as described in Chapter 12. Make sure that any changes to the preferences page are reflected in the editor itself. For example, the list of Instant Messaging clients should no longer be hard-coded; however, remember that it should always include the "None" option.
+
+Exercise 8: Creating a Properties Page
+
+Implement the Properties page described in Chapter 13.
+
+Exercise 9: Externalizing Strings (Optional)
+
+Externalize all the strings in your plug-in project, including strings in the plug-in descriptor meta-data as well as strings in the Java source code.
+
