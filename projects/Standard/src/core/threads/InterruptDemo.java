@@ -14,7 +14,9 @@ import java.net.ServerSocket;
  * stopped using interruption (see thread T1).
  * - A thread that calls sleep or wait a lot will be stopped (see thread T2).
  * - A thread doing sleep or wait will be stopped IN MID SLEEP (see thread T3).
- * - A thread that does IO and is stuck on it will not be stopped (see thread T4).
+ * - A thread that does Socket listening and is stuck on it will not be stopped (see thread T4).
+ * - A thread that does IO on standard input will not be stopped (see thread T5).
+ * - Closing a stream will not stop a thread stuck on it (see thread T6).
  *
  * @author Mark Veltzer <mark@veltzer.net>
  */
@@ -114,17 +116,30 @@ public abstract class InterruptDemo {
 		}
 	}
 
+	private static class T6 extends Thread {
+		@Override
+		public void run() {
+			try {
+				System.in.read();
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+		}
+	}
+
 	public static void main(String[] args) {
 		Thread t1 = new T1();
 		Thread t2 = new T2();
 		Thread t3 = new T3();
 		Thread t4 = new T4();
 		Thread t5 = new T5();
+		Thread t6 = new T6();
 		t1.start();
 		t2.start();
 		t3.start();
 		t4.start();
 		t5.start();
+		t6.start();
 		// let the threads get started...
 		try {
 			Thread.sleep(2000);
@@ -136,6 +151,12 @@ public abstract class InterruptDemo {
 		t3.interrupt();
 		t4.interrupt();
 		t5.interrupt();
+		t6.interrupt();
+		try {
+			System.in.close();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 		try {
 			Thread.sleep(1000000);
 		} catch (InterruptedException e) {
