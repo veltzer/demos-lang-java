@@ -8,7 +8,7 @@ package core.threads;
  * Also note that Java creates 18 threads at the OS level and not just 1. 18!
  * Fuck them!
  *
- * @author mark
+ * @author Mark Veltzer <mark@veltzer.net>
  *
  */
 

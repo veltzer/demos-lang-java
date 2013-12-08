@@ -11,7 +11,7 @@ import core.threads.ThreadAffinity.Core;
  * This example shows that read/write reordering can happen in Java too...:)
  * This example doesn't work probably because of affinity issues.
  *
- * @author mark
+ * @author Mark Veltzer <mark@veltzer.net>
  */
 
 abstract class ReadWriteReordering {

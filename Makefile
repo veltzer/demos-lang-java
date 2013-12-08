@@ -73,7 +73,7 @@ check_printstacktrace:
 .PHONY: check_exceptionnames
 check_exceptionnames:
 	$(info doing [$@])
-	$(Q)scripts/ok_wrapper.pl git grep -l -e "throw new RuntimeException" --and --not -e "(e)" --and --not -e "ERR_STRING" -- "*.java"
+	$(Q)scripts/ok_wrapper.pl git grep -l -e "throw new RuntimeException" --and --not -e "(e)" --and --not -e "ERR_STRING" --and --not -e "errString" -- "*.java"
 
 .PHONY: check_src
 check_src:
