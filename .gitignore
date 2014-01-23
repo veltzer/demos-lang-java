@@ -13,3 +13,4 @@ java.hprof.txt
 /static/*.jar
 .ant-targets-build.xml
 /jxl.log
+/hs_err_pid*.log

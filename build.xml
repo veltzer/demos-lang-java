@@ -11,11 +11,13 @@
 			<pathelement location="/usr/share/java/ant-contrib.jar"/>
 		</classpath>
 	</taskdef>
+	<!--
 	<taskdef resource="checkstyletask.properties">
 		<classpath>
 			<pathelement location="lib/checkstyle.jar"/>
 		</classpath>
 	</taskdef>
+	-->
 	<!-- tools -->
 	<!-- see http://ant.apache.org/manual/Tasks/javac.html and search
 	     for openjdk -->
