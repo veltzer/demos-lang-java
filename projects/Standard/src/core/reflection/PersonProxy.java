@@ -118,14 +118,15 @@ public abstract class PersonProxy {
 	 * @author Mark Veltzer <mark@veltzer.net>
 	 */
 
-	private static Object syncIt(Object o) {
+	@SuppressWarnings("unchecked")
+	private static <T> T syncIt(Object o) {
 		Class<?>[] interfaces = {
 			o.getClass()
 		};
 		SynchronizedInvocationHandler sih = new SynchronizedInvocationHandler(o);
 		Object proxy = Proxy.newProxyInstance(o.getClass().getClassLoader(),
 				interfaces, sih);
-		return proxy;
+		return (T)proxy;
 	}
 
 	/**
@@ -182,8 +183,7 @@ public abstract class PersonProxy {
 		List<Integer> li = new ArrayList<Integer>();
 		li.add(5);
 		li.add(6);
-		@SuppressWarnings("unchecked")
-		List<Integer> sli = (List<Integer>) syncIt(li);
+		List<Integer> sli = syncIt(li);
 		// now you can do multi threaded work with this list
 		System.out.println("the element is " + sli.get(0));
 	}
