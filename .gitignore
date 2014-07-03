@@ -12,5 +12,8 @@ java.hprof.txt
 /lib/*.jar
 /static/*.jar
 .ant-targets-build.xml
+# various log files
+/C:\\nppdf32Log\\debuglog.txt
 /jxl.log
 /hs_err_pid*.log
+
