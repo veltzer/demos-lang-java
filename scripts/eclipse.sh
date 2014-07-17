@@ -2,6 +2,7 @@
 
 # before running this script make sure that you have eclipse installed
 # in ~/install/eclipse-XXX (may be soft link).
+# in this project we really need jee or maybe even rcp
 VERSION=jee
 #VERSION=java
 #VERSION=rcp

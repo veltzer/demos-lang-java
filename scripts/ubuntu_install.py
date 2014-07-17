@@ -12,20 +12,33 @@
 import subprocess
 
 packs=[
-	'visualvm',
-	#'openjdk-6-jre',
-	#'openjdk-6-jdk',
-	#'openjdk-6-doc',
+	# jdks and jres
+	'openjdk-6-jre',
+	'openjdk-6-jdk',
+	'openjdk-6-doc',
 	'openjdk-7-jre',
 	'openjdk-7-jdk',
 	'openjdk-7-doc',
+	'oracle-java6-installer',
+	'oracle-java7-installer',
+	'oracle-java8-installer',
+	# default jdk, jre
+	'default-jre',
+	'default-jre-headless',
+	'default-jdk',
+	'default-jdk-doc',
+	# libraries
+	'libjna-java',
+	# tools
+	'visualvm',
 	'ivy',
 	'ivy-doc',
 	'ant',
 	'ant-doc',
 	'ant-optional',
 	'ant-contrib',
-	'libjna-java',
+	'maven',
+	'maven2',
 ]
 
 args=['sudo','apt-get','install']
