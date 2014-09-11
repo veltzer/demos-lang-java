@@ -1,0 +1,2 @@
+OSGi console for Eclipse:
+	eclipse -console
