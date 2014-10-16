@@ -1,15 +1,17 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 # this script will install all the required packages that you need on
 # ubuntu to compile and work with this package.
+
+import subprocess # for check_call
+
+do_oracle=False
 
 # the application -> packages that I need are:
 # jvisualvm -> visualvm
 # jmap -> openjdk-6-jdk
 # jhat -> openjdk-6-jdk
 # jconsole -> openjdk-6-jdk
-
-import subprocess
 
 packs=[
 	# jdks and jres
@@ -19,9 +21,6 @@ packs=[
 	'openjdk-7-jre',
 	'openjdk-7-jdk',
 	'openjdk-7-doc',
-	'oracle-java6-installer',
-	'oracle-java7-installer',
-	'oracle-java8-installer',
 	# default jdk, jre
 	'default-jre',
 	'default-jre-headless',
@@ -37,9 +36,22 @@ packs=[
 	'ant-doc',
 	'ant-optional',
 	'ant-contrib',
+
+	# maven stuff
 	'maven',
 	'maven2',
+
+	# groovy stuff
+	'groovy',
+	'groovy-doc',
 ]
+
+if do_oracle:
+	packs.extend([
+		'oracle-java6-installer',
+		'oracle-java7-installer',
+		'oracle-java8-installer',
+	])
 
 args=['sudo','apt-get','install','--assume-yes']
 args.extend(packs)
