@@ -126,7 +126,7 @@ public abstract class PersonProxy {
 		SynchronizedInvocationHandler sih = new SynchronizedInvocationHandler(o);
 		Object proxy = Proxy.newProxyInstance(o.getClass().getClassLoader(),
 				interfaces, sih);
-		return (T)proxy;
+		return (T) proxy;
 	}
 
 	/**
