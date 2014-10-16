@@ -5,7 +5,7 @@
 
 import subprocess # for check_call
 
-do_oracle=False
+do_oracle=True
 
 # the application -> packages that I need are:
 # jvisualvm -> visualvm
