@@ -44,6 +44,18 @@ packs=[
 	# groovy stuff
 	'groovy',
 	'groovy-doc',
+
+	# development environments
+	'netbeans',
+	'eclipse-cdt',
+	'eclipse-emf',
+	'eclipse-wtp',
+	'eclipse-jdt',
+	'eclipse-egit',
+	'eclipse-mylyn',
+	'eclipse-gef',
+	'eclipse-rcp',
+	'eclipse-xsd',
 ]
 
 if do_oracle:
