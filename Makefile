@@ -95,18 +95,22 @@ check_all: check_imports check_serialid check_ws_eol check_tab_eol check_dbl_ws 
 
 .PHONY: checkstyle
 checkstyle:
+	$(info doing [$@])
 	$(Q)java -jar lib/checkstyle-5.6-all.jar -c support/checkstyle_config.xml `find . -name "*.java"`
 
 .PHONY: format_eclipse
 format_eclipse:
+	$(info doing [$@])
 	$(Q)~/install/eclipse-jee/eclipse -nosplash -application org.eclipse.jdt.core.JavaCodeFormatter -verbose -config support/org.eclipse.jdt.core.prefs `find . -type d -and -name src`
 
 .PHONY: build
+	$(info doing [$@])
 build:
 	$(Q)~/install/eclipse-jee/eclipse -noSplash -data ~/workspace-jee -application org.eclipse.jdt.apt.core.aptBuild
 
 .PHONY: debug
 debug:
+	$(info doing [$@])
 	$(info JAVA_SOURCES is $(JAVA_SOURCES))
 	$(info JAVA_STAMP is $(JAVA_STAMP))
 	$(info CLASSPATH is $(CLASSPATH))
@@ -117,6 +121,7 @@ debug:
 
 .PHONY: clean
 clean:
+	$(info doing [$@])
 	$(Q)rm -f $(ALL)
 	$(Q)rm -rf $(BIN_FOLDERS)
 
@@ -131,6 +136,7 @@ $(JAVA_STAMP): %.stamp: %.java
 
 .PHONY: sloccount
 sloccount:
+	$(info doing [$@])
 	$(info doing [$@])
 	$(Q)sloccount .
 
