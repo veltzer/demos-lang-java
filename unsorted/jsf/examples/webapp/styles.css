@@ -1,0 +1,115 @@
+.header {
+ border-style : groove;
+ text-align : left;
+}
+
+.body {
+ border-style : groove;
+ margin: .5cm 0cm 1cm 1cm;
+ width :  6in;
+
+}
+
+.label {
+ width :  1.1in;
+}
+
+
+.footer{
+	color: blue;
+	text-decoration: underline;
+	border-style: line;
+	font-size: 60%;
+	text-align : left;
+}
+
+.smallLink{
+	color: red;
+	font-size: 75%;
+}
+
+
+.errorMessages {
+	color : red;
+	text-decoration: overline;
+	display: block;
+	margin-left: 1cm;
+}
+
+.inputVersion {
+	width : .5in;
+}
+
+.infoMessages {
+	color : green;
+	text-decoration: underline;
+	display: block;
+
+}
+
+.messageArea {
+ padding : 0.5cm;
+}
+
+
+.dataTable {
+ padding : 15px;
+ border-style: groove;
+ width :  7in;
+ margin: 5px;
+}
+
+.dataTableScroll {
+ padding : 15px;
+ border-style: groove;
+ width :  7in;
+ margin: 5px;
+ overflow: auto;
+ height : 4in;
+}
+
+
+.errorText {
+	color : red;
+}
+
+
+table { 
+	border: 1px solid black
+} 
+
+tr {
+	border: 1px solid black
+}
+
+
+td {
+	border: 1px solid gray;
+	padding-right: 10px;
+	padding-left: 10px
+}
+
+
+.row1 {
+	background-color : lightgrey
+}
+
+.row2 {
+	background-color : white
+}
+
+.listingHeader {
+	background-color : #483D8B;
+	color: white;
+
+}
+
+.commandButton {
+	font-size: 75%;
+	background-color : lightgrey
+
+}
+
+
+
+

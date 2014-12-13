@@ -1,0 +1,991 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml-stylesheet type="text/xsl" href="C:\developerWorks\xsl\dw-document-html-4.0.xsl"?>
+
+<dw-document
+xsi:noNamespaceSchemaLocation="http://dw.raleigh.ibm.com/developerworks/library/schema/4.0/dw-document-4.0.xsd"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<dw-article local-site="worldwide" ratings-form="auto"
+related-contents="auto" toc="auto" skill-level="1">
+
+<id cma-id="" domino-uid="" content-id="" original="yes"/>
+
+<keywords content="JavaServer Faces, JSF, JSP, JavaServer Pages, JavaBeans, EJBs,
+J2EE, Model-View-Controller, MVC, Struts, Spring, WebWork, Maven, UI, user interface,
+graphical, GUI, enterprise, event-driven, stateless, component-based, architecture, Rick,
+Richard, Hightower"/>
+
+<meta-last-updated day="05" month="12" year="2004" initials="ao"/>
+
+<content-area-primary name="autonomic" />
+
+<content-area-secondary name="db2" />
+<content-area-secondary name="eserver" />
+
+<series-title>JSF for nonbelievers</series-title>
+<title>JSF Components Quick Introduction</title>
+<subtitle >So you thought JSF component development was hard?</subtitle>
+
+<forumurl url=""/>
+  
+<download-feature downloadtype="code" filename="" url-ftp=""/>
+
+<pdf url="" size="xx KB"/>
+
+<author xmlns:dw="http://www.ibm.com/developerWorks/" jobtitle="CTO" email-cc="jaloi@us.ibm.com" email="rhightower@arc-mind.com" company="ArcMind">
+<bio>Rick Hightower serves as chief technology officer for ArcMind Inc. 
+He is coauthor of the popular book <i>Java Tools for Extreme Programming</i>, about
+applying extreme programming to J2EE development, as well as co-author of 
+<i>Professional Struts</i>. </bio>
+
+<name>Rick Hightower</name>
+</author>
+
+<date-published day="15" month="12" year="2004"/>
+
+<abstract>In this popular series, popular dW contributor Rick Hightower
+shows how to create JSF components.</abstract>
+
+<abstract-extended>There seems to be some misconceptions that creating components 
+is difficult. Don’t believe the FUD. Developing JSF components is not difficult. 
+You can save time by not repeating the same code over and over. 
+Once you create a component, it is easy to drop that component onto any JSP page 
+or rather into any JSF form. Most of functionality comes from base classes. 
+JSF makes creating components easy because all of the heavy lifting is done by API 
+and base classes. In this final article in this four-part
+series, popular <i>developerWorks</i> contributor Rick Hightower shows how to 
+create JSF components.
+</abstract-extended>
+
+<docbody>
+
+<p>In this article you will build your own custom JSF components.</p>
+
+<p>JSF has a component model similar to AWT’s GUI component model. You can create reusable components. The litmus test for a component model is: 
+"Can you buys components from third party vendors and plug them into your application?" Similar to the way you can buy visual Swing components. 
+You can buy JSF components! Need a fancy calendar? There are open source implementations as well as commercial components you can use. 
+You now have the option of buying instead of building complex GUI components. </p>
+
+<p>There seems to be some misconceptions that creating components is difficult. Don't believe the FUD from people that never tried it. 
+Developing JSF components is not difficult. You can save time by not repeating the same code over and over. 
+Once you create a component, it is easy to drop that component onto any JSP page or rather into any JSF form. 
+Most of functionality comes from base classes included in JSF. JSF makes creating components easy because all of the heavy lifting is done by API and base classes.</p>
+
+<p>Components mainly do the following: Decoding and Encoding. Decoding is converting the incoming request parameters to the values of the component. 
+Encoding is converting the current values of the component into the corresponding markup, i.e., HTML. JSF supports two ways to handle the above: 
+Direct implementation: component implements decoding and encoding. Delegated implementation: component delegates to a renderer which does the encoding 
+and decoding. Delegating allows associating with different renderers that can represent the component in different ways on the page (multi select list box vs.
+ list of check boxes). Figure 1 shows when this encoding and decoding happens in the lifecycle: </p>
+
+<figure>
+<heading refname="figure1" toc="no" type="figure">Figure 1. JSF lifecycle and JSF components</heading>
+<img src="figure1.PNG" alt="JSF components and the JSF lifecycle"/>
+</figure>
+
+<p>If the above looks odd, please read the other three articles in this serries see resources</p>
+
+<heading refname="" type="minor" toc="no">JSF component concepts</heading>
+
+<p>Components consist of components and renderers. Many times you may want to just change the rendering not the component. You can write a custom renderer instead 
+of a custom component. The Component defines state and behavior of UI component; the renderers defines how the component is read from the request and how it is 
+displayed (usually via HTML). The renderer converts value of the component to appropriate markup (through renderers). You can queue events and perform validation 
+inside of the component. </p>
+
+
+<p> The JSF component model has events, and properties just like Swing components. The JSF component model has containers that contain components and are components 
+that can be contained by other containers. </p>
+
+<p> In theory, the JSF component model is divorced from HTML and JSP. There are a standard set of components that ship with JSF that have JSP bindings and generate 
+HTML renderings. </p>
+
+
+<p>The base class for all JSF components is UIComponent. When you develop your own components you will subclass UIComponentBase, which extends UIComponent and 
+provides defaults implementation of the all of the abstract methods in UIComponent.</p>
+
+<p>Components have parents and identifiers. Components are associated with a component type, which is used to register the component in the faces context 
+configuration file (faces-config.xml).   </p>
+
+<p>To associate components with managed beans, you use the JSF-EL (expression language) to bind components to managed bean properties. 
+You can associate expressions to any property on a component. This allows the component’s property value to be set with JSF-EL. When you create component 
+properties that are bound with JSF-EL, you need to create a value binding expression. When the getter method of the bound property gets called, it must use 
+the value binding to get the value unless the setter method has set the value already. </p>
+
+<p>A component can be a ValueHolder or an EditableValueHolders. ValueHolders are associated with one or more Validators and a Converter; thus, 
+JSF UI components are associated with Validators and a Converter (see previous article on Converters and Validators). </p>
+
+<p> Components have a ValueBinding which must point to a JavaBean read-write property. Components can access their parent by calling getParent and can access 
+their children by calling getChildren. Components can also have facet components, which are subcomponents of the current component and can be accessed by calling 
+getFacets which returns a map. Facets are named subcomponents. </p>
+
+<p>Components can have a separate renderer or can render directly. In this article, we will cover both styles. To demonstrate the use of components we will develop 
+several components.</p>
+
+<heading refname="" type="minor" toc="no">JSF component development: Step by step</heading>
+
+<p> Enough talk let’s code. The first component we create will be as simple as you can create. We will just render a label. e.g. &lt;label&gt;Form Test&lt;/label&gt;. 
+</p>
+
+
+<b>Step by Step</b>
+<ol>
+		<li>Extend a UIComponent
+
+			<ol>
+				<li> Create a class that extends UIComponent </li>
+				<li> Save component state </li>
+				<li> Register with faces-config.xml </li>
+
+			</ol>
+		</li>
+		
+
+		<li>Define Renderer or implement inline
+			<ol>
+				<li> Override encode</li>
+				<li> Override decode</li>
+				<li> Register the renderer with faces context</li>
+			</ol> 
+		</li>
+		
+		<li>3.	Create a custom tag that subclasses UIComponentTag
+
+			<ol> 
+				<li> Return the renderer type</li>
+				<li> Return the component type</li>
+				<li> Setup properties that might use JSF expressions</li>
+			</ol> 
+		</li>
+</ol>
+
+<p> There are two lifecycles areas that you will need to worry about for components Apply Request Values and Render Response. See figure 1.</p>
+
+<heading refname="" type="minor" toc="no">Simple Label Component: Hello World for JSF component dev</heading>
+
+<p> The first example will demonstrates the following: </p>
+<ul>
+	<li>Direct implementation of renderer.  </li>
+	<li> Creating a component. </li>
+	<li> Encoding output </li>
+	<li> Associating custom tag with component </li>
+</ul>
+
+<p>Figure 2 shows how we will use this tag in the JSP.</p>
+
+<figure>
+<heading refname="figure2" toc="no" type="figure">Figure 2. Using tag in JSP</heading>
+<img src="figure2.PNG" alt="Using tag in JSP"/>
+</figure>
+
+<p>Step 1 we will create a component that subclasses UIOutput. 
+UIOutput is a subclass of UIComponent, and we will add a label property, which the component will display as follows:</p>
+
+<code type="section">
+import java.io.IOException;
+
+import javax.faces.component.UIOutput;
+import javax.faces.context.FacesContext;
+import javax.faces.context.ResponseWriter;
+
+public class LabelComponent extends UIOutput{
+
+	private String label;
+
+	public String getLabel() {
+		return label;
+	}
+	public void setLabel(String label) {
+		this.label = label;
+	}
+...
+</code>
+
+<heading refname="" type="minor" toc="no">JSF Managing component state</heading>
+
+<p> Next we need to store the component state. JSF does the actual storage and state management. JSF may use session, hidden form field, cookies, etc. to perform storage.  
+This is usually a setting that you configure. All you have to do is override the saveState and restoreState method as follows:</p>
+
+<code type="section">
+    @Override
+    public Object saveState(FacesContext context) {
+        Object values[] = new Object[2];
+        values[0] = super.saveState(context);
+        values[1] = label;
+        return ((Object) (values));
+    }
+
+    @Override
+    public void restoreState(FacesContext context, Object state) {
+        Object values[] = (Object[])state;
+        super.restoreState(context, values[0]);
+        label = (String)values[1];
+    }
+ </code>
+
+<p> Notice that I am using JDK 1.5. I set up the compiler so I have to specify the override annotation so as to clarify which methods are overriding base class methods. 
+This makes it easier to identify where the hooks for JSF exist. </p>
+
+<heading refname="" type="minor" toc="no">Decoding Simple Label Component</heading>
+
+<p>
+Next you want to encode the output to display the label as follows:
+</p>
+
+<code type="section">
+public class LabelComponent extends UIOutput{
+	...
+	public void encodeBegin(FacesContext context) 
+					throws IOException {
+
+		ResponseWriter writer = 
+			context.getResponseWriter();
+
+		writer.startElement("label", this);
+        	            writer.write(label);
+        	            writer.endElement("label");
+        	            writer.flush();
+	}
+	...
+}
+</code>
+<p> Notice that this response writer (javax.faces.context.ResponseWriter) allows us to easily work with markup languages like HTML. The above outputs the value of 
+the label in the body of the &lt;label&gt; element. </p>
+
+<p>You have to return the family type of the component as follows:</p>
+
+<code type="section">
+public class LabelComponent extends UIOutput{
+	...
+	public String getFamily(){
+		return "simple.Label";
+	}
+	...
+}
+</code>
+
+<p>The family property is used to associate this component with a renderer. This component does not have a separate renderer so you don't need this per se.</p>
+
+<heading refname="" type="minor" toc="no">Hacking JSF-RI from Sun</heading>
+
+<p>
+With the JSF reference implementation from Sun, you also have to do the following:
+</p>
+
+<code type="section">
+public void encodeEnd(FacesContext context) 
+			throws IOException {
+	return;
+}
+
+public void decode(FacesContext context) {
+	return;
+}
+</code>
+
+<p>
+The above is done because a base class in Sun's JSF-Reference Implementation (RI) expects there to be a renderer and you will get a null pointer exception since we do not have a renderer. 
+The MyFaces implementation does not need these methods per se, but it is a good idea so your component works in both MyFaces and the JSF RI environments.
+</p>
+
+<sidebar>
+<heading refname="sidebar1" type="sidebar" toc="no">MyFaces better than JSF RI!</heading>
+
+<p>MyFaces, an open source project from Apache, (at this time) is a superior implementation of JSF than the JSF RI provided by Sun. 
+This was not always the case. If you are using the JSF RI or a deritave of the JSF RI, do yourself a favor and switch to MyFace. 
+(MyFaces is not perfect but the error messages are better than the JSF RI and the framework seems to have more rigor.)
+</p>
+</sidebar>
+
+<p>
+JSF components are not inherently tied to JSP. To bridge from the JSP world to the JSF world you need a custom tag that returns the component type 
+(which we will register in the faces context file) and a renderer as figure 3 demonstrates:</p>
+
+<figure>
+<heading refname="figure3" toc="no" type="figure">Figure 3. Bridging JSF and JSP</heading>
+<img src="figure3.PNG" alt="Bridging JSF and JSP"/>
+</figure>
+
+<p>As figure 3 demonstrates since we don't have a separate renderer, we can return a null value for getRendererType().</p>
+
+<p>We also have to have set the value of the label property from the custom tag to the component as follows:</p>
+
+<code type="section">
+[LabelTag.java]
+
+public class LabelTag extends UIComponentTag {
+…
+protected void setProperties(UIComponent component) {
+	/* you have to call the super class */
+	super.setProperties(component);
+	((LabelComponent)component).setLabel(label);
+}
+
+</code>
+
+
+<p> You will need to register this component with the faces-config.xml as follows: </p>
+
+<code type="section">
+&lt;faces-config&gt;
+
+	&lt;component&gt;
+		&lt;component-type&gt;simple.Label&lt;/component-type&gt;
+		&lt;component-class&gt;
+			arcmind.simple.LabelComponent
+		&lt;/component-class&gt;
+	&lt;/component&gt;
+...
+</code>
+
+<p> Remember that the Tag class sets up the binding from the JSP to the Label component see figure 4:</p>
+
+<figure>
+<heading refname="figure4" toc="no" type="figure">Figure 4. Binding JSF and JSP</heading>
+<img src="figure4.PNG" alt="Binding JSF and JSP"/>
+</figure>
+
+<p>Now all you have to do is create a TLD file to register your custom tag as follows:</p>
+
+<code type="section">
+[arcmind.tld]
+
+&lt;taglib>
+   &lt;tlib-version>0.03&lt;/tlib-version>
+   &lt;jsp-version>1.2&lt;/jsp-version>
+   &lt;short-name>arcmind&lt;/short-name>
+   &lt;uri>http://arcmind.com/jsf/component/tags&lt;/uri>
+   &lt;description>ArcMind tags&lt;/description>
+   
+   &lt;tag>
+      &lt;name>slabel&lt;/name>
+      &lt;tag-class>arcmind.simple.LabelTag&lt;/tag-class>
+      &lt;attribute> 
+         &lt;name>label&lt;/name> 
+         &lt;description>The value of the label&lt;/description>
+      &lt;/attribute> 
+   &lt;/tag>
+...
+</code>
+
+<p>Once you have defined a TLD file, you can start using the tag on a JSP page as follows:</p>
+
+<code type="section">
+[test.jsp]
+&lt;%@ taglib prefix="arcmind" 
+         uri="http://arcmind.com/jsf/component/tags" %>
+                ...
+	&lt;arcmind:slabel label="Form Test"/>
+</code>
+
+<p>For simple components that you create for your project, not much more is needed than what we covered. What if you want a component that is a little more complex?</p>
+
+<p> This next component, the Field component, will leave off where the last one stopped so to speak. This tag will combine what usually takes several tags into 
+one component. Many components will be composite component like this. </p>
+
+<p> What does Field component do? </p>
+
+<ul>
+<li>Combines label, inputText and message functionality into one component</li>
+<li>The label shows up red if there is a problem with component</li>
+<li>The label has a * if the component is required.</li>
+<li>Acts as an inputText.</li>
+<li>Writes out error message for the inputText</li>
+</ul> 
+
+
+
+<p>The Field component demonstrates</p>
+<ul>
+<li>UIInput component</li>
+<li>Working with value bindings; working with component attributes</li>
+<li>Decoding values from request parameters</li>
+<li>Work with error messages</li>
+</ul>
+
+<p>This Field component uses a separate renderer. Why would you do such a thing? Mostly because this component could also be for other types of clients 
+(Swing, PDA, green screens).  The FieldRenderer will work with the FieldComponent.</p>
+
+<p>If you are developing components for an HTML based application, I would not bother with separate Renderers. This is a personal opinion. 
+It is extra work for not extra bang of the buck. If you are developing a lot of JSF components that you plan on selling to clients that want to target to 
+more than one client than you do want a separate Renderer.
+In short, Renderers are good for commercial frameworks developers and not so good for application developers developing a simple, in house web application.
+</p>
+
+<p>You will use the tag as follows (see arcmind:field):</p>
+
+<code type="section">
+
+   &lt;f:view>
+      &lt;h2>CD Form&lt;/h2>
+      
+      &lt;h:form id="cdForm">
+        
+        &lt;h:inputHidden id="rowIndex" value="#{CDManagerBean.rowIndex}" /> 
+      
+      	
+		&lt;arcmind:field  id="title"
+						value="#{CDManagerBean.title}"  
+						label="Title:"
+						errorStyleClass="errorText"
+						required="true" /> &lt;br />
+		
+		&lt;arcmind:field id="artist"
+					   value="#{CDManagerBean.artist}"  
+					   label="Artist:"
+					   errorStyleClass="errorText"
+					   required="true" /> &lt;br />
+      	
+		&lt;arcmind:field id="price"
+					   value="#{CDManagerBean.price}"  
+					   label="CD Price:"
+					   errorStyleClass="errorText"
+					   required="true">
+		   &lt;f:validateDoubleRange maximum="1000.0" minimum="1.0"/>
+		&lt;/arcmind:field>
+
+</code>
+
+<p>The tags output the following HTML:</p>
+
+<code type="section">
+&lt;label style="" class="errorText">Artist*&lt;/label>
+&lt;input type="text" id="cdForm:artist " name=" cdForm:artist " />
+Artist is blank, it must contain characters
+</code>
+
+<p>Figure 5 shows what this might look like in your browser</p>
+
+<figure>
+<heading refname="figure5" toc="no" type="figure">Figure 5. Demo in Browswer</heading>
+<img src="figure5.PNG" alt="Demo in Browswer"/>
+</figure>
+
+<p>Since we are inputting text, we must subclass UIInput (as opposed to UIOutput like the simple label component):</p>
+
+<code type="section">
+package com.arcmind.jsfquickstart;
+
+
+import javax.faces.component.UIInput;
+import javax.faces.context.FacesContext;
+
+
+/**
+ * @author Richard Hightower
+ *  
+ */
+public class FieldComponent extends UIInput {
+
+	private String label;
+
+    @Override
+	public Object saveState(FacesContext context) {
+        Object values[] = new Object[2];
+        values[0] = super.saveState(context);
+        values[1] = label;
+        return ((Object) (values));
+    }
+
+    @Override
+	public void restoreState(FacesContext context, Object state) {
+        Object values[] = (Object[])state;
+        super.restoreState(context, values[0]);
+        label = (String)values[1];
+    }
+    
+	public FieldComponent (){
+		this.setRendererType("arcmind.Field");
+	}
+
+	/**
+	 * @return Returns the label.
+	 */
+	public String getLabel() {
+		return label;
+	}
+
+	/**
+	 * @param label
+	 *            The label to set.
+	 */
+	public void setLabel(String label) {
+		this.label = label;
+	}
+
+	
+	@Override
+	public String getFamily() {
+		return "arcmind.Field";
+	}
+
+
+	public boolean isError() {
+		return !this.isValid();
+	}
+
+}
+</code>
+
+<p>
+Notice the encoding method is missing. The encoding and decoding will be in a separate
+Renderer. We will cover this a bit later.
+</p>
+
+<p>
+The simple label component only had on property (JSP attribute). The Field component has several namely: label, errorStyle, errorStyleClass, and value. 
+The label and value properties are core to the Field component, but errorStyle and errorStyleClass are HTML specific. Since they are HTML specific, 
+there is no need to have them as properties in the Field component, instead you will pass them around as component attributes that only the Renderer knows about.
+</p>
+
+<p>
+Just like the simple component, you will need a custom tag to bind the Field component to JSP as follows:
+</p>
+
+<code type="section">
+/*
+ * Created on Jul 19, 2004
+ *
+ */
+package com.arcmind.jsfquickstart;
+
+import javax.faces.application.Application;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.el.ValueBinding;
+import javax.faces.webapp.UIComponentTag;
+
+
+/**
+ * @author Richard Hightower
+ *
+ */
+public class FieldTag extends UIComponentTag {
+
+	private String label;
+	private String errorStyleClass="";
+	private String errorStyle="";
+	private boolean required;
+	private String value="";
+	
+	/**
+	 * @return Returns the label.
+	 */
+	public String getLabel() {
+		return label;
+	}
+	/**
+	 * @param label The label to set.
+	 */
+	public void setLabel(String label) {
+		this.label = label;
+	}
+	/**
+	 * @see javax.faces.webapp.UIComponentTag#setProperties(javax.faces.component.UIComponent)
+	 */
+	@Override
+	protected void setProperties(UIComponent component) {
+		/* You have to call the super class */
+		super.setProperties(component);
+		((FieldComponent)component).setLabel(label);
+		component.getAttributes().put("errorStyleClass",errorStyleClass);
+		component.getAttributes().put("errorStyle",errorStyle);
+		((FieldComponent)component).setRequired(required);
+	
+	
+	    FacesContext context = FacesContext.getCurrentInstance();
+	    Application application = context.getApplication();
+	    ValueBinding binding = application.createValueBinding(value);
+	    System.out.printf("setProperties class=%s expression=%s\n", binding.getType(FacesContext.getCurrentInstance()), binding.getExpressionString());
+	    component.setValueBinding("value", binding);
+		
+	}
+	/**
+	 * @see javax.faces.webapp.UIComponentTag#getComponentType()
+	 */
+	@Override
+	public String getComponentType() {
+		return "arcmind.Field";	
+	}
+
+	/**
+	 * @see javax.faces.webapp.UIComponentTag#getRendererType()
+	 */
+	@Override
+	public String getRendererType() {
+		return "arcmind.Field";	
+	}
+
+	/**
+	 * @return Returns the errorStyleClass.
+	 */
+	public String getErrorStyleClass() {
+		return errorStyleClass;
+	}
+	/**
+	 * @param errorStyleClass The errorStyleClass to set.
+	 */
+	public void setErrorStyleClass(String errorStyleClass) {
+		this.errorStyleClass = errorStyleClass;
+	}
+	
+	/**
+	 * @return Returns the errorStyle.
+	 */
+	public String getErrorStyle() {
+		return errorStyle;
+	}
+	/**
+	 * @param errorStyle The errorStyle to set.
+	 */
+	public void setErrorStyle(String errorStyle) {
+		this.errorStyle = errorStyle;
+	}
+
+	/**
+	 * @return Returns the required.
+	 */
+	public boolean isRequired() {
+		return required;
+	}
+	/**
+	 * @param required The required to set.
+	 */
+	public void setRequired(boolean required) {
+		this.required = required;
+	}
+	
+	/**
+	 * @return Returns the value.
+	 */
+	public String getValue() {
+		return value;
+	}
+	/**
+	 * @param value The value to set.
+	 */
+	public void setValue(String value) {
+		this.value = value;
+	}
+}
+
+</code>
+
+<p>
+Conceptually there is not much different than the simple component. It mostly more of the same. With some exception in the setProperties method as follows:
+</p>
+
+<code type="section">
+	protected void setProperties(UIComponent component) {
+		/* You have to call the super class */
+		super.setProperties(component);
+		((FieldComponent)component).setLabel(label);
+		component.getAttributes().put("errorStyleClass",
+                                           errorStyleClass);
+		component.getAttributes().put("errorStyle",errorStyle);
+
+		((FieldComponent)component).setRequired(required);
+	
+</code>	
+		
+
+<p> Notice that the label property is a pass through just like before. The errorStyleClass and the errorStyle are not passed through to properties of the 
+Field component. Instead they are added to the attributes map of the JSF component. The Renderer class will use this attributes map. If you think about it the 
+Renderer will be HTML specific as is this custom tag. This allows the HTML specific code to be absent from your component.</p>
+
+<p>The next new concept in the setProperties method is the actual value binding as follows:</p>
+
+<code type="section">
+
+	protected void setProperties(UIComponent component) {
+	    ...	
+	
+	    FacesContext context = FacesContext.getCurrentInstance();
+	    Application application = context.getApplication();
+	    ValueBinding binding = application.createValueBinding(value);
+	    component.setValueBinding("value", binding);
+
+</code>
+
+<p> The above allows the value property of the Field component to be bound to a backing bean. In our example, we bind the CDManagerBean’s title property to a 
+Field component as follows: value="#{CDManagerBean.title}". Value bindings are created with the Application object. The Application object is the factory that 
+creates value bindings. The component has a special method to store value bindings, namely setValueBinding; you can have more than one value binding.</p>
+
+<p>Last but not least, let’s cover the Renderer. The main thing the Renderer has to worry about is decoding (input) and encoding (output).  This component 
+does a lot more encoding than decoding so it’s Renderer has many encoding methods, but just one decoding method. Here is the Field Component’s Renderer in all 
+its glory:</p>
+
+<code type="section">
+package com.arcmind.jsfquickstart;
+
+
+
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.Map;
+
+import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
+import javax.faces.component.UIInput;
+import javax.faces.context.FacesContext;
+import javax.faces.context.ResponseWriter;
+import javax.faces.convert.Converter;
+import javax.faces.convert.ConverterException;
+import javax.faces.el.ValueBinding;
+import javax.faces.render.Renderer;
+
+/**
+ * @author Richard Hightower
+ *
+ */
+public class FieldRenderer extends Renderer {
+
+
+	@Override
+	public Object getConvertedValue(FacesContext facesContext, UIComponent component, Object submittedValue) throws ConverterException {
+        
+
+        //Try to find out by value binding
+        ValueBinding valueBinding = component.getValueBinding("value");
+        if (valueBinding == null) return null;
+
+        Class valueType = valueBinding.getType(facesContext);
+        if (valueType == null) return null;
+
+        if (String.class.equals(valueType)) return submittedValue;    
+        if (Object.class.equals(valueType)) return submittedValue;    
+
+        Converter converter = ((UIInput) component).getConverter();
+        converter =  facesContext.getApplication().createConverter(valueType);
+        if (converter != null ) {
+        	return converter.getAsObject(facesContext, component, (String) submittedValue);
+        }else {
+        	return submittedValue; 
+        }
+		
+	}
+
+	@Override
+	public void decode(FacesContext context, UIComponent component) {
+		    /* Grab the request map from the external context */
+		Map requestMap = context.getExternalContext().getRequestParameterMap();
+		    /* Get client ID, use client ID to grab value from parameters */
+		String clientId = component.getClientId(context);
+		String value = (String) requestMap.get(clientId);
+		
+		FieldComponent fieldComponent = (FieldComponent)component;
+			/* Set the submitted value */
+		((UIInput)component).setSubmittedValue(value);
+	}
+	
+	@Override
+	public void encodeBegin(FacesContext context, UIComponent component)
+			throws IOException {
+		FieldComponent fieldComponent = (FieldComponent) component;
+		ResponseWriter writer = context.getResponseWriter();
+		encodeLabel(writer,fieldComponent);
+		encodeInput(writer,fieldComponent);
+		encodeMessage(context, writer, fieldComponent);
+		writer.flush();
+	}
+
+	
+	
+	private void encodeMessage(FacesContext context, ResponseWriter writer, FieldComponent fieldComponent) throws IOException {
+		Iterator iter = context.getMessages(fieldComponent.getClientId(context));
+		while (iter.hasNext()){
+			FacesMessage message = (FacesMessage) iter.next();
+			writer.write(message.getDetail());
+		}
+	}
+
+	private void encodeLabel(ResponseWriter writer, FieldComponent fieldComponent) throws IOException{
+		writer.startElement("label", fieldComponent);
+		if (fieldComponent.isError()) {
+			String errorStyleClass = (String) fieldComponent.getAttributes().get("errorStyleClass");
+			String errorStyle = (String) fieldComponent.getAttributes().get("errorStyle");
+
+			writer.writeAttribute("style", errorStyle, "style");
+			writer.writeAttribute("class", errorStyleClass, "class");
+		}
+		writer.write("" + fieldComponent.getLabel());
+		if (fieldComponent.isRequired()) {
+			writer.write("*");
+		}
+		writer.endElement("label");
+	}
+	
+	private void encodeInput(ResponseWriter writer, FieldComponent fieldComponent) throws IOException{
+		FacesContext currentInstance = FacesContext.getCurrentInstance();
+		writer.startElement("input", fieldComponent);
+		writer.writeAttribute("type", "text", "type");
+		writer.writeAttribute("id", fieldComponent.getClientId(currentInstance), "id");
+		writer.writeAttribute("name", fieldComponent.getClientId(currentInstance), "name");
+		if(fieldComponent.getValue()!=null)
+			writer.writeAttribute("value", fieldComponent.getValue().toString(), "value");
+		writer.endElement("input");
+	}
+
+}
+</code>
+
+<p>
+Let's start with decoding since it is the easiest.  The decode method is as follows:</p>
+
+<code type="section">
+
+	@Override
+	public void decode(FacesContext context, UIComponent component) {
+		    /* Grab the request map from the external context */
+		Map requestMap = context.getExternalContext().getRequestParameterMap();
+		    /* Get client ID, use client ID to grab value from parameters */
+		String clientId = component.getClientId(context);
+		String value = (String) requestMap.get(clientId);
+		
+		FieldComponent fieldComponent = (FieldComponent)component;
+			/* Set the submitted value */
+		((UIInput)component).setSubmittedValue(value);
+	}
+</code>
+
+<p>
+The simple label component did not need to decode since it was a UIOutput component. The Field component is a UIInput component, which means it accepts input so 
+it does have to decode. A decode method could read values from session, cookies, headers, request, etc. In most cases, the decode method will just read values 
+from request parameters like the above. The Field Renderer's decode method grabs the clientId from the component to identify the request parameter to be looked up. 
+The clientId is calculated as the fully qualifed name of the component given it container path. Thus since our component is in a form (a container), its client 
+id would be as follows: nameOfForm:nameOfComponent or in our example cdForm:artist, cdForm:price, cdForm:title. The last step of the decode method is to store the 
+submitted value in the component (later it will be converted than validated see earlier article on validation and conversion for more detail).
+</p>
+
+<p>
+There are no real surprises in the encoding methods. They are similar to what we saw with the simple label component. The first method encodeBegin delegates 
+the to three helper methods encodeLabel, encodeInput, and encodeMessage as follows:
+</p>
+
+<code type="section">
+
+	@Override
+	public void encodeBegin(FacesContext context, UIComponent component)
+			throws IOException {
+		FieldComponent fieldComponent = (FieldComponent) component;
+		ResponseWriter writer = context.getResponseWriter();
+		encodeLabel(writer,fieldComponent);
+		encodeInput(writer,fieldComponent);
+		encodeMessage(context, writer, fieldComponent);
+		writer.flush();
+	}
+
+</code>
+
+<p>
+The encodeLabel is responsible for changing the color of the label red (or whatever color you specify in your style sheet styles for this component) 
+if there are errors with the component and putting a * next to the field if it is required as follows:
+</p>
+
+<code type="section">
+
+	private void encodeLabel(ResponseWriter writer, FieldComponent fieldComponent) throws IOException{
+		writer.startElement("label", fieldComponent);
+		if (fieldComponent.isError()) {
+			String errorStyleClass = (String) fieldComponent.getAttributes().get("errorStyleClass");
+			String errorStyle = (String) fieldComponent.getAttributes().get("errorStyle");
+
+			writer.writeAttribute("style", errorStyle, "style");
+			writer.writeAttribute("class", errorStyleClass, "class");
+		}
+		writer.write("" + fieldComponent.getLabel());
+		if (fieldComponent.isRequired()) {
+			writer.write("*");
+		}
+		writer.endElement("label");
+	}
+</code>
+
+<p>
+First it checks to see if there are errors, if so it output the errorStyle and the errorStyleClass (a better version would only output them if they were not blank, 
+an exercise I have left up to the reader). Then it checks to see if the component is a required field, if so it outputs an asterisk. The encodeMesssages, and encodeInput
+ do what you would expect, namely, outputs error messages for the Field, and generates the HTML input text field. Check them out and see if they match your expectations.
+</p>
+<p>
+The discerning reader may have noticed that there is one more method that we have not covered. This method is the dark horse out of the methods in this class. 
+If you read the JavaDocs for Renderer (an abstract class that all Renderers extend), you may feel that such a method was not needed (just like I thought). You would 
+be wrong! Turns out there are lies, damn lies and then JSF JavaDocs. Don't forget to use the source Luke.
+</p>
+<p>
+All kidding aside, the base class Renderer does not automatically invoke associated Converters of the subclass Renderers even though the JavaDocs for Renderer and 
+the JSF specification allude that it does. MyFaces and the JSF RI have classes (specific to their implementation) that perform this magic for their Renderers, but 
+this functionality is not covered in the core JSF API. (Read my comments at the end about hacking and article writing).
+</p>
+<p>
+Here is the method getConvertedValues which looks up the associated Converter and invokes it. This method grabs the right converter based on the type of the value 
+binding.
+</p>
+
+<code type="section">
+
+	@Override
+	public Object getConvertedValue(FacesContext facesContext, UIComponent component, Object submittedValue) throws ConverterException {
+        
+
+        //Try to find out by value binding
+        ValueBinding valueBinding = component.getValueBinding("value");
+        if (valueBinding == null) return null;
+
+        Class valueType = valueBinding.getType(facesContext);
+        if (valueType == null) return null;
+
+        if (String.class.equals(valueType)) return submittedValue;    
+        if (Object.class.equals(valueType)) return submittedValue;    
+
+        Converter converter = ((UIInput) component).getConverter();
+        converter =  facesContext.getApplication().createConverter(valueType);
+        if (converter != null ) {
+        	return converter.getAsObject(facesContext, component, (String) submittedValue);
+        }else {
+        	return submittedValue; 
+        }
+		
+	}
+
+</code>
+
+<p>
+You may wonder how the component gets associated with the Renderer. Well they say a picture is worth a thousand words so look at Figure 6.
+</p>
+
+<figure>
+<heading refname="figure6" toc="no" type="figure">Figure 6. Mapping Renderer to Component</heading>
+<img src="figure6.PNG" alt="Mapping Renderer to Component"/>
+</figure>
+
+
+<p>
+The custom tag has two methods that return the component type and the Renderer type. These are used to look up the correct Renderer and Component that is configured 
+in faces-config.xml. Also (not pictured), the component must return the right family type. Apparently a picture is only worth about 30 words. 
+</p>
+
+<p>
+Well that concludes this article and this article series. If time, space and attention span (yours and mine) were not an issue, I would have liked to covered emitting 
+component events, internationalizing the label, creating a UICommand style component and more. These topics are covered really well in David Geary's Core JSF book 
+(listed in the reference section). I'll try to cover them on my blog at some point in the future.
+</p>
+
+<p>
+I apologize that this fourth article in this series took so long to finish. Work got busy, then I broke both of my arms playing Soccer (don't ask), next I ran into a 
+technical snag with the Renderer and then we had a new son.  I am out of the article writing business for a while as I will spend my sleepless late nights taking turns 
+feeding and burping my new son who has his days and nights mixed up. Regarding the technical snag, I've written and deployed JSF components in production before (never
+ using Renderers). When I run into the same problem with Converter, I hacked it. The hack worked, but I did not learn the right way to do it. Hacks that work are allowed 
+ on tight schedules, but frowned upon when writing articles. In the course of writing this article, I had to figure out the right way. In the course of finding the right 
+ way, I had to figure out what was going wrong. I ended up learning and experiencing how JSF components handling works at a very deep level so sometimes the detour is 
+ worth the scenery. Please try to explain this to my frustrated editor.
+</p>
+
+<p>
+There is not a build script for this article like the others. Just set your IDE or compiler to compile the classes in /src to /webapp/WEB-INF/classes and include 
+all of the jar files in /webapp/WEB-INF/lib (+ servlet-api.jar and jsp-api.jar which are included with Tomcat).  The zip file is listed in the resource section.
+</p>
+
+</docbody>
+
+</dw-article>
+
+</dw-document>

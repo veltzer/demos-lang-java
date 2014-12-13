@@ -1,0 +1,84 @@
+-----------------------------------------
+Exercise 1: Hello World (Getting started)
+-----------------------------------------
+Use the J2ME Wireless Toolkit to create a new project named HelloWorld. In this
+project create a MIDlet class called HelloWorld. This Midlet should print a statement
+(to standard out) indicating the entering of each state of the Midlet lifecycle:
+
+ * Created
+ * Destroyed
+ * Paused
+ * Active
+
+When started, the Midlet should also print out the following information:
+
+ 1. All standard attribute values from its manifest and application description (JAD) files.
+ 2. The following system properties: microedition.configuration, microedition.profiles,
+    microedition.platform, microedition.locale, microedition.encoding.
+ 3. Number of colors available on the display (use the javax.microedition.lcdui.Display class).
+ 4. Amount of free and total system memory (use the java.lang.Runtime class).
+ 5. Add one user defined property to the application description file named 'My-Property'
+    and set its value to "Hello World".
+
+After the Midlet is written and compiled run it on several of the toolkit's emulators
+and examine the output.
+
+---------------------------------------------
+Exercise 2: To do list I (High level GUI API)
+---------------------------------------------
+Use the J2ME Wireless Toolkit to create a new project named ToDo. In this project
+create a MIDlet class called ToDo that functions as a simple to do list application.
+The application should use a List component to present the user with a list of entries,
+and allow the user to add (using a TextBox), delete and edit entries.
+
+The Midlet should include commands for displaying basic help instructions and also an
+about dialog that presents information on the application such as the author and version.
+There should also be a command for exiting the application.
+
+The Midlet should maintain the list of entries sorted in either ascending or descending
+order.
+
+Advanced: Maintain a timestamp (date + time) for each entry. The timestamp should be
+updated whenever the entry is edited.
+
+------------------------------------------
+Exercise 3: Slide show (Low level GUI API)
+------------------------------------------
+Use the J2ME Wireless Toolkit to create a new project named SlideShow. In this project
+create a MIDlet class called SlideShow that functions as a simple image viewer application.
+The application should display a sequence of images (slide1.png, slide2.png, slide3.png)
+using a Canvas subclass, and allow the user to navigate through them one by one (forwards
+and backwards), using both high level Commands and low level key pressed events.
+
+The Midlet should include commands for displaying basic help instructions and also an
+about dialog that presents information on the application such as the author and version.
+There should also be a command for exiting the application.
+
+---------------------------------------------
+Exercise 4: Todo list II (Persistent storage)
+---------------------------------------------
+Modify the To do list Midlet to support persistent entries. The Midlet should use RMS
+to store the entries in a RecordStore, and should delete and modify the RMS records as
+appropriate. When the Midlet starts up, it should read all the persistent entries from
+its RecordStore and display them in the list.
+
+The Midlet should handle all exceptions in a reasonable manner, and present the user with
+any error messages in a dialog using the Alert class.
+
+------------------------------------------
+Exercise 5: Stock Ticker (Networking + IO)
+------------------------------------------
+Use the J2ME Wireless Toolkit to create a new project named Stock. In this project create
+a MIDlet class called Stock that functions as a simple stock quote viewer application.
+The application should display a Form with a TextField component that allows the user to
+input a valid stock ticker symbol (i.e. SUNW, IBM, etc.) and then should make an HTTP GET
+request to retrieve the stock quote from the network. Connect to this URL to retrieve the
+quote: http://quote.yahoo.com/d/quotes.csv?f=d&s=SYMBOL (replace SYMBOL with the actual
+symbol to be retrieved).
+
+The Midlet should handle all exceptions in a reasonable manner, and present the user with
+any error messages in a dialog using the Alert class.
+
+The Midlet should include commands for displaying basic help instructions and also an
+about dialog that presents information on the application such as the author and version.
+There should also be a command for exiting the application.

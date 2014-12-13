@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE faces-config PUBLIC "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.1//EN" "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
+
+<faces-config>
+
+  <application>
+    <locale-config>
+      <default-locale>en</default-locale>
+    </locale-config>
+  </application>
+
+  <component>
+		<component-type>simple.Label</component-type>
+		<component-class>com.arcmind.jsfquickstart.LabelComponent</component-class>
+  </component>
+  <component>
+		<component-type>arcmind.Label</component-type>
+		<component-class>com.arcmind.jsfquickstart.FancyLabelComponent</component-class>
+  </component>
+  <component>
+		<component-type>arcmind.Field</component-type>
+		<component-class>com.arcmind.jsfquickstart.FieldComponent</component-class>
+  </component>
+<render-kit>
+  <renderer>
+      <component-family>arcmind.Field</component-family>
+      <renderer-type>arcmind.Field</renderer-type>
+      <renderer-class>com.arcmind.jsfquickstart.FieldRenderer</renderer-class>
+  </renderer>
+</render-kit>  
+
+  <managed-bean>
+    <description>
+      The "backing file" bean that backs up the CD application
+    </description>
+    <managed-bean-name>CDManagerBean</managed-bean-name>
+    <managed-bean-class>com.arcmind.jsfquickstart.CDManagerBean</managed-bean-class>
+    <managed-bean-scope>session</managed-bean-scope>
+  </managed-bean>
+
+  <managed-bean>
+    <description>
+      The "backing file" bean that backs up shopping cart
+    </description>
+    <managed-bean-name>cart</managed-bean-name>
+    <managed-bean-class>com.arcmind.jsfquickstart.ShoppingCartBean</managed-bean-class>
+    <managed-bean-scope>session</managed-bean-scope>
+  </managed-bean>
+
+  <navigation-rule>
+    <!-- Add a navigation comming from cdForm.jsp --> 
+    
+    <from-view-id>/cdForm.jsp</from-view-id>
+    
+    <navigation-case>
+      <!-- Add a navigation going to results -->
+      <from-action>#{CDManagerBean.addCD}</from-action>
+      <from-outcome>success</from-outcome>
+      <to-view-id>/listing.jsp</to-view-id>
+    </navigation-case>
+
+    <navigation-case>
+      <!-- Add a navigation going to results -->
+      <from-action>#{CDManagerBean.updateCD}</from-action>
+      <from-outcome>success</from-outcome>
+      <to-view-id>/listing.jsp</to-view-id>	
+    </navigation-case>
+
+
+  </navigation-rule>
+
+  <navigation-rule>
+    <from-view-id>/listing.jsp</from-view-id>
+    <navigation-case>
+      <from-action>#{CDManagerBean.editCD}</from-action>
+      <from-outcome>success</from-outcome>
+      <to-view-id>/cdForm.jsp</to-view-id>
+    </navigation-case>
+  </navigation-rule>
+
+
+  <navigation-rule>
+    <from-view-id>/store.jsp</from-view-id>
+    <navigation-case>
+      <from-outcome>viewCart</from-outcome>
+      <to-view-id>/showCart.jsp</to-view-id>
+    </navigation-case>
+  </navigation-rule>
+
+
+  <navigation-rule>
+    <from-view-id>/showCart.jsp</from-view-id>
+    <navigation-case>
+      <from-outcome>store</from-outcome>
+      <to-view-id>/store.jsp</to-view-id>
+    </navigation-case>
+  </navigation-rule>
+
+
+
+
+</faces-config>
+
