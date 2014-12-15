@@ -1,0 +1,543 @@
+Starting at 04/18/2008 10:39:26 AM CDT
+
+Checking JVM
+
+1st bounds test:	OK
+Super: Class Super, public=34, protected=33, private=32
+Sub: Class Super, public=804, protected=803, private=802
+Super: prot=33, priv=32
+Sub:  prot=111, priv=105
+Subclass test OK
+XML StrictErrorChecking test: OK
+1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 1597 2584 4181 6765 
+1 1 2 3 5 8 666 666 13 13 21 21 
+2nd bounds test:	OK
+testIf:     OK
+testArray:  OK
+testBitOps: OK
+testFor:    OK
+testDiv:    OK
+testTableSwitch:  OK
+testLookupSwitch: OK
+testHiddenField:  OK
+checkRemainders:  long double OK
+checkMathFcts: OK
+Primes less than 50: 2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 
+testExc1(simple throw/catch):  OK
+testExc2(skip catch clauses):  OK
+testExc3(catch in inner):      OK
+testExc4(catch in outer):      OK
+testExc5(rethrow):             OK
+testExc6(throw accross call):  OK
+testExc7(throw accr. 2 calls): OK
+loopExitContinueInExceptionHandler: OK
+testStringHash:  OK
+testClone:       OK
+testObjectArray: OK
+checkInstanceOf: OK
+checkInterfaceInstanceOf: OK
+testWaitNull: OK
+testVarAndMethodNameClash: OK
+testMisk: OK
+testGC: 0.148: [GC 17556K->200K(1155712K), 0.0032250 secs]
+0.151: [Full GC 200K->161K(1155712K), 0.0188348 secs]
+0.170: [GC 161K->161K(1155712K), 0.0002404 secs]
+0.171: [Full GC 161K->161K(1155712K), 0.0145176 secs]
+OK
+testRandom : OK
+PepTest: OK
+
+JVM Check OK
+Constructing the company now   Hang....on
+
+Loading Warehouse 1...
+
+
+
+Loading properties from /export/huntch/work/workload/benchscripts/specjbb2005/SPECjbb.props
+
+Input Properties:
+  per_jvm_warehouse_rampup = 3.0
+  per_jvm_warehouse_rampdown = 20.0
+  jvm_instances = 1
+  deterministic_random_seed = false
+  ramp_up_seconds = 30
+  measurement_seconds = 240
+  starting_number_warehouses = 1
+  increment_number_warehouses = 1
+  ending_number_warehouses = 4
+  expected_peak_warehouse = 2
+The results will be in: results/SPECjbbSingleJVM/SPECjbb.001.raw
+Opened results/SPECjbbSingleJVM/SPECjbb.001.results
+Opened results/SPECjbbSingleJVM/SPECjbb.001.raw
+
+Licensed Materials - Property of SPEC
+SPECjbb2005
+Copyright (c) 2005 Standard Performance Evaluation Corporation (SPEC),All rights reserved,
+
+Benchmark SPECjbb2005 1.07 now Opening
+
+jar validity is false
+
+
+Checking whether run will be valid
+
+Run will be COMPLIANT
+
+Constructing the company now   Hang....on
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Loading Warehouse 1...
+
+
+Start User Threads
+  started user thread for Warehouse 1
+Timing Measurement began Fri Apr 18 10:39:28 CDT 2008 for 0.5 minutes
+12.437: [GC 877985K->34111K(1155712K), 0.2834140 secs]
+19.023: [GC 911935K->34175K(1155712K), 0.2770242 secs]
+25.481: [GC 911999K->34127K(1155712K), 0.0873132 secs]
+31.838: [GC 911951K->34137K(1155712K), 0.0885623 secs]
+Timing Measurement ended Fri Apr 18 10:39:58 CDT 2008
+
+
+Calculating results
+
+Minimum transactions by a warehouse = 370589
+Maximum transactions by a warehouse = 370589
+Difference (thread spread) = 0 (0%)
+
+===============================================================================
+TOTALS FOR: COMPANY with 1 warehouses                                   
+................. SPECjbb2005 1.07 Results (time in seconds) .................
+                   Count     Total    Min     Max     Avg    Heap Space
+    New Order:    162703      8.78   0.000   0.284   0.000   total     1128.6MB
+      Payment:    112301      3.81   0.000   0.251   0.000    used      144.7MB
+  OrderStatus:     11230      0.50   0.000   0.001   0.000
+     Delivery:     11229     10.26   0.000   0.089   0.001
+  Stock Level:     11229      1.13   0.000   0.056   0.000
+  Cust Report:     61897      4.63   0.000   0.015   0.000
+
+           throughput =      12352.14 SPECjbb2005 bops 
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Loading Warehouse 2...
+
+
+Start User Threads
+  started user thread for Warehouse 1
+  started user thread for Warehouse 2
+Timing Measurement began Fri Apr 18 10:39:59 CDT 2008 for 4 minutes
+36.122: [GC 911961K->59871K(1155712K), 0.3072066 secs]
+39.817: [GC 937695K->59863K(1155712K), 0.2974978 secs]
+43.517: [GC 937687K->59863K(1155712K), 0.1516332 secs]
+47.074: [GC 937687K->59807K(1155712K), 0.1519885 secs]
+50.607: [GC 937631K->59935K(1155712K), 0.1535505 secs]
+54.139: [GC 937759K->59895K(1155712K), 0.1534396 secs]
+57.690: [GC 937719K->59903K(1155712K), 0.1574236 secs]
+61.270: [GC 937727K->59943K(1155712K), 0.1573039 secs]
+64.842: [GC 937767K->59943K(1155712K), 0.1539115 secs]
+68.378: [GC 937767K->59919K(1155712K), 0.1523256 secs]
+71.917: [GC 937743K->59935K(1155712K), 0.1531564 secs]
+75.458: [GC 937759K->60095K(1155712K), 0.4067027 secs]
+79.204: [GC 937919K->60151K(1155712K), 0.0750466 secs]
+82.628: [GC 937975K->60111K(1155712K), 0.0751219 secs]
+86.064: [GC 937935K->60151K(1155712K), 0.0753309 secs]
+89.499: [GC 937975K->60299K(1155712K), 0.3270143 secs]
+93.158: [GC 938123K->60339K(1155712K), 0.0184553 secs]
+96.512: [GC 938163K->60339K(1155712K), 0.0184990 secs]
+99.855: [GC 938163K->60355K(1155712K), 0.0191580 secs]
+103.216: [GC 938179K->60435K(1155712K), 0.0187180 secs]
+106.565: [GC 938259K->60339K(1155712K), 0.0184877 secs]
+109.911: [GC 938163K->60355K(1155712K), 0.0183918 secs]
+113.255: [GC 938179K->60339K(1155712K), 0.0184678 secs]
+116.608: [GC 938163K->60387K(1155712K), 0.0187626 secs]
+119.968: [GC 938211K->60387K(1155712K), 0.0185686 secs]
+123.319: [GC 938211K->60387K(1155712K), 0.0184849 secs]
+126.665: [GC 938211K->60275K(1155712K), 0.0183942 secs]
+130.027: [GC 938099K->60387K(1155712K), 0.0185256 secs]
+133.377: [GC 938211K->60371K(1155712K), 0.0185053 secs]
+136.731: [GC 938195K->60403K(1155712K), 0.0187389 secs]
+140.082: [GC 938227K->60307K(1155712K), 0.0184074 secs]
+143.444: [GC 938131K->60387K(1155712K), 0.0184673 secs]
+146.811: [GC 938211K->60323K(1155712K), 0.0184765 secs]
+150.175: [GC 938147K->60227K(1155712K), 0.0181778 secs]
+153.526: [GC 938051K->60355K(1155712K), 0.0184248 secs]
+156.887: [GC 938179K->60371K(1155712K), 0.0184621 secs]
+160.222: [GC 938195K->60419K(1155712K), 0.0185566 secs]
+163.564: [GC 938243K->60435K(1155712K), 0.0188108 secs]
+166.913: [GC 938259K->60355K(1155712K), 0.0184436 secs]
+170.277: [GC 938179K->60387K(1155712K), 0.0188293 secs]
+173.629: [GC 938211K->60323K(1155712K), 0.0182519 secs]
+176.988: [GC 938147K->60371K(1155712K), 0.0185204 secs]
+180.340: [GC 938195K->60339K(1155712K), 0.0184233 secs]
+183.684: [GC 938163K->60403K(1155712K), 0.0189072 secs]
+187.053: [GC 938227K->60387K(1155712K), 0.0186478 secs]
+190.387: [GC 938211K->60291K(1155712K), 0.0182677 secs]
+193.734: [GC 938115K->60403K(1155712K), 0.0186221 secs]
+197.070: [GC 938227K->60339K(1155712K), 0.0184537 secs]
+200.426: [GC 938163K->60339K(1155712K), 0.0183974 secs]
+203.783: [GC 938163K->60307K(1155712K), 0.0182094 secs]
+207.133: [GC 938131K->60323K(1155712K), 0.0184252 secs]
+210.476: [GC 938147K->60419K(1155712K), 0.0188565 secs]
+213.822: [GC 938243K->60323K(1155712K), 0.0182793 secs]
+217.189: [GC 938147K->60355K(1155712K), 0.0184475 secs]
+220.534: [GC 938179K->60275K(1155712K), 0.0182407 secs]
+223.888: [GC 938099K->60387K(1155712K), 0.0188093 secs]
+227.236: [GC 938211K->60323K(1155712K), 0.0184766 secs]
+230.591: [GC 938147K->60307K(1155712K), 0.0184779 secs]
+233.943: [GC 938131K->60387K(1155712K), 0.0184410 secs]
+237.306: [GC 938211K->60387K(1155712K), 0.0184613 secs]
+240.662: [GC 938211K->60371K(1155712K), 0.0186006 secs]
+244.021: [GC 938195K->60355K(1155712K), 0.0185754 secs]
+247.365: [GC 938179K->60371K(1155712K), 0.0186240 secs]
+250.712: [GC 938195K->60371K(1155712K), 0.0186069 secs]
+254.065: [GC 938195K->60355K(1155712K), 0.0185668 secs]
+257.411: [GC 938179K->60355K(1155712K), 0.0186028 secs]
+260.768: [GC 938179K->60275K(1155712K), 0.0182965 secs]
+264.113: [GC 938099K->60339K(1155712K), 0.0183800 secs]
+267.469: [GC 938163K->60323K(1155712K), 0.0183645 secs]
+270.828: [GC 938147K->60307K(1155712K), 0.0182666 secs]
+Timing Measurement ended Fri Apr 18 10:43:59 CDT 2008
+
+
+Calculating results
+
+Minimum transactions by a warehouse = 3260187
+Maximum transactions by a warehouse = 3337235
+Difference (thread spread) = 77048 (2.31%)
+
+===============================================================================
+TOTALS FOR: COMPANY with 2 warehouses                                   
+................. SPECjbb2005 1.07 Results (time in seconds) .................
+                   Count     Total    Min     Max     Avg    Heap Space
+    New Order:   2898388    132.22   0.000   0.407   0.000   total     1128.6MB
+      Payment:   1999218     50.02   0.000   0.407   0.000    used      618.0MB
+  OrderStatus:    199922      7.97   0.000   0.019   0.000
+     Delivery:    199921    184.76   0.000   0.329   0.001
+  Stock Level:    199922     14.80   0.000   0.041   0.000
+  Cust Report:   1100051     78.17   0.000   0.158   0.000
+
+           throughput =      27488.23 SPECjbb2005 bops 
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Loading Warehouse 3...
+
+
+Start User Threads
+  started user thread for Warehouse 1
+  started user thread for Warehouse 2
+  started user thread for Warehouse 3
+Timing Measurement began Fri Apr 18 10:43:59 CDT 2008 for 4 minutes
+274.174: [GC 938131K->86499K(1155712K), 0.0977263 secs]
+277.650: [GC 964323K->86387K(1155712K), 0.0855478 secs]
+281.113: [GC 964211K->86371K(1155712K), 0.0855986 secs]
+284.570: [GC 964195K->86435K(1155712K), 0.0854242 secs]
+288.044: [GC 964259K->86467K(1155712K), 0.0859123 secs]
+291.506: [GC 964291K->86403K(1155712K), 0.0864212 secs]
+294.973: [GC 964227K->86403K(1155712K), 0.0855074 secs]
+298.416: [GC 964227K->86307K(1155712K), 0.0856926 secs]
+301.884: [GC 964131K->86371K(1155712K), 0.0855000 secs]
+305.362: [GC 964195K->86483K(1155712K), 0.0866903 secs]
+308.812: [GC 964307K->86435K(1155712K), 0.0865324 secs]
+312.260: [GC 964259K->86371K(1155712K), 0.0861639 secs]
+315.708: [GC 964195K->86451K(1155712K), 0.0860891 secs]
+319.149: [GC 964275K->86387K(1155712K), 0.0857434 secs]
+322.595: [GC 964211K->86515K(1155712K), 0.0860660 secs]
+326.051: [GC 964339K->86707K(1155712K), 0.3328447 secs]
+329.719: [GC 964531K->86651K(1155712K), 0.0305185 secs]
+333.085: [GC 964475K->86691K(1155712K), 0.0275325 secs]
+336.437: [GC 964515K->86723K(1155712K), 0.0277262 secs]
+339.795: [GC 964547K->86675K(1155712K), 0.0275730 secs]
+343.147: [GC 964499K->86739K(1155712K), 0.0278193 secs]
+346.521: [GC 964563K->86675K(1155712K), 0.0277052 secs]
+349.898: [GC 964499K->86659K(1155712K), 0.0278500 secs]
+353.257: [GC 964483K->86675K(1155712K), 0.0276654 secs]
+356.621: [GC 964499K->86675K(1155712K), 0.0278326 secs]
+359.983: [GC 964499K->86675K(1155712K), 0.0277123 secs]
+363.341: [GC 964499K->86627K(1155712K), 0.0272930 secs]
+366.696: [GC 964451K->86547K(1155712K), 0.0273694 secs]
+370.058: [GC 964371K->86691K(1155712K), 0.0279336 secs]
+373.418: [GC 964515K->86611K(1155712K), 0.0274095 secs]
+376.768: [GC 964435K->86739K(1155712K), 0.0278868 secs]
+380.131: [GC 964563K->86675K(1155712K), 0.0275175 secs]
+383.491: [GC 964499K->86691K(1155712K), 0.0277539 secs]
+386.846: [GC 964515K->86643K(1155712K), 0.0290511 secs]
+390.201: [GC 964467K->86739K(1155712K), 0.0280009 secs]
+393.550: [GC 964563K->86707K(1155712K), 0.0277961 secs]
+396.919: [GC 964531K->86723K(1155712K), 0.0280880 secs]
+400.263: [GC 964547K->86739K(1155712K), 0.0279765 secs]
+403.611: [GC 964563K->86659K(1155712K), 0.0274861 secs]
+406.971: [GC 964483K->86643K(1155712K), 0.0278956 secs]
+410.319: [GC 964467K->86691K(1155712K), 0.0278420 secs]
+413.678: [GC 964515K->86723K(1155712K), 0.0279402 secs]
+417.041: [GC 964547K->86707K(1155712K), 0.0278007 secs]
+420.381: [GC 964531K->86691K(1155712K), 0.0279297 secs]
+423.745: [GC 964515K->86723K(1155712K), 0.0277740 secs]
+427.107: [GC 964547K->86675K(1155712K), 0.0277939 secs]
+430.478: [GC 964499K->86643K(1155712K), 0.0275140 secs]
+433.839: [GC 964467K->86691K(1155712K), 0.0289928 secs]
+437.197: [GC 964515K->86675K(1155712K), 0.0277701 secs]
+440.551: [GC 964499K->86739K(1155712K), 0.0279490 secs]
+443.903: [GC 964563K->86691K(1155712K), 0.0276410 secs]
+447.262: [GC 964515K->86707K(1155712K), 0.0278534 secs]
+450.617: [GC 964531K->86627K(1155712K), 0.0275013 secs]
+453.966: [GC 964451K->86659K(1155712K), 0.0276798 secs]
+457.333: [GC 964483K->86691K(1155712K), 0.0275957 secs]
+460.688: [GC 964515K->86739K(1155712K), 0.0279036 secs]
+464.052: [GC 964563K->86659K(1155712K), 0.0276109 secs]
+467.399: [GC 964483K->86739K(1155712K), 0.0281364 secs]
+470.761: [GC 964563K->86739K(1155712K), 0.0282223 secs]
+474.150: [GC 964563K->86691K(1155712K), 0.0277756 secs]
+477.524: [GC 964515K->86739K(1155712K), 0.0277946 secs]
+480.895: [GC 964563K->86707K(1155712K), 0.0278475 secs]
+484.247: [GC 964531K->86659K(1155712K), 0.0278416 secs]
+487.604: [GC 964483K->86675K(1155712K), 0.0276254 secs]
+490.979: [GC 964499K->86595K(1155712K), 0.0273086 secs]
+494.343: [GC 964419K->86659K(1155712K), 0.0275350 secs]
+497.703: [GC 964483K->86627K(1155712K), 0.0275455 secs]
+501.055: [GC 964451K->86675K(1155712K), 0.0277996 secs]
+504.423: [GC 964499K->86675K(1155712K), 0.0276059 secs]
+507.766: [GC 964499K->86675K(1155712K), 0.0278637 secs]
+511.112: [GC 964499K->86627K(1155712K), 0.0273724 secs]
+Timing Measurement ended Fri Apr 18 10:47:59 CDT 2008
+
+
+Calculating results
+
+Minimum transactions by a warehouse = 2037699
+Maximum transactions by a warehouse = 2392784
+Difference (thread spread) = 355085 (14.84%)
+
+===============================================================================
+TOTALS FOR: COMPANY with 3 warehouses                                   
+................. SPECjbb2005 1.07 Results (time in seconds) .................
+                   Count     Total    Min     Max     Avg    Heap Space
+    New Order:   2909710    196.56   0.000   0.434   0.000   total     1128.6MB
+      Payment:   2006578     73.80   0.000   0.229   0.000    used      638.2MB
+  OrderStatus:    200658     13.18   0.000   0.191   0.000
+     Delivery:    200657    277.81   0.000   0.441   0.001
+  Stock Level:    200658     22.52   0.000   0.334   0.000
+  Cust Report:   1103451    119.26   0.000   0.421   0.000
+
+           throughput =      27590.12 SPECjbb2005 bops 
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Loading Warehouse 4...
+
+
+Start User Threads
+  started user thread for Warehouse 1
+  started user thread for Warehouse 2
+  started user thread for Warehouse 3
+  started user thread for Warehouse 4
+Timing Measurement began Fri Apr 18 10:47:59 CDT 2008 for 4 minutes
+514.835: [GC 964451K->112947K(1155712K), 0.1071779 secs]
+518.323: [GC 990771K->112883K(1155712K), 0.0946727 secs]
+521.777: [GC 990707K->112867K(1155712K), 0.0960240 secs]
+525.226: [GC 990691K->112883K(1155712K), 0.0945172 secs]
+528.671: [GC 990707K->112851K(1155712K), 0.0958471 secs]
+532.116: [GC 990675K->112899K(1155712K), 0.0948478 secs]
+535.580: [GC 990723K->112867K(1155712K), 0.0954894 secs]
+539.059: [GC 990691K->112931K(1155712K), 0.0959543 secs]
+542.509: [GC 990755K->112915K(1155712K), 0.0955089 secs]
+545.996: [GC 990739K->112899K(1155712K), 0.0946748 secs]
+549.450: [GC 990723K->112931K(1155712K), 0.0952667 secs]
+552.918: [GC 990755K->112963K(1155712K), 0.0951504 secs]
+556.383: [GC 990787K->112883K(1155712K), 0.0945868 secs]
+559.830: [GC 990707K->112947K(1155712K), 0.0960598 secs]
+563.298: [GC 990771K->112867K(1155712K), 0.0949727 secs]
+566.761: [GC 990691K->113075K(1155712K), 0.3263289 secs]
+570.379: [GC 990899K->113079K(1155712K), 0.0373721 secs]
+573.734: [GC 990903K->113231K(1155712K), 0.0371373 secs]
+577.081: [GC 991055K->113143K(1155712K), 0.0369454 secs]
+580.439: [GC 990967K->113223K(1155712K), 0.0371832 secs]
+583.769: [GC 991047K->113175K(1155712K), 0.0367801 secs]
+587.136: [GC 990999K->113175K(1155712K), 0.0370393 secs]
+590.485: [GC 990999K->113111K(1155712K), 0.0369092 secs]
+593.816: [GC 990935K->113175K(1155712K), 0.0370992 secs]
+597.133: [GC 990999K->113175K(1155712K), 0.0367609 secs]
+600.493: [GC 990999K->113143K(1155712K), 0.0370187 secs]
+603.855: [GC 990967K->113079K(1155712K), 0.0455576 secs]
+607.208: [GC 990903K->113095K(1155712K), 0.0366187 secs]
+610.576: [GC 990919K->113159K(1155712K), 0.0368862 secs]
+613.920: [GC 990983K->113127K(1155712K), 0.0371255 secs]
+617.277: [GC 990951K->113095K(1155712K), 0.0370838 secs]
+620.621: [GC 990919K->113111K(1155712K), 0.0367652 secs]
+623.990: [GC 990935K->113159K(1155712K), 0.0370465 secs]
+627.347: [GC 990983K->113223K(1155712K), 0.0370899 secs]
+630.708: [GC 991047K->113175K(1155712K), 0.0371400 secs]
+634.078: [GC 990999K->113223K(1155712K), 0.0373426 secs]
+637.418: [GC 991047K->113191K(1155712K), 0.0372282 secs]
+640.776: [GC 991015K->113111K(1155712K), 0.0369383 secs]
+644.138: [GC 990935K->113143K(1155712K), 0.0369584 secs]
+647.471: [GC 990967K->113207K(1155712K), 0.0369607 secs]
+650.821: [GC 991031K->113111K(1155712K), 0.0369692 secs]
+654.173: [GC 990935K->113159K(1155712K), 0.0365542 secs]
+657.530: [GC 990983K->113143K(1155712K), 0.0366943 secs]
+660.897: [GC 990967K->113303K(1155712K), 0.0373642 secs]
+664.289: [GC 991127K->113223K(1155712K), 0.0371853 secs]
+667.611: [GC 991047K->113111K(1155712K), 0.0372432 secs]
+670.948: [GC 990935K->113127K(1155712K), 0.0367292 secs]
+674.312: [GC 990951K->113239K(1155712K), 0.0370660 secs]
+677.655: [GC 991063K->113287K(1155712K), 0.0372539 secs]
+681.035: [GC 991111K->113031K(1155712K), 0.0365020 secs]
+684.380: [GC 990855K->113159K(1155712K), 0.0367277 secs]
+687.737: [GC 990983K->113239K(1155712K), 0.0370828 secs]
+691.069: [GC 991063K->113223K(1155712K), 0.0368765 secs]
+694.444: [GC 991047K->113191K(1155712K), 0.0366921 secs]
+697.801: [GC 991015K->113127K(1155712K), 0.0366461 secs]
+701.164: [GC 990951K->113207K(1155712K), 0.0367607 secs]
+704.524: [GC 991031K->113159K(1155712K), 0.0367524 secs]
+707.873: [GC 990983K->113143K(1155712K), 0.0367125 secs]
+711.234: [GC 990967K->113207K(1155712K), 0.0371372 secs]
+714.581: [GC 991031K->113239K(1155712K), 0.0370988 secs]
+717.916: [GC 991063K->113271K(1155712K), 0.0375694 secs]
+721.295: [GC 991095K->113191K(1155712K), 0.0369668 secs]
+724.664: [GC 991015K->113047K(1155712K), 0.0363798 secs]
+727.999: [GC 990871K->113143K(1155712K), 0.0370142 secs]
+731.360: [GC 990967K->113111K(1155712K), 0.0366319 secs]
+734.703: [GC 990935K->113111K(1155712K), 0.0368072 secs]
+738.040: [GC 990935K->113191K(1155712K), 0.0371022 secs]
+741.379: [GC 991015K->113143K(1155712K), 0.0366643 secs]
+744.754: [GC 990967K->113191K(1155712K), 0.0369769 secs]
+748.104: [GC 991015K->113207K(1155712K), 0.0371236 secs]
+751.477: [GC 991031K->113095K(1155712K), 0.0367743 secs]
+Timing Measurement ended Fri Apr 18 10:51:59 CDT 2008
+
+
+Calculating results
+
+Minimum transactions by a warehouse = 1548267
+Maximum transactions by a warehouse = 1735337
+Difference (thread spread) = 187070 (10.78%)
+
+===============================================================================
+TOTALS FOR: COMPANY with 4 warehouses                                   
+................. SPECjbb2005 1.07 Results (time in seconds) .................
+                   Count     Total    Min     Max     Avg    Heap Space
+    New Order:   2903230    259.31   0.000   0.690   0.000   total     1128.6MB
+      Payment:   2001630    107.83   0.000   0.747   0.000    used      639.9MB
+  OrderStatus:    200163     16.43   0.000   0.594   0.000
+     Delivery:    200163    371.34   0.000   0.692   0.002
+  Stock Level:    200163     27.54   0.000   0.321   0.000
+  Cust Report:   1100026    151.62   0.000   0.597   0.000
+
+           throughput =      27522.17 SPECjbb2005 bops 
+
+
+Calling Reporter
+SPECjbb2005 bops = 27534, SPECjbb2005 bops/JVM = 27534
+
+Neptune Ocean King Systems TurboBlaster 2
+Phobos Ltd Phobic Java 1.5.0
+SPEC license # 50,  Tested by: Neptune Corp.,  Test date: Apr 18, 2008
+
+Validity
+INVALID because benchmark recompiled or jbb.jar not first in CLASSPATH.
+INVALID: at least the points from 1 to 8 are needed for a publishable run.
+
+                   SPEC scores                                                                                        
+     Warehouses               Thrput
+              1                12352
+            * 2                27488
+            * 3                27590
+            * 4                27522
+                                    
+Throughput      27534               
+
+HARDWARE                                            | SOFTWARE                                                         
+Vendor                    Neptune Ocean King        | Vendor               Phobos Ltd                                  
+                          Systems                   | Vendor URL           http://www.phobos.uk.co                     
+Vendor URL                http://www.neptune.com    | JVM Version          Phobic Java 1.5.0                           
+Model                     TurboBlaster 2            | Command Line         java -ms256m -mx1024m -spec.jbb.JBBmain     
+Processor                 ARM                       |                      -propfile Test1                             
+MHz                       300                       | Initial Heap Mem     256                                         
+# of Chips                1                         | (MB)                                     
+# of Cores                2                         | Max Heap Mem (MB)    1024                                        
+# of Cores/Chip           2                         | JVM addressing bits  32                                          
+HW Threading Enabled      No                        | JVM CLASSPATH        ./jbb.jar:./check.jar                       
+Procs avail to Java       2                         | JVM BOOTCLASSPATH    /usr/jdk/instances/jdk1.6.0_06/jre/lib/i386/
+Memory (MB)               4096                      |                      server:/usr/jdk/instances/jdk1.6.0_06/jre/li
+Memory Details            punch cards               |                      b/i386:/usr/jdk/instances/jdk1.6.0_06/jre/..
+L1 Cache                  4KBI+4KBD                 |                      /lib/i386:/usr/jdk/packages/lib/i386:/lib:/u
+L2 Cache                  64KB(I+D) off chip        |                      sr/lib                                      
+Other Cache                                         | OS Version           Phobos DOS V33.333 patch-level 78           
+Filesystem                UFS                       | Other S/W            Neptune JIT Accelerator 2.3b6               
+Disks                     1 x 4GB SCSI (classes) 1  |                                                                  
+                          x 12GB SCSI (OS)          | AOT Compilation Details                                          
+Other H/W                 AT&T Rotary Telephone     | <p>precompiled code                                              
+                                                    | for<ul><li>Deliverytransaction.process</li><li>TransactionManager
+                                                    | .go</li></ul>loaded at startup</p>                               
+                                                    |                                                                  
+                                                    | TUNING AND NOTES                                                 
+                                                    | Operating system                                                 
+                                                    | tunings<UL><LI>bufcache=1024</LI><LI>maxthreads_per_user=65536</L
+                                                    | I></UL>                                                          
+                                                    | "Notes here"                                                     
+                                                    |                                                                  
+                                                                                                                       
+TEST INFORMATION                     
+Tested by          Neptune Corp.     
+SPEC License       50                
+Test Location      Santa Monica, CA  
+Test Date          Apr 18, 2008      
+JVM available      Jan-2000          
+H/w available      Jan-2000          
+OS available       May-2000          
+Other s/w          Feb-2000          
+available                            
+*** Invalid Result
+This result is not valid for the following reason(s):
+INVALID because benchmark recompiled or jbb.jar not first in CLASSPATH.
+INVALID: at least the points from 1 to 8 are needed for a publishable run.
+INVALID run; Score is 27534
+
+
+
+* Details of Runs
+
+  Wh.   Score     Tot.     Used  Thread elapsed Trans.           Count Resp. Time (s)
+                  Heap     Heap  spread  > 120s Type                   total max     
+                  (MB)     (MB)%       %                                             
+    1   12352     1129      145   <0.01   <0.01 new_order       162703 8.78  .284    
+                                                payment         112301 3.81  .251    
+                                                order_status     11230 .497  <0.01   
+                                                delivery         11229 10.3  .089    
+                                                stock_level      11229 1.13  .056    
+                                                cust_report      61897 4.63  .015    
+    2   27488     1129      618    2.31   <0.01 new_order      2898388 132   .407    
+                                                payment        1999218 50.0  .407    
+                                                order_status    199922 7.97  .019    
+                                                delivery        199921 185   .329    
+                                                stock_level     199922 14.8  .041    
+                                                cust_report    1100051 78.2  .158    
+    3   27590     1129      638    14.8   <0.01 new_order      2909710 197   .434    
+                                                payment        2006578 73.8  .229    
+                                                order_status    200658 13.2  .191    
+                                                delivery        200657 278   .441    
+                                                stock_level     200658 22.5  .334    
+                                                cust_report    1103451 119   .421    
+    4   27522     1129      640    10.8   <0.01 new_order      2903230 259   .690    
+                                                payment        2001630 108   .747    
+                                                order_status    200163 16.4  .594    
+                                                delivery        200163 371   .692    
+                                                stock_level     200163 27.5  .321    
+                                                cust_report    1100026 152   .597    
+
+SPECjbb2005 Version: [SPECjbb2005 1.07, March 15, 2006]
+Reporting page (C) Copyright SPEC, 2005. All rights reserved
+
+Output files: results/SPECjbbSingleJVM/SPECjbb.001.txt, results/SPECjbbSingleJVM/SPECjbb.001.raw, results/SPECjbbSingleJVM/SPECjbb.001.html
+
+
+Reporter messages:
+INVALID because benchmark recompiled or jbb.jar not first in CLASSPATH.
+INVALID: at least the points from 1 to 8 are needed for a publishable run.
+INVALID run; Score is  27534
+
+Completed at 04/18/2008 10:52:01 AM CDT

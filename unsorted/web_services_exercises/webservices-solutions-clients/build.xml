@@ -1,0 +1,43 @@
+<project name="WebServices clients" basedir=".">
+
+	<property file="build.properties"/>
+	
+	<!-- define the wsgen ant task -->	
+	<path id="jaxws.classpath">
+		<fileset dir="${jaxws.dir}">
+			<include name="lib/*.jar"/>
+		</fileset>
+	</path> 
+	
+	<taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">      
+		<classpath refid="jaxws.classpath"/>
+	</taskdef>
+	 
+	
+	<target name="createClientsArtifacts">
+		<wsimport      
+			keep="true"
+			destdir="src"
+			wsdl="http://localhost:8080/services/helloworld?wsdl"
+			package="helloworld.client.proxy"/>
+		
+		<wsimport      
+			keep="true"
+			destdir="src"
+			wsdl="http://localhost:8080/services/hebcalendar?wsdl"
+			package="calendar.client.proxy" 
+			binding="src/calendar/async-bindings.xml"/>
+		
+		<wsimport      
+			keep="true"
+			destdir="src"
+			wsdl="http://localhost:8080/services/addressbook?wsdl"
+			package="addressbook.client.proxy"/>
+		<wsimport      
+			keep="true"
+			destdir="src"
+			wsdl="http://localhost:8080/services/calculator?wsdl"
+			package="calculator.client.proxy"/>
+	</target>
+	
+</project>

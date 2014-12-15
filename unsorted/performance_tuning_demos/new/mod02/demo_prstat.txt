@@ -1,0 +1,45 @@
+Demo identifier: Module 2 prstat demo
+
+Operating system: Solaris 
+
+Software required: 
+- JDK 1.5 or higher
+- Java2Demo located in: <JDK install dir>/demo/jfc/Java2D/Java2Demo.jar
+- prstat (A standard Solaris OS utility)
+
+Objectives: 
+- To identify the LWPID that that has the higest CPU usage.
+- Use the LWPID to identify the corresponding Java thread.
+
+Instructions:
+1. On Solaris, open two terminal (or xterm) windows.
+
+2. In one window, run the command; 'prstat -Lm' 
+   This will report micro-state information on a per LWP basis. You should note the following:
+   - The PID and LWPID are reported in the right most column.
+   - The LWPIDs are arranged in rows with the busiest LWPID at the top.
+
+3. In the second window, run the Java2Demo and re-direct its output to a file:
+   java -client -jar <JDK install dir>/demo/jfc/Java2D/Java2Demo.jar > /tmp/demo1.txt
+   Click on the "Transform' tab in the Java2Demo.
+
+4. Observe the prstat -Lm window and note the PID and LWPID number of the busiest LWPID (top row of output).
+   You will use the PID number in step 6.
+   Convert the LWPID to a hex number. You will use the hex converted LWPID number in step 11.
+  
+5. Quit the prstat command.
+
+6. Use the following formatof the kill command to kill the busiest LWPID you identified in step 4.
+   kill -3 <PID> where the PID is the PID you noted in step 4. For example: kill -3 957
+
+7. Use the File menu to exit the Java2Demo application.
+
+8. Open the file /tmp/demo1.txt to examine the Java thread dump.
+
+9. Search the /tmp/demo1.txt for an nid value that matches the hex converted LWPID noted in step 4. 
+   For example, if the decimal value of the LWPID identified in step 4 is 10, then the corresponding hex
+   value is 0xa. A search for the string 'nid=0xa' will find the Java thread mapping to LWPID 10.  
+
+10. If time permits repeat the exercise. If you are very quick, the busiest LWPID might correspond to the 
+    JVM's JIT compiler.
+

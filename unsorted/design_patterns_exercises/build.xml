@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<project name="dp" default="compile">
+	<target name="compile" depends="" description="Compile main source tree java files into class files">
+		<mkdir dir="bin"/>
+		<javac srcdir="src" destdir="bin"/>
+	</target>
+	<target name="clean" description="Remove cruft">
+		<delete dir="bin"/>
+	</target>
+</project>

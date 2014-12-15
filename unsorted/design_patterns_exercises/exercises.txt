@@ -1,0 +1,32 @@
+Design Patterns Interbit Consulting & Training Ltd.
+Code samples and excercises written by Shlomi Noach
+Modified, Enhanced and adjusted for java 6.0 by Mark Veltzer
+
+Singleton
+Write a singleton in Java. Use code: dp.singleton.*
+
+Builder
+Given a text, we wish to read it word by word. Create two builders, one which creates a dictionary for these words (sorted alphabetically), another which creates a word counting map (for each word ­ the number of times it appears in the text). Use code: dp.builder.*
+
+Prototype
+Using the abstract factory presented in the course, create a prototype implementation, which replaces the abstract factory. Use code: dp.prototype.*
+
+Bridge
+We wish to implement a very simple database table. We define the DBTable interface (see code sample). We define the DataMap interface (see code sample). We require three different implementations for the DBTable interface: one which allows all operations; one which simulates a read-only table, where insert and update are illegal; one which simulates a table with a unique key, where an insert statement fails when the key already exists. We will use just one implementation for DataMap, one based on in-memory HashMap. Use code: dp.bridge.*
+
+Composite
+We will simulate an XML DOM structure. Create an XMLElement class, which represents an XML element. Such an element may contain textual data, as well as ordered children elements. Create a getChildren() method. Use code: dp.composite.MXLElement · + Builder: Create an XMLDocument, which contains an XML DOM tree, plus a version number. We wish to use the builder patterns so as to create formatted (beautified) versions of the document. Implement one such builder. Use code: dp.composite.*
+
+Iterator
+First, re-implement the XMLElement.getChildren() method so that it returns an iterator. Create a getChildren(String name) method which returns an iterator, listing only those children with the given name. Use code: dp.iterator.XMLElement
+
+Command · We wish to implement a small fraction of a word-processor. Our mini-editor will be able to perform commands and undo them (defined by EditorCommand). Such a command may be an AppendCommand, which appends a given text to the end of the editor's current text, and a DeleteCommand, which removes a portion of the text, given a start and end positions. Implement these commands. Make sure you implement the undo() methods. Implement an undo/redo mechanism in the editor. Use code: dp.command.EditorCommand, dp.command.SimpleEditorToComplete, based on which students will solve the assignment.
+
+State
+Simulate a network device, defined by InetworkDevice. Create a NetworkDevice class, which uses the state pattern to show the three possible states: DISABLED, ENABLED, SUSPENDED. Define a reasonable transition matrix for the states. Use code: dp.state.*
+
+Template method, Strategy, Observer
+We wish to implement a logging system. We will demonstrate several solutions, based on different patterns. Our logger will logger receives a logMessage(subject, message) call and outputs a formatted line, in the form: date,subject,message. · Use the template method pattern to create two such loggers, one which outputs the data to standard console, another to file or standard error. Avoid code duplication. Use code: dp.templatemethod.* · Use the strategy pattern to refine the previous solution. How does using strategy refine the template method solution? Use code: dp.strategy.* · Use the observer pattern to enable multiple listeners for the log event. How does this solution refine the previous ones? Use code: dp.observer.logger.*
+
+Visitor
+Add the visitor pattern to our XMLElement class. Create two visitors: one which lists the names of courses Interbit provides, another which counts the XML tags. Use code: dp.visitor.*

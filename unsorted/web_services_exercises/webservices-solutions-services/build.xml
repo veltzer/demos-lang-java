@@ -1,0 +1,52 @@
+<project name="WebServices services" basedir=".">
+
+	<property file="build.properties"/>
+	
+	<!-- define the wsgen ant task -->	
+	<path id="jaxws.classpath">
+		<fileset dir="${jaxws.dir}">
+			<include name="lib/*.jar"/>
+		</fileset>
+	</path>
+	 
+	<taskdef name="wsgen" classname="com.sun.tools.ws.ant.WsGen">
+		<classpath refid="jaxws.classpath"/>
+	</taskdef>
+	
+	<target name="clean">
+		<delete>
+			<fileset dir="deploy">
+				<include name="**/*"/>
+			</fileset>
+		</delete>
+	</target>
+	
+	<target name="servicesGen" depends="clean">
+		
+		<wsgen sei="helloworld.service.HelloWorld" classpath="bin" destdir="deploy"/> 
+		<wsgen sei="calendar.service.HebCalendar" classpath="bin" destdir="deploy"/> 
+		<wsgen sei="addressbook.service.AddressBook" classpath="bin" destdir="deploy"/> 
+		<wsgen sei="calculator.service.StatefulCalculator" classpath="bin" destdir="deploy"/> 
+	
+	</target>
+		
+	<target name="createWarFile" depends="servicesGen">
+		<war destfile="deploy/services.war" webxml="WEB-INF/web.xml">
+			<zipfileset dir="bin" prefix="WEB-INF/classes">
+				<include name="**/*"/>
+			</zipfileset>
+			<zipfileset dir="deploy" prefix="WEB-INF/classes">
+				<include name="**/*.class"/>
+			</zipfileset>
+			<zipfileset dir="WEB-INF" prefix="WEB-INF">
+				<include name="sun-jaxws.xml"/>
+			</zipfileset>
+		</war>
+	</target>
+	
+	<target name="deploy" depends="createWarFile">
+		<copy file="deploy/services.war" todir="${tomcat.dir}/webapps">
+		</copy>	
+	</target>
+
+</project>

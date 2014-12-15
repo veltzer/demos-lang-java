@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+    <classpathentry kind="src" output="EJB Jar" path="EJB Source"/>
+    <classpathentry kind="src" output="Client Source" path="Client Source"/>
+    <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+    <classpathentry kind="var" path="WEBLOGIC_JAR"/>
+    <classpathentry kind="output" path=""/>
+</classpath>

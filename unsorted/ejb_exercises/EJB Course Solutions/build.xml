@@ -1,0 +1,48 @@
+<project name="ejbcourse" basedir="." default="all">
+	<!-- This is a declaration of properties which will be later used throughout the file -->
+	<property name="JAVA_HOME" value="C:\j2sdk1.4.2_09"/>
+	<property name="BEA_HOME" value="C:/bea"/>
+	<property name="BEA_USER" value="weblogic"/>
+	<property name="BEA_PWD" value="weblogic"/>
+
+	<!-- This target checks for the existence of the "EJBCourse.jar", and sets a flag accordingly -->
+	<target name="init">
+		<available file="./EJBCourse.jar" property="ejb.jar.exists"/>
+	</target>
+	
+	<!-- This target undeploys the "EJBCourse.jar" from the server, if it exists, by using the server's tool named: weblogic.Deployer -->
+	<target name="undeploy" if="ejb.jar.exists">   		
+		<exec dir="." executable="java" failonerror="false">
+			<arg line="-classpath ${JAVA_HOME}/lib/tools.jar;${BEA_HOME}/weblogic81/server/lib/weblogic.jar weblogic.Deployer -debug -verbose -noexit -name EJBCourse -targets examplesServer -adminurl t3://localhost:7001 -user ${BEA_USER} -password ${BEA_PWD} -undeploy"/>
+		</exec>
+		
+	</target>
+	
+	<!-- This target jars all the products in the "EJB Jar" directory, which is configured as an output directory -->
+	<target name="ejb-jar">
+		<delete failonerror="false" file="./EJBCourse.jar"></delete>
+		<jar jarfile="./EJBCourse.jar">
+			<fileset dir="./EJB Jar">
+				<include name="**/*"/>
+			</fileset>	      
+		</jar>
+	</target>
+
+	<!-- This target compiles the "EJBCourse.jar" file by using the server's tool named: weblogic.appc -->
+	<target name="appc">
+		<exec dir="." executable="java">
+			<arg line="-classpath ${JAVA_HOME}/lib/tools.jar;${BEA_HOME}/weblogic81/server/lib/weblogic.jar weblogic.appc ./EJBCourse.jar"/>
+		</exec>
+	</target>
+	
+	<!-- This target deploys the "EJBCourse.jar" on the server, by using the server's tool named: weblogic.Deployer -->
+	<target name="deploy">   
+		<exec dir="." executable="java" failonerror="false">
+			<arg line="-classpath ${JAVA_HOME}/lib/tools.jar;${BEA_HOME}/weblogic81/server/lib/weblogic.jar weblogic.Deployer -source ./EJBCourse.jar -debug -verbose -noexit -name EJBCourse -targets examplesServer -adminurl t3://localhost:7001 -user ${BEA_USER} -password ${BEA_PWD} -deploy"/>
+		</exec>
+
+	</target>
+	
+	<!-- This is the default target which triggers all the other targets -->
+	<target name="all" depends="init,undeploy,ejb-jar,appc,deploy"/>
+</project>

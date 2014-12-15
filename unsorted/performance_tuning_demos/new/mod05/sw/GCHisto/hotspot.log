@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<hotspot_log version='160 1' process='2788' time_ms='1217598929602'>
+<vm_version>
+<name>
+Java HotSpot(TM) Client VM
+</name>
+<release>
+11.0-b12-fastdebug
+</release>
+<info>
+Java HotSpot(TM) Client VM (11.0-b12-fastdebug) for windows-x86 JRE (1.6.0_10-beta-fastdebug-b25), built on May 29 2008 02:29:48 by &quot;java_re&quot; with MS VC++ 7.1
+</info>
+</vm_version>
+<vm_arguments>
+<command>
+GChisto.jar gc-logs-4.txt
+</command>
+<launcher>
+SUN_STANDARD
+</launcher>
+<properties>
+java.vm.specification.version=1.0
+java.vm.specification.name=Java Virtual Machine Specification
+java.vm.specification.vendor=Sun Microsystems Inc.
+java.vm.version=11.0-b12-fastdebug
+java.vm.name=Java HotSpot(TM) Client VM
+java.vm.vendor=Sun Microsystems Inc.
+java.vm.info=mixed mode, sharing
+java.ext.dirs=C:\jdk1.6.0_10\fastdebug\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext
+java.endorsed.dirs=C:\jdk1.6.0_10\fastdebug\jre\lib\endorsed
+sun.boot.library.path=C:\jdk1.6.0_10\fastdebug\jre\bin
+java.library.path=C:\jdk1.6.0_10\fastdebug\bin;.;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\PROGRA~1\MKSTOO~1\bin;C:\PROGRA~1\MKSTOO~1\bin\X11;C:\PROGRA~1\MKSTOO~1\mksnt;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\jdk1.6.0_04\bin
+java.home=C:\jdk1.6.0_10\fastdebug\jre
+java.class.path=GChisto.jar
+sun.boot.class.path=C:\jdk1.6.0_10\fastdebug\jre\lib\resources.jar;C:\jdk1.6.0_10\fastdebug\jre\lib\rt.jar;C:\jdk1.6.0_10\fastdebug\jre\lib\sunrsasign.jar;C:\jdk1.6.0_10\fastdebug\jre\lib\jsse.jar;C:\jdk1.6.0_10\fastdebug\jre\lib\jce.jar;C:\jdk1.6.0_10\fastdebug\jre\lib\charsets.jar;C:\jdk1.6.0_10\fastdebug\jre\classes
+sun.java.launcher=SUN_STANDARD
+</properties>
+</vm_arguments>
+<tty>
+<writer thread='2544'/>
+C1 Runtime statistics:
+ _resolve_invoke_virtual_cnt:     8
+ _resolve_invoke_opt_virtual_cnt: 5
+ _resolve_invoke_static_cnt:      3
+ _handle_wrong_method_cnt:        0
+ _ic_miss_cnt:                    4
+ _generic_arraycopy_cnt:          0
+ _primitive_arraycopy_cnt:        238
+ _oop_arraycopy_cnt:              0
+ _arraycopy_slowcase_cnt:         0
+ _new_type_array_slowcase_cnt:    0
+ _new_object_array_slowcase_cnt:  0
+ _new_instance_slowcase_cnt:      0
+ _new_multi_array_slowcase_cnt:   0
+ _monitorenter_slowcase_cnt:      0
+ _monitorexit_slowcase_cnt:       0
+ _patch_code_slowcase_cnt:        0
+ _throw_range_check_exception_count:            0:
+ _throw_index_exception_count:                  0:
+ _throw_div0_exception_count:                   0:
+ _throw_null_pointer_exception_count:           0:
+ _throw_class_cast_exception_count:             0:
+ _throw_incompatible_class_change_error_count:  0:
+ _throw_array_store_exception_count:            0:
+ _throw_count:                                  0:
+
+<statistics type='nmethod'>
+Statistics for 1 native nmethods:
+ N. total size  = 624
+ N. relocation  = 60
+ N. main code   = 376
+Statistics for 37 bytecoded nmethods:
+ total in heap  = 91952
+ relocation     = 6100
+ main code      = 32240
+ stub code      = 3264
+ constants      = 16
+ scopes data    = 19000
+ scopes pcs     = 20412
+ dependencies   = 148
+ handler table  = 2208
+ nul chk table  = 1332
+ oops           = 348
+Debug Data Chunks: 3219, shared 400+878, non-SP&apos;s elided 35
+PcDesc Statistics:  123 queries, 13.88 comparisons per query
+  caches=37 queries=123/0, hits=0+11, tests=571+1136, adds=112
+</statistics>
+<writer thread='3316'/>
+<destroy_vm stamp='6.027'/>
+<tty_done stamp='6.153'/>
+</tty>
+<hotspot_log_done stamp='6.153'/>
+</hotspot_log>

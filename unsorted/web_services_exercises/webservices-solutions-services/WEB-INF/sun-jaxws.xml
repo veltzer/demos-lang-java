@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoints xmlns='http://java.sun.com/xml/ns/jax-ws/ri/runtime' version='2.0'>
+    <endpoint
+        name='helloworld'
+        implementation='helloworld.service.HelloWorld'
+        url-pattern='/helloworld'/>
+    <endpoint
+        name='hebcalendar'
+        implementation='calendar.service.HebCalendar'
+        url-pattern='/hebcalendar'/>
+    <endpoint
+        name='addressbook'
+        implementation='addressbook.service.AddressBook'
+        url-pattern='/addressbook'/>
+    <endpoint
+        name='calculator'
+        implementation='calculator.service.StatefulCalculator'
+        url-pattern='/calculator'/>
+</endpoints>
