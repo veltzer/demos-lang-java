@@ -31,47 +31,47 @@ all: $(ALL)
 .PHONY: check_imports
 check_imports:
 	$(info doing [$@])
-	$(Q)wrapper_ok git grep -e "import .*\.\*" -- "*.java"
+	$(Q)make_helper wrapper-ok git grep -e "import .*\.\*" -- "*.java"
 
 .PHONY: check_serialid
 check_serialid:
 	$(info doing [$@])
-	$(Q)wrapper_ok git grep -l serialVersionUID -- "*.java"
+	$(Q)make_helper wrapper-ok git grep -l serialVersionUID -- "*.java"
 
 .PHONY: check_ws_eol
 check_ws_eol:
 	$(info doing [$@])
-	$(Q)wrapper_ok git grep " $$" -- "*.java"
+	$(Q)make_helper wrapper-ok git grep " $$" -- "*.java"
 
 .PHONY: check_tab_eol
 check_tab_eol:
 	$(info doing [$@])
-	$(Q)wrapper_ok git grep -l "\s$$" -- "*.java"
+	$(Q)make_helper wrapper-ok git grep -l "\s$$" -- "*.java"
 
 .PHONY: check_dbl_ws
 check_dbl_ws:
 	$(info doing [$@])
-	$(Q)wrapper_ok git grep "  " -- "*.java"
+	$(Q)make_helper wrapper-ok git grep "  " -- "*.java"
 
 .PHONY: check_author
 check_author:
 	$(info doing [$@])
-	$(Q)wrapper_ok git grep -e "@author" --and --not -e "Mark Veltzer <mark@veltzer.net>" -- "*.java"
+	$(Q)make_helper wrapper-ok git grep -e "@author" --and --not -e "Mark Veltzer <mark@veltzer.net>" -- "*.java"
 
 .PHONY: check_version
 check_version:
 	$(info doing [$@])
-	$(Q)wrapper_ok git grep -l "@version" -- "*.java"
+	$(Q)make_helper wrapper-ok git grep -l "@version" -- "*.java"
 
 .PHONY: check_printstacktrace
 check_printstacktrace:
 	$(info doing [$@])
-	$(Q)wrapper_ok git grep -l "printStackTrace()" -- "*.java"
+	$(Q)make_helper wrapper-ok git grep -l "printStackTrace()" -- "*.java"
 
 .PHONY: check_exceptionnames
 check_exceptionnames:
 	$(info doing [$@])
-	$(Q)wrapper_ok git grep -l -e "throw new RuntimeException" --and --not -e "(e)" --and --not -e "ERR_STRING" --and --not -e "errString" -- "*.java"
+	$(Q)make_helper wrapper-ok git grep -l -e "throw new RuntimeException" --and --not -e "(e)" --and --not -e "ERR_STRING" --and --not -e "errString" -- "*.java"
 
 .PHONY: check_src
 check_src:
@@ -86,9 +86,9 @@ check_names:
 .PHONY: check_interbit
 check_interbit:
 	$(info doing [$@])
-	$(Q)git grep -l "interbit" | wrapper_ok grep -v Makefile
-	$(Q)git grep -l "Interbit" | wrapper_ok grep -v Makefile
-	$(Q)git grep -l "InterBit" | wrapper_ok grep -v Makefile
+	$(Q)git grep -l "interbit" | make_helper wrapper-ok grep -v Makefile
+	$(Q)git grep -l "Interbit" | make_helper wrapper-ok grep -v Makefile
+	$(Q)git grep -l "InterBit" | make_helper wrapper-ok grep -v Makefile
 
 .PHONY: check_all
 check_all: check_imports check_serialid check_ws_eol check_tab_eol check_dbl_ws check_author check_version check_printstacktrace check_exceptionnames check_src check_names check_interbit

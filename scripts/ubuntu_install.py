@@ -58,6 +58,9 @@ packs=[
 	'eclipse-gef',
 	'eclipse-rcp',
 	'eclipse-xsd',
+
+	# for my make helper
+	'templar',
 ]
 
 if do_oracle:

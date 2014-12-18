@@ -25,11 +25,9 @@ public class TestSuite {
         for (int i = 0; i < tests.length; i++) {
 			tests[i].run();
 		}
-    	
     }
 
     public static void main(String... argv) {
-    	
         TestSuite suite = new TestSuite();
         suite.execute(
                 new Empty(),
