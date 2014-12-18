@@ -124,11 +124,16 @@ debug:
 	$(info CLASSPATH_CS is $(CLASSPATH_CS))
 	$(info MAINCLASS_CS is $(MAINCLASS_CS))
 
-.PHONY: clean
-clean:
+.PHONY: clean_soft
+clean_soft:
 	$(info doing [$@])
 	$(Q)rm -f $(ALL)
 	$(Q)rm -rf $(BIN_FOLDERS)
+	
+.PHONY: clean
+clean:
+	$(info doing [$@])
+	$(Q)git clean -xdf > /dev/null
 
 # rules
 
