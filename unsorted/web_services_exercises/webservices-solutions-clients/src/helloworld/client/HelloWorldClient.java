@@ -8,7 +8,7 @@ public class HelloWorldClient {
 		HelloWorldService service = new HelloWorldService();
 		HelloWorld port = service.getHelloWorldPort();
 		
-		String response = port.sayHello("Interbit");
+		String response = port.sayHello("hello");
 		
 		System.out.println(response);
 	}

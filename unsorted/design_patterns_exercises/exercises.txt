@@ -1,6 +1,4 @@
-Design Patterns Interbit Consulting & Training Ltd.
-Code samples and excercises written by Shlomi Noach
-Modified, Enhanced and adjusted for java 6.0 by Mark Veltzer
+Design Patterns exercises
 
 Singleton
 Write a singleton in Java. Use code: dp.singleton.*
@@ -29,4 +27,4 @@ Template method, Strategy, Observer
 We wish to implement a logging system. We will demonstrate several solutions, based on different patterns. Our logger will logger receives a logMessage(subject, message) call and outputs a formatted line, in the form: date,subject,message. · Use the template method pattern to create two such loggers, one which outputs the data to standard console, another to file or standard error. Avoid code duplication. Use code: dp.templatemethod.* · Use the strategy pattern to refine the previous solution. How does using strategy refine the template method solution? Use code: dp.strategy.* · Use the observer pattern to enable multiple listeners for the log event. How does this solution refine the previous ones? Use code: dp.observer.logger.*
 
 Visitor
-Add the visitor pattern to our XMLElement class. Create two visitors: one which lists the names of courses Interbit provides, another which counts the XML tags. Use code: dp.visitor.*
+Add the visitor pattern to our XMLElement class. Create two visitors: one which lists the names of courses, another which counts the XML tags. Use code: dp.visitor.*
