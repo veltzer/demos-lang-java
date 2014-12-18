@@ -39,16 +39,16 @@ public class Pile extends Card {
         int newRank = newValue.getRank().ordinal();
         int rankSize = Card.Rank.values().length;
         int delta = (oldRank-newRank+rankSize)%rankSize;
-        
+
         if ((delta!=1)&&(delta!=(rankSize-1))) return false;
-        
+
         boolean ok=false;
         lock.lock();
         try
         {
             ok=getRank().ordinal()==oldRank;
             if (ok)
-            { 
+            {
                 setRank(newValue.getRank());
                 setSuit(newValue.getSuit());
             }
@@ -57,10 +57,10 @@ public class Pile extends Card {
         }
         return ok;
     }
-    
+
     /**
      * describtion of the pile state
-     * @return a compact readable string 
+     * @return a compact readable string
      */
     public String toString() { return String.format("[%s]",super.toString()); }
 }

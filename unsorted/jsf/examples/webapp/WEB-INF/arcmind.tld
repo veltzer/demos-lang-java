@@ -8,72 +8,69 @@
    <short-name>arcmind</short-name>
    <uri>http://arcmind.com/jsf/component/tags</uri>
    <description>ArcMind tags</description>
-   
-   
+
+
    <!-- TODO add the simple label tag to the tld -->
    <tag>
       <name>slabel</name>
       <tag-class>com.arcmind.jsfquickstart.LabelTag</tag-class>
 
 	  <!-- Add the label attribute to the simple label tag -->
-      <attribute> 
-         <name>label</name> 
+      <attribute>
+         <name>label</name>
          <description>The value of the label</description>
-      </attribute> 
+      </attribute>
    </tag>
-   
+
    <tag>
       <name>label</name>
       <tag-class>com.arcmind.jsfquickstart.FancyLabelTag</tag-class>
 
-      <attribute> 
-         <name>label</name> 
+      <attribute>
+         <name>label</name>
          <description>The value of the label</description>
-      </attribute> 
-      <attribute> 
-         <name>errorStyle</name> 
+      </attribute>
+      <attribute>
+         <name>errorStyle</name>
          <description>The value of the errorStyle</description>
-      </attribute> 
-      <attribute> 
-         <name>for</name> 
+      </attribute>
+      <attribute>
+         <name>for</name>
          <description>The value of the for</description>
-      </attribute> 
-      <attribute> 
-         <name>errorStyleClass</name> 
+      </attribute>
+      <attribute>
+         <name>errorStyleClass</name>
          <description>The value of the errorStyleClass</description>
-      </attribute> 
+      </attribute>
 
    </tag>
-   
+
    <tag>
       <name>field</name>
       <tag-class>com.arcmind.jsfquickstart.FieldTag</tag-class>
-      <attribute> 
-         <name>id</name> 
+      <attribute>
+         <name>id</name>
          <description>The value of the id</description>
-      </attribute> 
-      <attribute> 
-         <name>value</name> 
+      </attribute>
+      <attribute>
+         <name>value</name>
          <description>The value of the value</description>
-      </attribute> 
-      <attribute> 
-         <name>required</name> 
+      </attribute>
+      <attribute>
+         <name>required</name>
          <description>The value of the required</description>
-      </attribute> 
-      <attribute> 
-         <name>label</name> 
+      </attribute>
+      <attribute>
+         <name>label</name>
          <description>The value of the label</description>
-      </attribute> 
-      <attribute> 
-         <name>errorStyle</name> 
+      </attribute>
+      <attribute>
+         <name>errorStyle</name>
          <description>The value of the errorStyle</description>
-      </attribute> 
-      <attribute> 
-         <name>errorStyleClass</name> 
+      </attribute>
+      <attribute>
+         <name>errorStyleClass</name>
          <description>The value of the errorStyleClass</description>
-      </attribute> 
+      </attribute>
    </tag>
-   
-   
-   
 </taglib>

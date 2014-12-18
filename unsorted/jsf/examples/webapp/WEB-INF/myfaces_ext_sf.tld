@@ -2889,7 +2889,7 @@
             </description>
         </attribute>
      </tag>
-     
+
     <!-- inputDate -->
     <tag>
         <name>inputDate</name>
@@ -4209,7 +4209,7 @@
 
 <!-- validators -->
 
-    
+
         <!-- creditCard -->
     <tag>
         <name>validateCreditCard</name>
@@ -4260,7 +4260,7 @@
             </description>
         </attribute>
     </tag>
-    
+
     <!-- Validator for Email -->
      <tag>
         <name>validateEmail</name>
@@ -4269,7 +4269,7 @@
         <description>
 			A custom validator for email address format, based upons Jakarta Commons.
         </description>
-	</tag>   
+	</tag>
 
     <!-- Validator for ISBN -->
      <tag>
@@ -4279,7 +4279,7 @@
         <description>
 			A custom validator for isbn codes, based upons Jakarta Commons.
         </description>
-	</tag> 
+	</tag>
 	
     <!-- Validator for Regular Expressions -->
     <tag>
@@ -4308,7 +4308,7 @@
         <description>
 			A custom validator for validations against foreign component values.
         </description>
-   
+
         <attribute>
             <name>for</name>
             <required>true</required>
@@ -4316,6 +4316,6 @@
             <description>
 				the id of the foreign component, which is needed for the validation
             </description>
-        </attribute>     
-	</tag>   
+        </attribute>
+	</tag>
 </taglib>

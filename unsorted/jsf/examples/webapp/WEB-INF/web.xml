@@ -8,7 +8,7 @@
         </description>
         <param-name>javax.faces.CONFIG_FILES</param-name>
         <param-value>
-                  /WEB-INF/faces-config.xml        
+                  /WEB-INF/faces-config.xml
         </param-value>
     </context-param>
 
@@ -34,7 +34,7 @@
         <param-name>org.apache.myfaces.ALLOW_JAVASCRIPT</param-name>
         <param-value>true</param-value>
     </context-param>
-    
+
     <context-param>
         <description>
             This parameter tells MyFaces if javascript code should be allowed in the
@@ -77,7 +77,7 @@
         <param-name>org.apache.myfaces.AUTO_SCROLL</param-name>
         <param-value>true</param-value>
     </context-param>
-    
+
         <!-- WelcomeFile Filter -->
     <!--
     <filter>
@@ -174,9 +174,9 @@
       <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
       <load-on-startup>0</load-on-startup>
    </servlet>
-   
+
     <!-- source code servlet (will not work with JSF virtual path mapping) -->
-    <!--  this servlet is optional and for educational purposes only 
+    <!--  this servlet is optional and for educational purposes only
     <servlet>
         <servlet-name>SourceCodeServlet</servlet-name>
         <servlet-class>org.apache.myfaces.examples.servlet.SourceCodeServlet</servlet-class>
@@ -201,7 +201,7 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/cdstore/*</url-pattern>
     </servlet-mapping>
-    
+
 
     <!-- extension mapping -->
     <servlet-mapping>
@@ -220,7 +220,7 @@
 			<taglib-location>/WEB-INF/arcmind.tld</taglib-location>		
 		</taglib>
 	</jsp-config>
-<!-- 
+<!--
     <servlet-mapping>
         <servlet-name>SourceCodeServlet</servlet-name>
         <url-pattern>*.source</url-pattern>
@@ -234,9 +234,9 @@
         <welcome-file>index.jsp</welcome-file>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
-    
-    
-   
-   
+
+
+
+
 </web-app>
 

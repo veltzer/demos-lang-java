@@ -16,38 +16,38 @@
 		.ocean {background-color: cyan}
 		.tableHeader {background-color: white}
     </style>
-    
-    
+
+
   </head>
   <body class="ocean">
-     
+
     <f:view>
 			<h:form>	
-				<h:dataTable id="items" 
-				             value="#{CDManagerBean.cds}" 
+				<h:dataTable id="items"
+				             value="#{CDManagerBean.cds}"
 				             var="cd"
-				             rowClasses="oddRow, evenRow" 
-										 headerClass="tableHeader" 
+				             rowClasses="oddRow, evenRow"
+										 headerClass="tableHeader"
 				             >
-				  
+				
 				  <h:column>
 				    <f:facet name="header">
 				        <h:outputText value="Title"/>
 				    </f:facet>
-				    
+				
 				    <!--TODO change this into a link -->
 				    <h:commandLink action="#{CDManagerBean.editCD}">
 				        <h:outputText value="#{cd.title}"/>
 				    </h:commandLink>
 				  </h:column>
-				  
+				
 				  <h:column>
 				    <f:facet name="header">
 				    	<h:outputText value="Artist"/>
 				    </f:facet>
 				    <h:outputText value="#{cd.artist}"/>
 				  </h:column>
-				  
+				
 				  <h:column>
 				    <f:facet name="header">
 				      <h:outputText value="Price"/>
@@ -55,12 +55,12 @@
 				    <h:outputText value="#{cd.price}"/>
 				  </h:column>
 				
-				</h:dataTable> 
+				</h:dataTable>
     		
     		<br/>
     		<h:outputLink value="cdForm.jsp" >
             <f:verbatim>Add CD</f:verbatim>
-        </h:outputLink> 
+        </h:outputLink>
     		
     	</h:form>		
     </f:view>

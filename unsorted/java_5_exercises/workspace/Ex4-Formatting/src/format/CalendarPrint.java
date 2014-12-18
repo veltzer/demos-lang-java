@@ -10,7 +10,7 @@ import java.text.DateFormatSymbols;
 import java.util.*;
 
 /**
- * 
+ *
  * @author pix
  */
 public class CalendarPrint {

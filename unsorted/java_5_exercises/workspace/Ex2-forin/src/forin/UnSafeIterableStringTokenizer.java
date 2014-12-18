@@ -12,9 +12,9 @@ import java.util.*;
  *
  * @author pix
  */
-public class UnSafeIterableStringTokenizer 
+public class UnSafeIterableStringTokenizer
 	extends StringTokenizer implements Iterable {
-    
+
     public UnSafeIterableStringTokenizer(String str,
                        String delim,
                        boolean returnDelims) {
@@ -37,7 +37,7 @@ public class UnSafeIterableStringTokenizer
             public void remove() { throw new UnsupportedOperationException("remove() not supported"); }
         };
     }
-    
+
     public static void main(String[] args) {
         String s = "Hello World, how are you?";
         UnSafeIterableStringTokenizer si = new UnSafeIterableStringTokenizer(s);

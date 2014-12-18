@@ -16,26 +16,26 @@ import enums.*;
  */
 public class Speed {
     public final static int PLAYERS = 4;
-    
+
     private List<Pile> piles = new ArrayList<Pile>(PLAYERS);
     private List<Player> players = new ArrayList<Player>(PLAYERS);
-    
+
     /**
      * Creates a new instance of the game
      */
-    public Speed() {   
+    public Speed() {
         System.err.println("INITIALIZING");
-        
+
         //CREATE A SHUFFLED DECK
         Deck deck = new Deck();
         //System.err.println("Deck: "+deck);
-        
-        //CREATE FOUR PLAYERS AND DEAL EACH PLAYER 13 CARDS 
+
+        //CREATE FOUR PLAYERS AND DEAL EACH PLAYER 13 CARDS
         int size = deck.size();
         int cardPerPlayer = size/PLAYERS;
         for (int idx=0; idx<deck.size();idx+=cardPerPlayer)
             players.add(
-                new Player( 
+                new Player(
                     "p"+Integer.toString(idx),
                     this,
                     new Deck(deck.subList(idx,idx+cardPerPlayer))
@@ -44,18 +44,18 @@ public class Speed {
 
         //WRITE TO SCREEN THE STATUS OF THE GAME
         moved();
-        
+
         //START PLAYING
         launch();
     }
-    
+
     /**
      * Entrance function that constructs the Speed game.
      */
     public static void main(String[] args) {
         new Speed();
     }
-    
+
     /**
      * starts the game by invoking the four <CODE>Players</CODE>
      */
@@ -72,7 +72,7 @@ public class Speed {
     }
 
     /**
-     * 
+     *
      * @return a list of <CODE>Pile</CODE>s
      */
     public List<Pile> getPiles() {
@@ -82,7 +82,7 @@ public class Speed {
     public void newPile(Card card) {
         piles.add(new Pile(card));
     }
-    
+
     /**
      * This method writes to standard-error a single line describing the state of the game
      */

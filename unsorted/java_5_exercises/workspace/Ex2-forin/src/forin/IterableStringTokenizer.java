@@ -13,7 +13,7 @@ import java.util.*;
  * @author pix
  */
 public class IterableStringTokenizer extends StringTokenizer implements Iterable<String> {
-    
+
     public IterableStringTokenizer(String str,
                        String delim,
                        boolean returnDelims) {
@@ -36,12 +36,12 @@ public class IterableStringTokenizer extends StringTokenizer implements Iterable
             public void remove() { throw new UnsupportedOperationException("remove() not supported"); }
         };
     }
-    
+
     public static void main(String... args) {
         String s = "Hello World, how are you?";
         IterableStringTokenizer si = new IterableStringTokenizer(s);
         for (String w: si)
             System.out.println(w);
     }
-    
+
 }

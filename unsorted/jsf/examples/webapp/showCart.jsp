@@ -16,35 +16,35 @@
 		.ocean {background-color: cyan}
 		.tableHeader {background-color: white}
     </style>
-    
-    
+
+
   </head>
   <body class="ocean">
-    <h1>Shopping Cart</h1> 
+    <h1>Shopping Cart</h1>
     <f:view>
 			<h:form id="cartForm">	
-				<h:dataTable id="items" 
-				             value="#{cart.items}" 
+				<h:dataTable id="items"
+				             value="#{cart.items}"
 				             var="cd"
-				             rowClasses="oddRow, evenRow" 
-										 headerClass="tableHeader" 
+				             rowClasses="oddRow, evenRow"
+										 headerClass="tableHeader"
 				             >
-				  
+				
 				  <h:column>
 				    <f:facet name="header">
 				        <h:outputText value="Title"/>
 				    </f:facet>
-				    
+				
 				    <h:outputText value="#{cd.title}"/>
 				  </h:column>
-				  
+				
 				  <h:column>
 				    <f:facet name="header">
 				    	<h:outputText value="Artist"/>
 				    </f:facet>
 				    <h:outputText value="#{cd.artist}"/>
 				  </h:column>
-				  
+				
 				  <h:column>
 				    <f:facet name="header">
 				      <h:outputText value="Price"/>
@@ -56,7 +56,7 @@
 				    <f:facet name="header">
 				        <h:outputText value="Remove"/>
 				    </f:facet>
-				    
+				
 				    <h:commandLink action="#{cart.remove}">
 				        <h:outputText value="Remove"/>
 				        <f:param name="title" value="#{cd.title}" />
@@ -65,13 +65,13 @@
 				  </h:column>
 
 				
-				</h:dataTable> 
+				</h:dataTable>
     		
     		<br/>
     		
     		<h:commandLink  action="store">
 				    <h:outputText value="Return to Store"/>
-        </h:commandLink> 
+        </h:commandLink>
     		
     		
     	</h:form>		

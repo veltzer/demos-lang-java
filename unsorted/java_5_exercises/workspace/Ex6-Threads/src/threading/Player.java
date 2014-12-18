@@ -20,7 +20,7 @@ public class Player implements Callable<Player> {
     String name;
     Speed game;
     Deck cards;
-    
+
     /**
      * Creates a new instance of Player.
      * @param name name of the player
@@ -31,19 +31,19 @@ public class Player implements Callable<Player> {
         this.name=name;
         this.game=game;
         this.cards=cards;
-        
+
         //THROW ONE CARD TO CREATE A NEW PILE
         game.newPile(cards.remove(cards.size()-1));
-    }    
+    }
 
     /**
-     * This function runs the player's game strategy. 
+     * This function runs the player's game strategy.
      * The call method is called by the <CODE>Executor</CODE>.
      * @return null
      */
     public Player call() {
         int idleCycles = 0;
-        
+
         //IF THE PLAYER FAILS TO MAKE A MOVE IN 100 CYCLES HE GIVES UP
         //(IN SPEED NOT ALL USERS WILL BE ABLE TO THROW ALL THIER CARDS EVERY TIME)
         while(cards.size()>0&&idleCycles<100) {
@@ -53,7 +53,7 @@ public class Player implements Callable<Player> {
             {
                 //GO OVER ALL CARDS
                 for (Iterator<Card> i = cards.iterator(); i.hasNext(); )
-                { 
+                {
                     Card card = i.next();
                     //TRY TO THROW CARD ON PILE
                     if (pile.tryAdvance(card)) {
@@ -82,7 +82,7 @@ public class Player implements Callable<Player> {
 
     /**
      * returns the player's name and number of cards
-     * @return a compact readable string 
+     * @return a compact readable string
      */
     public String toString() {
       return String.format("%s[%d]",name,cards.size());

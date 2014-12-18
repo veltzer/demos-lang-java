@@ -4,42 +4,42 @@
 -->
 <%@ taglib uri="http://java.sun.com/jsf/html" prefix="h" %>
 <%@ taglib uri="http://java.sun.com/jsf/core" prefix="f" %>
-<%@ taglib prefix="arcmind" 
+<%@ taglib prefix="arcmind"
          uri="http://arcmind.com/jsf/component/tags" %>
-         
+
 <html>
 
-    <head> 
-    	<title>CD Form</title> 
+    <head>
+    	<title>CD Form</title>
 	    <link rel="stylesheet" type="text/css" href="styles.css">
     </head>
-    
+
     <body bgcolor="white">
-    
+
     <f:view>
       <h2>CD Form</h2>
-      
+
       <h:form id="cdForm">
-        
-        <h:inputHidden id="rowIndex" value="#{CDManagerBean.rowIndex}" /> 
-        
+
+        <h:inputHidden id="rowIndex" value="#{CDManagerBean.rowIndex}" />
+
         <arcmind:slabel label="this is a label"></arcmind:slabel>
         <br />
-      
+
 		<arcmind:field  id="title"
-						value="#{CDManagerBean.title}"  
+						value="#{CDManagerBean.title}"
 						label="Title:"
 						errorStyleClass="errorText"
 						required="true" /> <br />
 		
 		<arcmind:field id="artist"
-					   value="#{CDManagerBean.artist}"  
+					   value="#{CDManagerBean.artist}"
 					   label="Artist:"
 					   errorStyleClass="errorText"
 					   required="true" /> <br />
-					   
+					
 		<arcmind:field id="price"
-					   value="#{CDManagerBean.price}"  
+					   value="#{CDManagerBean.price}"
 					   label="CD Price:"
 					   errorStyleClass="errorText"
 					   required="true">
@@ -49,18 +49,18 @@
       	
       	<br />
 
-        <h:commandButton id="submitAdd" 
-        								 action="#{CDManagerBean.addCD}" 
-        								 value="Add CD" 
-        								 rendered="#{not CDManagerBean.editMode}" 
+        <h:commandButton id="submitAdd"
+        								 action="#{CDManagerBean.addCD}"
+        								 value="Add CD"
+        								 rendered="#{not CDManagerBean.editMode}"
         								 />
-        								 
-        <h:commandButton id="submitUpdate" 
-        								 action="#{CDManagerBean.updateCD}" 
-        								 value="Update CD" 
-        								 rendered="#{CDManagerBean.editMode}" 
+        								
+        <h:commandButton id="submitUpdate"
+        								 action="#{CDManagerBean.updateCD}"
+        								 value="Update CD"
+        								 rendered="#{CDManagerBean.editMode}"
         								 />
 
       </h:form>
     </f:view>
-</html>  
+</html>
