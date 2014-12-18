@@ -28,6 +28,11 @@ endif # DO_MKDBG
 .PHONY: all
 all: $(ALL)
 
+.PHONY: check_filenames_with_spaces
+check_filenames_with_spaces:
+	$(info doing [$@])
+	$(Q)find . -name "* *"
+
 .PHONY: check_imports
 check_imports:
 	$(info doing [$@])
@@ -91,7 +96,7 @@ check_interbit:
 	$(Q)git grep -l "InterBit" | make_helper wrapper-ok grep -v Makefile
 
 .PHONY: check_all
-check_all: check_imports check_serialid check_ws_eol check_tab_eol check_dbl_ws check_author check_version check_printstacktrace check_exceptionnames check_src check_names check_interbit
+check_all: check_filenames_with_spaces check_imports check_serialid check_ws_eol check_tab_eol check_dbl_ws check_author check_version check_printstacktrace check_exceptionnames check_src check_names check_interbit
 
 .PHONY: checkstyle
 checkstyle:
