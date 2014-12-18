@@ -6,26 +6,26 @@
 	-->
 	<info organisation="org.apache" module="hello-ivy"/>
 	<dependencies>
-		<dependency org="org.springframework" name="spring-context" rev="3.2.3.RELEASE"/>
-		<dependency org="org.springframework" name="spring-core" rev="3.2.3.RELEASE"/>
-		<dependency org="org.springframework" name="spring-aop" rev="3.2.3.RELEASE"/>
-		<dependency org="org.springframework" name="spring-webmvc" rev="3.2.3.RELEASE"/>
-		<dependency org="org.springframework" name="spring-orm" rev="3.2.3.RELEASE"/>
-		<dependency org="org.springframework" name="spring-test" rev="3.2.3.RELEASE"/>
-		<dependency org="org.springframework.security" name="spring-security-core" rev="3.1.4.RELEASE"/>
-		<dependency org="org.eclipse.persistence" name="org.eclipse.persistence.core" rev="2.5.0"/>
-		<dependency org="org.eclipse.persistence" name="org.eclipse.persistence.jpa" rev="2.5.0"/>
-		<dependency org="junit" name="junit" rev="4.11"/>
-		<dependency org="bsf" name="bsf" rev="2.4.0"/>
-		<dependency org="struts" name="struts" rev="1.2.9"/>
-		<dependency org="org.aspectj" name="aspectjrt" rev="1.7.2"/>
-		<dependency org="org.hibernate" name="hibernate-core" rev="4.2.1.Final"/>
-		<dependency org="org.apache.tomcat" name="tomcat-catalina" rev="7.0.40"/>
-		<dependency org="org.quartz-scheduler" name="quartz" rev="2.1.7"/>
-		<dependency org="com.puppycrawl.tools" name="checkstyle" rev="5.6"/>
-		<dependency org="org.apache.logging.log4j" name="log4j-api" rev="2.0-beta9"/>
-		<dependency org="org.apache.logging.log4j" name="log4j-core" rev="2.0-beta9"/>
-		<dependency org="org.apache.logging.log4j" name="log4j-1.2-api" rev="2.0-beta9" />
-		<dependency org="net.jcip" name="jcip-annotations" rev="1.0"/>
+		<dependency org="org.springframework" name="spring-context" rev="latest.integration"/>
+		<dependency org="org.springframework" name="spring-core" rev="latest.integration"/>
+		<dependency org="org.springframework" name="spring-aop" rev="latest.integration"/>
+		<dependency org="org.springframework" name="spring-webmvc" rev="latest.integration"/>
+		<dependency org="org.springframework" name="spring-orm" rev="latest.integration"/>
+		<dependency org="org.springframework" name="spring-test" rev="latest.integration"/>
+		<dependency org="org.springframework.security" name="spring-security-core" rev="latest.integration"/>
+		<dependency org="org.eclipse.persistence" name="org.eclipse.persistence.core" rev="latest.integration"/>
+		<dependency org="org.eclipse.persistence" name="org.eclipse.persistence.jpa" rev="latest.integration"/>
+		<dependency org="junit" name="junit" rev="latest.integration"/>
+		<dependency org="bsf" name="bsf" rev="latest.integration"/>
+		<dependency org="struts" name="struts" rev="latest.integration"/>
+		<dependency org="org.aspectj" name="aspectjrt" rev="latest.integration"/>
+		<dependency org="org.hibernate" name="hibernate-core" rev="latest.integration"/>
+		<dependency org="org.apache.tomcat" name="tomcat-catalina" rev="latest.integration"/>
+		<dependency org="org.quartz-scheduler" name="quartz" rev="latest.integration"/>
+		<dependency org="com.puppycrawl.tools" name="checkstyle" rev="latest.integration"/>
+		<dependency org="org.apache.logging.log4j" name="log4j-api" rev="latest.integration"/>
+		<dependency org="org.apache.logging.log4j" name="log4j-core" rev="latest.integration"/>
+		<dependency org="org.apache.logging.log4j" name="log4j-1.2-api" rev="latest.integration" />
+		<dependency org="net.jcip" name="jcip-annotations" rev="latest.integration"/>
 	</dependencies>
 </ivy-module>
