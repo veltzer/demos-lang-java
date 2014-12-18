@@ -34,7 +34,7 @@ Polish the view, as described in Chapter 8.
 
 Exercise 5: Creating an Editor
 
-Implement the ".adb" editor described in Chapter 9. 
+Implement the ".adb" editor described in Chapter 9.
 
 There is no need to create all four editor sections; if you do not have enough time, create only the "Name" and "Internet" sections.
 

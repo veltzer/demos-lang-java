@@ -41,4 +41,4 @@ store books. It shows a menu to the user and allows the user to
 2) delete item from the storage (the user provides the id).
 3) print the inventory (use the storage system iteration features).
 
-TODO: add a note about how to read a line from the keyboard 
+TODO: add a note about how to read a line from the keyboard

@@ -3,7 +3,7 @@ Test 4 – Red
 Test 5 – Green
 Q in Turquoise are extra q for the OLM (won’t be used in the FBG)
 
-JSP course objectives - 
+JSP course objectives -
 1. Understand the HTTP protocol  (1 q – total 5 q)
 2.	Understand the role of web application in J2EE architecture (1 q – total 5 q)
 3.	Understand the web application Infrastructure, including logical differences between Servlets and JSP (3 q – total 15 q)
@@ -22,10 +22,10 @@ c. Actions
 Objective 1. Understand the HTTP protocol
 
 1. Which of the following statements is correct regarding HTTP? (Old #1-q14)
-a. Client HTTP is used only in browsers 
+a. Client HTTP is used only in browsers
 b. It is a binary protocol
 c. It is a W3C standard --> right
-d. It is an asynchronous protocol 
+d. It is an asynchronous protocol
 
 2. Which of the following statements is true regarding HTTP request types? (Old #2-q1)
 a. A GET request can’t be used for sending information to the server
@@ -72,7 +72,7 @@ b. Enterprise Java beans
 c. Java beans  --> right
 d. Data access objects
 
-9. Where is a Servlet usually found? 
+9. Where is a Servlet usually found?
 a. Business logic tier
 b. Web tier --> right
 c. EIS (Enterprise Information system)
@@ -88,7 +88,7 @@ Objective 3. Understand the web application Infrastructure, include logical diff
 11. Which of the following MUST be included in a basic Java Web Application? (Old #1-q5)
 a. Servlet
 b. WEB-INF dir --> right
-c. classes dir 
+c. classes dir
 d. JSP
 
 12. Which of the following web application components is NOT necessary when using only JSPs and Java Beans? (Old #1-q11)
@@ -135,7 +135,7 @@ d. JSP is more html friendly than servlets
 19. Which of the following statement is correct regarding the usage of JSP and Servlets ? (#3)
 a. We usually use Servlets for business centered code and JSP for presentation centered code. --> right
 b. We usually use JSP for business centered code and Servlets for presentation centered code.
-c. Servlets are considered as a better technology since JSP doesn’t support the importing of external packages 
+c. Servlets are considered as a better technology since JSP doesn’t support the importing of external packages
 d. JSP is considered as a better technology since Servlets don’t enable the usage of beans
 
 
@@ -157,7 +157,7 @@ d. A Servlet --> right
 
 23. What is the usage of Servlets\JSP mapping?
 a. To map incoming requests to the relevant component --> right
-b. To register components in the web container 
+b. To register components in the web container
 c. To map web components with business components [like EJBs]
 d. To map components to server resources [like DataSource]
 
@@ -225,7 +225,7 @@ d. ServletContext
 
 31. You try to maintain an ArrayList of numbers but you find out they are not saved between the various requests from a client. Which of the following might have caused this problem? (Old #3-q6)
 a. You used getSession( ) instead of getSession(true)
-b. You have bound the ArrayList to the ServletContext 
+b. You have bound the ArrayList to the ServletContext
 c. The client’s browser does not support cookies --> right
 d. You didn’t synchronize the ArrayList
 
@@ -236,7 +236,7 @@ c. request.getOutputStream( )
 d. response.getOutputStream( ) --> right
 
 33. Which of the following is a consequence of the URI: (Old #2-q7)
-http://localhost:8080/hello/Hello;jsession=ab123f556 
+http://localhost:8080/hello/Hello;jsession=ab123f556
 a. Using html hidden parameters for session tracking
 b. Using cookie based session tracking
 c. Using URL-rewriting for authentication
@@ -244,11 +244,11 @@ d. Using URL-rewriting for session tracking --> right
 
 34. What is the most suitable component to generate the final web view sent to the client?
 a. JavaBean
-b. Plain JAVA class 
+b. Plain JAVA class
 c. JSP --> right
 d. Servlet
 
-35. What kind of technique does the server use in order to keep track of sessions? 
+35. What kind of technique does the server use in order to keep track of sessions?
 a. Cookies
 b. URL rewriting
 c. IP addresses
@@ -257,14 +257,14 @@ e. a and c
 
 Objective 5. The JSP lifecycle
 
-36. What is the output of calling 3 times the below page? (Old #1-q1) 
+36. What is the output of calling 3 times the below page? (Old #1-q1)
 
 <HTML><BODY>
 	<% int counter = 0; %>
 
-	This page had been called 
-     	<FONT class="counter">  <%= counter++ %>              
-          </FONT> times 
+	This page had been called
+     	<FONT class="counter">  <%= counter++ %>
+          </FONT> times
 </BODY></HTML>
 
 a. 0 --> right
@@ -298,7 +298,7 @@ d. jspc, new instance, service
 
 40. Which of the following statements describes correctly the set of operations done by the Web container when calling an already loaded JSP?
 
-a. service, destroy, GC 
+a. service, destroy, GC
 b. check for modifications, init, service
 c. service, destroy
 d. check for modifications, service --> right
@@ -337,7 +337,7 @@ d. The method calc(..) should be public
 <%! int mX=0; %>
 <html>
     <body>
-<% int x=99; 
+<% int x=99;
        int result=getNumber(x); %>
 <%=  result %>
                 </body>
@@ -357,7 +357,7 @@ d. On the second call the client will get the number 100 --> right
 44. How many servlet classes are generated when calling the below JSP for the first time? (Old #1-q13)
 
       index.jsp file content:
-      
+
       <html>
              <body>
                      <%@ include file="logo.jsp"%>
@@ -441,7 +441,7 @@ c. Both session and exception --> right
 53. Why will you use the @include directive in a page?
 a. To finish the output of the page and move the printing of the rest to a different page.
 b. To import a package which is not included automatically.
-c. To use an external bean 
+c. To use an external bean
 d. To embed the source of one JSP into the current page --> right
 
 54. Which of the following options is the equivalent to the next statement?
@@ -455,7 +455,7 @@ d.  <%= System.out.println(i++) %>
 
 55. What is the usage of the <jsp:param> action ?
 a. Attach data to the request --> right
-b. Receive an initial parameter from the ServletContext 
+b. Receive an initial parameter from the ServletContext
 c. Receive a parameter from the client’s request object
 d. None of the above
 
@@ -487,8 +487,8 @@ d. The client will get a blank screen --> right
 <%=try{
               FileOutputStream out =new FileOutputStream("log.dat");
               out.write(message);
-	  out.close();   
-      }catch(Exception e) {…}  
+	  out.close();
+      }catch(Exception e) {…}
  %>
 
 a. Every message sent to the JSP will be logged
@@ -528,7 +528,7 @@ public class CounterBean {
 <!-- counter.jsp -->
 <jsp:useBean id="countBean" class="counters.CounterBean" />
 
-The counter is 
+The counter is
 <jsp:getProperty name="countBean" property="counter"/>
 
 

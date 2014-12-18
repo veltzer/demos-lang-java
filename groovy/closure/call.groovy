@@ -16,4 +16,4 @@ println "Another way to execute the closure:"
 myClosure()
 
 def mySquare = { it*it }
-println "Executing the Closure "+mySquare.call(7) 
+println "Executing the Closure "+mySquare.call(7)

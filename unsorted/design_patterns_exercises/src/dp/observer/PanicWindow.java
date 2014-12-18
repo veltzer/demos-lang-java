@@ -18,7 +18,7 @@ import java.util.TimerTask;
 public class PanicWindow extends Frame
 {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 	private Label messageLabel;

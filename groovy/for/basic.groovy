@@ -42,7 +42,7 @@ for(aLine in thisFile){
 }
 */
 
-// break in the middle of a loop 
+// break in the middle of a loop
 for(String season in seasons){
 	if(season=='Spring') {
 		break

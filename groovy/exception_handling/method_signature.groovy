@@ -20,7 +20,7 @@ try {
 	println 'yes, we got an exception'
 }
 
-def met2() throws MyException,RuntimeException { 
+def met2() throws MyException,RuntimeException {
 	throw new RuntimeException('fubar')
 }
 try {

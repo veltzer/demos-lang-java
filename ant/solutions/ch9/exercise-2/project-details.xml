@@ -15,8 +15,5 @@
                  classpath="${lib.dir}/project-details.jar"/>
 
 			<project-details/>
-		 
-
 	</target>
-
 </project>

@@ -19,14 +19,14 @@
 	<bean id="byPriceComparator" class="sorter.comparators.ItemComparatorByPrice" />
 
 
-	<!-- bean id="addItem" abstract="true" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean"> 
-		<property name="targetObject"> <ref local="sorter" /> </property> <property 
-		name="targetMethod"> <value>addItem</value> </property> </bean> <bean id="addItem1" 
-		parent="addItem"> <property name="arguments"> <bean class="sorter.Item"> 
-		<constructor-arg> <value>Spring Course</value> </constructor-arg> <constructor-arg> 
-		<value>2000</value> </constructor-arg> </bean> </property> </bean> <bean 
-		id="addItem2" parent="addItem"> <property name="arguments"> <bean class="sorter.Item"> 
-		<constructor-arg> <value>Extreme Java Course</value> </constructor-arg> <constructor-arg> 
+	<!-- bean id="addItem" abstract="true" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="targetObject"> <ref local="sorter" /> </property> <property
+		name="targetMethod"> <value>addItem</value> </property> </bean> <bean id="addItem1"
+		parent="addItem"> <property name="arguments"> <bean class="sorter.Item">
+		<constructor-arg> <value>Spring Course</value> </constructor-arg> <constructor-arg>
+		<value>2000</value> </constructor-arg> </bean> </property> </bean> <bean
+		id="addItem2" parent="addItem"> <property name="arguments"> <bean class="sorter.Item">
+		<constructor-arg> <value>Extreme Java Course</value> </constructor-arg> <constructor-arg>
 		<value>3000</value> </constructor-arg> </bean> </property> </bean -->
 
 	<bean id="itemFactory" class="sorter.impl.ItemFactoryImpl" />

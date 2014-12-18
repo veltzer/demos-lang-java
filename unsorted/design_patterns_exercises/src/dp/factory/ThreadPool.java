@@ -73,7 +73,7 @@ public class ThreadPool
 		}
 		catch (EmptyStackException e)
 		{
-			// No threads available. 
+			// No threads available.
 			new PooledThread(runnable);
 			// This code for demontsration only. It is usually not such a good idea to put
 			// program logic into exception handling mechanism.

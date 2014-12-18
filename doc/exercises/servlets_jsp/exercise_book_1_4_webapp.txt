@@ -12,7 +12,7 @@ Version 1.4
 
 Exercise 1 – Hello World Servlet
 Exercise description:
-Write a simple "Hello World" Servlet. The Servlet should be based on a GenericServlet class and print "Hello world" when called. 
+Write a simple "Hello World" Servlet. The Servlet should be based on a GenericServlet class and print "Hello world" when called.
 
 Exercise directory:
 <exercises>\servlets basics\
@@ -26,7 +26,7 @@ http://localhost:8080/01-servlets_basics/hello
 
 Exercise 2 – Life Cycle Servlet
 Exercise description:
-Write a Servlet which prints a message to the standard output (not to the client) on every lifecycle phase (Instantiation, Initialization, Service and Destruction). Complete the needed methods with the proper messages. 
+Write a Servlet which prints a message to the standard output (not to the client) on every lifecycle phase (Instantiation, Initialization, Service and Destruction). Complete the needed methods with the proper messages.
 
 
 Exercise directory:
@@ -67,7 +67,7 @@ Run:
 http://localhost:8080/02-servlets_api/form
 
 
-Exercise 5 – Numbers Guessing 
+Exercise 5 – Numbers Guessing
 Exercise description:
 Write a simple number-guessing game using a Servlet. While initializing, the Servlet creates a random number between 1 and a defined maximum value. The user is asked to guess the number. If the guess is too high or too low, a proper message is displayed. If the guess is correct, a "You are a winner" message is displayed.
 
@@ -101,7 +101,7 @@ http://localhost:8080/03-cookies_and_sessions/cookies
 
 Exercise 7 – Logging in using a Cookie
 Exercise Description:
-Write a Servlet containing a Login form with two fields (Username and Password). When the user logs in, he can mark a “remember my user name” checkbox for future log-ins. 
+Write a Servlet containing a Login form with two fields (Username and Password). When the user logs in, he can mark a “remember my user name” checkbox for future log-ins.
 The Servlet stores the user name in a persistent Cookie (saved forever), and uses this Cookie for the next log-in to welcome the user back to the application (the user still needs to enter his password in order to login).
 
 Exercise directory:
@@ -276,22 +276,22 @@ pageContext.request.remoteHost
 pageContext.session
 org.apache.catalina.session.StandardSessionFacade@cf70f
 colored line for each value of the "colors" parameter in the url query-string
-  This line is red. 
-  This line is blue. 
+  This line is red.
+  This line is blue.
 HTTP request headers
-  accept-encoding = gzip,deflate 
-  connection = keep-alive 
-  accept-language = en-us,en;q=0.5 
-  host = localhost:8080 
-  accept-charset = ISO-8859-1,utf-8;q=0.7,*;q=0.7 
-  user-agent = Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.7) Gecko/20050421 Firefox/1.0.3 (Debian package 1.0.3-2) 
-  cookie = JSESSIONID=9A0DB8B04DB179F1BBE8134D93D6451B 
-  accept = text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5 
-  keep-alive = 300 
+  accept-encoding = gzip,deflate
+  connection = keep-alive
+  accept-language = en-us,en;q=0.5
+  host = localhost:8080
+  accept-charset = ISO-8859-1,utf-8;q=0.7,*;q=0.7
+  user-agent = Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.7) Gecko/20050421 Firefox/1.0.3 (Debian package 1.0.3-2)
+  cookie = JSESSIONID=9A0DB8B04DB179F1BBE8134D93D6451B
+  accept = text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5
+  keep-alive = 300
 HTTP cookies
-  name JSESSIONID 
-domain 
-value 9A0DB8B04DB179F1BBE8134D93D6451B 
+  name JSESSIONID
+domain
+value 9A0DB8B04DB179F1BBE8134D93D6451B
 EL function
 Expression
 Value

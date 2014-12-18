@@ -1,9 +1,9 @@
-﻿Developing Eclipse Plug-ins 
+﻿Developing Eclipse Plug-ins
 Exercises book
 
 Note about the Exercises:
- Most exercises in this file ask the students to implement items that were explicitly described during the tutorial, and presented partially or fully by the tutor. 
-The reason is that creating a different model for the assignment would be too time-consuming, and will cause the assignments to take too much course time. 
+ Most exercises in this file ask the students to implement items that were explicitly described during the tutorial, and presented partially or fully by the tutor.
+The reason is that creating a different model for the assignment would be too time-consuming, and will cause the assignments to take too much course time.
 As they are, the exercises give the students an excellent review of the material, and a "hands-on" feeling, while still providing them with a "fallback" to the tutorial slides where they can find much help.
 
 
@@ -45,7 +45,7 @@ Polish the view, as described in Chapter 8.
 
 Exercise 5: Creating an Editor
 
-Implement the ".adb" editor described in Chapter 9. 
+Implement the ".adb" editor described in Chapter 9.
 
 There is no need to create all four editor sections; if you do not have enough time, create only the "Name" and "Internet" sections.
 

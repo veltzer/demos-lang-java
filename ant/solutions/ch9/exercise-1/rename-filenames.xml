@@ -13,12 +13,12 @@
 			<echo message="${lib.dir}" />
          <copy todir="${lib.dir}">
 			 <fileset dir="src"/>	
-			<mapper 
-				classname="CustomMapper" 
+			<mapper
+				classname="CustomMapper"
 				classpath="${lib.dir}/mapper.jar"
 				from="*"
-				to="*"/>			 
-	     </copy>		 
+				to="*"/>
+	     </copy>
 	</target>
 
 </project>

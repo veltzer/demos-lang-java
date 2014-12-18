@@ -6,14 +6,14 @@
 
 import org.codehaus.groovy.runtime.metaclass.MethodSelectionException
 
-// simple example 
+// simple example
 def say(String msg='hello') {
 	println msg
 }
 say()
 say('goodbye')
 
-// parameters with defaults and parameters without... 
+// parameters with defaults and parameters without...
 def multiSay(int num,String msg='hello') {
 	for(x in 1..num) {
 		println msg

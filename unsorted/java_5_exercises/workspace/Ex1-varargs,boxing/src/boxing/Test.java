@@ -11,5 +11,4 @@ package boxing;
  * @author pix
  */
 public interface Test extends Runnable {
-    
 }

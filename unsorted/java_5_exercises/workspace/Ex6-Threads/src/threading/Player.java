@@ -46,8 +46,7 @@ public class Player implements Callable<Player> {
         
         //IF THE PLAYER FAILS TO MAKE A MOVE IN 100 CYCLES HE GIVES UP
         //(IN SPEED NOT ALL USERS WILL BE ABLE TO THROW ALL THIER CARDS EVERY TIME)
-        while(cards.size()>0&&idleCycles<100)
-        {
+        while(cards.size()>0&&idleCycles<100) {
             idleCycles++;
             //GO OVER ALL PILES
             for (Pile pile : game.getPiles())
@@ -57,12 +56,11 @@ public class Player implements Callable<Player> {
                 { 
                     Card card = i.next();
                     //TRY TO THROW CARD ON PILE
-                    if (pile.tryAdvance(card))
-                    {
+                    if (pile.tryAdvance(card)) {
                         //IF THE CARD WAS EXCEPTED BY THE PILE,
                         //REMOVE CARD THE CARD FROM THE PLAYER'S DECK
                         //AND SHOW MOVE DETAILS ON THE SCREEN
-                        System.err.format("%s(%s) throws %s%n",name,cards,card);
+                        System.err.format("%s(%s) throws %s%n", name, cards, card);
                         i.remove();
                         game.moved();
                         idleCycles=0;
@@ -70,11 +68,12 @@ public class Player implements Callable<Player> {
                 }
             }
             //IF THIS WAS AN IDEL CYCLE IT IS A GOOD IDEA TO YIELD THE THREAD TO PREVENT BUSY WAITING
-            if (idleCycles>0)
+            if (idleCycles > 0) {
                 Thread.yield();
+            }
         }
-        
-        if (cards.size()==0)
+
+        if (cards.size() == 0)
             System.err.printf("*** player %s finishes%n",name);
         else
             System.err.printf("*** player %s gave up%n",name);

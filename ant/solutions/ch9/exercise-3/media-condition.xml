@@ -4,11 +4,7 @@
 	<target name="init" >
 		<property file="build.properties" />
 	</target>
-
-
 	<target name="default" depends="init, media-condition"/>		
-
-
 	<target name="media-condition" depends="init">
 
 		<typedef name="media-condition"
@@ -19,7 +15,5 @@
 		   <media-condition dir="./src"/>
 		</condition>
 		<echo message="${is.exists}"/>
-		 
 	</target>
-
 </project>

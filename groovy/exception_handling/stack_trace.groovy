@@ -5,7 +5,7 @@
 	are runtime (no checked exceptions). Some find that a very good idea...
 */
 
-import org.codehaus.groovy.runtime.StackTraceUtils 
+import org.codehaus.groovy.runtime.StackTraceUtils
 
 try {
 	throw new RuntimeException("fubar")

@@ -10,10 +10,10 @@ import java.sql.*;
  * @version
  */
 public class RowTag extends TagSupport {
-    
+
     /** Holds value of property colName. */
     private String colName;
-    
+
     public int doStartTag() throws JspException {
         try{
             TableTag table = (TableTag) getParent();
@@ -34,12 +34,12 @@ public class RowTag extends TagSupport {
     public String getColName() {
         return colName;
     }
-    
+
     /** Setter for property colName.
      * @param colName New value of property colName.
      */
     public void setColName(String colName) {
         this.colName = colName;
     }
-    
+
 }

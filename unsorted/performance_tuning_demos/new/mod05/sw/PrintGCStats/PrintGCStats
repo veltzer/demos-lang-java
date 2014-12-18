@@ -4,7 +4,7 @@
 
 # PrintGCStats - summarize statistics about garbage collection, in particular gc
 # pause time totals, averages, maximum and standard deviations.
-# 
+#
 # Attribution:  modified by Alka Gupta, written by John Coomes, based on earlier work by Peter Kessler,
 # Ross Knippel and Jon Masamitsu, all of Sun Microsystems..
 
@@ -29,11 +29,11 @@
 #	java -XX:+PrintGCTimeStamps -XX:+PrintGCDetails ...
 #
 # ------------------------------------------------------------------------------
-# 
+#
 # Usage:
 #
 # PrintGCStats -v ncpu=<n> [-v interval=<seconds>] [-v verbose=1] [file ...]
-# 
+#
 # ncpu		- number of cpus on the machine where java was run, used to
 #		  compute cpu time available and gc 'load' factors.  No default;
 #		  must be specified on the command line (defaulting to 1 is too
@@ -44,7 +44,7 @@
 #
 # verbose	- if non-zero, print each item on a separate line in addition
 #		  to the summary statistics
-# 
+#
 # ------------------------------------------------------------------------------
 #
 # Output statistics:
@@ -110,7 +110,7 @@ BEGIN {
   last_idx = 12;	# This is just the last *named* index; a corresponding
 			# delta_* array item exists for each of the above items
 			# starting at this point in the array.
-  
+
   # Init arrays.
   name_v[gen0c_idx]	= "gen0(s)";
   name_v[gen0t_idx]	= "gen0t(s)";
@@ -229,7 +229,7 @@ function recordGen0Kb(str) {
 
   # Promotion info.  Amount promoted is inferred from the last nnnK->nnnK
   # on the line, taking into account the amount collected:
-  # 
+  #
   # promoted = change-in-overall-heap-occupancy - change-in-gen0-occupancy -
   #   change-in-gen1-occupancy
   tmp_kb[0] = tmp_kb[1] = 0;
@@ -241,7 +241,7 @@ function recordGen0Kb(str) {
 
     # This is buggy, in that the amount promoted is later compared to gc0
     # time, but the gc time for this case is attributed to gc1 (the attribution
-    # is done elsewhere).  So just ignore this case for now. 
+    # is done elsewhere).  So just ignore this case for now.
 
 #     gen1_sizes[0] = tmp_kb[0];
 #     gen1_sizes[1] = tmp_kb[1];
@@ -303,7 +303,7 @@ function printInterval() {
 	printData(last_idx + i);
       }
     }
-  
+
     initIntervalVars();
   }
 }

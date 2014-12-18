@@ -11,7 +11,7 @@ Lab 1
 	Calculate the average of the array contents and print it out.
 
 Lab 2
-	Change the program so that main would receive parameters for the array size and the values range. 
+	Change the program so that main would receive parameters for the array size and the values range.
 	Hint:  the following line retrieves an integer from string
 	int  r  =  Integer.parseInt(String);
 
@@ -48,7 +48,7 @@ Create a class Account according to the following specification:
 	deposit(double amount): void
 	withdraw(double: amount): double
 
-The withdraw method should return the balance after withdrawal. 
+The withdraw method should return the balance after withdrawal.
 
 Add the following to class Customer:
 A class member of type Account.
@@ -101,7 +101,7 @@ Add to the class Account a final field named COMMISSION of type double. Change t
 Add to the package meta.bank a class named BusinessAccount that extends the class Account.
 Override the withdraw method, so that a BusinessAccount may be in overdraft. Create AMOUNT_PROTECTION final field that holds the limit for the overdraft.
 
-Lab 2 
+Lab 2
 Change the class Customer according to the following specification:
 
 	Customer
@@ -139,7 +139,7 @@ Change the class Account to abstract according to the following specification:
 	deposit(double amount): void
 	withdraw(double: amount): double abstract
 
-The withdraw method should return actual amount withdrawn after commission. 
+The withdraw method should return actual amount withdrawn after commission.
 
 Create a class CheckingAccount that extends the Account class according to the following specification:
 

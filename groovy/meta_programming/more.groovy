@@ -11,4 +11,4 @@ d={
 	hello 5
 	foo 8
 }
-print foo(d) 
+print foo(d)

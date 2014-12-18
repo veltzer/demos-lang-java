@@ -13,7 +13,7 @@ class MOPHandler {
 	}
 	def getProperty(String property){
 		println "MOPHandler was asked for property ${property}"
-	}  
+	}
 }
 def hndler = new MOPHandler()
 hndler.helloWorld()

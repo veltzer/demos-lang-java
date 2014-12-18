@@ -2,7 +2,7 @@
 
 class Person {
 	String name
-} 
+}
 class House {
 	def sell() {
 		println this

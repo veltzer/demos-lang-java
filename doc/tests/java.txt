@@ -13,7 +13,7 @@ in java a class always inherits from:
 4. exactly one interface.
 
 when building a java stream (input or output) the order of encapsulation of streams:
-(ObjectInputStream, GzipOutputStream, etc...). 
+(ObjectInputStream, GzipOutputStream, etc...).
 1. doesn't matter (just the types matter).
 2. matters only if you repeat clasess.
 3. matters (correct).

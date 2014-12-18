@@ -5,6 +5,6 @@
     <condition property="x" value="6">
       <equals arg1="666" arg2="666" />
     </condition>
-    <echo>x is: ${x}</echo> 
+    <echo>x is: ${x}</echo>
   </target>
 </project>
