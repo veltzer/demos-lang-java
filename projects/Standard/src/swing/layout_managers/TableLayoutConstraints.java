@@ -5,9 +5,7 @@ import java.util.StringTokenizer;
 
 /**
  * TableLayoutConstraints binds components to their constraints.
- * @author Mark Veltzer <mark@veltzer.net>
  */
-
 public class TableLayoutConstraints {
 
 	private static final String ERR_STRING1 = "bad data";

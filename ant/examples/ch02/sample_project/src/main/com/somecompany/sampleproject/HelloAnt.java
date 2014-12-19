@@ -15,7 +15,6 @@ import java.util.Properties;
 /**
  * This class is only used to demonstrate the capabilities of Jakarta Ant
  * capabilities.
- * @author Mark Veltzer <mark@veltzer.net>
  */
 public abstract class HelloAnt {
 	/**

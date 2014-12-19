@@ -5,19 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
 
-/**
- * @author Mark Veltzer <mark@veltzer.net>
- */
 public abstract class Split {
-
-	/**
-	 * @param args
-	 * @throws IOException
-	 */
-	/**
-	 * @param args
-	 * @throws IOException
-	 */
 	public static void main(String[] args) throws IOException {
 		FileInputStream fileInStream = new FileInputStream(args[0]);
 		FileOutputStream fileOutputStream1 = new FileOutputStream(args[2]);

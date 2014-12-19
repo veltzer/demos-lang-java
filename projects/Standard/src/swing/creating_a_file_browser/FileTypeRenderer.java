@@ -7,10 +7,6 @@ import javax.swing.JTable;
 import javax.swing.filechooser.FileSystemView;
 import javax.swing.table.DefaultTableCellRenderer;
 
-/**
- * Description of the Class
- * @author Mark Veltzer <mark@veltzer.net>
- */
 @SuppressWarnings("serial")
 public class FileTypeRenderer extends DefaultTableCellRenderer {
 	/**

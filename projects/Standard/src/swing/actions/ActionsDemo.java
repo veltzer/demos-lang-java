@@ -14,7 +14,6 @@ import javax.swing.JMenuItem;
 
 /**
  * A simple demonstration for buttons: action listeners, setEnabled, isEnabled.
- * @author Mark Veltzer <mark@veltzer.net>
  */
 @SuppressWarnings("serial")
 public class ActionsDemo extends JFrame {

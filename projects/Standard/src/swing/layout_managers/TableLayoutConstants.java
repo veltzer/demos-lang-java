@@ -3,9 +3,7 @@ package swing.layout_managers;
 /**
  * TableLayoutConstants define the constants used by all the TableLayout
  * classes.
- * @author Mark Veltzer <mark@veltzer.net>
  */
-
 public abstract class TableLayoutConstants {
 
 	/** Indicates that the component is left justified in its cell */

@@ -7,11 +7,7 @@ package core.threads;
  * mili seconds.
  * Also note that Java creates 18 threads at the OS level and not just 1. 18!
  * Fuck them!
- *
- * @author Mark Veltzer <mark@veltzer.net>
- *
  */
-
 public abstract class DoNothing {
 	public static void main(String[] args) {
 		try {

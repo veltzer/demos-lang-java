@@ -3,10 +3,6 @@ package swing.getting_started_with_swing;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-/**
- * Description of the Class
- * @author Mark Veltzer <mark@veltzer.net>
- */
 public abstract class HelloWorld {
 	/**
 	 * The main program for the HelloWorld class

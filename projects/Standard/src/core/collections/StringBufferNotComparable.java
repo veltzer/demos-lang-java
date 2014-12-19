@@ -6,11 +6,7 @@ import java.util.TreeSet;
 /**
  * This example shows that StringBuffer is not comparable and therefore could
  * not be used as element in ordered collections (like the TreeSet below...).
- *
- * @author Mark Veltzer <mark@veltzer.net>
- *
  */
-
 abstract class StringBufferNotComparable {
 	public static void main(String[] args) {
 		System.out.println("Starting...");

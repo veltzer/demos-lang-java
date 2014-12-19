@@ -6,9 +6,7 @@ package core.threads;
  * one for writers and thus create a "reader preferred RWLock" or
  * "Writer preferred RWLock". We could even add priorities put threads to sleep
  * on a special lock per priority.
- * @author Mark Veltzer <mark@veltzer.net>
  */
-
 public class ReaderWriterLock {
 
 	private static class ReadWriteThread extends Thread {

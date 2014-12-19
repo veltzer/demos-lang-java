@@ -10,10 +10,7 @@ import core.threads.ThreadAffinity.Core;
 /**
  * This example shows that read/write reordering can happen in Java too...:)
  * This example doesn't work probably because of affinity issues.
- *
- * @author Mark Veltzer <mark@veltzer.net>
  */
-
 abstract class ReadWriteReordering {
 	private static CyclicBarrier b = new CyclicBarrier(3);
 	private static final int COUNT = 40000;

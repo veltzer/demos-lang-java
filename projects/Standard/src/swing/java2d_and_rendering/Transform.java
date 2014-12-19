@@ -10,10 +10,6 @@ import java.awt.geom.AffineTransform;
 
 import javax.swing.JFrame;
 
-/**
- * Description of the Class
- * @author Mark Veltzer <mark@veltzer.net>
- */
 @SuppressWarnings("serial")
 public class Transform extends Component {
 	/**

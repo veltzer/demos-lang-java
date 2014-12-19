@@ -1,8 +1,5 @@
 package programming.samples.bank;
 
-/**
- * @author Mark Veltzer <mark@veltzer.net>
- */
 public class Account {
 	public static final int CHECKING_ACCOUNT = 1;
 	public static final int BUSINESS_ACCOUNT = 2;

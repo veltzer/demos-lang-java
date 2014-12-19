@@ -3,9 +3,6 @@ package exercise;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 
-/**
- * @author Mark Veltzer <mark@veltzer.net>
- */
 @SuppressWarnings("serial")
 public class HelloUserTag extends TagSupport {
 

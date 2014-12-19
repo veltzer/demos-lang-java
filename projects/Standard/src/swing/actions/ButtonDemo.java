@@ -19,7 +19,6 @@ import javax.swing.JToolBar;
 
 /*
  * A demo of buttons and actions
- * @author Mark Veltzer <mark@veltzer.net>
  */
 @SuppressWarnings("serial")
 public class ButtonDemo extends JPanel {

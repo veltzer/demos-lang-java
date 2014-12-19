@@ -9,10 +9,6 @@ import java.awt.RenderingHints;
 
 import javax.swing.JFrame;
 
-/**
- * Description of the Class
- * @author Mark Veltzer <mark@veltzer.net>
- */
 @SuppressWarnings("serial")
 public class HelloAliasing extends Component {
 	/**

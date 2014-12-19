@@ -8,7 +8,6 @@ import javax.swing.tree.DefaultTreeCellRenderer;
 
 /**
  * Description of the Class
- * @author Mark Veltzer <mark@veltzer.net>
  */
 @SuppressWarnings("serial")
 public class FileRenderer extends DefaultTreeCellRenderer {

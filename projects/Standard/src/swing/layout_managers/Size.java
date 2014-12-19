@@ -12,11 +12,9 @@ import java.util.List;
  * that is part of the product documentation and that is available online too,
  * see <a href="http://www.jgoodies.com/articles/forms.pdf" >
  * http://www.jgoodies.com/articles/forms.pdf</a>.
- * @author Mark Veltzer <mark@veltzer.net>
  * @see Sizes
  * @see ConstantSize
  */
-
 public interface Size {
 
 	/**

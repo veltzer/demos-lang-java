@@ -32,7 +32,6 @@ import java.util.Hashtable;
  * vertical padding (components made larger) <LI>component="componentName" ;
  * this is the name that must be used when add is called, as in add(comp,
  * "componentName") </UL>
- * @author Mark Veltzer <mark@veltzer.net>
  */
 public class HtmlLayout implements LayoutManager {
 	static final String ANONLABELNAME = new String("Anonymous label");

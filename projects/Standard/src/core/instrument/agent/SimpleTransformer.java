@@ -1,15 +1,13 @@
 package core.instrument.agent;
 
-/**
- * This is a very simple bytecode transformer
- * object which does no bytecode manipulation
- * @author Mark Veltzer <mark@veltzer.net>
- */
-
 import java.lang.instrument.ClassFileTransformer;
 import java.lang.instrument.IllegalClassFormatException;
 import java.security.ProtectionDomain;
 
+/**
+ * This is a very simple bytecode transformer
+ * object which does no bytecode manipulation
+ */
 public class SimpleTransformer implements ClassFileTransformer {
 
 	public SimpleTransformer() {

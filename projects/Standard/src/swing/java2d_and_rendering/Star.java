@@ -11,10 +11,6 @@ import java.awt.geom.Ellipse2D;
 
 import javax.swing.JFrame;
 
-/**
- * Description of the Class
- * @author Mark Veltzer <mark@veltzer.net>
- */
 @SuppressWarnings("serial")
 public class Star extends Component {
 	/**

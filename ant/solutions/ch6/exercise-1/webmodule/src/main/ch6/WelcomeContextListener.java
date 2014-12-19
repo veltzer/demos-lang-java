@@ -3,9 +3,6 @@ package org.meta.ch6;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-/**
- * @author Mark Veltzer <mark@veltzer.net>
- */
 public class WelcomeContextListener implements ServletContextListener {
 
 	/*

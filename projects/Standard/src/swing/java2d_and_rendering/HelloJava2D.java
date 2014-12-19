@@ -6,10 +6,6 @@ import java.awt.Graphics;
 
 import javax.swing.JFrame;
 
-/**
- * Description of the Class
- * @author Mark Veltzer <mark@veltzer.net>
- */
 @SuppressWarnings("serial")
 public class HelloJava2D extends Component {
 	/**

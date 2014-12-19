@@ -29,5 +29,6 @@
 		<dependency org="net.jcip" name="jcip-annotations" rev="latest.integration"/>
 		<dependency org="net.java.dev.jna" name="jna" rev="latest.integration"/>
 		<dependency org="net.java.dev.jna" name="jna-platform" rev="latest.integration"/>
+		<dependency org="org.eclipse.rap" name="org.eclipse.rap.jface" rev="latest.integration"/>
 	</dependencies>
 </ivy-module>

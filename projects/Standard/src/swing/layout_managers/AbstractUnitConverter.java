@@ -7,7 +7,6 @@ import java.awt.Toolkit;
 /**
  * An abstract implementation of the {@link UnitConverter} interface that
  * minimizes the effort required to convert font-dependent sizes to pixels.
- * @author Mark Veltzer <mark@veltzer.net>
  */
 public abstract class AbstractUnitConverter implements UnitConverter {
 

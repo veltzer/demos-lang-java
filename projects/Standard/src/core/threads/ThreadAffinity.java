@@ -13,8 +13,6 @@ import net.jcip.annotations.Immutable;
  * Library for lower multi core level work (affinity, core number query and more)
  * Taken from:
  * http://trac.assembla.com/Behemoth/browser/Tests/JAVA/test/src/main/java/test/threads/ThreadAffinity.java
- *
- * @author Mark Veltzer <mark@veltzer.net>
  */
 abstract class ThreadAffinity {
 

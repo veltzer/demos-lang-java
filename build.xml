@@ -67,15 +67,15 @@
 					failonerror="on"
 					verbose="off"
 					fork="no"
-					target="1.7"
-					source="1.7"
-					includeAntRuntime="no"
-					includeJavaRuntime="no"
 				>
 				<!--
+					includeAntRuntime="no"
+					includeJavaRuntime="no"
+					target="1.7"
+					source="1.7"
 					<compilerarg value="-Xlint:all"/>
-				-->
 					<compilerarg value="-Werror"/>
+				-->
 					<classpath refid="external-jars"/>
 				</javac>
 			</sequential>

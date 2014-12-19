@@ -4,9 +4,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * A demonstration of how to use atomic variables.
- * @author Mark Veltzer <mark@veltzer.net>
  */
-
 public abstract class Atomics {
 
 	private static class MyRunnable implements Runnable {

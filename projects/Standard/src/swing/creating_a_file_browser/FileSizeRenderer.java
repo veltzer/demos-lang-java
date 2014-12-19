@@ -5,10 +5,6 @@ import java.awt.Component;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 
-/**
- * Description of the Class
- * @author Mark Veltzer <mark@veltzer.net>
- */
 @SuppressWarnings("serial")
 public class FileSizeRenderer extends DefaultTableCellRenderer {
 	/**

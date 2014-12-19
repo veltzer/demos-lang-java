@@ -6,9 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Map;
 
-/**
- * @author Mark Veltzer <mark@veltzer.net>
- */
 @SuppressWarnings("serial")
 public class ItemDAO implements Serializable {
 	protected static final String URL = "jdbc:odbc:CartServlet";

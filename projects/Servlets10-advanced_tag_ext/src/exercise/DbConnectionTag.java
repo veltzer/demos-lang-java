@@ -6,9 +6,6 @@ import java.sql.DriverManager;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 
-/**
- * @author Mark Veltzer <mark@veltzer.net>
- */
 @SuppressWarnings("serial")
 public class DbConnectionTag extends TagSupport {
 

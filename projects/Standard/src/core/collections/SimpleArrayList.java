@@ -6,14 +6,8 @@ import java.util.List;
 
 /**
  * This is a simple demo of java array list API
- * @author Mark Veltzer <mark@veltzer.net>
  */
-
 public abstract class SimpleArrayList {
-
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		List<Integer> li = new ArrayList<Integer>();
 		li.add(4);

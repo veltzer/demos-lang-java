@@ -7,10 +7,6 @@ import javax.swing.event.TreeModelListener;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
 
-/**
- * Description of the Class
- * @author Mark Veltzer <mark@veltzer.net>
- */
 public class FileTreeModel implements TreeModel, FileFilter {
 	/**
 	 * Description of the Field

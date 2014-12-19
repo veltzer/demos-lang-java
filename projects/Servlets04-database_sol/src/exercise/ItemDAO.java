@@ -9,9 +9,6 @@ import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author Mark Veltzer <mark@veltzer.net>
- */
 @SuppressWarnings("serial")
 public class ItemDAO implements Serializable {
 	private static final String URL = "jdbc:odbc:CartServlet";

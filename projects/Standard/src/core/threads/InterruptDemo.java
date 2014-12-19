@@ -17,10 +17,7 @@ import java.net.ServerSocket;
  * - A thread that does Socket listening and is stuck on it will not be stopped (see thread T4).
  * - A thread that does IO on standard input will not be stopped (see thread T5).
  * - Closing a stream will not stop a thread stuck on it (see thread T6).
- *
- * @author Mark Veltzer <mark@veltzer.net>
  */
-
 public abstract class InterruptDemo {
 	// This thread runs forever and always consumes CPU
 	private static class T1 extends Thread {

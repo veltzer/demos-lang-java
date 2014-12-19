@@ -5,9 +5,6 @@ import java.sql.ResultSet;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 
-/**
- * @author Mark Veltzer <mark@veltzer.net>
- */
 @SuppressWarnings("serial")
 public class RowTag extends TagSupport {
 
