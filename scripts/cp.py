@@ -4,7 +4,9 @@
 
 import glob # for glob
 
-l=glob.glob('lib/*.jar')
+l=[]
+l.extend(glob.glob('lib/*.jar'))
+l.extend(glob.glob('static/*.jar'))
 l.append('support')
 
 print(':'.join(l))

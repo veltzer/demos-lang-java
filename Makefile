@@ -139,7 +139,7 @@ clean:
 
 $(JAVA_STAMP): %.stamp: %.java
 	$(info doing [$@])
-	$(Q)java -cp $(CLASSPATH_CHECKSTYLE) $(MAINCLASS_CHECKSTYLE) -c support/checkstyle_config.xml $< > /dev/null
+	$(Q)java -cp `scripts/cp.py` $(MAINCLASS_CHECKSTYLE) -c support/checkstyle_config.xml $<
 	$(Q)touch $@
 
 # code measurements
