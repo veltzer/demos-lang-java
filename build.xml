@@ -67,9 +67,9 @@
 					failonerror="on"
 					verbose="off"
 					fork="no"
+					includeAntRuntime="no"
 				>
 				<!--
-					includeAntRuntime="no"
 					includeJavaRuntime="no"
 					target="1.7"
 					source="1.7"
