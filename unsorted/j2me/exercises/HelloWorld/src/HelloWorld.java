@@ -2,8 +2,6 @@ import javax.microedition.lcdui.*;
 
 /**
  * Exercise 1: Hello World Midlet.
- *
- * @author Jamie Hall
  */
 public class HelloWorld extends javax.microedition.midlet.MIDlet {
 

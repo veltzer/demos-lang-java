@@ -13,13 +13,13 @@ import dtos.CustomerDTO;
 
 /**
  * A test client for our bookstore's admin bean. <br>
- * 
+ *
  * This simple test obtains a BookStoreAdmin stub and invokes
  * methods such as: <ul>
  * <li> Adding a book to inventory
  * <li> Adding a customer
  * <li> Viewing all books / all customers
- * 
+ *
  */
 public class BookstoreClient {
 
@@ -32,14 +32,14 @@ public class BookstoreClient {
 
 		// Add books:
 		BookDTO book;
-		
+
 		try {
 			admin.addNewBook(new BookDTO("Lord of the Rings", "Tolkin", 100));
 			admin.addNewBook(new BookDTO("The Truth", "Pratchett", 10));
 		} catch (Exception e) {
 			System.err.println("Cannot add books. " + e);
 		}
-		
+
 		// view all books:
 		System.out.println("Books currently in inventory:");
 		List books = admin.showBooks();

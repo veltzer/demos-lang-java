@@ -8,7 +8,7 @@ import weblogic.security.auth.callback.*;
 
 
 class WeblogicCallbackHandler implements CallbackHandler {
-	
+
 	private String username = null;
 	private String password = null;
 	private String url = null;
@@ -24,7 +24,7 @@ class WeblogicCallbackHandler implements CallbackHandler {
 
 	public void handle(Callback[] callbacks) throws IOException, UnsupportedCallbackException {
 		System.out.println("Please login to WebLogic.");
-		
+
 		for (int i = 0; i < callbacks.length; i++) {
 			if (callbacks[i] instanceof TextOutputCallback) {
 				// Display the message according to the specified type
@@ -53,8 +53,8 @@ class WeblogicCallbackHandler implements CallbackHandler {
 					System.out.println("username: " + username);
 					nc.setName(username);
 				}
-			} 
-			
+			}
+
 			else if (callbacks[i] instanceof URLCallback) {
 				// If url not supplied on cmd line, prompt the user for the url.
 				// This example requires the url.
@@ -67,8 +67,8 @@ class WeblogicCallbackHandler implements CallbackHandler {
 					System.out.println("URL: " + url);
 					uc.setURL(url);
 				}
-			} 
-			
+			}
+
 			else if (callbacks[i] instanceof PasswordCallback) {
 				PasswordCallback pc = (PasswordCallback) callbacks[i];
 

@@ -1,6 +1,3 @@
-/*
- * Created on Feb 9, 2006
- */
 package dp.command;
 
 import java.util.ArrayList;

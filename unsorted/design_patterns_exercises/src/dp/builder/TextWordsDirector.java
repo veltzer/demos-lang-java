@@ -1,6 +1,3 @@
-/*
- * Created on Jan 23, 2006
- */
 package dp.builder;
 
 import java.io.BufferedReader;

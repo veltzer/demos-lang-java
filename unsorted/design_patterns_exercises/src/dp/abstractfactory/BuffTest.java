@@ -1,6 +1,3 @@
-/*
- * Created on Jan 30, 2006
- */
 package dp.abstractfactory;
 
 public class BuffTest

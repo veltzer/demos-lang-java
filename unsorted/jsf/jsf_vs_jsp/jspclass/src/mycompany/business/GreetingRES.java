@@ -1,7 +1,7 @@
 package mycompany.business;
 
 public class GreetingRES {
-	
+
 	private String greetText;
 
 	public String getGreetText() {

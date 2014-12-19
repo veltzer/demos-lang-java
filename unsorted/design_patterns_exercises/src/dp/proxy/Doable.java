@@ -1,6 +1,3 @@
-/*
- * Created on Jan 25, 2006
- */
 package dp.proxy;
 
 public interface Doable

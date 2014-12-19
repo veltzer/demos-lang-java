@@ -3,8 +3,6 @@ import javax.microedition.lcdui.*;
 
 /**
  * Exercise 2: To do list part I.
- *
- * @author Jamie Hall
  */
 public class ToDo extends javax.microedition.midlet.MIDlet implements CommandListener {
 	private List list; // List to display all entries

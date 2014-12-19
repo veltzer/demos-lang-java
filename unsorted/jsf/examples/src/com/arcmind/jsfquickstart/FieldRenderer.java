@@ -1,7 +1,3 @@
-/*
- * Created on Mar 10, 2005
- *
- */
 package com.arcmind.jsfquickstart;
 
 import java.io.IOException;
@@ -18,16 +14,9 @@ import javax.faces.convert.ConverterException;
 import javax.faces.el.ValueBinding;
 import javax.faces.render.Renderer;
 
-/**
- * @author Richard Hightower
- *
- */
 public class FieldRenderer extends Renderer {
-
-
 	@Override
 	public Object getConvertedValue(FacesContext facesContext, UIComponent component, Object submittedValue) throws ConverterException {
-        
 
         //Try to find out by value binding
         ValueBinding valueBinding = component.getValueBinding("value");
@@ -36,17 +25,17 @@ public class FieldRenderer extends Renderer {
         Class valueType = valueBinding.getType(facesContext);
         if (valueType == null) return null;
 
-        if (String.class.equals(valueType)) return submittedValue;    
-        if (Object.class.equals(valueType)) return submittedValue;    
+        if (String.class.equals(valueType)) return submittedValue;
+        if (Object.class.equals(valueType)) return submittedValue;
 
         Converter converter = ((UIInput) component).getConverter();
         converter =  facesContext.getApplication().createConverter(valueType);
         if (converter != null ) {
         	return converter.getAsObject(facesContext, component, (String) submittedValue);
         }else {
-        	return submittedValue; 
+        	return submittedValue;
         }
-		
+
 	}
 
 	@Override
@@ -56,12 +45,12 @@ public class FieldRenderer extends Renderer {
 		    /* Get client ID, use client ID to grab value from parameters */
 		String clientId = component.getClientId(context);
 		String value = (String) requestMap.get(clientId);
-		
+
 		FieldComponent fieldComponent = (FieldComponent)component;
 			/* Set the submitted value */
 		((UIInput)component).setSubmittedValue(value);
 	}
-	
+
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent component)
 			throws IOException {
@@ -73,8 +62,8 @@ public class FieldRenderer extends Renderer {
 		writer.flush();
 	}
 
-	
-	
+
+
 	private void encodeMessage(FacesContext context, ResponseWriter writer, FieldComponent fieldComponent) throws IOException {
 		Iterator iter = context.getMessages(fieldComponent.getClientId(context));
 		while (iter.hasNext()){
@@ -98,7 +87,7 @@ public class FieldRenderer extends Renderer {
 		}
 		writer.endElement("label");
 	}
-	
+
 	private void encodeInput(ResponseWriter writer, FieldComponent fieldComponent) throws IOException{
 		FacesContext currentInstance = FacesContext.getCurrentInstance();
 		writer.startElement("input", fieldComponent);

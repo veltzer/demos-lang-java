@@ -1,8 +1,4 @@
-
- 
 package bookcmp;
 
-
-
-public abstract class BookBean  {
+public abstract class BookBean {
 }

@@ -14,14 +14,14 @@ import daos.BookstoreDaoFactory;
  * Bean implementation class for Enterprise Bean: CancelOrders
  */
 public class CancelOrdersBean implements MessageListener, MessageDrivenBean  {
-      
+
    private MessageDrivenContext fMessageDrivenCtx;
-   private BookstoreDAO dao; 
-   
+   private BookstoreDAO dao;
+
    /**
 	* setMessageDrivenContext
 	*/
-   public void setMessageDrivenContext(javax.ejb.MessageDrivenContext ctx) 
+   public void setMessageDrivenContext(javax.ejb.MessageDrivenContext ctx)
    {
 	   System.out.println(this.getClass().getName() + ".setMessageDrivenContext() was invoked...");
 	   fMessageDrivenCtx = ctx;
@@ -35,16 +35,16 @@ public class CancelOrdersBean implements MessageListener, MessageDrivenBean  {
 	   catch(Exception ex)
 	   {
 		   	ex.printStackTrace();
-		   	throw new RuntimeException("failed to set context");               
+		   	throw new RuntimeException("failed to set context");
 	   }
    }
-   
-   public void ejbCreate() 
+
+   public void ejbCreate()
    {
 	   System.out.println(this.getClass().getName() + ".ejbCreate() was invoked...");
    }
 
-   public void ejbRemove() 
+   public void ejbRemove()
    {
 	   System.out.println(this.getClass().getName() + ".ejbRemove() was invoked...");
    }
@@ -52,41 +52,41 @@ public class CancelOrdersBean implements MessageListener, MessageDrivenBean  {
    /**
 	* This method is invoked wheneven a message arrives into
 	* the queue to which bean is registered. <br>
-	* For the purpose of this exercise, assume the only messages 
+	* For the purpose of this exercise, assume the only messages
 	* are text messages regarding order cancellations. <br>
-	* 
+	*
 	* NOTE: since call is asynchronous, there is no simple way
 	* to inform clients when cancellation fails (e.g. if order does
-	* not exists). Currently, we shall simply print out a warning. 
+	* not exists). Currently, we shall simply print out a warning.
 	* When error reports are critical, they should be dispatched to
-	* client a-synchroniously (e.g. using email, or having the client 
-	* register to a dedicated "error-notification" queue , where your 
+	* client a-synchroniously (e.g. using email, or having the client
+	* register to a dedicated "error-notification" queue , where your
 	* message-driven bean may place error reports).
 	*/
-   	public void onMessage(Message msg) 
+   	public void onMessage(Message msg)
    	{
    		System.out.println(this.getClass().getName() + ".onMessage() was invoked...");
-      
+
    		try
    		{
    			// Assuming only messages are TextMessages (otherwise,
-   			// use instanceof):         
+   			// use instanceof):
    			TextMessage tMsg= (TextMessage)msg;
-      
+
    			// Assuming text is of the form "cancel <orderId>":
    			String text=tMsg.getText();
    			StringTokenizer tok=new StringTokenizer(text);
    			tok.nextToken();  // skip "cancel"
    			String orderId=tok.nextToken();
-         
+
    			// This should cascade-delete the order:
-   			System.out.println("*** About to cancel order:"+ orderId);            
+   			System.out.println("*** About to cancel order:"+ orderId);
    			dao.cancelOrder(orderId);
-   			System.out.println("*** Successfully cancelled order:"+ orderId);   
+   			System.out.println("*** Successfully cancelled order:"+ orderId);
    		}
    		catch(Exception ex)
    		{
    			ex.printStackTrace();
-   		}            
+   		}
    	}
 }

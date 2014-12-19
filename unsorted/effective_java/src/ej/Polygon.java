@@ -5,7 +5,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * @author: Yardena
  */
 public class Polygon {
  private Point[] points;

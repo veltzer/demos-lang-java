@@ -1,8 +1,8 @@
 package bookstore;
+
 /**
  * Home interface for Enterprise Bean: BookstoreAdmin
  */
-public interface BookstoreAdminHome  
-{
+public interface BookstoreAdminHome {
 	//create method signature should go here
 }

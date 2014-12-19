@@ -22,27 +22,27 @@ public class BirthdayCakeBean {
 	public void setUserAge(int userAge) {
 		this.userAge = userAge;
 	}
-	
+
 	public void showCake(ActionEvent event) {
 		UIComponent root = FacesContext.getCurrentInstance().getViewRoot();
 		UIPanel cake = (UIPanel) root.findComponent("cake");
 		cake.setRendered(true);
 		List cakeParts = cake.getChildren();
 		cakeParts.clear();
-		
+
 		HtmlGraphicImage cakeLeftSide = new HtmlGraphicImage();
 		cakeLeftSide.setUrl("images/cake_left.gif");
 		cakeParts.add(cakeLeftSide);
-		
+
 		for (int i = 0; i < userAge; i++) {
 			HtmlGraphicImage candle = new HtmlGraphicImage();
 			candle.setUrl("images/candle_on.gif");
 			cakeParts.add(candle);
 		}
-		
+
 		HtmlGraphicImage cakeRightSide = new HtmlGraphicImage();
 		cakeRightSide.setUrl("images/cake_right.gif");
-		cakeParts.add(cakeRightSide);		
+		cakeParts.add(cakeRightSide);
 	}
 
 	public void clearCake() {
@@ -51,30 +51,30 @@ public class BirthdayCakeBean {
 		cake.setRendered(false);
 		cake.getChildren().clear();
 	}
-	
+
 	public void validateAge(FacesContext context,
 	                        UIComponent component, Object newValue)
 	                                      throws ValidatorException {
 		int newVal = ((Integer)newValue).intValue();
 		if (newVal < MIN_AGE) {
 			clearCake();
-			throw new ValidatorException(new FacesMessage("Too young."));			
+			throw new ValidatorException(new FacesMessage("Too young."));
 		}
 		if (newVal > MAX_AGE) {
 			clearCake();
-			throw new ValidatorException(new FacesMessage("Too old."));			
+			throw new ValidatorException(new FacesMessage("Too old."));
 		}
 	}
-	
+
 	public void setCurLocale(ActionEvent event) {
 		UICommand curCommand = (UICommand) event.getComponent();
 		String lang = (String) curCommand.getValue();
-		
+
 		Locale locale = new Locale(lang);
 		System.out.println("Current locale: "+locale);
 		FacesContext.getCurrentInstance().getViewRoot().setLocale(locale);
 	}
-	
-	
-}	
+
+
+}
 

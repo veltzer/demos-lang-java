@@ -55,7 +55,7 @@ public class BookBean implements EntityBean {
 
 	public void ejbActivate() {
 	}
-	
+
 	public void ejbPassivate() {
 	}
 
@@ -84,7 +84,7 @@ public class BookBean implements EntityBean {
 
 		throw new ObjectNotFoundException("Cannot find PK");
 	}
-	
+
 	public Collection ejbFindAllBooks() throws FinderException {
 		List books = dao.selectBooks();
 		Collection result = new ArrayList();

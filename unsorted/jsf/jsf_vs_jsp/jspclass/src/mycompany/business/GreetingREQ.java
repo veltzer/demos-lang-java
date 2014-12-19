@@ -4,7 +4,7 @@ public class GreetingREQ {
 
 	private String name;
 	private Integer cell;
-	
+
 	public String getName() {
 		return name;
 	}

@@ -1,9 +1,3 @@
-/*
- * Speed.java
- *
- * Created on November 12, 2004, 5:32 AM
- */
-
 package threading;
 
 import java.util.*;
@@ -12,7 +6,6 @@ import enums.*;
 
 /**
  * This program simulates the card game called "Speed"
- * @author pix
  */
 public class Speed {
     public final static int PLAYERS = 4;

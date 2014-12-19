@@ -16,7 +16,7 @@ public class GetAddressResponse {
     private addressbook.service.Address _return;
 
     /**
-     * 
+     *
      * @return
      *     returns Address
      */
@@ -25,7 +25,7 @@ public class GetAddressResponse {
     }
 
     /**
-     * 
+     *
      * @param _return
      *     the value for the _return property
      */

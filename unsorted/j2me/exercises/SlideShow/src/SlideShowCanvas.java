@@ -2,8 +2,6 @@ import javax.microedition.lcdui.*;
 
 /**
  * Canvas on which Slide Show images are displayed.
- *
- * @author Jamie Hall
  */
 public class SlideShowCanvas extends Canvas {
 	private Image[] images;

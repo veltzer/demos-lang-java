@@ -1,17 +1,7 @@
-/*
- * Pool.java
- *
- * Created on April 27, 2005, 4:42 PM
- */
-
 package generics;
 
 import java.util.*;
 
-/**
- *
- * @author pix
- */
 public class Pool<T> {
     List<T> arr;
 

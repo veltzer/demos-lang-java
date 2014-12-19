@@ -1,12 +1,5 @@
-
-
 package dispatcherview;
 
-/**
- *
- * @author  rank
- * @version
- */
 public class Item implements java.io.Serializable {
 
     /** Holds value of property name. */

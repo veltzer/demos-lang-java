@@ -1,7 +1,6 @@
 package ej;
 
 /**
- * @author: Yardena
  * @date: Sep 20, 2008 1:55:37 PM
  */
 public class RegistryTest {

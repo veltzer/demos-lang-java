@@ -5,8 +5,6 @@ import javax.microedition.rms.*;
 
 /**
  * Exercise 2: To do list part II.
- *
- * @author Jamie Hall
  */
 public class ToDo extends javax.microedition.midlet.MIDlet implements CommandListener {
 	private List list; // List to display all entries

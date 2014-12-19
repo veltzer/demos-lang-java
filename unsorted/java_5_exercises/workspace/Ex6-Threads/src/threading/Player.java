@@ -1,9 +1,3 @@
-/*
- * Player.java
- *
- * Created on November 12, 2004, 5:54 AM
- */
-
 package threading;
 
 import java.util.*;
@@ -14,7 +8,6 @@ import enums.Deck;
 /**
  * This class represents a player.
  * <CODE>Player</CODE> implements <CODE>Callable</CODE> so it can be executed by an <CODE>Executor</CODE>
- * @author pix
  */
 public class Player implements Callable<Player> {
     String name;

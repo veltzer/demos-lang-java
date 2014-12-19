@@ -1,4 +1,8 @@
 #!/bin/bash
+
+# this script allows you to select the java version you
+# are using on ubuntu
+
 #clear
 PS3="please select java version> "
 select item in sun openjdk auto quit

@@ -46,7 +46,7 @@ check_serialid:
 .PHONY: check_ws_eol
 check_ws_eol:
 	$(info doing [$@])
-	$(Q)make_helper wrapper-ok git grep " $$" -- "*.java"
+	$(Q)make_helper wrapper-ok git grep "[[:space:]]$$" -- *.java
 
 .PHONY: check_tab_eol
 check_tab_eol:
@@ -101,7 +101,7 @@ check_all: check_filenames_with_spaces check_imports check_serialid check_ws_eol
 .PHONY: checkstyle
 checkstyle:
 	$(info doing [$@])
-	$(Q)java -jar lib/checkstyle-5.6-all.jar -c support/checkstyle_config.xml `find . -name "*.java"`
+	$(Q)java -cp `scripts/cp.py` $(MAINCLASS_CHECKSTYLE) -c support/checkstyle_config.xml `find . -name "*.java"`
 
 .PHONY: format_eclipse
 format_eclipse:

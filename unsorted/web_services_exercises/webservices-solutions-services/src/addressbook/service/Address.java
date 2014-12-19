@@ -5,7 +5,7 @@ public class Address {
 	private String city;
 	private String street;
 	private int num;
-	
+
 	public String getCity() {
 		return city;
 	}
@@ -30,7 +30,4 @@ public class Address {
 	public void setStreet(String street) {
 		this.street = street;
 	}
-	
-	
-	
 }

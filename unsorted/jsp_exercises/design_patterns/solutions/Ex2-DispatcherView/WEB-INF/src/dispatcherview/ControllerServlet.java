@@ -4,11 +4,6 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.util.*;
 
-/**
- *
- * @author  rank
- * @version
- */
 public class ControllerServlet extends HttpServlet {
 
 	private Dispatcher dispatcher;
@@ -30,11 +25,8 @@ public class ControllerServlet extends HttpServlet {
         dispatcher = new Dispatcher(ctx);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, java.io.IOException {
-
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, java.io.IOException {
         String mode = request.getParameter("mode");
-			
 		dispatcher.dispatch(request,response,mode);
 
     }

@@ -1,15 +1,5 @@
 package enums;
-/*
- * Card.java
- *
- * Created on November 12, 2004, 5:28 AM
- */
 
-
-/**
- *
- * @author  pix
- */
 public class Card {
 
     public enum Rank { TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE }

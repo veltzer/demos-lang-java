@@ -1,17 +1,8 @@
 package enums;
 
-/*
- * Deck.java
- *
- * Created on November 12, 2004, 5:30 AM
- */
-
 import java.util.*;
 import static enums.Card.*;
 
-/**
- * @author pix
- */
 public class Deck extends ArrayList<Card> {
 
 	public Deck() {

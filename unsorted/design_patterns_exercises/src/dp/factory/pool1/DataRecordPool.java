@@ -1,6 +1,3 @@
-/*
- * Created on Jan 24, 2006
- */
 package dp.factory.pool1;
 
 import java.util.LinkedList;
@@ -8,7 +5,6 @@ import java.util.LinkedList;
 /**
  * A minimal object pool. This pool is a factory which manages the creation of
  * DataRecord objects. No locking is provided. The pool may hava a max-size limit.
- * @author shlomi
  */
 public class DataRecordPool
 {
@@ -44,18 +40,11 @@ public class DataRecordPool
 	public void release(DataRecord record)
 	{
 		// There should be a safety check: perhaps this record is already in the pool?
-		if ((maxSize == 0) || (pool.size() < maxSize))
+		if ((maxSize == 0) || (pool.size() < maxSize)) {
 			pool.add(record);
+		}
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
 	/**
 	 * @param args
 	 */

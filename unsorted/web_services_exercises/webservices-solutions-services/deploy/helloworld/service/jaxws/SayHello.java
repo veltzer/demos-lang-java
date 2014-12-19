@@ -16,7 +16,7 @@ public class SayHello {
     private String arg0;
 
     /**
-     * 
+     *
      * @return
      *     returns String
      */
@@ -25,7 +25,7 @@ public class SayHello {
     }
 
     /**
-     * 
+     *
      * @param arg0
      *     the value for the arg0 property
      */

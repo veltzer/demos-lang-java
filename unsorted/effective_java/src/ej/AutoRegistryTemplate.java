@@ -8,7 +8,6 @@ import java.util.concurrent.ConcurrentMap;
 /**
  * Implementing Service Locator pattern using HTC
  * http://martinfowler.com/articles/injection.html#UsingAServiceLocator
- * @author: Yardena
  * @date: Sep 20, 2008 1:47:03 PM
  */
 public class AutoRegistryTemplate {
@@ -57,7 +56,7 @@ public class AutoRegistryTemplate {
       return loader.iterator().next();
     }
   }
-  
+
   private static <T> T getFirstNotNull(Builder<T>... builders) {
     for (Builder<T> builder: builders) {
       T temp = builder.build();

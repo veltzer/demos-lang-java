@@ -22,7 +22,7 @@ public class BirthdayCakeBean {
 	public void showCake(ActionEvent event) {
 		UIComponent root = FacesContext.getCurrentInstance().getViewRoot();
 		UIPanel cake = (UIPanel) root.findComponent("cake");
-		
+
 		cake.setRendered(true);
 		List cakeParts = cake.getChildren();
 		cakeParts.clear();

@@ -9,9 +9,9 @@ import dtos.OrderDetailsDTO;
 
 /**
  * A simple SQL implementation of BookstoreDAO. <br>
- * 
+ *
  * For more information, please refer to the documentation of
- * interface  BookstoreDAO. 
+ * interface  BookstoreDAO.
  */
 public class SQL92BookstoreDAO implements BookstoreDAO {
 
@@ -383,7 +383,7 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 			if (count == 0)
 				return false;
 
-			// Cascade-delete:			
+			// Cascade-delete:
 			stmt = con.prepareStatement(deleteOrderItems);
 			stmt.setString(1, orderId);
 			count = stmt.executeUpdate();

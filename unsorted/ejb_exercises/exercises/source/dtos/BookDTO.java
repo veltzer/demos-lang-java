@@ -6,23 +6,21 @@ public class BookDTO implements Serializable {
 	private String title;	// key
 	private String author;
 	private double price;
-	
-	public BookDTO(String title, String author, double price){
+
+	public BookDTO(String title, String author, double price) {
 		this.title = title;
 		this.author = author;
 		this.price = price;
 	}
-	public BookDTO(){
-	
+	public BookDTO() {
 	}
-	
+
 	/**
 	 * @return
 	 */
 	public String getAuthor() {
 		return author;
 	}
-
 
 	/**
 	 * @return

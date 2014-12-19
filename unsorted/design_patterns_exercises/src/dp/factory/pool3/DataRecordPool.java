@@ -1,6 +1,3 @@
-/*
- * Created on Jan 24, 2006
- */
 package dp.factory.pool3;
 
 import java.util.LinkedList;
@@ -9,11 +6,9 @@ import java.util.List;
 /**
  * A minimal object pool. This pool is a factory which manages the creation of
  * DataRecord objects.
- * Locking is provided. Minimal capacity ensurance is provided using an external thread. 
- * @author shlomi
+ * Locking is provided. Minimal capacity ensurance is provided using an external thread.
  */
-public class DataRecordPool
-{
+public class DataRecordPool {
 	private static DataRecordPool instance = new DataRecordPool();
 	private int minSize;
 	private int maxSize;
@@ -21,12 +16,9 @@ public class DataRecordPool
 
 	private int numRequests;
 
-	private class CapacityManager implements Runnable
-	{
-		public void run()
-		{
-			synchronized (pool)
-			{
+	private class CapacityManager implements Runnable {
+		public void run() {
+			synchronized (pool) {
 				int missingElements = minSize - pool.size();
 				for (int i = 0; i < missingElements; ++i)
 					release(createNewDataRecord());
@@ -34,37 +26,30 @@ public class DataRecordPool
 		}
 	}
 
-	private DataRecordPool()
-	{
+	private DataRecordPool() {
 		pool = new LinkedList<DataRecord>();
 		// a maxSize of 0 means "unlimited"
 		maxSize = Integer.parseInt(System.getProperty("datarecord.pool.maxsize", "0"));
 		minSize = Integer.parseInt(System.getProperty("datarecord.pool.minsize", "0"));
 		numRequests = 0;
-
 		ensureCapacity();
 	}
 
-	public static DataRecordPool getInstance()
-	{
+	public static DataRecordPool getInstance() {
 		return instance;
 	}
 
-	private void ensureCapacity()
-	{
+	private void ensureCapacity() {
 		new Thread(new CapacityManager()).start();
 	}
 
-	private DataRecord createNewDataRecord()
-	{
+	private DataRecord createNewDataRecord() {
 		System.out.println("creating new object");
 		return new DataRecord();
 	}
 
-	public DataRecord createDataRecord()
-	{
-		synchronized (pool)
-		{
+	public DataRecord createDataRecord() {
+		synchronized (pool) {
 			++numRequests;
 
 			if (pool.isEmpty())
@@ -76,10 +61,8 @@ public class DataRecordPool
 		}
 	}
 
-	public List createDataRecords(int amount)
-	{
-		synchronized (pool)
-		{
+	public List createDataRecords(int amount) {
+		synchronized (pool) {
 			List<DataRecord> recordsList = new LinkedList<DataRecord>();
 			for (int i = 0; i < amount; ++i)
 				recordsList.add(createDataRecord());
@@ -87,23 +70,19 @@ public class DataRecordPool
 		}
 	}
 
-	public void release(DataRecord record)
-	{
-		synchronized (pool)
-		{
+	public void release(DataRecord record) {
+		synchronized (pool) {
 			if ((maxSize == 0) || (pool.size() < maxSize))
 				pool.add(record);
 			ensureCapacity();
 		}
 	}
 
-	public int size()
-	{
+	public int size() {
 		return pool.size();
 	}
 
-	public int getNumRequests()
-	{
+	public int getNumRequests() {
 		return numRequests;
 	}
 }

@@ -10,5 +10,5 @@ public interface ShoppingCart extends javax.ejb.EJBObject {
 	String getCustomerId() throws RemoteException;
 	void addToCart(String title) throws NoSuchBookException, RemoteException;
 	List getTitlesInCart() throws RemoteException;
-	String placeOrder() throws EmptyOrderException, RemoteException;	
+	String placeOrder() throws EmptyOrderException, RemoteException;
 }

@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlEnum;
 
 /**
  * <p>Java class for operation.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
  * <p>
  * <pre>
@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlEnum;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
- * 
+ *
  */
 @XmlEnum
 public enum Operation {

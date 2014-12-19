@@ -6,19 +6,14 @@ import javax.jws.*;
 
 @WebService
 public class HebCalendar {
-	
+
 	@WebMethod
 	public String hebDayOfWeek(Date date) {
 		Calendar c = Calendar.getInstance();
-		
 		c.setTime(date);
-		
 		int dayNum = c.get(Calendar.DAY_OF_WEEK);
-		
 		return hebDayName(dayNum);
-		
 	}
-	
 	@WebMethod
 	public String hebDayName(int dayNum) {
 		switch (dayNum) {

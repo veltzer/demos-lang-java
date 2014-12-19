@@ -1,17 +1,7 @@
-/*
- * IterableStringTokenizer.java
- *
- * Created on May 5, 2005, 1:16 AM
- */
-
 package forin;
 
 import java.util.*;
 
-/**
- *
- * @author pix
- */
 public class IterableStringTokenizer extends StringTokenizer implements Iterable<String> {
 
     public IterableStringTokenizer(String str,

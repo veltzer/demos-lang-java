@@ -1,7 +1,3 @@
-/*
- * Created on Jul 19, 2004
- *
- */
 package com.arcmind.jsfquickstart;
 
 import javax.faces.application.Application;
@@ -10,11 +6,6 @@ import javax.faces.context.FacesContext;
 import javax.faces.el.ValueBinding;
 import javax.faces.webapp.UIComponentTag;
 
-
-/**
- * @author Richard Hightower
- *
- */
 public class FieldTag extends UIComponentTag {
 
 	private String label;
@@ -22,7 +13,7 @@ public class FieldTag extends UIComponentTag {
 	private String errorStyle="";
 	private boolean required;
 	private String value="";
-	
+
 	/**
 	 * @return Returns the label.
 	 */
@@ -46,21 +37,21 @@ public class FieldTag extends UIComponentTag {
 		component.getAttributes().put("errorStyleClass",errorStyleClass);
 		component.getAttributes().put("errorStyle",errorStyle);
 		((FieldComponent)component).setRequired(required);
-	
-	
+
+
 	    FacesContext context = FacesContext.getCurrentInstance();
 	    Application application = context.getApplication();
 	    ValueBinding binding = application.createValueBinding(value);
 	    System.out.printf("setProperties class=%s expression=%s\n", binding.getType(FacesContext.getCurrentInstance()), binding.getExpressionString());
 	    component.setValueBinding("value", binding);
-		
+
 	}
 	/**
 	 * @see javax.faces.webapp.UIComponentTag#getComponentType()
 	 */
 	@Override
 	public String getComponentType() {
-		return "arcmind.Field";	
+		return "arcmind.Field";
 	}
 
 	/**
@@ -68,7 +59,7 @@ public class FieldTag extends UIComponentTag {
 	 */
 	@Override
 	public String getRendererType() {
-		return "arcmind.Field";	
+		return "arcmind.Field";
 	}
 
 	/**
@@ -83,7 +74,7 @@ public class FieldTag extends UIComponentTag {
 	public void setErrorStyleClass(String errorStyleClass) {
 		this.errorStyleClass = errorStyleClass;
 	}
-	
+
 	/**
 	 * @return Returns the errorStyle.
 	 */
@@ -109,7 +100,7 @@ public class FieldTag extends UIComponentTag {
 	public void setRequired(boolean required) {
 		this.required = required;
 	}
-	
+
 	/**
 	 * @return Returns the value.
 	 */

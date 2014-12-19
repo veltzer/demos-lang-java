@@ -1,31 +1,19 @@
-/*
- * Created on Jun 22, 2005
- *
- * To change the template for this generated file go to
- * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
- */
 package bookcmp;
 
 import javax.ejb.EntityBean;
 import javax.ejb.EntityContext;
 import javax.ejb.RemoveException;
 
-/**
- * @author cmiatrni
- *
- * To change the template for this generated type comment go to
- * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
- */
 public abstract class BookBean implements EntityBean {
 
 	private EntityContext ctx;
 
-	public void setEntityContext(EntityContext ctx) 
+	public void setEntityContext(EntityContext ctx)
 	{
 		this.ctx = ctx;
 	}
 
-	public void unsetEntityContext() 
+	public void unsetEntityContext()
 	{
 		ctx = null;
 	}

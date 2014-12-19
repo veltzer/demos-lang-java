@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 @SuppressWarnings("serial")
 public class GreetingBean implements Serializable {
-	
+
 	private String name;
 	private String cell;
 	private String greetText;
@@ -16,7 +16,7 @@ public class GreetingBean implements Serializable {
 			businessProblem = "cell no must contain the - sign";
 			return ("businessProblem");
 		}
-		
+
 		greetText = "Dear Mr " + name + " your cell number is " + cell;
 		return ("success");
 	}

@@ -29,7 +29,7 @@ public class CalculatorBean {
 
 	public void setDisplayValue(double displayValue) {
 		this.displayValue = displayValue;
-	} 
+	}
 
 	private void calc(int newOp) {
 		/*
@@ -37,11 +37,11 @@ public class CalculatorBean {
 		 * as shown here (commented out; the component itself is also commented
 		 * out in the HTML.)
 		 */
-		
+
 //		UIComponent root = FacesContext.getCurrentInstance().getViewRoot();
 //		UIOutput output = (UIOutput) root.findComponent("calc:debug");
 //		output.setValue("newOp = " + newOp);
-		
+
 		switch (lastOp) {
 		case PLUS:
 			lastValue += displayValue;
@@ -82,5 +82,5 @@ public class CalculatorBean {
 	public void doEq(ActionEvent event) {
 		calc(EQ);
 	}
-	
+
 }

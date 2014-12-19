@@ -21,7 +21,7 @@ public class AddAddress {
     private addressbook.service.Address arg1;
 
     /**
-     * 
+     *
      * @return
      *     returns String
      */
@@ -30,7 +30,7 @@ public class AddAddress {
     }
 
     /**
-     * 
+     *
      * @param arg0
      *     the value for the arg0 property
      */
@@ -39,7 +39,7 @@ public class AddAddress {
     }
 
     /**
-     * 
+     *
      * @return
      *     returns Address
      */
@@ -48,7 +48,7 @@ public class AddAddress {
     }
 
     /**
-     * 
+     *
      * @param arg1
      *     the value for the arg1 property
      */

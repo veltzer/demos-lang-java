@@ -8,8 +8,6 @@ import java.util.concurrent.ConcurrentMap;
 /**
  * Implementing Service Locator pattern using HTC
  * http://martinfowler.com/articles/injection.html#UsingAServiceLocator
- * @author: Yardena
- * @date: Sep 20, 2008 1:47:03 PM
  */
 public class AutoRegistry {
   private final static ConcurrentMap<Class<?>, Object> services =

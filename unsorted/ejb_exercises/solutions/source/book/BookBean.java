@@ -1,28 +1,20 @@
 package book;
 
 import java.util.*;
-
 import javax.ejb.*;
 import javax.naming.*;
 import javax.sql.*;
-
 import daos.*;
 import dtos.*;
 
 public class BookBean implements EntityBean {
-
 	private double price;
-
 	private String author;
-
 	private String title;
-
 	private BookstoreDAO dao;
-
 	private EntityContext ctx;
 
-	public void setEntityContext(EntityContext ctx)
-		throws EJBException {
+	public void setEntityContext(EntityContext ctx) throws EJBException {
 		this.ctx = ctx;
 		try {
 			InitialContext ictx = new InitialContext();
@@ -40,7 +32,6 @@ public class BookBean implements EntityBean {
 		ctx = null;
 	}
 
-
 	public String ejbCreate(String title, String author, double price)
 		throws CreateException {
 		dao.insertBook(title, author, price);
@@ -55,7 +46,7 @@ public class BookBean implements EntityBean {
 
 	public void ejbActivate() {
 	}
-	
+
 	public void ejbPassivate() {
 	}
 
@@ -75,8 +66,6 @@ public class BookBean implements EntityBean {
 		dao.updateBook(getTitle(), getAuthor(), getPrice());
 	}
 
-
-
 	public String ejbFindByPrimaryKey(String title) throws FinderException {
 		if (dao.selectBook(title) != null) {
 			return title;
@@ -84,7 +73,7 @@ public class BookBean implements EntityBean {
 
 		throw new ObjectNotFoundException("Cannot find PK");
 	}
-	
+
 	public Collection ejbFindAllBooks() throws FinderException {
 		List books = dao.selectBooks();
 		Collection result = new ArrayList();
@@ -95,7 +84,6 @@ public class BookBean implements EntityBean {
 		}
 		return result;
 	}
-
 
 	public String getTitle() {
 		return title;

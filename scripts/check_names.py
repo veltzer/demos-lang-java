@@ -17,11 +17,11 @@ for project in projects_list:
 	(path2,folder2)=os.path.split(path)
 	if debug:
 		print(folder2)
-	document = xml.etree.ElementTree.ElementTree(file=project)
+	document=xml.etree.ElementTree.ElementTree(file=project)
 	counter=0
 	for element in document.findall('./name'):
 		if element.text!=folder2:
-			raise ValueError("bad name for project "+project+" ("+folder2+" vs "+element.text+")")
+			raise ValueError('bad name for project '+project+' ('+folder2+' vs '+element.text+')')
 		if debug:
 			print(element.text)
 		counter+=1

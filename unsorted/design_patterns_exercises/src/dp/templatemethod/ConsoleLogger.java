@@ -1,6 +1,3 @@
-/*
- * Created on Feb 10, 2006
- */
 package dp.templatemethod;
 
 public class ConsoleLogger extends AbstractLogger

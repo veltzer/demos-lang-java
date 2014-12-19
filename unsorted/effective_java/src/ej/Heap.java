@@ -9,22 +9,22 @@ public class Heap<E> implements Iterable<E> {
   private final Comparator<? super E> comparator;
   public Heap(Comparator<? super E> c) { comparator = c; }
 
-  public E pop() { 
+  public E pop() {
     return null; //todo
   }
-  public void add(E elem) { 
+  public void add(E elem) {
     //todo
   }
-  public void addAll(Collection<? extends E> c) { 
-    for (E e: c) { add(e); } 
+  public void addAll(Collection<? extends E> c) {
+    for (E e: c) { add(e); }
   }
-  public void popAll(Collection<? super E> c) { 
-    while (!isEmpty()) c.add(pop()); 
+  public void popAll(Collection<? super E> c) {
+    while (!isEmpty()) c.add(pop());
   }
   public boolean isEmpty() {
     return true; //todo
   }
-  public Iterator<E> iterator() { 
+  public Iterator<E> iterator() {
     return null; //todo
   }
   public boolean contains(Object o) { return false; }

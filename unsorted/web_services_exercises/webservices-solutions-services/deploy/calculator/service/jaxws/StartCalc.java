@@ -16,7 +16,6 @@ public class StartCalc {
     private float arg0;
 
     /**
-     * 
      * @return
      *     returns float
      */
@@ -25,7 +24,6 @@ public class StartCalc {
     }
 
     /**
-     * 
      * @param arg0
      *     the value for the arg0 property
      */

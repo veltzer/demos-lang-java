@@ -1,45 +1,37 @@
-/*
- * Created on Jan 29, 2006
- */
 package dp.iterator;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class XMLElement
-{
+public class XMLElement {
+
 	private String name;
 	private String data;
 	private List<XMLElement> children;
 
-	private class ChildrenIterator implements Iterator
-	{
+	private class ChildrenIterator implements Iterator {
 		private Iterator elementsIterator;
 		private String elementName;
 		private XMLElement currentElement;
 
-		public ChildrenIterator(String elementName)
-		{
+		public ChildrenIterator(String elementName) {
 			this.elementName = elementName;
 			elementsIterator = getChildren();
 			findNext();
 		}
 
-		public boolean hasNext()
-		{
+		public boolean hasNext() {
 			return (currentElement != null);
 		}
 
-		public Object next()
-		{
+		public Object next() {
 			XMLElement result = currentElement;
 			findNext();
 			return result;
 		}
 
-		private void findNext()
-		{
+		private void findNext() {
 			currentElement = null;
 			while (elementsIterator.hasNext())
 			{
@@ -52,50 +44,25 @@ public class XMLElement
 			}
 		}
 
-		public void remove()
-		{
+		public void remove() {
 			throw new UnsupportedOperationException("Operation not supported");
 		}
 	}
 
-	public XMLElement(String name)
-	{
+	public XMLElement(String name) {
 		this.name = name;
 		children = new ArrayList<XMLElement>();
 	}
 
-	public Iterator getChildren()
-	{
+	public Iterator getChildren() {
 		return children.iterator();
 	}
 
-	public Iterator getChildren(String name)
-	{
+	public Iterator getChildren(String name) {
 		return new ChildrenIterator(name);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
-	public XMLElement addElement(XMLElement element)
-	{
+	public XMLElement addElement(XMLElement element) {
 		children.add(element);
 		return this;
 	}
@@ -103,40 +70,34 @@ public class XMLElement
 	/**
 	 * @return Returns the name.
 	 */
-	public String getName()
-	{
+	public String getName() {
 		return name;
 	}
 
 	/**
 	 * @return Returns the data.
 	 */
-	public String getData()
-	{
+	public String getData() {
 		return data;
 	}
 
 	/**
 	 * @param data The data to set.
 	 */
-	public XMLElement setData(String data)
-	{
+	public XMLElement setData(String data) {
 		this.data = data;
 		return this;
 	}
 
-	public String toString()
-	{
+	public String toString() {
 		return "[XML Element: name=" + getName() + ", data=" + getData() + "]";
 	}
 
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args)
-	{
-		try
-		{
+	public static void main(String[] args) {
+		try {
 			XMLElement root = new XMLElement("Root");
 			XMLElement courseElement = new XMLElement("Course");
 			courseElement.addElement(new XMLElement("name").setData("Design Patterns"));
@@ -154,9 +115,7 @@ public class XMLElement
 				System.out.println(i.next());
 			}
 			System.out.println("Done");
-		}
-		catch (Exception e)
-		{
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

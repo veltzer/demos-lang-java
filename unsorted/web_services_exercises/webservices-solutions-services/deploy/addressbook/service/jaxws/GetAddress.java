@@ -16,7 +16,6 @@ public class GetAddress {
     private String arg0;
 
     /**
-     * 
      * @return
      *     returns String
      */
@@ -25,7 +24,6 @@ public class GetAddress {
     }
 
     /**
-     * 
      * @param arg0
      *     the value for the arg0 property
      */

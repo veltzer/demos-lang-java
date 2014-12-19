@@ -6,7 +6,6 @@ import java.util.Set;
 import java.util.TreeSet;
 
 /**
- * @author: Yardena
  */
 public class InstrumentedSet<E> extends ForwardingSet<E> {
         //extends HashSet<E> {

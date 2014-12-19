@@ -1,21 +1,11 @@
-/*
- * Cache.java
- *
- * Created on April 27, 2005, 4:20 PM
- */
-
 package generics;
 
 import java.util.*;
 
-/**
- *
- * @author pix
- */
 public class Cache<K,V> {
     int capacity;
     Map<K,V>  map;
-	
+
     /** Creates a new instance of Cache */
     public Cache(int capacity) {
         this.capacity=capacity;

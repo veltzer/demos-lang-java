@@ -1,6 +1,3 @@
-/*
- * Created on Jan 24, 2006
- */
 package dp.factory.pool3;
 
 import java.util.Iterator;
@@ -40,7 +37,7 @@ public class PoolTester implements Runnable
 				DataRecord record = (DataRecord) i.next();
 				record.setData("abc") ;
 			}
-			
+
 		}
 	}
 

@@ -10,8 +10,6 @@ package hello;
  * <li> Adding a new customer to inventory
  * <li> Viewing all books in inventory or all registered customers
  * </ul>
- *
  */
-public interface Greet 
-{
+public interface Greet {
 }

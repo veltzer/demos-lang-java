@@ -16,7 +16,7 @@ public class HebDayName {
     private int arg0;
 
     /**
-     * 
+     *
      * @return
      *     returns int
      */
@@ -25,7 +25,7 @@ public class HebDayName {
     }
 
     /**
-     * 
+     *
      * @param arg0
      *     the value for the arg0 property
      */

@@ -4,11 +4,7 @@ import javax.servlet.jsp.*;
 import javax.servlet.jsp.tagext.*;
 import java.io.*;
 import java.sql.*;
-/**
- *
- * @author  rank
- * @version
- */
+
 public class DbConnectionTag extends TagSupport {
 
     /** Holds value of property driver. */

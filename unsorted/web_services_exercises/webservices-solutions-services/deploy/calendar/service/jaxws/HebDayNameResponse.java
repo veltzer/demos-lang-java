@@ -16,7 +16,7 @@ public class HebDayNameResponse {
     private String _return;
 
     /**
-     * 
+     *
      * @return
      *     returns String
      */
@@ -25,7 +25,7 @@ public class HebDayNameResponse {
     }
 
     /**
-     * 
+     *
      * @param _return
      *     the value for the _return property
      */

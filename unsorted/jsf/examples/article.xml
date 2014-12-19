@@ -465,15 +465,9 @@ Artist is blank, it must contain characters
 <code type="section">
 package com.arcmind.jsfquickstart;
 
-
 import javax.faces.component.UIInput;
 import javax.faces.context.FacesContext;
 
-
-/**
- * @author Richard Hightower
- *  
- */
 public class FieldComponent extends UIInput {
 
 	private String label;
@@ -543,8 +537,6 @@ Just like the simple component, you will need a custom tag to bind the Field com
 
 <code type="section">
 /*
- * Created on Jul 19, 2004
- *
  */
 package com.arcmind.jsfquickstart;
 
@@ -554,11 +546,6 @@ import javax.faces.context.FacesContext;
 import javax.faces.el.ValueBinding;
 import javax.faces.webapp.UIComponentTag;
 
-
-/**
- * @author Richard Hightower
- *
- */
 public class FieldTag extends UIComponentTag {
 
 	private String label;
@@ -733,10 +720,6 @@ import javax.faces.convert.ConverterException;
 import javax.faces.el.ValueBinding;
 import javax.faces.render.Renderer;
 
-/**
- * @author Richard Hightower
- *
- */
 public class FieldRenderer extends Renderer {
 
 

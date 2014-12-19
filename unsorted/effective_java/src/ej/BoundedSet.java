@@ -4,10 +4,6 @@ import extreme.threads.Semaphore;
 
 import java.util.*;
 
-/**
- * @author: Yardena
- * @date: Nov 9, 2009 1:53:59 PM
- */
 public class BoundedSet<T> extends AbstractSet<T> {
   private final Set<T> data;
   private final Semaphore semaphore;

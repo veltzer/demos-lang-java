@@ -1,6 +1,3 @@
-/*
- * Created on Feb 13, 2006
- */
 package dp.observer.factory.decorator.logger;
 
 public class LoggerObserverFilter implements LoggerObserver

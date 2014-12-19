@@ -10,11 +10,11 @@ public class Dispatcher {
 
 	private static final String CATALOG_PAGE = "/list.jsp";
 	private static final String ITEM_PAGE = "/item.jsp";
-	
+
 	Dispatcher(ServletContext ctx) {
 		this.ctx = ctx;
 	}
-	
+
 	void dispatch(ServletRequest req, ServletResponse res, String mode) throws IOException,ServletException {
 		RequestDispatcher rd = null;
 		if (mode.equalsIgnoreCase("cat")) {
@@ -25,7 +25,7 @@ public class Dispatcher {
 			throw new ServletException("Illegal mode");
 		}
 		rd.forward(req,res);
-		
+
 	}
 
 }

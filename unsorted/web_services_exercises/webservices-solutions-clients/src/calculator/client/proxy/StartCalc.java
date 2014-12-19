@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for startCalc complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="startCalc">
  *   &lt;complexContent>
@@ -22,8 +22,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
+ *
+ *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "startCalc", propOrder = {
@@ -35,7 +35,7 @@ public class StartCalc {
 
     /**
      * Gets the value of the arg0 property.
-     * 
+     *
      */
     public float getArg0() {
         return arg0;
@@ -43,7 +43,7 @@ public class StartCalc {
 
     /**
      * Sets the value of the arg0 property.
-     * 
+     *
      */
     public void setArg0(float value) {
         this.arg0 = value;

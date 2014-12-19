@@ -23,7 +23,7 @@ public class SecuredAdminClient {
 		Properties props = System.getProperties();
 		props.put("java.security.auth.login.config", "weblogic_jaas.config");
 
-		
+
 		LoginContext loginContext = null;
 		try {
 			// Create LoginContext; specify username/password login module
@@ -44,14 +44,14 @@ public class SecuredAdminClient {
 		} catch (LoginException e) {
 			System.out.println("Authentication Failed!\n" + e.getMessage());
 			System.exit(-1);
-		} 
+		}
 
 		/**
 		 * Retrieve authenticated subject, perform AdminClientAction as Subject
 		 */
 		Subject subject = loginContext.getSubject();
 		System.out.println(subject.getPrincipals() +" has logged in successfully.");
-		
+
 		AdminClientAction adminAction = new AdminClientAction();
 		Subject.doAs(subject, adminAction);
 

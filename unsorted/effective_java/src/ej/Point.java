@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.*;
 
 /**
- * @author: Yardena
  * @date: Sep 20, 2008 1:00:20 PM
  */
 public class Point implements Serializable, Cloneable, Comparable<Point> {

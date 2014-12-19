@@ -1,17 +1,8 @@
-/*
- * Created on Jul 19, 2004
- *
- */
 package com.arcmind.jsfquickstart;
 
 import javax.faces.component.UIComponent;
 import javax.faces.webapp.UIComponentTag;
 
-
-/**
- * @author Richard Hightower
- *
- */
 public class LabelTag extends UIComponentTag {
 
 	private String label;
@@ -41,7 +32,7 @@ public class LabelTag extends UIComponentTag {
 	 */
 	@Override
 	public String getComponentType() {
-		return "simple.Label";	
+		return "simple.Label";
 	}
 
 	/**
@@ -49,7 +40,7 @@ public class LabelTag extends UIComponentTag {
 	 */
 	@Override
 	public String getRendererType() {
-		return null;	
+		return null;
 	}
 
 }

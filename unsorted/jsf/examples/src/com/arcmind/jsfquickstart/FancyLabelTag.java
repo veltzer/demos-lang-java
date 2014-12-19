@@ -1,24 +1,15 @@
-/*
- * Created on Jul 19, 2004
- *
- */
 package com.arcmind.jsfquickstart;
 
 import javax.faces.component.UIComponent;
 import javax.faces.webapp.UIComponentTag;
 
-
-/**
- * @author Richard Hightower
- *
- */
 public class FancyLabelTag extends UIComponentTag {
 
 	private String label;
 	private String errorStyleClass="";
 	private String errorStyle="";
 	private String forComponent;
-	
+
 	/**
 	 * @return Returns the forComponent.
 	 */
@@ -54,14 +45,14 @@ public class FancyLabelTag extends UIComponentTag {
 		((FancyLabelComponent)component).setErrorStyleClass(errorStyleClass);
 		((FancyLabelComponent)component).setFor(forComponent);
 		((FancyLabelComponent)component).setErrorStyle(errorStyle);
-		
+
 	}
 	/**
 	 * @see javax.faces.webapp.UIComponentTag#getComponentType()
 	 */
 	@Override
 	public String getComponentType() {
-		return "arcmind.Label";	
+		return "arcmind.Label";
 	}
 
 	/**
@@ -69,7 +60,7 @@ public class FancyLabelTag extends UIComponentTag {
 	 */
 	@Override
 	public String getRendererType() {
-		return null;	
+		return null;
 	}
 
 	/**

@@ -1,6 +1,3 @@
-/*
- * Created on Jan 24, 2006
- */
 package dp.factory.pool1;
 
 public class DataRecord

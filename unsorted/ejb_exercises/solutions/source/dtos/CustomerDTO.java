@@ -1,32 +1,20 @@
-/*
- * Created on Feb 24, 2004
- *
- * To change the template for this generated file go to
- * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
- */
 package dtos;
 
 import java.io.Serializable;
 
-/**
- * @author pel
- *
- * To change the template for this generated type comment go to
- * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
- */
 public class CustomerDTO implements Serializable{
 	private String id;
 	private String name;
 	private String email;
 	private String address;
-	
+
 	public CustomerDTO(String id, String name, String email, String address){
 		this.id=id;
 		this.name = name;
 		this.email=email;
 		this.address = address;
 	}
-	
+
 	/**
 	 * @return
 	 */

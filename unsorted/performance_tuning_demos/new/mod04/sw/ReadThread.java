@@ -1,21 +1,11 @@
-/*
- * ReaderThread.java
- *
- * Created on April 16, 2005, 7:37 AM
- */
-
-/**
- *
- * @author huntch
- */
 public class ReadThread extends Thread {
     final private static int DEFAULT_SLEEP_TIME = 10;
     private Queue itsQueue;
-    
+
     public ReadThread(Queue theQueue) {
         itsQueue = theQueue;
     }
-    
+
     @Override
     public void run() {
         for (;;) {
@@ -25,7 +15,7 @@ public class ReadThread extends Thread {
             doWorkOnItem(workTime);
         }
     }
-    
+
     private Object getWorkItemFromQueue() {
         Object workItem = null;
         try {
@@ -33,13 +23,13 @@ public class ReadThread extends Thread {
         } catch (InterruptedException ex) {
             ex.printStackTrace();
         }
-        
+
         return workItem;
     }
-    
+
     private void doWorkOnItem(Integer theTimeToWork) {
         int workTime = theTimeToWork.intValue();
-        
+
         // simulate execute time
         long curTime = System.currentTimeMillis();
         long elapsedTime, laterTime = 0;

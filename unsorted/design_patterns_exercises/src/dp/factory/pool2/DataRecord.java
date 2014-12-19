@@ -1,64 +1,51 @@
-/*
- * Created on Jan 24, 2006
- */
 package dp.factory.pool2;
 
-public class DataRecord
-{
+public class DataRecord {
 	private int id;
 	private String data;
+	private boolean isAvailable;
 
-	boolean isAvailable;
-
-	public DataRecord()
-	{
+	public DataRecord() {
 		this.id = 0;
 		this.data = null;
 	}
 
-	public DataRecord(int id, String data)
-	{
-		this.id = id;
-		this.data = data;
+	public DataRecord(int iid, String idata) {
+		this.id = iid;
+		this.data = idata;
 	}
 
 	/**
 	 * @return Returns the data.
 	 */
-	public String getData()
-	{
+	public String getData() {
 		return data;
 	}
 
 	/**
 	 * @return Returns the id.
 	 */
-	public int getId()
-	{
+	public int getId() {
 		return id;
 	}
 
 	/**
 	 * @param data The data to set.
 	 */
-	public void setData(String data)
-	{
-		this.data = data;
+	public void setData(String idata) {
+		this.data = idata;
 	}
 
 	/**
 	 * @param id The id to set.
 	 */
-	public void setId(int id)
-	{
-		this.id = id;
+	public void setId(int iid) {
+		this.id = iid;
 	}
-	
-	public void reset()
-	{
-		this.data = null ;
-		this.id = 0 ;
-		
+
+	public void reset() {
+		this.data = null;
+		this.id = 0;
 	}
 
 }

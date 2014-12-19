@@ -1,9 +1,3 @@
-/*
- * Card.java
- *
- * Created on November 12, 2004, 5:28 AM
- */
-
 package threading;
 
 import java.util.concurrent.locks.*;
@@ -14,7 +8,6 @@ import enums.Card;
  * The state of the pile is represented by the top-most card (so a pile is just a card).
  * A new card can be thrown on the Pile by calling tryAdvance() (this is a safe thread method),
  * it will be accepted only if it is permitted by the roles of the game.
- * @author pix
  */
 public class Pile extends Card {
     static Lock lock = new ReentrantLock(true);

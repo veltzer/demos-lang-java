@@ -1,15 +1,5 @@
-/*
- * WriteThread.java
- *
- * Created on April 16, 2005, 7:39 AM
- */
-
 import java.util.Random;
 
-/**
- *
- * @author huntch
- */
 public class WriteThread extends Thread{
     private Random itsRandom;
     private Queue itsQueue;
@@ -17,7 +7,7 @@ public class WriteThread extends Thread{
     private int itsLoSrvTimeR;
     private int itsHiSrvTimeW;
     private int itsLoSrvTimeW;
-    
+
     public WriteThread(Queue theQueue, int theHiSrvTimeR, int theLoSrvTimeR, int theHiSrvTimeW, int theLoSrvTimeW) {
         itsRandom = new Random();
         itsQueue = theQueue;
@@ -26,7 +16,7 @@ public class WriteThread extends Thread{
         itsHiSrvTimeW = theHiSrvTimeW;
         itsLoSrvTimeW = theLoSrvTimeW;
     }
-    
+
     @Override
     public void run() {
         for (;;) {
@@ -45,10 +35,10 @@ public class WriteThread extends Thread{
             Integer writerWorkTimeInt = new Integer(writerWorkTime);
             //System.err.println("Putting an item on the queue...");
             putWorkItemOnQueue(writerWorkTimeInt);
-            
+
         }
     }
-    
+
     private void putWorkItemOnQueue(Integer theItem) {
         try {
             itsQueue.enqueue(theItem);

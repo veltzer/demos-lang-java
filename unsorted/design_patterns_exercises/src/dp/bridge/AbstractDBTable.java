@@ -1,6 +1,3 @@
-/*
- * Created on Jan 29, 2006
- */
 package dp.bridge;
 
 public abstract class AbstractDBTable

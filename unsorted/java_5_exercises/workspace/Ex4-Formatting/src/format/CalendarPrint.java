@@ -1,18 +1,8 @@
-/*
- * Main.java
- *
- * Created on November 9, 2004, 10:19 PM
- */
-
 package format;
 
 import java.text.DateFormatSymbols;
 import java.util.*;
 
-/**
- *
- * @author pix
- */
 public class CalendarPrint {
 
 	/** Creates a new instance of Main */

@@ -1,35 +1,23 @@
-/*
- * Created on Feb 24, 2004
- *
- * To change the template for this generated file go to
- * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
- */
 package dtos;
+
 import java.io.Serializable;
 import java.util.*;
 
-
-/**
- * @author pel
- *
- * To change the template for this generated type comment go to
- * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
- */
 public class OrderDetailsDTO implements Serializable {
 	private String id;
 	private String customerId;
 	private long timestamp;
 	private List bookTitles;
-	
-	public OrderDetailsDTO(String id, long timestamp, List bookTitles){
+
+	public OrderDetailsDTO(String id, long timestamp, List bookTitles) {
 		this.id=id;
 		this.timestamp=timestamp;
-		this.bookTitles = bookTitles;		
+		this.bookTitles = bookTitles;
 	}
-	
-	public OrderDetailsDTO(){
+
+	public OrderDetailsDTO() {
 	}
-	
+
 	public List getBookTitles() {
 		return bookTitles;
 	}

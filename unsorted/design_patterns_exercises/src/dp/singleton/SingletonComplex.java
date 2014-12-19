@@ -1,6 +1,3 @@
-/*
- * Created on Jan 23, 2006
- */
 package dp.singleton;
 
 import java.util.HashMap;

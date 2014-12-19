@@ -12,6 +12,5 @@ package hello;
  * </ul>
  *
  */
-public interface Greet 
-{
+public interface Greet {
 }

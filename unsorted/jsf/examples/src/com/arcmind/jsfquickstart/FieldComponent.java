@@ -1,18 +1,8 @@
-/*
- * Created on Jul 19, 2004
- *
- */
 package com.arcmind.jsfquickstart;
-
 
 import javax.faces.component.UIInput;
 import javax.faces.context.FacesContext;
 
-
-/**
- * @author Richard Hightower
- *  
- */
 public class FieldComponent extends UIInput {
 
 	private String label;
@@ -31,7 +21,7 @@ public class FieldComponent extends UIInput {
         super.restoreState(context, values[0]);
         label = (String)values[1];
     }
-    
+
 	public FieldComponent (){
 		this.setRendererType("arcmind.Field");
 	}
@@ -51,7 +41,7 @@ public class FieldComponent extends UIInput {
 		this.label = label;
 	}
 
-	
+
 	@Override
 	public String getFamily() {
 		return "arcmind.Field";

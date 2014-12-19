@@ -1,7 +1,3 @@
-/*
- * Created on Jul 19, 2004
- *
- */
 package com.arcmind.jsfquickstart;
 
 import java.io.IOException;
@@ -13,10 +9,6 @@ import javax.faces.component.UIOutput;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-/**
- * @author Richard Hightower
- * 
- */
 public class FancyLabelComponent extends UIOutput {
 
 	private String label;

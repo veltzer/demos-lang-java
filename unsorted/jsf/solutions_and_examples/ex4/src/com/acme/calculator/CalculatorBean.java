@@ -11,27 +11,27 @@ public class CalculatorBean {
 	private static final int DIV   = 3;
 	private static final int TIMES = 4;
 	private static final int EQ    = 5;
-	
+
 	// Scientific mode:
 	private static final int POWER2 = 10;
 	private static final int SQRT   = 11;
 
 	private static final int MODE_NORMAL = 0;
 	private static final int MODE_SCI    = 1;
-	
-	private static final String[] CHANGE_MODE_MESSAGE = 
+
+	private static final String[] CHANGE_MODE_MESSAGE =
 		new String[] {
-			"Scientific mode",  // Shown in normal mode 
+			"Scientific mode",  // Shown in normal mode
 			"Normal mode"       // Shown in scientific mode
-		}; 
-	
+		};
+
 	private double lastValue = 0.0;
 	private int lastOp = NOP;
 
 	private int mode = MODE_NORMAL;
-	
+
 	private double displayValue;
-	
+
 	public double getDisplayValue() {
 		return displayValue;
 	}
@@ -39,24 +39,24 @@ public class CalculatorBean {
 	public void setDisplayValue(double displayValue) {
 		this.displayValue = displayValue;
 	}
-	
+
 	public int getMode() {
 		return mode;
 	}
-	
+
 	public void setMode(int mode) {
 		this.mode = mode;
 	}
-	
+
 	public String getChangeModeMessage() {
 		// A calculated, read-only property.
 		return CHANGE_MODE_MESSAGE[mode];
 	}
-	
+
 	public boolean isScientificRendered() {
 		return (mode == MODE_SCI);
 	}
-	
+
 	private void calc(int newOp) {
 		/* You can use a selected output component on the form
 		 * for debug output, as shown here (commented out; the
@@ -88,11 +88,11 @@ public class CalculatorBean {
 		default:
 			lastValue = displayValue;
 		}
-		
+
 		setDisplayValue(lastValue);
 		lastOp = newOp;
 	}
-	
+
 	public void doPlus(ActionEvent event) {
 		calc(PLUS);
 	}
@@ -117,12 +117,12 @@ public class CalculatorBean {
 		lastOp = POWER2; // This is an instant-go command
 		calc(EQ);
 	}
-	
+
 	public void doSqrt(ActionEvent event) {
 		lastOp = SQRT; // This is an instant-go command
 		calc(EQ);
 	}
-	
+
 	public void flipMode(ActionEvent event) {
 		setMode(1 - getMode()); // From 0 to 1 or vice versa
 	}

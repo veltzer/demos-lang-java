@@ -1,7 +1,3 @@
-/*
- * Created on Jul 19, 2004
- *
- */
 package com.arcmind.jsfquickstart;
 
 import java.io.IOException;
@@ -10,12 +6,8 @@ import javax.faces.component.UIOutput;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-/**
- * @author Richard Hightower
- *
- */
 public class LabelComponent extends UIOutput{
-	
+
 	private String label;
 
 	@Override
@@ -32,7 +24,7 @@ public class LabelComponent extends UIOutput{
         super.restoreState(context, values[0]);
         label = (String)values[1];
     }
-	
+
 	/**
 	 * @return Returns the label.
 	 */
@@ -45,10 +37,10 @@ public class LabelComponent extends UIOutput{
 	public void setLabel(String label) {
 		this.label = label;
 	}
-	
-	/** 
+
+	/**
 	 * @see javax.faces.component.UIComponent#encodeBegin(javax.faces.context.FacesContext)
-	 */	
+	 */
 	@Override
 	public void encodeBegin(FacesContext context) throws IOException {
 		ResponseWriter writer = context.getResponseWriter();
@@ -57,12 +49,12 @@ public class LabelComponent extends UIOutput{
         writer.endElement("label");
         writer.flush();
 	}
-	
+
 	@Override
 	public String getFamily(){
 		return "arcmind.Label";
 	}
-	
+
 	/**
 	 * @see javax.faces.component.UIComponent#encodeEnd(javax.faces.context.FacesContext)
 	 */
@@ -78,5 +70,5 @@ public class LabelComponent extends UIOutput{
 	public void decode(FacesContext context) {
 		return;
 	}
-	
+
 }

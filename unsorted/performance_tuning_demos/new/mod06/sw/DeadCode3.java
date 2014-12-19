@@ -22,13 +22,13 @@ public class DeadCode3 {
             answer = calcFibonacci(NUMBER);
         long elapsedTime = System.nanoTime() - startTime;
         System.out.println("    Answer -> " + answer);
-        System.out.println("    Elapsed nanoseconds -> " + 
+        System.out.println("    Elapsed nanoseconds -> " +
                             elapsedTime);
         float millis = elapsedTime / NANOS_PER_MS;
         float itrsPerMs = 0;
         if (millis != 0)
             itrsPerMs = iterations/millis;
-        System.out.println("    Iterations per ms ---> " + 
+        System.out.println("    Iterations per ms ---> " +
                             itrsPerMs);
     }
 

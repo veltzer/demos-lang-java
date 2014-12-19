@@ -16,7 +16,7 @@ public class InvokeOperationResponse {
     private float _return;
 
     /**
-     * 
+     *
      * @return
      *     returns float
      */
@@ -25,7 +25,7 @@ public class InvokeOperationResponse {
     }
 
     /**
-     * 
+     *
      * @param _return
      *     the value for the _return property
      */

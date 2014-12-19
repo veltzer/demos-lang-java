@@ -17,7 +17,7 @@ public class HebDayOfWeek {
     private Date arg0;
 
     /**
-     * 
+     *
      * @return
      *     returns Date
      */
@@ -26,7 +26,7 @@ public class HebDayOfWeek {
     }
 
     /**
-     * 
+     *
      * @param arg0
      *     the value for the arg0 property
      */

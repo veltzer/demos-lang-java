@@ -2,8 +2,6 @@ import javax.microedition.lcdui.*;
 
 /**
  * Exercise 3: Slide Show Midlet.
- *
- * @author Jamie Hall
  */
 public class SlideShow extends javax.microedition.midlet.MIDlet implements CommandListener {
 	private SlideShowCanvas slideShowCanvas; // Used to display images.

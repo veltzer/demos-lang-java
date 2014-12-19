@@ -21,7 +21,7 @@ public class InvokeOperation {
     private float arg1;
 
     /**
-     * 
+     *
      * @return
      *     returns Operation
      */
@@ -30,7 +30,7 @@ public class InvokeOperation {
     }
 
     /**
-     * 
+     *
      * @param arg0
      *     the value for the arg0 property
      */
@@ -39,7 +39,7 @@ public class InvokeOperation {
     }
 
     /**
-     * 
+     *
      * @return
      *     returns float
      */
@@ -48,7 +48,7 @@ public class InvokeOperation {
     }
 
     /**
-     * 
+     *
      * @param arg1
      *     the value for the arg1 property
      */

@@ -8,18 +8,18 @@ import javax.xml.namespace.QName;
 
 
 /**
- * This object contains factory methods for each 
- * Java content interface and Java element interface 
- * generated in the addressbook.client.proxy package. 
- * <p>An ObjectFactory allows you to programatically 
- * construct new instances of the Java representation 
- * for XML content. The Java representation of XML 
- * content can consist of schema derived interfaces 
- * and classes representing the binding of schema 
- * type definitions, element declarations and model 
- * groups.  Factory methods for each of these are 
+ * This object contains factory methods for each
+ * Java content interface and Java element interface
+ * generated in the addressbook.client.proxy package.
+ * <p>An ObjectFactory allows you to programatically
+ * construct new instances of the Java representation
+ * for XML content. The Java representation of XML
+ * content can consist of schema derived interfaces
+ * and classes representing the binding of schema
+ * type definitions, element declarations and model
+ * groups.  Factory methods for each of these are
  * provided in this class.
- * 
+ *
  */
 @XmlRegistry
 public class ObjectFactory {
@@ -31,14 +31,14 @@ public class ObjectFactory {
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: addressbook.client.proxy
-     * 
+     *
      */
     public ObjectFactory() {
     }
 
     /**
      * Create an instance of {@link GetAddress }
-     * 
+     *
      */
     public GetAddress createGetAddress() {
         return new GetAddress();
@@ -46,7 +46,7 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link AddAddress }
-     * 
+     *
      */
     public AddAddress createAddAddress() {
         return new AddAddress();
@@ -54,7 +54,7 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link AddAddressResponse }
-     * 
+     *
      */
     public AddAddressResponse createAddAddressResponse() {
         return new AddAddressResponse();
@@ -62,7 +62,7 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Address }
-     * 
+     *
      */
     public Address createAddress() {
         return new Address();
@@ -70,7 +70,7 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GetAddressResponse }
-     * 
+     *
      */
     public GetAddressResponse createGetAddressResponse() {
         return new GetAddressResponse();
@@ -78,7 +78,7 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetAddress }{@code >}}
-     * 
+     *
      */
     @XmlElementDecl(namespace = "http://service.addressbook/", name = "getAddress")
     public JAXBElement<GetAddress> createGetAddress(GetAddress value) {
@@ -87,7 +87,7 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetAddressResponse }{@code >}}
-     * 
+     *
      */
     @XmlElementDecl(namespace = "http://service.addressbook/", name = "getAddressResponse")
     public JAXBElement<GetAddressResponse> createGetAddressResponse(GetAddressResponse value) {
@@ -96,7 +96,7 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link AddAddress }{@code >}}
-     * 
+     *
      */
     @XmlElementDecl(namespace = "http://service.addressbook/", name = "addAddress")
     public JAXBElement<AddAddress> createAddAddress(AddAddress value) {
@@ -105,7 +105,7 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link AddAddressResponse }{@code >}}
-     * 
+     *
      */
     @XmlElementDecl(namespace = "http://service.addressbook/", name = "addAddressResponse")
     public JAXBElement<AddAddressResponse> createAddAddressResponse(AddAddressResponse value) {

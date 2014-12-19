@@ -6,7 +6,6 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
- * @author: Yardena
  */
 public class ReverseComparator<T> implements Comparator<T> {
   private final Comparator<T> comp;

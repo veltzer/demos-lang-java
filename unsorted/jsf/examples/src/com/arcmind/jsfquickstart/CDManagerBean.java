@@ -1,7 +1,3 @@
-/*
- * Created on May 16, 2004
- *
- */
 package com.arcmind.jsfquickstart;
 
 import java.util.ArrayList;
@@ -10,25 +6,21 @@ import java.util.List;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 
-/**
- * @author Richard Hightower
- *
- */
 public class CDManagerBean {
 	private String title;
 	private Float price;
 	private String artist;
 	private boolean editMode = false;
 	private int rowIndex = -1;
-	
+
 	private List cds = new ArrayList();
 	private DataModel cdModel = new ListDataModel();
-	
+
 	{
 		cdModel.setWrappedData(cds);
 	}
-	
-	
+
+
 	/**
 	 * @return Returns the artist.
 	 */
@@ -77,7 +69,7 @@ public class CDManagerBean {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	
+
 	public String addCD(){
 		cds.add(new CD(title, artist, price));
 		return "success";
@@ -92,7 +84,7 @@ public class CDManagerBean {
 		this.rowIndex = cdModel.getRowIndex();
 		return "success";
 	}
-	
+
 	public String updateCD(){
         CD cd = (CD)cds.get(rowIndex);
         cd.setArtist(this.artist);
@@ -103,7 +95,7 @@ public class CDManagerBean {
         return "success";
 	}
 
-	
+
 	{//instance initializer to generate some sample data
 			cds.add(new CD("Scarecrow", "Garth Brooks", 15.89f));
 			cds.add(new CD("Downward Spiral", "NIN", 19.89f));
@@ -111,7 +103,7 @@ public class CDManagerBean {
 			cds.add(new CD("Great Big Sea", "Great Big Sea", 8.39f));
 
 	}
-	
+
 	/**
 	 * @return Returns the editMode.
 	 */

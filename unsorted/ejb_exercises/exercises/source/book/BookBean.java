@@ -1,6 +1,5 @@
 package book;
 
-public class BookBean  
-{
+public class BookBean {
 	// Add methods implementations
 }

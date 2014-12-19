@@ -3,7 +3,7 @@ package hello;
 /**
  * Home interface for the Hello Bean
  */
-public interface GreetHome extends javax.ejb.EJBHome 
+public interface GreetHome extends javax.ejb.EJBHome
 {
 	/**
 	 * Creates instances of the Greet bean

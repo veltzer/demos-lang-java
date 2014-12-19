@@ -4,8 +4,6 @@ import javax.microedition.lcdui.*;
 
 /**
  * Exercise 5: Stock ticker.
- *
- * @author Jamie Hall
  */
 public class Stock extends javax.microedition.midlet.MIDlet implements CommandListener {
 	private static final String URL = "http://quote.yahoo.com/d/quotes.csv?f=g&s=";

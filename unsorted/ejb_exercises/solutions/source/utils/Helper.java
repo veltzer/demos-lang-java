@@ -2,17 +2,17 @@ package utils;
 
 import java.util.Calendar;
 
-public class Helper 
+public class Helper
 {
 	/**
 	 * private constructor
 	 */
 	private Helper() {}
-	
+
 	/**
-	 * This static method returns the current date and time asa string in the 
+	 * This static method returns the current date and time asa string in the
 	 * format "DD/MM/YYY HH:MM:SS:ss"
-	 * @return A string in the format "DD/MM/YYY HH:MM:SS:ss"  
+	 * @return A string in the format "DD/MM/YYY HH:MM:SS:ss"
 	 */
 	public static String getCurrentDateTime()
 	{
@@ -26,10 +26,10 @@ public class Helper
 		String seconds = "";
 		String milliseconds = "";
 		Calendar cal = null;
-		
+
 		//create a new Calendar object with the current date and time
 		cal = Calendar.getInstance();
-		
+
 		//get the current time's tokens
 		day = "" + cal.get(Calendar.DAY_OF_MONTH);
 		if (day.length()<2)
@@ -58,10 +58,10 @@ public class Helper
 			seconds = "0" + seconds;
 		}
 		milliseconds = "" + cal.get(Calendar.MILLISECOND);
-		
+
 		//format the return value
 		ret = day + "/" + month + "/" + year + " " + hours + ":" + minutes + ":" + seconds + ":" + milliseconds;
-		
+
 		//return the method's value
 		return(ret);
 	}

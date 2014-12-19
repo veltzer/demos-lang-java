@@ -23,7 +23,7 @@ public class ShoppingCartBean implements javax.ejb.SessionBean {
 	/**
 		* setSessionContext
 		*/
-	public void setSessionContext(javax.ejb.SessionContext ctx) 
+	public void setSessionContext(javax.ejb.SessionContext ctx)
 	{
 		System.out.println(this.getClass().getName() + ".setSessionContext() was invoked...");
 		mySessionCtx = ctx;
@@ -31,14 +31,14 @@ public class ShoppingCartBean implements javax.ejb.SessionBean {
 	/**
 		* ejbCreate
 		*/
-	public void ejbCreate(String customerId) throws javax.ejb.CreateException 
+	public void ejbCreate(String customerId) throws javax.ejb.CreateException
 	{
 		System.out.println(this.getClass().getName() + ".ejbCreate() was invoked...");
 		this.customerId = customerId;
 		bookTitles = new LinkedList();
 		// Note initialization must be done in create(). Do not
 		// initialize bookTitles at declaration !
-		
+
 		try {
 			InitialContext ictx = new InitialContext();
 			Object obj = ictx.lookup("jdbc/ds1");
@@ -53,14 +53,14 @@ public class ShoppingCartBean implements javax.ejb.SessionBean {
 	/**
 		* ejbActivate
 		*/
-	public void ejbActivate() 
+	public void ejbActivate()
 	{
 		System.out.println(this.getClass().getName() + ".ejbActivate() was invoked...");
 	}
 	/**
 		* ejbPassivate
 		*/
-	public void ejbPassivate() 
+	public void ejbPassivate()
 	{
 		System.out.println(this.getClass().getName() + ".ejbPassivate() was invoked...");
 	}
@@ -92,11 +92,11 @@ public class ShoppingCartBean implements javax.ejb.SessionBean {
 			throw new EmptyOrderException("Order must include some items");
 
 		// Generate an order id. Due to time limitations, we shall settle
-		// for a random number, assuming it will be unique. 
-		// Other strategies would be: 
+		// for a random number, assuming it will be unique.
+		// Other strategies would be:
 		// - using a database record
 		// - vender-specific sequential numbers (requires jdbc 3.0 !)
-		// - stored procedure 
+		// - stored procedure
 		String orderId = "" + ((int)Math.random()*1000);
 
 		long time = System.currentTimeMillis();

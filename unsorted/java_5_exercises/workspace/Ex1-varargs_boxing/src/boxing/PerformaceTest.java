@@ -1,15 +1,5 @@
-/*
- * PerformaceTest.java
- *
- * Created on May 2, 2005, 5:20 AM
- */
-
 package boxing;
 
-/**
- *
- * @author pix
- */
 public abstract class PerformaceTest implements Test {
     public final static long TIMES=1000000;
 

@@ -6,51 +6,51 @@ import javax.sql.DataSource;
 import dtos.BookDTO;
 import dtos.CustomerDTO;
 import dtos.OrderDetailsDTO;
- 
+
 /**
  * A simple SQL implementation of BookstoreDAO. <br>
- * 
+ *
  * For more information, please refer to the documentation of
- * interface  BookstoreDAO. 
+ * interface  BookstoreDAO.
  */
 public class SQL92BookstoreDAO implements BookstoreDAO{
-	
-	/** This dao will obtain DB connections from this pool */ 
+
+	/** This dao will obtain DB connections from this pool */
 	private DataSource datasource;
-	
-	/** Book record: title, author, price */ 
+
+	/** Book record: title, author, price */
 	private String insertBookSql="insert into BOOKS values(?,?,?)";
-	
-	/** Customer record: id, name, email, address */	
+
+	/** Customer record: id, name, email, address */
 	private String insertCustomerSql="insert into CUSTOMERS values(?,?,?,?)";
 
 	/** Order details : orderId, timestamp , customerId*/
 	private String insertOrderSql="insert into ORDERS values(?,?,?)";
-	
+
 	/** order-item: orderId, bookTitle */
 	private String insertOrderItemSql="insert into ORDER_ITEMS values(?,?)";
 
-	/** select all books in inventory */	
+	/** select all books in inventory */
 	private String selectBooksSql="select * from BOOKS";
-	
-	/** select all customers in inventory */	
+
+	/** select all customers in inventory */
 	private String selectCustomersSql="select * from CUSTOMERS";
 
-	/** Select book by its title */	
+	/** Select book by its title */
 	private String selectBookByTitleSql="select * from BOOKS where TITLE=?";
-	
-	/** Select customer by id */	
+
+	/** Select customer by id */
 	private String selectCustomerByIdSql="select * from CUSTOMERS where ID=?";
 
-	/** Select orders by orderId */	
+	/** Select orders by orderId */
 	private String selectOrdersById="select * from ORDERS where ID=?";
 
-	/** Select items by orderId */	
+	/** Select items by orderId */
 	private String selectItemsByOrder="select * from ORDER_ITEMS where ORDER_ID=?";
 
 	/** delete order by orderId */
 	private String deleteOrder="delete from ORDERS where ID=?";
-	
+
 	/** delete orderItems by orderId */
 	private String deleteOrderItems="delete from ORDER_ITEMS where ORDER_ID=?";
 
@@ -60,8 +60,8 @@ public class SQL92BookstoreDAO implements BookstoreDAO{
 	public SQL92BookstoreDAO(DataSource datasource){
 		this.datasource=datasource;
 	}
-	
-	
+
+
 	public void insertBook(String title, String author, double price) throws StorageException {
 		Connection con=null;
 		try{
@@ -119,7 +119,7 @@ public class SQL92BookstoreDAO implements BookstoreDAO{
 			stmt.setString(1, id);
 			stmt.setString(2, name);
 			stmt.setString(3, email);
-			stmt.setString(4, address);			
+			stmt.setString(4, address);
 			stmt.executeUpdate();
 		}
 		catch(SQLException ex){
@@ -157,19 +157,19 @@ public class SQL92BookstoreDAO implements BookstoreDAO{
 		}
 	}
 
-	
+
 	public void insertOrder(String orderId, String customerId, long timestamp, List bookTitles ){
 		Connection con=null;
 		try{
 			con = datasource.getConnection();
-			
+
 			// Insert order information:
 			PreparedStatement orderStmt = con.prepareStatement(insertOrderSql);
 			orderStmt.setString(1, orderId);
 			orderStmt.setLong(2, timestamp);
 			orderStmt.setString(3, customerId);
 			orderStmt.executeUpdate();
-			
+
 			// Insert order items:
 			PreparedStatement itemStmt=con.prepareStatement(insertOrderItemSql);
 			itemStmt.setString(1, orderId);
@@ -186,7 +186,7 @@ public class SQL92BookstoreDAO implements BookstoreDAO{
 		}
 		finally{
 			try{con.close();}catch(Exception ex){}
-		}			
+		}
 	}
 
 
@@ -195,7 +195,7 @@ public class SQL92BookstoreDAO implements BookstoreDAO{
 		try{
 			con = datasource.getConnection();
 			OrderDetailsDTO order=new OrderDetailsDTO();
-			
+
 			// Get order information (id, customerId, timestamp):
 			PreparedStatement orderStmt = con.prepareStatement(selectOrdersById);
 			orderStmt.setString(1, orderId);
@@ -205,7 +205,7 @@ public class SQL92BookstoreDAO implements BookstoreDAO{
 			order.setId(orderRs.getString("ID"));
 			order.setCustomerId(orderRs.getString("CUSTOMER_ID"));
 			order.setTimestamp(orderRs.getLong("ORDER_TIME"));
-			
+
 			// Get items for this order:
 			List bookTitles=new LinkedList();
 			PreparedStatement itemStmt=con.prepareStatement(selectItemsByOrder);
@@ -225,7 +225,7 @@ public class SQL92BookstoreDAO implements BookstoreDAO{
 		}
 		finally{
 			try{con.close();}catch(Exception ex){}
-		}					
+		}
 	}
 
 
@@ -234,10 +234,10 @@ public class SQL92BookstoreDAO implements BookstoreDAO{
 		try{
 			con = datasource.getConnection();
 			PreparedStatement stmt = con.prepareStatement(selectBookByTitleSql);
-			stmt.setString(1, title);			
+			stmt.setString(1, title);
 			ResultSet rs= stmt.executeQuery();
 			if(!rs.next())
-				return null;			
+				return null;
 			BookDTO book=new BookDTO(
 				rs.getString("TITLE"), rs.getString("AUTHOR"),
 				rs.getDouble("PRICE"));
@@ -250,18 +250,18 @@ public class SQL92BookstoreDAO implements BookstoreDAO{
 		}
 		finally{
 			try{con.close();}catch(Exception ex){}
-		}		
+		}
 	}
-	
+
 	public CustomerDTO selectCustomer(String customerId) throws StorageException{
 		Connection con=null;
 		try{
 			con = datasource.getConnection();
 			PreparedStatement stmt = con.prepareStatement(selectCustomerByIdSql);
-			stmt.setString(1, customerId);			
+			stmt.setString(1, customerId);
 			ResultSet rs= stmt.executeQuery();
 			if(!rs.next())
-				return null;			
+				return null;
 			CustomerDTO customer=new CustomerDTO(
 				rs.getString("ID"), rs.getString("NAME"),
 				rs.getString("EMAIL"), rs.getString("ADDRESS"));
@@ -274,26 +274,26 @@ public class SQL92BookstoreDAO implements BookstoreDAO{
 		}
 		finally{
 			try{con.close();}catch(Exception ex){}
-		}					
+		}
 	}
 
-	
+
 	public boolean cancelOrder(String orderId) throws StorageException{
 		Connection con=null;
 		int count;
 		try{
 			con = datasource.getConnection();
-			
+
 			// Delete order (return false if record not found):
 			PreparedStatement stmt = con.prepareStatement(deleteOrder);
-			stmt.setString(1, orderId);			
+			stmt.setString(1, orderId);
 			count= stmt.executeUpdate();
 			if (count==0)
-				return false; 
+				return false;
 
-			// Cascade-delete:			
+			// Cascade-delete:
 			stmt = con.prepareStatement(deleteOrderItems);
-			stmt.setString(1, orderId);			
+			stmt.setString(1, orderId);
 			count= stmt.executeUpdate();
 			return true;
 		}
@@ -304,7 +304,7 @@ public class SQL92BookstoreDAO implements BookstoreDAO{
 		}
 		finally{
 			try{con.close();}catch(Exception ex){}
-		}								
+		}
 	}
-	
+
 }

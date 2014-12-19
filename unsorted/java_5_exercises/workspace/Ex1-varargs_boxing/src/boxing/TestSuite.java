@@ -1,9 +1,3 @@
-/*
- * TestSuite.java
- *
- * Created on May 2, 2005, 5:17 AM
- */
-
 package boxing;
 
 import boxing.tests.ToStringPrimitive;
@@ -15,10 +9,6 @@ import boxing.tests.AddPrimitive;
 import boxing.tests.EqualsPrimitive;
 import boxing.tests.EqualsInteger;
 
-/**
- *
- * @author pix
- */
 public class TestSuite {
 
     public void execute(Test... tests) {

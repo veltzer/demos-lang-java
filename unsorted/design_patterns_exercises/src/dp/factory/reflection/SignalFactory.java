@@ -1,12 +1,8 @@
-/*
- * Created on Jan 25, 2006
- */
 package dp.factory.reflection;
 
 /**
  * Following the factory design pattern, this class allows for objects of Signaller type.
  * Creation is performed via reflection, and using system properties to determine the desired type.
- * @author shlomi
  */
 public class SignalFactory
 {

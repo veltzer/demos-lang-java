@@ -1,15 +1,5 @@
-/*
- * Queue.java
- *
- * Created on April 16, 2005, 7:36 AM
- */
-
 import java.util.Vector;
 
-/**
- *
- * @author huntch
- */
 public class Queue {
     private Vector itsBuffers = new Vector();
     private int itsEnqueueCount = 0;

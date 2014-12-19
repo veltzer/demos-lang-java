@@ -1,6 +1,3 @@
-/*
- * Created on Feb 9, 2006
- */
 package dp.state;
 
 public class AbstractDeviceState implements INetworkDevice
