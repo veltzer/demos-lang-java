@@ -5,6 +5,6 @@
 <suppressions>
 	<suppress checks="MethodName"
 		files="projects/Standard/src/core/threads/ThreadAffinity.java"
-		lines="125,126"
+		lines="123,124"
 	/>
 </suppressions>

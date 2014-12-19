@@ -47,14 +47,20 @@ l=[
 epath='/home/mark/install/eclipse-jee/plugins'
 for x in l:
 	candidates=glob.glob(os.path.join(epath,x+'_*.jar'))
-	if len(candidates)!=1:
-		raise ValueError('too many candidates for '+x)
+	if len(candidates)<1:
+		raise ValueError('too few candidates for '+x)
+	'''
+	if len(candidates)>1:
+		raise ValueError('too many candidates for '+x+str(candidates))
+	'''
 	filename=candidates[0]
 	shutil.copyfile(filename,os.path.join('static',os.path.split(filename)[1]))
 
+'''
 files=[
 	'/usr/share/java/jna.jar',
 	'/usr/share/java/jna-platform.jar',
 ]
 for x in files:
 	shutil.copyfile(x,os.path.join('static',os.path.split(x)[1]))
+'''
