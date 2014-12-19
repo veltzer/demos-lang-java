@@ -17,7 +17,7 @@ public class BookStoreDAO extends HibernateDaoSupport implements
 
 	@SuppressWarnings("unchecked")
 	public List<Book> showBooksBellow(double price) {
-		return getHibernateTemplate().find(
+		return (List<Book>) getHibernateTemplate().find(
 				"from Book as b where b.price < " + price);
 	}
 }

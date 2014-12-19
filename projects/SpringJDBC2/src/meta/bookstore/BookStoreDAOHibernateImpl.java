@@ -25,7 +25,7 @@ public class BookStoreDAOHibernateImpl extends HibernateDaoSupport implements
 		DetachedCriteria criteria = DetachedCriteria.forClass(Book.class).add(
 				Restrictions.lt("price", price));
 
-		return getHibernateTemplate().findByCriteria(criteria);
+		return (List<Book>) getHibernateTemplate().findByCriteria(criteria);
 	}
 
 	public void addCustomer(Customer customer) {
@@ -35,12 +35,12 @@ public class BookStoreDAOHibernateImpl extends HibernateDaoSupport implements
 
 	@SuppressWarnings("unchecked")
 	public List<Customer> showCustomers() {
-		return getHibernateTemplate().find("from Customer");
+		return (List<Customer>) getHibernateTemplate().find("from Customer");
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<Customer> showCustomersByName(String name) {
-		return getHibernateTemplate().find(
+		return (List<Customer>) getHibernateTemplate().find(
 				"from Customer as c where c.name = '" + name + "'");
 	}
 

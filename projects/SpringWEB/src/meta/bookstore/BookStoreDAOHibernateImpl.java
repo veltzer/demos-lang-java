@@ -17,7 +17,7 @@ public class BookStoreDAOHibernateImpl extends HibernateDaoSupport implements
 
 	@SuppressWarnings("unchecked")
 	public List<Book> showBooksBellow(double price) {
-		return getHibernateTemplate().find(
+		return (List<Book>) getHibernateTemplate().find(
 				"from Book as b where b.price < " + price);
 	}
 
@@ -28,12 +28,12 @@ public class BookStoreDAOHibernateImpl extends HibernateDaoSupport implements
 
 	@SuppressWarnings("unchecked")
 	public List<Customer> showCustomers() {
-		return getHibernateTemplate().find("from Customer");
+		return (List<Customer>) getHibernateTemplate().find("from Customer");
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<Customer> showCustomersByName(String name) {
-		return getHibernateTemplate().find(
+		return (List<Customer>) getHibernateTemplate().find(
 				"from Customer as c where c.name = '" + name + "'");
 	}
 
