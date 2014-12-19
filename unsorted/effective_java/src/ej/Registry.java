@@ -6,7 +6,6 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * Implementing Service Locator pattern
  * http://martinfowler.com/articles/injection.html#UsingAServiceLocator
- * @date: Sep 20, 2008 1:47:03 PM
  */
 public class Registry {
   private final static Map<Class<?>, Object> services =

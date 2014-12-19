@@ -47,8 +47,8 @@ public class StatefulCalculator {
 	}
 
 	private HttpSession getSession() {
-	      MessageContext mc = wsContext.getMessageContext();
-	      HttpSession session = ((HttpServletRequest)mc.get(MessageContext.SERVLET_REQUEST)).getSession();
-	      return session;
+		MessageContext mc = wsContext.getMessageContext();
+		HttpSession session = ((HttpServletRequest)mc.get(MessageContext.SERVLET_REQUEST)).getSession();
+		return session;
 	}
 }

@@ -3,11 +3,8 @@ package ej;
 import java.io.Serializable;
 import java.util.*;
 
-/**
- * @date: Sep 20, 2008 1:00:20 PM
- */
+@SuppressWarnings("serial")
 public class Point implements Serializable, Cloneable, Comparable<Point> {
-  private static final long serialVersionUID = 0L;
   private final int x;
   private final int y;
 

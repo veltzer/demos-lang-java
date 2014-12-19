@@ -12,12 +12,12 @@ import java.util.Observer;
 import java.util.Timer;
 import java.util.TimerTask;
 
+@SuppressWarnings("serial")
 public class PanicWindow extends Frame
 {
 	/**
 	 *
 	 */
-	private static final long serialVersionUID = 1L;
 	private Label messageLabel;
 	private Panel flashPanel;
 

@@ -1,8 +1,5 @@
 package ej;
 
-/**
- * @date: Sep 20, 2008 1:55:37 PM
- */
 public class RegistryTest {
 
   public void greetFormally(String surname) {

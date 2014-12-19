@@ -1,7 +1,7 @@
 package com.arcmind.jsfquickstart;
 
+@SuppressWarnings("serial")
 public class CD implements java.io.Serializable{
-	private static final long serialVersionUID = 1L;
 	private String title;
 	private String artist;
 	private float price;
