@@ -27,5 +27,7 @@
 		<dependency org="org.apache.logging.log4j" name="log4j-core" rev="latest.integration"/>
 		<dependency org="org.apache.logging.log4j" name="log4j-1.2-api" rev="latest.integration" />
 		<dependency org="net.jcip" name="jcip-annotations" rev="latest.integration"/>
+		<dependency org="net.java.dev.jna" name="jna" rev="latest.integration"/>
+		<dependency org="net.java.dev.jna" name="jna-platform" rev="latest.integration"/>
 	</dependencies>
 </ivy-module>

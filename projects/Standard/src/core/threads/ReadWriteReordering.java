@@ -33,7 +33,9 @@ abstract class ReadWriteReordering {
 				try {
 					rint = r.nextInt() % DELAY_COUNT;
 					b.await();
-					while (rint > 0) { rint--; }
+					while (rint > 0) {
+						rint--;
+					}
 					x = 1;
 					r1 = y;
 					b.await();
@@ -62,7 +64,9 @@ abstract class ReadWriteReordering {
 				try {
 					rint = r.nextInt() % DELAY_COUNT;
 					b.await();
-					while (rint > 0) { rint--; }
+					while (rint > 0) {
+						rint--;
+					}
 					y = 1;
 					r2 = x;
 					b.await();
