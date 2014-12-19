@@ -45,11 +45,9 @@ public class AddressBookEditorContributor extends
 		return (editor == null ? null : editor.getAction(actionID));
 	}
 
-	/*
-	 * (non-JavaDoc) Method declared in
+	/**
 	 * AbstractMultiPageEditorActionBarContributor.
 	 */
-
 	public void setActivePage(IEditorPart part) {
 		if (activeEditorPart == part) {
 			return;

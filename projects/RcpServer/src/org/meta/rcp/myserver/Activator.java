@@ -21,8 +21,7 @@ public class Activator extends AbstractUIPlugin {
 		trace("constructor");
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
 	 * @see
 	 * org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext
 	 * )
@@ -32,8 +31,7 @@ public class Activator extends AbstractUIPlugin {
 		trace("start");
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
 	 * @see
 	 * org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext
 	 * )

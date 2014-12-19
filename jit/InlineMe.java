@@ -17,7 +17,7 @@ public class InlineMe {
 	}
 
 	// this method is usually not inlined because of the return value...
-	/*
+	/**
 	public int addCount() {
 		counter = counter + 1;
 		return counter;

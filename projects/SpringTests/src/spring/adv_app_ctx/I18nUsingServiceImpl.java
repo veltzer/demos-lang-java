@@ -15,8 +15,7 @@ public class I18nUsingServiceImpl implements MessageSourceAware,
 		messageSource = imessageSource;
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
 	 * @see spring.adv_app_ctx.I18nUsingService#doSomething()
 	 */
 	public void doSomething() {

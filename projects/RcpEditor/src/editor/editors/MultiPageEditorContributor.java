@@ -45,8 +45,7 @@ public class MultiPageEditorContributor extends
 		return (editor == null ? null : editor.getAction(actionID));
 	}
 
-	/*
-	 * (non-JavaDoc) Method declared in
+	/**
 	 * AbstractMultiPageEditorActionBarContributor.
 	 */
 

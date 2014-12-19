@@ -38,7 +38,7 @@ public class PanicWindow extends Frame
 
 		addWindowListener(new WindowAdapter()
 		{
-			/* (non-Javadoc)
+			/**
 			 * @see java.awt.event.WindowAdapter#windowClosed(java.awt.event.WindowEvent)
 			 */
 			public void windowClosing(WindowEvent e)

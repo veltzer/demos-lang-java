@@ -155,9 +155,6 @@ public class MultiPageEditor extends MultiPageEditorPart implements
 		setInput(ieditor.getEditorInput());
 	}
 
-	/*
-	 * (non-Javadoc) Method declared on IEditorPart
-	 */
 	public void gotoMarker(IMarker marker) {
 		setActivePage(0);
 		IDE.gotoMarker(getEditor(0), marker);
@@ -176,9 +173,6 @@ public class MultiPageEditor extends MultiPageEditorPart implements
 		super.init(site, editorInput);
 	}
 
-	/*
-	 * (non-Javadoc) Method declared on IEditorPart.
-	 */
 	public boolean isSaveAsAllowed() {
 		return true;
 	}

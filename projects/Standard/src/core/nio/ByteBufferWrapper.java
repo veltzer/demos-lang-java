@@ -24,8 +24,7 @@ public class ByteBufferWrapper implements Externalizable {
 		buffer = ibuffer;
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
 	 * @see java.io.Externalizable#readExternal(java.io.ObjectInput)
 	 */
 	public void readExternal(ObjectInput in) throws IOException,
@@ -55,8 +54,7 @@ public class ByteBufferWrapper implements Externalizable {
 		buffer.limit(limit);
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
 	 * @see java.io.Externalizable#writeExternal(java.io.ObjectOutput)
 	 */
 	public void writeExternal(ObjectOutput out) throws IOException {

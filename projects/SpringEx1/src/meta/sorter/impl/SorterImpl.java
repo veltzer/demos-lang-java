@@ -31,7 +31,7 @@ public abstract class SorterImpl implements Sorter, SorterImplMBean {
 		return Collections.unmodifiableList(items);
 	}
 
-	/*
+	/**
 	 * public void addItem(Item item) { items.add(item); }
 	 */
 	public void setItemCount(int iitemCount) {
