@@ -1,14 +1,14 @@
-package clients;
+package ejb_exercises.solutions.client_source.clients;
 import java.rmi.RemoteException;
-
-import hello.Greet;
-import hello.GreetHome;
 
 import javax.ejb.CreateException;
 import javax.ejb.RemoveException;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.rmi.PortableRemoteObject;
+
+import ejb_exercises.solutions.source.hello.Greet;
+import ejb_exercises.solutions.source.hello.GreetHome;
 
 /**
  * A test client for our Greet bean.
@@ -39,22 +39,22 @@ public class HelloClient
 			// This exception is thrown when there are network problems or a
 			// low level error in the application server (such as database connection
 			// failure)
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		catch (NamingException e)
 		{
 			// This exception is thrown when the looked up name does not exist on
 			// the server
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		catch (CreateException e)
 		{
 			// This exception is thrown when EJB creation fails
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		catch (RemoveException e)
 		{
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 
 	}

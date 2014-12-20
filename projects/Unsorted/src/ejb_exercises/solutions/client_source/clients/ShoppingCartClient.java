@@ -1,4 +1,4 @@
-package clients;
+package ejb_exercises.solutions.client_source.clients;
 
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;

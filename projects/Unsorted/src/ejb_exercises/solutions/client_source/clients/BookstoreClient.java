@@ -1,14 +1,9 @@
-package clients;
+package ejb_exercises.solutions.client_source.clients;
+
 import java.util.*;
 
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
-
-import bookstore.BookstoreAdmin;
-import bookstore.BookstoreAdminHome;
-
-import dtos.BookDTO;
-import dtos.CustomerDTO;
 
 /**
  * A test client for our bookstore's admin bean. <br>

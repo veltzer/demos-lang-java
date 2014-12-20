@@ -1,5 +1,12 @@
-package clients;
-import javax.jms.*;
+package ejb_exercises.solutions.client_source.clients;
+
+import javax.jms.Queue;
+import javax.jms.QueueConnection;
+import javax.jms.QueueConnectionFactory;
+import javax.jms.QueueSender;
+import javax.jms.QueueSession;
+import javax.jms.Session;
+import javax.jms.TextMessage;
 import javax.naming.InitialContext;
 
 /**
