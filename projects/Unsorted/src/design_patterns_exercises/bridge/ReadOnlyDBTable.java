@@ -1,4 +1,4 @@
-package design_patterns_exercises.src.dp.bridge;
+package design_patterns_exercises.bridge;
 
 public class ReadOnlyDBTable extends AbstractDBTable {
 	public ReadOnlyDBTable(DataMap dataMapImpl) {
