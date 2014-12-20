@@ -1,7 +1,6 @@
 <project xmlns:ivy="antlib:org.apache.ivy.ant" name="hello-ivy" default="build">
-	<!-- new tasks -->
-	<taskdef resource="org/apache/ivy/ant/antlib.xml"
-			uri="antlib:org.apache.ivy.ant">
+	<!-- tasks -->
+	<taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant">
 		<classpath>
 			<pathelement location="/usr/share/java/ivy.jar" />
 		</classpath>
@@ -11,13 +10,16 @@
 			<pathelement location="/usr/share/java/ant-contrib.jar"/>
 		</classpath>
 	</taskdef>
-	<!--
 	<taskdef resource="checkstyletask.properties">
 		<classpath>
-			<pathelement location="lib/checkstyle.jar"/>
+			<pathelement location="lib/checkstyle-6.1.1.jar"/>
+			<pathelement location="lib/guava-18.0.jar"/>
+			<pathelement location="lib/commons-beanutils-1.9.0.jar"/>
+			<pathelement location="lib/commons-logging-1.2.jar"/>
+			<pathelement location="lib/commons-collections-3.2.1.jar"/>
+			<pathelement location="lib/antlr-2.7.7.jar"/>
 		</classpath>
 	</taskdef>
-	-->
 	<!-- tools -->
 	<!-- see http://ant.apache.org/manual/Tasks/javac.html and search
 	     for openjdk -->
