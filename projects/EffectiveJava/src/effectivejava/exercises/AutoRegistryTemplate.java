@@ -9,7 +9,7 @@ import java.util.concurrent.ConcurrentMap;
  * http://martinfowler.com/articles/injection.html#UsingAServiceLocator
  */
 public class AutoRegistryTemplate {
-  private final static ConcurrentMap<Class<?>, Object> services = null;//todo
+  private static final ConcurrentMap<Class<?>, Object> services = null; //todo
 
   /**
    * Acquire an implementation of a service. If one has not already
@@ -17,12 +17,14 @@ public class AutoRegistryTemplate {
    * DefaultTo annotation on the interface
    */
   public static <T> T get(Class<T> interfaceClass) {
-    assert(interfaceClass != null);
+    assert interfaceClass != null;
     Object service = services.get(interfaceClass);
     //initialization
+    /*
     if (service == null) {
       //todo
     }
+    */
     return interfaceClass.cast(service);
   }
 
@@ -31,8 +33,8 @@ public class AutoRegistryTemplate {
    * Typically only called in unit tests.
    */
   public static <T> void set(Class<T> interfaceClass, T provider) {
-    assert(provider != null);
-    assert(interfaceClass != null);
+    assert provider != null;
+    assert interfaceClass != null;
     services.put(interfaceClass, interfaceClass.cast(provider));
   }
 
@@ -42,13 +44,15 @@ public class AutoRegistryTemplate {
     }
   }
   static class LoaderBuilder<T> implements Builder<T> {
-    final Class<T> intf;
-    LoaderBuilder(Class<T> intf) {
-      this.intf = intf;
+    private final Class<T> intf;
+    LoaderBuilder(Class<T> iintf) {
+      intf = iintf;
     }
     public T build() {
       ServiceLoader<T> loader = ServiceLoader.load(intf);
-      if (loader == null) return null;
+      if (loader == null) {
+          return null;
+      }
       Iterator<T> iterator = loader.iterator();
       if (!iterator.hasNext()) return null;
       return loader.iterator().next();

@@ -39,7 +39,7 @@
 		</fileset>
 	</path>
 	<!-- targets -->
-	<target name="ivy_resolve" description="retrieve dependencies with ivy">
+	<target name="ivy_retrieve" description="retrieve dependencies with ivy">
 		<delete dir="lib"/>
 		<ivy:resolve refresh="true" showprogress="true"/>
 		<ivy:retrieve sync="true" symlink="true"/>

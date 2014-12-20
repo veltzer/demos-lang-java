@@ -23,7 +23,7 @@ public class StatefulCalculator {
 	public float invokeOperation(Operation op, float num) {
 		float curNum = (Float) getSession().getAttribute("num");
 
-		System.out.println("Current num: "+curNum);
+		System.out.println("Current num: " + curNum);
 
 		switch (op) {
 			case ADD:
