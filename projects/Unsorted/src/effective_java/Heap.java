@@ -1,12 +1,14 @@
-package effective_java.src.ej;
+package effective_java;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Iterator;
 
 public class Heap<E> implements Iterable<E> {
-  private final Comparator<? super E> comparator;
+  @SuppressWarnings("unused")
+private Comparator<? super E> comparator;
   public Heap(Comparator<? super E> c) { comparator = c; }
 
   public E pop() {

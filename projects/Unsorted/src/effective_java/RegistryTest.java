@@ -1,4 +1,4 @@
-package ej;
+package effective_java;
 
 public class RegistryTest {
 

@@ -1,33 +1,27 @@
-package effective_java.src.ej;
+package effective_java;
 
 import java.util.Iterator;
 import java.util.ServiceLoader;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
 /**
  * Implementing Service Locator pattern using HTC
  * http://martinfowler.com/articles/injection.html#UsingAServiceLocator
  */
-public class AutoRegistry {
-  private final static ConcurrentMap<Class<?>, Object> services =
-      new ConcurrentHashMap<Class<?>, Object>();
+public class AutoRegistryTemplate {
+  private final static ConcurrentMap<Class<?>, Object> services = null;//todo
+
   /**
    * Acquire an implementation of a service. If one has not already
    * been instantiated, instantiate the class defined by the
-   * Implementor annotation on the interface
+   * DefaultTo annotation on the interface
    */
   public static <T> T get(Class<T> interfaceClass) {
     assert(interfaceClass != null);
     Object service = services.get(interfaceClass);
-    //initialization tricks
+    //initialization
     if (service == null) {
-      T temp = getFirstNotNull(
-          new AnnotationBuilder<T>(interfaceClass),
-          new LoaderBuilder<T>(interfaceClass));
-      if (temp == null) return null;
-      service = services.putIfAbsent(interfaceClass, temp);
-      if (service == null) return temp;
+      //todo
     }
     return interfaceClass.cast(service);
   }
@@ -43,19 +37,8 @@ public class AutoRegistry {
   }
 
   static class AnnotationBuilder<T> implements Builder<T> {
-    final Class<T> intf;
-    AnnotationBuilder(Class<T> intf) {
-      this.intf = intf;
-    }
     public T build() {
-      DefaultTo to = intf.getAnnotation(DefaultTo.class);
-      if (to == null) return null;
-      Class<?> implementingClass = to.value();
-      try {
-        return intf.cast(implementingClass.newInstance());
-      } catch (Exception e) {
-        return null;
-      }
+      return null; //todo
     }
   }
   static class LoaderBuilder<T> implements Builder<T> {
@@ -71,6 +54,7 @@ public class AutoRegistry {
       return loader.iterator().next();
     }
   }
+/*
   private static <T> T getFirstNotNull(Builder<T>... builders) {
     for (Builder<T> builder: builders) {
       T temp = builder.build();
@@ -78,4 +62,5 @@ public class AutoRegistry {
     }
     return null;
   }
+  */
 }

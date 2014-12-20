@@ -1,4 +1,4 @@
-package ej;
+package effective_java;
 
 import java.io.Serializable;
 import java.util.*;
@@ -55,9 +55,11 @@ public class Point implements Serializable, Cloneable, Comparable<Point> {
     return ZERO;
   }
 
+  /*
   private static boolean isZero(int t) {
     return t == 0;
   }
+  */
 
   private static boolean isZero(int x, int y) {
     return x == 0 && y == 0;
@@ -75,7 +77,6 @@ public class Point implements Serializable, Cloneable, Comparable<Point> {
                  append(y).
              append(']').toString();
   }
-  @SuppressWarnings({"CloneDoesntDeclareCloneNotSupportedException"})
   @Override public Point clone() {
     try {
       return (Point)super.clone();

@@ -1,8 +1,11 @@
-package effective_java.src.ej;
+package effective_java;
 
-import extreme.threads.Semaphore;
-
-import java.util.*;
+import java.util.AbstractSet;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.concurrent.Semaphore;
 
 public class BoundedSet<T> extends AbstractSet<T> {
   private final Set<T> data;
@@ -22,18 +25,22 @@ public class BoundedSet<T> extends AbstractSet<T> {
   }
 
   @Override public boolean add(T element) {
-    semaphore.up(1);
+    try {
+		semaphore.acquire();
+	} catch (InterruptedException e) {
+		throw new RuntimeException(e);
+	}
     boolean wasAdded = false;
     try {
       return wasAdded = data.add(element);
     } finally {
-      if (!wasAdded) semaphore.down(1);
+      if (!wasAdded) semaphore.release();
     }
   }
 
   @Override public boolean remove(Object element) {
     boolean wasRemoved = data.remove(element);
-    if (wasRemoved) semaphore.down(1);
+    if (wasRemoved) semaphore.release();
     return wasRemoved;
   }
 

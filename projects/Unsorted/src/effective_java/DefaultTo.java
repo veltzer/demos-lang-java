@@ -1,4 +1,4 @@
-package effective_java.src.ej;
+package effective_java;
 
 import java.lang.annotation.*;
 

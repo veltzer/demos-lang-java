@@ -1,4 +1,4 @@
-package ej;
+package effective_java;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

@@ -1,4 +1,4 @@
-package effective_java.src.ej;
+package effective_java;
 
 import java.util.Iterator;
 import java.util.ServiceLoader;
@@ -9,20 +9,25 @@ import java.util.concurrent.ConcurrentMap;
  * Implementing Service Locator pattern using HTC
  * http://martinfowler.com/articles/injection.html#UsingAServiceLocator
  */
-public class AutoRegistryTemplate {
-  private final static ConcurrentMap<Class<?>, Object> services = null;//todo
-
+public class AutoRegistry {
+  private final static ConcurrentMap<Class<?>, Object> services =
+      new ConcurrentHashMap<Class<?>, Object>();
   /**
    * Acquire an implementation of a service. If one has not already
    * been instantiated, instantiate the class defined by the
-   * DefaultTo annotation on the interface
+   * Implementor annotation on the interface
    */
   public static <T> T get(Class<T> interfaceClass) {
     assert(interfaceClass != null);
     Object service = services.get(interfaceClass);
-    //initialization
+    //initialization tricks
     if (service == null) {
-      //todo
+      T temp = getFirstNotNull(
+          new AnnotationBuilder<T>(interfaceClass),
+          new LoaderBuilder<T>(interfaceClass));
+      if (temp == null) return null;
+      service = services.putIfAbsent(interfaceClass, temp);
+      if (service == null) return temp;
     }
     return interfaceClass.cast(service);
   }
@@ -38,8 +43,19 @@ public class AutoRegistryTemplate {
   }
 
   static class AnnotationBuilder<T> implements Builder<T> {
+    final Class<T> intf;
+    AnnotationBuilder(Class<T> intf) {
+      this.intf = intf;
+    }
     public T build() {
-      return null; //todo
+      DefaultTo to = intf.getAnnotation(DefaultTo.class);
+      if (to == null) return null;
+      Class<?> implementingClass = to.value();
+      try {
+        return intf.cast(implementingClass.newInstance());
+      } catch (Exception e) {
+        return null;
+      }
     }
   }
   static class LoaderBuilder<T> implements Builder<T> {
@@ -55,8 +71,8 @@ public class AutoRegistryTemplate {
       return loader.iterator().next();
     }
   }
-
-  private static <T> T getFirstNotNull(Builder<T>... builders) {
+  @SafeVarargs
+private static <T> T getFirstNotNull(Builder<T>... builders) {
     for (Builder<T> builder: builders) {
       T temp = builder.build();
       if (temp != null) return temp;
