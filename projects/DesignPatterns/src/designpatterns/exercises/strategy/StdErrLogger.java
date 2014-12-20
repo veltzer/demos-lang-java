@@ -1,4 +1,4 @@
-package design_patterns_exercises.strategy;
+package designpatterns.exercises.strategy;
 
 public class StdErrLogger implements LoggerStrategy
 {

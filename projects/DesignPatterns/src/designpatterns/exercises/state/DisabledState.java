@@ -1,4 +1,4 @@
-package design_patterns_exercises.state;
+package designpatterns.exercises.state;
 
 public class DisabledState extends AbstractDeviceState
 {

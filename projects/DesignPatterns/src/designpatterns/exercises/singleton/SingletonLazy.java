@@ -1,4 +1,4 @@
-package design_patterns_exercises.singleton;
+package designpatterns.exercises.singleton;
 
 public final class SingletonLazy
 {

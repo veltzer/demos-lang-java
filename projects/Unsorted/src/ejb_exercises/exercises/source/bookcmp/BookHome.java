@@ -1,4 +1,4 @@
-package bookcmp;
+package ejb_exercises.exercises.source.bookcmp;
 
 import javax.ejb.*;
 

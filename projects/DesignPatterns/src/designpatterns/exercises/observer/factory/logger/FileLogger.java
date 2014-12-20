@@ -1,4 +1,4 @@
-package design_patterns_exercises.observer.factory.logger;
+package designpatterns.exercises.observer.factory.logger;
 
 import java.io.File;
 import java.io.FileWriter;

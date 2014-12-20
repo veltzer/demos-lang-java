@@ -1,4 +1,4 @@
-package design_patterns_exercises.factory.pool3;
+package designpatterns.exercises.factory.pool3;
 
 import java.util.Iterator;
 import java.util.List;

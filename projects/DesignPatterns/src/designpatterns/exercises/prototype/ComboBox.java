@@ -1,6 +1,5 @@
-package design_patterns_exercises.prototype;
+package designpatterns.exercises.prototype;
 
-public interface ComboBox
-{
+public interface ComboBox {
 	public Object clone() ;
 }

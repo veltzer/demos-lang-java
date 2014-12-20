@@ -1,4 +1,4 @@
-package design_patterns_exercises.visitor;
+package designpatterns.exercises.visitor;
 
 public class TagsCountVisitor implements XMLVisitor
 {

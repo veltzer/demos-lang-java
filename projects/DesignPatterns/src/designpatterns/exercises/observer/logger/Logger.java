@@ -1,4 +1,4 @@
-package design_patterns_exercises.observer.logger;
+package designpatterns.exercises.observer.logger;
 
 import java.util.Date;
 import java.util.HashSet;

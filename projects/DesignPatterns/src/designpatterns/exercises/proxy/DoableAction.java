@@ -1,8 +1,6 @@
-package design_patterns_exercises.proxy;
+package designpatterns.exercises.proxy;
 
-public class DoableAction implements Doable
-{
-
+public class DoableAction implements Doable {
 	public DoableAction()
 	{
 		super();
@@ -17,5 +15,4 @@ public class DoableAction implements Doable
 	{
 		System.out.println("Doing it again (" + how + ")...");
 	}
-
 }

@@ -1,4 +1,4 @@
-package design_patterns_exercises.iterator;
+package designpatterns.exercises.iterator;
 
 import java.util.ArrayList;
 import java.util.Iterator;

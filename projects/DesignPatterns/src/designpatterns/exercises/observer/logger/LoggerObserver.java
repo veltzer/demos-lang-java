@@ -1,4 +1,4 @@
-package design_patterns_exercises.observer.logger;
+package designpatterns.exercises.observer.logger;
 
 public interface LoggerObserver
 {

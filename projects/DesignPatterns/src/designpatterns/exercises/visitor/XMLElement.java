@@ -1,4 +1,4 @@
-package design_patterns_exercises.visitor;
+package designpatterns.exercises.visitor;
 
 import java.util.ArrayList;
 import java.util.Iterator;

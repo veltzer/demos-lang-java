@@ -1,8 +1,6 @@
-package design_patterns_exercises.observer.logger;
+package designpatterns.exercises.observer.logger;
 
-public class ConsoleLogger implements LoggerObserver
-{
-
+public class ConsoleLogger implements LoggerObserver {
 	public ConsoleLogger()
 	{
 		super();
@@ -12,5 +10,4 @@ public class ConsoleLogger implements LoggerObserver
 	{
 		System.out.println(messageLine);
 	}
-
 }

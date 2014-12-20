@@ -1,4 +1,4 @@
-package design_patterns_exercises.templatemethod;
+package designpatterns.exercises.templatemethod;
 
 public class ConsoleLogger extends AbstractLogger
 {

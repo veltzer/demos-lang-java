@@ -1,4 +1,4 @@
-package design_patterns_exercises.composite;
+package designpatterns.exercises.composite;
 
 import java.util.ArrayList;
 import java.util.List;

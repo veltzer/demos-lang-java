@@ -1,4 +1,4 @@
-package design_patterns_exercises.templatemethod;
+package designpatterns.exercises.templatemethod;
 
 import java.util.Date;
 

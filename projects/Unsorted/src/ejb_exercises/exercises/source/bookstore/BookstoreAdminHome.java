@@ -1,4 +1,4 @@
-package bookstore;
+package ejb_exercises.exercises.source.bookstore;
 
 /**
  * Home interface for Enterprise Bean: BookstoreAdmin

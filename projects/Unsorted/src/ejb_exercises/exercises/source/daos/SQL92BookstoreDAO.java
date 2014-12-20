@@ -1,11 +1,8 @@
-package daos;
+package ejb_exercises.exercises.source.daos;
 
 import java.sql.*;
 import java.util.*;
 import javax.sql.DataSource;
-import dtos.BookDTO;
-import dtos.CustomerDTO;
-import dtos.OrderDetailsDTO;
 
 /**
  * A simple SQL implementation of BookstoreDAO. <br>
@@ -13,7 +10,7 @@ import dtos.OrderDetailsDTO;
  * For more information, please refer to the documentation of
  * interface  BookstoreDAO.
  */
-public class SQL92BookstoreDAO implements BookstoreDAO{
+public class SQL92BookstoreDAO implements BookstoreDAO {
 
 	/** This dao will obtain DB connections from this pool */
 	private DataSource datasource;
@@ -132,11 +129,11 @@ public class SQL92BookstoreDAO implements BookstoreDAO{
 		}
 	}
 
-	public List selectCustomers() throws StorageException {
+	public List<CustomerDTO> selectCustomers() throws StorageException {
 		Connection con=null;
 		try{
 			con = datasource.getConnection();
-			List customers=new LinkedList();
+			List<CustomerDTO> customers=new LinkedList();
 			PreparedStatement stmt = con.prepareStatement(selectCustomersSql);
 			ResultSet rs= stmt.executeQuery();
 			while(rs.next()){
@@ -173,8 +170,8 @@ public class SQL92BookstoreDAO implements BookstoreDAO{
 			// Insert order items:
 			PreparedStatement itemStmt=con.prepareStatement(insertOrderItemSql);
 			itemStmt.setString(1, orderId);
-			for(Iterator it = bookTitles.iterator(); it.hasNext();){
-				String title=(String)it.next();
+			for(Iterator<String> it = bookTitles.iterator(); it.hasNext();){
+				String title=it.next();
 				itemStmt.setString(2, title);
 				itemStmt.executeUpdate();
 			}

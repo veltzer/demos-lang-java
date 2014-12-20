@@ -1,4 +1,4 @@
-package design_patterns_exercises.composite;
+package designpatterns.exercises.composite;
 
 public class XMLDirector
 {

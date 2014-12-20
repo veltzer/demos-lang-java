@@ -1,17 +1,10 @@
-package design_patterns_exercises.observer.logger;
+package designpatterns.exercises.observer.logger;
 
-
-public class StdErrorLogger implements LoggerObserver
-{
-
-	public StdErrorLogger()
-	{
+public class StdErrorLogger implements LoggerObserver {
+	public StdErrorLogger() {
 		super();
 	}
-
-	public void onLogRequest(String messageLine)
-	{
+	public void onLogRequest(String messageLine) {
 		System.out.println("ERROR>>> " + messageLine);
 	}
-
 }

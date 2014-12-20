@@ -1,7 +1,6 @@
-package design_patterns_exercises.prototype;
+package designpatterns.exercises.prototype;
 
-public class GUIFactory
-{
+public class GUIFactory {
 	private Button button;
 	private ComboBox combo;
 

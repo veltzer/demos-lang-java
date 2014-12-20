@@ -1,4 +1,4 @@
-package design_patterns_exercises.decorator;
+package designpatterns.exercises.decorator;
 
 import java.io.File;
 import java.io.FileReader;

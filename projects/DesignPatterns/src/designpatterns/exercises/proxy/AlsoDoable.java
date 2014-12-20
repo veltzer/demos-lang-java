@@ -1,4 +1,4 @@
-package design_patterns_exercises.proxy;
+package designpatterns.exercises.proxy;
 
 public interface AlsoDoable
 {

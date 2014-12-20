@@ -1,4 +1,4 @@
-package bookstore;
+package ejb_exercises.exercises.source.bookstore;
 
 /**
  * Remote interface for Enterprise Bean: BookstoreAdmin

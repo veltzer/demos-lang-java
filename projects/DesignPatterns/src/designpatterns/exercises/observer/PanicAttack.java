@@ -1,4 +1,4 @@
-package design_patterns_exercises.observer;
+package designpatterns.exercises.observer;
 
 import java.util.Observable;
 import java.util.Timer;

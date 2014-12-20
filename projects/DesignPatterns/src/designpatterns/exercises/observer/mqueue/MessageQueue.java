@@ -1,11 +1,10 @@
-package design_patterns_exercises.observer.mqueue;
+package designpatterns.exercises.observer.mqueue;
 
 import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Observer;
 
-public class MessageQueue extends Observable
-{
+public class MessageQueue extends Observable {
 
 	private LinkedList<Object> queue;
 

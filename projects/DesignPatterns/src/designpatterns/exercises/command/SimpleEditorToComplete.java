@@ -1,4 +1,4 @@
-package design_patterns_exercises.command;
+package designpatterns.exercises.command;
 
 public class SimpleEditorToComplete
 {

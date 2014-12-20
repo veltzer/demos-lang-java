@@ -1,4 +1,4 @@
-package design_patterns_exercises.proxy;
+package designpatterns.exercises.proxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

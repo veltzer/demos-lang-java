@@ -1,4 +1,4 @@
-package bookstore;
+package ejb_exercises.exercises.source.bookstore;
 
 import javax.ejb.CreateException;
 //import daos.BookstoreDAO;

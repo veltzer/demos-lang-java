@@ -1,4 +1,4 @@
-package design_patterns_exercises.factory.pool2;
+package designpatterns.exercises.factory.pool2;
 
 import java.util.LinkedList;
 import java.util.List;
