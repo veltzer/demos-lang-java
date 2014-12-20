@@ -1,4 +1,4 @@
-package dp.factory;
+package design_patterns_exercises.src.dp.factory;
 
 import java.util.EmptyStackException;
 import java.util.Stack;

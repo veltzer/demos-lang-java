@@ -1,4 +1,4 @@
-package dp.decorator;
+package design_patterns_exercises.src.dp.decorator;
 
 import java.io.File;
 import java.io.FileReader;
@@ -60,6 +60,7 @@ public class WordsReader extends Reader
 				System.out.println("<" + word + ">");
 
 			System.out.println("Done");
+			reader.close();
 		}
 		catch (Exception e)
 		{
