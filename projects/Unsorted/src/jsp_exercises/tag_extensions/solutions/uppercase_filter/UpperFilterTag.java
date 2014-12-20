@@ -1,9 +1,11 @@
-package exercise;
+package jsp_exercises.tag_extensions.solutions.uppercase_filter;
 
-import javax.servlet.jsp.*;
-import javax.servlet.jsp.tagext.*;
-import java.io.*;
+import java.io.IOException;
 
+import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.tagext.BodyTagSupport;
+
+@SuppressWarnings("serial")
 public class UpperFilterTag extends BodyTagSupport {
 
     public int doEndTag() throws JspException {
