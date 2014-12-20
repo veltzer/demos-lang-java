@@ -1,6 +1,7 @@
 package ejb_exercises.solutions.source.shopping;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
 
 import javax.ejb.CreateException;
 import javax.naming.InitialContext;

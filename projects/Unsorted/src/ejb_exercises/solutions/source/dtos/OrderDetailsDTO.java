@@ -1,7 +1,7 @@
 package ejb_exercises.solutions.source.dtos;
 
 import java.io.Serializable;
-import java.util.*;
+import java.util.List;
 
 @SuppressWarnings("serial")
 public class OrderDetailsDTO implements Serializable {

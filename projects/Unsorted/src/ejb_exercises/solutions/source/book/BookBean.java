@@ -1,10 +1,19 @@
 package ejb_exercises.solutions.source.book;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
 
-import javax.ejb.*;
-import javax.naming.*;
-import javax.sql.*;
+import javax.ejb.CreateException;
+import javax.ejb.EJBException;
+import javax.ejb.EntityBean;
+import javax.ejb.EntityContext;
+import javax.ejb.FinderException;
+import javax.ejb.ObjectNotFoundException;
+import javax.ejb.RemoveException;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
 
 import ejb_exercises.solutions.source.daos.BookstoreDAO;
 import ejb_exercises.solutions.source.daos.BookstoreDaoFactory;

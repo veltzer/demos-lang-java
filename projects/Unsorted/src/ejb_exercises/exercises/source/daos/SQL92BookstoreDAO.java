@@ -1,12 +1,17 @@
 package ejb_exercises.exercises.source.daos;
 
-import java.sql.*;
-import java.util.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 
 import javax.sql.DataSource;
 
-import ejb_exercises.exercises.source.dtos.CustomerDTO;
 import ejb_exercises.exercises.source.dtos.BookDTO;
+import ejb_exercises.exercises.source.dtos.CustomerDTO;
 import ejb_exercises.exercises.source.dtos.OrderDetailsDTO;
 
 /**

@@ -1,6 +1,6 @@
 package ejb_exercises.solutions.source.book;
 
-import javax.ejb.*;
+import javax.ejb.EJBLocalObject;
 
 public interface Book extends EJBLocalObject {
 	public String getTitle();

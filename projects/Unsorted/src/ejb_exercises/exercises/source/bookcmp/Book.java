@@ -1,6 +1,6 @@
 package ejb_exercises.exercises.source.bookcmp;
 
-import javax.ejb.*;
+import javax.ejb.EJBLocalObject;
 
 public interface Book extends EJBLocalObject {
 }

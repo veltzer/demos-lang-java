@@ -2,9 +2,9 @@ package ejb_exercises.exercises.source.daos;
 
 import java.util.List;
 
+import ejb_exercises.exercises.source.dtos.BookDTO;
 import ejb_exercises.exercises.source.dtos.CustomerDTO;
 import ejb_exercises.exercises.source.dtos.OrderDetailsDTO;
-import ejb_exercises.exercises.source.dtos.BookDTO;
 
 /**
  * Data Access Object for a book store. <br>
