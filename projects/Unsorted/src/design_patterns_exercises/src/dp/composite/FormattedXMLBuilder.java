@@ -1,4 +1,4 @@
-package dp.composite;
+package design_patterns_exercises.src.dp.composite;
 
 import java.util.List;
 
@@ -12,6 +12,7 @@ public class FormattedXMLBuilder implements XMLBuilder
 		formattedXML = new StringBuffer();
 	}
 
+	@Override
 	public void buildVersion(String xmlVersion)
 	{
 		formattedXML.append("<xml version=\"").append(xmlVersion).append("\">\n");
@@ -29,7 +30,7 @@ public class FormattedXMLBuilder implements XMLBuilder
 	{
 		indent(level);
 		formattedXML.append("<").append(element.getName()).append(">").append("\n");
-		List children = element.getChildren();
+		List<XMLElement> children = element.getChildren();
 		for (int i = 0; i < children.size(); ++i)
 		{
 			build((XMLElement) children.get(i), level + 1);
@@ -43,11 +44,13 @@ public class FormattedXMLBuilder implements XMLBuilder
 		formattedXML.append("</").append(element.getName()).append(">").append("\n");
 	}
 
+	@Override
 	public void build(XMLElement element)
 	{
 		build(element, 0);
 	}
 
+	@Override
 	public String getFormattedXML()
 	{
 		return formattedXML.toString();

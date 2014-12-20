@@ -1,4 +1,4 @@
-package com.arcmind.jsfquickstart;
+package jsf.examples.src.com.arcmind.jsfquickstart;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ public class CDManagerBean {
 	private boolean editMode = false;
 	private int rowIndex = -1;
 
-	private List cds = new ArrayList();
+	private List<CD> cds = new ArrayList<CD>();
 	private DataModel cdModel = new ListDataModel();
 
 	{

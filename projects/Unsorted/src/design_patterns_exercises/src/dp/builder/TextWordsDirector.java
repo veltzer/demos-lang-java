@@ -1,4 +1,4 @@
-package dp.builder;
+package design_patterns_exercises.src.dp.builder;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -48,7 +48,7 @@ public class TextWordsDirector
 
 	public void printCollection()
 	{
-		for (Iterator i = builder.getCollection().iterator(); i.hasNext();)
+		for (Iterator<String> i = builder.getCollection().iterator(); i.hasNext();)
 		{
 			System.out.println("" + i.next());
 		}

@@ -1,4 +1,4 @@
-package com.arcmind.jsfquickstart;
+package jsf.examples.src.com.arcmind.jsfquickstart;
 
 @SuppressWarnings("serial")
 public class CD implements java.io.Serializable{

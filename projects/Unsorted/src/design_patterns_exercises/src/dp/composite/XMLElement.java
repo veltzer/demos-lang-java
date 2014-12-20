@@ -1,4 +1,4 @@
-package dp.composite;
+package design_patterns_exercises.src.dp.composite;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,7 @@ public class XMLElement
 		children = new ArrayList<XMLElement>();
 	}
 
-	public List getChildren()
+	public List<XMLElement> getChildren()
 	{
 		return children;
 	}

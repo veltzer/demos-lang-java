@@ -1,4 +1,4 @@
-package dp.composite;
+package design_patterns_exercises.src.dp.composite;
 
 public class XMLDocument
 {

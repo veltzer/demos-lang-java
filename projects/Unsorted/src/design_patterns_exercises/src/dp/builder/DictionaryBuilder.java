@@ -1,4 +1,4 @@
-package dp.builder;
+package design_patterns_exercises.src.dp.builder;
 
 import java.util.Collection;
 import java.util.SortedSet;
@@ -18,7 +18,7 @@ public class DictionaryBuilder implements WordsBuilder
 		dictionary.add(word);
 	}
 
-	public Collection getCollection()
+	public Collection<String> getCollection()
 	{
 		return dictionary;
 	}

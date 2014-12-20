@@ -1,4 +1,4 @@
-package ej;
+package effective_java.src.ej;
 
 import java.util.ArrayList;
 import java.util.Collection;

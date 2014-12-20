@@ -1,4 +1,4 @@
-package dp.builder;
+package design_patterns_exercises.src.dp.builder;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -26,9 +26,10 @@ public class WordsCounterBuilder implements WordsBuilder
 		}
 	}
 
-	public Collection getCollection()
+	public Collection<String> getCollection()
 	{
-		return wordsCountMap.entrySet() ;
+		return wordsCountMap.keySet();
+		//return wordsCountMap.entrySet() ;
 	}
 
 }

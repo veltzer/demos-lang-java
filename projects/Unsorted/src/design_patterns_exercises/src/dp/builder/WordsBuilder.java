@@ -1,9 +1,9 @@
-package dp.builder;
+package design_patterns_exercises.src.dp.builder;
 
 import java.util.Collection;
 
 public interface WordsBuilder
 {
 	public void addWord( String word ) ;
-	public Collection getCollection() ;
+	public Collection<String> getCollection() ;
 }
