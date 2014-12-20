@@ -1,7 +1,8 @@
-package dtos;
+package ejb_exercises.solutions.source.dtos;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class BookDTO implements Serializable {
 	private String title;	// key
 	private String author;

@@ -1,4 +1,4 @@
-package clients;
+package ejb_exercises.exercises.client_source.clients;
 
 /**
  * A simple JMS client that places a cancellation requests

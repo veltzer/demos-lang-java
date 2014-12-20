@@ -1,17 +1,17 @@
-package hello;
+package ejb_exercises.solutions.source.hello;
+
+import javax.ejb.SessionBean;
 
 
 /**
  * Bean implementation class for Greet
  *
  */
-public class GreetBean implements javax.ejb.SessionBean {
-
-	private javax.ejb.SessionContext mySessionCtx;
+@SuppressWarnings("serial")
+public class GreetBean implements SessionBean {
 
 	public void setSessionContext(javax.ejb.SessionContext ctx)
 	{
-		mySessionCtx = ctx;
 		System.out.println(this.getClass().getName() + ".setSessionContext() was invoked...");
 	}
 

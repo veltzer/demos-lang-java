@@ -1,11 +1,13 @@
-package daos;
+package ejb_exercises.solutions.source.daos;
 
 import java.sql.*;
 import java.util.*;
+
 import javax.sql.DataSource;
-import dtos.BookDTO;
+
 import dtos.CustomerDTO;
 import dtos.OrderDetailsDTO;
+import ejb_exercises.solutions.source.dtos.BookDTO;
 
 /**
  * A simple SQL implementation of BookstoreDAO. <br>
@@ -142,14 +144,14 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 		}
 	}
 
-	public List selectBooks() throws StorageException {
+	public List<BookDTO> selectBooks() throws StorageException {
 		Connection con = null;
 		PreparedStatement stmt = null;
 		try {
 			con = datasource.getConnection();
 			stmt = con.prepareStatement(selectBooksSql);
 			ResultSet rs = stmt.executeQuery();
-			List books = new LinkedList();
+			List<BookDTO> books = new LinkedList<BookDTO>();
 			while (rs.next()) {
 				BookDTO book =
 					new BookDTO(
@@ -201,7 +203,7 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 		}
 	}
 
-	public List selectCustomers() throws StorageException {
+	public List<CustomerDTO> selectCustomers() throws StorageException {
 		Connection con = null;
 		try {
 			con = datasource.getConnection();

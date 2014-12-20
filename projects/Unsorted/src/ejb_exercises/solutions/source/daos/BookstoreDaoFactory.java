@@ -1,4 +1,4 @@
-package daos;
+package ejb_exercises.solutions.source.daos;
 
 import javax.sql.DataSource;
 

@@ -1,4 +1,4 @@
-package design_patterns_exercises.bridge;
+package designpatterns.exercises.bridge;
 
 public abstract class AbstractDBTable
 {

@@ -1,4 +1,4 @@
-package hello;
+package ejb_exercises.solutions.source.hello;
 
 import java.rmi.RemoteException;
 

@@ -1,16 +1,10 @@
-package security;
+package ejb_exercises.exercises.client_source.security;
 
 import java.security.*;
 import java.util.*;
 
-import javax.naming.*;
-import javax.rmi.*;
 import javax.security.auth.*;
 import javax.security.auth.login.*;
-
-import bookstore.*;
-
-import dtos.*;
 
 public class SecuredAdminClient {
 
@@ -60,7 +54,7 @@ public class SecuredAdminClient {
 	/**
 	 * Inner class representing the PrivilegedAction
 	 */
-	private static class AdminClientAction implements PrivilegedAction {
+	private static class AdminClientAction implements PrivilegedAction<Object> {
 
 		public Object run() {
 			try {

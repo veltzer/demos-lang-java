@@ -1,4 +1,4 @@
-package security;
+package ejb_exercises.exercises.client_source.security;
 
 import java.io.*;
 

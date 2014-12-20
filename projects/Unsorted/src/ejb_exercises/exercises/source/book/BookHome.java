@@ -1,4 +1,4 @@
-package book;
+package ejb_exercises.exercises.source.book;
 
 import javax.ejb.*;
 

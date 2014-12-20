@@ -1,10 +1,10 @@
-package daos;
+package ejb_exercises.solutions.source.daos;
 
 import java.util.List;
 
-import dtos.BookDTO;
-import dtos.CustomerDTO;
-import dtos.OrderDetailsDTO;
+import ejb_exercises.solutions.source.dtos.BookDTO;
+import ejb_exercises.solutions.source.dtos.CustomerDTO;
+import ejb_exercises.solutions.source.dtos.OrderDetailsDTO;
 
 /**
  * Data Access Object for a book store. <br>
@@ -73,7 +73,7 @@ public interface BookstoreDAO {
 	 * the DB connection.
 	 * @throws StorageException
 	 */
-	List selectBooks() throws StorageException;
+	List<BookDTO> selectBooks() throws StorageException;
 
 	/**
 	 * Given a book title, returns book details.
@@ -107,7 +107,7 @@ public interface BookstoreDAO {
 	 * the DB connection.
 	 * @throws StorageException
 	 */
-	List selectCustomers() throws StorageException;
+	List<CustomerDTO> selectCustomers() throws StorageException;
 
 	/**
 	 * Given a custoemr id, returns customer details.
@@ -143,7 +143,7 @@ public interface BookstoreDAO {
 		String orderId,
 		String customerId,
 		long timestamp,
-		List bookTitles)
+		List<String> bookTitles)
 		throws StorageException;
 
 	/**

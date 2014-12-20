@@ -1,4 +1,4 @@
-package design_patterns_exercises.bridge;
+package designpatterns.exercises.bridge;
 
 public class NormalDBTable extends AbstractDBTable
 {

@@ -1,4 +1,4 @@
-package design_patterns_exercises.abstractfactory;
+package designpatterns.exercises.abstractfactory;
 
 public class BuffTest
 {

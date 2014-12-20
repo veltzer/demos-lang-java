@@ -1,15 +1,16 @@
-package dtos;
+package ejb_exercises.solutions.source.dtos;
 
 import java.io.Serializable;
 import java.util.*;
 
+@SuppressWarnings("serial")
 public class OrderDetailsDTO implements Serializable {
 	private String id;
 	private String customerId;
 	private long timestamp;
-	private List bookTitles;
+	private List<String> bookTitles;
 
-	public OrderDetailsDTO(String id, long timestamp, List bookTitles){
+	public OrderDetailsDTO(String id, long timestamp, List<String> bookTitles){
 		this.id=id;
 		this.timestamp=timestamp;
 		this.bookTitles = bookTitles;
@@ -18,7 +19,7 @@ public class OrderDetailsDTO implements Serializable {
 	public OrderDetailsDTO(){
 	}
 
-	public List getBookTitles() {
+	public List<String> getBookTitles() {
 		return bookTitles;
 	}
 
@@ -30,7 +31,7 @@ public class OrderDetailsDTO implements Serializable {
 		return timestamp;
 	}
 
-	public void setBookTitles(List list) {
+	public void setBookTitles(List<String> list) {
 		bookTitles = list;
 	}
 
@@ -55,5 +56,4 @@ public class OrderDetailsDTO implements Serializable {
 	public void setCustomerId(String string) {
 		customerId = string;
 	}
-
 }
