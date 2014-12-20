@@ -1,3 +1,5 @@
+package j2me_exercises.HelloWorld;
+
 import javax.microedition.lcdui.*;
 
 /**
