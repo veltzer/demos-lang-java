@@ -1,6 +1,7 @@
-package shopping;
+package ejb_exercises.exercises.source.shopping;
 
-public class EmptyOrderException extends Exception{
+@SuppressWarnings("serial")
+public class EmptyOrderException extends Exception {
 	public EmptyOrderException(String msg){
 		super(msg);
 	}

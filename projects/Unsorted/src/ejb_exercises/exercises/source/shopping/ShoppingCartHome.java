@@ -1,4 +1,4 @@
-package shopping;
+package ejb_exercises.exercises.source.shopping;
 /**
  * Home interface for Enterprise Bean: ShoppingCart
  */

@@ -1,10 +1,10 @@
-package daos;
+package ejb_exercises.exercises.source.daos;
 
 import java.util.List;
 
-import dtos.BookDTO;
-import dtos.CustomerDTO;
-import dtos.OrderDetailsDTO;
+import ejb_exercises.exercises.source.dtos.CustomerDTO;
+import ejb_exercises.exercises.source.dtos.OrderDetailsDTO;
+import ejb_exercises.exercises.source.dtos.BookDTO;
 
 /**
  * Data Access Object for a book store. <br>
@@ -52,7 +52,7 @@ public interface BookstoreDAO {
 	 * the DB connection.
 	 * @throws StorageException
 	 */
-	List selectBooks() throws StorageException;
+	List<BookDTO> selectBooks() throws StorageException;
 
 	/**
 	 * Given a book title, returns book details.
@@ -85,7 +85,7 @@ public interface BookstoreDAO {
 	 * the DB connection.
 	 * @throws StorageException
 	 */
-	List selectCustomers() throws StorageException;
+	List<CustomerDTO> selectCustomers() throws StorageException;
 
 	/**
 	 * Given a custoemr id, returns customer details.
@@ -117,7 +117,7 @@ public interface BookstoreDAO {
 	 * @param bookTitles
 	 * @throws StorageException
 	 */
-	void insertOrder(String orderId, String customerId, long timestamp, List bookTitles ) throws StorageException;
+	void insertOrder(String orderId, String customerId, long timestamp, List<String> bookTitles ) throws StorageException;
 
 	/**
 	 * Cancels a given order.  If no such order exists, this method will

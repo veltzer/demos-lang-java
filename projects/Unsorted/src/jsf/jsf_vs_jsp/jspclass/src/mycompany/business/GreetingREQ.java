@@ -1,4 +1,4 @@
-package mycompany.business;
+package jsf.jsf_vs_jsp.jspclass.src.mycompany.business;
 
 public class GreetingREQ {
 

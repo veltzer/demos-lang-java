@@ -1,12 +1,16 @@
-package book;
+package ejb_exercises.solutions.source.book;
 
 import java.util.*;
+
 import javax.ejb.*;
 import javax.naming.*;
 import javax.sql.*;
-import daos.*;
-import dtos.*;
 
+import ejb_exercises.solutions.source.daos.BookstoreDAO;
+import ejb_exercises.solutions.source.daos.BookstoreDaoFactory;
+import ejb_exercises.solutions.source.dtos.BookDTO;
+
+@SuppressWarnings("serial")
 public class BookBean implements EntityBean {
 	private double price;
 	private String author;
@@ -74,12 +78,12 @@ public class BookBean implements EntityBean {
 		throw new ObjectNotFoundException("Cannot find PK");
 	}
 
-	public Collection ejbFindAllBooks() throws FinderException {
-		List books = dao.selectBooks();
-		Collection result = new ArrayList();
-		Iterator it = books.iterator();
+	public Collection<String> ejbFindAllBooks() throws FinderException {
+		List<BookDTO> books = dao.selectBooks();
+		Collection<String> result = new ArrayList<String>();
+		Iterator<BookDTO> it = books.iterator();
 		while (it.hasNext()) {
-			BookDTO book = (BookDTO) it.next();
+			BookDTO book = it.next();
 			result.add(book.getTitle());
 		}
 		return result;

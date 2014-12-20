@@ -1,4 +1,4 @@
-package shopping;
+package ejb_exercises.exercises.source.shopping;
 
 /**
  * Remote interface for Enterprise Bean: ShoppingCart

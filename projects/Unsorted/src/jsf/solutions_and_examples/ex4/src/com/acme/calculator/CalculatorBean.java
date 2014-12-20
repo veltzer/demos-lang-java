@@ -1,4 +1,4 @@
-package com.acme.calculator;
+package jsf.solutions_and_examples.ex4.src.com.acme.calculator;
 
 import javax.faces.component.*;
 import javax.faces.context.FacesContext;

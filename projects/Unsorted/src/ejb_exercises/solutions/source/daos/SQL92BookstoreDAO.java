@@ -5,9 +5,9 @@ import java.util.*;
 
 import javax.sql.DataSource;
 
-import dtos.CustomerDTO;
-import dtos.OrderDetailsDTO;
 import ejb_exercises.solutions.source.dtos.BookDTO;
+import ejb_exercises.solutions.source.dtos.CustomerDTO;
+import ejb_exercises.solutions.source.dtos.OrderDetailsDTO;
 
 /**
  * A simple SQL implementation of BookstoreDAO. <br>
@@ -207,7 +207,7 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 		Connection con = null;
 		try {
 			con = datasource.getConnection();
-			List customers = new LinkedList();
+			List<CustomerDTO> customers = new LinkedList<CustomerDTO>();
 			PreparedStatement stmt = con.prepareStatement(selectCustomersSql);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
@@ -237,7 +237,7 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 		String orderId,
 		String customerId,
 		long timestamp,
-		List bookTitles) {
+		List<String> bookTitles) {
 		Connection con = null;
 		try {
 			con = datasource.getConnection();
@@ -253,8 +253,8 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 			PreparedStatement itemStmt =
 				con.prepareStatement(insertOrderItemSql);
 			itemStmt.setString(1, orderId);
-			for (Iterator it = bookTitles.iterator(); it.hasNext();) {
-				String title = (String) it.next();
+			for (Iterator<String> it = bookTitles.iterator(); it.hasNext();) {
+				String title = it.next();
 				itemStmt.setString(2, title);
 				itemStmt.executeUpdate();
 			}
@@ -289,7 +289,7 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 			order.setTimestamp(orderRs.getLong("ORDER_TIME"));
 
 			// Get items for this order:
-			List bookTitles = new LinkedList();
+			List<String> bookTitles = new LinkedList<String>();
 			PreparedStatement itemStmt =
 				con.prepareStatement(selectItemsByOrder);
 			itemStmt.setString(1, orderId);

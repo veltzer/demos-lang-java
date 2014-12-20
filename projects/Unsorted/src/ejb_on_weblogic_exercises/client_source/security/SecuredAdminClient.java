@@ -1,4 +1,4 @@
-package security;
+package ejb_on_weblogic_exercises.client_source.security;
 
 import java.security.*;
 import java.util.*;

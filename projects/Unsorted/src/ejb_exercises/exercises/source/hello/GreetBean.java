@@ -1,4 +1,4 @@
-package hello;
+package ejb_exercises.exercises.source.hello;
 
 /**
  * Bean implementation class for Greet

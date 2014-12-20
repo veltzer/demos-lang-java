@@ -1,4 +1,4 @@
-package mycompany.servlets;
+package jsf.jsf_vs_jsp.jspclass.src.mycompany.servlets;
 
 import java.io.IOException;
 

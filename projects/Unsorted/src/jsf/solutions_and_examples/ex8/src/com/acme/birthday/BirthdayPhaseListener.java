@@ -1,4 +1,4 @@
-package com.acme.birthday;
+package jsf.solutions_and_examples.ex8.src.com.acme.birthday;
 
 import javax.faces.application.Application;
 import javax.faces.context.FacesContext;

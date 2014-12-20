@@ -1,4 +1,4 @@
-package hello;
+package ejb_exercises.exercises.source.hello;
 
 /**
  * Home interface for the Hello Bean

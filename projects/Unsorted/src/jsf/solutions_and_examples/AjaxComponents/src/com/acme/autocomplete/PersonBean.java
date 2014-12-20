@@ -1,4 +1,4 @@
-package com.acme.autocomplete;
+package jsf.solutions_and_examples.AjaxComponents.src.com.acme.autocomplete;
 
 
 import javax.faces.context.FacesContext;

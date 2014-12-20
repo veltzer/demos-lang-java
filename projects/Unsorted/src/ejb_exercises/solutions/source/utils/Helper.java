@@ -1,4 +1,4 @@
-package utils;
+package ejb_exercises.solutions.source.utils;
 
 import java.util.Calendar;
 

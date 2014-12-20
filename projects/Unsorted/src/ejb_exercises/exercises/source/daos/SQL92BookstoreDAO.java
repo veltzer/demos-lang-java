@@ -2,7 +2,12 @@ package ejb_exercises.exercises.source.daos;
 
 import java.sql.*;
 import java.util.*;
+
 import javax.sql.DataSource;
+
+import ejb_exercises.exercises.source.dtos.CustomerDTO;
+import ejb_exercises.exercises.source.dtos.BookDTO;
+import ejb_exercises.exercises.source.dtos.OrderDetailsDTO;
 
 /**
  * A simple SQL implementation of BookstoreDAO. <br>
@@ -82,13 +87,13 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 
 
 
-	public List selectBooks() throws StorageException {
+	public List<BookDTO> selectBooks() throws StorageException {
 		Connection con=null;
 		try{
 			con = datasource.getConnection();
 			PreparedStatement stmt = con.prepareStatement(selectBooksSql);
 			ResultSet rs= stmt.executeQuery();
-			List books = new LinkedList();
+			List<BookDTO> books = new LinkedList<BookDTO>();
 			while(rs.next()){
 				BookDTO book=new BookDTO(
 					rs.getString("TITLE"), rs.getString("AUTHOR"),
@@ -133,7 +138,7 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 		Connection con=null;
 		try{
 			con = datasource.getConnection();
-			List<CustomerDTO> customers=new LinkedList();
+			List<CustomerDTO> customers=new LinkedList<CustomerDTO>();
 			PreparedStatement stmt = con.prepareStatement(selectCustomersSql);
 			ResultSet rs= stmt.executeQuery();
 			while(rs.next()){
@@ -155,7 +160,7 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 	}
 
 
-	public void insertOrder(String orderId, String customerId, long timestamp, List bookTitles ){
+	public void insertOrder(String orderId, String customerId, long timestamp, List<String> bookTitles ){
 		Connection con=null;
 		try{
 			con = datasource.getConnection();
@@ -204,7 +209,7 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 			order.setTimestamp(orderRs.getLong("ORDER_TIME"));
 
 			// Get items for this order:
-			List bookTitles=new LinkedList();
+			List<String> bookTitles=new LinkedList<String>();
 			PreparedStatement itemStmt=con.prepareStatement(selectItemsByOrder);
 			itemStmt.setString(1, orderId);
 			ResultSet itemsRs = itemStmt.executeQuery();

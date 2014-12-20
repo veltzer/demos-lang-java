@@ -1,4 +1,4 @@
-package com.acme.birthday;
+package jsf.solutions_and_examples.ex5.src.com.acme.birthday;
 
 import java.util.List;
 
