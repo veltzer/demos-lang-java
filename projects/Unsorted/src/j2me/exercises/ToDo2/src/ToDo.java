@@ -53,10 +53,10 @@ public class ToDo extends javax.microedition.midlet.MIDlet implements CommandLis
 			rs = RecordStore.openRecordStore("entries", false);
 
 			// Iterate through all records and add them to Vector and List.
-			RecordEnumeration enum = rs.enumerateRecords(null, null, true); // @todo If both the filter and comparator are null, the enumeration will traverse all records in the record store in an undefined order.
+			RecordEnumeration enm = rs.enumerateRecords(null, null, true); // @todo If both the filter and comparator are null, the enumeration will traverse all records in the record store in an undefined order.
 
-			while (enum.hasNextElement()) {
-				int nextRecordId = enum.nextRecordId();
+			while (enm.hasNextElement()) {
+				int nextRecordId = enm.nextRecordId();
 				byte[] nextRecord = rs.getRecord(nextRecordId);
 
 				Entry entry = new Entry(nextRecordId, nextRecord); // Create new Entry object from record
@@ -65,7 +65,7 @@ public class ToDo extends javax.microedition.midlet.MIDlet implements CommandLis
 				list.insert(0, entry.toString(), null); // Add to beginning of List
 			}
 
-			enum.destroy(); // Frees internal resources used by RecordEnumeration
+			enm.destroy(); // Frees internal resources used by RecordEnumeration
 		}
 		catch (Exception e) {
 			e.printStackTrace();

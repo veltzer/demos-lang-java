@@ -10,7 +10,6 @@ import bookstore.BookstoreAdminHome;
 import dtos.BookDTO;
 import dtos.CustomerDTO;
 
-
 /**
  * A test client for our bookstore's admin bean. <br>
  *

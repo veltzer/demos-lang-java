@@ -17,13 +17,13 @@ public class HebCalendar {
 	@WebMethod
 	public String hebDayName(int dayNum) {
 		switch (dayNum) {
-			case 1: return "øàùåï";
-			case 2: return "ùğé";
-			case 3: return "ùìéùé";
-			case 4: return "øáéòé";
-			case 5: return "çîéùé";
-			case 6: return "ùéùé";
-			case 7: return "ùáú îğåçä";
+			case 1: return "×¨××©×•×Ÿ";
+			case 2: return "×©× ×™";
+			case 3: return "×©×œ×™×©×™";
+			case 4: return "×¨×‘×™×¢×™";
+			case 5: return "×—××™×©×™";
+			case 6: return "×©×™×©×™";
+			case 7: return "×©×‘×ª";
 		}
 		return null;
 	}
