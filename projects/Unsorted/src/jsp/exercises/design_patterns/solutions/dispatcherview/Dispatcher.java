@@ -1,5 +1,5 @@
 
-package jsp_exercises.design_patterns.solutions.dispatcherview;
+package jsp.exercises.design_patterns.solutions.dispatcherview;
 
 import java.io.IOException;
 
