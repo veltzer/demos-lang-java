@@ -1,4 +1,4 @@
-package effective_java_exercises;
+package effectivejava.exercises;
 
 public interface Builder<T> {
 	T build();

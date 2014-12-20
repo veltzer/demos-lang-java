@@ -39,7 +39,7 @@ public class StatefulCalculator {
 				curNum /=num;
 				break;
 		}
-		System.out.println("After op "+op+" "+num+": "+curNum);
+		System.out.println("After op " + op + " " + num + ": " + curNum);
 
 		getSession().setAttribute("num", curNum);
 
@@ -48,7 +48,7 @@ public class StatefulCalculator {
 
 	private HttpSession getSession() {
 		MessageContext mc = wsContext.getMessageContext();
-		HttpSession session = ((HttpServletRequest)mc.get(MessageContext.SERVLET_REQUEST)).getSession();
+		HttpSession session = ((HttpServletRequest) mc.get(MessageContext.SERVLET_REQUEST)).getSession();
 		return session;
 	}
 }

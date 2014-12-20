@@ -1,4 +1,4 @@
-package effective_java_exercises;
+package effectivejava.exercises;
 
 public class HelloServiceImpl implements HelloService {
 	public HelloServiceImpl() {}

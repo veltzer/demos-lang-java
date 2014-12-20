@@ -1,4 +1,4 @@
-package effective_java_exercises;
+package effectivejava.exercises;
 
 import java.util.AbstractSet;
 import java.util.Collections;

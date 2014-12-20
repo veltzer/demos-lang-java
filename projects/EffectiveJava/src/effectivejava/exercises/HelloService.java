@@ -1,4 +1,4 @@
-package effective_java_exercises;
+package effectivejava.exercises;
 
 @DefaultTo(HelloServiceImpl.class)
 public interface HelloService {

@@ -1,4 +1,4 @@
-package effective_java_exercises;
+package effectivejava.exercises;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
