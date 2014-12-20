@@ -1,3 +1,5 @@
+package foo;
+
 public class BatchProcessor {
     final private static int DEFAULT_TEST_TIME = 90;
     final private static int DEFAULT_NUMBER_OF_READERS = 40;

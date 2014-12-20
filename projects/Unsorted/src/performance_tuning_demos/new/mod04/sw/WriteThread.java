@@ -1,3 +1,5 @@
+package foo;
+
 import java.util.Random;
 
 public class WriteThread extends Thread{

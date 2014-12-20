@@ -1,3 +1,5 @@
+package foo;
+
 import java.util.Vector;
 
 public class Queue {

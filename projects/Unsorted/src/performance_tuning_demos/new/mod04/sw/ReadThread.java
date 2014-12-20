@@ -1,3 +1,5 @@
+package foo;
+
 public class ReadThread extends Thread {
     final private static int DEFAULT_SLEEP_TIME = 10;
     private Queue itsQueue;

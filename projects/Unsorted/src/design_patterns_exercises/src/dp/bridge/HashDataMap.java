@@ -1,4 +1,4 @@
-package dp.bridge;
+package design_patterns_exercises.src.dp.bridge;
 
 import java.util.HashMap;
 import java.util.Map;
