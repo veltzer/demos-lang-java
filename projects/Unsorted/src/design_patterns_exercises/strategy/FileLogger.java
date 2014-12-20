@@ -1,4 +1,4 @@
-package dp.strategy;
+package design_patterns_exercises.strategy;
 
 import java.io.File;
 import java.io.FileWriter;

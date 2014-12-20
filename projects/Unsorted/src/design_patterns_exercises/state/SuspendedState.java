@@ -1,4 +1,4 @@
-package dp.state;
+package design_patterns_exercises.state;
 
 public class SuspendedState extends AbstractDeviceState
 {

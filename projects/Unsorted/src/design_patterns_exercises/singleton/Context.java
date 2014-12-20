@@ -1,4 +1,4 @@
-package dp.singleton;
+package design_patterns_exercises.singleton;
 
 public class Context
 {

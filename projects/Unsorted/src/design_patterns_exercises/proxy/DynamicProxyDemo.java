@@ -1,4 +1,4 @@
-package dp.proxy;
+package design_patterns_exercises.proxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

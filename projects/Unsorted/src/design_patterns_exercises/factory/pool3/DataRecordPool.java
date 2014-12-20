@@ -1,4 +1,4 @@
-package dp.factory.pool3;
+package design_patterns_exercises.factory.pool3;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -61,7 +61,7 @@ public class DataRecordPool {
 		}
 	}
 
-	public List createDataRecords(int amount) {
+	public List<DataRecord> createDataRecords(int amount) {
 		synchronized (pool) {
 			List<DataRecord> recordsList = new LinkedList<DataRecord>();
 			for (int i = 0; i < amount; ++i)

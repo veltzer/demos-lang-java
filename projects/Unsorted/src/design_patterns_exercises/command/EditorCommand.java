@@ -1,4 +1,4 @@
-package design_patterns_exercises.src.dp.command;
+package design_patterns_exercises.command;
 
 public interface EditorCommand
 {

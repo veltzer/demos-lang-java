@@ -1,4 +1,4 @@
-package dp.factory.reflection;
+package design_patterns_exercises.factory.reflection;
 
 public interface Signaller
 {

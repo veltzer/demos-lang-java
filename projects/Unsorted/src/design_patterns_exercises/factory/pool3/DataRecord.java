@@ -1,4 +1,4 @@
-package dp.factory.pool3;
+package design_patterns_exercises.factory.pool3;
 
 public class DataRecord
 {

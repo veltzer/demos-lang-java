@@ -1,4 +1,4 @@
-package design_patterns_exercises.src.dp.builder;
+package design_patterns_exercises.builder;
 
 import java.util.Collection;
 import java.util.SortedSet;

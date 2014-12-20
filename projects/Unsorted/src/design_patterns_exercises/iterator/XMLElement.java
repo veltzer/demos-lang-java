@@ -1,4 +1,4 @@
-package dp.iterator;
+package design_patterns_exercises.iterator;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -10,8 +10,8 @@ public class XMLElement {
 	private String data;
 	private List<XMLElement> children;
 
-	private class ChildrenIterator implements Iterator {
-		private Iterator elementsIterator;
+	private class ChildrenIterator implements Iterator<XMLElement> {
+		private Iterator<XMLElement> elementsIterator;
 		private String elementName;
 		private XMLElement currentElement;
 
@@ -25,7 +25,7 @@ public class XMLElement {
 			return (currentElement != null);
 		}
 
-		public Object next() {
+		public XMLElement next() {
 			XMLElement result = currentElement;
 			findNext();
 			return result;
@@ -54,11 +54,11 @@ public class XMLElement {
 		children = new ArrayList<XMLElement>();
 	}
 
-	public Iterator getChildren() {
+	public Iterator<XMLElement> getChildren() {
 		return children.iterator();
 	}
 
-	public Iterator getChildren(String name) {
+	public Iterator<XMLElement> getChildren(String name) {
 		return new ChildrenIterator(name);
 	}
 
@@ -110,7 +110,7 @@ public class XMLElement {
 			courseElement.addElement(new XMLElement("duration").setData("5 days"));
 			root.addElement(courseElement);
 
-			for (Iterator i = root.getChildren(); i.hasNext();)
+			for (Iterator<XMLElement> i = root.getChildren(); i.hasNext();)
 			{
 				System.out.println(i.next());
 			}

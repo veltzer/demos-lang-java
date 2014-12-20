@@ -1,9 +1,8 @@
-package dp.factory.pool2;
+package design_patterns_exercises.factory.pool2;
 
 public class DataRecord {
 	private int id;
 	private String data;
-	private boolean isAvailable;
 
 	public DataRecord() {
 		this.id = 0;

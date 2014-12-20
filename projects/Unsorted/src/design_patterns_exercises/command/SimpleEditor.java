@@ -1,4 +1,4 @@
-package design_patterns_exercises.src.dp.command;
+package design_patterns_exercises.command;
 
 import java.util.ArrayList;
 import java.util.List;

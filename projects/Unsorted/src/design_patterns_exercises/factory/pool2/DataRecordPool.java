@@ -1,4 +1,4 @@
-package dp.factory.pool2;
+package design_patterns_exercises.factory.pool2;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -50,7 +50,7 @@ public final class DataRecordPool {
 	}
 
 	// Should we add 'synchronized' ?
-	public List createDataRecords(int amount) {
+	public List<DataRecord> createDataRecords(int amount) {
 		List<DataRecord> recordsList = new LinkedList<DataRecord>();
 		for (int i = 0; i < amount; ++i) {
 			recordsList.add(getDataRecord());

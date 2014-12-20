@@ -1,4 +1,4 @@
-package dp.observer;
+package design_patterns_exercises.observer;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

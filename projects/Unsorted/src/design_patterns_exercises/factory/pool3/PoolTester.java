@@ -1,4 +1,4 @@
-package dp.factory.pool3;
+package design_patterns_exercises.factory.pool3;
 
 import java.util.Iterator;
 import java.util.List;
@@ -17,7 +17,7 @@ public class PoolTester implements Runnable
 		for (int counter = 0; counter < 5; ++counter)
 		{
 			int amount = (int) (Math.random() * 10);
-			List records = recordPool.createDataRecords(amount);
+			List<DataRecord> records = recordPool.createDataRecords(amount);
 			try
 			{
 				Thread.sleep((int) (Math.random() * 3000));
@@ -26,15 +26,15 @@ public class PoolTester implements Runnable
 			{
 				e.printStackTrace();
 			}
-			for (Iterator i = records.iterator(); i.hasNext();)
+			for (Iterator<DataRecord> i = records.iterator(); i.hasNext();)
 			{
-				DataRecord record = (DataRecord) i.next();
+				DataRecord record = i.next();
 				recordPool.release(record);
 			}
 			// ....
-			for (Iterator i = records.iterator(); i.hasNext();)
+			for (Iterator<DataRecord> i = records.iterator(); i.hasNext();)
 			{
-				DataRecord record = (DataRecord) i.next();
+				DataRecord record = i.next();
 				record.setData("abc") ;
 			}
 

@@ -1,4 +1,4 @@
-package dp.observer.logger;
+package design_patterns_exercises.observer.logger;
 
 public class ConsoleLogger implements LoggerObserver
 {

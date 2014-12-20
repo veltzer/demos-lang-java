@@ -1,4 +1,4 @@
-package dp.factory.reflection;
+package design_patterns_exercises.factory.reflection;
 
 /**
  * Following the factory design pattern, this class allows for objects of Signaller type.
@@ -20,7 +20,7 @@ public class SignalFactory
 
 		try
 		{
-			Class signallerClass = Class.forName(signallerClassName);
+			Class<?> signallerClass = Class.forName(signallerClassName);
 			Object instance = signallerClass.newInstance();
 			return (Signaller) instance;
 		}

@@ -1,4 +1,4 @@
-package dp.observer.factory.decorator.logger;
+package design_patterns_exercises.observer.factory.decorator.logger;
 
 public class LoggerObserverFilter implements LoggerObserver
 {

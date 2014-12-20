@@ -1,4 +1,4 @@
-package design_patterns_exercises.src.dp.builder;
+package design_patterns_exercises.builder;
 
 import java.io.BufferedReader;
 import java.io.File;

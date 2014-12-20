@@ -1,4 +1,4 @@
-package dp.proxy;
+package design_patterns_exercises.proxy;
 
 public interface Doable
 {

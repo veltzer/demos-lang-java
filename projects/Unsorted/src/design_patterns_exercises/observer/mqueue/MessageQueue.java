@@ -1,4 +1,4 @@
-package dp.observer.mqueue;
+package design_patterns_exercises.observer.mqueue;
 
 import java.util.LinkedList;
 import java.util.Observable;

@@ -1,4 +1,4 @@
-package dp.observer.factory.decorator.logger;
+package design_patterns_exercises.observer.factory.decorator.logger;
 
 import java.util.Date;
 import java.util.HashMap;
