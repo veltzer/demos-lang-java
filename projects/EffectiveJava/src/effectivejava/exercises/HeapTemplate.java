@@ -5,9 +5,11 @@ import java.util.Comparator;
 import java.util.Iterator;
 
 public abstract class HeapTemplate<T> implements Iterable<T> {
-	final Comparator<T> comparator;
+	private final Comparator<T> comparator;
 
-	protected HeapTemplate(Comparator<T> c) { comparator = c; }
+	protected HeapTemplate(Comparator<T> c) {
+		comparator = c;
+	}
 
 	abstract Object pop();
 	abstract void add(Object o);

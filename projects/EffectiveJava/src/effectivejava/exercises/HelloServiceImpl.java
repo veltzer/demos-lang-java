@@ -1,7 +1,8 @@
 package effectivejava.exercises;
 
 public class HelloServiceImpl implements HelloService {
-	public HelloServiceImpl() {}
+	public HelloServiceImpl() {
+	}
 	public void sayHello(String name) {
 		System.out.println("Hello, " + name);
 	}

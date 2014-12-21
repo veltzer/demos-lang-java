@@ -34,13 +34,17 @@ public class BoundedSet<T> extends AbstractSet<T> {
     try {
       return wasAdded = data.add(element);
     } finally {
-      if (!wasAdded) semaphore.release();
+      if (!wasAdded) {
+        semaphore.release();
+      }
     }
   }
 
   @Override public boolean remove(Object element) {
     boolean wasRemoved = data.remove(element);
-    if (wasRemoved) semaphore.release();
+    if (wasRemoved) {
+      semaphore.release();
+    }
     return wasRemoved;
   }
 

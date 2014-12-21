@@ -15,8 +15,8 @@ public class XMLElement {
 		private String elementName;
 		private XMLElement currentElement;
 
-		public ChildrenIterator(String elementName) {
-			this.elementName = elementName;
+		public ChildrenIterator(String ielementName) {
+			elementName = ielementName;
 			elementsIterator = getChildren();
 			findNext();
 		}
@@ -33,11 +33,9 @@ public class XMLElement {
 
 		private void findNext() {
 			currentElement = null;
-			while (elementsIterator.hasNext())
-			{
+			while (elementsIterator.hasNext()) {
 				XMLElement element = (XMLElement) elementsIterator.next();
-				if (element.getName().equals(elementName))
-				{
+				if (element.getName().equals(elementName)) {
 					currentElement = element;
 					return;
 				}
@@ -49,8 +47,8 @@ public class XMLElement {
 		}
 	}
 
-	public XMLElement(String name) {
-		this.name = name;
+	public XMLElement(String iname) {
+		name = iname;
 		children = new ArrayList<XMLElement>();
 	}
 
@@ -58,8 +56,8 @@ public class XMLElement {
 		return children.iterator();
 	}
 
-	public Iterator<XMLElement> getChildren(String name) {
-		return new ChildrenIterator(name);
+	public Iterator<XMLElement> getChildren(String iname) {
+		return new ChildrenIterator(iname);
 	}
 
 	public XMLElement addElement(XMLElement element) {
@@ -84,8 +82,8 @@ public class XMLElement {
 	/**
 	 * @param data The data to set.
 	 */
-	public XMLElement setData(String data) {
-		this.data = data;
+	public XMLElement setData(String idata) {
+		data = idata;
 		return this;
 	}
 
@@ -110,13 +108,12 @@ public class XMLElement {
 			courseElement.addElement(new XMLElement("duration").setData("5 days"));
 			root.addElement(courseElement);
 
-			for (Iterator<XMLElement> i = root.getChildren(); i.hasNext();)
-			{
+			for (Iterator<XMLElement> i = root.getChildren(); i.hasNext();) {
 				System.out.println(i.next());
 			}
 			System.out.println("Done");
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 }

@@ -25,7 +25,7 @@ public class ReverseComparator<T> implements Comparator<T> {
         return o1 < o2 ? Integer.MIN_VALUE : o1 > o2 ? Integer.MAX_VALUE : 0;
       }
     };
-    List<Integer> l = Arrays.asList(3,1,4,2);
+    List<Integer> l = Arrays.asList(3, 1, 4, 2);
     Collections.sort(l, new ReverseComparator<Integer>(intComp));
 //    Collections.sort(l, intComp);
     System.out.println(l);

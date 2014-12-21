@@ -8,8 +8,8 @@ import java.util.concurrent.ConcurrentMap;
  * Implementing Service Locator pattern using HTC
  * http://martinfowler.com/articles/injection.html#UsingAServiceLocator
  */
-public class AutoRegistryTemplate {
-  private static final ConcurrentMap<Class<?>, Object> services = null; //todo
+public abstract class AutoRegistryTemplate {
+  private static final ConcurrentMap<Class<?>, Object> SERVICES = null; //todo
 
   /**
    * Acquire an implementation of a service. If one has not already
@@ -18,7 +18,7 @@ public class AutoRegistryTemplate {
    */
   public static <T> T get(Class<T> interfaceClass) {
     assert interfaceClass != null;
-    Object service = services.get(interfaceClass);
+    Object service = SERVICES.get(interfaceClass);
     //initialization
     /*
     if (service == null) {
@@ -35,7 +35,7 @@ public class AutoRegistryTemplate {
   public static <T> void set(Class<T> interfaceClass, T provider) {
     assert provider != null;
     assert interfaceClass != null;
-    services.put(interfaceClass, interfaceClass.cast(provider));
+    SERVICES.put(interfaceClass, interfaceClass.cast(provider));
   }
 
   static class AnnotationBuilder<T> implements Builder<T> {
@@ -54,7 +54,9 @@ public class AutoRegistryTemplate {
           return null;
       }
       Iterator<T> iterator = loader.iterator();
-      if (!iterator.hasNext()) return null;
+      if (!iterator.hasNext()) {
+          return null;
+	}
       return loader.iterator().next();
     }
   }

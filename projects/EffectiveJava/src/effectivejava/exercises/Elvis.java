@@ -12,7 +12,9 @@ public class Elvis {
   public Elvis() {
     beltSize = CURRENT_YEAR - 1930;
   }
-  public int beltSize() { return beltSize; }
+  public int beltSize() {
+    return beltSize;
+  }
 
   public static void main(String[] args) {
     System.out.println("Elvis wears a size " + INSTANCE.beltSize());

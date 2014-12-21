@@ -5,10 +5,7 @@ import java.util.Collection;
 import java.util.Set;
 import java.util.TreeSet;
 
-/**
- */
 public class InstrumentedSet<E> extends ForwardingSet<E> {
-        //extends HashSet<E> {
   private int addCount = 0;
   public InstrumentedSet(Set<E> set) {
     super(set);

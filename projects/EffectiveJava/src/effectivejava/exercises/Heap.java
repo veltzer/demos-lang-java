@@ -3,13 +3,15 @@ package effectivejava.exercises;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
-import java.util.List;
 import java.util.Iterator;
+import java.util.List;
 
 public class Heap<E> implements Iterable<E> {
   @SuppressWarnings("unused")
 private Comparator<? super E> comparator;
-  public Heap(Comparator<? super E> c) { comparator = c; }
+  public Heap(Comparator<? super E> c) {
+    comparator = c;
+  }
 
   public E pop() {
     return null; //todo
@@ -18,10 +20,14 @@ private Comparator<? super E> comparator;
     //todo
   }
   public void addAll(Collection<? extends E> c) {
-    for (E e: c) { add(e); }
+    for (E e: c) {
+      add(e);
+    }
   }
   public void popAll(Collection<? super E> c) {
-    while (!isEmpty()) c.add(pop());
+    while (!isEmpty()) {
+      c.add(pop());
+    }
   }
   public boolean isEmpty() {
     return true; //todo
@@ -29,7 +35,9 @@ private Comparator<? super E> comparator;
   public Iterator<E> iterator() {
     return null; //todo
   }
-  public boolean contains(Object o) { return false; }
+  public boolean contains(Object o) {
+    return false;
+  }
 
   public static <T> boolean myContains(Heap<?> l, T elem) {
     return l.contains(elem);

@@ -1,30 +1,25 @@
 package designpatterns.exercises.factory.pool1;
 
-public class DataRecord
-{
+public class DataRecord {
 	private int id;
 	private String data;
 
-	public DataRecord(int id, String data)
-	{
-		this.id = id;
-		this.data = data;
+	public DataRecord(int iid, String idata) {
+		id = iid;
+		data = idata;
 	}
 
 	/**
 	 * @return Returns the data.
 	 */
-	public String getData()
-	{
+	public String getData() {
 		return data;
 	}
 
 	/**
 	 * @return Returns the id.
 	 */
-	public int getId()
-	{
+	public int getId() {
 		return id;
 	}
-
 }
