@@ -1,17 +1,14 @@
 package designpatterns.exercises.bridge;
 
-public abstract class AbstractDBTable
-{
+public abstract class AbstractDBTable {
 	private DataMap dataMapImpl;
 
-	public AbstractDBTable(DataMap dataMapImpl)
-	{
+	public AbstractDBTable(DataMap idataMapImpl) {
 		super();
-		this.dataMapImpl = dataMapImpl;
+		dataMapImpl = idataMapImpl;
 	}
 
-	protected DataMap getImpl()
-	{
+	protected DataMap getImpl() {
 		return dataMapImpl;
 	}
 
@@ -21,11 +18,9 @@ public abstract class AbstractDBTable
 
 	public abstract String select(int id);
 
-	public static void main(String[] args)
-	{
-		try
-		{
-			DataMap map = new HashDataMap() ;
+	public static void main(String[] args) {
+		try {
+			DataMap map = new HashDataMap();
 			AbstractDBTable table = new NormalDBTable(map);
 			//AbstractDBTable table = new ReadOnlyDBTable(map);
 			table.insert(1, "a");
@@ -33,11 +28,8 @@ public abstract class AbstractDBTable
 			table.insert(2, "c");
 			System.out.println("data at 1: " + table.select(1));
 			System.out.println("data at 2: " + table.select(2));
-		}
-		catch (Exception e)
-		{
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-
 }

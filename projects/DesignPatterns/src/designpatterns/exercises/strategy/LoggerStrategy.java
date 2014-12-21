@@ -1,6 +1,5 @@
 package designpatterns.exercises.strategy;
 
-public interface LoggerStrategy
-{
-	public void logMessageLine(String messageLine);
+public interface LoggerStrategy {
+	void logMessageLine(String messageLine);
 }

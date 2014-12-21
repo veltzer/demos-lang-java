@@ -5,44 +5,32 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-public class Logger
-{
+public class Logger {
 	private Set<LoggerObserver> observers;
 
-	public Logger()
-	{
+	public Logger() {
 		observers = new HashSet<LoggerObserver>();
 	}
 
-	public void addObserver(LoggerObserver observer)
-	{
+	public void addObserver(LoggerObserver observer) {
 		observers.add(observer);
 	}
 
-	public void removeObserver(LoggerObserver observer)
-	{
+	public void removeObserver(LoggerObserver observer) {
 		observers.remove(observer);
 	}
 
-	public void logMessage(String header, String body)
-	{
+	public void logMessage(String header, String body) {
 		Date currentDate = new Date();
 		String messageLine = currentDate.toString() + "," + header + "," + body;
-		for (Iterator<LoggerObserver> i = observers.iterator(); i.hasNext();)
-		{
+		for (Iterator<LoggerObserver> i = observers.iterator(); i.hasNext();) {
 			LoggerObserver observer = i.next();
 			observer.onLogRequest(messageLine);
 		}
 	}
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args)
-	{
-		try
-		{
-
+	public static void main(String[] args) {
+		try {
 			Logger logger = new Logger();
 			LoggerObserver consoleLogger = new ConsoleLogger();
 			logger.addObserver(consoleLogger);
@@ -53,9 +41,7 @@ public class Logger
 			logger.removeObserver(consoleLogger);
 			logger.logMessage("info", "removed console logger");
 			System.out.println("Done");
-		}
-		catch (Exception e)
-		{
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

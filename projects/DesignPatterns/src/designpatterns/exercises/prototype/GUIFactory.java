@@ -4,19 +4,14 @@ public class GUIFactory {
 	private Button button;
 	private ComboBox combo;
 
-	public GUIFactory(Button button, ComboBox combo)
-	{
-		this.button = button;
-		this.combo = combo;
+	public GUIFactory(Button ibutton, ComboBox icombo) {
+		button = ibutton;
+		combo = icombo;
 	}
-
-	public Button createButton()
-	{
+	public Button createButton() {
 		return (Button) button.clone();
 	}
-
-	public ComboBox createComboBox()
-	{
+	public ComboBox createComboBox() {
 		return (ComboBox) combo.clone();
 	}
 }

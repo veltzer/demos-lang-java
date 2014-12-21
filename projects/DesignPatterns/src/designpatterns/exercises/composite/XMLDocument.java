@@ -1,34 +1,20 @@
 package designpatterns.exercises.composite;
 
-public class XMLDocument
-{
+public class XMLDocument {
 	private String version;
 	private XMLElement rootElement;
 
-	public XMLDocument(XMLElement rootElement)
-	{
+	public XMLDocument(XMLElement irootElement) {
 		super();
-		this.rootElement = rootElement;
+		rootElement = irootElement;
 	}
-
-	public XMLElement getRootElement()
-	{
+	public XMLElement getRootElement() {
 		return rootElement;
 	}
-
-	/**
-	 * @return Returns the version.
-	 */
-	public String getVersion()
-	{
+	public String getVersion() {
 		return version;
 	}
-
-	/**
-	 * @param version The version to set.
-	 */
-	public void setVersion(String version)
-	{
-		this.version = version;
+	public void setVersion(String iversion) {
+		version = iversion;
 	}
 }

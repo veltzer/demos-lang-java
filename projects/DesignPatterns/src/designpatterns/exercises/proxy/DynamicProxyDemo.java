@@ -4,19 +4,15 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
-public class DynamicProxyDemo
-{
-	private static class DynamicDoableProxy implements InvocationHandler
-	{
+public abstract class DynamicProxyDemo {
+	private static class DynamicDoableProxy implements InvocationHandler {
 		private Doable reference;
 
-		public DynamicDoableProxy(Doable reference)
-		{
-			this.reference = reference;
+		public DynamicDoableProxy(Doable ireference) {
+			reference = ireference;
 		}
 
-		public Object invoke(Object proxy, Method method, Object[] args) throws Exception
-		{
+		public Object invoke(Object proxy, Method method, Object[] args) throws Exception {
 			//System.out.println("InvocationHandler called:" + "\n\tmethod = " + method);
 			// we can change any argument we like
 
@@ -34,34 +30,26 @@ public class DynamicProxyDemo
 		}
 	}
 
-	public static void main(String[] clargs)
-	{
-		try
-		{
+	public static void main(String[] clargs) {
+		try {
 			Doable reference = new DoableAction();
-			Doable proxy = (Doable) Proxy.newProxyInstance(Doable.class.getClassLoader(), new Class[]
-			{ Doable.class }, new DynamicDoableProxy(reference));
-			{
-				long startTime = System.currentTimeMillis();
-				for (int i = 0; i < 1000000; ++i)
-				{
-					proxy.doIt();
-				}
-				long endTime = System.currentTimeMillis() - startTime;
-				System.out.println("Proxy time: " + endTime);
+			Doable proxy = (Doable) Proxy.newProxyInstance(Doable.class.getClassLoader(), new Class[] {
+				Doable.class
+			}, new DynamicDoableProxy(reference));
+			long startTime, endTime;
+			startTime = System.currentTimeMillis();
+			for (int i = 0; i < 1000000; ++i) {
+				proxy.doIt();
 			}
-			{
-				long startTime = System.currentTimeMillis();
-				for (int i = 0; i < 1000000; ++i)
-				{
-					reference.doIt();
-				}
-				long endTime = System.currentTimeMillis() - startTime;
-				System.out.println("Direct time: " + endTime);
+			endTime = System.currentTimeMillis() - startTime;
+			System.out.println("Proxy time: " + endTime);
+			startTime = System.currentTimeMillis();
+			for (int i = 0; i < 1000000; ++i) {
+				reference.doIt();
 			}
-		}
-		catch (Exception e)
-		{
+			endTime = System.currentTimeMillis() - startTime;
+			System.out.println("Direct time: " + endTime);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

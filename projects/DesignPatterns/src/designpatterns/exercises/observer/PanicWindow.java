@@ -13,21 +13,15 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 @SuppressWarnings("serial")
-public class PanicWindow extends Frame
-{
-	/**
-	 *
-	 */
+public class PanicWindow extends Frame {
 	private Label messageLabel;
 	private Panel flashPanel;
 
-	public PanicWindow()
-	{
+	public PanicWindow() {
 		super("Panic attack!");
 	}
 
-	public void init()
-	{
+	public void init() {
 		setLayout(new BorderLayout());
 		messageLabel = new Label();
 		add(messageLabel, BorderLayout.SOUTH);
@@ -36,13 +30,8 @@ public class PanicWindow extends Frame
 		flashPanel.setBackground(Color.WHITE);
 		add(flashPanel, BorderLayout.CENTER);
 
-		addWindowListener(new WindowAdapter()
-		{
-			/**
-			 * @see java.awt.event.WindowAdapter#windowClosed(java.awt.event.WindowEvent)
-			 */
-			public void windowClosing(WindowEvent e)
-			{
+		addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
 				System.exit(0);
 			}
 		});
@@ -50,31 +39,23 @@ public class PanicWindow extends Frame
 		setVisible(true);
 	}
 
-	public void setPanicGenerator(Observable panicGenerator)
-	{
-		panicGenerator.addObserver(new Observer()
-		{
-			public void update(Observable o, Object arg)
-			{
+	public void setPanicGenerator(Observable panicGenerator) {
+		panicGenerator.addObserver(new Observer() {
+			public void update(Observable o, Object arg) {
 				messageLabel.setText((String) arg);
 			}
 		});
-		panicGenerator.addObserver(new Observer()
-		{
-			public void update(Observable o, Object arg)
-			{
+		panicGenerator.addObserver(new Observer() {
+			public void update(Observable o, Object arg) {
 				redFlash();
 			}
 		});
 	}
 
-	private void redFlash()
-	{
+	private void redFlash() {
 		flashPanel.setBackground(Color.RED);
-		TimerTask clearTask = new TimerTask()
-		{
-			public void run()
-			{
+		TimerTask clearTask = new TimerTask() {
+			public void run() {
 				flashPanel.setBackground(Color.WHITE);
 			}
 		};
@@ -82,15 +63,10 @@ public class PanicWindow extends Frame
 		timer.schedule(clearTask, 200);
 	}
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		PanicWindow window = new PanicWindow();
 		window.init();
 		PanicAttack attack = new PanicAttack();
 		window.setPanicGenerator(attack);
 	}
-
 }

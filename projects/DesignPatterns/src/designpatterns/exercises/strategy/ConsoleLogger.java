@@ -1,16 +1,10 @@
 package designpatterns.exercises.strategy;
 
-public class ConsoleLogger implements LoggerStrategy
-{
-
-	public ConsoleLogger()
-	{
+public class ConsoleLogger implements LoggerStrategy {
+	public ConsoleLogger() {
 		super();
 	}
-
-	public void logMessageLine(String messageLine)
-	{
+	public void logMessageLine(String messageLine) {
 		System.out.println(messageLine);
 	}
-
 }

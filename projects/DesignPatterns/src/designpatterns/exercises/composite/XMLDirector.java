@@ -1,33 +1,22 @@
 package designpatterns.exercises.composite;
 
-public class XMLDirector
-{
+public class XMLDirector {
 	private XMLBuilder xmlBuilder;
 
-	public XMLDirector(XMLBuilder xmlBuilder)
-	{
+	public XMLDirector(XMLBuilder ixmlBuilder) {
 		super();
-		this.xmlBuilder = xmlBuilder;
+		xmlBuilder = ixmlBuilder;
 	}
-
-	public void build(XMLDocument xmlDocument)
-	{
+	public void build(XMLDocument xmlDocument) {
 		xmlBuilder.buildVersion(xmlDocument.getVersion());
 		xmlBuilder.build(xmlDocument.getRootElement());
 	}
-
-	public void printXML()
-	{
+	public void printXML() {
 		System.out.println(xmlBuilder.getFormattedXML());
 	}
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args)
-	{
-		try
-		{
+	public static void main(String[] args) {
+		try {
 			XMLElement root = new XMLElement("Root");
 			XMLElement courseElement = new XMLElement("Course");
 			courseElement.addElement(new XMLElement("name").setData("Design Patterns"));
@@ -47,9 +36,7 @@ public class XMLDirector
 			xmlDirector.printXML();
 
 			System.out.println("Done");
-		}
-		catch (Exception e)
-		{
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

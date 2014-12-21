@@ -1,16 +1,10 @@
 package designpatterns.exercises.observer.factory.decorator.logger;
 
-public class ConsoleLogger implements LoggerObserver
-{
-
-	public ConsoleLogger()
-	{
+public class ConsoleLogger implements LoggerObserver {
+	public ConsoleLogger() {
 		super();
 	}
-
-	public void onLogRequest(int priority, String messageLine)
-	{
+	public void onLogRequest(int priority, String messageLine) {
 		System.out.println(messageLine);
 	}
-
 }

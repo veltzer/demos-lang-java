@@ -1,30 +1,18 @@
 package designpatterns.exercises.observer.factory.decorator.logger;
 
-public class LoggerObserverFilter implements LoggerObserver
-{
+public class LoggerObserverFilter implements LoggerObserver {
 	private int priorityLevel;
 	private LoggerObserver reference;
-
-	public LoggerObserverFilter(LoggerObserver reference, int priorityLevel)
-	{
+	public LoggerObserverFilter(LoggerObserver ireference, int ipriorityLevel) {
 		super();
-		this.reference = reference;
-		this.priorityLevel = priorityLevel;
+		reference = ireference;
+		priorityLevel = ipriorityLevel;
 	}
-
-	public void onLogRequest(int priority, String messageLine)
-	{
-		if (priority >= priorityLevel)
+	public void onLogRequest(int priority, String messageLine) {
+		if (priority >= priorityLevel) {
 			reference.onLogRequest(priority, messageLine);
+		}
 	}
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args)
-	{
-		// TODO Auto-generated method stub
-
+	public static void main(String[] args) {
 	}
-
 }

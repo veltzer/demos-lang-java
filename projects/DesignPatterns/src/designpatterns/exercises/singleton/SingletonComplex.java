@@ -2,18 +2,14 @@ package designpatterns.exercises.singleton;
 
 import java.util.HashMap;
 
-public final class SingletonComplex
-{
-	private static HashMap<String,Object> hash=new HashMap<String,Object>();
+public final class SingletonComplex {
+	private static HashMap<String, Object> hash = new HashMap<String, Object>();
 
-	private SingletonComplex()
-	{
+	private SingletonComplex() {
 		System.out.println("Singleton created");
 	}
-
-	public static synchronized Object getInstance(String classname)
-	{
-		if(!hash.containsKey(classname)) {
+	public static synchronized Object getInstance(String classname) {
+		if (!hash.containsKey(classname)) {
 			// this actually runs a no argument constructor
 			Object newobj;
 			try {
@@ -25,8 +21,8 @@ public final class SingletonComplex
 			} catch (ClassNotFoundException e) {
 				throw new RuntimeException(e);
 			}
-			hash.put(classname,newobj);
+			hash.put(classname, newobj);
 		}
-		return(hash.get(classname));
+		return hash.get(classname);
 	}
 }

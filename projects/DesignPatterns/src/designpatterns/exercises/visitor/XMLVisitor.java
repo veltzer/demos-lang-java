@@ -1,6 +1,5 @@
 package designpatterns.exercises.visitor;
 
-public interface XMLVisitor
-{
-	public void visit( XMLElement element ) ;
+public interface XMLVisitor {
+	void visit(XMLElement element);
 }

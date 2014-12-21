@@ -1,6 +1,5 @@
 package designpatterns.exercises.observer.logger;
 
-public interface LoggerObserver
-{
-	public void onLogRequest(String messageLine);
+public interface LoggerObserver {
+	void onLogRequest(String messageLine);
 }

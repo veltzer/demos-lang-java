@@ -1,16 +1,10 @@
 package designpatterns.exercises.factory.reflection;
 
-public class SoundSignaller implements Signaller
-{
-
-	public SoundSignaller()
-	{
+public class SoundSignaller implements Signaller {
+	public SoundSignaller() {
 		super();
 	}
-
-	public void signal()
-	{
+	public void signal() {
 		System.out.println("beeping");
 	}
-
 }

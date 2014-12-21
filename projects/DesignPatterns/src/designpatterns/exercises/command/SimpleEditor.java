@@ -3,67 +3,53 @@ package designpatterns.exercises.command;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SimpleEditor
-{
+public class SimpleEditor {
 	private StringBuffer textBuffer;
 	private List<EditorCommand> commands;
 	private int currentCommandIndex;
 
-	private class AppendCommand implements EditorCommand
-	{
+	private class AppendCommand implements EditorCommand {
 		private String appendText;
 
-		public AppendCommand(String appendText)
-		{
-			this.appendText = appendText;
+		public AppendCommand(String iappendText) {
+			appendText = iappendText;
 		}
 
-		public void execute()
-		{
+		public void execute() {
 			textBuffer.append(appendText);
 		}
 
-		public void unexecute()
-		{
+		public void unexecute() {
 			textBuffer.setLength(textBuffer.length() - appendText.length());
 		}
 	}
 
-	private class DeleteCommand implements EditorCommand
-	{
+	private class DeleteCommand implements EditorCommand {
 		private int fromIndex;
 		private int endIndex;
 		private String deletedText;
-
-		public DeleteCommand(int fromIndex, int endIndex)
-		{
+		public DeleteCommand(int ifromIndex, int iendIndex) {
 			deletedText = "";
-			this.fromIndex = fromIndex;
-			this.endIndex = endIndex;
+			fromIndex = ifromIndex;
+			endIndex = iendIndex;
 		}
-
-		public void execute()
-		{
+		public void execute() {
 			deletedText = textBuffer.substring(fromIndex, endIndex);
 			textBuffer.delete(fromIndex, endIndex);
 		}
-
-		public void unexecute()
-		{
+		public void unexecute() {
 			textBuffer.insert(fromIndex, deletedText);
 		}
 	}
 
-	public SimpleEditor()
-	{
+	public SimpleEditor() {
 		super();
 		textBuffer = new StringBuffer();
 		commands = new ArrayList<EditorCommand>();
 		currentCommandIndex = 0;
 	}
 
-	public void addCommand(EditorCommand command)
-	{
+	public void addCommand(EditorCommand command) {
 		commands = commands.subList(0, currentCommandIndex);
 		commands.add(command);
 		currentCommandIndex = commands.size();
@@ -72,21 +58,20 @@ public class SimpleEditor
 		System.out.println("Text: " + textBuffer);
 	}
 
-	public void undo()
-	{
-		if (currentCommandIndex == 0)
+	public void undo() {
+		if (currentCommandIndex == 0) {
 			return;
+		}
 		--currentCommandIndex;
 		EditorCommand command = (EditorCommand) commands.get(currentCommandIndex);
 		command.unexecute();
-
 		System.out.println("Text: " + textBuffer);
 	}
 
-	public void redo()
-	{
-		if (currentCommandIndex == commands.size())
+	public void redo() {
+		if (currentCommandIndex == commands.size()) {
 			return;
+		}
 		EditorCommand command = (EditorCommand) commands.get(currentCommandIndex);
 		command.execute();
 		++currentCommandIndex;
@@ -94,8 +79,7 @@ public class SimpleEditor
 		System.out.println("Text: " + textBuffer);
 	}
 
-	private void demo()
-	{
+	private void demo() {
 		addCommand(new AppendCommand("abc "));
 		addCommand(new AppendCommand("def "));
 		addCommand(new AppendCommand("ghi "));
@@ -108,19 +92,12 @@ public class SimpleEditor
 		addCommand(new AppendCommand("jkl "));
 	}
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args)
-	{
-		try
-		{
+	public static void main(String[] args) {
+		try {
 			SimpleEditor editor = new SimpleEditor();
 			editor.demo();
 			System.out.println("Done");
-		}
-		catch (Exception e)
-		{
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

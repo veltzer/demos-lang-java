@@ -1,6 +1,5 @@
 package designpatterns.exercises.factory.reflection;
 
-public interface Signaller
-{
-	public void signal() ;
+public interface Signaller {
+	void signal();
 }

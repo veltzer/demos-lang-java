@@ -1,21 +1,13 @@
 package designpatterns.exercises.state;
 
-public class SuspendedState extends AbstractDeviceState
-{
-
-	public SuspendedState(NetworkDevice device)
-	{
+public class SuspendedState extends AbstractDeviceState {
+	public SuspendedState(NetworkDevice device) {
 		super(device);
 	}
-
-	public void resume()
-	{
-		device.setState( device.ENABLED_STATE );
+	public void resume() {
+		device.setState(device.ENABLED_STATE);
 	}
-
-	public void disable()
-	{
-		device.setState( device.DISABLED_STATE );
+	public void disable() {
+		device.setState(device.DISABLED_STATE);
 	}
-
 }

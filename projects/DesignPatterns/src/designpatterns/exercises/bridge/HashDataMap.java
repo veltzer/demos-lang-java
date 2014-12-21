@@ -3,29 +3,19 @@ package designpatterns.exercises.bridge;
 import java.util.HashMap;
 import java.util.Map;
 
-public class HashDataMap implements DataMap
-{
-	private Map<Object,Object> dataMap;
-
-	public HashDataMap()
-	{
+public class HashDataMap implements DataMap {
+	private Map<Object, Object> dataMap;
+	public HashDataMap() {
 		super();
-		dataMap = new HashMap<Object,Object>();
+		dataMap = new HashMap<Object, Object>();
 	}
-
-	public void put(Object key, Object value)
-	{
+	public void put(Object key, Object value) {
 		dataMap.put(key, value);
 	}
-
-	public Object get(Object key)
-	{
+	public Object get(Object key) {
 		return dataMap.get(key);
 	}
-
-	public boolean keyExists(Object key)
-	{
+	public boolean keyExists(Object key) {
 		return dataMap.containsKey(key);
 	}
-
 }

@@ -1,13 +1,10 @@
 package designpatterns.exercises.observer.logger;
 
 public class ConsoleLogger implements LoggerObserver {
-	public ConsoleLogger()
-	{
+	public ConsoleLogger() {
 		super();
 	}
-
-	public void onLogRequest(String messageLine)
-	{
+	public void onLogRequest(String messageLine) {
 		System.out.println(messageLine);
 	}
 }

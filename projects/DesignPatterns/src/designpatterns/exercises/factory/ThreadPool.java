@@ -3,45 +3,35 @@ package designpatterns.exercises.factory;
 import java.util.EmptyStackException;
 import java.util.Stack;
 
-public class ThreadPool
-{
+public final class ThreadPool {
 	private Stack<PooledThread> threads;
 	private static ThreadPool instance = new ThreadPool();
 
-	private class PooledThread extends Thread
-	{
+	private class PooledThread extends Thread {
 		private Runnable runnableJob;
 
-		public PooledThread(Runnable runnable)
-		{
+		public PooledThread(Runnable runnable) {
 			runnableJob = runnable;
 			start();
 		}
 
-		public synchronized void setRunnableJob(Runnable runnable)
-		{
-			if (runnable == null)
+		public synchronized void setRunnableJob(Runnable runnable) {
+			if (runnable == null) {
 				return;
+			}
 			runnableJob = runnable;
 			notify();
 		}
 
-		public synchronized void run()
-		{
-			while (true)
-			{
-				try
-				{
+		public synchronized void run() {
+			while (true) {
+				try {
 					// See if there's a job:
-					if (runnableJob == null)
-					{
-						try
-						{
+					if (runnableJob == null) {
+						try {
 							threads.push(this);
 							wait();
-						}
-						catch (InterruptedException e)
-						{
+						} catch (InterruptedException e) {
 							e.printStackTrace();
 						}
 					}
@@ -49,30 +39,23 @@ public class ThreadPool
 					// point there is a valid runnable job!
 					runnableJob.run();
 					runnableJob = null;
-				}
-				catch (Exception e)
-				{
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 		}
 	}
 
-	private ThreadPool()
-	{
+	private ThreadPool() {
 		threads = new Stack<PooledThread>();
 	}
 
-	public void spawn(Runnable runnable)
-	{
-		try
-		{
+	public void spawn(Runnable runnable) {
+		try {
 			// Try to get a pooled thread:
 			PooledThread pooledThread = threads.pop();
 			pooledThread.setRunnableJob(runnable);
-		}
-		catch (EmptyStackException e)
-		{
+		} catch (EmptyStackException e) {
 			// No threads available.
 			new PooledThread(runnable);
 			// This code for demontsration only. It is usually not such a good idea to put
@@ -80,8 +63,7 @@ public class ThreadPool
 		}
 	}
 
-	public static ThreadPool getInstance()
-	{
+	public static ThreadPool getInstance() {
 		return instance;
 	}
 }

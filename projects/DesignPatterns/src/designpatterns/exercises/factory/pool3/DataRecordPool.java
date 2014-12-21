@@ -8,7 +8,7 @@ import java.util.List;
  * DataRecord objects.
  * Locking is provided. Minimal capacity ensurance is provided using an external thread.
  */
-public class DataRecordPool {
+public final class DataRecordPool {
 	private static DataRecordPool instance = new DataRecordPool();
 	private int minSize;
 	private int maxSize;
@@ -20,8 +20,9 @@ public class DataRecordPool {
 		public void run() {
 			synchronized (pool) {
 				int missingElements = minSize - pool.size();
-				for (int i = 0; i < missingElements; ++i)
+				for (int i = 0; i < missingElements; ++i) {
 					release(createNewDataRecord());
+				}
 			}
 		}
 	}
@@ -52,8 +53,9 @@ public class DataRecordPool {
 		synchronized (pool) {
 			++numRequests;
 
-			if (pool.isEmpty())
+			if (pool.isEmpty()) {
 				return createNewDataRecord();
+			}
 
 			System.out.println("+ returning cached object");
 			DataRecord record = pool.removeFirst();
@@ -64,16 +66,18 @@ public class DataRecordPool {
 	public List<DataRecord> createDataRecords(int amount) {
 		synchronized (pool) {
 			List<DataRecord> recordsList = new LinkedList<DataRecord>();
-			for (int i = 0; i < amount; ++i)
+			for (int i = 0; i < amount; ++i) {
 				recordsList.add(createDataRecord());
+			}
 			return recordsList;
 		}
 	}
 
 	public void release(DataRecord record) {
 		synchronized (pool) {
-			if ((maxSize == 0) || (pool.size() < maxSize))
+			if ((maxSize == 0) || (pool.size() < maxSize)) {
 				pool.add(record);
+			}
 			ensureCapacity();
 		}
 	}

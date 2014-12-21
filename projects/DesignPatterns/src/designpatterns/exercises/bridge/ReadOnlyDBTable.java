@@ -11,6 +11,6 @@ public class ReadOnlyDBTable extends AbstractDBTable {
 		throw new RuntimeException("Read only!");
 	}
 	public String select(int id) {
-		return (String)getImpl().get(new Integer(id));
+		return (String) getImpl().get(new Integer(id));
 	}
 }

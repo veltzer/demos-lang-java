@@ -9,8 +9,8 @@ public class XMLElement {
 	private String data;
 	private List<XMLElement> children;
 
-	public XMLElement(String name) {
-		this.name = name;
+	public XMLElement(String iname) {
+		name = iname;
 		children = new ArrayList<XMLElement>();
 	}
 
@@ -23,32 +23,22 @@ public class XMLElement {
 		return this;
 	}
 
-	/**
-	 * @return Returns the name.
-	 */
 	public String getName() {
 		return name;
 	}
 
-	/**
-	 * @return Returns the data.
-	 */
 	public String getData() {
 		return data;
 	}
 
-	/**
-	 * @param data The data to set.
-	 */
-	public XMLElement setData(String data) {
-		this.data = data;
+	public XMLElement setData(String idata) {
+		data = idata;
 		return this;
 	}
 
 	public void accept(XMLVisitor visitor) {
 		visitor.visit(this);
-		for (Iterator<XMLElement> i = getChildren(); i.hasNext();)
-		{
+		for (Iterator<XMLElement> i = getChildren(); i.hasNext();) {
 			XMLElement child = i.next();
 			child.accept(visitor);
 		}
@@ -58,9 +48,6 @@ public class XMLElement {
 		return "[XML Element: name=" + getName() + ", data=" + getData() + "]";
 	}
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		try {
 			XMLElement root = new XMLElement("Root");
@@ -77,14 +64,15 @@ public class XMLElement {
 
 			root.accept(new XMLVisitor() {
 				public void visit(XMLElement element) {
-					if (element.getName().equals("name"))
+					if (element.getName().equals("name")) {
 						System.out.println("course name: " + element.getData());
+					}
 				}
 			});
 
-			TagsCountVisitor tagsCountVisitor = new TagsCountVisitor() ;
-			root.accept( tagsCountVisitor ) ;
-			System.out.println("Number of tags: "+tagsCountVisitor.countTags);
+			TagsCountVisitor tagsCountVisitor = new TagsCountVisitor();
+			root.accept(tagsCountVisitor);
+			System.out.println("Number of tags: " + tagsCountVisitor.countTags);
 			System.out.println("Done");
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -4,7 +4,7 @@ package designpatterns.exercises.factory.reflection;
  * Following the factory design pattern, this class allows for objects of Signaller type.
  * Creation is performed via reflection, and using system properties to determine the desired type.
  */
-public class SignalFactory {
+public abstract class SignalFactory {
 	public SignalFactory() {
 		super();
 	}
