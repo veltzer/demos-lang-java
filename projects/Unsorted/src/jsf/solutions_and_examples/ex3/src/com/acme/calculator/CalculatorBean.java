@@ -1,8 +1,8 @@
 package jsf.solutions_and_examples.ex3.src.com.acme.calculator;
 
-import javax.faces.component.*;
-import javax.faces.context.*;
-import javax.faces.event.*;
+//import javax.faces.component.*;
+//import javax.faces.context.*;
+//import javax.faces.event.*;
 
 public class CalculatorBean {
 	private static final int NOP = 0;
@@ -27,8 +27,8 @@ public class CalculatorBean {
 		return displayValue;
 	}
 
-	public void setDisplayValue(double displayValue) {
-		this.displayValue = displayValue;
+	public void setDisplayValue(double idisplayValue) {
+		displayValue = idisplayValue;
 	}
 
 	private void calc(int newOp) {

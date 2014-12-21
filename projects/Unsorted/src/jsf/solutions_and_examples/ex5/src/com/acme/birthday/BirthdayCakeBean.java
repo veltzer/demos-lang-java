@@ -2,7 +2,7 @@ package jsf.solutions_and_examples.ex5.src.com.acme.birthday;
 
 import java.util.List;
 
-import javax.faces.component.*;
+//import javax.faces.component.*;
 import javax.faces.component.html.HtmlGraphicImage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
@@ -14,8 +14,8 @@ public class BirthdayCakeBean {
 		return userAge;
 	}
 
-	public void setUserAge(int userAge) {
-		this.userAge = userAge;
+	public void setUserAge(int iuserAge) {
+		userAge = iuserAge;
 	}
 
 	@SuppressWarnings("unchecked")

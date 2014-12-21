@@ -1,7 +1,7 @@
 package jsf.solutions_and_examples.ex4.src.com.acme.calculator;
 
-import javax.faces.component.*;
-import javax.faces.context.FacesContext;
+//import javax.faces.component.*;
+//import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 public class CalculatorBean {
@@ -36,16 +36,16 @@ public class CalculatorBean {
 		return displayValue;
 	}
 
-	public void setDisplayValue(double displayValue) {
-		this.displayValue = displayValue;
+	public void setDisplayValue(double idisplayValue) {
+		displayValue = idisplayValue;
 	}
 
 	public int getMode() {
 		return mode;
 	}
 
-	public void setMode(int mode) {
-		this.mode = mode;
+	public void setMode(int imode) {
+		mode = imode;
 	}
 
 	public String getChangeModeMessage() {
@@ -66,7 +66,7 @@ public class CalculatorBean {
 //		UIOutput output = (UIOutput) root.findComponent("calc:debug");
 //		output.setValue("newOp = " + newOp);
 
-		switch(lastOp) {
+		switch (lastOp) {
 		case PLUS:
 			lastValue += displayValue;
 			break;

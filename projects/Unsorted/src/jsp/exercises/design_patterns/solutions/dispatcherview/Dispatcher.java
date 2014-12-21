@@ -15,11 +15,10 @@ public class Dispatcher {
 	private static final String CATALOG_PAGE = "/list.jsp";
 	private static final String ITEM_PAGE = "/item.jsp";
 
-	Dispatcher(ServletContext ctx) {
-		this.ctx = ctx;
+	Dispatcher(ServletContext ictx) {
+		ctx = ictx;
 	}
-
-	void dispatch(ServletRequest req, ServletResponse res, String mode) throws IOException,ServletException {
+	void dispatch(ServletRequest req, ServletResponse res, String mode) throws IOException, ServletException {
 		RequestDispatcher rd = null;
 		if (mode.equalsIgnoreCase("cat")) {
 			rd = ctx.getRequestDispatcher(CATALOG_PAGE);
@@ -28,8 +27,6 @@ public class Dispatcher {
 		} else {
 			throw new ServletException("Illegal mode");
 		}
-		rd.forward(req,res);
-
+		rd.forward(req, res);
 	}
-
 }

@@ -24,16 +24,16 @@ public class LoginBean {
 		return password;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPassword(String ipassword) {
+		password = ipassword;
 	}
 
 	public String getUserName() {
 		return userName;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUserName(String iuserName) {
+		userName = iuserName;
 	}
 
 	public void loginHandler(ActionEvent event) {
@@ -42,14 +42,15 @@ public class LoginBean {
 			setLoggedIn(true);
 		} else {
 			System.out.println("Bad login");
-			FacesContext.getCurrentInstance().addMessage("loginForm",new FacesMessage("User name or password are incorrect"));
+			FacesContext.getCurrentInstance().addMessage("loginForm", new FacesMessage("User name or password are incorrect"));
 		}
 	}
 
 	public String checkLogin() {
-		if (isLoggedIn())
+		if (isLoggedIn()) {
 			return "loggedIn";
-		else
+		} else {
 			return "notLoggedIn";
+		}
 	}
 }

@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Locale;
 
 import javax.faces.application.FacesMessage;
-import javax.faces.component.*;
+//import javax.faces.component.*;
 import javax.faces.component.html.HtmlGraphicImage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
@@ -19,8 +19,8 @@ public class BirthdayCakeBean {
 		return userAge;
 	}
 
-	public void setUserAge(int userAge) {
-		this.userAge = userAge;
+	public void setUserAge(int iuserAge) {
+		userAge = iuserAge;
 	}
 
 	public void showCake(ActionEvent event) {
@@ -52,8 +52,8 @@ public class BirthdayCakeBean {
 		cake.getChildren().clear();
 	}
 
-	public void validateAge(FacesContext context, UIComponent component, Object newValue) throws ValidatorException {
-		int newVal = ((Integer)newValue).intValue();
+	public void validateAge(FacesContext context, UIComponent component, Object newValue) {
+		int newVal = ((Integer) newValue).intValue();
 		if (newVal < MIN_AGE) {
 			clearCake();
 			throw new ValidatorException(new FacesMessage("Too young."));
@@ -69,7 +69,7 @@ public class BirthdayCakeBean {
 		String lang = (String) curCommand.getValue();
 
 		Locale locale = new Locale(lang);
-		System.out.println("Current locale: "+locale);
+		System.out.println("Current locale: " + locale);
 		FacesContext.getCurrentInstance().getViewRoot().setLocale(locale);
 	}
 

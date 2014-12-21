@@ -3,7 +3,7 @@ package jsf.solutions_and_examples.ex6.src.com.acme.birthday;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
-import javax.faces.component.*;
+//import javax.faces.component.*;
 import javax.faces.component.html.HtmlGraphicImage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
@@ -18,8 +18,8 @@ public class BirthdayCakeBean {
 		return userAge;
 	}
 
-	public void setUserAge(int userAge) {
-		this.userAge = userAge;
+	public void setUserAge(int iuserAge) {
+		userAge = iuserAge;
 	}
 
 	public void showCake(ActionEvent event) {
@@ -51,8 +51,8 @@ public class BirthdayCakeBean {
 		cake.getChildren().clear();
 	}
 
-	public void validateAge(FacesContext context, UIComponent component, Object newValue) throws ValidatorException {
-		int newVal = ((Integer)newValue).intValue();
+	public void validateAge(FacesContext context, UIComponent component, Object newValue) {
+		int newVal = ((Integer) newValue).intValue();
 		if (newVal < MIN_AGE) {
 			clearCake();
 			throw new ValidatorException(new FacesMessage("Too young."));
