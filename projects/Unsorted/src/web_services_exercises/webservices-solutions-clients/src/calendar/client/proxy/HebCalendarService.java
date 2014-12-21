@@ -16,11 +16,9 @@ import javax.xml.ws.WebServiceClient;
  *
  */
 @WebServiceClient(name = "HebCalendarService", targetNamespace = "http://service.calendar/", wsdlLocation = "http://localhost:8080/services/hebcalendar?wsdl")
-public class HebCalendarService
-	extends Service
-{
+public class HebCalendarService extends Service {
 
-	private final static URL HEBCALENDARSERVICE_WSDL_LOCATION;
+	private static final URL HEBCALENDARSERVICE_WSDL_LOCATION;
 
 	static {
 		URL url = null;
@@ -47,7 +45,7 @@ public class HebCalendarService
 	 */
 	@WebEndpoint(name = "HebCalendarPort")
 	public HebCalendar getHebCalendarPort() {
-		return (HebCalendar)super.getPort(new QName("http://service.calendar/", "HebCalendarPort"), HebCalendar.class);
+		return (HebCalendar) super.getPort(new QName("http://service.calendar/", "HebCalendarPort"), HebCalendar.class);
 	}
 
 }

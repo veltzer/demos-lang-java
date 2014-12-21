@@ -1,11 +1,9 @@
-
 package addressbook.client.proxy;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
 import javax.xml.namespace.QName;
-
 
 /**
  * This object contains factory methods for each
@@ -19,15 +17,14 @@ import javax.xml.namespace.QName;
  * type definitions, element declarations and model
  * groups. Factory methods for each of these are
  * provided in this class.
- *
  */
 @XmlRegistry
 public class ObjectFactory {
 
-	private final static QName _GetAddress_QNAME = new QName("http://service.addressbook/", "getAddress");
-	private final static QName _GetAddressResponse_QNAME = new QName("http://service.addressbook/", "getAddressResponse");
-	private final static QName _AddAddress_QNAME = new QName("http://service.addressbook/", "addAddress");
-	private final static QName _AddAddressResponse_QNAME = new QName("http://service.addressbook/", "addAddressResponse");
+	private static final QName _GetAddress_QNAME = new QName("http://service.addressbook/", "getAddress");
+	private static final QName _GetAddressResponse_QNAME = new QName("http://service.addressbook/", "getAddressResponse");
+	private static final QName _AddAddress_QNAME = new QName("http://service.addressbook/", "addAddress");
+	private static final QName _AddAddressResponse_QNAME = new QName("http://service.addressbook/", "addAddressResponse");
 
 	/**
 	 * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: addressbook.client.proxy

@@ -29,8 +29,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 	"arg0"
 })
 public class HebDayOfWeek {
-
-	protected XMLGregorianCalendar arg0;
+	private XMLGregorianCalendar arg0;
 
 	/**
 	 * Gets the value of the arg0 property.

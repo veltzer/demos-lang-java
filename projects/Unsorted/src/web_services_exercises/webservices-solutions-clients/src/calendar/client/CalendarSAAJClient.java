@@ -1,35 +1,23 @@
 package calendar.client;
 
-import java.io.*;
-import java.util.*;
+//import java.io.*;
+//import java.util.*;
+//import javax.xml.namespace.*;
+//import javax.xml.soap.*;
+//import calculator.client.proxy.*;
 
-import javax.xml.namespace.*;
-import javax.xml.soap.*;
-
-import calculator.client.proxy.*;
-
-public class CalendarSAAJClient {
-
-	/**
-	 * @param args
-	 */
+public abstract class CalendarSAAJClient {
 	public static void main(String[] args) {
 		try {
-
 			String result = hebDayNum(7);
-
-			System.out.println("Result: "+result);
-
+			System.out.println("Result: " + result);
 		} catch (SOAPException e) {
 			e.printStackTrace();
 		}
-
 	}
 
-	private static String hebDayNum(int dayNum) throws SOAPException {
-
+	private static String hebDayNum(int dayNum) {
 		MessageFactory messageFactory = MessageFactory.newInstance();
-
 		SOAPMessage message = messageFactory.createMessage();
 
 		//Create objects for the message parts
@@ -37,12 +25,12 @@ public class CalendarSAAJClient {
 		SOAPEnvelope envelope = soapPart.getEnvelope();
 		SOAPBody body = envelope.getBody();
 
-		QName bodyName = new QName("http://service.calendar/","hebDayName");
+		QName bodyName = new QName("http://service.calendar/", "hebDayName");
 
 		SOAPBodyElement bodyElement = body.addBodyElement(bodyName);
 
 		//Add content
-		bodyElement.addChildElement("dayNum").addTextNode(dayNum+"");
+		bodyElement.addChildElement("dayNum").addTextNode(dayNum + "");
 
 		String destination = "http://localhost:8080/services/hebcalendar";
 
@@ -52,11 +40,8 @@ public class CalendarSAAJClient {
 		SOAPMessage response = connection.call(message, destination);
 
 		body = response.getSOAPBody();
-		SOAPElement resElement = (SOAPElement) body.getChildElements(new QName("http://service.calendar/","hebDayNameResponse")).next();
+		SOAPElement resElement = (SOAPElement) body.getChildElements(new QName("http://service.calendar/", "hebDayNameResponse")).next();
 
 		return resElement.getTextContent();
 	}
-
-
-
 }

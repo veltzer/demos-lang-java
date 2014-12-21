@@ -32,7 +32,7 @@ public interface HebCalendar {
 	@WebMethod(operationName = "hebDayOfWeek")
 	@RequestWrapper(localName = "hebDayOfWeek", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayOfWeek")
 	@ResponseWrapper(localName = "hebDayOfWeekResponse", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayOfWeekResponse")
-	public Response<HebDayOfWeekResponse> hebDayOfWeekAsync(
+	Response<HebDayOfWeekResponse> hebDayOfWeekAsync(
 		@WebParam(name = "arg0", targetNamespace = "")
 		XMLGregorianCalendar arg0);
 
@@ -46,7 +46,7 @@ public interface HebCalendar {
 	@WebMethod(operationName = "hebDayOfWeek")
 	@RequestWrapper(localName = "hebDayOfWeek", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayOfWeek")
 	@ResponseWrapper(localName = "hebDayOfWeekResponse", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayOfWeekResponse")
-	public Future<?> hebDayOfWeekAsync(
+	Future<?> hebDayOfWeekAsync(
 		@WebParam(name = "arg0", targetNamespace = "")
 		XMLGregorianCalendar arg0,
 		@WebParam(name = "asyncHandler", targetNamespace = "")
@@ -62,7 +62,7 @@ public interface HebCalendar {
 	@WebResult(targetNamespace = "")
 	@RequestWrapper(localName = "hebDayOfWeek", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayOfWeek")
 	@ResponseWrapper(localName = "hebDayOfWeekResponse", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayOfWeekResponse")
-	public String hebDayOfWeek(
+	String hebDayOfWeek(
 		@WebParam(name = "arg0", targetNamespace = "")
 		XMLGregorianCalendar arg0);
 
@@ -75,7 +75,7 @@ public interface HebCalendar {
 	@WebMethod(operationName = "hebDayName")
 	@RequestWrapper(localName = "hebDayName", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayName")
 	@ResponseWrapper(localName = "hebDayNameResponse", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayNameResponse")
-	public Response<HebDayNameResponse> hebDayNameAsync(
+	Response<HebDayNameResponse> hebDayNameAsync(
 		@WebParam(name = "arg0", targetNamespace = "")
 		int arg0);
 
@@ -89,7 +89,7 @@ public interface HebCalendar {
 	@WebMethod(operationName = "hebDayName")
 	@RequestWrapper(localName = "hebDayName", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayName")
 	@ResponseWrapper(localName = "hebDayNameResponse", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayNameResponse")
-	public Future<?> hebDayNameAsync(
+	Future<?> hebDayNameAsync(
 		@WebParam(name = "arg0", targetNamespace = "")
 		int arg0,
 		@WebParam(name = "asyncHandler", targetNamespace = "")
@@ -105,7 +105,7 @@ public interface HebCalendar {
 	@WebResult(targetNamespace = "")
 	@RequestWrapper(localName = "hebDayName", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayName")
 	@ResponseWrapper(localName = "hebDayNameResponse", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayNameResponse")
-	public String hebDayName(
+	String hebDayName(
 		@WebParam(name = "arg0", targetNamespace = "")
 		int arg0);
 

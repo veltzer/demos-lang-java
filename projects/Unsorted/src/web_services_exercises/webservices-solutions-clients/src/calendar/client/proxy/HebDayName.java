@@ -29,7 +29,7 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class HebDayName {
 
-	protected int arg0;
+	private int arg0;
 
 	/**
 	 * Gets the value of the arg0 property.

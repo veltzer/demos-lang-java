@@ -26,12 +26,12 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "hebDayOfWeekResponse", propOrder = {
-	"_return"
+	"vreturn"
 })
 public class HebDayOfWeekResponse {
 
 	@XmlElement(name = "return")
-	protected String _return;
+	private String vreturn;
 
 	/**
 	 * Gets the value of the return property.
@@ -42,7 +42,7 @@ public class HebDayOfWeekResponse {
 	 *
 	 */
 	public String getReturn() {
-		return _return;
+		return vreturn;
 	}
 
 	/**
@@ -54,7 +54,7 @@ public class HebDayOfWeekResponse {
 	 *
 	 */
 	public void setReturn(String value) {
-		this._return = value;
+		vreturn = value;
 	}
 
 }

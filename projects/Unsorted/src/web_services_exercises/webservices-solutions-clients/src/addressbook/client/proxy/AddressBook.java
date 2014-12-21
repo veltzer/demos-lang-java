@@ -29,7 +29,7 @@ public interface AddressBook {
 	@WebResult(targetNamespace = "")
 	@RequestWrapper(localName = "getAddress", targetNamespace = "http://service.addressbook/", className = "addressbook.client.proxy.GetAddress")
 	@ResponseWrapper(localName = "getAddressResponse", targetNamespace = "http://service.addressbook/", className = "addressbook.client.proxy.GetAddressResponse")
-	public Address getAddress(
+	Address getAddress(
 		@WebParam(name = "arg0", targetNamespace = "")
 		String arg0);
 
@@ -41,7 +41,7 @@ public interface AddressBook {
 	@WebMethod
 	@RequestWrapper(localName = "addAddress", targetNamespace = "http://service.addressbook/", className = "addressbook.client.proxy.AddAddress")
 	@ResponseWrapper(localName = "addAddressResponse", targetNamespace = "http://service.addressbook/", className = "addressbook.client.proxy.AddAddressResponse")
-	public void addAddress(
+	void addAddress(
 		@WebParam(name = "arg0", targetNamespace = "")
 		String arg0,
 		@WebParam(name = "arg1", targetNamespace = "")

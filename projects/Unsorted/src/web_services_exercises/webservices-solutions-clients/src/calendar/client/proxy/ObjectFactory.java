@@ -24,10 +24,10 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-	private static final QName _HebDayNameResponse_QNAME = new QName("http://service.calendar/", "hebDayNameResponse");
-	private static final QName _HebDayName_QNAME = new QName("http://service.calendar/", "hebDayName");
-	private static final QName _HebDayOfWeekResponse_QNAME = new QName("http://service.calendar/", "hebDayOfWeekResponse");
-	private static final QName _HebDayOfWeek_QNAME = new QName("http://service.calendar/", "hebDayOfWeek");
+	private static final QName HEBDAYNAMERESPONSE_QNAME = new QName("http://service.calendar/", "hebDayNameResponse");
+	private static final QName HEBDAYNAME_QNAME = new QName("http://service.calendar/", "hebDayName");
+	private static final QName HEBDAYOFWEEKRESPONSE_QNAME = new QName("http://service.calendar/", "hebDayOfWeekResponse");
+	private static final QName HEBDAYOFWEEK_QNAME = new QName("http://service.calendar/", "hebDayOfWeek");
 
 	/**
 	 * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: calendar.client.proxy
@@ -74,7 +74,7 @@ public class ObjectFactory {
 	 */
 	@XmlElementDecl(namespace = "http://service.calendar/", name = "hebDayNameResponse")
 	public JAXBElement<HebDayNameResponse> createHebDayNameResponse(HebDayNameResponse value) {
-		return new JAXBElement<HebDayNameResponse>(_HebDayNameResponse_QNAME, HebDayNameResponse.class, null, value);
+		return new JAXBElement<HebDayNameResponse>(HEBDAYNAMERESPONSE_QNAME, HebDayNameResponse.class, null, value);
 	}
 
 	/**
@@ -83,7 +83,7 @@ public class ObjectFactory {
 	 */
 	@XmlElementDecl(namespace = "http://service.calendar/", name = "hebDayName")
 	public JAXBElement<HebDayName> createHebDayName(HebDayName value) {
-		return new JAXBElement<HebDayName>(_HebDayName_QNAME, HebDayName.class, null, value);
+		return new JAXBElement<HebDayName>(HEBDAYNAME_QNAME, HebDayName.class, null, value);
 	}
 
 	/**
@@ -92,7 +92,7 @@ public class ObjectFactory {
 	 */
 	@XmlElementDecl(namespace = "http://service.calendar/", name = "hebDayOfWeekResponse")
 	public JAXBElement<HebDayOfWeekResponse> createHebDayOfWeekResponse(HebDayOfWeekResponse value) {
-		return new JAXBElement<HebDayOfWeekResponse>(_HebDayOfWeekResponse_QNAME, HebDayOfWeekResponse.class, null, value);
+		return new JAXBElement<HebDayOfWeekResponse>(HEBDAYOFWEEKRESPONSE_QNAME, HebDayOfWeekResponse.class, null, value);
 	}
 
 	/**
@@ -101,7 +101,7 @@ public class ObjectFactory {
 	 */
 	@XmlElementDecl(namespace = "http://service.calendar/", name = "hebDayOfWeek")
 	public JAXBElement<HebDayOfWeek> createHebDayOfWeek(HebDayOfWeek value) {
-		return new JAXBElement<HebDayOfWeek>(_HebDayOfWeek_QNAME, HebDayOfWeek.class, null, value);
+		return new JAXBElement<HebDayOfWeek>(HEBDAYOFWEEK_QNAME, HebDayOfWeek.class, null, value);
 	}
 
 }
