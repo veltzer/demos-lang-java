@@ -12,12 +12,16 @@ public class Deck extends ArrayList<Card> {
 	}
 
 	public Deck(boolean full, boolean shuffled) {
-		if (full)
-			for (Card.Suit suit : Card.Suit.values())
-				for (Card.Rank rank : Card.Rank.values())
+		if (full) {
+			for (Card.Suit suit : Card.Suit.values()) {
+				for (Card.Rank rank : Card.Rank.values()) {
 					add(new Card(rank, suit));
-		if (shuffled)
+				}
+			}
+		}
+		if (shuffled) {
 			shuffle();
+		}
 	}
 
 	public Deck(Collection<? extends Card> cards) {
@@ -35,7 +39,8 @@ public class Deck extends ArrayList<Card> {
 	public static void main(String... args) {
 		Deck d = new Deck(true, false);
 
-		for (Card c : d)
+		for (Card c : d) {
 			System.out.println(c);
+		}
 	}
 }

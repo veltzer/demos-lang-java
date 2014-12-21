@@ -26,8 +26,9 @@ public class CalendarPrint {
 		DateFormatSymbols dfs = new DateFormatSymbols(Locale.ENGLISH);
 		String[] dayNames = dfs.getShortWeekdays();
 		for (String day : dayNames) {
-			if (day.equals(""))
+			if (day.equals("")) {
 				continue;
+			}
 			f.format("%-4s", day);
 		}
 		f.format("\n");
@@ -39,8 +40,9 @@ public class CalendarPrint {
 		do {
 			f.format("%3te ", c);
 			c.roll(Calendar.DAY_OF_YEAR, true);
-			if (c.get(Calendar.DAY_OF_WEEK) == c.getFirstDayOfWeek())
+			if (c.get(Calendar.DAY_OF_WEEK) == c.getFirstDayOfWeek()) {
 				f.format("%n");
+			}
 		} while (c.get(Calendar.DAY_OF_MONTH) > 1);
 		f.format("%n%n");
 		f.close();

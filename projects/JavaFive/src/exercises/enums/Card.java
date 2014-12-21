@@ -8,28 +8,28 @@ public class Card {
     private Rank rank;
     private Suit suit;
 
-    public Card(Rank rank, Suit suit) {
-        setRank(rank);
-        setSuit(suit);
+    public Card(Rank irank, Suit isuit) {
+        setRank(irank);
+        setSuit(isuit);
     }
 
     public String toString() {
-        return String.format("[%-5s,%-7s]",rank, suit);
+        return String.format("[%-5s,%-7s]", rank, suit);
     }
 
     public Rank getRank() {
         return rank;
     }
 
-    public void setRank(Rank rank) {
-        this.rank = rank;
+    public void setRank(Rank irank) {
+        rank = irank;
     }
 
     public Suit getSuit() {
         return suit;
     }
 
-    public void setSuit(Suit suit) {
-        this.suit = suit;
+    public void setSuit(Suit isuit) {
+        suit = isuit;
     }
 }
