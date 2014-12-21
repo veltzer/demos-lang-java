@@ -4,7 +4,7 @@ import javax.sql.DataSource;
 
 
 /**
- * A factory for obtaining bookstore DAO's.  <br>
+ * A factory for obtaining bookstore DAO's. <br>
  * Current implementation simply returns a DAO implementation which
  * relies on sql92.
  */

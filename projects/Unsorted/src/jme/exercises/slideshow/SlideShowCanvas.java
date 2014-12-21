@@ -1,5 +1,6 @@
 package jme.exercises.slideshow;
-import javax.microedition.lcdui.*;
+
+//import javax.microedition.lcdui.*;
 
 /**
  * Canvas on which Slide Show images are displayed.
@@ -9,8 +10,8 @@ public class SlideShowCanvas extends Canvas {
 	private int currentImageIndex = 0;
 
 	/** Constructor. */
-	public SlideShowCanvas(Image[] images) {
-		this.images = images;
+	public SlideShowCanvas(Image[] iimages) {
+		images = iimages;
 	}
 
 	/** Renders the Canvas. The application must implement this method in order to paint any graphics. */
@@ -27,35 +28,38 @@ public class SlideShowCanvas extends Canvas {
 
 		// Draw border around canvas edges.
 		g.setColor(0, 0, 0); // Black
-		g.drawRect(0, 0, getWidth()-1, getHeight()-1);
+		g.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
 	}
 
 	/** Draw current image, centered horizontally and vertically. */
 	private void draw(Graphics g) {
-		g.drawImage(images[currentImageIndex], getWidth()/2, getHeight()/2, Graphics.HCENTER|Graphics.VCENTER);
+		g.drawImage(images[currentImageIndex], getWidth() / 2, getHeight() / 2, Graphics.HCENTER | Graphics.VCENTER);
 	}
 
 	/** Handle user key press event. */
 	protected void keyPressed(int keyCode) {
 		int action = getGameAction(keyCode); // Translate key code to game action for maximum portability
 
-		if (action == LEFT)
+		if (action == LEFT) {
 			advanceBackward();
-		else if (action == RIGHT)
+		} else if (action == RIGHT) {
 			advanceForward();
+		}
 	}
 
 	/** Advance image index forward by one. */
 	public void advanceForward() {
-		if (currentImageIndex < images.length-1)
+		if (currentImageIndex < images.length - 1) {
 			++currentImageIndex;
+		}
 		repaint();
 	}
 
 	/** Advance image index backward by one. */
 	public void advanceBackward() {
-		if (currentImageIndex > 0)
+		if (currentImageIndex > 0) {
 			--currentImageIndex;
+		}
 		repaint();
 	}
 }

@@ -23,90 +23,90 @@ import javax.xml.ws.ResponseWrapper;
 public interface HebCalendar {
 
 
-    /**
-     *
-     * @param arg0
-     * @return
-     *     returns javax.xml.ws.Response<calendar.client.proxy.HebDayOfWeekResponse>
-     */
-    @WebMethod(operationName = "hebDayOfWeek")
-    @RequestWrapper(localName = "hebDayOfWeek", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayOfWeek")
-    @ResponseWrapper(localName = "hebDayOfWeekResponse", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayOfWeekResponse")
-    public Response<HebDayOfWeekResponse> hebDayOfWeekAsync(
-        @WebParam(name = "arg0", targetNamespace = "")
-        XMLGregorianCalendar arg0);
+	/**
+	 *
+	 * @param arg0
+	 * @return
+	 *	 returns javax.xml.ws.Response<calendar.client.proxy.HebDayOfWeekResponse>
+	 */
+	@WebMethod(operationName = "hebDayOfWeek")
+	@RequestWrapper(localName = "hebDayOfWeek", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayOfWeek")
+	@ResponseWrapper(localName = "hebDayOfWeekResponse", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayOfWeekResponse")
+	public Response<HebDayOfWeekResponse> hebDayOfWeekAsync(
+		@WebParam(name = "arg0", targetNamespace = "")
+		XMLGregorianCalendar arg0);
 
-    /**
-     *
-     * @param arg0
-     * @param asyncHandler
-     * @return
-     *     returns java.util.concurrent.Future<? extends java.lang.Object>
-     */
-    @WebMethod(operationName = "hebDayOfWeek")
-    @RequestWrapper(localName = "hebDayOfWeek", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayOfWeek")
-    @ResponseWrapper(localName = "hebDayOfWeekResponse", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayOfWeekResponse")
-    public Future<?> hebDayOfWeekAsync(
-        @WebParam(name = "arg0", targetNamespace = "")
-        XMLGregorianCalendar arg0,
-        @WebParam(name = "asyncHandler", targetNamespace = "")
-        AsyncHandler<HebDayOfWeekResponse> asyncHandler);
+	/**
+	 *
+	 * @param arg0
+	 * @param asyncHandler
+	 * @return
+	 *	 returns java.util.concurrent.Future<? extends java.lang.Object>
+	 */
+	@WebMethod(operationName = "hebDayOfWeek")
+	@RequestWrapper(localName = "hebDayOfWeek", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayOfWeek")
+	@ResponseWrapper(localName = "hebDayOfWeekResponse", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayOfWeekResponse")
+	public Future<?> hebDayOfWeekAsync(
+		@WebParam(name = "arg0", targetNamespace = "")
+		XMLGregorianCalendar arg0,
+		@WebParam(name = "asyncHandler", targetNamespace = "")
+		AsyncHandler<HebDayOfWeekResponse> asyncHandler);
 
-    /**
-     *
-     * @param arg0
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "hebDayOfWeek", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayOfWeek")
-    @ResponseWrapper(localName = "hebDayOfWeekResponse", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayOfWeekResponse")
-    public String hebDayOfWeek(
-        @WebParam(name = "arg0", targetNamespace = "")
-        XMLGregorianCalendar arg0);
+	/**
+	 *
+	 * @param arg0
+	 * @return
+	 *	 returns java.lang.String
+	 */
+	@WebMethod
+	@WebResult(targetNamespace = "")
+	@RequestWrapper(localName = "hebDayOfWeek", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayOfWeek")
+	@ResponseWrapper(localName = "hebDayOfWeekResponse", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayOfWeekResponse")
+	public String hebDayOfWeek(
+		@WebParam(name = "arg0", targetNamespace = "")
+		XMLGregorianCalendar arg0);
 
-    /**
-     *
-     * @param arg0
-     * @return
-     *     returns javax.xml.ws.Response<calendar.client.proxy.HebDayNameResponse>
-     */
-    @WebMethod(operationName = "hebDayName")
-    @RequestWrapper(localName = "hebDayName", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayName")
-    @ResponseWrapper(localName = "hebDayNameResponse", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayNameResponse")
-    public Response<HebDayNameResponse> hebDayNameAsync(
-        @WebParam(name = "arg0", targetNamespace = "")
-        int arg0);
+	/**
+	 *
+	 * @param arg0
+	 * @return
+	 *	 returns javax.xml.ws.Response<calendar.client.proxy.HebDayNameResponse>
+	 */
+	@WebMethod(operationName = "hebDayName")
+	@RequestWrapper(localName = "hebDayName", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayName")
+	@ResponseWrapper(localName = "hebDayNameResponse", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayNameResponse")
+	public Response<HebDayNameResponse> hebDayNameAsync(
+		@WebParam(name = "arg0", targetNamespace = "")
+		int arg0);
 
-    /**
-     *
-     * @param arg0
-     * @param asyncHandler
-     * @return
-     *     returns java.util.concurrent.Future<? extends java.lang.Object>
-     */
-    @WebMethod(operationName = "hebDayName")
-    @RequestWrapper(localName = "hebDayName", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayName")
-    @ResponseWrapper(localName = "hebDayNameResponse", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayNameResponse")
-    public Future<?> hebDayNameAsync(
-        @WebParam(name = "arg0", targetNamespace = "")
-        int arg0,
-        @WebParam(name = "asyncHandler", targetNamespace = "")
-        AsyncHandler<HebDayNameResponse> asyncHandler);
+	/**
+	 *
+	 * @param arg0
+	 * @param asyncHandler
+	 * @return
+	 *	 returns java.util.concurrent.Future<? extends java.lang.Object>
+	 */
+	@WebMethod(operationName = "hebDayName")
+	@RequestWrapper(localName = "hebDayName", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayName")
+	@ResponseWrapper(localName = "hebDayNameResponse", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayNameResponse")
+	public Future<?> hebDayNameAsync(
+		@WebParam(name = "arg0", targetNamespace = "")
+		int arg0,
+		@WebParam(name = "asyncHandler", targetNamespace = "")
+		AsyncHandler<HebDayNameResponse> asyncHandler);
 
-    /**
-     *
-     * @param arg0
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "hebDayName", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayName")
-    @ResponseWrapper(localName = "hebDayNameResponse", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayNameResponse")
-    public String hebDayName(
-        @WebParam(name = "arg0", targetNamespace = "")
-        int arg0);
+	/**
+	 *
+	 * @param arg0
+	 * @return
+	 *	 returns java.lang.String
+	 */
+	@WebMethod
+	@WebResult(targetNamespace = "")
+	@RequestWrapper(localName = "hebDayName", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayName")
+	@ResponseWrapper(localName = "hebDayNameResponse", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayNameResponse")
+	public String hebDayName(
+		@WebParam(name = "arg0", targetNamespace = "")
+		int arg0);
 
 }

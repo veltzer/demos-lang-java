@@ -22,9 +22,9 @@ public class Dispatcher {
 	void dispatch(ServletRequest req, ServletResponse res, String mode) throws IOException,ServletException {
 		RequestDispatcher rd = null;
 		if (mode.equalsIgnoreCase("cat")) {
-			rd =  ctx.getRequestDispatcher(CATALOG_PAGE);
+			rd = ctx.getRequestDispatcher(CATALOG_PAGE);
 		} else if (mode.equalsIgnoreCase("item")) {
-			rd =  ctx.getRequestDispatcher(ITEM_PAGE);
+			rd = ctx.getRequestDispatcher(ITEM_PAGE);
 		} else {
 			throw new ServletException("Illegal mode");
 		}

@@ -1,15 +1,17 @@
 package jme.exercises.slideshow;
-import javax.microedition.lcdui.*;
+
+//import javax.microedition.lcdui.*;
+import javax.microedition.midlet.MIDlet;
 
 /**
  * Exercise 3: Slide Show Midlet.
  */
-public class SlideShow extends javax.microedition.midlet.MIDlet implements CommandListener {
+public class SlideShow extends MIDlet implements CommandListener {
+
 	private SlideShowCanvas slideShowCanvas; // Used to display images.
 	private Command nextCmd, prevCmd, helpCmd, aboutCmd, exitCmd;
 	private Displayable pausedDisplayable; // Last Displayble object visible before Midlet paused
 
-	/** Constructor. */
 	public SlideShow() {
 		// Intialize commands.
 		nextCmd = new Command("NEXT", Command.SCREEN, 1);
@@ -19,14 +21,15 @@ public class SlideShow extends javax.microedition.midlet.MIDlet implements Comma
 		exitCmd = new Command("EXIT", Command.EXIT, 5);
 
 		// Load all images in sequence (slide1.png, slide2.png, etc.) until we can't load any more.
-		java.util.Vector imagesVector = new java.util.Vector();
+		Vector imagesVector = new Vector();
 		try {
 			for (int i = 0;; i++) {
-				Image img = Image.createImage("/slide" + (i+1) + ".png"); // If this fails, we exit from loop
+				Image img = Image.createImage("/slide" + (i + 1) + ".png"); // If this fails, we exit from loop
 				imagesVector.addElement(img);
 			}
+		} catch (Exception e) {
+			break;
 		}
-		catch (Exception e) {} // Ignore
 
 		Image[] images = new Image[imagesVector.size()];
 		imagesVector.copyInto(images); // Copy images in vector to array
@@ -41,7 +44,8 @@ public class SlideShow extends javax.microedition.midlet.MIDlet implements Comma
 	}
 
 	/** Signals the MIDlet to terminate and enter the Destroyed state. */
-	protected void destroyApp(boolean unconditional) {}
+	protected void destroyApp(boolean unconditional) {
+	}
 
 	/** Signals the MIDlet to stop and enter the Paused state. */
 	protected void pauseApp() {
@@ -53,43 +57,38 @@ public class SlideShow extends javax.microedition.midlet.MIDlet implements Comma
 		if (pausedDisplayable != null) {
 			Display.getDisplay(this).setCurrent(pausedDisplayable); // Re-display last previously shown displayable if available.
 			pausedDisplayable = null;
-		}
-		else {
+		} else {
 			Display.getDisplay(this).setCurrent(slideShowCanvas);
 		}
-  }
-
-  /** Indicates that a command event has occurred on Displayable d. */
-  public void commandAction(Command c, Displayable d) {
-		if (c == nextCmd) {
-			slideShowCanvas.advanceForward(); // Display next image in sequence.
-		}
-		else if (c == prevCmd) {
-			slideShowCanvas.advanceBackward(); // Display previous image in sequence.
-		}
-		else if (c == helpCmd) {
-			showHelp();
-		}
-	  else if (c == aboutCmd) {
-	    showAbout();
-	  }
-		else if (c == exitCmd) {
-			destroyApp(false);
-			notifyDestroyed();
-	  }
 	}
 
-  /** Display help dialog. */
-  private void showHelp() {
-	  Alert helpAlert = new Alert("Help");
+	/** Indicates that a command event has occurred on Displayable d. */
+	public void commandAction(Command c, Displayable d) {
+		if (c == nextCmd) {
+			slideShowCanvas.advanceForward(); // Display next image in sequence.
+		} else if (c == prevCmd) {
+			slideShowCanvas.advanceBackward(); // Display previous image in sequence.
+		} else if (c == helpCmd) {
+			showHelp();
+		} else if (c == aboutCmd) {
+			showAbout();
+		} else if (c == exitCmd) {
+			destroyApp(false);
+			notifyDestroyed();
+		}
+	}
+
+	/** Display help dialog. */
+	private void showHelp() {
+		Alert helpAlert = new Alert("Help");
 		helpAlert.setTimeout(Alert.FOREVER);
 		helpAlert.setString("A simple slide show application. Use the available commands or keyboard shortcuts to advance through the images.");
 		Display.getDisplay(this).setCurrent(helpAlert);
-   }
+	}
 
  	/** Display about dialog. */
-  private void showAbout() {
-	  Alert aboutAlert = new Alert("About");
+	private void showAbout() {
+		Alert aboutAlert = new Alert("About");
 		aboutAlert.setTimeout(Alert.FOREVER);
 
 		// Build about string using StringBuffer for efficiency.
@@ -101,5 +100,5 @@ public class SlideShow extends javax.microedition.midlet.MIDlet implements Comma
 
 		aboutAlert.setString(sb.toString());
 		Display.getDisplay(this).setCurrent(aboutAlert);
-  }
+	}
 }

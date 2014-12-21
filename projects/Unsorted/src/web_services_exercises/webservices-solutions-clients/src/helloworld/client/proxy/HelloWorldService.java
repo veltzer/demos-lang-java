@@ -17,37 +17,37 @@ import javax.xml.ws.WebServiceClient;
  */
 @WebServiceClient(name = "HelloWorldService", targetNamespace = "http://service.helloworld/", wsdlLocation = "http://localhost:8080/services/helloworld?wsdl")
 public class HelloWorldService
-    extends Service
+	extends Service
 {
 
-    private final static URL HELLOWORLDSERVICE_WSDL_LOCATION;
+	private final static URL HELLOWORLDSERVICE_WSDL_LOCATION;
 
-    static {
-        URL url = null;
-        try {
-            url = new URL("http://localhost:8080/services/helloworld?wsdl");
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        HELLOWORLDSERVICE_WSDL_LOCATION = url;
-    }
+	static {
+		URL url = null;
+		try {
+			url = new URL("http://localhost:8080/services/helloworld?wsdl");
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		HELLOWORLDSERVICE_WSDL_LOCATION = url;
+	}
 
-    public HelloWorldService(URL wsdlLocation, QName serviceName) {
-        super(wsdlLocation, serviceName);
-    }
+	public HelloWorldService(URL wsdlLocation, QName serviceName) {
+		super(wsdlLocation, serviceName);
+	}
 
-    public HelloWorldService() {
-        super(HELLOWORLDSERVICE_WSDL_LOCATION, new QName("http://service.helloworld/", "HelloWorldService"));
-    }
+	public HelloWorldService() {
+		super(HELLOWORLDSERVICE_WSDL_LOCATION, new QName("http://service.helloworld/", "HelloWorldService"));
+	}
 
-    /**
-     *
-     * @return
-     *     returns HelloWorld
-     */
-    @WebEndpoint(name = "HelloWorldPort")
-    public HelloWorld getHelloWorldPort() {
-        return (HelloWorld)super.getPort(new QName("http://service.helloworld/", "HelloWorldPort"), HelloWorld.class);
-    }
+	/**
+	 *
+	 * @return
+	 *	 returns HelloWorld
+	 */
+	@WebEndpoint(name = "HelloWorldPort")
+	public HelloWorld getHelloWorldPort() {
+		return (HelloWorld)super.getPort(new QName("http://service.helloworld/", "HelloWorldPort"), HelloWorld.class);
+	}
 
 }

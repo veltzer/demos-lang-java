@@ -17,37 +17,37 @@ import javax.xml.ws.WebServiceClient;
  */
 @WebServiceClient(name = "AddressBookService", targetNamespace = "http://service.addressbook/", wsdlLocation = "http://localhost:8080/services/addressbook?wsdl")
 public class AddressBookService
-    extends Service
+	extends Service
 {
 
-    private final static URL ADDRESSBOOKSERVICE_WSDL_LOCATION;
+	private final static URL ADDRESSBOOKSERVICE_WSDL_LOCATION;
 
-    static {
-        URL url = null;
-        try {
-            url = new URL("http://localhost:8080/services/addressbook?wsdl");
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        ADDRESSBOOKSERVICE_WSDL_LOCATION = url;
-    }
+	static {
+		URL url = null;
+		try {
+			url = new URL("http://localhost:8080/services/addressbook?wsdl");
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		ADDRESSBOOKSERVICE_WSDL_LOCATION = url;
+	}
 
-    public AddressBookService(URL wsdlLocation, QName serviceName) {
-        super(wsdlLocation, serviceName);
-    }
+	public AddressBookService(URL wsdlLocation, QName serviceName) {
+		super(wsdlLocation, serviceName);
+	}
 
-    public AddressBookService() {
-        super(ADDRESSBOOKSERVICE_WSDL_LOCATION, new QName("http://service.addressbook/", "AddressBookService"));
-    }
+	public AddressBookService() {
+		super(ADDRESSBOOKSERVICE_WSDL_LOCATION, new QName("http://service.addressbook/", "AddressBookService"));
+	}
 
-    /**
-     *
-     * @return
-     *     returns AddressBook
-     */
-    @WebEndpoint(name = "AddressBookPort")
-    public AddressBook getAddressBookPort() {
-        return (AddressBook)super.getPort(new QName("http://service.addressbook/", "AddressBookPort"), AddressBook.class);
-    }
+	/**
+	 *
+	 * @return
+	 *	 returns AddressBook
+	 */
+	@WebEndpoint(name = "AddressBookPort")
+	public AddressBook getAddressBookPort() {
+		return (AddressBook)super.getPort(new QName("http://service.addressbook/", "AddressBookPort"), AddressBook.class);
+	}
 
 }

@@ -32,11 +32,11 @@ import ejb.exercises.exercises.source.dtos.OrderDetailsDTO;
 public interface BookstoreDAO {
 
 	/**
-	 * Insets a new book record.  <br>
+	 * Insets a new book record. <br>
 	 * This method does not allow duplicate keys (where title is
 	 * assumed to be the key).
 	 *
-	 * @param title  book's title (used as key, must be unique)
+	 * @param title book's title (used as key, must be unique)
 	 * @param author book's author
 	 * @param quantity number of copies available in inventory
 	 * @throws StorageException
@@ -68,10 +68,10 @@ public interface BookstoreDAO {
 	 * This method does not allow duplicate keys (where title is
 	 * assumed to be the key).
 	 *
-	 * @param id  the new customer's id (assumed to by unique)
+	 * @param id the new customer's id (assumed to by unique)
 	 * @param name the new customer's name (first+last, concatenated)
 	 * @param email customer's email address
-	 * @param address  customer's shipping address
+	 * @param address customer's shipping address
 	 * @throws StorageException
 	 */
 	void insertCustomer(String id, String name, String email, String address) throws StorageException;
@@ -120,7 +120,7 @@ public interface BookstoreDAO {
 	void insertOrder(String orderId, String customerId, long timestamp, List<String> bookTitles ) throws StorageException;
 
 	/**
-	 * Cancels a given order.  If no such order exists, this method will
+	 * Cancels a given order. If no such order exists, this method will
 	 * return "false".
 	 *
 	 * @param orderId the order to be cancelled.

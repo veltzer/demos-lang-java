@@ -22,7 +22,7 @@ public class FormattedXMLBuilder implements XMLBuilder
 	{
 		for (int i = 0; i < level; ++i)
 		{
-			formattedXML.append("  ");
+			formattedXML.append("\ \ ");
 		}
 	}
 

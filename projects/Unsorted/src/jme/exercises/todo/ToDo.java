@@ -59,10 +59,10 @@ public class ToDo extends javax.microedition.midlet.MIDlet implements CommandLis
 		else {
 			Display.getDisplay(this).setCurrent(list);
 		}
-  }
+	}
 
-  /** Indicates that a command event has occurred on Displayable d. */
-  public void commandAction(Command c, Displayable d) {
+	/** Indicates that a command event has occurred on Displayable d. */
+	public void commandAction(Command c, Displayable d) {
 		if (c == addEntryCmd) {
 			// Display text box to add new entry.
 			editEntryIndex = -1;
@@ -75,8 +75,7 @@ public class ToDo extends javax.microedition.midlet.MIDlet implements CommandLis
 			// @todo Confirm before deleting
 			if (list.getSelectedIndex() > -1)
 				deleteEntry(list.getSelectedIndex());
-		}
-		else if (c == editEntryCmd) {
+		} else if (c == editEntryCmd) {
 			// Edit currently selected entry by displaying text box with entry contents.
 			if (list.getSelectedIndex() > -1) {
 				editEntryIndex = list.getSelectedIndex();
@@ -85,30 +84,25 @@ public class ToDo extends javax.microedition.midlet.MIDlet implements CommandLis
 				textBox.setString(entry.text);
 				Display.getDisplay(this).setCurrent(textBox);
 			}
-		}
-		else if (c == helpCmd) {
+		} else if (c == helpCmd) {
 			showHelp();
-		}
-	  else if (c == aboutCmd) {
-	    showAbout();
-	  }
-		else if (c == exitCmd) {
+		} else if (c == aboutCmd) {
+			showAbout();
+		} else if (c == exitCmd) {
 			destroyApp(false);
 			notifyDestroyed();
-	  }
-		else if (c == okCmd) {
+		} else if (c == okCmd) {
 			if (textBox.getString().length() > 0) {
-				if (editEntryIndex < 0)
+				if (editEntryIndex < 0) {
 					addEntry(textBox.getString());
-				else
+				} else {
 					editEntry(textBox.getString());
+				}
 			}
-
 			Display.getDisplay(this).setCurrent(list);
-	  }
-		else if (c == cancelCmd) {
+		} else if (c == cancelCmd) {
 			Display.getDisplay(this).setCurrent(list);
-	  }
+		}
 	}
 
 	/** Add new entry with given String. */
@@ -132,17 +126,17 @@ public class ToDo extends javax.microedition.midlet.MIDlet implements CommandLis
 		list.set(editEntryIndex, entry.toString(), null); // Edit List item
 	}
 
-  /** Display help dialog. */
-  private void showHelp() {
-	  Alert helpAlert = new Alert("Help");
+	/** Display help dialog. */
+	private void showHelp() {
+		Alert helpAlert = new Alert("Help");
 		helpAlert.setTimeout(Alert.FOREVER);
 		helpAlert.setString("A simple to do list application. Use the available commands to add, delete or edit entries in the list.");
 		Display.getDisplay(this).setCurrent(helpAlert);
-   }
+	}
 
  	/** Display about dialog. */
-  private void showAbout() {
-	  Alert aboutAlert = new Alert("About");
+	private void showAbout() {
+		Alert aboutAlert = new Alert("About");
 		aboutAlert.setTimeout(Alert.FOREVER);
 
 		// Build about string using StringBuffer for efficiency.
@@ -154,7 +148,7 @@ public class ToDo extends javax.microedition.midlet.MIDlet implements CommandLis
 
 		aboutAlert.setString(sb.toString());
 		Display.getDisplay(this).setCurrent(aboutAlert);
-  }
+	}
 
 	/** Inner class to hold basic information for to do list entries. */
 	class Entry {

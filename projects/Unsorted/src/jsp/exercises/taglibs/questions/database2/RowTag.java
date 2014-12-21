@@ -8,35 +8,35 @@ import javax.servlet.jsp.tagext.TagSupport;
 @SuppressWarnings("serial")
 public class RowTag extends TagSupport {
 
-    /** Holds value of property colName. */
-    private String colName;
+	/** Holds value of property colName. */
+	private String colName;
 
-    public int doStartTag() throws JspException {
-        try{
-            TableTag table = (TableTag) getParent();
-            if (table==null) {
-                throw new JspException("No parent table tag.");
-            }
-            ResultSet rs = table.rs;
-            pageContext.getOut().print(rs.getString(colName));
-        } catch (Exception e) {
-            throw new JspException(e);
-        }
-        return SKIP_BODY;
-    }
+	public int doStartTag() throws JspException {
+		try{
+			TableTag table = (TableTag) getParent();
+			if (table==null) {
+				throw new JspException("No parent table tag.");
+			}
+			ResultSet rs = table.rs;
+			pageContext.getOut().print(rs.getString(colName));
+		} catch (Exception e) {
+			throw new JspException(e);
+		}
+		return SKIP_BODY;
+	}
 
-    /** Getter for property colName.
-     * @return Value of property colName.
-     */
-    public String getColName() {
-        return colName;
-    }
+	/** Getter for property colName.
+	 * @return Value of property colName.
+	 */
+	public String getColName() {
+		return colName;
+	}
 
-    /** Setter for property colName.
-     * @param colName New value of property colName.
-     */
-    public void setColName(String colName) {
-        this.colName = colName;
-    }
+	/** Setter for property colName.
+	 * @param colName New value of property colName.
+	 */
+	public void setColName(String colName) {
+		this.colName = colName;
+	}
 
 }

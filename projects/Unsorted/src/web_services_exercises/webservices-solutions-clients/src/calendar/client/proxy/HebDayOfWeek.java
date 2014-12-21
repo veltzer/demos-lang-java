@@ -14,48 +14,46 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *
  * <pre>
  * &lt;complexType name="hebDayOfWeek">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="arg0" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
+ * &lt;complexContent>
+ * &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ * &lt;sequence>
+ * &lt;element name="arg0" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
+ * &lt;/sequence>
+ * &lt;/restriction>
+ * &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "hebDayOfWeek", propOrder = {
-    "arg0"
+	"arg0"
 })
 public class HebDayOfWeek {
 
-    protected XMLGregorianCalendar arg0;
+	protected XMLGregorianCalendar arg0;
 
-    /**
-     * Gets the value of the arg0 property.
-     *
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *
-     */
-    public XMLGregorianCalendar getArg0() {
-        return arg0;
-    }
+	/**
+	 * Gets the value of the arg0 property.
+	 *
+	 * @return
+	 *	 possible object is
+	 *	 {@link XMLGregorianCalendar }
+	 *
+	 */
+	public XMLGregorianCalendar getArg0() {
+		return arg0;
+	}
 
-    /**
-     * Sets the value of the arg0 property.
-     *
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *
-     */
-    public void setArg0(XMLGregorianCalendar value) {
-        this.arg0 = value;
-    }
+	/**
+	 * Sets the value of the arg0 property.
+	 *
+	 * @param value
+	 *	 allowed object is
+	 *	 {@link XMLGregorianCalendar }
+	 *
+	 */
+	public void setArg0(XMLGregorianCalendar value) {
+		this.arg0 = value;
+	}
 
 }

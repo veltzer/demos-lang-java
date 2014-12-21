@@ -5,24 +5,24 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 public class CalculatorBean {
-	private static final int NOP   = 0;
-	private static final int PLUS  = 1;
+	private static final int NOP = 0;
+	private static final int PLUS = 1;
 	private static final int MINUS = 2;
-	private static final int DIV   = 3;
+	private static final int DIV = 3;
 	private static final int TIMES = 4;
-	private static final int EQ    = 5;
+	private static final int EQ = 5;
 
 	// Scientific mode:
 	private static final int POWER2 = 10;
-	private static final int SQRT   = 11;
+	private static final int SQRT = 11;
 
 	private static final int MODE_NORMAL = 0;
-	private static final int MODE_SCI    = 1;
+	private static final int MODE_SCI = 1;
 
 	private static final String[] CHANGE_MODE_MESSAGE =
 		new String[] {
-			"Scientific mode",  // Shown in normal mode
-			"Normal mode"       // Shown in scientific mode
+			"Scientific mode", // Shown in normal mode
+			"Normal mode" // Shown in scientific mode
 		};
 
 	private double lastValue = 0.0;

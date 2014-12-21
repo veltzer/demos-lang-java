@@ -13,42 +13,36 @@ import daos.BookstoreDaoFactory;
 /**
  * Bean implementation class for Enterprise Bean: CancelOrders
  */
-public class CancelOrdersBean implements MessageListener, MessageDrivenBean  {
-   private MessageDrivenContext fMessageDrivenCtx;
-   private BookstoreDAO dao;
+public class CancelOrdersBean implements MessageListener, MessageDrivenBean {
+	private MessageDrivenContext fMessageDrivenCtx;
+	private BookstoreDAO dao;
 
-   /**
-	* setMessageDrivenContext
-	*/
-   public void setMessageDrivenContext(javax.ejb.MessageDrivenContext ctx)
-   {
-	   System.out.println(this.getClass().getName() + ".setMessageDrivenContext() was invoked...");
-	   fMessageDrivenCtx = ctx;
-	   try
-	   {
-		   	InitialContext ictx=new InitialContext();
+	/**
+	 * setMessageDrivenContext
+	 */
+	public void setMessageDrivenContext(javax.ejb.MessageDrivenContext ctx) {
+		System.out.println(this.getClass().getName() + ".setMessageDrivenContext() was invoked...");
+		fMessageDrivenCtx = ctx;
+		try {
+			InitialContext ictx=new InitialContext();
 			Object obj = ictx.lookup("java:comp/env/jdbc/MyDS");
 			DataSource dataSrouce = (DataSource) PortableRemoteObject.narrow(obj,DataSource.class);
 			dao=BookstoreDaoFactory.getDAO(dataSrouce);
-	   }
-	   catch(Exception ex)
-	   {
-		   	ex.printStackTrace();
-		   	throw new RuntimeException("failed to set context");
-	   }
-   }
+		} catch(Exception ex) {
+			ex.printStackTrace();
+			throw new RuntimeException("failed to set context");
+		}
+	}
 
-   public void ejbCreate()
-   {
-	   System.out.println(this.getClass().getName() + ".ejbCreate() was invoked...");
-   }
+	public void ejbCreate() {
+		System.out.println(this.getClass().getName() + ".ejbCreate() was invoked...");
+	}
 
-   public void ejbRemove()
-   {
-	   System.out.println(this.getClass().getName() + ".ejbRemove() was invoked...");
-   }
+	public void ejbRemove() {
+		System.out.println(this.getClass().getName() + ".ejbRemove() was invoked...");
+	}
 
-   /**
+	/**
 	* This method is invoked wheneven a message arrives into
 	* the queue to which bean is registered. <br>
 	* For the purpose of this exercise, assume the only messages
@@ -62,30 +56,26 @@ public class CancelOrdersBean implements MessageListener, MessageDrivenBean  {
 	* register to a dedicated "error-notification" queue , where your
 	* message-driven bean may place error reports).
 	*/
-   	public void onMessage(Message msg)
-   	{
-   		System.out.println(this.getClass().getName() + ".onMessage() was invoked...");
+	public void onMessage(Message msg) {
+		System.out.println(this.getClass().getName() + ".onMessage() was invoked...");
 
-   		try
-   		{
-   			// Assuming only messages are TextMessages (otherwise,
-   			// use instanceof):
-   			TextMessage tMsg= (TextMessage)msg;
+		try {
+			// Assuming only messages are TextMessages (otherwise,
+			// use instanceof):
+			TextMessage tMsg= (TextMessage)msg;
 
-   			// Assuming text is of the form "cancel <orderId>":
-   			String text=tMsg.getText();
-   			StringTokenizer tok=new StringTokenizer(text);
-   			tok.nextToken();  // skip "cancel"
-   			String orderId=tok.nextToken();
+			// Assuming text is of the form "cancel <orderId>":
+			String text=tMsg.getText();
+			StringTokenizer tok=new StringTokenizer(text);
+			tok.nextToken(); // skip "cancel"
+			String orderId=tok.nextToken();
 
-   			// This should cascade-delete the order:
-   			System.out.println("*** About to cancel order:"+ orderId);
-   			dao.cancelOrder(orderId);
-   			System.out.println("*** Successfully cancelled order:"+ orderId);
-   		}
-   		catch(Exception ex)
-   		{
-   			ex.printStackTrace();
-   		}
-   	}
+			// This should cascade-delete the order:
+			System.out.println("*** About to cancel order:"+ orderId);
+			dao.cancelOrder(orderId);
+			System.out.println("*** Successfully cancelled order:"+ orderId);
+		} catch(Exception ex) {
+			ex.printStackTrace();
+		}
+	}
 }

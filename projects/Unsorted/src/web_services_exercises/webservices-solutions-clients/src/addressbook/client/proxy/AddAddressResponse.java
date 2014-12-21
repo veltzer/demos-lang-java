@@ -13,18 +13,14 @@ import javax.xml.bind.annotation.XmlType;
  *
  * <pre>
  * &lt;complexType name="addAddressResponse">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *     &lt;/restriction>
- *   &lt;/complexContent>
+ * &lt;complexContent>
+ * &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ * &lt;/restriction>
+ * &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- *
- *
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "addAddressResponse")
 public class AddAddressResponse {
-
-
 }

@@ -68,7 +68,7 @@ public class SecuredAdminClient {
 		public void callBookstoreAdmin() throws Exception {
 			/*
 			// Lookup:
-			InitialContext  ictx = new InitialContext();
+			InitialContext ictx = new InitialContext();
 			Object obj = ictx.lookup("ejb/admin/BookstoreAdminHome");
 			BookstoreAdminHome adminHome = (BookstoreAdminHome) PortableRemoteObject.narrow(obj, BookstoreAdminHome.class);
 			BookstoreAdmin admin = adminHome.create();

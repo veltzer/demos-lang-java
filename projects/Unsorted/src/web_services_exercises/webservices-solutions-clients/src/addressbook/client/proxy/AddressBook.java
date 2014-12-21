@@ -19,32 +19,32 @@ import javax.xml.ws.ResponseWrapper;
 public interface AddressBook {
 
 
-    /**
-     *
-     * @param arg0
-     * @return
-     *     returns addressbook.client.proxy.Address
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getAddress", targetNamespace = "http://service.addressbook/", className = "addressbook.client.proxy.GetAddress")
-    @ResponseWrapper(localName = "getAddressResponse", targetNamespace = "http://service.addressbook/", className = "addressbook.client.proxy.GetAddressResponse")
-    public Address getAddress(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
+	/**
+	 *
+	 * @param arg0
+	 * @return
+	 *	 returns addressbook.client.proxy.Address
+	 */
+	@WebMethod
+	@WebResult(targetNamespace = "")
+	@RequestWrapper(localName = "getAddress", targetNamespace = "http://service.addressbook/", className = "addressbook.client.proxy.GetAddress")
+	@ResponseWrapper(localName = "getAddressResponse", targetNamespace = "http://service.addressbook/", className = "addressbook.client.proxy.GetAddressResponse")
+	public Address getAddress(
+		@WebParam(name = "arg0", targetNamespace = "")
+		String arg0);
 
-    /**
-     *
-     * @param arg1
-     * @param arg0
-     */
-    @WebMethod
-    @RequestWrapper(localName = "addAddress", targetNamespace = "http://service.addressbook/", className = "addressbook.client.proxy.AddAddress")
-    @ResponseWrapper(localName = "addAddressResponse", targetNamespace = "http://service.addressbook/", className = "addressbook.client.proxy.AddAddressResponse")
-    public void addAddress(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        Address arg1);
+	/**
+	 *
+	 * @param arg1
+	 * @param arg0
+	 */
+	@WebMethod
+	@RequestWrapper(localName = "addAddress", targetNamespace = "http://service.addressbook/", className = "addressbook.client.proxy.AddAddress")
+	@ResponseWrapper(localName = "addAddressResponse", targetNamespace = "http://service.addressbook/", className = "addressbook.client.proxy.AddAddressResponse")
+	public void addAddress(
+		@WebParam(name = "arg0", targetNamespace = "")
+		String arg0,
+		@WebParam(name = "arg1", targetNamespace = "")
+		Address arg1);
 
 }

@@ -51,10 +51,10 @@ public class Stock extends javax.microedition.midlet.MIDlet implements CommandLi
 		else {
 			Display.getDisplay(this).setCurrent(form);
 		}
-  }
+	}
 
-  /** Indicates that a command event has occurred on Displayable d. */
-  public void commandAction(Command c, Displayable d) {
+	/** Indicates that a command event has occurred on Displayable d. */
+	public void commandAction(Command c, Displayable d) {
 		if (c == submitCmd) {
 			// Retrieve quote for symbol entered in text field.
 			if (textField.getString().length() > 0)
@@ -62,14 +62,12 @@ public class Stock extends javax.microedition.midlet.MIDlet implements CommandLi
 		}
 		else if (c == helpCmd) {
 			showHelp();
-		}
-	  else if (c == aboutCmd) {
-	    showAbout();
-	  }
-		else if (c == exitCmd) {
+		} else if (c == aboutCmd) {
+			showAbout();
+		} else if (c == exitCmd) {
 			destroyApp(false);
 			notifyDestroyed();
-	  }
+		}
 	}
 
 	/** Retrieve a quote for the given stock symbol via HTTP over the network. */
@@ -105,17 +103,17 @@ public class Stock extends javax.microedition.midlet.MIDlet implements CommandLi
 		}
 	}
 
-  /** Display help dialog. */
-  private void showHelp() {
-	  Alert helpAlert = new Alert("Help");
+	/** Display help dialog. */
+	private void showHelp() {
+		Alert helpAlert = new Alert("Help");
 		helpAlert.setTimeout(Alert.FOREVER);
 		helpAlert.setString("A simple stock ticker application. Enter a valid stock symbol in the text field and use the SUBMIT command to retrieve a current quote.");
 		Display.getDisplay(this).setCurrent(helpAlert);
-   }
+	}
 
  	/** Display about dialog. */
-  private void showAbout() {
-	  Alert aboutAlert = new Alert("About");
+	private void showAbout() {
+		Alert aboutAlert = new Alert("About");
 		aboutAlert.setTimeout(Alert.FOREVER);
 
 		// Build about string using StringBuffer for efficiency.
@@ -127,11 +125,11 @@ public class Stock extends javax.microedition.midlet.MIDlet implements CommandLi
 
 		aboutAlert.setString(sb.toString());
 		Display.getDisplay(this).setCurrent(aboutAlert);
-  }
+	}
 
 	/** Display an dialog with the given title and text. */
 	private void showMessage(String title, String text) {
-	  Alert errorAlert = new Alert(title);
+		Alert errorAlert = new Alert(title);
 		errorAlert.setTimeout(Alert.FOREVER);
 		errorAlert.setString(text);
 		Display.getDisplay(this).setCurrent(errorAlert);

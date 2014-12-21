@@ -17,37 +17,37 @@ import javax.xml.ws.WebServiceClient;
  */
 @WebServiceClient(name = "HebCalendarService", targetNamespace = "http://service.calendar/", wsdlLocation = "http://localhost:8080/services/hebcalendar?wsdl")
 public class HebCalendarService
-    extends Service
+	extends Service
 {
 
-    private final static URL HEBCALENDARSERVICE_WSDL_LOCATION;
+	private final static URL HEBCALENDARSERVICE_WSDL_LOCATION;
 
-    static {
-        URL url = null;
-        try {
-            url = new URL("http://localhost:8080/services/hebcalendar?wsdl");
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        HEBCALENDARSERVICE_WSDL_LOCATION = url;
-    }
+	static {
+		URL url = null;
+		try {
+			url = new URL("http://localhost:8080/services/hebcalendar?wsdl");
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		HEBCALENDARSERVICE_WSDL_LOCATION = url;
+	}
 
-    public HebCalendarService(URL wsdlLocation, QName serviceName) {
-        super(wsdlLocation, serviceName);
-    }
+	public HebCalendarService(URL wsdlLocation, QName serviceName) {
+		super(wsdlLocation, serviceName);
+	}
 
-    public HebCalendarService() {
-        super(HEBCALENDARSERVICE_WSDL_LOCATION, new QName("http://service.calendar/", "HebCalendarService"));
-    }
+	public HebCalendarService() {
+		super(HEBCALENDARSERVICE_WSDL_LOCATION, new QName("http://service.calendar/", "HebCalendarService"));
+	}
 
-    /**
-     *
-     * @return
-     *     returns HebCalendar
-     */
-    @WebEndpoint(name = "HebCalendarPort")
-    public HebCalendar getHebCalendarPort() {
-        return (HebCalendar)super.getPort(new QName("http://service.calendar/", "HebCalendarPort"), HebCalendar.class);
-    }
+	/**
+	 *
+	 * @return
+	 *	 returns HebCalendar
+	 */
+	@WebEndpoint(name = "HebCalendarPort")
+	public HebCalendar getHebCalendarPort() {
+		return (HebCalendar)super.getPort(new QName("http://service.calendar/", "HebCalendarPort"), HebCalendar.class);
+	}
 
 }

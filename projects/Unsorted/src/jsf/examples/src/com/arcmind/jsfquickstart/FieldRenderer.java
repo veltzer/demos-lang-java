@@ -17,32 +17,38 @@ import javax.faces.render.Renderer;
 public class FieldRenderer extends Renderer {
 	@Override
 	public Object getConvertedValue(FacesContext facesContext, UIComponent component, Object submittedValue) throws ConverterException {
+		//Try to find out by value binding
+		ValueBinding valueBinding = component.getValueBinding("value");
+		if (valueBinding == null) {
+			return null;
+		}
 
-        //Try to find out by value binding
-        ValueBinding valueBinding = component.getValueBinding("value");
-        if (valueBinding == null) return null;
+		Class valueType = valueBinding.getType(facesContext);
+		if (valueType == null) {
+			return null;
+		}
 
-        Class valueType = valueBinding.getType(facesContext);
-        if (valueType == null) return null;
+		if (String.class.equals(valueType)) {
+			return submittedValue;
+		}
+		if (Object.class.equals(valueType)) {
+			return submittedValue;
+		}
 
-        if (String.class.equals(valueType)) return submittedValue;
-        if (Object.class.equals(valueType)) return submittedValue;
-
-        Converter converter = ((UIInput) component).getConverter();
-        converter =  facesContext.getApplication().createConverter(valueType);
-        if (converter != null ) {
-        	return converter.getAsObject(facesContext, component, (String) submittedValue);
-        }else {
-        	return submittedValue;
-        }
-
+		Converter converter = ((UIInput) component).getConverter();
+		converter = facesContext.getApplication().createConverter(valueType);
+		if (converter != null ) {
+			return converter.getAsObject(facesContext, component, (String) submittedValue);
+		} else {
+			return submittedValue;
+		}
 	}
 
 	@Override
 	public void decode(FacesContext context, UIComponent component) {
-		    /* Grab the request map from the external context */
+		/* Grab the request map from the external context */
 		Map requestMap = context.getExternalContext().getRequestParameterMap();
-		    /* Get client ID, use client ID to grab value from parameters */
+		/* Get client ID, use client ID to grab value from parameters */
 		String clientId = component.getClientId(context);
 		String value = (String) requestMap.get(clientId);
 
@@ -52,8 +58,7 @@ public class FieldRenderer extends Renderer {
 	}
 
 	@Override
-	public void encodeBegin(FacesContext context, UIComponent component)
-			throws IOException {
+	public void encodeBegin(FacesContext context, UIComponent component) throws IOException {
 		FieldComponent fieldComponent = (FieldComponent) component;
 		ResponseWriter writer = context.getResponseWriter();
 		encodeLabel(writer,fieldComponent);
@@ -62,11 +67,9 @@ public class FieldRenderer extends Renderer {
 		writer.flush();
 	}
 
-
-
 	private void encodeMessage(FacesContext context, ResponseWriter writer, FieldComponent fieldComponent) throws IOException {
 		Iterator iter = context.getMessages(fieldComponent.getClientId(context));
-		while (iter.hasNext()){
+		while (iter.hasNext()) {
 			FacesMessage message = (FacesMessage) iter.next();
 			writer.write(message.getDetail());
 		}
@@ -98,5 +101,4 @@ public class FieldRenderer extends Renderer {
 			writer.writeAttribute("value", fieldComponent.getValue().toString(), "value");
 		writer.endElement("input");
 	}
-
 }

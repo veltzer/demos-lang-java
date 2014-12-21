@@ -12,25 +12,25 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "invokeOperationResponse", namespace = "http://service.calculator/")
 public class InvokeOperationResponse {
 
-    @XmlElement(name = "return", namespace = "")
-    private float _return;
+	@XmlElement(name = "return", namespace = "")
+	private float _return;
 
-    /**
-     *
-     * @return
-     *     returns float
-     */
-    public float get_return() {
-        return this._return;
-    }
+	/**
+	 *
+	 * @return
+	 *	 returns float
+	 */
+	public float get_return() {
+		return this._return;
+	}
 
-    /**
-     *
-     * @param _return
-     *     the value for the _return property
-     */
-    public void set_return(float _return) {
-        this._return = _return;
-    }
+	/**
+	 *
+	 * @param _return
+	 *	 the value for the _return property
+	 */
+	public void set_return(float _return) {
+		this._return = _return;
+	}
 
 }

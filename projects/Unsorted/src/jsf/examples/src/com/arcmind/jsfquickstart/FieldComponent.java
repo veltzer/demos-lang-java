@@ -7,20 +7,20 @@ public class FieldComponent extends UIInput {
 
 	private String label;
 
-    @Override
+	@Override
 	public Object saveState(FacesContext context) {
-        Object values[] = new Object[2];
-        values[0] = super.saveState(context);
-        values[1] = label;
-        return ((Object) (values));
-    }
+		Object values[] = new Object[2];
+		values[0] = super.saveState(context);
+		values[1] = label;
+		return ((Object) (values));
+	}
 
-    @Override
+	@Override
 	public void restoreState(FacesContext context, Object state) {
-        Object values[] = (Object[])state;
-        super.restoreState(context, values[0]);
-        label = (String)values[1];
-    }
+		Object values[] = (Object[])state;
+		super.restoreState(context, values[0]);
+		label = (String)values[1];
+	}
 
 	public FieldComponent (){
 		this.setRendererType("arcmind.Field");
@@ -35,10 +35,10 @@ public class FieldComponent extends UIInput {
 
 	/**
 	 * @param label
-	 *            The label to set.
+	 * The label to set.
 	 */
-	public void setLabel(String label) {
-		this.label = label;
+	public void setLabel(String ilabel) {
+		label = ilabel;
 	}
 
 

@@ -17,37 +17,37 @@ import javax.xml.ws.WebServiceClient;
  */
 @WebServiceClient(name = "StatefulCalculatorService", targetNamespace = "http://service.calculator/", wsdlLocation = "http://localhost:8080/services/calculator?wsdl")
 public class StatefulCalculatorService
-    extends Service
+	extends Service
 {
 
-    private final static URL STATEFULCALCULATORSERVICE_WSDL_LOCATION;
+	private final static URL STATEFULCALCULATORSERVICE_WSDL_LOCATION;
 
-    static {
-        URL url = null;
-        try {
-            url = new URL("http://localhost:8080/services/calculator?wsdl");
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        STATEFULCALCULATORSERVICE_WSDL_LOCATION = url;
-    }
+	static {
+		URL url = null;
+		try {
+			url = new URL("http://localhost:8080/services/calculator?wsdl");
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		STATEFULCALCULATORSERVICE_WSDL_LOCATION = url;
+	}
 
-    public StatefulCalculatorService(URL wsdlLocation, QName serviceName) {
-        super(wsdlLocation, serviceName);
-    }
+	public StatefulCalculatorService(URL wsdlLocation, QName serviceName) {
+		super(wsdlLocation, serviceName);
+	}
 
-    public StatefulCalculatorService() {
-        super(STATEFULCALCULATORSERVICE_WSDL_LOCATION, new QName("http://service.calculator/", "StatefulCalculatorService"));
-    }
+	public StatefulCalculatorService() {
+		super(STATEFULCALCULATORSERVICE_WSDL_LOCATION, new QName("http://service.calculator/", "StatefulCalculatorService"));
+	}
 
-    /**
-     *
-     * @return
-     *     returns StatefulCalculator
-     */
-    @WebEndpoint(name = "StatefulCalculatorPort")
-    public StatefulCalculator getStatefulCalculatorPort() {
-        return (StatefulCalculator)super.getPort(new QName("http://service.calculator/", "StatefulCalculatorPort"), StatefulCalculator.class);
-    }
+	/**
+	 *
+	 * @return
+	 *	 returns StatefulCalculator
+	 */
+	@WebEndpoint(name = "StatefulCalculatorPort")
+	public StatefulCalculator getStatefulCalculatorPort() {
+		return (StatefulCalculator)super.getPort(new QName("http://service.calculator/", "StatefulCalculatorPort"), StatefulCalculator.class);
+	}
 
 }

@@ -19,32 +19,32 @@ import javax.xml.ws.ResponseWrapper;
 public interface StatefulCalculator {
 
 
-    /**
-     *
-     * @param arg0
-     */
-    @WebMethod
-    @RequestWrapper(localName = "startCalc", targetNamespace = "http://service.calculator/", className = "calculator.client.proxy.StartCalc")
-    @ResponseWrapper(localName = "startCalcResponse", targetNamespace = "http://service.calculator/", className = "calculator.client.proxy.StartCalcResponse")
-    public void startCalc(
-        @WebParam(name = "arg0", targetNamespace = "")
-        float arg0);
+	/**
+	 *
+	 * @param arg0
+	 */
+	@WebMethod
+	@RequestWrapper(localName = "startCalc", targetNamespace = "http://service.calculator/", className = "calculator.client.proxy.StartCalc")
+	@ResponseWrapper(localName = "startCalcResponse", targetNamespace = "http://service.calculator/", className = "calculator.client.proxy.StartCalcResponse")
+	public void startCalc(
+		@WebParam(name = "arg0", targetNamespace = "")
+		float arg0);
 
-    /**
-     *
-     * @param arg1
-     * @param arg0
-     * @return
-     *     returns float
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "invokeOperation", targetNamespace = "http://service.calculator/", className = "calculator.client.proxy.InvokeOperation")
-    @ResponseWrapper(localName = "invokeOperationResponse", targetNamespace = "http://service.calculator/", className = "calculator.client.proxy.InvokeOperationResponse")
-    public float invokeOperation(
-        @WebParam(name = "arg0", targetNamespace = "")
-        Operation arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        float arg1);
+	/**
+	 *
+	 * @param arg1
+	 * @param arg0
+	 * @return
+	 *	 returns float
+	 */
+	@WebMethod
+	@WebResult(targetNamespace = "")
+	@RequestWrapper(localName = "invokeOperation", targetNamespace = "http://service.calculator/", className = "calculator.client.proxy.InvokeOperation")
+	@ResponseWrapper(localName = "invokeOperationResponse", targetNamespace = "http://service.calculator/", className = "calculator.client.proxy.InvokeOperationResponse")
+	public float invokeOperation(
+		@WebParam(name = "arg0", targetNamespace = "")
+		Operation arg0,
+		@WebParam(name = "arg1", targetNamespace = "")
+		float arg1);
 
 }

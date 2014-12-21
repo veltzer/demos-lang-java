@@ -25,7 +25,7 @@ public class CancellationClient {
 
 		// Send message:
 		TextMessage msg = qSession.createTextMessage();
-		String  cancellationText="cancel 0.07706566154030858";
+		String cancellationText="cancel 0.07706566154030858";
 		msg.setText(cancellationText);
 		sender.send(msg);
 		System.out.println("Message has been sent");

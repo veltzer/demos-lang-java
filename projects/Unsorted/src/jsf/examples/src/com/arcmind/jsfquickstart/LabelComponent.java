@@ -11,19 +11,19 @@ public class LabelComponent extends UIOutput{
 	private String label;
 
 	@Override
-    public Object saveState(FacesContext context) {
-        Object values[] = new Object[2];
-        values[0] = super.saveState(context);
-        values[1] = label;
-        return ((Object) (values));
-    }
+	public Object saveState(FacesContext context) {
+		Object values[] = new Object[2];
+		values[0] = super.saveState(context);
+		values[1] = label;
+		return ((Object) (values));
+	}
 
 	@Override
-    public void restoreState(FacesContext context, Object state) {
-        Object values[] = (Object[])state;
-        super.restoreState(context, values[0]);
-        label = (String)values[1];
-    }
+	public void restoreState(FacesContext context, Object state) {
+		Object values[] = (Object[])state;
+		super.restoreState(context, values[0]);
+		label = (String)values[1];
+	}
 
 	/**
 	 * @return Returns the label.
@@ -34,8 +34,8 @@ public class LabelComponent extends UIOutput{
 	/**
 	 * @param label The label to set.
 	 */
-	public void setLabel(String label) {
-		this.label = label;
+	public void setLabel(String ilabel) {
+		label = ilabel;
 	}
 
 	/**
@@ -44,14 +44,14 @@ public class LabelComponent extends UIOutput{
 	@Override
 	public void encodeBegin(FacesContext context) throws IOException {
 		ResponseWriter writer = context.getResponseWriter();
-        writer.startElement("label", this);
-        writer.write(label);
-        writer.endElement("label");
-        writer.flush();
+		writer.startElement("label", this);
+		writer.write(label);
+		writer.endElement("label");
+		writer.flush();
 	}
 
 	@Override
-	public String getFamily(){
+	public String getFamily() {
 		return "arcmind.Label";
 	}
 
@@ -70,5 +70,4 @@ public class LabelComponent extends UIOutput{
 	public void decode(FacesContext context) {
 		return;
 	}
-
 }

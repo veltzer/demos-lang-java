@@ -23,8 +23,8 @@ public class FieldTag extends UIComponentTag {
 	/**
 	 * @param label The label to set.
 	 */
-	public void setLabel(String label) {
-		this.label = label;
+	public void setLabel(String ilabel) {
+		label = ilabel;
 	}
 	/**
 	 * @see javax.faces.webapp.UIComponentTag#setProperties(javax.faces.component.UIComponent)
@@ -39,13 +39,13 @@ public class FieldTag extends UIComponentTag {
 		((FieldComponent)component).setRequired(required);
 
 
-	    FacesContext context = FacesContext.getCurrentInstance();
-	    Application application = context.getApplication();
-	    ValueBinding binding = application.createValueBinding(value);
-	    System.out.printf("setProperties class=%s expression=%s\n", binding.getType(FacesContext.getCurrentInstance()), binding.getExpressionString());
-	    component.setValueBinding("value", binding);
-
+		FacesContext context = FacesContext.getCurrentInstance();
+		Application application = context.getApplication();
+		ValueBinding binding = application.createValueBinding(value);
+		System.out.printf("setProperties class=%s expression=%s\n", binding.getType(FacesContext.getCurrentInstance()), binding.getExpressionString());
+		component.setValueBinding("value", binding);
 	}
+
 	/**
 	 * @see javax.faces.webapp.UIComponentTag#getComponentType()
 	 */
@@ -71,8 +71,8 @@ public class FieldTag extends UIComponentTag {
 	/**
 	 * @param errorStyleClass The errorStyleClass to set.
 	 */
-	public void setErrorStyleClass(String errorStyleClass) {
-		this.errorStyleClass = errorStyleClass;
+	public void setErrorStyleClass(String ierrorStyleClass) {
+		errorStyleClass = ierrorStyleClass;
 	}
 
 	/**
@@ -84,8 +84,8 @@ public class FieldTag extends UIComponentTag {
 	/**
 	 * @param errorStyle The errorStyle to set.
 	 */
-	public void setErrorStyle(String errorStyle) {
-		this.errorStyle = errorStyle;
+	public void setErrorStyle(String ierrorStyle) {
+		errorStyle = ierrorStyle;
 	}
 
 	/**
@@ -97,8 +97,8 @@ public class FieldTag extends UIComponentTag {
 	/**
 	 * @param required The required to set.
 	 */
-	public void setRequired(boolean required) {
-		this.required = required;
+	public void setRequired(boolean irequired) {
+		required = irequired;
 	}
 
 	/**
@@ -110,7 +110,7 @@ public class FieldTag extends UIComponentTag {
 	/**
 	 * @param value The value to set.
 	 */
-	public void setValue(String value) {
-		this.value = value;
+	public void setValue(String ivalue) {
+		value = ivalue;
 	}
 }

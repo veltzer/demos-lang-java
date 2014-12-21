@@ -51,9 +51,7 @@ public class BirthdayCakeBean {
 		cake.getChildren().clear();
 	}
 
-	public void validateAge(FacesContext context,
-	                        UIComponent component, Object newValue)
-	                                      throws ValidatorException {
+	public void validateAge(FacesContext context, UIComponent component, Object newValue) throws ValidatorException {
 		int newVal = ((Integer)newValue).intValue();
 		if (newVal < MIN_AGE) {
 			clearCake();

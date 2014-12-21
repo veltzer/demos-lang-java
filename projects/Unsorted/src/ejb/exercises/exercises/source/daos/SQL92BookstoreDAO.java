@@ -18,7 +18,7 @@ import ejb.exercises.exercises.source.dtos.OrderDetailsDTO;
  * A simple SQL implementation of BookstoreDAO. <br>
  *
  * For more information, please refer to the documentation of
- * interface  BookstoreDAO.
+ * interface BookstoreDAO.
  */
 public class SQL92BookstoreDAO implements BookstoreDAO {
 

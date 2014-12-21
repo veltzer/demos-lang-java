@@ -86,15 +86,14 @@ public class CDManagerBean {
 	}
 
 	public String updateCD(){
-        CD cd = (CD)cds.get(rowIndex);
-        cd.setArtist(this.artist);
-        cd.setPrice(this.price);
-        cd.setTitle(this.title);
+		CD cd = (CD)cds.get(rowIndex);
+		cd.setArtist(this.artist);
+		cd.setPrice(this.price);
+		cd.setTitle(this.title);
 		this.editMode=false;
 		this.rowIndex = -1;
-        return "success";
+		return "success";
 	}
-
 
 	{//instance initializer to generate some sample data
 			cds.add(new CD("Scarecrow", "Garth Brooks", 15.89f));

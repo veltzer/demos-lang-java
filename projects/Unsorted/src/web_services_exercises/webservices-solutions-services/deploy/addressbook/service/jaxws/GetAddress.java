@@ -12,23 +12,23 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "getAddress", namespace = "http://service.addressbook/")
 public class GetAddress {
 
-    @XmlElement(name = "arg0", namespace = "")
-    private String arg0;
+	@XmlElement(name = "arg0", namespace = "")
+	private String arg0;
 
-    /**
-     * @return
-     *     returns String
-     */
-    public String getArg0() {
-        return this.arg0;
-    }
+	/**
+	 * @return
+	 *	 returns String
+	 */
+	public String getArg0() {
+		return this.arg0;
+	}
 
-    /**
-     * @param arg0
-     *     the value for the arg0 property
-     */
-    public void setArg0(String arg0) {
-        this.arg0 = arg0;
-    }
+	/**
+	 * @param arg0
+	 *	 the value for the arg0 property
+	 */
+	public void setArg0(String arg0) {
+		this.arg0 = arg0;
+	}
 
 }

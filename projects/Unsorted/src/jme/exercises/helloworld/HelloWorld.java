@@ -1,6 +1,6 @@
 package jme.exercises.helloworld;
 
-import javax.microedition.lcdui.*;
+//import javax.microedition.lcdui.*;
 
 /**
  * Exercise 1: Hello World Midlet.
@@ -65,5 +65,5 @@ public class HelloWorld extends javax.microedition.midlet.MIDlet {
 		System.out.println("My-Property: " + getAppProperty("My-Property"));
 
 		// Normally the Midlet would allocate any shared resources here and begin execution.
-  }
+	}
 }

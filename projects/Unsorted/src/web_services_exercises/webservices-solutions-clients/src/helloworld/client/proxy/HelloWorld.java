@@ -19,18 +19,18 @@ import javax.xml.ws.ResponseWrapper;
 public interface HelloWorld {
 
 
-    /**
-     *
-     * @param arg0
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "sayHello", targetNamespace = "http://service.helloworld/", className = "helloworld.client.proxy.SayHello")
-    @ResponseWrapper(localName = "sayHelloResponse", targetNamespace = "http://service.helloworld/", className = "helloworld.client.proxy.SayHelloResponse")
-    public String sayHello(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
+	/**
+	 *
+	 * @param arg0
+	 * @return
+	 *	 returns java.lang.String
+	 */
+	@WebMethod
+	@WebResult(targetNamespace = "")
+	@RequestWrapper(localName = "sayHello", targetNamespace = "http://service.helloworld/", className = "helloworld.client.proxy.SayHello")
+	@ResponseWrapper(localName = "sayHelloResponse", targetNamespace = "http://service.helloworld/", className = "helloworld.client.proxy.SayHelloResponse")
+	public String sayHello(
+		@WebParam(name = "arg0", targetNamespace = "")
+		String arg0);
 
 }
