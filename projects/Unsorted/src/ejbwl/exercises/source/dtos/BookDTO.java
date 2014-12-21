@@ -3,7 +3,7 @@ package ejbwl.exercises.source.dtos;
 import java.io.Serializable;
 
 public class BookDTO implements Serializable {
-	private String title;	// key
+	private String title;
 	private String author;
 	private double price;
 
@@ -35,8 +35,8 @@ public class BookDTO implements Serializable {
 		return price;
 	}
 
-	public void setPrice(double price) {
-		this.price = price;
+	public void setPrice(double iprice) {
+		price = iprice;
 	}
 
 	public String toString() {

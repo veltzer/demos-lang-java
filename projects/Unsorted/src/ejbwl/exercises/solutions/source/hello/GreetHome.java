@@ -1,13 +1,9 @@
 package ejbwl.exercises.solutions.source.hello;
 
-/**
- * Home interface for the Hello Bean
- */
-public interface GreetHome extends javax.ejb.EJBHome
-{
-	/**
-	 * Creates instances of the Greet bean
-	 */
-	public Greet create()
-		throws javax.ejb.CreateException, java.rmi.RemoteException;
+import javax.ejb.EJBHome;
+import javax.ejb.CreateException;
+import java.rmi.RemoteException;
+
+public interface GreetHome extends EJBHome {
+	Greet create() throws CreateException, RemoteException;
 }

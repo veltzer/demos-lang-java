@@ -1,5 +1,6 @@
 package ejbwl.exercises.solutions.client_source.clients;
-import java.util.*;
+
+//import java.util.*;
 
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
@@ -12,7 +13,7 @@ import dtos.CustomerDTO;
 
 
 /**
- * A test client for our bookstore's admin bean. <br>
+ * A test client for our bookstore's admin bean.
  *
  * This simple test obtains a BookStoreAdmin stub and invokes
  * methods such as: <ul>
@@ -21,13 +22,13 @@ import dtos.CustomerDTO;
  * <li> Viewing all books / all customers
  *
  */
-public class BookstoreClient {
+public abstract class BookstoreClient {
 
 	public static void main(String[] args) throws Exception {
 		// Lookup:
 		InitialContext ictx = new InitialContext();
 		Object obj = ictx.lookup("ejb/admin/BookstoreAdminHome");
-		BookstoreAdminHome adminHome = (BookstoreAdminHome) PortableRemoteObject.narrow(obj,BookstoreAdminHome.class);
+		BookstoreAdminHome adminHome = (BookstoreAdminHome) PortableRemoteObject.narrow(obj, BookstoreAdminHome.class);
 		BookstoreAdmin admin = adminHome.create();
 
 		// Add books:

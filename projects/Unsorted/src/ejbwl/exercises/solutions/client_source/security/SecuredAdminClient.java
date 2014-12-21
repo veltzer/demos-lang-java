@@ -1,18 +1,17 @@
 package ejbwl.exercises.solutions.client_source.security;
 
-import java.security.*;
-import java.util.*;
+//import java.security.*;
+//import java.util.*;
 
-import javax.naming.*;
-import javax.rmi.*;
-import javax.security.auth.*;
-import javax.security.auth.login.*;
+//import javax.naming.*;
+//import javax.rmi.*;
+//import javax.security.auth.*;
+//import javax.security.auth.login.*;
 
-import bookstore.*;
+//import bookstore.*;
+//import dtos.*;
 
-import dtos.*;
-
-public class SecuredAdminClient {
+public abstract class SecuredAdminClient {
 
 	public static void main(String[] args) {
 		String username = null;
@@ -50,7 +49,7 @@ public class SecuredAdminClient {
 		 * Retrieve authenticated subject, perform AdminClientAction as Subject
 		 */
 		Subject subject = loginContext.getSubject();
-		System.out.println(subject.getPrincipals() +" has logged in successfully.");
+		System.out.println(subject.getPrincipals() + " has logged in successfully.");
 
 		AdminClientAction adminAction = new AdminClientAction();
 		Subject.doAs(subject, adminAction);

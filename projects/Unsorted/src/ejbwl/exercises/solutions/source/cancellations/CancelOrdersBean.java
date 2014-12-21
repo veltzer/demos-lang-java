@@ -2,11 +2,12 @@ package ejbwl.exercises.solutions.source.cancellations;
 
 import java.util.StringTokenizer;
 
-import javax.ejb.*;
-import javax.jms.*;
+//import javax.ejb.*;
+//import javax.jms.*;
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 import javax.sql.DataSource;
+import javax.ejb.MessageDrivenContext;
 import daos.BookstoreDAO;
 import daos.BookstoreDaoFactory;
 
@@ -21,15 +22,15 @@ public class CancelOrdersBean implements MessageListener, MessageDrivenBean {
 	/**
 	* setMessageDrivenContext
 	*/
-	public void setMessageDrivenContext(javax.ejb.MessageDrivenContext ctx) {
+	public void setMessageDrivenContext(MessageDrivenContext ctx) {
 		System.out.println(this.getClass().getName() + ".setMessageDrivenContext() was invoked...");
 		fMessageDrivenCtx = ctx;
 		try {
-			InitialContext ictx=new InitialContext();
+			InitialContext ictx = new InitialContext();
 			Object obj = ictx.lookup("java:comp/env/jdbc/MyDS");
-			DataSource dataSrouce = (DataSource) PortableRemoteObject.narrow(obj,DataSource.class);
-			dao=BookstoreDaoFactory.getDAO(dataSrouce);
-		} catch(Exception ex) {
+			DataSource dataSrouce = (DataSource) PortableRemoteObject.narrow(obj, DataSource.class);
+			dao = BookstoreDaoFactory.getDAO(dataSrouce);
+		} catch (Exception ex) {
 			ex.printStackTrace();
 			throw new RuntimeException("failed to set context");
 		}
@@ -63,19 +64,19 @@ public class CancelOrdersBean implements MessageListener, MessageDrivenBean {
 		try {
 			// Assuming only messages are TextMessages (otherwise,
 			// use instanceof):
-			TextMessage tMsg= (TextMessage)msg;
+			TextMessage tMsg = (TextMessage) msg;
 
 			// Assuming text is of the form "cancel <orderId>":
-			String text=tMsg.getText();
-			StringTokenizer tok=new StringTokenizer(text);
+			String text = tMsg.getText();
+			StringTokenizer tok = new StringTokenizer(text);
 			tok.nextToken(); // skip "cancel"
-			String orderId=tok.nextToken();
+			String orderId = tok.nextToken();
 
 			// This should cascade-delete the order:
-			System.out.println("*** About to cancel order:"+ orderId);
+			System.out.println("*** About to cancel order:" + orderId);
 			dao.cancelOrder(orderId);
-			System.out.println("*** Successfully cancelled order:"+ orderId);
-		} catch(Exception ex) {
+			System.out.println("*** Successfully cancelled order:" + orderId);
+		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 	}

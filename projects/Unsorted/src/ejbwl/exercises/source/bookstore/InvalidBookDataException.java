@@ -5,6 +5,6 @@ public class InvalidBookDataException extends Exception {
 		super(msg);
 	}
 	public InvalidBookDataException(String msg, Throwable ex) {
-		super(msg,ex);
+		super(msg, ex);
 	}
 }
