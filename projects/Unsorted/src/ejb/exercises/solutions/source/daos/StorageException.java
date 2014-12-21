@@ -1,7 +1,7 @@
 package ejb.exercises.solutions.source.daos;
 
 /**
- * This exception is thrown by BookStoreDAO when errors are encountered. <br>
+ * This exception is thrown by BookStoreDAO when errors are encountered.
  * This approach is preferrable to directly throwing SQL exceptions,
  * since DAO's may use non-sql persistance.
  */
@@ -11,6 +11,6 @@ public class StorageException extends RuntimeException {
 		super(msg);
 	}
 	public StorageException(String msg, Throwable cause) {
-		super(msg,cause);
+		super(msg, cause);
 	}
 }
