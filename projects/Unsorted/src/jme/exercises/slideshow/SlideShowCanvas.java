@@ -1,4 +1,4 @@
-package j2me.exercises.slideshow;
+package jme.exercises.slideshow;
 import javax.microedition.lcdui.*;
 
 /**

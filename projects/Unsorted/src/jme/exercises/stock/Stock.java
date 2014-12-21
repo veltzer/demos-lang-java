@@ -1,4 +1,4 @@
-package j2me.exercises.stock;
+package jme.exercises.stock;
 import java.io.*;
 import javax.microedition.io.*;
 import javax.microedition.lcdui.*;

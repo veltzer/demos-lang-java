@@ -1,4 +1,4 @@
-package j2me.exercises.todo2;
+package jme.exercises.todo2;
 import java.io.*;
 import java.util.*;
 import javax.microedition.lcdui.*;
