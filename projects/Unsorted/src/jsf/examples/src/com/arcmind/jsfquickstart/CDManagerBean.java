@@ -30,8 +30,8 @@ public class CDManagerBean {
 	/**
 	 * @param artist The artist to set.
 	 */
-	public void setArtist(String artist) {
-		this.artist = artist;
+	public void setArtist(String iartist) {
+		artist = iartist;
 	}
 	/**
 	 * @return Returns the cds.
@@ -42,8 +42,8 @@ public class CDManagerBean {
 	/**
 	 * @param cds The cds to set.
 	 */
-	public void setCds(List cds) {
-		this.cds = cds;
+	public void setCds(List icds) {
+		cds = icds;
 	}
 	/**
 	 * @return Returns the price.
@@ -54,8 +54,8 @@ public class CDManagerBean {
 	/**
 	 * @param price The price to set.
 	 */
-	public void setPrice(Float price) {
-		this.price = price;
+	public void setPrice(Float iprice) {
+		price = iprice;
 	}
 	/**
 	 * @return Returns the title.
@@ -66,8 +66,8 @@ public class CDManagerBean {
 	/**
 	 * @param title The title to set.
 	 */
-	public void setTitle(String title) {
-		this.title = title;
+	public void setTitle(String ititle) {
+		title = ititle;
 	}
 
 	public String addCD() {
@@ -77,21 +77,21 @@ public class CDManagerBean {
 
 	public String editCD() {
 		CD cd = (CD) cdModel.getRowData();
-		this.title = cd.getTitle();
-		this.artist = cd.getArtist();
-		this.price = cd.getPrice();
-		this.editMode=true;
-		this.rowIndex = cdModel.getRowIndex();
+		title = cd.getTitle();
+		artist = cd.getArtist();
+		price = cd.getPrice();
+		editMode = true;
+		rowIndex = cdModel.getRowIndex();
 		return "success";
 	}
 
 	public String updateCD() {
-		CD cd = (CD)cds.get(rowIndex);
-		cd.setArtist(this.artist);
-		cd.setPrice(this.price);
-		cd.setTitle(this.title);
-		this.editMode=false;
-		this.rowIndex = -1;
+		CD cd = (CD) cds.get(rowIndex);
+		cd.setArtist(artist);
+		cd.setPrice(price);
+		cd.setTitle(title);
+		editMode = false;
+		rowIndex = -1;
 		return "success";
 	}
 

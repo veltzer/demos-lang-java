@@ -26,12 +26,12 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "hebDayNameResponse", propOrder = {
-	"_return"
+	"vreturn"
 })
 public class HebDayNameResponse {
 
 	@XmlElement(name = "return")
-	protected String _return;
+	private String vreturn;
 
 	/**
 	 * Gets the value of the return property.
@@ -42,7 +42,7 @@ public class HebDayNameResponse {
 	 *
 	 */
 	public String getReturn() {
-		return _return;
+		return vreturn;
 	}
 
 	/**
@@ -54,7 +54,7 @@ public class HebDayNameResponse {
 	 *
 	 */
 	public void setReturn(String value) {
-		this._return = value;
+		vreturn = value;
 	}
 
 }

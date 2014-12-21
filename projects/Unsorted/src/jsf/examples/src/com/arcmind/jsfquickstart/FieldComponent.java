@@ -9,7 +9,7 @@ public class FieldComponent extends UIInput {
 
 	@Override
 	public Object saveState(FacesContext context) {
-		Object values[] = new Object[2];
+		Object[] values = new Object[2];
 		values[0] = super.saveState(context);
 		values[1] = label;
 		return ((Object) (values));
@@ -17,9 +17,9 @@ public class FieldComponent extends UIInput {
 
 	@Override
 	public void restoreState(FacesContext context, Object state) {
-		Object values[] = (Object[])state;
+		Object[] values = (Object[]) state;
 		super.restoreState(context, values[0]);
-		label = (String)values[1];
+		label = (String) values[1];
 	}
 
 	public FieldComponent() {

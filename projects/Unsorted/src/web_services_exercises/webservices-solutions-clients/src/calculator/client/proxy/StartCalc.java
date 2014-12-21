@@ -29,7 +29,7 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class StartCalc {
 
-	protected float arg0;
+	private float arg0;
 
 	/**
 	 * Gets the value of the arg0 property.

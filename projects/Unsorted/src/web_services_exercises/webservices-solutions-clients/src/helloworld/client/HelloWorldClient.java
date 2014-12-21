@@ -1,15 +1,12 @@
 package helloworld.client;
 
-import helloworld.client.proxy.*;
+//import helloworld.client.proxy.*;
 
-public class HelloWorldClient {
-
+public abstract class HelloWorldClient {
 	public static void main(String[] args) {
 		HelloWorldService service = new HelloWorldService();
 		HelloWorld port = service.getHelloWorldPort();
-
 		String response = port.sayHello("hello");
-
 		System.out.println(response);
 	}
 }

@@ -16,11 +16,9 @@ import javax.xml.ws.WebServiceClient;
  *
  */
 @WebServiceClient(name = "StatefulCalculatorService", targetNamespace = "http://service.calculator/", wsdlLocation = "http://localhost:8080/services/calculator?wsdl")
-public class StatefulCalculatorService
-	extends Service
-{
+public class StatefulCalculatorService extends Service {
 
-	private final static URL STATEFULCALCULATORSERVICE_WSDL_LOCATION;
+	private static final URL STATEFULCALCULATORSERVICE_WSDL_LOCATION;
 
 	static {
 		URL url = null;
@@ -47,7 +45,7 @@ public class StatefulCalculatorService
 	 */
 	@WebEndpoint(name = "StatefulCalculatorPort")
 	public StatefulCalculator getStatefulCalculatorPort() {
-		return (StatefulCalculator)super.getPort(new QName("http://service.calculator/", "StatefulCalculatorPort"), StatefulCalculator.class);
+		return (StatefulCalculator) super.getPort(new QName("http://service.calculator/", "StatefulCalculatorPort"), StatefulCalculator.class);
 	}
 
 }

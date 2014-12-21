@@ -31,8 +31,8 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class InvokeOperation {
 
-	protected Operation arg0;
-	protected float arg1;
+	private Operation arg0;
+	private float arg1;
 
 	/**
 	 * Gets the value of the arg0 property.

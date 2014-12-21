@@ -1,19 +1,14 @@
 package calculator.client;
 
-import javax.xml.ws.*;
+//import javax.xml.ws.*;
+//import calculator.client.proxy.*;
 
-import calculator.client.proxy.*;
-
-public class CalculatorClient {
-
-	/**
-	 * @param args
-	 */
+public abstract class CalculatorClient {
 	public static void main(String[] args) {
 		StatefulCalculatorService service = new StatefulCalculatorService();
 		StatefulCalculator port = service.getStatefulCalculatorPort();
 
-		((BindingProvider)port).getRequestContext().put(BindingProvider.SESSION_MAINTAIN_PROPERTY,true);
+		((BindingProvider) port).getRequestContext().put(BindingProvider.SESSION_MAINTAIN_PROPERTY, true);
 
 		port.startCalc(11);
 

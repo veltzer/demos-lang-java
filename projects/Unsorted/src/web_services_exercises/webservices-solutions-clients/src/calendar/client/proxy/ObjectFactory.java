@@ -24,10 +24,10 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-	private final static QName _HebDayNameResponse_QNAME = new QName("http://service.calendar/", "hebDayNameResponse");
-	private final static QName _HebDayName_QNAME = new QName("http://service.calendar/", "hebDayName");
-	private final static QName _HebDayOfWeekResponse_QNAME = new QName("http://service.calendar/", "hebDayOfWeekResponse");
-	private final static QName _HebDayOfWeek_QNAME = new QName("http://service.calendar/", "hebDayOfWeek");
+	private static final QName _HebDayNameResponse_QNAME = new QName("http://service.calendar/", "hebDayNameResponse");
+	private static final QName _HebDayName_QNAME = new QName("http://service.calendar/", "hebDayName");
+	private static final QName _HebDayOfWeekResponse_QNAME = new QName("http://service.calendar/", "hebDayOfWeekResponse");
+	private static final QName _HebDayOfWeek_QNAME = new QName("http://service.calendar/", "hebDayOfWeek");
 
 	/**
 	 * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: calendar.client.proxy

@@ -24,10 +24,10 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-	private final static QName _InvokeOperationResponse_QNAME = new QName("http://service.calculator/", "invokeOperationResponse");
-	private final static QName _StartCalc_QNAME = new QName("http://service.calculator/", "startCalc");
-	private final static QName _StartCalcResponse_QNAME = new QName("http://service.calculator/", "startCalcResponse");
-	private final static QName _InvokeOperation_QNAME = new QName("http://service.calculator/", "invokeOperation");
+	private static final QName INVOKEOPERATIONRESPONSE_QNAME = new QName("http://service.calculator/", "invokeOperationResponse");
+	private static final QName STARTCALC_QNAME = new QName("http://service.calculator/", "startCalc");
+	private static final QName STARTCALCRESPONSE_QNAME = new QName("http://service.calculator/", "startCalcResponse");
+	private static final QName INVOKEOPERATION_QNAME = new QName("http://service.calculator/", "invokeOperation");
 
 	/**
 	 * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: calculator.client.proxy
@@ -74,7 +74,7 @@ public class ObjectFactory {
 	 */
 	@XmlElementDecl(namespace = "http://service.calculator/", name = "invokeOperationResponse")
 	public JAXBElement<InvokeOperationResponse> createInvokeOperationResponse(InvokeOperationResponse value) {
-		return new JAXBElement<InvokeOperationResponse>(_InvokeOperationResponse_QNAME, InvokeOperationResponse.class, null, value);
+		return new JAXBElement<InvokeOperationResponse>(INVOKEOPERATIONRESPONSE_QNAME, InvokeOperationResponse.class, null, value);
 	}
 
 	/**
@@ -83,7 +83,7 @@ public class ObjectFactory {
 	 */
 	@XmlElementDecl(namespace = "http://service.calculator/", name = "startCalc")
 	public JAXBElement<StartCalc> createStartCalc(StartCalc value) {
-		return new JAXBElement<StartCalc>(_StartCalc_QNAME, StartCalc.class, null, value);
+		return new JAXBElement<StartCalc>(STARTCALC_QNAME, StartCalc.class, null, value);
 	}
 
 	/**
@@ -92,7 +92,7 @@ public class ObjectFactory {
 	 */
 	@XmlElementDecl(namespace = "http://service.calculator/", name = "startCalcResponse")
 	public JAXBElement<StartCalcResponse> createStartCalcResponse(StartCalcResponse value) {
-		return new JAXBElement<StartCalcResponse>(_StartCalcResponse_QNAME, StartCalcResponse.class, null, value);
+		return new JAXBElement<StartCalcResponse>(STARTCALCRESPONSE_QNAME, StartCalcResponse.class, null, value);
 	}
 
 	/**
@@ -101,7 +101,7 @@ public class ObjectFactory {
 	 */
 	@XmlElementDecl(namespace = "http://service.calculator/", name = "invokeOperation")
 	public JAXBElement<InvokeOperation> createInvokeOperation(InvokeOperation value) {
-		return new JAXBElement<InvokeOperation>(_InvokeOperation_QNAME, InvokeOperation.class, null, value);
+		return new JAXBElement<InvokeOperation>(INVOKEOPERATION_QNAME, InvokeOperation.class, null, value);
 	}
 
 }

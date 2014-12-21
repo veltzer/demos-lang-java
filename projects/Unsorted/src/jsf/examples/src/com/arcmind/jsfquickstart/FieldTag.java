@@ -9,10 +9,10 @@ import javax.faces.webapp.UIComponentTag;
 public class FieldTag extends UIComponentTag {
 
 	private String label;
-	private String errorStyleClass="";
-	private String errorStyle="";
+	private String errorStyleClass = "";
+	private String errorStyle = "";
 	private boolean required;
-	private String value="";
+	private String value = "";
 
 	/**
 	 * @return Returns the label.
@@ -33,10 +33,10 @@ public class FieldTag extends UIComponentTag {
 	protected void setProperties(UIComponent component) {
 		/* You have to call the super class */
 		super.setProperties(component);
-		((FieldComponent)component).setLabel(label);
-		component.getAttributes().put("errorStyleClass",errorStyleClass);
-		component.getAttributes().put("errorStyle",errorStyle);
-		((FieldComponent)component).setRequired(required);
+		((FieldComponent) component).setLabel(label);
+		component.getAttributes().put("errorStyleClass", errorStyleClass);
+		component.getAttributes().put("errorStyle", errorStyle);
+		((FieldComponent) component).setRequired(required);
 
 
 		FacesContext context = FacesContext.getCurrentInstance();

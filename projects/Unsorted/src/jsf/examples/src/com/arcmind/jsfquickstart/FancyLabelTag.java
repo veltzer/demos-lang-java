@@ -6,8 +6,8 @@ import javax.faces.webapp.UIComponentTag;
 public class FancyLabelTag extends UIComponentTag {
 
 	private String label;
-	private String errorStyleClass="";
-	private String errorStyle="";
+	private String errorStyleClass = "";
+	private String errorStyle = "";
 	private String forComponent;
 
 	/**
@@ -19,8 +19,8 @@ public class FancyLabelTag extends UIComponentTag {
 	/**
 	 * @param forComponent The forComponent to set.
 	 */
-	public void setFor(String forComponent) {
-		this.forComponent = forComponent;
+	public void setFor(String iforComponent) {
+		forComponent = iforComponent;
 	}
 	/**
 	 * @return Returns the label.
@@ -31,8 +31,8 @@ public class FancyLabelTag extends UIComponentTag {
 	/**
 	 * @param label The label to set.
 	 */
-	public void setLabel(String label) {
-		this.label = label;
+	public void setLabel(String ilabel) {
+		label = ilabel;
 	}
 	/**
 	 * @see javax.faces.webapp.UIComponentTag#setProperties(javax.faces.component.UIComponent)
@@ -41,10 +41,10 @@ public class FancyLabelTag extends UIComponentTag {
 	protected void setProperties(UIComponent component) {
 		/* you have to call the super class */
 		super.setProperties(component);
-		((FancyLabelComponent)component).setLabel(label);
-		((FancyLabelComponent)component).setErrorStyleClass(errorStyleClass);
-		((FancyLabelComponent)component).setFor(forComponent);
-		((FancyLabelComponent)component).setErrorStyle(errorStyle);
+		((FancyLabelComponent) component).setLabel(label);
+		((FancyLabelComponent) component).setErrorStyleClass(errorStyleClass);
+		((FancyLabelComponent) component).setFor(forComponent);
+		((FancyLabelComponent) component).setErrorStyle(errorStyle);
 
 	}
 	/**
@@ -72,7 +72,7 @@ public class FancyLabelTag extends UIComponentTag {
 	/**
 	 * @param errorStyleClass The errorStyleClass to set.
 	 */
-	public void setErrorStyleClass(String errorStyleClass) {
-		this.errorStyleClass = errorStyleClass;
+	public void setErrorStyleClass(String ierrorStyleClass) {
+		errorStyleClass = ierrorStyleClass;
 	}
 }

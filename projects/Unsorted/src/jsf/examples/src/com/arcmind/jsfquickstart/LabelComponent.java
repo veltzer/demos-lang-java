@@ -6,13 +6,13 @@ import javax.faces.component.UIOutput;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-public class LabelComponent extends UIOutput{
+public class LabelComponent extends UIOutput {
 
 	private String label;
 
 	@Override
 	public Object saveState(FacesContext context) {
-		Object values[] = new Object[2];
+		Object[] values = new Object[2];
 		values[0] = super.saveState(context);
 		values[1] = label;
 		return ((Object) (values));
@@ -20,9 +20,9 @@ public class LabelComponent extends UIOutput{
 
 	@Override
 	public void restoreState(FacesContext context, Object state) {
-		Object values[] = (Object[])state;
+		Object[] values = (Object[]) state;
 		super.restoreState(context, values[0]);
-		label = (String)values[1];
+		label = (String) values[1];
 	}
 
 	/**

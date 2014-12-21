@@ -16,11 +16,9 @@ import javax.xml.ws.WebServiceClient;
  *
  */
 @WebServiceClient(name = "HelloWorldService", targetNamespace = "http://service.helloworld/", wsdlLocation = "http://localhost:8080/services/helloworld?wsdl")
-public class HelloWorldService
-	extends Service
-{
+public class HelloWorldService extends Service {
 
-	private final static URL HELLOWORLDSERVICE_WSDL_LOCATION;
+	private static final URL HELLOWORLDSERVICE_WSDL_LOCATION;
 
 	static {
 		URL url = null;
@@ -47,7 +45,7 @@ public class HelloWorldService
 	 */
 	@WebEndpoint(name = "HelloWorldPort")
 	public HelloWorld getHelloWorldPort() {
-		return (HelloWorld)super.getPort(new QName("http://service.helloworld/", "HelloWorldPort"), HelloWorld.class);
+		return (HelloWorld) super.getPort(new QName("http://service.helloworld/", "HelloWorldPort"), HelloWorld.class);
 	}
 
 }

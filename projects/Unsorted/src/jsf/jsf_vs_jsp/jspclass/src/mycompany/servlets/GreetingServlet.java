@@ -23,8 +23,9 @@ public class GreetingServlet extends HttpServlet {
 
 		// validate the request params
 		Boolean passedValidation = true;
-		if (name.equals("") || cell.equals(""))
+		if (name.equals("") || cell.equals("")) {
 			passedValidation = false;
+		}
 
 		// either run the business or create error message
 		if (passedValidation) {
@@ -46,10 +47,11 @@ public class GreetingServlet extends HttpServlet {
 
 		// forward the execution to the correct jsp
 		String destinationResource;
-		if (passedValidation)
+		if (passedValidation) {
 			destinationResource = "/WEB-INF/jsp/greeting.jsp";
-		else
+		} else {
 			destinationResource = "/WEB-INF/jsp/info.jsp";
+		}
 
 		getServletConfig().getServletContext().getRequestDispatcher(
 				destinationResource).forward(req, res);

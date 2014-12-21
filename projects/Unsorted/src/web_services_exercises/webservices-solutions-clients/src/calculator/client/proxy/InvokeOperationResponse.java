@@ -26,19 +26,19 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "invokeOperationResponse", propOrder = {
-	"_return"
+	"vreturn"
 })
 public class InvokeOperationResponse {
 
 	@XmlElement(name = "return")
-	protected float _return;
+	private float vreturn;
 
 	/**
 	 * Gets the value of the return property.
 	 *
 	 */
 	public float getReturn() {
-		return _return;
+		return vreturn;
 	}
 
 	/**
@@ -46,7 +46,7 @@ public class InvokeOperationResponse {
 	 *
 	 */
 	public void setReturn(float value) {
-		this._return = value;
+		vreturn = value;
 	}
 
 }

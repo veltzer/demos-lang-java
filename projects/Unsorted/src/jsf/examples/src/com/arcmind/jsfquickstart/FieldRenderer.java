@@ -10,13 +10,13 @@ import javax.faces.component.UIInput;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 import javax.faces.convert.Converter;
-import javax.faces.convert.ConverterException;
+//import javax.faces.convert.ConverterException;
 import javax.faces.el.ValueBinding;
 import javax.faces.render.Renderer;
 
 public class FieldRenderer extends Renderer {
 	@Override
-	public Object getConvertedValue(FacesContext facesContext, UIComponent component, Object submittedValue) throws ConverterException {
+	public Object getConvertedValue(FacesContext facesContext, UIComponent component, Object submittedValue) {
 		//Try to find out by value binding
 		ValueBinding valueBinding = component.getValueBinding("value");
 		if (valueBinding == null) {
@@ -37,7 +37,7 @@ public class FieldRenderer extends Renderer {
 
 		Converter converter = ((UIInput) component).getConverter();
 		converter = facesContext.getApplication().createConverter(valueType);
-		if (converter != null ) {
+		if (converter != null) {
 			return converter.getAsObject(facesContext, component, (String) submittedValue);
 		} else {
 			return submittedValue;
@@ -52,17 +52,17 @@ public class FieldRenderer extends Renderer {
 		String clientId = component.getClientId(context);
 		String value = (String) requestMap.get(clientId);
 
-		FieldComponent fieldComponent = (FieldComponent)component;
+		FieldComponent fieldComponent = (FieldComponent) component;
 			/* Set the submitted value */
-		((UIInput)component).setSubmittedValue(value);
+		((UIInput) component).setSubmittedValue(value);
 	}
 
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent component) throws IOException {
 		FieldComponent fieldComponent = (FieldComponent) component;
 		ResponseWriter writer = context.getResponseWriter();
-		encodeLabel(writer,fieldComponent);
-		encodeInput(writer,fieldComponent);
+		encodeLabel(writer, fieldComponent);
+		encodeInput(writer, fieldComponent);
 		encodeMessage(context, writer, fieldComponent);
 		writer.flush();
 	}
@@ -75,7 +75,7 @@ public class FieldRenderer extends Renderer {
 		}
 	}
 
-	private void encodeLabel(ResponseWriter writer, FieldComponent fieldComponent) throws IOException{
+	private void encodeLabel(ResponseWriter writer, FieldComponent fieldComponent) throws IOException {
 		writer.startElement("label", fieldComponent);
 		if (fieldComponent.isError()) {
 			String errorStyleClass = (String) fieldComponent.getAttributes().get("errorStyleClass");
@@ -91,14 +91,15 @@ public class FieldRenderer extends Renderer {
 		writer.endElement("label");
 	}
 
-	private void encodeInput(ResponseWriter writer, FieldComponent fieldComponent) throws IOException{
+	private void encodeInput(ResponseWriter writer, FieldComponent fieldComponent) throws IOException {
 		FacesContext currentInstance = FacesContext.getCurrentInstance();
 		writer.startElement("input", fieldComponent);
 		writer.writeAttribute("type", "text", "type");
 		writer.writeAttribute("id", fieldComponent.getClientId(currentInstance), "id");
 		writer.writeAttribute("name", fieldComponent.getClientId(currentInstance), "name");
-		if(fieldComponent.getValue()!=null)
+		if (fieldComponent.getValue() != null) {
 			writer.writeAttribute("value", fieldComponent.getValue().toString(), "value");
+		}
 		writer.endElement("input");
 	}
 }

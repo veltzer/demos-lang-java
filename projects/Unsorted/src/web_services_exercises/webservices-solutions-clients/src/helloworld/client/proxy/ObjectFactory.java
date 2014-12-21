@@ -24,8 +24,8 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-	private final static QName _SayHello_QNAME = new QName("http://service.helloworld/", "sayHello");
-	private final static QName _SayHelloResponse_QNAME = new QName("http://service.helloworld/", "sayHelloResponse");
+	private static final QName SAYHELLO_QNAME = new QName("http://service.helloworld/", "sayHello");
+	private static final QName SAYHELLORESPONSE_QNAME = new QName("http://service.helloworld/", "sayHelloResponse");
 
 	/**
 	 * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: helloworld.client.proxy
@@ -56,7 +56,7 @@ public class ObjectFactory {
 	 */
 	@XmlElementDecl(namespace = "http://service.helloworld/", name = "sayHello")
 	public JAXBElement<SayHello> createSayHello(SayHello value) {
-		return new JAXBElement<SayHello>(_SayHello_QNAME, SayHello.class, null, value);
+		return new JAXBElement<SayHello>(SAYHELLO_QNAME, SayHello.class, null, value);
 	}
 
 	/**
@@ -65,7 +65,7 @@ public class ObjectFactory {
 	 */
 	@XmlElementDecl(namespace = "http://service.helloworld/", name = "sayHelloResponse")
 	public JAXBElement<SayHelloResponse> createSayHelloResponse(SayHelloResponse value) {
-		return new JAXBElement<SayHelloResponse>(_SayHelloResponse_QNAME, SayHelloResponse.class, null, value);
+		return new JAXBElement<SayHelloResponse>(SAYHELLORESPONSE_QNAME, SayHelloResponse.class, null, value);
 	}
 
 }

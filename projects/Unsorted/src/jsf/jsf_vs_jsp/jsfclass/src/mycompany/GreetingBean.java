@@ -11,12 +11,10 @@ public class GreetingBean implements Serializable {
 	private String businessProblem;
 
 	public String greet() {
-		if(!String.valueOf(cell).contains("-"))
-		{
+		if (!String.valueOf(cell).contains("-")) {
 			businessProblem = "cell no must contain the - sign";
 			return ("businessProblem");
 		}
-
 		greetText = "Dear Mr " + name + " your cell number is " + cell;
 		return ("success");
 	}
@@ -25,28 +23,28 @@ public class GreetingBean implements Serializable {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String iname) {
+		name = iname;
 	}
 
 	public String getCell() {
 		return cell;
 	}
 
-	public void setCell(String cell) {
-		this.cell = cell;
+	public void setCell(String icell) {
+		cell = icell;
 	}
 
-	public void setGreetText(String greetText) {
-		this.greetText = greetText;
+	public void setGreetText(String igreetText) {
+		greetText = igreetText;
 	}
 
 	public String getGreetText() {
 		return greetText;
 	}
 
-	public void setBusinessProblem(String businessProblem) {
-		this.businessProblem = businessProblem;
+	public void setBusinessProblem(String ibusinessProblem) {
+		businessProblem = ibusinessProblem;
 	}
 
 	public String getBusinessProblem() {

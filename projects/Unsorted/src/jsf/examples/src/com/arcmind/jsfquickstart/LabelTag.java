@@ -15,8 +15,8 @@ public class LabelTag extends UIComponentTag {
 	/**
 	 * @param label The label to set.
 	 */
-	public void setLabel(String label) {
-		this.label = label;
+	public void setLabel(String ilabel) {
+		label = ilabel;
 	}
 	/**
 	 * @see javax.faces.webapp.UIComponentTag#setProperties(javax.faces.component.UIComponent)
@@ -25,7 +25,7 @@ public class LabelTag extends UIComponentTag {
 	protected void setProperties(UIComponent component) {
 		/* you have to call the super class */
 		super.setProperties(component);
-		((LabelComponent)component).setLabel(label);
+		((LabelComponent) component).setLabel(label);
 	}
 	/**
 	 * @see javax.faces.webapp.UIComponentTag#getComponentType()

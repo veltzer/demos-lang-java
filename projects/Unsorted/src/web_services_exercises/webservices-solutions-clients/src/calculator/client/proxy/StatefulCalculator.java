@@ -26,7 +26,7 @@ public interface StatefulCalculator {
 	@WebMethod
 	@RequestWrapper(localName = "startCalc", targetNamespace = "http://service.calculator/", className = "calculator.client.proxy.StartCalc")
 	@ResponseWrapper(localName = "startCalcResponse", targetNamespace = "http://service.calculator/", className = "calculator.client.proxy.StartCalcResponse")
-	public void startCalc(
+	void startCalc(
 		@WebParam(name = "arg0", targetNamespace = "")
 		float arg0);
 
@@ -41,7 +41,7 @@ public interface StatefulCalculator {
 	@WebResult(targetNamespace = "")
 	@RequestWrapper(localName = "invokeOperation", targetNamespace = "http://service.calculator/", className = "calculator.client.proxy.InvokeOperation")
 	@ResponseWrapper(localName = "invokeOperationResponse", targetNamespace = "http://service.calculator/", className = "calculator.client.proxy.InvokeOperationResponse")
-	public float invokeOperation(
+	float invokeOperation(
 		@WebParam(name = "arg0", targetNamespace = "")
 		Operation arg0,
 		@WebParam(name = "arg1", targetNamespace = "")

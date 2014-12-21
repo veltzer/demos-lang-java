@@ -21,7 +21,7 @@ public class ShoppingCartBean {
 		/* Make sure we don't add the same title twice */
 		String title = (String) map.get("title");
 		CD cd = (CD) itemMap.get(title);
-		if (cd!=null) {
+		if (cd != null) {
 			return "add";
 		}
 
@@ -31,7 +31,7 @@ public class ShoppingCartBean {
 
 		/* Create a new CD and add it to the list and map */
 		cd = new CD(title, artist, price);
-		itemMap.put(cd.getTitle(),cd);
+		itemMap.put(cd.getTitle(), cd);
 		items.add(cd);
 
 		return "add";
