@@ -72,7 +72,7 @@ public class XMLElement {
 
 			TagsCountVisitor tagsCountVisitor = new TagsCountVisitor();
 			root.accept(tagsCountVisitor);
-			System.out.println("Number of tags: " + tagsCountVisitor.countTags);
+			System.out.println("Number of tags: " + tagsCountVisitor.getCountTags());
 			System.out.println("Done");
 		} catch (Exception e) {
 			e.printStackTrace();

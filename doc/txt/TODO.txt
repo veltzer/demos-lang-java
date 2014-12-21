@@ -2,7 +2,7 @@ Now:
 ====
 - maybe run checkstyle with full classpath?
 - do a parser to checkstyle output which removes it's annoying prints.
-- get to full check and full build of this project.
+- get to full build of this project.
 
 - turn the install instructions into a script.
 - run checkstyle as part of ant.

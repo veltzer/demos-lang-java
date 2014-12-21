@@ -5,9 +5,9 @@ public class SuspendedState extends AbstractDeviceState {
 		super(device);
 	}
 	public void resume() {
-		device.setState(device.ENABLED_STATE);
+		getDevice().setState(getDevice().getEnabledState());
 	}
 	public void disable() {
-		device.setState(device.DISABLED_STATE);
+		getDevice().setState(getDevice().getDisableState());
 	}
 }

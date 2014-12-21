@@ -5,10 +5,10 @@ public class EnabledState extends AbstractDeviceState {
 		super(device);
 	}
 	public void disable() {
-		device.setState(device.DISABLED_STATE);
+		getDevice().setState(getDevice().getDisableState());
 	}
 	public void suspend() {
-		device.setState(device.SUSPENDED_STATE);
+		getDevice().setState(getDevice().getSuspendedState());
 	}
 	public void transmit() {
 		System.out.println("Transmitting");

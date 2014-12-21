@@ -5,6 +5,6 @@ public class DisabledState extends AbstractDeviceState {
 		super(device);
 	}
 	public void enable() {
-		device.setState(device.ENABLED_STATE);
+		getDevice().setState(getDevice().getEnabledState());
 	}
 }

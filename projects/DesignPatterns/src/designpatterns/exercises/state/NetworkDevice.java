@@ -2,13 +2,13 @@ package designpatterns.exercises.state;
 
 public class NetworkDevice implements INetworkDevice {
 	private AbstractDeviceState currentState;
-	public static final AbstractDeviceState DISABLED_STATE = new DisabledState(this);
-	public static final AbstractDeviceState ENABLED_STATE = new EnabledState(this);
-	public static final AbstractDeviceState SUSPENDED_STATE = new SuspendedState(this);
+	private final AbstractDeviceState disabledState = new DisabledState(this);
+	private final AbstractDeviceState enabledState = new EnabledState(this);
+	private final AbstractDeviceState suspendedState = new SuspendedState(this);
 
 	public NetworkDevice() {
 		super();
-		currentState = DISABLEDSTATE;
+		currentState = disabledState;
 	}
 	public void enable() {
 		currentState.enable();
@@ -45,5 +45,14 @@ public class NetworkDevice implements INetworkDevice {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	public AbstractDeviceState getDisableState() {
+		return disabledState;
+	}
+	public AbstractDeviceState getEnabledState() {
+		return enabledState;
+	}
+	public AbstractDeviceState getSuspendedState() {
+		return suspendedState;
 	}
 }

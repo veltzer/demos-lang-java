@@ -4,7 +4,7 @@ public class AbstractDeviceState implements INetworkDevice {
 	private NetworkDevice device;
 
 	public AbstractDeviceState(NetworkDevice idevice) {
-		device = idevice;
+		setDevice(idevice);
 	}
 	public void enable() {
 		throw new UnsupportedOperationException("enable not applicable for: " + getClass().getName());
@@ -23,5 +23,11 @@ public class AbstractDeviceState implements INetworkDevice {
 	}
 	public void resume() {
 		throw new UnsupportedOperationException("resume not applicable for: " + getClass().getName());
+	}
+	public NetworkDevice getDevice() {
+		return device;
+	}
+	public void setDevice(NetworkDevice idevice) {
+		device = idevice;
 	}
 }
