@@ -9,7 +9,7 @@ package ejb.exercises.exercises.client_source.clients;
  * <li> Add some book titles to it
  * <li> Place the order (Receiving a confimration id)
  */
-public class ShoppingCartClient {
+public abstract class ShoppingCartClient {
 	public static void main(String[] args) {
 		// Lookup - here you should lookup and create the ShoppingCart EJB:
 

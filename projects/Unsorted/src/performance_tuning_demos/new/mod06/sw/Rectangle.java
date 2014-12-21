@@ -1,6 +1,6 @@
 public class Rectangle implements Shape {
-	final private double length;
-	final private double width;
+	private final double length;
+	private final double width;
 
 	public Rectangle(double ilength, double iwidth) {
 		length = ilength;

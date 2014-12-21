@@ -1,7 +1,7 @@
 package foo;
 
 public class ReadThread extends Thread {
-	final private static int DEFAULT_SLEEP_TIME = 10;
+	private static final int DEFAULT_SLEEP_TIME = 10;
 	private Queue itsQueue;
 
 	public ReadThread(Queue theQueue) {
@@ -10,9 +10,9 @@ public class ReadThread extends Thread {
 
 	@Override
 	public void run() {
-		for (;;) {
+		while (true) {
 			//System.err.println("Getting an item from the queue...");
-			Integer workTime = (Integer)getWorkItemFromQueue();
+			Integer workTime = (Integer) getWorkItemFromQueue();
 			//System.err.println("Processing item from queue...");
 			doWorkOnItem(workTime);
 		}
@@ -36,8 +36,7 @@ public class ReadThread extends Thread {
 		long curTime = System.currentTimeMillis();
 		long elapsedTime, laterTime = 0;
 		int iteration = 1;
-		do
-		{
+		do {
 			// simulate blocking/waiting time on
 			// every 5th time through here
 			if (iteration++ % 2000 == 0) { //System.err.println("Sleeping...");

@@ -1,6 +1,6 @@
 // Square class
 public class Square implements Shape {
-	final private double side;
+	private final double side;
 
 	public Square(double iside) {
 		side = iside;

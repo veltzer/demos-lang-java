@@ -1,7 +1,7 @@
 package ejb.exercises.solutions.source.bookcmp;
 
-import javax.ejb.EJBLocalHome;
 import javax.ejb.CreateException;
+import javax.ejb.EJBLocalHome;
 import javax.ejb.FinderException;
 
 public interface BookHome extends EJBLocalHome {

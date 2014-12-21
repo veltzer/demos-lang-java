@@ -45,11 +45,11 @@ public class BookDTO implements Serializable {
 		return price;
 	}
 
-	public void setPrice(double price) {
-		this.price = price;
+	public void setPrice(double iprice) {
+		price = iprice;
 	}
 
 	public String toString() {
-		return "BookDTO:"+ title + " by:"+ author + " price:"+price;
+		return "BookDTO:" + title + " by:" + author + " price:" + price;
 	}
 }

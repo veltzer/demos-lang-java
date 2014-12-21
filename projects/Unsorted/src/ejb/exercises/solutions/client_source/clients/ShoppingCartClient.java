@@ -14,7 +14,7 @@ import ejb.exercises.solutions.source.shopping.ShoppingCart;
  * <li> Add some book titles to it
  * <li> Place the order (Receiving a confimration id)
  */
-public class ShoppingCartClient {
+public abstract class ShoppingCartClient {
 
 	public static void main(String[] args) throws Exception {
 		// Lookup:

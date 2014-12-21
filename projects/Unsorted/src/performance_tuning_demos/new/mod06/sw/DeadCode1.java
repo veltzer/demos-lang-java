@@ -1,7 +1,7 @@
-public class DeadCode1 {
+public abstract class DeadCode1 {
 
-	final private static long NANOS_PER_MS = 1000000L;
-	final private static int NUMBER = 25;
+	private static final long NANOS_PER_MS = 1000000L;
+	private static final int NUMBER = 25;
 
 	// Non-recursive Fibonacci calculator
 	private static int calcFibonacci(int n) {
@@ -18,17 +18,17 @@ public class DeadCode1 {
 
 	private static void doTest(long iterations) {
 		long startTime = System.nanoTime();
-		for (long i = 0; i < iterations; i++)
+		for (long i = 0; i < iterations; i++) {
 			calcFibonacci(NUMBER);
+		}
 		long elapsedTime = System.nanoTime() - startTime;
-		System.out.println("	Elapsed nanoseconds -> " +
-							elapsedTime);
+		System.out.println("	Elapsed nanoseconds -> " + elapsedTime);
 		float millis = elapsedTime / NANOS_PER_MS;
 		float itrsPerMs = 0;
-		if (millis != 0)
-			itrsPerMs = iterations/millis;
-		System.out.println("	Iterations per ms ---> " +
-							itrsPerMs);
+		if (millis != 0) {
+			itrsPerMs = iterations / millis;
+		}
+		System.out.println("	Iterations per ms ---> " + itrsPerMs);
 	}
 
 	public static void main(String[] args) {
@@ -41,4 +41,3 @@ public class DeadCode1 {
 		System.out.println("Test completed.");
 	}
 }
-

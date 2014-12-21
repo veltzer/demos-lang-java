@@ -1,5 +1,6 @@
 Now:
 ====
+- maybe run checkstyle with full classpath?
 - do a parser to checkstyle output which removes it's annoying prints.
 - get to full check and full build of this project.
 

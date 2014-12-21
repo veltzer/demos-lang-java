@@ -1,9 +1,12 @@
 package jsp.exercises.taglibs.solutions.database;
 
-import javax.servlet.jsp.*;
-import javax.servlet.jsp.tagext.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
-import java.sql.*;
+import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.tagext.TagSupport;
 
 @SuppressWarnings("serial")
 public class TableTag extends TagSupport {

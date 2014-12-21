@@ -1,7 +1,7 @@
-public class Area {
-	final static long ITERATIONS = 5000000000L;
-	final static long NANOS_PER_MS = (1000L * 1000L);
-	final static StringBuilder sb = new StringBuilder();
+public abstract class Area {
+	static final long ITERATIONS = 5000000000L;
+	static final long NANOS_PER_MS = (1000L * 1000L);
+	static final StringBuilder SB = new StringBuilder();
 
 	private static void printStats(String s, long n, long elapsedTime) {
 		float millis = elapsedTime / NANOS_PER_MS;
@@ -20,9 +20,9 @@ public class Area {
 			area = s.area();
 		}
 		long elapsedTime = System.nanoTime() - start;
-		sb.append(str).append(area);
-		System.out.println(sb.toString());
-		sb.setLength(0);
+		SB.append(str).append(area);
+		System.out.println(SB.toString());
+		SB.setLength(0);
 		return elapsedTime;
 	}
 

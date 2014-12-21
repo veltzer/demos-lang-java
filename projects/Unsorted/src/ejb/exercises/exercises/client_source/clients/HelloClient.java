@@ -5,7 +5,7 @@ package ejb.exercises.exercises.client_source.clients;
  *
  * This simple test obtains a Greet stub and invokes its method(s).
  */
-public class HelloClient {
+public abstract class HelloClient {
 	public static void main(String[] args) {
 		//create an InitialContext
 		//lookup a remote object

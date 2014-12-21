@@ -10,7 +10,7 @@ package ejb.exercises.exercises.client_source.clients;
  * <li> Viewing all books / all customers
  *
  */
-public class BookstoreClient {
+public abstract class BookstoreClient {
 
 	public static void main(String[] args) {
 		// Lookup - Here you should lookup and create the BookstoreAdmin EJB:

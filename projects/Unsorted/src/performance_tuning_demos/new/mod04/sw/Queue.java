@@ -19,7 +19,7 @@ public class Queue {
 	// add theObject to the queue, if there
 	// no objects on the queue, then notify
 	// that there is one now
-	synchronized public void enqueue(Object theObject) throws InterruptedException {
+	public synchronized void enqueue(Object theObject) throws InterruptedException {
 		if (itsBuffers.size() == 0) {
 			// System.err.println("Notifying thread...");
 			notifyAll();
@@ -36,14 +36,15 @@ public class Queue {
 		itsEnqueueCount++;
 
 		// track the operational maximum depth reached
-		if (itsBuffers.size() > itsMaxOpDepth)
+		if (itsBuffers.size() > itsMaxOpDepth) {
 			itsMaxOpDepth = itsBuffers.size();
+		}
 	}
 
 	// if there's an item on the queue, then
 	// process it. If not, go to sleep and
 	// wait for a notify.
-	synchronized public Object dequeue() throws InterruptedException {
+	public synchronized Object dequeue() throws InterruptedException {
 		while (itsBuffers.size() == 0) {
 			//System.err.println("Waiting on empty queue...");
 			wait();
@@ -54,7 +55,7 @@ public class Queue {
 			// notify writer it can write
 			notifyAll();
 			itsMaxReached = false;
-			System.err.println("Thread ("+ Thread.currentThread().getName() + ") read on max queue depth...");
+			System.err.println("Thread (" + Thread.currentThread().getName() + ") read on max queue depth...");
 		}
 
 		Object firstItem = itsBuffers.elementAt(0);
@@ -65,16 +66,16 @@ public class Queue {
 	}
 
 	// get the count of Items dequeue'd
-	synchronized public int getDequeuedCount() {
+	public synchronized int getDequeuedCount() {
 		return itsDequeueCount;
 	}
 
 	// get the count of Items enqueued
-	synchronized public int getEnqueuedCount() {
+	public synchronized int getEnqueuedCount() {
 		return itsEnqueueCount;
 	}
 
-	synchronized public int getMaxOperationalDepth() {
+	public synchronized int getMaxOperationalDepth() {
 		return itsMaxOpDepth;
 	}
 }

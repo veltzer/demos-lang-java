@@ -12,8 +12,7 @@ import javax.security.auth.callback.TextInputCallback;
 import javax.security.auth.callback.TextOutputCallback;
 import javax.security.auth.callback.UnsupportedCallbackException;
 
-import weblogic.security.auth.callback.*;
-
+//import weblogic.security.auth.callback.*;
 
 class WeblogicCallbackHandler implements CallbackHandler {
 
@@ -34,6 +33,7 @@ class WeblogicCallbackHandler implements CallbackHandler {
 		System.out.println("Please login to WebLogic.");
 
 		for (int i = 0; i < callbacks.length; i++) {
+			bool found = false;
 			if (callbacks[i] instanceof TextOutputCallback) {
 				// Display the message according to the specified type
 				TextOutputCallback toc = (TextOutputCallback) callbacks[i];
@@ -50,7 +50,9 @@ class WeblogicCallbackHandler implements CallbackHandler {
 					default :
 						throw new IOException("Unsupported message type: " + toc.getMessageType());
 				}
-			} else if (callbacks[i] instanceof NameCallback) {
+				found = true;
+			}
+			if (callbacks[i] instanceof NameCallback) {
 				// If username not supplied on cmd line, prompt the user for the username.
 				NameCallback nc = (NameCallback) callbacks[i];
 				if (username == null || username.equals("")) {
@@ -61,9 +63,9 @@ class WeblogicCallbackHandler implements CallbackHandler {
 					System.out.println("username: " + username);
 					nc.setName(username);
 				}
+				found = true;
 			}
-
-			else if (callbacks[i] instanceof URLCallback) {
+			if (callbacks[i] instanceof URLCallback) {
 				// If url not supplied on cmd line, prompt the user for the url.
 				// This example requires the url.
 				URLCallback uc = (URLCallback) callbacks[i];
@@ -75,9 +77,9 @@ class WeblogicCallbackHandler implements CallbackHandler {
 					System.out.println("URL: " + url);
 					uc.setURL(url);
 				}
+				found = true;
 			}
-
-			else if (callbacks[i] instanceof PasswordCallback) {
+			if (callbacks[i] instanceof PasswordCallback) {
 				PasswordCallback pc = (PasswordCallback) callbacks[i];
 
 				// If password not supplied on cmd line, prompt the user for the password.
@@ -89,23 +91,29 @@ class WeblogicCallbackHandler implements CallbackHandler {
 					String tmpPassword = (new BufferedReader(new InputStreamReader(System.in))).readLine();
 					int passLen = tmpPassword.length();
 					char[] passwordArray = new char[passLen];
-					for (int passIdx = 0; passIdx < passLen; passIdx++)
+					for (int passIdx = 0; passIdx < passLen; passIdx++) {
 						passwordArray[passIdx] = tmpPassword.charAt(passIdx);
+					}
 					pc.setPassword(passwordArray);
 				} else {
 					String tPass = new String();
-					for (int p = 0; p < password.length(); p++)
+					for (int p = 0; p < password.length(); p++) {
 						tPass += "*";
+					}
 					System.out.println("password: " + tPass);
 					pc.setPassword(password.toCharArray());
 				}
-			} else if (callbacks[i] instanceof TextInputCallback) {
+				found = true;
+			}
+			if (callbacks[i] instanceof TextInputCallback) {
 				// Prompt the user for the username
 				TextInputCallback callback = (TextInputCallback) callbacks[i];
 				System.err.print(callback.getPrompt());
 				System.err.flush();
 				callback.setText((new BufferedReader(new InputStreamReader(System.in))).readLine());
-			} else {
+				found = true;
+			}
+			if (!found) {
 				throw new UnsupportedCallbackException(callbacks[i], "Unrecognized Callback");
 			}
 		}

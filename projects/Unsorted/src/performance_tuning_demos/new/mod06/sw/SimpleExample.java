@@ -1,8 +1,8 @@
-public class SimpleExample {
+public abstract class SimpleExample {
 
-	final private static long ITERATIONS = 5000000000L;
-	final private static long WARMUP = 10000000L;
-	final private static long NANOS_PER_MS = 1000L * 1000L;
+	private static final long ITERATIONS = 5000000000L;
+	private static final long WARMUP = 10000000L;
+	private static final long NANOS_PER_MS = 1000L * 1000L;
 
 	private static boolean equalsTest(String s) {
 		boolean b = s.equals(s);
@@ -20,9 +20,9 @@ public class SimpleExample {
 
 	private static void printStats(long n, long nanos) {
 		float itrsPerMs = 0;
-		float millis = nanos/NANOS_PER_MS;
+		float millis = nanos / NANOS_PER_MS;
 		if (millis != 0) {
-			itrsPerMs = n/(nanos/NANOS_PER_MS);
+			itrsPerMs = n / (nanos / NANOS_PER_MS);
 		}
 		System.out.println("	Elapsed time in ms -> " + millis);
 		System.out.println("	Iterations / ms ----> " + itrsPerMs);

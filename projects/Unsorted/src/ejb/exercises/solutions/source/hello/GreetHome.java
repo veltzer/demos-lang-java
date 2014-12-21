@@ -1,8 +1,9 @@
 package ejb.exercises.solutions.source.hello;
 
-import javax.ejb.EJBHome;
-import javax.ejb.CreateException;
 import java.rmi.RemoteException;
+
+import javax.ejb.CreateException;
+import javax.ejb.EJBHome;
 
 /**
  * Home interface for the Hello Bean

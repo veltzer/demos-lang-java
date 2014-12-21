@@ -1,6 +1,8 @@
 package jsp.exercises.taglibs.solutions.database;
 
-import javax.servlet.jsp.tagext.*;
+import javax.servlet.jsp.tagext.TagData;
+import javax.servlet.jsp.tagext.TagExtraInfo;
+import javax.servlet.jsp.tagext.VariableInfo;
 
 public class ConnectionExtraInfo extends TagExtraInfo {
 	public VariableInfo[] getVariableInfo(TagData data) {

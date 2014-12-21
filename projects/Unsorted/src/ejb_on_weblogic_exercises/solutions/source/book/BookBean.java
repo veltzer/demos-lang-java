@@ -1,56 +1,51 @@
 package book;
 
-import java.util.*;
+//import java.util.*;
 
-import javax.ejb.*;
-import javax.naming.*;
-import javax.sql.*;
+//import javax.ejb.*;
+//import javax.naming.*;
+//import javax.sql.*;
+import javax.ejb.EJBException;
+import javax.ejb.CreateException;
+import javax.ejb.RemoveException;
+import javax.ejb.FinderException;
 
-import daos.*;
-import dtos.*;
+//import daos.*;
+//import dtos.*;
 
 public class BookBean implements EntityBean {
-
 	private double price;
-
 	private String author;
-
 	private String title;
-
 	private BookstoreDAO dao;
-
 	private EntityContext ctx;
 
-	public void setEntityContext(EntityContext ctx)
-		throws EJBException {
-		this.ctx = ctx;
+	public void setEntityContext(EntityContext ictx) {
+		ctx = ictx;
 		try {
-			InitialContext ictx = new InitialContext();
+			InitialContext nctx = new InitialContext();
 			DataSource dataSource =
-				(DataSource) ictx.lookup("java:comp/env/jdbc/MyDS");
+				(DataSource) nctx.lookup("java:comp/env/jdbc/MyDS");
 			dao = BookstoreDaoFactory.getDAO(dataSource);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			throw new EJBException("failed to set Entity context");
 		}
-
 	}
 
 	public void unsetEntityContext() {
 		ctx = null;
 	}
 
-
-	public String ejbCreate(String title, String author, double price)
-		throws CreateException {
-		dao.insertBook(title, author, price);
-		setTitle(title);
-		setAuthor(author);
-		setPrice(price);
+	public String ejbCreate(String ititle, String iauthor, double iprice) throws CreateException {
+		dao.insertBook(ititle, iauthor, iprice);
+		setTitle(ititle);
+		setAuthor(iauthor);
+		setPrice(iprice);
 		return title;
 	}
 
-	public void ejbPostCreate(String title, String author, double price) {
+	public void ejbPostCreate(String ititle, String iauthor, double iprice) {
 	}
 
 	public void ejbActivate() {
@@ -75,13 +70,10 @@ public class BookBean implements EntityBean {
 		dao.updateBook(getTitle(), getAuthor(), getPrice());
 	}
 
-
-
-	public String ejbFindByPrimaryKey(String title) throws FinderException {
-		if (dao.selectBook(title) != null) {
-			return title;
+	public String ejbFindByPrimaryKey(String ititle) throws FinderException {
+		if (dao.selectBook(ititle) != null) {
+			return ititle;
 		}
-
 		throw new ObjectNotFoundException("Cannot find PK");
 	}
 
@@ -96,24 +88,23 @@ public class BookBean implements EntityBean {
 		return result;
 	}
 
-
 	public String getTitle() {
 		return title;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public void setTitle(String ititle) {
+		title = ititle;
 	}
 	public String getAuthor() {
 		return author;
 	}
-	public void setAuthor(String author) {
-		this.author = author;
+	public void setAuthor(String iauthor) {
+		author = iauthor;
 	}
 	public double getPrice() {
 		return price;
 	}
-	public void setPrice(double price) {
-		this.price = price;
+	public void setPrice(double iprice) {
+		price = iprice;
 	}
 
 }

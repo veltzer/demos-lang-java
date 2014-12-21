@@ -1,19 +1,19 @@
 package foo;
 
-public class BatchProcessor {
-	final private static int DEFAULT_TEST_TIME = 90;
-	final private static int DEFAULT_NUMBER_OF_READERS = 40;
-	final private static int DEFAULT_NUMBER_OF_WRITERS = 30;
-	final private static int DEFAULT_MAX_QUEUE_DEPTH = 15000;
+public abstract class BatchProcessor {
+	private static final int DEFAULT_TEST_TIME = 90;
+	private static final int DEFAULT_NUMBER_OF_READERS = 40;
+	private static final int DEFAULT_NUMBER_OF_WRITERS = 30;
+	private static final int DEFAULT_MAX_QUEUE_DEPTH = 15000;
 	private static int hiSrvTimeW = 50;
 	private static int loSrvTimeW = 8;
 	private static int hiSrvTimeR = 50;
 	private static int loSrvTimeR = 8;
 	private static Queue itsQueue = null;
-	private static ReadThread readThreads[] = null;
-	private static WriteThread writeThreads[] = null;
+	private static ReadThread[] readThreads = null;
+	private static WriteThread[] writeThreads = null;
 
-	static private void printUsage() {
+	private static void printUsage() {
 		System.err.println("Usage: java [-DhighServiceTimeW=r] [-DlowServiceTimeW=s] [-DhighServiceTimeR=t] [-DlowServiceTimeR=u] [-DreaderThreads=w] [-DwriterThreads=x] [-DqueueDepth=y] [-DtestTime=z] BatchProcessor [-help]");
 		System.err.println("\tr is the upper bound on the writer service time in ms, default = " + hiSrvTimeW);
 		System.err.println("\ts is the lower bound on the writer service time in ms, default = " + loSrvTimeW);
@@ -27,19 +27,19 @@ public class BatchProcessor {
 	}
 
 	private static void runReaderWriterThreads(int theNumberOfWriters, int theNumberOfReaders,
-			int hiSrvTimeR, int loSrvTimeR, int hiSrvTimeW, int loSrvTimeW) {
+			int ihiSrvTimeR, int iloSrvTimeR, int ihiSrvTimeW, int iloSrvTimeW) {
 
 		readThreads = new ReadThread[theNumberOfReaders];
 		writeThreads = new WriteThread[theNumberOfWriters];
 
 		for (int x = 0; x < theNumberOfReaders; x++) {
 			readThreads[x] = new ReadThread(itsQueue);
-			readThreads[x].setName("Read Thread-" + (x+1));
+			readThreads[x].setName("Read Thread-" + (x + 1));
 		}
 
 		for (int y = 0; y < theNumberOfWriters; y++) {
-			writeThreads[y] = new WriteThread(itsQueue,hiSrvTimeR,loSrvTimeR,hiSrvTimeW,loSrvTimeW);
-			writeThreads[y].setName("Writer Thread-" + (y+1));
+			writeThreads[y] = new WriteThread(itsQueue, ihiSrvTimeR, iloSrvTimeR, ihiSrvTimeW, iloSrvTimeW);
+			writeThreads[y].setName("Writer Thread-" + (y + 1));
 		}
 
 		// start the threads
@@ -133,7 +133,7 @@ public class BatchProcessor {
 		runReaderWriterThreads(writerThreads, readerThreads, hiSrvTimeR, loSrvTimeR, hiSrvTimeW, loSrvTimeW);
 
 		try {
-			Thread.sleep(testTime*1000);
+			Thread.sleep(testTime * 1000);
 		} catch (InterruptedException ex) {
 			ex.printStackTrace();
 		}
@@ -144,8 +144,8 @@ public class BatchProcessor {
 		totalDequeueCount = itsQueue.getDequeuedCount();
 		totalEnqueueCount = itsQueue.getEnqueuedCount();
 
-		float enqueueRate = totalEnqueueCount/testTime;
-		float dequeueRate = totalDequeueCount/testTime;
+		float enqueueRate = totalEnqueueCount / testTime;
+		float dequeueRate = totalDequeueCount / testTime;
 		System.err.println();
 		System.err.println("Maximum queue depth reached on Queue: " + itsQueue.getMaxOperationalDepth());
 		System.err.println("Total number of items enqueued: " + totalEnqueueCount);

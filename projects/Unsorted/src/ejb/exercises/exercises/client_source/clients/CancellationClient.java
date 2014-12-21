@@ -4,7 +4,7 @@ package ejb.exercises.exercises.client_source.clients;
  * A simple JMS client that places a cancellation requests
  * into a dedicated queue.
  */
-public class CancellationClient {
+public abstract class CancellationClient {
 	public static void main(String[] args) {
 		// Lookup JMS resources - here you should get a reference to the JMS
 		// resources you need in order to send the message to the queue.

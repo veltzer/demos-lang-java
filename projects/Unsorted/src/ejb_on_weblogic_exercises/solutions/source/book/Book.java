@@ -1,11 +1,11 @@
 package book;
 
-import javax.ejb.*;
+import javax.ejb.EJBLocalObject;
 
 public interface Book extends EJBLocalObject {
-	public String getTitle();
-	public String getAuthor();
-	public void setAuthor(String author);
-	public double getPrice();
-	public void setPrice(double price);
+	String getTitle();
+	String getAuthor();
+	void setAuthor(String author);
+	double getPrice();
+	void setPrice(double price);
 }

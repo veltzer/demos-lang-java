@@ -7,6 +7,8 @@ import javax.ejb.CreateException;
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 import javax.sql.DataSource;
+import javax.ejb.SessionContext;
+import javax.ejb.SessionBean;
 
 import ejb.exercises.solutions.source.daos.BookstoreDAO;
 import ejb.exercises.solutions.source.daos.BookstoreDaoFactory;
@@ -16,26 +18,17 @@ import ejb.exercises.solutions.source.dtos.BookDTO;
  * Bean implementation class for Enterprise Bean: ShoppingCart
  */
 @SuppressWarnings("serial")
-public class ShoppingCartBean implements javax.ejb.SessionBean {
+public class ShoppingCartBean implements SessionBean {
 	private BookstoreDAO dao;
-
 	private List<String> bookTitles;
 	private String customerId;
 
-	/**
-		* setSessionContext
-		*/
-	public void setSessionContext(javax.ejb.SessionContext ctx)
-	{
+	public void setSessionContext(SessionContext ctx) {
 		System.out.println(this.getClass().getName() + ".setSessionContext() was invoked...");
 	}
-	/**
-		* ejbCreate
-		*/
-	public void ejbCreate(String customerId) throws javax.ejb.CreateException
-	{
+	public void ejbCreate(String icustomerId) throws CreateException {
 		System.out.println(this.getClass().getName() + ".ejbCreate() was invoked...");
-		this.customerId = customerId;
+		customerId = icustomerId;
 		bookTitles = new LinkedList<String>();
 		// Note initialization must be done in create(). Do not
 		// initialize bookTitles at declaration !
@@ -43,54 +36,41 @@ public class ShoppingCartBean implements javax.ejb.SessionBean {
 		try {
 			InitialContext ictx = new InitialContext();
 			Object obj = ictx.lookup("jdbc/ds1");
-			DataSource dataSrouce = (DataSource) PortableRemoteObject.narrow(obj,DataSource.class);
+			DataSource dataSrouce = (DataSource) PortableRemoteObject.narrow(obj, DataSource.class);
 			dao = BookstoreDaoFactory.getDAO(dataSrouce);
 		} catch (Exception ex) {
 			ex.printStackTrace();
-			throw new CreateException("Cannot create bean. "+ex);
+			throw new CreateException("Cannot create bean. " + ex);
 		}
 	}
 
-	/**
-		* ejbActivate
-		*/
-	public void ejbActivate()
-	{
+	public void ejbActivate() {
 		System.out.println(this.getClass().getName() + ".ejbActivate() was invoked...");
 	}
-	/**
-		* ejbPassivate
-		*/
-	public void ejbPassivate()
-	{
+	public void ejbPassivate() {
 		System.out.println(this.getClass().getName() + ".ejbPassivate() was invoked...");
 	}
-	/**
-		* ejbRemove
-		*/
 	public void ejbRemove() {
 		System.out.println(this.getClass().getName() + ".ejbRemove() was invoked...");
 		bookTitles = null;
 	}
-
 	public String getCustomerId() {
 		return customerId;
 	}
-
-	public void addToCart(String bookTitle) throws NoSuchBookException {
+	public void addToCart(String bookTitle) {
 		BookDTO foundBook = dao.selectBook(bookTitle);
-		if (foundBook == null)
+		if (foundBook == null) {
 			throw new NoSuchBookException("No such book:" + bookTitle);
+		}
 		bookTitles.add(bookTitle);
 	}
-
 	public List<String> getTitlesInCart() {
 		return bookTitles;
 	}
-
-	public String placeOrder() throws EmptyOrderException {
-		if (bookTitles.size() == 0)
+	public String placeOrder() {
+		if (bookTitles.size() == 0) {
 			throw new EmptyOrderException("Order must include some items");
+		}
 
 		// Generate an order id. Due to time limitations, we shall settle
 		// for a random number, assuming it will be unique.
@@ -98,11 +78,10 @@ public class ShoppingCartBean implements javax.ejb.SessionBean {
 		// - using a database record
 		// - vender-specific sequential numbers (requires jdbc 3.0 !)
 		// - stored procedure
-		String orderId = "" + ((int)Math.random()*1000);
+		String orderId = "" + ((int) Math.random() * 1000);
 
 		long time = System.currentTimeMillis();
 		dao.insertOrder(orderId, customerId, time, bookTitles);
 		return orderId;
 	}
-
 }

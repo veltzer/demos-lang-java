@@ -7,7 +7,7 @@ import javax.sql.DataSource;
  * Current implementation simply returns a DAO implementation which
  * relies on sql92.
  */
-public class BookstoreDaoFactory {
+public abstract class BookstoreDaoFactory {
 	public static BookstoreDAO getDAO(DataSource dataSource) {
 		return new SQL92BookstoreDAO(dataSource);
 	}

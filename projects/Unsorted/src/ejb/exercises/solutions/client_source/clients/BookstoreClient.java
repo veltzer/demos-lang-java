@@ -1,6 +1,6 @@
 package ejb.exercises.solutions.client_source.clients;
 
-import java.util.*;
+//import java.util.*;
 
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
@@ -20,13 +20,13 @@ import ejb.exercises.solutions.source.dtos.CustomerDTO;
  * <li> Viewing all books / all customers
  *
  */
-public class BookstoreClient {
+public abstract class BookstoreClient {
 
 	public static void main(String[] args) throws Exception {
 		// Lookup:
 		InitialContext ictx = new InitialContext();
 		Object obj = ictx.lookup("ejb/admin/BookstoreAdminHome");
-		BookstoreAdminHome adminHome = (BookstoreAdminHome) PortableRemoteObject.narrow(obj,BookstoreAdminHome.class);
+		BookstoreAdminHome adminHome = (BookstoreAdminHome) PortableRemoteObject.narrow(obj, BookstoreAdminHome.class);
 		BookstoreAdmin admin = adminHome.create();
 
 		// Add books:
