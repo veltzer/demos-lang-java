@@ -13,16 +13,15 @@ public class TableTag extends TagSupport {
 
 	/** Holds value of property tableName. */
 	private String tableName;
-
-	ResultSet rs;
+	private ResultSet rs;
 
 	public int doStartTag() throws JspException {
-		try{
+		try {
 			Connection con = (Connection) pageContext.getAttribute("connection");
-			if (con==null) {
+			if (con == null) {
 				throw new JspException("Connection not found.");
 			}
-			String sql = "SELECT * from "+tableName;
+			String sql = "SELECT * from " + tableName;
 			Statement stmt = con.createStatement();
 			rs = stmt.executeQuery(sql);
 
@@ -62,7 +61,7 @@ public class TableTag extends TagSupport {
 	/** Setter for property tableName.
 	 * @param tableName New value of property tableName.
 	 */
-	public void setTableName(String tableName) {
-		this.tableName = tableName;
+	public void setTableName(String itableName) {
+		tableName = itableName;
 	}
 }

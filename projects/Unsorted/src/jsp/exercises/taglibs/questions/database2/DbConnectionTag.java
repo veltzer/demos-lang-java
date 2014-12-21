@@ -16,17 +16,16 @@ public class DbConnectionTag extends TagSupport {
 	private String url;
 
 	/** Holds value of property user. */
-	private String user=null;
+	private String user = null;
 
 	/** Holds value of property password. */
-	private String password=null;
+	private String password = null;
 
 	public int doStartTag() throws JspException {
 		try {
 			Class.forName(driver);
-
 			Connection con = DriverManager.getConnection(url, user, password);
-			pageContext.setAttribute("connection",con);
+			pageContext.setAttribute("connection", con);
 		} catch (Exception e) {
 			pageContext.removeAttribute("connection");
 			throw new JspException(e);

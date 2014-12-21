@@ -16,17 +16,16 @@ public class DbConnectionTag extends TagSupport {
 	private String url;
 
 	/** Holds value of property user. */
-	private String user=null;
+	private String user = null;
 
 	/** Holds value of property password. */
-	private String password=null;
+	private String password = null;
 
 	public int doStartTag() throws JspException {
-		try{
+		try {
 			Class.forName(driver);
-
 			Connection con = DriverManager.getConnection(url, user, password);
-			pageContext.setAttribute("connection",con);
+			pageContext.setAttribute("connection", con);
 		} catch (Exception e) {
 			pageContext.removeAttribute("connection");
 			throw new JspException(e);
@@ -45,8 +44,8 @@ public class DbConnectionTag extends TagSupport {
 	/** Setter for property driver.
 	 * @param driver New value of property driver.
 	 */
-	public void setDriver(String driver) {
-		this.driver = driver;
+	public void setDriver(String idriver) {
+		driver = idriver;
 	}
 
 	/** Getter for property url.
@@ -59,8 +58,8 @@ public class DbConnectionTag extends TagSupport {
 	/** Setter for property url.
 	 * @param url New value of property url.
 	 */
-	public void setUrl(String url) {
-		this.url = url;
+	public void setUrl(String iurl) {
+		url = iurl;
 	}
 
 	/** Getter for property user.
@@ -73,8 +72,8 @@ public class DbConnectionTag extends TagSupport {
 	/** Setter for property user.
 	 * @param user New value of property user.
 	 */
-	public void setUser(String user) {
-		this.user = user;
+	public void setUser(String iuser) {
+		user = iuser;
 	}
 
 	/** Getter for property password.
@@ -87,8 +86,8 @@ public class DbConnectionTag extends TagSupport {
 	/** Setter for property password.
 	 * @param password New value of property password.
 	 */
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPassword(String ipassword) {
+		password = ipassword;
 	}
 
 }
