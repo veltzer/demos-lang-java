@@ -14,22 +14,10 @@ public class GetAddressResponse {
 	@XmlElement(name = "return", namespace = "")
 	private addressbook.service.Address vreturn;
 
-	/**
-	 *
-	 * @return
-	 *	 returns Address
-	 */
-	public addressbook.service.Address get_return() {
+	public addressbook.service.Address getReturn() {
 		return vreturn;
 	}
-
-	/**
-	 *
-	 * @param _return
-	 *	 the value for the _return property
-	 */
-	public void set_return(addressbook.service.Address ivreturn) {
+	public void setReturn(addressbook.service.Address ivreturn) {
 		vreturn = ivreturn;
 	}
-
 }

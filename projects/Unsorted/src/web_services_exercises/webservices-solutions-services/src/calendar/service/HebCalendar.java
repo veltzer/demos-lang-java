@@ -1,8 +1,7 @@
 package calendar.service;
 
-import java.util.*;
-
-import javax.jws.*;
+//import java.util.*;
+//import javax.jws.*;
 
 @WebService
 public class HebCalendar {
@@ -24,6 +23,8 @@ public class HebCalendar {
 			case 5: return "חמישי";
 			case 6: return "שישי";
 			case 7: return "שבת";
+			default:
+				return null;
 		}
 		return null;
 	}

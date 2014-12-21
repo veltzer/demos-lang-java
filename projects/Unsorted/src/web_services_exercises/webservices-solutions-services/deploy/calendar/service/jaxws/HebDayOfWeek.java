@@ -15,23 +15,11 @@ public class HebDayOfWeek {
 
 	@XmlElement(name = "arg0", namespace = "")
 	private Date arg0;
-
-	/**
-	 *
-	 * @return
-	 *	 returns Date
-	 */
 	public Date getArg0() {
-		return this.arg0;
+		return arg0;
 	}
-
-	/**
-	 *
-	 * @param arg0
-	 *	 the value for the arg0 property
-	 */
-	public void setArg0(Date arg0) {
-		this.arg0 = arg0;
+	public void setArg0(Date iarg0) {
+		arg0 = iarg0;
 	}
 
 }

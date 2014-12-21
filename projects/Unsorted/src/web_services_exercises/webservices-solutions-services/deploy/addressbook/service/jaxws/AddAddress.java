@@ -20,40 +20,17 @@ public class AddAddress {
 	@XmlElement(name = "arg1", namespace = "")
 	private addressbook.service.Address arg1;
 
-	/**
-	 *
-	 * @return
-	 *	 returns String
-	 */
 	public String getArg0() {
-		return this.arg0;
+		return arg0;
 	}
-
-	/**
-	 *
-	 * @param arg0
-	 *	 the value for the arg0 property
-	 */
-	public void setArg0(String arg0) {
-		this.arg0 = arg0;
+	public void setArg0(String iarg0) {
+		arg0 = iarg0;
 	}
-
-	/**
-	 *
-	 * @return
-	 *	 returns Address
-	 */
 	public addressbook.service.Address getArg1() {
-		return this.arg1;
+		return arg1;
 	}
-
-	/**
-	 *
-	 * @param arg1
-	 *	 the value for the arg1 property
-	 */
-	public void setArg1(addressbook.service.Address arg1) {
-		this.arg1 = arg1;
+	public void setArg1(addressbook.service.Address iarg1) {
+		arg1 = iarg1;
 	}
 
 }

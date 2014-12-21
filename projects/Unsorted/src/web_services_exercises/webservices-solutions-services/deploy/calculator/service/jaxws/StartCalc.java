@@ -20,15 +20,15 @@ public class StartCalc {
 	 *	 returns float
 	 */
 	public float getArg0() {
-		return this.arg0;
+		return arg0;
 	}
 
 	/**
 	 * @param arg0
 	 *	 the value for the arg0 property
 	 */
-	public void setArg0(float arg0) {
-		this.arg0 = arg0;
+	public void setArg0(float iarg0) {
+		arg0 = iarg0;
 	}
 
 }

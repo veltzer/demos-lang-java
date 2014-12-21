@@ -28,7 +28,7 @@ public class SayHello {
 	 * @param arg0
 	 * the value for the arg0 property
 	 */
-	public void setArg0(String arg0) {
-		this.arg0 = arg0;
+	public void setArg0(String iarg0) {
+		arg0 = iarg0;
 	}
 }

@@ -1,11 +1,10 @@
 package addressbook.service.handler;
 
-import java.util.*;
-
-import javax.xml.namespace.*;
-import javax.xml.soap.*;
-import javax.xml.ws.handler.*;
-import javax.xml.ws.handler.soap.*;
+//import java.util.*;
+//import javax.xml.namespace.*;
+//import javax.xml.soap.*;
+//import javax.xml.ws.handler.*;
+//import javax.xml.ws.handler.soap.*;
 
 public class SoapLoggingHandler implements SOAPHandler<SOAPMessageContext> {
 

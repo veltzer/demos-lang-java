@@ -9,25 +9,25 @@ public class Address {
 	public String getCity() {
 		return city;
 	}
-	public void setCity(String city) {
-		this.city = city;
+	public void setCity(String icity) {
+		city = icity;
 	}
 	public String getCountry() {
 		return country;
 	}
-	public void setCountry(String country) {
-		this.country = country;
+	public void setCountry(String icountry) {
+		country = icountry;
 	}
 	public int getNum() {
 		return num;
 	}
-	public void setNum(int num) {
-		this.num = num;
+	public void setNum(int inum) {
+		num = inum;
 	}
 	public String getStreet() {
 		return street;
 	}
-	public void setStreet(String street) {
-		this.street = street;
+	public void setStreet(String istreet) {
+		street = istreet;
 	}
 }

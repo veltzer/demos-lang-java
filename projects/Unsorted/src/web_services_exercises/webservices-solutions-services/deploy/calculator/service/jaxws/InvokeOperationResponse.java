@@ -13,24 +13,24 @@ import javax.xml.bind.annotation.XmlType;
 public class InvokeOperationResponse {
 
 	@XmlElement(name = "return", namespace = "")
-	private float _return;
+	private float vreturn;
 
 	/**
 	 *
 	 * @return
 	 *	 returns float
 	 */
-	public float get_return() {
-		return this._return;
+	public float getReturn() {
+		return vreturn;
 	}
 
 	/**
 	 *
-	 * @param _return
-	 *	 the value for the _return property
+	 * @param vreturn
+	 *	 the value for the vreturn property
 	 */
-	public void set_return(float _return) {
-		this._return = _return;
+	public void setReturn(float ireturn) {
+		vreturn = ireturn;
 	}
 
 }

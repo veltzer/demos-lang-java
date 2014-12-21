@@ -35,10 +35,10 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class Address {
 
-	protected String city;
-	protected String country;
-	protected int num;
-	protected String street;
+	private String city;
+	private String country;
+	private int num;
+	private String street;
 
 	/**
 	 * Gets the value of the city property.

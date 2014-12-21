@@ -1,15 +1,20 @@
 package calculator.service;
 
-import javax.annotation.*;
-import javax.jws.*;
-import javax.servlet.http.*;
-import javax.xml.ws.*;
-import javax.xml.ws.handler.*;
+//import javax.annotation.*;
+//import javax.jws.*;
+//import javax.servlet.http.*;
+//import javax.xml.ws.*;
+//import javax.xml.ws.handler.*;
 
 @WebService
 public class StatefulCalculator {
 
-	public enum Operation {ADD,SUB,MUL,DIV};
+	public enum Operation {
+		ADD,
+		SUB,
+		MUL,
+		DIV
+	};
 
 	@Resource
 	private WebServiceContext wsContext;
@@ -27,16 +32,18 @@ public class StatefulCalculator {
 
 		switch (op) {
 			case ADD:
-				curNum +=num;
+				curNum += num;
 				break;
 			case SUB:
-				curNum -=num;
+				curNum -= num;
 				break;
 			case MUL:
-				curNum *=num;
+				curNum *= num;
 				break;
 			case DIV:
-				curNum /=num;
+				curNum /= num;
+				break;
+			default:
 				break;
 		}
 		System.out.println("After op " + op + " " + num + ": " + curNum);

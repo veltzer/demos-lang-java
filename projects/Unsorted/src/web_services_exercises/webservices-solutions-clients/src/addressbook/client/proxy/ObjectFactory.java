@@ -21,10 +21,10 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-	private static final QName _GetAddress_QNAME = new QName("http://service.addressbook/", "getAddress");
-	private static final QName _GetAddressResponse_QNAME = new QName("http://service.addressbook/", "getAddressResponse");
-	private static final QName _AddAddress_QNAME = new QName("http://service.addressbook/", "addAddress");
-	private static final QName _AddAddressResponse_QNAME = new QName("http://service.addressbook/", "addAddressResponse");
+	private static final QName GETADDRESS_QNAME = new QName("http://service.addressbook/", "getAddress");
+	private static final QName GETADDRESSRESPONSE_QNAME = new QName("http://service.addressbook/", "getAddressResponse");
+	private static final QName ADDADDRESS_QNAME = new QName("http://service.addressbook/", "addAddress");
+	private static final QName ADDADDRESSRESPONSE_QNAME = new QName("http://service.addressbook/", "addAddressResponse");
 
 	/**
 	 * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: addressbook.client.proxy
@@ -79,7 +79,7 @@ public class ObjectFactory {
 	 */
 	@XmlElementDecl(namespace = "http://service.addressbook/", name = "getAddress")
 	public JAXBElement<GetAddress> createGetAddress(GetAddress value) {
-		return new JAXBElement<GetAddress>(_GetAddress_QNAME, GetAddress.class, null, value);
+		return new JAXBElement<GetAddress>(GETADDRESS_QNAME, GetAddress.class, null, value);
 	}
 
 	/**
@@ -88,7 +88,7 @@ public class ObjectFactory {
 	 */
 	@XmlElementDecl(namespace = "http://service.addressbook/", name = "getAddressResponse")
 	public JAXBElement<GetAddressResponse> createGetAddressResponse(GetAddressResponse value) {
-		return new JAXBElement<GetAddressResponse>(_GetAddressResponse_QNAME, GetAddressResponse.class, null, value);
+		return new JAXBElement<GetAddressResponse>(GETADDRESSRESPONSE_QNAME, GetAddressResponse.class, null, value);
 	}
 
 	/**
@@ -97,7 +97,7 @@ public class ObjectFactory {
 	 */
 	@XmlElementDecl(namespace = "http://service.addressbook/", name = "addAddress")
 	public JAXBElement<AddAddress> createAddAddress(AddAddress value) {
-		return new JAXBElement<AddAddress>(_AddAddress_QNAME, AddAddress.class, null, value);
+		return new JAXBElement<AddAddress>(ADDADDRESS_QNAME, AddAddress.class, null, value);
 	}
 
 	/**
@@ -106,7 +106,7 @@ public class ObjectFactory {
 	 */
 	@XmlElementDecl(namespace = "http://service.addressbook/", name = "addAddressResponse")
 	public JAXBElement<AddAddressResponse> createAddAddressResponse(AddAddressResponse value) {
-		return new JAXBElement<AddAddressResponse>(_AddAddressResponse_QNAME, AddAddressResponse.class, null, value);
+		return new JAXBElement<AddAddressResponse>(ADDADDRESSRESPONSE_QNAME, AddAddressResponse.class, null, value);
 	}
 
 }

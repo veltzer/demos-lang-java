@@ -29,7 +29,7 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class GetAddress {
 
-	protected String arg0;
+	private String arg0;
 
 	/**
 	 * Gets the value of the arg0 property.

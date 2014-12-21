@@ -31,8 +31,8 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class AddAddress {
 
-	protected String arg0;
-	protected Address arg1;
+	private String arg0;
+	private Address arg1;
 
 	/**
 	 * Gets the value of the arg0 property.

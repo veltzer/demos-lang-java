@@ -1,6 +1,6 @@
 package helloworld.service;
 
-import javax.jws.*;
+//import javax.jws.*;
 
 @WebService
 public class HelloWorld {

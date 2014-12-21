@@ -13,15 +13,15 @@ import javax.xml.bind.annotation.XmlType;
 public class HebDayNameResponse {
 
 	@XmlElement(name = "return", namespace = "")
-	private String _return;
+	private String vreturn;
 
 	/**
 	 *
 	 * @return
 	 *	 returns String
 	 */
-	public String get_return() {
-		return this._return;
+	public String getReturn() {
+		return vreturn;
 	}
 
 	/**
@@ -29,8 +29,8 @@ public class HebDayNameResponse {
 	 * @param _return
 	 *	 the value for the _return property
 	 */
-	public void set_return(String _return) {
-		this._return = _return;
+	public void setReturn(String ireturn) {
+		vreturn = ireturn;
 	}
 
 }
