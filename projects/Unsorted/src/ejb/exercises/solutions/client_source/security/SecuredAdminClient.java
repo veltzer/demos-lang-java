@@ -59,7 +59,7 @@ public class SecuredAdminClient {
 	/**
 	 * Inner class representing the PrivilegedAction
 	 */
-	private static class AdminClientAction implements PrivilegedAction {
+	private static class AdminClientAction implements PrivilegedAction<Object> {
 
 		public Object run() {
 			try {

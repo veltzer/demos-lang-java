@@ -1,4 +1,3 @@
-
 package addressbook.service.jaxws;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -13,7 +12,7 @@ import javax.xml.bind.annotation.XmlType;
 public class GetAddressResponse {
 
 	@XmlElement(name = "return", namespace = "")
-	private addressbook.service.Address _return;
+	private addressbook.service.Address vreturn;
 
 	/**
 	 *
@@ -21,7 +20,7 @@ public class GetAddressResponse {
 	 *	 returns Address
 	 */
 	public addressbook.service.Address get_return() {
-		return this._return;
+		return vreturn;
 	}
 
 	/**
@@ -29,8 +28,8 @@ public class GetAddressResponse {
 	 * @param _return
 	 *	 the value for the _return property
 	 */
-	public void set_return(addressbook.service.Address _return) {
-		this._return = _return;
+	public void set_return(addressbook.service.Address ivreturn) {
+		vreturn = ivreturn;
 	}
 
 }

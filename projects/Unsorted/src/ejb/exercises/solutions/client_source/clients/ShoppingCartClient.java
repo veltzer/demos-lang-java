@@ -3,8 +3,8 @@ package ejb.exercises.solutions.client_source.clients;
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 
-import shopping.ShoppingCart;
-import shopping.ShoppingCartHome;
+import ejb.exercises.solutions.source.shopping.ShoppingCartHome;
+import ejb.exercises.solutions.source.shopping.ShoppingCart;
 
 /**
  * A simple client for testing ShoppingCart. <br>

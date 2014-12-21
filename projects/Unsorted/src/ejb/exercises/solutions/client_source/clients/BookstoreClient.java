@@ -5,6 +5,11 @@ import java.util.*;
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 
+import ejb.exercises.solutions.source.bookstore.BookstoreAdmin;
+import ejb.exercises.solutions.source.bookstore.BookstoreAdminHome;
+import ejb.exercises.solutions.source.dtos.BookDTO;
+import ejb.exercises.solutions.source.dtos.CustomerDTO;
+
 /**
  * A test client for our bookstore's admin bean. <br>
  *
@@ -36,9 +41,9 @@ public class BookstoreClient {
 
 		// view all books:
 		System.out.println("Books currently in inventory:");
-		List books = admin.showBooks();
-		for (Iterator it = books.iterator(); it.hasNext();) {
-			book = (BookDTO) it.next();
+		List<BookDTO> books = admin.showBooks();
+		for (Iterator<BookDTO> it = books.iterator(); it.hasNext();) {
+			book = it.next();
 			System.out.println(book);
 		}
 
@@ -63,9 +68,9 @@ public class BookstoreClient {
 
 		// view all customers:
 		System.out.println("All registered customers:");
-		List customers = admin.showCustomers();
-		for (Iterator it = customers.iterator(); it.hasNext();) {
-			customer = (CustomerDTO) it.next();
+		List<CustomerDTO> customers = admin.showCustomers();
+		for (Iterator<CustomerDTO> it = customers.iterator(); it.hasNext();) {
+			customer = it.next();
 			System.out.println(customer);
 		}
 
