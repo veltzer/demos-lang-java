@@ -30,8 +30,8 @@ public class BookBean implements EntityBean {
 	public void setEntityContext(EntityContext ictx) {
 		ctx = ictx;
 		try {
-			InitialContext ictx = new InitialContext();
-			DataSource dataSource = (DataSource) ictx.lookup("java:comp/env/jdbc/MyDS");
+			InitialContext nctx = new InitialContext();
+			DataSource dataSource = (DataSource) nctx.lookup("java:comp/env/jdbc/MyDS");
 			dao = BookstoreDaoFactory.getDAO(dataSource);
 		} catch (Exception ex) {
 			ex.printStackTrace();

@@ -1,6 +1,9 @@
 package ejb.exercises.solutions.client_source.security;
 
-import java.io.*;
+
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 import javax.security.auth.callback.*;
 

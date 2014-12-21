@@ -1,10 +1,10 @@
 package ejb.exercises.solutions.source.bookstore;
 
 import java.rmi.RemoteException;
+import java.util.List;
 
-import dtos.BookDTO;
-import dtos.CustomerDTO;
-import java.util.*;
+import ejb.exercises.solutions.source.dtos.BookDTO;
+import ejb.exercises.solutions.source.dtos.CustomerDTO;
 
 /**
  * Remote interface for Enterprise Bean: BookstoreAdmin
@@ -21,6 +21,6 @@ import java.util.*;
 public interface BookstoreAdmin extends javax.ejb.EJBObject {
 	void addNewBook(BookDTO book) throws InvalidBookDataException, RemoteException;
 	void addNewCustomer(CustomerDTO customer) throws RemoteException;
-	List showBooks() throws RemoteException;
-	List showCustomers() throws RemoteException;
+	List<BookDTO> showBooks() throws RemoteException;
+	List<CustomerDTO> showCustomers() throws RemoteException;
 }

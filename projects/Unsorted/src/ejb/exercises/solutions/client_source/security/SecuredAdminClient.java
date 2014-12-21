@@ -8,9 +8,9 @@ import javax.rmi.*;
 import javax.security.auth.*;
 import javax.security.auth.login.*;
 
-import bookstore.*;
-
-import dtos.*;
+import ejb.exercises.solutions.source.bookstore.BookstoreAdmin;
+import ejb.exercises.solutions.source.bookstore.BookstoreAdminHome;
+import ejb.exercises.solutions.source.dtos.CustomerDTO;
 
 public class SecuredAdminClient {
 
@@ -79,9 +79,9 @@ public class SecuredAdminClient {
 
 			// view all customers:
 			System.out.println("All registered customers:");
-			List customers = admin.showCustomers();
-			for (Iterator it = customers.iterator(); it.hasNext();) {
-				CustomerDTO customer = (CustomerDTO) it.next();
+			List<CustomerDTO> customers = admin.showCustomers();
+			for (Iterator<CustomerDTO> it = customers.iterator(); it.hasNext();) {
+				CustomerDTO customer = it.next();
 				System.out.println(customer);
 			}
 

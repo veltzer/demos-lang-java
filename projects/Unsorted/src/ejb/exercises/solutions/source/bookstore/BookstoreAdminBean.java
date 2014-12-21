@@ -1,6 +1,6 @@
 package ejb.exercises.solutions.source.bookstore;
 
-//import java.util.*;
+import java.util.List;
 
 import javax.ejb.CreateException;
 import javax.naming.InitialContext;
@@ -8,24 +8,27 @@ import javax.rmi.PortableRemoteObject;
 import javax.sql.DataSource;
 import javax.ejb.SessionBean;
 
+import ejb.exercises.solutions.source.book.BookHome;
+import ejb.exercises.solutions.source.daos.BookstoreDAO;
+import ejb.exercises.solutions.source.daos.BookstoreDaoFactory;
+import ejb.exercises.solutions.source.dtos.BookDTO;
+import ejb.exercises.solutions.source.dtos.CustomerDTO;
+
 /**
  * Bean implementation class for Enterprise Bean: BookstoreAdmin
  *
  * (For details, please consult the documentation of
  * interface BookStoreAdmin)
  */
+@SuppressWarnings("serial")
 public class BookstoreAdminBean implements SessionBean {
-	private javax.ejb.SessionContext mySessionCtx;
 	private BookstoreDAO dao;
-	private BookHome bookHome;
-
 	/**
- 	 * Settign session context: <ul>
+ 	 * Setting session context: <ul>
 	 * <li> keep reference to session context
 	 */
 	public void setSessionContext(javax.ejb.SessionContext ctx) {
 		System.out.println(this.getClass().getName() + ".setSessionContext() was invoked...");
-		mySessionCtx = ctx;
 	}
 
 	public void ejbCreate() throws javax.ejb.CreateException {
@@ -38,7 +41,7 @@ public class BookstoreAdminBean implements SessionBean {
 			DataSource dataSrouce = (DataSource) PortableRemoteObject.narrow(obj, DataSource.class);
 			dao = BookstoreDaoFactory.getDAO(dataSrouce);
 			obj = ictx.lookup("ejb/entity/BookLocalHome");
-			bookHome = (BookHome) PortableRemoteObject.narrow(obj, BookHome.class);
+			obj = (BookHome) PortableRemoteObject.narrow(obj, BookHome.class);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			throw new CreateException("failed to create the bean. " + ex.getMessage());
@@ -73,16 +76,6 @@ public class BookstoreAdminBean implements SessionBean {
 				"Book price must by non-negative"
 					+ "and title must be non-empty");
 		}
-
-		/*
-		try
-		{
-			bookHome.create(title,book.getAuthor(),price);
-		} catch (CreateException e) {
-			throw new EJBException(e);
-		}
-		*/
-
 		dao.insertBook(title, book.getAuthor(), book.getPrice());
 	}
 
@@ -103,24 +96,8 @@ public class BookstoreAdminBean implements SessionBean {
 	* Returns a list of all books in inventory.
 	* @return a list of BookDTO's
 	*/
-	public List showBooks() {
-		// Perform a "select* from BOOKS" and store result into list:
-		List result = dao.selectBooks();
-		/*
-		Collection books;
-		try {
-			books = bookHome.findAllBooks();
-		} catch (FinderException e) {
-			e.printStackTrace();
-			return null;
-		}
-		List result = new ArrayList(books.size());
-		Iterator it = books.iterator();
-		while (it.hasNext()) {
-			Book book = (Book) it.next();
-			result.add(new BookDTO(book.getTitle(),book.getAuthor(),book.getPrice()));
-		}
-		*/
+	public List<BookDTO> showBooks() {
+		List<BookDTO> result = dao.selectBooks();
 		return result;
 	}
 
@@ -128,8 +105,8 @@ public class BookstoreAdminBean implements SessionBean {
 	* Returns a list of all registered customers.
 	* @return a list of CustomerDTO's
 	*/
-	public List showCustomers() {
-		List customers = dao.selectCustomers();
+	public List<CustomerDTO> showCustomers() {
+		List<CustomerDTO> customers = dao.selectCustomers();
 		return customers;
 	}
 }
