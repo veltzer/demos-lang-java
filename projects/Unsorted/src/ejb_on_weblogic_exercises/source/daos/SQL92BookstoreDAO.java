@@ -57,56 +57,54 @@ public class SQL92BookstoreDAO implements BookstoreDAO{
 	/**
 	 * Constructs a DAO that would use the given datasource.
 	 */
-	public SQL92BookstoreDAO(DataSource datasource){
-		this.datasource=datasource;
+	public SQL92BookstoreDAO(DataSource idatasource) {
+		datasource = idatasource;
 	}
-
 
 	public void insertBook(String title, String author, double price) throws StorageException {
 		Connection con=null;
-		try{
+		try {
 			con = datasource.getConnection();
 			PreparedStatement stmt = con.prepareStatement(insertBookSql);
 			stmt.setString(1, title);
 			stmt.setString(2, author);
 			stmt.setDouble(3, price);
 			stmt.executeUpdate();
-		}
-		catch(SQLException ex){
+		} catch(SQLException ex) {
 			ex.printStackTrace();
 			throw new StorageException("Failed to insert book "+title);
 			// If using java 1.4 or heigher, set exception's cause
-		}
-		finally{
-			try{con.close();}catch(Exception ex){}
+		} finally {
+			try{
+				con.close();
+			} catch(Exception ex) {
+			}
 		}
 	}
 
-
-
-
 	public List selectBooks() throws StorageException {
 		Connection con=null;
-		try{
+		try {
 			con = datasource.getConnection();
 			PreparedStatement stmt = con.prepareStatement(selectBooksSql);
 			ResultSet rs= stmt.executeQuery();
 			List books = new LinkedList();
-			while(rs.next()){
+			while (rs.next()) {
 				BookDTO book=new BookDTO(
 					rs.getString("TITLE"), rs.getString("AUTHOR"),
 					rs.getDouble("PRICE"));
 				books.add(book);
 			}
 			return books;
-		}
-		catch(SQLException ex){
+		} catch(SQLException ex) {
 			ex.printStackTrace();
 			throw new StorageException("Failed to select books "+ex.getMessage());
 			// If using java 1.4 or heigher, set exception's cause
-		}
-		finally{
-			try{con.close();}catch(Exception ex){}
+		} finally {
+			try {
+				con.close();
+			} catch(Exception ex) {
+			}
 		}
 	}
 
@@ -121,46 +119,45 @@ public class SQL92BookstoreDAO implements BookstoreDAO{
 			stmt.setString(3, email);
 			stmt.setString(4, address);
 			stmt.executeUpdate();
-		}
-		catch(SQLException ex){
+		} catch(SQLException ex) {
 			ex.printStackTrace();
-			throw new StorageException("Failed to insert CUSTOMER "+name);
-			// If using java 1.4 or heigher, set exception's cause
-		}
-		finally{
-			try{con.close();}catch(Exception ex){}
+			throw new StorageException("Failed to insert CUSTOMER " + name);
+		} finally {
+			try {
+				con.close();
+			} catch(Exception ex) {
+			}
 		}
 	}
 
 	public List selectCustomers() throws StorageException {
-		Connection con=null;
-		try{
+		Connection con = null;
+		try {
 			con = datasource.getConnection();
 			List customers=new LinkedList();
 			PreparedStatement stmt = con.prepareStatement(selectCustomersSql);
 			ResultSet rs= stmt.executeQuery();
-			while(rs.next()){
-				CustomerDTO cust=new CustomerDTO(
+			while (rs.next()) {
+				CustomerDTO cust = new CustomerDTO(
 					rs.getString("ID"), rs.getString("NAME"),
 					rs.getString("EMAIL"), rs.getString("ADDRESS"));
 				customers.add(cust);
 			}
 			return customers;
-		}
-		catch(SQLException ex){
+		} catch(SQLException ex) {
 			ex.printStackTrace();
 			throw new StorageException("Failed to select customers "+ex.getMessage());
-			// if using java 1.4 or heigher, set exception's cause
-		}
-		finally{
-			try{con.close();}catch(Exception ex){}
+		} finally {
+			try {
+				con.close();
+			} catch(Exception ex) {
+			}
 		}
 	}
 
-
-	public void insertOrder(String orderId, String customerId, long timestamp, List bookTitles ){
+	public void insertOrder(String orderId, String customerId, long timestamp, List bookTitles ) {
 		Connection con=null;
-		try{
+		try {
 			con = datasource.getConnection();
 
 			// Insert order information:
@@ -173,19 +170,19 @@ public class SQL92BookstoreDAO implements BookstoreDAO{
 			// Insert order items:
 			PreparedStatement itemStmt=con.prepareStatement(insertOrderItemSql);
 			itemStmt.setString(1, orderId);
-			for(Iterator it = bookTitles.iterator(); it.hasNext();){
+			for (Iterator it = bookTitles.iterator(); it.hasNext();) {
 				String title=(String)it.next();
 				itemStmt.setString(2, title);
 				itemStmt.executeUpdate();
 			}
-		}
-		catch(SQLException ex){
+		} catch(SQLException ex) {
 			ex.printStackTrace();
 			throw new StorageException("Failed to select customers "+ex.getMessage());
-			// if using java 1.4 or heigher, set exception's cause
-		}
-		finally{
-			try{con.close();}catch(Exception ex){}
+		} finally {
+			try {
+				con.close();
+			} catch(Exception ex) {
+			}
 		}
 	}
 
@@ -211,100 +208,100 @@ public class SQL92BookstoreDAO implements BookstoreDAO{
 			PreparedStatement itemStmt=con.prepareStatement(selectItemsByOrder);
 			itemStmt.setString(1, orderId);
 			ResultSet itemsRs = itemStmt.executeQuery();
-			while(itemsRs.next()){
+			while (itemsRs.next()) {
 				String title = itemsRs.getString("BOOK_TITLE");
 				bookTitles.add(title);
 			}
 			order.setBookTitles(bookTitles);
 			return order;
-		}
-		catch(SQLException ex){
+		} catch(SQLException ex) {
 			ex.printStackTrace();
 			throw new StorageException("Failed to select customers "+ex.getMessage());
-			// if using java 1.4 or heigher, set exception's cause
-		}
-		finally{
-			try{con.close();}catch(Exception ex){}
+		} finally {
+			try {
+				con.close();
+			} catch(Exception ex) {
+			}
 		}
 	}
 
-
 	public BookDTO selectBook(String title) throws StorageException{
 		Connection con=null;
-		try{
+		try {
 			con = datasource.getConnection();
 			PreparedStatement stmt = con.prepareStatement(selectBookByTitleSql);
 			stmt.setString(1, title);
 			ResultSet rs= stmt.executeQuery();
-			if(!rs.next())
+			if(!rs.next()) {
 				return null;
-			BookDTO book=new BookDTO(
+			}
+			BookDTO book = new BookDTO(
 				rs.getString("TITLE"), rs.getString("AUTHOR"),
 				rs.getDouble("PRICE"));
 			return book;
-		}
-		catch(SQLException ex){
+		} catch(SQLException ex) {
 			ex.printStackTrace();
 			throw new StorageException("Failed to select customers "+ex.getMessage());
-			// if using java 1.4 or heigher, set exception's cause
-		}
-		finally{
-			try{con.close();}catch(Exception ex){}
+		} finally {
+			try {
+				con.close();
+			} catch(Exception ex) {
+			}
 		}
 	}
 
 	public CustomerDTO selectCustomer(String customerId) throws StorageException{
-		Connection con=null;
-		try{
+		Connection con = null;
+		try {
 			con = datasource.getConnection();
 			PreparedStatement stmt = con.prepareStatement(selectCustomerByIdSql);
 			stmt.setString(1, customerId);
 			ResultSet rs= stmt.executeQuery();
-			if(!rs.next())
+			if(!rs.next()) {
 				return null;
-			CustomerDTO customer=new CustomerDTO(
+			}
+			CustomerDTO customer = new CustomerDTO(
 				rs.getString("ID"), rs.getString("NAME"),
 				rs.getString("EMAIL"), rs.getString("ADDRESS"));
 			return customer;
-		}
-		catch(SQLException ex){
+		} catch(SQLException ex) {
 			ex.printStackTrace();
 			throw new StorageException("Failed to select customers "+ex.getMessage());
 			// if using java 1.4 or heigher, set exception's cause
-		}
-		finally{
-			try{con.close();}catch(Exception ex){}
+		} finally {
+			try {
+				con.close();
+			} catch(Exception ex) {
+			}
 		}
 	}
 
-
-	public boolean cancelOrder(String orderId) throws StorageException{
-		Connection con=null;
+	public boolean cancelOrder(String orderId) throws StorageException {
+		Connection con = null;
 		int count;
-		try{
+		try {
 			con = datasource.getConnection();
 
 			// Delete order (return false if record not found):
 			PreparedStatement stmt = con.prepareStatement(deleteOrder);
 			stmt.setString(1, orderId);
 			count= stmt.executeUpdate();
-			if (count==0)
+			if (count == 0)
 				return false;
 
 			// Cascade-delete:
 			stmt = con.prepareStatement(deleteOrderItems);
 			stmt.setString(1, orderId);
-			count= stmt.executeUpdate();
+			count = stmt.executeUpdate();
 			return true;
-		}
-		catch(SQLException ex){
+		} catch(SQLException ex) {
 			ex.printStackTrace();
 			throw new StorageException("Failed to select customers "+ex.getMessage());
-			// if using java 1.4 or heigher, set exception's cause
-		}
-		finally{
-			try{con.close();}catch(Exception ex){}
+		} finally {
+			try {
+				con.close();
+			} catch(Exception ex) {
+			}
 		}
 	}
-
 }

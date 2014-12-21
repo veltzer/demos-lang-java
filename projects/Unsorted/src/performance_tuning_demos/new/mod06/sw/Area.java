@@ -3,7 +3,7 @@ public class Area {
 	final static long NANOS_PER_MS = (1000L * 1000L);
 	final static StringBuilder sb = new StringBuilder();
 
-	private static void printStats(String s, long n, long elapsedTime){
+	private static void printStats(String s, long n, long elapsedTime) {
 		float millis = elapsedTime / NANOS_PER_MS;
 		float rate = 0;
 		if (millis != 0) {

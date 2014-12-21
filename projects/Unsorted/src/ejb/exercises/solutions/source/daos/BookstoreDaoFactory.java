@@ -3,12 +3,12 @@ package ejb.exercises.solutions.source.daos;
 import javax.sql.DataSource;
 
 /**
- * A factory for obtaining bookstore DAO's. <br>
+ * A factory for obtaining bookstore DAO's.
  * Current implementation simply returns a DAO implementation which
  * relies on sql92.
  */
-public class BookstoreDaoFactory {
-	public static BookstoreDAO getDAO(DataSource dataSource){
+public abstract class BookstoreDaoFactory {
+	public static BookstoreDAO getDAO(DataSource dataSource) {
 		return new SQL92BookstoreDAO(dataSource);
 	}
 }

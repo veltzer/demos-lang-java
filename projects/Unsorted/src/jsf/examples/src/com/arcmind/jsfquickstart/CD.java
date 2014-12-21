@@ -1,54 +1,36 @@
 package jsf.examples.src.com.arcmind.jsfquickstart;
 
+import java.io.Serializable;
+
 @SuppressWarnings("serial")
-public class CD implements java.io.Serializable{
+public class CD implements Serializable {
 	private String title;
 	private String artist;
 	private float price;
 
-	public CD(){
+	public CD() {
 	}
-
-	public CD(String title, String artist, float price){
-		this.title=title;
-		this.artist=artist;
-		this.price=price;
+	public CD(String ititle, String iartist, float iprice) {
+		title = ititle;
+		artist = iartist;
+		price = iprice;
 	}
-
-	/**
-	 * @return Returns the artist.
-	 */
 	public String getArtist() {
 		return artist;
 	}
-	/**
-	 * @param artist The artist to set.
-	 */
-	public void setArtist(String artist) {
-		this.artist = artist;
+	public void setArtist(String iartist) {
+		artist = iartist;
 	}
-	/**
-	 * @return Returns the price.
-	 */
 	public float getPrice() {
 		return price;
 	}
-	/**
-	 * @param price The price to set.
-	 */
-	public void setPrice(float aPrice) {
-		this.price = aPrice;
+	public void setPrice(float iprice) {
+		price = iprice;
 	}
-	/**
-	 * @return Returns the title.
-	 */
 	public String getTitle() {
 		return title;
 	}
-	/**
-	 * @param title The title to set.
-	 */
-	public void setTitle(String title) {
-		this.title = title;
+	public void setTitle(String ititle) {
+		title = ititle;
 	}
 }

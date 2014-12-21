@@ -41,8 +41,7 @@ public interface BookstoreDAO {
 	 * @param quantity number of copies available in inventory
 	 * @throws StorageException
 	 */
-	void insertBook(String title, String author, double price)
-		throws StorageException;
+	void insertBook(String title, String author, double price);
 
 	/**
 	 * Updates an existing book record. <br>
@@ -52,8 +51,7 @@ public interface BookstoreDAO {
 	 * @param quantity number of copies available in inventory
 	 * @throws StorageException
 	 */
-	void updateBook(String title, String author, double price)
-		throws StorageException;
+	void updateBook(String title, String author, double price);
 
 	/**
 	 * Removes an existing book from the DB
@@ -61,8 +59,7 @@ public interface BookstoreDAO {
 	 * @param title book's title (used as key, must be unique)
 	 * @throws StorageException
 	 */
-	void deleteBook(String title)
-			throws StorageException;
+	void deleteBook(String title);
 
 	/**
 	 * Returns all books in the inventory. <br>
@@ -73,7 +70,7 @@ public interface BookstoreDAO {
 	 * the DB connection.
 	 * @throws StorageException
 	 */
-	List<BookDTO> selectBooks() throws StorageException;
+	List<BookDTO> selectBooks();
 
 	/**
 	 * Given a book title, returns book details.
@@ -82,7 +79,7 @@ public interface BookstoreDAO {
 	 * @param orderId
 	 * @throws StorageException
 	 */
-	BookDTO selectBook(String title) throws StorageException;
+	BookDTO selectBook(String title);
 
 	/**
 	 * Inserts a new customer record. <br>
@@ -95,8 +92,7 @@ public interface BookstoreDAO {
 	 * @param address customer's shipping address
 	 * @throws StorageException
 	 */
-	void insertCustomer(String id, String name, String email, String address)
-		throws StorageException;
+	void insertCustomer(String id, String name, String email, String address);
 
 	/**
 	 * Returns all customers currently registered. <br>
@@ -107,7 +103,7 @@ public interface BookstoreDAO {
 	 * the DB connection.
 	 * @throws StorageException
 	 */
-	List<CustomerDTO> selectCustomers() throws StorageException;
+	List<CustomerDTO> selectCustomers();
 
 	/**
 	 * Given a custoemr id, returns customer details.
@@ -116,7 +112,7 @@ public interface BookstoreDAO {
 	 * @param customerId
 	 * @throws StorageException
 	 */
-	CustomerDTO selectCustomer(String customerId) throws StorageException;
+	CustomerDTO selectCustomer(String customerId);
 
 	/**
 	 * Given an order ID, returns order details (including list of
@@ -126,7 +122,7 @@ public interface BookstoreDAO {
 	 * @param orderId
 	 * @throws StorageException
 	 */
-	OrderDetailsDTO selectOrder(String orderId) throws StorageException;
+	OrderDetailsDTO selectOrder(String orderId);
 
 	/**
 	 * Insets a new order into the database.
@@ -139,12 +135,7 @@ public interface BookstoreDAO {
 	 * @param bookTitles
 	 * @throws StorageException
 	 */
-	void insertOrder(
-		String orderId,
-		String customerId,
-		long timestamp,
-		List<String> bookTitles)
-		throws StorageException;
+	void insertOrder(String orderId, String customerId, long timestamp, List<String> bookTitles);
 
 	/**
 	 * Cancels a given order. If no such order exists, this method will
@@ -154,5 +145,5 @@ public interface BookstoreDAO {
 	 * @return true-if order was found & cancelled, false-if order was not found.
 	 * @throws StorageException
 	 */
-	boolean cancelOrder(String orderId) throws StorageException;
+	boolean cancelOrder(String orderId);
 }

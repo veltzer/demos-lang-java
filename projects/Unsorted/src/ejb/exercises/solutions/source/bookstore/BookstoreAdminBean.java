@@ -68,7 +68,7 @@ public class BookstoreAdminBean implements SessionBean {
 	* @param book
 	* @throws InvalidBookDataException if book title is empty, or quantity is negative.
 	*/
-	public void addNewBook(BookDTO book) throws InvalidBookDataException {
+	public void addNewBook(BookDTO book) {
 		String title = book.getTitle();
 		double price = book.getPrice();
 		if (price < 0 || title == null || title.length() == 0) {

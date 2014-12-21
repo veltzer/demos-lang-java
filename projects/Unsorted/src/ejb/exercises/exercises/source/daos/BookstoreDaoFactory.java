@@ -8,7 +8,7 @@ import javax.sql.DataSource;
  * relies on sql92.
  */
 public class BookstoreDaoFactory {
-	public static BookstoreDAO getDAO(DataSource dataSource){
+	public static BookstoreDAO getDAO(DataSource dataSource) {
 		return new SQL92BookstoreDAO(dataSource);
 	}
 }

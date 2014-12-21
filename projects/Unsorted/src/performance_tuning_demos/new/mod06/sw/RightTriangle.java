@@ -1,14 +1,16 @@
 // RightTriangle class
 public class RightTriangle implements Shape {
+	final private double base;
+	final private double height;
 
-	final private double base, height;
-
-	public RightTriangle(double base, double height) {
-		this.base = base;
-		this.height = height;
+	public RightTriangle(double ibase, double iheight) {
+		base = ibase;
+		height = iheight;
 	}
 
-	private RightTriangle(){base = height = 0;}
+	private RightTriangle() {
+		base = height = 0;
+	}
 
 	public double area() {
 		return .5 * base * height;

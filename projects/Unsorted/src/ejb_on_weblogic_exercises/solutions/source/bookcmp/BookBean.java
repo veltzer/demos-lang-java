@@ -5,36 +5,30 @@ import javax.ejb.EntityContext;
 import javax.ejb.RemoveException;
 
 public abstract class BookBean implements EntityBean {
-
 	private EntityContext ctx;
 
-	public void setEntityContext(EntityContext ctx)
-	{
-		this.ctx = ctx;
+	public void setEntityContext(EntityContext ictx) {
+		ctx = ictx;
 	}
-
-	public void unsetEntityContext()
-	{
+	public void unsetEntityContext() {
 		ctx = null;
 	}
-	public void ejbRemove() throws RemoveException{
+	public void ejbRemove() throws RemoveException {
 	}
-	public void ejbActivate(){
+	public void ejbActivate() {
 	}
-	public void ejbPassivate(){
+	public void ejbPassivate() {
 	}
-	public void ejbLoad(){
+	public void ejbLoad() {
 	}
-	public void ejbStore(){
+	public void ejbStore() {
 	}
-
 	public String ejbCreate(String title, String author, double price) {
 		setTitle(title);
 		setAuthor(author);
 		setPrice(price);
 		return null;
 	}
-
 	public void ejbPostCreate(String title, String author, double price) {
 
 	}

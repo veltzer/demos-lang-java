@@ -64,28 +64,28 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 	/**
 	 * Constructs a DAO that would use the given datasource.
 	 */
-	public SQL92BookstoreDAO(DataSource datasource){
-		this.datasource=datasource;
+	public SQL92BookstoreDAO(DataSource idatasource) {
+		datasource = idatasource;
 	}
 
-
 	public void insertBook(String title, String author, double price) throws StorageException {
-		Connection con=null;
-		try{
+		Connection con = null;
+		try {
 			con = datasource.getConnection();
 			PreparedStatement stmt = con.prepareStatement(insertBookSql);
 			stmt.setString(1, title);
 			stmt.setString(2, author);
 			stmt.setDouble(3, price);
 			stmt.executeUpdate();
-		}
-		catch(SQLException ex){
+		} catch(SQLException ex) {
 			ex.printStackTrace();
 			throw new StorageException("Failed to insert book "+title);
 			// If using java 1.4 or heigher, set exception's cause
-		}
-		finally{
-			try{con.close();}catch(Exception ex){}
+		} finally {
+			try {
+				con.close();
+			} catch(Exception ex) {
+			}
 		}
 	}
 
@@ -93,34 +93,34 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 
 
 	public List<BookDTO> selectBooks() throws StorageException {
-		Connection con=null;
-		try{
+		Connection con = null;
+		try {
 			con = datasource.getConnection();
 			PreparedStatement stmt = con.prepareStatement(selectBooksSql);
 			ResultSet rs= stmt.executeQuery();
 			List<BookDTO> books = new LinkedList<BookDTO>();
-			while(rs.next()){
+			while (rs.next()) {
 				BookDTO book=new BookDTO(
 					rs.getString("TITLE"), rs.getString("AUTHOR"),
 					rs.getDouble("PRICE"));
 				books.add(book);
 			}
 			return books;
-		}
-		catch(SQLException ex){
+		} catch(SQLException ex) {
 			ex.printStackTrace();
 			throw new StorageException("Failed to select books "+ex.getMessage());
-			// If using java 1.4 or heigher, set exception's cause
-		}
-		finally{
-			try{con.close();}catch(Exception ex){}
+		} finally {
+			try {
+				con.close();
+			} catch(Exception ex) {
+			}
 		}
 	}
 
 
 	public void insertCustomer(String id, String name, String email, String address) throws StorageException {
-		Connection con=null;
-		try{
+		Connection con = null;
+		try {
 			con = datasource.getConnection();
 			PreparedStatement stmt = con.prepareStatement(insertCustomerSql);
 			stmt.setString(1, id);
@@ -128,46 +128,46 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 			stmt.setString(3, email);
 			stmt.setString(4, address);
 			stmt.executeUpdate();
-		}
-		catch(SQLException ex){
+		} catch(SQLException ex) {
 			ex.printStackTrace();
 			throw new StorageException("Failed to insert CUSTOMER "+name);
-			// If using java 1.4 or heigher, set exception's cause
-		}
-		finally{
-			try{con.close();}catch(Exception ex){}
+		} finally {
+			try {
+				con.close();
+			} catch(Exception ex) {
+			}
 		}
 	}
 
 	public List<CustomerDTO> selectCustomers() throws StorageException {
-		Connection con=null;
-		try{
+		Connection con = null;
+		try {
 			con = datasource.getConnection();
-			List<CustomerDTO> customers=new LinkedList<CustomerDTO>();
+			List<CustomerDTO> customers = new LinkedList<CustomerDTO>();
 			PreparedStatement stmt = con.prepareStatement(selectCustomersSql);
-			ResultSet rs= stmt.executeQuery();
-			while(rs.next()){
-				CustomerDTO cust=new CustomerDTO(
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				CustomerDTO cust = new CustomerDTO(
 					rs.getString("ID"), rs.getString("NAME"),
 					rs.getString("EMAIL"), rs.getString("ADDRESS"));
 				customers.add(cust);
 			}
 			return customers;
-		}
-		catch(SQLException ex){
+		} catch(SQLException ex) {
 			ex.printStackTrace();
 			throw new StorageException("Failed to select customers "+ex.getMessage());
-			// if using java 1.4 or heigher, set exception's cause
-		}
-		finally{
-			try{con.close();}catch(Exception ex){}
+		} finally {
+			try{
+				con.close();
+			} catch(Exception ex) {
+			}
 		}
 	}
 
 
-	public void insertOrder(String orderId, String customerId, long timestamp, List<String> bookTitles ){
-		Connection con=null;
-		try{
+	public void insertOrder(String orderId, String customerId, long timestamp, List<String> bookTitles) {
+		Connection con = null;
+		try {
 			con = datasource.getConnection();
 
 			// Insert order information:
@@ -178,137 +178,140 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 			orderStmt.executeUpdate();
 
 			// Insert order items:
-			PreparedStatement itemStmt=con.prepareStatement(insertOrderItemSql);
+			PreparedStatement itemStmt = con.prepareStatement(insertOrderItemSql);
 			itemStmt.setString(1, orderId);
-			for(Iterator<String> it = bookTitles.iterator(); it.hasNext();){
-				String title=it.next();
+			for (Iterator<String> it = bookTitles.iterator(); it.hasNext();) {
+				String title = it.next();
 				itemStmt.setString(2, title);
 				itemStmt.executeUpdate();
 			}
-		}
-		catch(SQLException ex){
+		} catch(SQLException ex) {
 			ex.printStackTrace();
 			throw new StorageException("Failed to select customers "+ex.getMessage());
-			// if using java 1.4 or heigher, set exception's cause
-		}
-		finally{
-			try{con.close();}catch(Exception ex){}
+		} finally {
+			try {
+				con.close();
+			} catch(Exception ex) {
+			}
 		}
 	}
 
 
 	public OrderDetailsDTO selectOrder(String orderId) {
-		Connection con=null;
-		try{
+		Connection con = null;
+		try {
 			con = datasource.getConnection();
-			OrderDetailsDTO order=new OrderDetailsDTO();
+			OrderDetailsDTO order = new OrderDetailsDTO();
 
 			// Get order information (id, customerId, timestamp):
 			PreparedStatement orderStmt = con.prepareStatement(selectOrdersById);
 			orderStmt.setString(1, orderId);
-			ResultSet orderRs= orderStmt.executeQuery();
-			if(! orderRs.next())
+			ResultSet orderRs = orderStmt.executeQuery();
+			if (!orderRs.next()) {
 				return null;
+			}
 			order.setId(orderRs.getString("ID"));
 			order.setCustomerId(orderRs.getString("CUSTOMER_ID"));
 			order.setTimestamp(orderRs.getLong("ORDER_TIME"));
 
 			// Get items for this order:
-			List<String> bookTitles=new LinkedList<String>();
-			PreparedStatement itemStmt=con.prepareStatement(selectItemsByOrder);
+			List<String> bookTitles = new LinkedList<String>();
+			PreparedStatement itemStmt = con.prepareStatement(selectItemsByOrder);
 			itemStmt.setString(1, orderId);
 			ResultSet itemsRs = itemStmt.executeQuery();
-			while(itemsRs.next()){
+			while (itemsRs.next()) {
 				String title = itemsRs.getString("BOOK_TITLE");
 				bookTitles.add(title);
 			}
 			order.setBookTitles(bookTitles);
 			return order;
-		}
-		catch(SQLException ex){
+		} catch(SQLException ex) {
 			ex.printStackTrace();
 			throw new StorageException("Failed to select customers "+ex.getMessage());
-			// if using java 1.4 or heigher, set exception's cause
-		}
-		finally{
-			try{con.close();}catch(Exception ex){}
+		} finally {
+			try {
+				con.close();
+			} catch(Exception ex) {
+			}
 		}
 	}
 
-
-	public BookDTO selectBook(String title) throws StorageException{
-		Connection con=null;
-		try{
+	public BookDTO selectBook(String title) throws StorageException {
+		Connection con = null;
+		try {
 			con = datasource.getConnection();
 			PreparedStatement stmt = con.prepareStatement(selectBookByTitleSql);
 			stmt.setString(1, title);
-			ResultSet rs= stmt.executeQuery();
-			if(!rs.next())
+			ResultSet rs = stmt.executeQuery();
+			if (!rs.next()) {
 				return null;
-			BookDTO book=new BookDTO(
+			}
+			BookDTO book = new BookDTO(
 				rs.getString("TITLE"), rs.getString("AUTHOR"),
 				rs.getDouble("PRICE"));
 			return book;
-		}
-		catch(SQLException ex){
+		} catch(SQLException ex) {
 			ex.printStackTrace();
 			throw new StorageException("Failed to select customers "+ex.getMessage());
-			// if using java 1.4 or heigher, set exception's cause
-		}
-		finally{
-			try{con.close();}catch(Exception ex){}
+		} finally {
+			try {
+				con.close();
+			} catch(Exception ex) {
+			}
 		}
 	}
 
-	public CustomerDTO selectCustomer(String customerId) throws StorageException{
-		Connection con=null;
-		try{
+	public CustomerDTO selectCustomer(String customerId) throws StorageException {
+		Connection con = null;
+		try {
 			con = datasource.getConnection();
 			PreparedStatement stmt = con.prepareStatement(selectCustomerByIdSql);
 			stmt.setString(1, customerId);
-			ResultSet rs= stmt.executeQuery();
-			if(!rs.next())
+			ResultSet rs = stmt.executeQuery();
+			if (!rs.next()) {
 				return null;
-			CustomerDTO customer=new CustomerDTO(
+			}
+			CustomerDTO customer = new CustomerDTO(
 				rs.getString("ID"), rs.getString("NAME"),
 				rs.getString("EMAIL"), rs.getString("ADDRESS"));
 			return customer;
-		}
-		catch(SQLException ex){
+		} catch(SQLException ex) {
 			ex.printStackTrace();
 			throw new StorageException("Failed to select customers "+ex.getMessage());
-			// if using java 1.4 or heigher, set exception's cause
-		}
-		finally{
-			try{con.close();}catch(Exception ex){}
+		} finally {
+			try {
+				con.close();
+			} catch(Exception ex) {
+			}
 		}
 	}
 
-	public boolean cancelOrder(String orderId) throws StorageException{
-		Connection con=null;
+	public boolean cancelOrder(String orderId) throws StorageException {
+		Connection con = null;
 		int count;
-		try{
+		try {
 			con = datasource.getConnection();
 			// Delete order (return false if record not found):
 			PreparedStatement stmt = con.prepareStatement(deleteOrder);
 			stmt.setString(1, orderId);
-			count= stmt.executeUpdate();
-			if (count==0)
+			count = stmt.executeUpdate();
+			if (count == 0) {
 				return false;
+			}
 
 			// Cascade-delete:
 			stmt = con.prepareStatement(deleteOrderItems);
 			stmt.setString(1, orderId);
-			count= stmt.executeUpdate();
+			count = stmt.executeUpdate();
 			return true;
-		}
-		catch(SQLException ex){
+		} catch(SQLException ex) {
 			ex.printStackTrace();
 			throw new StorageException("Failed to select customers "+ex.getMessage());
-			// if using java 1.4 or heigher, set exception's cause
-		}
-		finally{
-			try{con.close();}catch(Exception ex){}
+		} finally {
+			try {
+				con.close();
+			} catch(Exception ex) {
+			}
 		}
 	}
 

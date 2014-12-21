@@ -41,7 +41,7 @@ public class BookDTO implements Serializable {
 		title = string;
 	}
 
-	public double getPrice(){
+	public double getPrice() {
 		return price;
 	}
 
@@ -49,7 +49,7 @@ public class BookDTO implements Serializable {
 		this.price = price;
 	}
 
-	public String toString(){
-		return "BookDTO:"+ title + " by:"+ author + " price:"+price;
+	public String toString() {
+		return "BookDTO:" + title + " by:" + author + " price:" + price;
 	}
 }

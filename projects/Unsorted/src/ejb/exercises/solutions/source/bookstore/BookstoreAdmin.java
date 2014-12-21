@@ -16,10 +16,9 @@ import ejb.exercises.solutions.source.dtos.CustomerDTO;
  * <li> Adding a new customer to inventory
  * <li> Viewing all books in inventory or all registered customers
  * </ul>
- *
  */
 public interface BookstoreAdmin extends javax.ejb.EJBObject {
-	void addNewBook(BookDTO book) throws InvalidBookDataException, RemoteException;
+	void addNewBook(BookDTO book) throws RemoteException;
 	void addNewCustomer(CustomerDTO customer) throws RemoteException;
 	List<BookDTO> showBooks() throws RemoteException;
 	List<CustomerDTO> showCustomers() throws RemoteException;

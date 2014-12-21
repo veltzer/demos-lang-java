@@ -3,17 +3,16 @@ package dtos;
 import java.io.Serializable;
 
 public class BookDTO implements Serializable {
-	private String title;	// key
+	private String title;
 	private String author;
 	private double price;
 
-	public BookDTO(String title, String author, double price){
-		this.title = title;
-		this.author = author;
-		this.price = price;
+	public BookDTO(String ititle, String iauthor, double iprice) {
+		title = ititle;
+		author = iauthor;
+		price = iprice;
 	}
-	public BookDTO(){
-
+	public BookDTO() {
 	}
 
 	/**
@@ -42,7 +41,7 @@ public class BookDTO implements Serializable {
 		title = string;
 	}
 
-	public double getPrice(){
+	public double getPrice() {
 		return price;
 	}
 
@@ -50,7 +49,7 @@ public class BookDTO implements Serializable {
 		this.price = price;
 	}
 
-	public String toString(){
+	public String toString() {
 		return "BookDTO:"+ title + " by:"+ author + " price:"+price;
 	}
 }

@@ -6,14 +6,11 @@ package ejb.exercises.solutions.source.daos;
  * since DAO's may use non-sql persistance.
  */
 @SuppressWarnings("serial")
-public class StorageException extends RuntimeException{
-	public StorageException(String msg){
+public class StorageException extends RuntimeException {
+	public StorageException(String msg) {
 		super(msg);
 	}
-
-// if you're working with java 1.4 or heigher, uncomment the following:
-//	public StorageException(String msg, Throwable cause){
-//		super(msg,cause);
-//	}
-
+	public StorageException(String msg, Throwable cause) {
+		super(msg,cause);
+	}
 }

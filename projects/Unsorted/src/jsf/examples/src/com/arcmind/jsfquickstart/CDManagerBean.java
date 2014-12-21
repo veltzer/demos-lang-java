@@ -70,12 +70,12 @@ public class CDManagerBean {
 		this.title = title;
 	}
 
-	public String addCD(){
+	public String addCD() {
 		cds.add(new CD(title, artist, price));
 		return "success";
 	}
 
-	public String editCD(){
+	public String editCD() {
 		CD cd = (CD) cdModel.getRowData();
 		this.title = cd.getTitle();
 		this.artist = cd.getArtist();
@@ -85,7 +85,7 @@ public class CDManagerBean {
 		return "success";
 	}
 
-	public String updateCD(){
+	public String updateCD() {
 		CD cd = (CD)cds.get(rowIndex);
 		cd.setArtist(this.artist);
 		cd.setPrice(this.price);
@@ -95,12 +95,12 @@ public class CDManagerBean {
 		return "success";
 	}
 
-	{//instance initializer to generate some sample data
-			cds.add(new CD("Scarecrow", "Garth Brooks", 15.89f));
-			cds.add(new CD("Downward Spiral", "NIN", 19.89f));
-			cds.add(new CD("Meat is Murder", "Smiths", 12.89f));
-			cds.add(new CD("Great Big Sea", "Great Big Sea", 8.39f));
-
+	{
+		//instance initializer to generate some sample data
+		cds.add(new CD("Scarecrow", "Garth Brooks", 15.89f));
+		cds.add(new CD("Downward Spiral", "NIN", 19.89f));
+		cds.add(new CD("Meat is Murder", "Smiths", 12.89f));
+		cds.add(new CD("Great Big Sea", "Great Big Sea", 8.39f));
 	}
 
 	/**
@@ -112,8 +112,8 @@ public class CDManagerBean {
 	/**
 	 * @param editMode The editMode to set.
 	 */
-	public void setEditMode(boolean editMode) {
-		this.editMode = editMode;
+	public void setEditMode(boolean ieditMode) {
+		editMode = ieditMode;
 	}
 	/**
 	 * @return Returns the rowIndex.
@@ -124,7 +124,7 @@ public class CDManagerBean {
 	/**
 	 * @param rowIndex The rowIndex to set.
 	 */
-	public void setRowIndex(int rowIndex) {
-		this.rowIndex = rowIndex;
+	public void setRowIndex(int irowIndex) {
+		rowIndex = irowIndex;
 	}
 }

@@ -22,8 +22,8 @@ public class FieldComponent extends UIInput {
 		label = (String)values[1];
 	}
 
-	public FieldComponent (){
-		this.setRendererType("arcmind.Field");
+	public FieldComponent() {
+		setRendererType("arcmind.Field");
 	}
 
 	/**

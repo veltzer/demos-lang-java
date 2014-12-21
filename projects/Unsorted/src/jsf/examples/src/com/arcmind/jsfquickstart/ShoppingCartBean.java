@@ -9,12 +9,10 @@ import java.util.TreeMap;
 import javax.faces.context.FacesContext;
 
 public class ShoppingCartBean {
-
 	private Map itemMap = new TreeMap();
 	private List items = new ArrayList();
 
-
-	public String add(){
+	public String add() {
 		/* Grab the request map from the faces context */
 		FacesContext context = FacesContext.getCurrentInstance();
 		Map map = context.getExternalContext().getRequestParameterMap();
@@ -22,8 +20,8 @@ public class ShoppingCartBean {
 
 		/* Make sure we don't add the same title twice */
 		String title = (String) map.get("title");
-		CD cd = (CD)itemMap.get(title);
-		if (cd!=null){
+		CD cd = (CD) itemMap.get(title);
+		if (cd!=null) {
 			return "add";
 		}
 
@@ -39,7 +37,7 @@ public class ShoppingCartBean {
 		return "add";
 	}
 
-	public String remove(){
+	public String remove() {
 		/* Grab the request map from the faces context. */
 		FacesContext context = FacesContext.getCurrentInstance();
 		Map map = context.getExternalContext().getRequestParameterMap();
@@ -56,7 +54,7 @@ public class ShoppingCartBean {
 		return "remove";
 	}
 
-	public Collection getItems(){
+	public Collection getItems() {
 		return items;
 	}
 

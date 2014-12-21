@@ -7,33 +7,22 @@ public class BookDTO implements Serializable {
 	private String author;
 	private double price;
 
-	public BookDTO(String title, String author, double price){
-		this.title = title;
-		this.author = author;
-		this.price = price;
+	public BookDTO(String ititle, String iauthor, double iprice) {
+		title = ititle;
+		author = iauthor;
+		price = iprice;
 	}
-	public BookDTO(){
-
+	public BookDTO() {
 	}
 
-	/**
-	 * @return
-	 */
 	public String getAuthor() {
 		return author;
 	}
 
-
-	/**
-	 * @return
-	 */
 	public String getTitle() {
 		return title;
 	}
 
-	/**
-	 * @param string
-	 */
 	public void setAuthor(String string) {
 		author = string;
 	}
@@ -42,7 +31,7 @@ public class BookDTO implements Serializable {
 		title = string;
 	}
 
-	public double getPrice(){
+	public double getPrice() {
 		return price;
 	}
 
@@ -50,7 +39,7 @@ public class BookDTO implements Serializable {
 		this.price = price;
 	}
 
-	public String toString(){
-		return "BookDTO:"+ title + " by:"+ author + " price:"+price;
+	public String toString() {
+		return "BookDTO:" + title + " by:" + author + " price:" + price;
 	}
 }

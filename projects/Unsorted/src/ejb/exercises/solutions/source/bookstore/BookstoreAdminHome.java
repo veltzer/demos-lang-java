@@ -1,11 +1,15 @@
 package ejb.exercises.solutions.source.bookstore;
+
+import javax.ejb.CreateException;
+import java.rmi.RemoteException;
+import javax.ejb.EJBHome;
+
 /**
  * Home interface for Enterprise Bean: BookstoreAdmin
  */
-public interface BookstoreAdminHome extends javax.ejb.EJBHome {
+public interface BookstoreAdminHome extends EJBHome {
 	/**
 	 * Creates a default instance of Session Bean: BookstoreAdmin
 	 */
-	public BookstoreAdmin create()
-		throws javax.ejb.CreateException, java.rmi.RemoteException;
+	BookstoreAdmin create() throws CreateException, RemoteException;
 }
