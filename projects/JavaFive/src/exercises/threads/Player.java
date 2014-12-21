@@ -1,10 +1,10 @@
-package java_five_exercises.threads;
+package exercises.threads;
 
 import java.util.Iterator;
 import java.util.concurrent.Callable;
 
-import java_five_exercises.enums.Card;
-import java_five_exercises.enums.Deck;
+import exercises.enums.Card;
+import exercises.enums.Deck;
 
 /**
  * This class represents a player.

@@ -1,6 +1,6 @@
-package java_five_exercises.varargs_boxing.tests;
+package exercises.varargs_boxing.tests;
 
-import java_five_exercises.varargs_boxing.PerformaceTest;
+import exercises.varargs_boxing.PerformaceTest;
 
 public class EqualsPrimitive extends PerformaceTest {
     int i;

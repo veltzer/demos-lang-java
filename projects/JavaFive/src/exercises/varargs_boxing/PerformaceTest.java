@@ -1,4 +1,4 @@
-package java_five_exercises.varargs_boxing;
+package exercises.varargs_boxing;
 
 public abstract class PerformaceTest implements Test {
     public final static long TIMES=1000000;

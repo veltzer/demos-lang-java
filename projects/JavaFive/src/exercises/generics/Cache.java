@@ -1,4 +1,4 @@
-package java_five_exercises.generics;
+package exercises.generics;
 
 import java.util.HashMap;
 import java.util.Map;

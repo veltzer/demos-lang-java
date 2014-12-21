@@ -1,4 +1,4 @@
-package java_five_exercises.forin;
+package exercises.forin;
 
 import java.util.Iterator;
 import java.util.StringTokenizer;

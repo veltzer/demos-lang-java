@@ -1,4 +1,4 @@
-package java_five_exercises.enums;
+package exercises.enums;
 
 import java.util.ArrayList;
 import java.util.Collection;

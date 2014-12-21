@@ -1,4 +1,4 @@
-package java_five_exercises.formatting;
+package exercises.formatting;
 
 import java.text.DateFormatSymbols;
 import java.util.Calendar;

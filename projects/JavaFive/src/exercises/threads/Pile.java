@@ -1,9 +1,9 @@
-package java_five_exercises.threads;
+package exercises.threads;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-import java_five_exercises.enums.Card;
+import exercises.enums.Card;
 
 /**
  * This class represents a pile of cards on the game board.

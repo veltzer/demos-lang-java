@@ -1,13 +1,13 @@
-package java_five_exercises.varargs_boxing;
+package exercises.varargs_boxing;
 
-import java_five_exercises.varargs_boxing.tests.AddInteger;
-import java_five_exercises.varargs_boxing.tests.AddPrimitive;
-import java_five_exercises.varargs_boxing.tests.Empty;
-import java_five_exercises.varargs_boxing.tests.EqualsInteger;
-import java_five_exercises.varargs_boxing.tests.EqualsInteger2;
-import java_five_exercises.varargs_boxing.tests.EqualsPrimitive;
-import java_five_exercises.varargs_boxing.tests.ToStringInteger;
-import java_five_exercises.varargs_boxing.tests.ToStringPrimitive;
+import exercises.varargs_boxing.tests.AddInteger;
+import exercises.varargs_boxing.tests.AddPrimitive;
+import exercises.varargs_boxing.tests.Empty;
+import exercises.varargs_boxing.tests.EqualsInteger;
+import exercises.varargs_boxing.tests.EqualsInteger2;
+import exercises.varargs_boxing.tests.EqualsPrimitive;
+import exercises.varargs_boxing.tests.ToStringInteger;
+import exercises.varargs_boxing.tests.ToStringPrimitive;
 
 public class TestSuite {
 

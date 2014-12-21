@@ -1,4 +1,4 @@
-package java_five_exercises.enums;
+package exercises.enums;
 
 public class Card {
 

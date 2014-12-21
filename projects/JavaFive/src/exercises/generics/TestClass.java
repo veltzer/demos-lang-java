@@ -1,4 +1,4 @@
-package java_five_exercises.generics;
+package exercises.generics;
 
 public class TestClass {
 	@Override

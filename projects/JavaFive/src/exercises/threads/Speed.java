@@ -1,4 +1,4 @@
-package java_five_exercises.threads;
+package exercises.threads;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -7,8 +7,8 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import java_five_exercises.enums.Card;
-import java_five_exercises.enums.Deck;
+import exercises.enums.Card;
+import exercises.enums.Deck;
 
 /**
  * This program simulates the card game called "Speed"
