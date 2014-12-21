@@ -1,6 +1,7 @@
 package jme.exercises.todo;
-import java.util.*;
-import javax.microedition.lcdui.*;
+
+//import java.util.*;
+//import javax.microedition.lcdui.*;
 
 /**
  * Exercise 2: To do list part I.
@@ -43,7 +44,8 @@ public class ToDo extends javax.microedition.midlet.MIDlet implements CommandLis
 	}
 
 	/** Signals the MIDlet to terminate and enter the Destroyed state. */
-	protected void destroyApp(boolean unconditional) {}
+	protected void destroyApp(boolean unconditional) {
+	}
 
 	/** Signals the MIDlet to stop and enter the Paused state. */
 	protected void pauseApp() {
@@ -55,8 +57,7 @@ public class ToDo extends javax.microedition.midlet.MIDlet implements CommandLis
 		if (pausedDisplayable != null) {
 			Display.getDisplay(this).setCurrent(pausedDisplayable); // Re-display last previously shown displayable if available.
 			pausedDisplayable = null;
-		}
-		else {
+		} else {
 			Display.getDisplay(this).setCurrent(list);
 		}
 	}
@@ -69,17 +70,17 @@ public class ToDo extends javax.microedition.midlet.MIDlet implements CommandLis
 			textBox.setTitle("Add");
 			textBox.setString(null); // Clear previous contents
 			Display.getDisplay(this).setCurrent(textBox); // Display text box
-		}
-		else if (c == deleteEntryCmd) {
+		} else if (c == deleteEntryCmd) {
 			// Delete currently selected entry.
 			// @todo Confirm before deleting
-			if (list.getSelectedIndex() > -1)
+			if (list.getSelectedIndex() > -1) {
 				deleteEntry(list.getSelectedIndex());
+			}
 		} else if (c == editEntryCmd) {
 			// Edit currently selected entry by displaying text box with entry contents.
 			if (list.getSelectedIndex() > -1) {
 				editEntryIndex = list.getSelectedIndex();
-				Entry entry = (Entry)entries.elementAt(editEntryIndex);
+				Entry entry = (Entry) entries.elementAt(editEntryIndex);
 				textBox.setTitle("Edit");
 				textBox.setString(entry.text);
 				Display.getDisplay(this).setCurrent(textBox);
@@ -120,7 +121,7 @@ public class ToDo extends javax.microedition.midlet.MIDlet implements CommandLis
 
 	/** Edit current entry with given String. */
 	private void editEntry(String stringToEdit) {
-		Entry entry = (Entry)entries.elementAt(editEntryIndex);
+		Entry entry = (Entry) entries.elementAt(editEntryIndex);
 		entry.text = stringToEdit; // Edit Vector Entry
 		entry.date = new Date(); // Update timestamp
 		list.set(editEntryIndex, entry.toString(), null); // Edit List item
@@ -152,12 +153,12 @@ public class ToDo extends javax.microedition.midlet.MIDlet implements CommandLis
 
 	/** Inner class to hold basic information for to do list entries. */
 	class Entry {
-		String text;
-		Date date;
+		private String text;
+		private Date date;
 
 		/** Constructor. */
-		public Entry(String text) {
-			this.text = text;
+		public Entry(String itext) {
+			text = itext;
 			date = new Date();
 		}
 
@@ -165,7 +166,7 @@ public class ToDo extends javax.microedition.midlet.MIDlet implements CommandLis
 		public String toString() {
 			Calendar calendar = Calendar.getInstance();
 			calendar.setTime(date);
-			String dateString = calendar.get(Calendar.YEAR) + "-" + (calendar.get(Calendar.MONTH)+1) + "-" + calendar.get(Calendar.DATE) + " " + calendar.get(Calendar.HOUR_OF_DAY) + ":" + (calendar.get(Calendar.MINUTE) < 10 ? "0" + calendar.get(Calendar.MINUTE) : "" + calendar.get(Calendar.MINUTE));
+			String dateString = calendar.get(Calendar.YEAR) + "-" + (calendar.get(Calendar.MONTH) + 1) + "-" + calendar.get(Calendar.DATE) + " " + calendar.get(Calendar.HOUR_OF_DAY) + ":" + (calendar.get(Calendar.MINUTE) < 10 ? "0" + calendar.get(Calendar.MINUTE) : "" + calendar.get(Calendar.MINUTE));
 			return text.substring(0, Math.min(text.length(), 10)) + " [" + dateString + "]";
 		}
 	}

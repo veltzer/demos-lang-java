@@ -10,13 +10,13 @@ public class OrderDetailsDTO implements Serializable {
 	private long timestamp;
 	private List<String> bookTitles;
 
-	public OrderDetailsDTO(String id, long timestamp, List<String> bookTitles){
-		this.id=id;
-		this.timestamp=timestamp;
-		this.bookTitles = bookTitles;
+	public OrderDetailsDTO(String iid, long itimestamp, List<String> ibookTitles) {
+		id = iid;
+		timestamp = itimestamp;
+		bookTitles = ibookTitles;
 	}
 
-	public OrderDetailsDTO(){
+	public OrderDetailsDTO() {
 	}
 
 	public List<String> getBookTitles() {
@@ -43,16 +43,10 @@ public class OrderDetailsDTO implements Serializable {
 		timestamp = l;
 	}
 
-	/**
-	 * @return
-	 */
 	public String getCustomerId() {
 		return customerId;
 	}
 
-	/**
-	 * @param string
-	 */
 	public void setCustomerId(String string) {
 		customerId = string;
 	}

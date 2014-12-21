@@ -1,13 +1,16 @@
 package jme.exercises.todo2;
-import java.io.*;
-import java.util.*;
-import javax.microedition.lcdui.*;
-import javax.microedition.rms.*;
+
+//import java.io.*;
+import java.io.IOException;
+//import java.util.*;
+//import javax.microedition.lcdui.*;
+//import javax.microedition.rms.*;
+import javax.microedition.midlet.MIDlet;
 
 /**
  * Exercise 2: To do list part II.
  */
-public class ToDo extends javax.microedition.midlet.MIDlet implements CommandListener {
+public class ToDo extends MIDlet implements CommandListener {
 	private List list; // List to display all entries
 	private TextBox textBox; // Text box to add and edit entries
 	private Command addEntryCmd, deleteEntryCmd, editEntryCmd, helpCmd, aboutCmd, exitCmd, okCmd, cancelCmd;
@@ -67,19 +70,21 @@ public class ToDo extends javax.microedition.midlet.MIDlet implements CommandLis
 			}
 
 			enm.destroy(); // Frees internal resources used by RecordEnumeration
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			showError("Error loading entries from storage: " + e);
-		}
-		finally {
-			try { rs.closeRecordStore(); }
-			catch (Exception e) {} // Ignore
+		} finally {
+			try {
+				rs.closeRecordStore();
+			} catch (Exception e) {
+				throw new RuntimeException(e);
+			}
 		}
 	}
 
 	/** Signals the MIDlet to terminate and enter the Destroyed state. */
-	protected void destroyApp(boolean unconditional) {}
+	protected void destroyApp(boolean unconditional) {
+	}
 
 	/** Signals the MIDlet to stop and enter the Paused state. */
 	protected void pauseApp() {
@@ -91,8 +96,7 @@ public class ToDo extends javax.microedition.midlet.MIDlet implements CommandLis
 		if (pausedDisplayable != null) {
 			Display.getDisplay(this).setCurrent(pausedDisplayable); // Re-display last previously shown displayable if available.
 			pausedDisplayable = null;
-		}
-		else {
+		} else {
 			Display.getDisplay(this).setCurrent(list);
 		}
 	}
@@ -108,13 +112,14 @@ public class ToDo extends javax.microedition.midlet.MIDlet implements CommandLis
 		} else if (c == deleteEntryCmd) {
 			// Delete currently selected entry.
 			// @todo Confirm before deleting
-			if (list.getSelectedIndex() > -1)
+			if (list.getSelectedIndex() > -1) {
 				deleteEntry(list.getSelectedIndex());
+			}
 		} else if (c == editEntryCmd) {
 			// Edit currently selected entry by displaying text box with entry contents.
 			if (list.getSelectedIndex() > -1) {
 				editEntryIndex = list.getSelectedIndex();
-				Entry entry = (Entry)entries.elementAt(editEntryIndex);
+				Entry entry = (Entry) entries.elementAt(editEntryIndex);
 				textBox.setTitle("Edit");
 				textBox.setString(entry.text);
 				Display.getDisplay(this).setCurrent(textBox);
@@ -128,10 +133,11 @@ public class ToDo extends javax.microedition.midlet.MIDlet implements CommandLis
 			notifyDestroyed();
 		} else if (c == okCmd) {
 			if (textBox.getString().length() > 0) {
-				if (editEntryIndex < 0)
+				if (editEntryIndex < 0) {
 					addEntry(textBox.getString());
-				else
+				} else {
 					editEntry(textBox.getString());
+				}
 			}
 			Display.getDisplay(this).setCurrent(list);
 		} else if (c == cancelCmd) {
@@ -155,20 +161,21 @@ public class ToDo extends javax.microedition.midlet.MIDlet implements CommandLis
 
 			entries.addElement(newEntry); // Add to Vector
 			list.append(newEntry.toString(), null); // Add to List
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			showError("Error adding entry: " + e);
-		}
-		finally {
-			try { rs.closeRecordStore(); }
-			catch (Exception e) {} // Ignore
+		} finally {
+			try {
+				rs.closeRecordStore();
+			} catch (Exception e) {
+				throw new RuntimeException(e);
+			}
 		}
 	}
 
 	/** Delete entry at given index. */
 	private void deleteEntry(int selectedIndex) {
-		Entry entryToDelete = (Entry)entries.elementAt(selectedIndex);
+		Entry entryToDelete = (Entry) entries.elementAt(selectedIndex);
 
 		// Delete Record from RecordStore.
 		RecordStore rs = null;
@@ -179,20 +186,21 @@ public class ToDo extends javax.microedition.midlet.MIDlet implements CommandLis
 
 			entries.removeElementAt(selectedIndex); // Delete from Vector
 			list.delete(selectedIndex); // Delete from List
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			showError("Error deleting entry: " + e);
-		}
-		finally {
-			try { rs.closeRecordStore(); }
-			catch (Exception e) {} // Ignore
+		} finally {
+			try {
+				rs.closeRecordStore();
+			} catch (Exception e) {
+				throw new RuntimeException(e);
+			}
 		}
 	}
 
 	/** Edit current entry with given String. */
 	private void editEntry(String stringToEdit) {
-		Entry entry = (Entry)entries.elementAt(editEntryIndex);
+		Entry entry = (Entry) entries.elementAt(editEntryIndex);
 		entry.text = stringToEdit; // Edit Vector Entry
 		entry.date = new Date(); // Update timestamp
 
@@ -205,14 +213,15 @@ public class ToDo extends javax.microedition.midlet.MIDlet implements CommandLis
 			rs.setRecord(entry.recordId, entryBytes, 0, entryBytes.length);
 
 			list.set(editEntryIndex, entry.toString(), null); // Edit List item
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			showError("Error editing entry: " + e);
-		}
-		finally {
-			try { rs.closeRecordStore(); }
-			catch (Exception e) {} // Ignore
+		} finally {
+			try {
+				rs.closeRecordStore();
+			} catch (Exception e) {
+				throw new RuntimeException(e);
+			}
 		}
 	}
 
@@ -250,19 +259,19 @@ public class ToDo extends javax.microedition.midlet.MIDlet implements CommandLis
 
 	/** Inner class to hold basic information for to do list entries. */
 	class Entry {
-		String text;
-		Date date;
-		int recordId;
+		private String text;
+		private Date date;
+		private int recordId;
 
 		/** Constructor - used when creating a new Entry from scratch. */
-		public Entry(String text) {
-			this.text = text;
+		public Entry(String itext) {
+			text = itext;
 			date = new Date();
 		}
 
 		/** Constructor - used when creating a new Entry from a persistent record. */
-		public Entry(int recordId, byte[] bytes) throws IOException {
-			this.recordId = recordId;
+		public Entry(int irecordId, byte[] bytes) throws IOException {
+			recordId = irecordId;
 
 			ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
 			DataInputStream dis = new DataInputStream(bis);
@@ -274,7 +283,7 @@ public class ToDo extends javax.microedition.midlet.MIDlet implements CommandLis
 		public String toString() {
 			Calendar calendar = Calendar.getInstance();
 			calendar.setTime(date);
-			String dateString = calendar.get(Calendar.YEAR) + "-" + (calendar.get(Calendar.MONTH)+1) + "-" + calendar.get(Calendar.DATE) + " " + calendar.get(Calendar.HOUR_OF_DAY) + ":" + (calendar.get(Calendar.MINUTE) < 10 ? "0" + calendar.get(Calendar.MINUTE) : "" + calendar.get(Calendar.MINUTE));
+			String dateString = calendar.get(Calendar.YEAR) + "-" + (calendar.get(Calendar.MONTH) + 1) + "-" + calendar.get(Calendar.DATE) + " " + calendar.get(Calendar.HOUR_OF_DAY) + ":" + (calendar.get(Calendar.MINUTE) < 10 ? "0" + calendar.get(Calendar.MINUTE) : "" + calendar.get(Calendar.MINUTE));
 			return text.substring(0, Math.min(text.length(), 10)) + " [" + dateString + "]";
 		}
 
@@ -287,9 +296,9 @@ public class ToDo extends javax.microedition.midlet.MIDlet implements CommandLis
 				dos.writeLong(date.getTime());
 				dos.close();
 				return bos.toByteArray();
+			} catch (Exception e) {
+				throw new RuntimeException(e);
 			}
-			catch (Exception e) {} // Ignore
-
 			return null;
 		}
 	}

@@ -1,7 +1,8 @@
 package jme.exercises.stock;
-import java.io.*;
-import javax.microedition.io.*;
-import javax.microedition.lcdui.*;
+
+//import java.io.*;
+//import javax.microedition.io.*;
+//import javax.microedition.lcdui.*;
 
 /**
  * Exercise 5: Stock ticker.
@@ -35,7 +36,8 @@ public class Stock extends javax.microedition.midlet.MIDlet implements CommandLi
 	}
 
 	/** Signals the MIDlet to terminate and enter the Destroyed state. */
-	protected void destroyApp(boolean unconditional) {}
+	protected void destroyApp(boolean unconditional) {
+	}
 
 	/** Signals the MIDlet to stop and enter the Paused state. */
 	protected void pauseApp() {
@@ -47,8 +49,7 @@ public class Stock extends javax.microedition.midlet.MIDlet implements CommandLi
 		if (pausedDisplayable != null) {
 			Display.getDisplay(this).setCurrent(pausedDisplayable); // Re-display last previously shown displayable if available.
 			pausedDisplayable = null;
-		}
-		else {
+		} else {
 			Display.getDisplay(this).setCurrent(form);
 		}
 	}
@@ -57,10 +58,10 @@ public class Stock extends javax.microedition.midlet.MIDlet implements CommandLi
 	public void commandAction(Command c, Displayable d) {
 		if (c == submitCmd) {
 			// Retrieve quote for symbol entered in text field.
-			if (textField.getString().length() > 0)
+			if (textField.getString().length() > 0) {
 				retrieveQuote(textField.getString()); // @todo Should do this in separate thread, while giving user an indication of progress
-		}
-		else if (c == helpCmd) {
+			}
+		} else if (c == helpCmd) {
 			showHelp();
 		} else if (c == aboutCmd) {
 			showAbout();
@@ -76,7 +77,7 @@ public class Stock extends javax.microedition.midlet.MIDlet implements CommandLi
 		InputStream is = null;
 
 		try {
-			conn = (HttpConnection)Connector.open(URL + symbol);
+			conn = (HttpConnection) Connector.open(URL + symbol);
 			conn.setRequestMethod(HttpConnection.GET); // Not required, since GET is default. Can also be used for POST request.
 			conn.setRequestProperty("User-Agent", "Profile/MIDP-1.0 Configuration/CLDC-1.0"); // Example of setting request property
 
@@ -85,21 +86,26 @@ public class Stock extends javax.microedition.midlet.MIDlet implements CommandLi
 			StringBuffer buf = new StringBuffer(6);
 			int i;
 
-			while ((i = is.read()) != -1) // Read each character of input and append to StringBuffer
-				buf.append((char)i);
+			// Read each character of input and append to StringBuffer
+			while ((i = is.read()) != -1) {
+				buf.append((char) i);
+			}
 
 			showMessage(symbol, buf.toString()); // Display result to user
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			showMessage("Error", "Error retrieving quote: " + e);
-		}
-		finally {
-			try { is.close(); }
-			catch (Exception e) {} // Ignore
-
-			try { conn.close(); }
-			catch (Exception e) {} // Ignore
+		} finally {
+			try {
+				is.close();
+			} catch (Exception e) {
+				throw new RuntimeException(e);
+			}
+			try {
+				conn.close();
+			} catch (Exception e) {
+				throw new RuntimeException(e);
+			}
 		}
 	}
 

@@ -1,18 +1,12 @@
 package ejb.exercises.solutions.source.bookstore;
 
-import java.util.*;
+//import java.util.*;
 
 import javax.ejb.CreateException;
-import javax.ejb.EJBException;
-import javax.ejb.FinderException;
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 import javax.sql.DataSource;
-
-import book.Book;
-import book.BookHome;
-import daos.*;
-import dtos.*;
+import javax.ejb.SessionBean;
 
 /**
  * Bean implementation class for Enterprise Bean: BookstoreAdmin
@@ -20,75 +14,65 @@ import dtos.*;
  * (For details, please consult the documentation of
  * interface BookStoreAdmin)
  */
-public class BookstoreAdminBean implements javax.ejb.SessionBean
-{
+public class BookstoreAdminBean implements SessionBean {
 	private javax.ejb.SessionContext mySessionCtx;
 	private BookstoreDAO dao;
 	private BookHome bookHome;
-
 
 	/**
  	 * Settign session context: <ul>
 	 * <li> keep reference to session context
 	 */
-	public void setSessionContext(javax.ejb.SessionContext ctx)
-	{
+	public void setSessionContext(javax.ejb.SessionContext ctx) {
 		System.out.println(this.getClass().getName() + ".setSessionContext() was invoked...");
 		mySessionCtx = ctx;
 	}
 
-	public void ejbCreate() throws javax.ejb.CreateException
-	{
+	public void ejbCreate() throws javax.ejb.CreateException {
 		//declare locals
 		Object obj = null;
 		System.out.println(this.getClass().getName() + ".ejbCreate() was invoked...");
-		try
-		{
+		try {
 			InitialContext ictx = new InitialContext();
 			obj = ictx.lookup("java:comp/env/jdbc/MyDS");
-			DataSource dataSrouce = (DataSource) PortableRemoteObject.narrow(obj,DataSource.class);
+			DataSource dataSrouce = (DataSource) PortableRemoteObject.narrow(obj, DataSource.class);
 			dao = BookstoreDaoFactory.getDAO(dataSrouce);
 			obj = ictx.lookup("ejb/entity/BookLocalHome");
-			bookHome = (BookHome)PortableRemoteObject.narrow(obj,BookHome.class);
-		}
-		catch (Exception ex)
-		{
+			bookHome = (BookHome) PortableRemoteObject.narrow(obj, BookHome.class);
+		} catch (Exception ex) {
 			ex.printStackTrace();
-			throw new CreateException("failed to create the bean. "+ex.getMessage());
+			throw new CreateException("failed to create the bean. " + ex.getMessage());
 		}
 	}
 
-	public void ejbActivate()
-	{
+	public void ejbActivate() {
 		System.out.println(this.getClass().getName() + ".ejbActivate() was invoked...");
 	}
 
-	public void ejbPassivate()
-	{
+	public void ejbPassivate() {
 		System.out.println(this.getClass().getName() + ".ejbPassivate() was invoked...");
 	}
 
-	public void ejbRemove()
-	{
+	public void ejbRemove() {
 		System.out.println(this.getClass().getName() + ".ejbRemove() was invoked...");
 	}
 
 	/**
-		* Adds a new book to inventory: <ul>
-		* <li> Performs validity checks (e.g. quantity>=0)
-		* <li> Uses DAO to store book into DB
-		*
-		* @param book
-		* @throws InvalidBookDataException if book title is empty, or quantity is negative.
-		*/
-	public void addNewBook(BookDTO book) throws InvalidBookDataException
-	{
+	* Adds a new book to inventory: <ul>
+	* <li> Performs validity checks (e.g. quantity>=0)
+	* <li> Uses DAO to store book into DB
+	*
+	* @param book
+	* @throws InvalidBookDataException if book title is empty, or quantity is negative.
+	*/
+	public void addNewBook(BookDTO book) throws InvalidBookDataException {
 		String title = book.getTitle();
 		double price = book.getPrice();
-		if (price < 0 || title == null || title.length() == 0)
+		if (price < 0 || title == null || title.length() == 0) {
 			throw new InvalidBookDataException(
 				"Book price must by non-negative"
 					+ "and title must be non-empty");
+		}
 
 		/*
 		try
@@ -103,21 +87,22 @@ public class BookstoreAdminBean implements javax.ejb.SessionBean
 	}
 
 	/**
-		* Adds a new customer to inventory (using DAO to make sure
-		* record is persisted in the DB).
-		*/
+	* Adds a new customer to inventory (using DAO to make sure
+	* record is persisted in the DB).
+	*/
 	public void addNewCustomer(CustomerDTO customer) {
 		dao.insertCustomer(
 			customer.getId(),
 			customer.getName(),
 			customer.getEmail(),
-			customer.getAddress());
+			customer.getAddress()
+		);
 	}
 
 	/**
-		* Returns a list of all books in inventory.
-		* @return a list of BookDTO's
-		*/
+	* Returns a list of all books in inventory.
+	* @return a list of BookDTO's
+	*/
 	public List showBooks() {
 		// Perform a "select* from BOOKS" and store result into list:
 		List result = dao.selectBooks();
@@ -140,9 +125,9 @@ public class BookstoreAdminBean implements javax.ejb.SessionBean
 	}
 
 	/**
-		* Returns a list of all registered customers.
-		* @return a list of CustomerDTO's
-		*/
+	* Returns a list of all registered customers.
+	* @return a list of CustomerDTO's
+	*/
 	public List showCustomers() {
 		List customers = dao.selectCustomers();
 		return customers;
