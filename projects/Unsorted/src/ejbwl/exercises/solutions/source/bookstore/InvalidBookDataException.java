@@ -1,7 +1,7 @@
 package ejbwl.exercises.solutions.source.bookstore;
 
 @SuppressWarnings("serial")
-public class InvalidBookDataException extends Exception {
+public class InvalidBookDataException extends RuntimeException {
 	public InvalidBookDataException(String msg) {
 		super(msg);
 	}

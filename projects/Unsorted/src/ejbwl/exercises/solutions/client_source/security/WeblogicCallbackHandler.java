@@ -1,15 +1,27 @@
 package ejbwl.exercises.solutions.client_source.security;
 
-//import java.io.*;
-//import javax.security.auth.callback.*;
-//import weblogic.security.auth.callback.*;
 import java.io.IOException;
+import java.io.BufferedReader;
+//import weblogic.security.auth.callback.*;
+
+
+
+
+import java.io.InputStreamReader;
+
+import javax.security.auth.callback.Callback;
+import javax.security.auth.callback.CallbackHandler;
+import javax.security.auth.callback.NameCallback;
+import javax.security.auth.callback.PasswordCallback;
+import javax.security.auth.callback.TextInputCallback;
+import javax.security.auth.callback.TextOutputCallback;
+import javax.security.auth.callback.UnsupportedCallbackException;
 
 class WeblogicCallbackHandler implements CallbackHandler {
 
 	private String username = null;
 	private String password = null;
-	private String url = null;
+	//private String url = null;
 
 	public WeblogicCallbackHandler() {
 	}
@@ -17,7 +29,7 @@ class WeblogicCallbackHandler implements CallbackHandler {
 	public WeblogicCallbackHandler(String pUsername, String pPassword, String pUrl) {
 		username = pUsername;
 		password = pPassword;
-		url = pUrl;
+		//url = pUrl;
 	}
 
 	public void handle(Callback[] callbacks) throws IOException {
@@ -56,6 +68,7 @@ class WeblogicCallbackHandler implements CallbackHandler {
 				}
 				found = true;
 			}
+			/*
 			if (callbacks[i] instanceof URLCallback) {
 				// If url not supplied on cmd line, prompt the user for the url.
 				// This example requires the url.
@@ -70,6 +83,7 @@ class WeblogicCallbackHandler implements CallbackHandler {
 				}
 				found = true;
 			}
+			*/
 			if (callbacks[i] instanceof PasswordCallback) {
 				PasswordCallback pc = (PasswordCallback) callbacks[i];
 
@@ -105,7 +119,7 @@ class WeblogicCallbackHandler implements CallbackHandler {
 				found = true;
 			}
 			if (!found) {
-				throw new UnsupportedCallbackException(callbacks[i], "Unrecognized Callback");
+				throw new RuntimeException(new UnsupportedCallbackException(callbacks[i], "Unrecognized Callback"));
 			}
 		}
 	}

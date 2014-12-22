@@ -2,21 +2,24 @@ package ejbwl.exercises.solutions.source.cancellations;
 
 import java.util.StringTokenizer;
 
-//import javax.ejb.*;
-//import javax.jms.*;
+import javax.jms.Message;
+import javax.jms.MessageListener;
+import javax.jms.TextMessage;
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 import javax.sql.DataSource;
+import javax.ejb.MessageDrivenBean;
 import javax.ejb.MessageDrivenContext;
-import daos.BookstoreDAO;
-import daos.BookstoreDaoFactory;
+
+import ejbwl.exercises.solutions.source.daos.BookstoreDAO;
+import ejbwl.exercises.solutions.source.daos.BookstoreDaoFactory;
 
 /**
  * Bean implementation class for Enterprise Bean: CancelOrders
  */
+@SuppressWarnings("serial")
 public class CancelOrdersBean implements MessageListener, MessageDrivenBean {
 
-	private MessageDrivenContext fMessageDrivenCtx;
 	private BookstoreDAO dao;
 
 	/**
@@ -24,7 +27,6 @@ public class CancelOrdersBean implements MessageListener, MessageDrivenBean {
 	*/
 	public void setMessageDrivenContext(MessageDrivenContext ctx) {
 		System.out.println(this.getClass().getName() + ".setMessageDrivenContext() was invoked...");
-		fMessageDrivenCtx = ctx;
 		try {
 			InitialContext ictx = new InitialContext();
 			Object obj = ictx.lookup("java:comp/env/jdbc/MyDS");
@@ -58,6 +60,7 @@ public class CancelOrdersBean implements MessageListener, MessageDrivenBean {
 	* register to a dedicated "error-notification" queue , where your
 	* message-driven bean may place error reports).
 	*/
+	@Override
 	public void onMessage(Message msg) {
 		System.out.println(this.getClass().getName() + ".onMessage() was invoked...");
 

@@ -1,9 +1,12 @@
 package ejbwl.exercises.solutions.source.bookstore;
 
 import java.rmi.RemoteException;
-
 import java.util.List;
+
 import javax.ejb.EJBObject;
+
+import ejbwl.exercises.solutions.source.dtos.BookDTO;
+import ejbwl.exercises.solutions.source.dtos.CustomerDTO;
 
 /**
  * Remote interface for Enterprise Bean: BookstoreAdmin
