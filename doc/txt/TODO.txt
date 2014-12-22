@@ -1,7 +1,5 @@
 Now:
 ====
-- get to 'ant build' which is clean
-	(there are warnings in the full build).
 - build the Unsorted folder too
 	(in ant build it is currently disabled).
 - do a parser to checkstyle output which removes it's annoying prints.
