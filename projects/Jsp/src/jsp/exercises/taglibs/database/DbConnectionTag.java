@@ -1,4 +1,4 @@
-package jsp.exercises.taglibs.exercises.database;
+package jsp.exercises.taglibs.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
