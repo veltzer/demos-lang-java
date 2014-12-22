@@ -2,7 +2,6 @@ package jsp.exercises.taglibs.solutions.uppercase_filter;
 
 import java.io.IOException;
 
-import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.BodyTagSupport;
 
 @SuppressWarnings("serial")
@@ -15,7 +14,7 @@ public class UpperFilterTag extends BodyTagSupport {
 			getBodyContent().print(newContent);
 			getBodyContent().writeOut(pageContext.getOut());
 		} catch (IOException e) {
-			throw new JspException(e);
+			throw new RuntimeException(e);
 		}
 		return EVAL_PAGE;
 	}

@@ -1,4 +1,4 @@
-package jsp.exercises.design_patterns.solutions.dispatcherview;
+package jsp.exercises.designpatterns.solutions.dispatcherview;
 
 @SuppressWarnings("serial")
 public class Item implements java.io.Serializable {

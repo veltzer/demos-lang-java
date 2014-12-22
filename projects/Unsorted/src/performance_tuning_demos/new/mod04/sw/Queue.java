@@ -3,7 +3,7 @@ package foo;
 import java.util.Vector;
 
 public class Queue {
-	private Vector itsBuffers = new Vector();
+	private Vector<Object> itsBuffers = new Vector<Object>();
 	private int itsEnqueueCount = 0;
 	private int itsDequeueCount = 0;
 	private int itsMaxDepth = 300;	// overall size

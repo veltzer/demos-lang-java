@@ -1,10 +1,11 @@
-package jsp.exercises.design_patterns.solutions.dispatcherview;
+package jsp.exercises.designpatterns.solutions.dispatcherview;
 
 import java.util.Map;
 import java.util.TreeMap;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,7 +15,11 @@ public class ControllerServlet extends HttpServlet {
 	private Dispatcher dispatcher;
 
 	public void init(ServletConfig config) {
-		super.init(config);
+		try {
+			super.init(config);
+		} catch (ServletException e) {
+			throw new RuntimeException(e);
+		}
 
 		// create the items list;
 		Map<String, Item> itemList = new TreeMap<String, Item>();

@@ -1,5 +1,7 @@
 
-package jsp.exercises.design_patterns.solutions.dispatcherview;
+package jsp.exercises.designpatterns.solutions.dispatcherview;
+
+import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -22,8 +24,14 @@ public class Dispatcher {
 		} else if (mode.equalsIgnoreCase("item")) {
 			rd = ctx.getRequestDispatcher(ITEM_PAGE);
 		} else {
-			throw new ServletException("Illegal mode");
+			throw new RuntimeException("Illegal mode");
 		}
-		rd.forward(req, res);
+		try {
+			rd.forward(req, res);
+		} catch (ServletException e) {
+			throw new RuntimeException(e);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 	}
 }
