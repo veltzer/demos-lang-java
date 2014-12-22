@@ -84,10 +84,11 @@
 					includeAntRuntime="no"
 					target="1.6"
 					source="1.6"
-					debug="on"
-					verbose="on"
 				>
 				<!--
+					debug="on"
+					verbose="on"
+
 					deprecation="on"
 					optimize="on"
 					failonerror="on"
