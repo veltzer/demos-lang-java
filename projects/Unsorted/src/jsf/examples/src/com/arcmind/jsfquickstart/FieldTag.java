@@ -26,9 +26,6 @@ public class FieldTag extends UIComponentTag {
 	public void setLabel(String ilabel) {
 		label = ilabel;
 	}
-	/**
-	 * @see javax.faces.webapp.UIComponentTag#setProperties(javax.faces.component.UIComponent)
-	 */
 	@Override
 	protected void setProperties(UIComponent component) {
 		/* You have to call the super class */
@@ -45,18 +42,10 @@ public class FieldTag extends UIComponentTag {
 		System.out.printf("setProperties class=%s expression=%s\n", binding.getType(FacesContext.getCurrentInstance()), binding.getExpressionString());
 		component.setValueBinding("value", binding);
 	}
-
-	/**
-	 * @see javax.faces.webapp.UIComponentTag#getComponentType()
-	 */
 	@Override
 	public String getComponentType() {
 		return "arcmind.Field";
 	}
-
-	/**
-	 * @see javax.faces.webapp.UIComponentTag#getRendererType()
-	 */
 	@Override
 	public String getRendererType() {
 		return "arcmind.Field";

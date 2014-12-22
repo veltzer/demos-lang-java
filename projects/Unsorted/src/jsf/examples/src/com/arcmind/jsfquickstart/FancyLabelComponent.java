@@ -49,9 +49,6 @@ public class FancyLabelComponent extends UIOutput {
 		label = ilabel;
 	}
 
-	/**
-	 * @see javax.faces.component.UIComponent#encodeBegin(javax.faces.context.FacesContext)
-	 */
 	@Override
 	public void encodeBegin(FacesContext context) throws IOException {
 		ResponseWriter writer = context.getResponseWriter();
@@ -74,9 +71,6 @@ public class FancyLabelComponent extends UIOutput {
 		writer.flush();
 	}
 
-	/**
-	 * @see javax.faces.component.UIComponent#encodeEnd(javax.faces.context.FacesContext)
-	 */
 	@Override
 	public void encodeEnd(FacesContext context) throws IOException {
 	}
@@ -86,9 +80,6 @@ public class FancyLabelComponent extends UIOutput {
 		return "arcmind.Label";
 	}
 
-	/**
-	 * @see javax.faces.component.UIComponent#decode(javax.faces.context.FacesContext)
-	 */
 	@Override
 	public void decode(FacesContext context) {
 		return;

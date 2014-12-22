@@ -33,7 +33,6 @@ public class DemoFrame extends JFrame {
 
 	/**
 	 * This method initializes jContentPane
-	 * @return javax.swing.JPanel
 	 */
 	private JPanel getJContentPane() {
 		if (jContentPane == null) {
@@ -47,7 +46,6 @@ public class DemoFrame extends JFrame {
 
 	/**
 	 * This method initializes jPanel
-	 * @return javax.swing.JPanel
 	 */
 	private JPanel getJPanel() {
 		if (jPanel == null) {
@@ -63,7 +61,6 @@ public class DemoFrame extends JFrame {
 
 	/**
 	 * This method initializes jButton
-	 * @return javax.swing.JButton
 	 */
 	private JButton getJButton() {
 		if (jButton == null) {
@@ -80,7 +77,6 @@ public class DemoFrame extends JFrame {
 
 	/**
 	 * This method initializes renameButton
-	 * @return javax.swing.JButton
 	 */
 	private JButton getRenameButton() {
 		if (renameButton == null) {
@@ -103,7 +99,6 @@ public class DemoFrame extends JFrame {
 
 	/**
 	 * This method initializes jSplitPane
-	 * @return javax.swing.JSplitPane
 	 */
 	private JSplitPane getJSplitPane() {
 		if (jSplitPane == null) {
@@ -118,7 +113,6 @@ public class DemoFrame extends JFrame {
 
 	/**
 	 * This method initializes jTree
-	 * @return javax.swing.JTree
 	 */
 	private JTree getJTree() {
 		if (jTree == null) {
@@ -129,7 +123,6 @@ public class DemoFrame extends JFrame {
 
 	/**
 	 * This method initializes jScrollPane
-	 * @return javax.swing.JScrollPane
 	 */
 	private JScrollPane getJScrollPane() {
 		if (jScrollPane == null) {
@@ -141,7 +134,6 @@ public class DemoFrame extends JFrame {
 
 	/**
 	 * This method initializes jPanel1
-	 * @return javax.swing.JPanel
 	 */
 	private JPanel getJPanel1() {
 		if (jPanel1 == null) {
@@ -159,7 +151,6 @@ public class DemoFrame extends JFrame {
 
 	/**
 	 * This method initializes jJMenuBar
-	 * @return javax.swing.JMenuBar
 	 */
 	private JMenuBar getJJMenuBar() {
 		if (jJMenuBar == null) {
@@ -171,7 +162,6 @@ public class DemoFrame extends JFrame {
 
 	/**
 	 * This method initializes jMenu
-	 * @return javax.swing.JMenu
 	 */
 	private JMenu getJMenu() {
 		if (jMenu == null) {
@@ -184,7 +174,6 @@ public class DemoFrame extends JFrame {
 
 	/**
 	 * This method initializes jMenuItem
-	 * @return javax.swing.JMenuItem
 	 */
 	private JMenuItem getJMenuItem() {
 		if (jMenuItem == null) {

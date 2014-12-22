@@ -6,6 +6,8 @@ import javax.swing.JToolBar;
 import javax.swing.JRadioButton;
 import javax.swing.WindowConstants;
 import javax.swing.SwingConstants;
+import javax.swing.GroupLayout;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 @SuppressWarnings("serial")
 public class MainFrame extends JFrame {
@@ -43,16 +45,16 @@ public class MainFrame extends JFrame {
 		jRadioButton1.setVerticalTextPosition(SwingConstants.BOTTOM);
 		jToolBar1.add(jRadioButton1);
 
-		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(
+		GroupLayout layout = new GroupLayout(
 				getContentPane());
 		getContentPane().setLayout(layout);
 		layout.setHorizontalGroup(layout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(
 						layout.createSequentialGroup()
 								.addGroup(
 										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.LEADING)
+												GroupLayout.Alignment.LEADING)
 												.addGroup(
 														layout.createSequentialGroup()
 																.addGap(67, 67,
@@ -68,25 +70,25 @@ public class MainFrame extends JFrame {
 																.addContainerGap()
 																.addComponent(
 																		jToolBar1,
-																		javax.swing.GroupLayout.PREFERRED_SIZE,
+																		GroupLayout.PREFERRED_SIZE,
 																		332,
-																		javax.swing.GroupLayout.PREFERRED_SIZE)))
+																		GroupLayout.PREFERRED_SIZE)))
 								.addContainerGap(56, Short.MAX_VALUE)));
 		layout.setVerticalGroup(layout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(
-						javax.swing.GroupLayout.Alignment.TRAILING,
+						GroupLayout.Alignment.TRAILING,
 						layout.createSequentialGroup()
 								.addComponent(jToolBar1,
-										javax.swing.GroupLayout.PREFERRED_SIZE,
+										GroupLayout.PREFERRED_SIZE,
 										45,
-										javax.swing.GroupLayout.PREFERRED_SIZE)
+										GroupLayout.PREFERRED_SIZE)
 								.addPreferredGap(
-										javax.swing.LayoutStyle.ComponentPlacement.RELATED,
+										ComponentPlacement.RELATED,
 										150, Short.MAX_VALUE)
 								.addGroup(
 										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.BASELINE)
+												GroupLayout.Alignment.BASELINE)
 												.addComponent(jCheckBox1)
 												.addComponent(jCheckBox2))
 								.addGap(83, 83, 83)));

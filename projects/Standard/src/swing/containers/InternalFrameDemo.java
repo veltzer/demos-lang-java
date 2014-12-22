@@ -14,6 +14,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
+import javax.swing.SwingUtilities;
 
 import java.beans.PropertyVetoException;
 import swing.graphics2d.RollingPolygon;
@@ -116,7 +117,7 @@ public class InternalFrameDemo extends JFrame implements ActionListener {
 	public static void main(String[] args) {
 		// Schedule a job for the event-dispatching thread:
 		// creating and showing this application's GUI.
-		javax.swing.SwingUtilities.invokeLater(new Runnable() {
+		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				createAndShowGUI();
 			}

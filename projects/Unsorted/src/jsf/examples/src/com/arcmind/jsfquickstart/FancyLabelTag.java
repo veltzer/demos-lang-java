@@ -34,9 +34,6 @@ public class FancyLabelTag extends UIComponentTag {
 	public void setLabel(String ilabel) {
 		label = ilabel;
 	}
-	/**
-	 * @see javax.faces.webapp.UIComponentTag#setProperties(javax.faces.component.UIComponent)
-	 */
 	@Override
 	protected void setProperties(UIComponent component) {
 		/* you have to call the super class */
@@ -47,17 +44,10 @@ public class FancyLabelTag extends UIComponentTag {
 		((FancyLabelComponent) component).setErrorStyle(errorStyle);
 
 	}
-	/**
-	 * @see javax.faces.webapp.UIComponentTag#getComponentType()
-	 */
 	@Override
 	public String getComponentType() {
 		return "arcmind.Label";
 	}
-
-	/**
-	 * @see javax.faces.webapp.UIComponentTag#getRendererType()
-	 */
 	@Override
 	public String getRendererType() {
 		return null;

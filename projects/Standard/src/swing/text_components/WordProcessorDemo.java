@@ -28,6 +28,7 @@ import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import javax.swing.text.StyledEditorKit;
+import javax.swing.event.ListDataListener;
 
 @SuppressWarnings("serial")
 public class WordProcessorDemo extends JPanel {
@@ -99,8 +100,7 @@ public class WordProcessorDemo extends JPanel {
 		};
 		private Integer selection;
 
-		public void addListDataListener(
-				javax.swing.event.ListDataListener listDataListener) {
+		public void addListDataListener(ListDataListener listDataListener) {
 		}
 
 		public Integer getElementAt(int param) {
@@ -115,8 +115,7 @@ public class WordProcessorDemo extends JPanel {
 			return fontSizes.length;
 		}
 
-		public void removeListDataListener(
-				javax.swing.event.ListDataListener listDataListener) {
+		public void removeListDataListener(ListDataListener listDataListener) {
 		}
 
 		public void setSelectedItem(Object obj) {
@@ -136,8 +135,7 @@ public class WordProcessorDemo extends JPanel {
 					.getAvailableFontFamilyNames();
 		}
 
-		public void addListDataListener(
-				javax.swing.event.ListDataListener listDataListener) {
+		public void addListDataListener(ListDataListener listDataListener) {
 		}
 
 		public String getElementAt(int param) {
@@ -152,8 +150,7 @@ public class WordProcessorDemo extends JPanel {
 			return familyNames.length;
 		}
 
-		public void removeListDataListener(
-				javax.swing.event.ListDataListener listDataListener) {
+		public void removeListDataListener(ListDataListener listDataListener) {
 		}
 
 		public void setSelectedItem(Object obj) {

@@ -37,10 +37,6 @@ public class LabelComponent extends UIOutput {
 	public void setLabel(String ilabel) {
 		label = ilabel;
 	}
-
-	/**
-	 * @see javax.faces.component.UIComponent#encodeBegin(javax.faces.context.FacesContext)
-	 */
 	@Override
 	public void encodeBegin(FacesContext context) throws IOException {
 		ResponseWriter writer = context.getResponseWriter();
@@ -54,18 +50,10 @@ public class LabelComponent extends UIOutput {
 	public String getFamily() {
 		return "arcmind.Label";
 	}
-
-	/**
-	 * @see javax.faces.component.UIComponent#encodeEnd(javax.faces.context.FacesContext)
-	 */
 	@Override
 	public void encodeEnd(FacesContext context) throws IOException {
 		return;
 	}
-
-	/**
-	 * @see javax.faces.component.UIComponent#decode(javax.faces.context.FacesContext)
-	 */
 	@Override
 	public void decode(FacesContext context) {
 		return;

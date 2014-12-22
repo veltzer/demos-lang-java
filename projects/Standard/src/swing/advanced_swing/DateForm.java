@@ -6,6 +6,8 @@ import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
 import javax.swing.JFrame;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
 
 @SuppressWarnings("serial")
 public class DateForm extends JFrame {
@@ -69,41 +71,41 @@ public class DateForm extends JFrame {
 	 */
 	private void initComponents() {
 
-		jTextField1 = new javax.swing.JTextField();
-		jLabel1 = new javax.swing.JLabel();
+		jTextField1 = new JTextField();
+		jLabel1 = new JLabel();
 
-		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
 		jTextField1.setText("jTextField1");
 
 		jLabel1.setText("Please enter your birthdate");
 
-		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(
+		GroupLayout layout = new GroupLayout(
 				getContentPane());
 		getContentPane().setLayout(layout);
 		layout.setHorizontalGroup(layout.createParallelGroup(
-				javax.swing.GroupLayout.Alignment.LEADING).addGroup(
+				GroupLayout.Alignment.LEADING).addGroup(
 				layout.createSequentialGroup()
 						.addGap(46, 46, 46)
 						.addComponent(jLabel1)
 						.addGap(18, 18, 18)
 						.addComponent(jTextField1,
-								javax.swing.GroupLayout.PREFERRED_SIZE, 176,
-								javax.swing.GroupLayout.PREFERRED_SIZE)
+								GroupLayout.PREFERRED_SIZE, 176,
+								GroupLayout.PREFERRED_SIZE)
 						.addContainerGap(33, Short.MAX_VALUE)));
 		layout.setVerticalGroup(layout
-				.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+				.createParallelGroup(GroupLayout.Alignment.LEADING)
 				.addGroup(
 						layout.createSequentialGroup()
 								.addGap(73, 73, 73)
 								.addGroup(
 										layout.createParallelGroup(
-												javax.swing.GroupLayout.Alignment.BASELINE)
+												GroupLayout.Alignment.BASELINE)
 												.addComponent(
 														jTextField1,
-														javax.swing.GroupLayout.PREFERRED_SIZE,
-														javax.swing.GroupLayout.DEFAULT_SIZE,
-														javax.swing.GroupLayout.PREFERRED_SIZE)
+														GroupLayout.PREFERRED_SIZE,
+														GroupLayout.DEFAULT_SIZE,
+														GroupLayout.PREFERRED_SIZE)
 												.addComponent(jLabel1))
 								.addContainerGap(202, Short.MAX_VALUE)));
 
@@ -122,8 +124,8 @@ public class DateForm extends JFrame {
 	}
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables
-	private javax.swing.JLabel jLabel1;
-	private javax.swing.JTextField jTextField1;
+	private JLabel jLabel1;
+	private JTextField jTextField1;
 	// End of variables declaration//GEN-END:variables
 
 }

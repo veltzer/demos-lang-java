@@ -25,7 +25,6 @@ public class MyFrame extends JFrame {
 
 	/**
 	 * This method initializes centralPanel
-	 * @return javax.swing.JPanel
 	 */
 	private JPanel getCentralPanel() {
 		if (centralPanel == null) {
@@ -38,7 +37,6 @@ public class MyFrame extends JFrame {
 
 	/**
 	 * This method initializes bottomPanel
-	 * @return javax.swing.JPanel
 	 */
 	private JPanel getBottomPanel() {
 		if (bottomPanel == null) {
@@ -56,7 +54,6 @@ public class MyFrame extends JFrame {
 
 	/**
 	 * This method initializes playButton
-	 * @return javax.swing.JButton
 	 */
 	private JButton getPlayButton() {
 		if (playButton == null) {
@@ -84,7 +81,6 @@ public class MyFrame extends JFrame {
 
 	/**
 	 * This method initializes pauseButton
-	 * @return javax.swing.JButton
 	 */
 	private JButton getPauseButton() {
 		if (pauseButton == null) {
@@ -101,7 +97,6 @@ public class MyFrame extends JFrame {
 
 	/**
 	 * This method initializes stopButton
-	 * @return javax.swing.JButton
 	 */
 	private JButton getStopButton() {
 		if (stopButton == null) {
@@ -113,7 +108,6 @@ public class MyFrame extends JFrame {
 
 	/**
 	 * This method initializes jEditorPane
-	 * @return javax.swing.JEditorPane
 	 */
 	private JEditorPane getJEditorPane() {
 		if (jEditorPanenull == null) {
@@ -124,7 +118,6 @@ public class MyFrame extends JFrame {
 
 	/**
 	 * This method initializes jScrollPane
-	 * @return javax.swing.JScrollPane
 	 */
 	private JScrollPane getJScrollPane() {
 		if (jScrollPane == null) {
@@ -167,7 +160,6 @@ public class MyFrame extends JFrame {
 
 	/**
 	 * This method initializes jContentPane
-	 * @return javax.swing.JPanel
 	 */
 	private JPanel getJContentPane() {
 		if (jContentPane == null) {

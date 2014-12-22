@@ -314,8 +314,7 @@ public class DvdCatalog extends JFrame implements Runnable {
 			tableModel.remove(table.getSelectedRow());
 		}
 
-		public void valueChanged(
-				javax.swing.event.ListSelectionEvent listSelectionEvent) {
+		public void valueChanged(ListSelectionEvent listSelectionEvent) {
 			setEnabled(table.getSelectedRowCount() == 1);
 		}
 
