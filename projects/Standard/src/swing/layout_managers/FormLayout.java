@@ -885,7 +885,7 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	 * column span or row span of 1 is put into the column's or row's component
 	 * list.
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void initializeColAndRowComponentLists() {
 		colComponents = new LinkedList[getColumnCount()];
 		for (int i = 0; i < getColumnCount(); i++) {
