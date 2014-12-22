@@ -9,19 +9,14 @@ import javax.servlet.jsp.tagext.TagSupport;
 
 @SuppressWarnings("serial")
 public class TableTag extends TagSupport {
-
-	/** Holds value of property tableName. */
 	private String tableName;
 	private ResultSet rs;
-
 	public ResultSet getRs() {
 		return rs;
 	}
-
-	public void setRs(ResultSet rs) {
-		this.rs = rs;
+	public void setRs(ResultSet irs) {
+		rs = irs;
 	}
-
 	public int doStartTag() {
 		try {
 			Connection con = (Connection) pageContext.getAttribute("connection");
@@ -40,7 +35,6 @@ public class TableTag extends TagSupport {
 		}
 		return SKIP_BODY;
 	}
-
 	public int doAfterBody() {
 		try {
 			if (rs.next()) {
@@ -52,24 +46,20 @@ public class TableTag extends TagSupport {
 		return SKIP_BODY;
 
 	}
-
 	public int doEndTag() {
 		rs = null;
 		return EVAL_PAGE;
 	}
-
 	/** Getter for property tableName.
 	 * @return Value of property tableName.
 	 */
 	public String getTableName() {
 		return tableName;
 	}
-
 	/** Setter for property tableName.
 	 * @param tableName New value of property tableName.
 	 */
 	public void setTableName(String itableName) {
 		tableName = itableName;
 	}
-
 }
