@@ -1,7 +1,9 @@
 package exercise;
 
+import java.io.Serializable;
+
 @SuppressWarnings("serial")
-public class Item implements java.io.Serializable {
+public class Item implements Serializable {
 
 	/** Holds value of property name. */
 	private String name;

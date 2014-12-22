@@ -30,7 +30,7 @@ public class BookStoreDAOHibernateImpl extends HibernateDaoSupport implements
 
 	public List<Customer> showCustomers() {
 		// return getHibernateTemplate().find("from Customer");
-		return (List<Customer>) getHibernateTemplate().execute(new HibernateCallback<List<Customer>>() {
+		return getHibernateTemplate().execute(new HibernateCallback<List<Customer>>() {
 
 			@Override
 			public List<Customer> doInHibernate(Session session) throws SQLException {
