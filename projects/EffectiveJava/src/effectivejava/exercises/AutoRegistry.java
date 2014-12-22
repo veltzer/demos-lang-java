@@ -24,9 +24,9 @@ public abstract class AutoRegistry {
 		Object service = SERVICES.get(interfaceClass);
 		//initialization tricks
 		if (service == null) {
-			Builder<T> b1=new AnnotationBuilder<T>(interfaceClass);
-			Builder<T> b2=new LoaderBuilder<T>(interfaceClass);
-			Collection<Builder<T>> a=new ArrayList<Builder<T>>();
+			Builder<T> b1 = new AnnotationBuilder<T>(interfaceClass);
+			Builder<T> b2 = new LoaderBuilder<T>(interfaceClass);
+			Collection<Builder<T>> a = new ArrayList<Builder<T>>();
 			a.add(b1);
 			a.add(b2);
 			T temp = getFirstNotNull(a);
