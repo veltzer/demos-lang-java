@@ -3,17 +3,17 @@
 ##############
 # do you want to show the commands executed ?
 DO_MKDBG:=0
+# what is the java stamp file?
+IVY_STAMP:=ivy.stamp
+# what is the compile stamp file?
+COMPILE_STAMP:=compile.stamp
 
-#####################
-# end of parameters #
-#####################
-
+########
+# code #
+########
 JAVA_SOURCES:=$(shell find . -name "*.java")
-JAVA_STAMP:=$(addsuffix .stamp,$(basename $(JAVA_SOURCES)))
-CLASSPATH:=$(shell scripts/get_classpath.py lib/*.jar)
-CLASSPATH_CHECKSTYLE:=$(CLASSPATH):support
 MAINCLASS_CHECKSTYLE:=com.puppycrawl.tools.checkstyle.Main
-ALL:=$(JAVA_STAMP)
+ALL:=$(IVY_STAMP) $(COMPILE_STAMP)
 BIN_FOLDERS:=$(shell find . \( -name "bin" -or -name "build" -or -name "classes" -or -name "dist" \) -and -type d)
 
 # silent stuff
@@ -25,8 +25,22 @@ Q:=@
 #.SILENT:
 endif # DO_MKDBG
 
+###########
+# targets #
+###########
 .PHONY: all
 all: $(ALL)
+
+$(IVY_STAMP): $(ALL_DEP)
+	$(info doing [$@])
+	$(Q)ant ivy_retrieve_local > /dev/null
+	$(Q)scripts/get_deps.py
+	$(Q)touch $@
+
+$(COMPILE_STAMP): $(IVY_STAMP) $(ALL_DEP)
+	$(info doing [$@])
+	$(Q)ant build
+	$(Q)touch $@
 
 .PHONY: check_filenames_with_spaces
 check_filenames_with_spaces:
@@ -98,6 +112,11 @@ check_interbit:
 .PHONY: check_all
 check_all: check_filenames_with_spaces check_imports check_serialid check_ws_eol check_tab_eol check_dbl_ws check_author check_version check_printstacktrace check_exceptionnames check_src check_names check_interbit
 
+.PHONY: checkstyle_ant
+checkstyle_ant:
+	$(info doing [$@])
+	$(Q)ant checkstyle
+
 .PHONY: checkstyle
 checkstyle:
 	$(info doing [$@])
@@ -108,21 +127,20 @@ format_eclipse:
 	$(info doing [$@])
 	$(Q)~/install/eclipse-jee/eclipse -nosplash -application org.eclipse.jdt.core.JavaCodeFormatter -verbose -config support/org.eclipse.jdt.core.prefs `find . -type d -and -name src`
 
-.PHONY: build
+.PHONY: build_eclipse
+build_eclipse:
 	$(info doing [$@])
-build:
 	$(Q)~/install/eclipse-jee/eclipse -noSplash -data ~/workspace-jee -application org.eclipse.jdt.apt.core.aptBuild
 
 .PHONY: debug
 debug:
 	$(info doing [$@])
 	$(info JAVA_SOURCES is $(JAVA_SOURCES))
-	$(info JAVA_STAMP is $(JAVA_STAMP))
-	$(info CLASSPATH is $(CLASSPATH))
 	$(info HOME is $(HOME))
 	$(info BIN_FOLDERS is $(BIN_FOLDERS))
-	$(info CLASSPATH_CHECKSTYLE is $(CLASSPATH_CHECKSTYLE))
 	$(info MAINCLASS_CHECKSTYLE is $(MAINCLASS_CHECKSTYLE))
+
+# cleaning
 
 .PHONY: clean_soft
 clean_soft:
@@ -134,13 +152,6 @@ clean_soft:
 clean:
 	$(info doing [$@])
 	$(Q)git clean -xdf > /dev/null
-
-# rules
-
-$(JAVA_STAMP): %.stamp: %.java
-	$(info doing [$@])
-	$(Q)java -cp `scripts/cp.py` $(MAINCLASS_CHECKSTYLE) -c support/checkstyle_config.xml $<
-	$(Q)touch $@
 
 # code measurements
 
@@ -154,3 +165,7 @@ sloccount:
 count_files:
 	$(info doing [$@])
 	$(Q)echo number of Java files: `find . -name "*.java" | wc -l`
+
+#########
+# rules #
+#########

@@ -44,6 +44,11 @@
 		<ivy:resolve refresh="true" showprogress="true"/>
 		<ivy:retrieve sync="true" symlink="true"/>
 	</target>
+	<target name="ivy_retrieve_local" description="retrieve dependencies with ivy from local">
+		<delete dir="lib"/>
+		<ivy:resolve useCacheOnly="true" showprogress="true"/>
+		<ivy:retrieve sync="true" symlink="true"/>
+	</target>
 	<target name="ivy_cleancache" depends="" description="purge ivy cache">
 		<ivy:cleancache/>
 	</target>
@@ -70,14 +75,14 @@
 					verbose="off"
 					fork="no"
 					includeAntRuntime="no"
+					target="1.6"
+					source="1.6"
 				>
 				<!--
 					includeJavaRuntime="no"
-					target="1.7"
-					source="1.7"
+				-->
 					<compilerarg value="-Xlint:all"/>
 					<compilerarg value="-Werror"/>
-				-->
 					<classpath refid="external-jars"/>
 				</javac>
 			</sequential>
