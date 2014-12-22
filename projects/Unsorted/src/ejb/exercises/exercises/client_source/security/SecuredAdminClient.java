@@ -1,5 +1,12 @@
 package ejb.exercises.exercises.client_source.security;
 
+import java.security.PrivilegedAction;
+import java.util.Properties;
+
+import javax.security.auth.Subject;
+import javax.security.auth.login.LoginContext;
+import javax.security.auth.login.LoginException;
+
 //import java.security.*;
 //import java.util.*;
 

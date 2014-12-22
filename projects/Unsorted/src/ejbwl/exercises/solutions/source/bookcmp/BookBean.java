@@ -4,14 +4,11 @@ import javax.ejb.EntityBean;
 import javax.ejb.EntityContext;
 import javax.ejb.RemoveException;
 
+@SuppressWarnings("serial")
 public abstract class BookBean implements EntityBean {
-	private EntityContext ctx;
-
 	public void setEntityContext(EntityContext ictx) {
-		ctx = ictx;
 	}
 	public void unsetEntityContext() {
-		ctx = null;
 	}
 	public void ejbRemove() throws RemoveException {
 	}

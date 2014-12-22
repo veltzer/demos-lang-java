@@ -2,12 +2,17 @@ package ejb.exercises.solutions.source.cancellations;
 
 import java.util.StringTokenizer;
 
-//import javax.ejb.*;
-//import javax.jms.*;
+import javax.jms.Message;
+import javax.jms.MessageListener;
+import javax.jms.TextMessage;
+
 import javax.naming.InitialContext;
+
 import javax.rmi.PortableRemoteObject;
+
 import javax.sql.DataSource;
 
+import javax.ejb.MessageDrivenBean;
 import javax.ejb.MessageDrivenContext;
 
 import ejb.exercises.solutions.source.daos.BookstoreDAO;
@@ -58,6 +63,7 @@ public class CancelOrdersBean implements MessageListener, MessageDrivenBean {
 	* register to a dedicated "error-notification" queue , where your
 	* message-driven bean may place error reports).
 	*/
+	@Override
 	public void onMessage(Message msg) {
 		System.out.println(getClass().getName() + ".onMessage() was invoked...");
 

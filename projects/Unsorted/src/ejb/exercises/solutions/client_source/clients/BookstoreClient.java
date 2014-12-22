@@ -2,6 +2,9 @@ package ejb.exercises.solutions.client_source.clients;
 
 //import java.util.*;
 
+import java.util.Iterator;
+import java.util.List;
+
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 

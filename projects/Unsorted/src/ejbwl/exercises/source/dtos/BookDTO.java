@@ -2,6 +2,7 @@ package ejbwl.exercises.source.dtos;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class BookDTO implements Serializable {
 	private String title;
 	private String author;

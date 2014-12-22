@@ -1,21 +1,17 @@
 package ejbwl.exercises.client_source.security;
 
-//import java.security.*;
-//import java.util.*;
+import java.security.PrivilegedAction;
+import java.util.Properties;
 
-//import javax.naming.*;
-//import javax.rmi.*;
-//import javax.security.auth.*;
-//import javax.security.auth.login.*;
-
-//import bookstore.*;
-//import dtos.*;
+import javax.security.auth.Subject;
+import javax.security.auth.login.LoginContext;
+import javax.security.auth.login.LoginException;
 
 public abstract class SecuredAdminClient {
 	public static void main(String[] args) {
-		String username = null;
-		String password = null;
-		String url = "t3://localhost:7001";
+		//String username = null;
+		//String password = null;
+		//String url = "t3://localhost:7001";
 
 		// Define the location of the configuration file
 		Properties props = System.getProperties();
@@ -24,7 +20,7 @@ public abstract class SecuredAdminClient {
 		LoginContext loginContext = null;
 		try {
 			// Create LoginContext; specify username/password login module
-			loginContext = new LoginContext("AdminClient", new WeblogicCallbackHandler(username, password, url));
+			loginContext = new LoginContext("AdminClient"); // new WeblogicCallbackHandler(username, password, url));
 		} catch (SecurityException se) {
 			se.printStackTrace();
 			System.exit(-1);
@@ -57,7 +53,7 @@ public abstract class SecuredAdminClient {
 	/**
 	 * Inner class representing the PrivilegedAction
 	 */
-	private static class AdminClientAction implements PrivilegedAction {
+	private static class AdminClientAction implements PrivilegedAction<Object> {
 
 		public Object run() {
 			try {

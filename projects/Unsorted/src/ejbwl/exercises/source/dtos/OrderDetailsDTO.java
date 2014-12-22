@@ -3,11 +3,12 @@ package ejbwl.exercises.source.dtos;
 import java.io.Serializable;
 import java.util.List;
 
+@SuppressWarnings("serial")
 public class OrderDetailsDTO implements Serializable {
 	private String id;
 	private String customerId;
 	private long timestamp;
-	private List bookTitles;
+	private List<String> bookTitles;
 
 	public OrderDetailsDTO(String iid, long itimestamp, List<String> ibookTitles) {
 		id = iid;

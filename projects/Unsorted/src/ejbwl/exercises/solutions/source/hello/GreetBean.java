@@ -3,16 +3,15 @@ package ejbwl.exercises.solutions.source.hello;
 import javax.ejb.SessionBean;
 import javax.ejb.SessionContext;
 import javax.ejb.CreateException;
+
 /**
  * Bean implementation class for Greet
  *
  */
+@SuppressWarnings("serial")
 public class GreetBean implements SessionBean {
 
-	private javax.ejb.SessionContext mySessionCtx;
-
 	public void setSessionContext(SessionContext ctx) {
-		mySessionCtx = ctx;
 		System.out.println(getClass().getName() + ".setSessionContext() was invoked...");
 	}
 

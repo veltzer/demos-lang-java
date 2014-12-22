@@ -8,6 +8,17 @@ package ejb.exercises.solutions.client_source.security;
 //import javax.security.auth.*;
 //import javax.security.auth.login.*;
 
+import java.security.PrivilegedAction;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Properties;
+
+import javax.naming.InitialContext;
+import javax.rmi.PortableRemoteObject;
+import javax.security.auth.Subject;
+import javax.security.auth.login.LoginContext;
+import javax.security.auth.login.LoginException;
+
 import ejb.exercises.solutions.source.bookstore.BookstoreAdmin;
 import ejb.exercises.solutions.source.bookstore.BookstoreAdminHome;
 import ejb.exercises.solutions.source.dtos.CustomerDTO;
