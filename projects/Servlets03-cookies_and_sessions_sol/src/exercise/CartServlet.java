@@ -42,7 +42,6 @@ public class CartServlet extends HttpServlet {
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
-		
 		addItemToCart(request);
 
 		out.println("<html>");
@@ -86,7 +85,7 @@ public class CartServlet extends HttpServlet {
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
-		
+
 		HttpSession session = request.getSession();
 
 		@SuppressWarnings("unchecked")
@@ -119,7 +118,6 @@ public class CartServlet extends HttpServlet {
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
-		
 		out.println("<h4>Items for sale:</h4>");
 		@SuppressWarnings("unchecked")
 		Map<String, Item> items = (Map<String, Item>) getServletContext()

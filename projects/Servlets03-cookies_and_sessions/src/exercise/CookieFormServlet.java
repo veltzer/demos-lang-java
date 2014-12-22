@@ -16,7 +16,6 @@ public class CookieFormServlet extends HttpServlet {
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
-		
 		out.println("<html>");
 		out.println("<head>");
 		out.println("<title>Cookie Form Servlet</title>");
@@ -45,7 +44,6 @@ public class CookieFormServlet extends HttpServlet {
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
-		
 		out.println("<html>");
 		out.println("<head>");
 		out.println("<title>Form Servlet</title>");

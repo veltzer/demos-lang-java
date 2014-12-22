@@ -25,7 +25,6 @@ public class DbCartServlet extends HttpServlet {
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
-		
 		addItemToCart(request);
 		out.println("<html>");
 		out.println("<head>");
@@ -72,7 +71,6 @@ public class DbCartServlet extends HttpServlet {
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
-		
 		HttpSession session = request.getSession();
 		@SuppressWarnings("unchecked")
 		List<Item> cart = (List<Item>) session.getAttribute("cart");
@@ -99,7 +97,6 @@ public class DbCartServlet extends HttpServlet {
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
-		
 		out.println("<h4>Items for sale:</h4>");
 		Map<String, Item> items = getItemsList();
 		Iterator<Item> it = items.values().iterator();

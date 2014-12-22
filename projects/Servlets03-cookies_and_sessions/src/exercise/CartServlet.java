@@ -79,7 +79,6 @@ public class CartServlet extends HttpServlet {
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
-		
 		out.println("<h4>Items for sale:</h4>");
 		@SuppressWarnings("unchecked")
 		Map<String, Item> items = (Map<String, Item>) getServletContext()

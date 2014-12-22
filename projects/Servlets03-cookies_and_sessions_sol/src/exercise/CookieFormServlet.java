@@ -18,7 +18,6 @@ public class CookieFormServlet extends HttpServlet {
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
-		
 		out.println("<html>");
 		out.println("<head>");
 		out.println("<title>Cookie Form Servlet</title>");
@@ -49,7 +48,6 @@ public class CookieFormServlet extends HttpServlet {
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
-		
 		String rem = request.getParameter("remember");
 		if (rem != null && rem.equals("on")) {
 			String uName = request.getParameter("uname");
