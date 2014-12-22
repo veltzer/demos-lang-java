@@ -5,9 +5,10 @@ import java.util.regex.Pattern;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
+import javax.swing.JFrame;
 
 @SuppressWarnings("serial")
-public class DateForm extends javax.swing.JFrame {
+public class DateForm extends JFrame {
 	/** Creates new form dateForm */
 	public DateForm() {
 		initComponents();

@@ -3,7 +3,6 @@ package ejb.exercises.solutions.source.shopping;
 import java.util.LinkedList;
 import java.util.List;
 
-import javax.ejb.CreateException;
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 import javax.sql.DataSource;
@@ -24,10 +23,10 @@ public class ShoppingCartBean implements SessionBean {
 	private String customerId;
 
 	public void setSessionContext(SessionContext ctx) {
-		System.out.println(this.getClass().getName() + ".setSessionContext() was invoked...");
+		System.out.println(getClass().getName() + ".setSessionContext() was invoked...");
 	}
-	public void ejbCreate(String icustomerId) throws CreateException {
-		System.out.println(this.getClass().getName() + ".ejbCreate() was invoked...");
+	public void ejbCreate(String icustomerId) {
+		System.out.println(getClass().getName() + ".ejbCreate() was invoked...");
 		customerId = icustomerId;
 		bookTitles = new LinkedList<String>();
 		// Note initialization must be done in create(). Do not
@@ -45,13 +44,13 @@ public class ShoppingCartBean implements SessionBean {
 	}
 
 	public void ejbActivate() {
-		System.out.println(this.getClass().getName() + ".ejbActivate() was invoked...");
+		System.out.println(getClass().getName() + ".ejbActivate() was invoked...");
 	}
 	public void ejbPassivate() {
-		System.out.println(this.getClass().getName() + ".ejbPassivate() was invoked...");
+		System.out.println(getClass().getName() + ".ejbPassivate() was invoked...");
 	}
 	public void ejbRemove() {
-		System.out.println(this.getClass().getName() + ".ejbRemove() was invoked...");
+		System.out.println(getClass().getName() + ".ejbRemove() was invoked...");
 		bookTitles = null;
 	}
 	public String getCustomerId() {

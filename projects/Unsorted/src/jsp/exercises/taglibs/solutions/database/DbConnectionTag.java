@@ -3,7 +3,6 @@ package jsp.exercises.taglibs.solutions.database;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 
 @SuppressWarnings("serial")
@@ -21,7 +20,7 @@ public class DbConnectionTag extends TagSupport {
 	/** Holds value of property password. */
 	private String password = null;
 
-	public int doStartTag() throws JspException {
+	public int doStartTag() {
 		try {
 			Class.forName(driver);
 			Connection con = DriverManager.getConnection(url, user, password);

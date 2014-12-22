@@ -6,9 +6,6 @@ package ejbwl.exercises.solutions.source.book;
 //import javax.naming.*;
 //import javax.sql.*;
 import javax.ejb.EJBException;
-import javax.ejb.CreateException;
-import javax.ejb.RemoveException;
-import javax.ejb.FinderException;
 
 //import daos.*;
 //import dtos.*;
@@ -37,7 +34,7 @@ public class BookBean implements EntityBean {
 		ctx = null;
 	}
 
-	public String ejbCreate(String ititle, String iauthor, double iprice) throws CreateException {
+	public String ejbCreate(String ititle, String iauthor, double iprice) {
 		dao.insertBook(ititle, iauthor, iprice);
 		setTitle(ititle);
 		setAuthor(iauthor);
@@ -54,8 +51,7 @@ public class BookBean implements EntityBean {
 	public void ejbPassivate() {
 	}
 
-	public void ejbRemove()
-		throws RemoveException {
+	public void ejbRemove() {
 		dao.deleteBook((String) ctx.getPrimaryKey());
 	}
 
@@ -70,14 +66,14 @@ public class BookBean implements EntityBean {
 		dao.updateBook(getTitle(), getAuthor(), getPrice());
 	}
 
-	public String ejbFindByPrimaryKey(String ititle) throws FinderException {
+	public String ejbFindByPrimaryKey(String ititle) {
 		if (dao.selectBook(ititle) != null) {
 			return ititle;
 		}
 		throw new ObjectNotFoundException("Cannot find PK");
 	}
 
-	public Collection ejbFindAllBooks() throws FinderException {
+	public Collection ejbFindAllBooks() {
 		List books = dao.selectBooks();
 		Collection result = new ArrayList();
 		Iterator it = books.iterator();

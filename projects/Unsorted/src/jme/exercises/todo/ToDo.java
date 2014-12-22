@@ -2,11 +2,12 @@ package jme.exercises.todo;
 
 //import java.util.*;
 //import javax.microedition.lcdui.*;
+import javax.microedition.midlet.MIDlet;
 
 /**
  * Exercise 2: To do list part I.
  */
-public class ToDo extends javax.microedition.midlet.MIDlet implements CommandListener {
+public class ToDo extends MIDlet implements CommandListener {
 	private List list; // List to display all entries
 	private TextBox textBox; // Text box to add and edit entries
 	private Command addEntryCmd, deleteEntryCmd, editEntryCmd, helpCmd, aboutCmd, exitCmd, okCmd, cancelCmd;

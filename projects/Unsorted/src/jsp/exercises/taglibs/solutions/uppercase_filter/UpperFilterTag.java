@@ -7,9 +7,8 @@ import javax.servlet.jsp.tagext.BodyTagSupport;
 
 @SuppressWarnings("serial")
 public class UpperFilterTag extends BodyTagSupport {
-	public int doEndTag() throws JspException {
+	public int doEndTag() {
 		String currentContent = getBodyContent().getString();
-
 		String newContent = currentContent.toUpperCase();
 		try {
 			getBodyContent().clear();

@@ -5,13 +5,10 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import javax.ejb.CreateException;
 import javax.ejb.EJBException;
 import javax.ejb.EntityBean;
 import javax.ejb.EntityContext;
-import javax.ejb.FinderException;
 import javax.ejb.ObjectNotFoundException;
-import javax.ejb.RemoveException;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
@@ -44,7 +41,7 @@ public class BookBean implements EntityBean {
 		ctx = null;
 	}
 
-	public String ejbCreate(String ititle, String iauthor, double iprice) throws CreateException {
+	public String ejbCreate(String ititle, String iauthor, double iprice) {
 		dao.insertBook(ititle, iauthor, iprice);
 		setTitle(ititle);
 		setAuthor(iauthor);
@@ -61,7 +58,7 @@ public class BookBean implements EntityBean {
 	public void ejbPassivate() {
 	}
 
-	public void ejbRemove() throws RemoveException {
+	public void ejbRemove() {
 		dao.deleteBook((String) ctx.getPrimaryKey());
 	}
 
@@ -76,7 +73,7 @@ public class BookBean implements EntityBean {
 		dao.updateBook(getTitle(), getAuthor(), getPrice());
 	}
 
-	public String ejbFindByPrimaryKey(String ititle) throws FinderException {
+	public String ejbFindByPrimaryKey(String ititle) {
 		if (dao.selectBook(ititle) != null) {
 			return ititle;
 		}
@@ -84,7 +81,7 @@ public class BookBean implements EntityBean {
 		throw new ObjectNotFoundException("Cannot find PK");
 	}
 
-	public Collection<String> ejbFindAllBooks() throws FinderException {
+	public Collection<String> ejbFindAllBooks() {
 		List<BookDTO> books = dao.selectBooks();
 		Collection<String> result = new ArrayList<String>();
 		Iterator<BookDTO> it = books.iterator();
@@ -113,5 +110,4 @@ public class BookBean implements EntityBean {
 	public void setPrice(double iprice) {
 		price = iprice;
 	}
-
 }

@@ -5,28 +5,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 
 @SuppressWarnings("serial")
 public class TableTag extends TagSupport {
-
-	/** Holds value of property tableName. */
 	private String tableName;
-
 	private ResultSet rs;
-
-	public int doStartTag() throws JspException {
+	public int doStartTag() {
 		try {
-			Connection con = (Connection) pageContext
-					.getAttribute("connection");
+			Connection con = (Connection) pageContext.getAttribute("connection");
 			if (con == null) {
 				throw new JspException("Connection not found.");
 			}
 			String sql = "SELECT * from " + tableName;
 			Statement stmt = con.createStatement();
 			setRs(stmt.executeQuery(sql));
-
 			if (getRs().next()) {
 				return EVAL_BODY_INCLUDE;
 			}
@@ -35,8 +28,7 @@ public class TableTag extends TagSupport {
 		}
 		return SKIP_BODY;
 	}
-
-	public int doAfterBody() throws JspException {
+	public int doAfterBody() {
 		try {
 			if (getRs().next()) {
 				return EVAL_BODY_AGAIN;
@@ -47,12 +39,10 @@ public class TableTag extends TagSupport {
 		return SKIP_BODY;
 
 	}
-
-	public int doEndTag() throws JspException {
+	public int doEndTag() {
 		setRs(null);
 		return EVAL_PAGE;
 	}
-
 	/**
 	 * Getter for property tableName.
 	 * @return Value of property tableName.
@@ -60,7 +50,6 @@ public class TableTag extends TagSupport {
 	public String getTableName() {
 		return tableName;
 	}
-
 	/**
 	 * Setter for property tableName.
 	 * @param tableName New value of property tableName.
@@ -68,13 +57,10 @@ public class TableTag extends TagSupport {
 	public void setTableName(String itableName) {
 		tableName = itableName;
 	}
-
 	public ResultSet getRs() {
 		return rs;
 	}
-
 	public void setRs(ResultSet irs) {
 		rs = irs;
 	}
-
 }

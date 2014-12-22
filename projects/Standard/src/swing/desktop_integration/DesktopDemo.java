@@ -3,7 +3,6 @@ package swing.desktop_integration;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +14,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import org.jdesktop.jdic.desktop.Desktop;
-import org.jdesktop.jdic.desktop.DesktopException;
 import org.jdesktop.jdic.desktop.Message;
 
 @SuppressWarnings("serial")
@@ -58,7 +56,7 @@ public class DesktopDemo extends JPanel {
 			return Desktop.isEditable(chooser.getSelectedFile());
 		}
 
-		protected void perform() throws DesktopException {
+		protected void perform() {
 			Desktop.edit(chooser.getSelectedFile());
 		}
 	}
@@ -72,7 +70,7 @@ public class DesktopDemo extends JPanel {
 			return Desktop.isPrintable(chooser.getSelectedFile());
 		}
 
-		protected void perform() throws DesktopException {
+		protected void perform() {
 			Desktop.print(chooser.getSelectedFile());
 		}
 	}
@@ -82,7 +80,7 @@ public class DesktopDemo extends JPanel {
 			putValue(NAME, "Browse");
 		}
 
-		protected void perform() throws DesktopException, MalformedURLException {
+		protected void perform() {
 			Desktop.browse(chooser.getSelectedFile().toURI().toURL());
 		}
 	}
@@ -92,7 +90,7 @@ public class DesktopDemo extends JPanel {
 			putValue(NAME, "Open");
 		}
 
-		protected void perform() throws DesktopException {
+		protected void perform() {
 			Desktop.open(chooser.getSelectedFile());
 		}
 	}
@@ -102,7 +100,7 @@ public class DesktopDemo extends JPanel {
 			putValue(NAME, "Mail");
 		}
 
-		protected void perform() throws DesktopException, java.io.IOException {
+		protected void perform() {
 			Message m = new Message();
 			m.setSubject("Swing says hello");
 			List<String> list = new ArrayList<String>();

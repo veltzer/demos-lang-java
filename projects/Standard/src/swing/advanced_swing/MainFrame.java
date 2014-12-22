@@ -1,7 +1,14 @@
 package swing.advanced_swing;
 
+import javax.swing.JFrame;
+import javax.swing.JCheckBox;
+import javax.swing.JToolBar;
+import javax.swing.JRadioButton;
+import javax.swing.WindowConstants;
+import javax.swing.SwingConstants;
+
 @SuppressWarnings("serial")
-public class MainFrame extends javax.swing.JFrame {
+public class MainFrame extends JFrame {
 
 	/** Creates new form MainFrame */
 	public MainFrame() {
@@ -15,12 +22,12 @@ public class MainFrame extends javax.swing.JFrame {
 	 */
 	private void initComponents() {
 
-		jCheckBox1 = new javax.swing.JCheckBox();
-		jCheckBox2 = new javax.swing.JCheckBox();
-		jToolBar1 = new javax.swing.JToolBar();
-		jRadioButton1 = new javax.swing.JRadioButton();
+		jCheckBox1 = new JCheckBox();
+		jCheckBox2 = new JCheckBox();
+		jToolBar1 = new JToolBar();
+		jRadioButton1 = new JRadioButton();
 
-		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
 		jCheckBox1.setText("jCheckBox1");
 
@@ -32,10 +39,8 @@ public class MainFrame extends javax.swing.JFrame {
 		jRadioButton1.setModel(jCheckBox1.getModel());
 		jRadioButton1.setText("jRadioButton1");
 		jRadioButton1.setFocusable(false);
-		jRadioButton1
-				.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-		jRadioButton1
-				.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+		jRadioButton1.setHorizontalTextPosition(SwingConstants.CENTER);
+		jRadioButton1.setVerticalTextPosition(SwingConstants.BOTTOM);
 		jToolBar1.add(jRadioButton1);
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(
@@ -101,10 +106,10 @@ public class MainFrame extends javax.swing.JFrame {
 	}
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables
-	private javax.swing.JCheckBox jCheckBox1;
-	private javax.swing.JCheckBox jCheckBox2;
-	private javax.swing.JRadioButton jRadioButton1;
-	private javax.swing.JToolBar jToolBar1;
+	private JCheckBox jCheckBox1;
+	private JCheckBox jCheckBox2;
+	private JRadioButton jRadioButton1;
+	private JToolBar jToolBar1;
 	// End of variables declaration//GEN-END:variables
 
 }

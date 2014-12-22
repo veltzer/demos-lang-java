@@ -15,7 +15,7 @@ public class TableTag extends TagSupport {
 	private String tableName;
 	private ResultSet rs;
 
-	public int doStartTag() throws JspException {
+	public int doStartTag() {
 		try {
 			Connection con = (Connection) pageContext.getAttribute("connection");
 			if (con == null) {
@@ -34,7 +34,7 @@ public class TableTag extends TagSupport {
 		return SKIP_BODY;
 	}
 
-	public int doAfterBody() throws JspException {
+	public int doAfterBody() {
 		try {
 			if (rs.next()) {
 				return EVAL_BODY_AGAIN;
@@ -46,7 +46,7 @@ public class TableTag extends TagSupport {
 
 	}
 
-	public int doEndTag() throws JspException {
+	public int doEndTag() {
 		rs = null;
 		return EVAL_PAGE;
 	}

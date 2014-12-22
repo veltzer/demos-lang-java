@@ -2,7 +2,6 @@ package ejbwl.exercises.solutions.source.bookcmp;
 
 import javax.ejb.EntityBean;
 import javax.ejb.EntityContext;
-import javax.ejb.RemoveException;
 
 @SuppressWarnings("serial")
 public abstract class BookBean implements EntityBean {
@@ -10,7 +9,7 @@ public abstract class BookBean implements EntityBean {
 	}
 	public void unsetEntityContext() {
 	}
-	public void ejbRemove() throws RemoveException {
+	public void ejbRemove() {
 	}
 	public void ejbActivate() {
 	}

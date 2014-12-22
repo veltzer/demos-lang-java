@@ -97,8 +97,7 @@ public class AddressBookWizard extends Wizard implements INewWizard {
 	 * file.
 	 */
 
-	private void doFinish(String containerName, String fileName,
-			IProgressMonitor monitor) throws CoreException {
+	private void doFinish(String containerName, String fileName, IProgressMonitor monitor) {
 		// create a sample file
 		monitor.beginTask("Creating " + fileName, 2);
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
@@ -145,7 +144,7 @@ public class AddressBookWizard extends Wizard implements INewWizard {
 		return new ByteArrayInputStream(contents.getBytes());
 	}
 
-	private void throwCoreException(String message) throws CoreException {
+	private void throwCoreException(String message) {
 		IStatus status = new Status(IStatus.ERROR,
 				"com.example.addressbook.view", IStatus.OK, message, null);
 		throw new CoreException(status);

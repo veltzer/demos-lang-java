@@ -1,11 +1,12 @@
 package jme.exercises.helloworld;
 
 //import javax.microedition.lcdui.*;
+//import javax.microedition.midlet.MIDlet;
 
 /**
  * Exercise 1: Hello World Midlet.
  */
-public class HelloWorld extends javax.microedition.midlet.MIDlet {
+public class HelloWorld extends MIDlet {
 
 	/** Constructor. */
 	public HelloWorld() {

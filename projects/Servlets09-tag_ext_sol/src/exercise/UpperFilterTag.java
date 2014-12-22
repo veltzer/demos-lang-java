@@ -1,15 +1,12 @@
 package exercise;
 
 import java.io.IOException;
-import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.BodyTagSupport;
 
 @SuppressWarnings("serial")
 public class UpperFilterTag extends BodyTagSupport {
-
-	public int doEndTag() throws JspException {
+	public int doEndTag() {
 		String currentContent = getBodyContent().getString();
-
 		String newContent = currentContent.toUpperCase();
 		try {
 			getBodyContent().clear();
@@ -18,8 +15,6 @@ public class UpperFilterTag extends BodyTagSupport {
 		} catch (IOException e) {
 			throw new JspException(e);
 		}
-
 		return EVAL_PAGE;
 	}
-
 }

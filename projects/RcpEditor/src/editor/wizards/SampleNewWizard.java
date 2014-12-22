@@ -10,7 +10,6 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
@@ -95,8 +94,7 @@ public class SampleNewWizard extends Wizard implements INewWizard {
 	 * file.
 	 */
 
-	private void doFinish(String containerName, String fileName,
-			IProgressMonitor monitor) throws CoreException {
+	private void doFinish(String containerName, String fileName, IProgressMonitor monitor) {
 		// create a sample file
 		monitor.beginTask("Creating " + fileName, 2);
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
@@ -143,7 +141,7 @@ public class SampleNewWizard extends Wizard implements INewWizard {
 		return new ByteArrayInputStream(contents.getBytes());
 	}
 
-	private void throwCoreException(String message) throws CoreException {
+	private void throwCoreException(String message) {
 		IStatus status = new Status(IStatus.ERROR, "editor", IStatus.OK,
 				message, null);
 		throw new CoreException(status);

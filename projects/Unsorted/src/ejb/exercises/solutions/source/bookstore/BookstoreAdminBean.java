@@ -7,6 +7,7 @@ import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 import javax.sql.DataSource;
 import javax.ejb.SessionBean;
+import javax.ejb.SessionContext;
 
 import ejb.exercises.solutions.source.book.BookHome;
 import ejb.exercises.solutions.source.daos.BookstoreDAO;
@@ -27,14 +28,14 @@ public class BookstoreAdminBean implements SessionBean {
  	 * Setting session context: <ul>
 	 * <li> keep reference to session context
 	 */
-	public void setSessionContext(javax.ejb.SessionContext ctx) {
-		System.out.println(this.getClass().getName() + ".setSessionContext() was invoked...");
+	public void setSessionContext(SessionContext ctx) {
+		System.out.println(getClass().getName() + ".setSessionContext() was invoked...");
 	}
 
-	public void ejbCreate() throws javax.ejb.CreateException {
+	public void ejbCreate() {
 		//declare locals
 		Object obj = null;
-		System.out.println(this.getClass().getName() + ".ejbCreate() was invoked...");
+		System.out.println(getClass().getName() + ".ejbCreate() was invoked...");
 		try {
 			InitialContext ictx = new InitialContext();
 			obj = ictx.lookup("java:comp/env/jdbc/MyDS");
@@ -47,17 +48,14 @@ public class BookstoreAdminBean implements SessionBean {
 			throw new CreateException("failed to create the bean. " + ex.getMessage());
 		}
 	}
-
 	public void ejbActivate() {
-		System.out.println(this.getClass().getName() + ".ejbActivate() was invoked...");
+		System.out.println(getClass().getName() + ".ejbActivate() was invoked...");
 	}
-
 	public void ejbPassivate() {
-		System.out.println(this.getClass().getName() + ".ejbPassivate() was invoked...");
+		System.out.println(getClass().getName() + ".ejbPassivate() was invoked...");
 	}
-
 	public void ejbRemove() {
-		System.out.println(this.getClass().getName() + ".ejbRemove() was invoked...");
+		System.out.println(getClass().getName() + ".ejbRemove() was invoked...");
 	}
 
 	/**

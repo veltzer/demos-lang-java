@@ -5,6 +5,7 @@ import java.util.List;
 
 import ejb.exercises.solutions.source.dtos.BookDTO;
 import ejb.exercises.solutions.source.dtos.CustomerDTO;
+import javax.ejb.EJBObject;
 
 /**
  * Remote interface for Enterprise Bean: BookstoreAdmin
@@ -17,7 +18,7 @@ import ejb.exercises.solutions.source.dtos.CustomerDTO;
  * <li> Viewing all books in inventory or all registered customers
  * </ul>
  */
-public interface BookstoreAdmin extends javax.ejb.EJBObject {
+public interface BookstoreAdmin extends EJBObject {
 	void addNewBook(BookDTO book) throws RemoteException;
 	void addNewCustomer(CustomerDTO customer) throws RemoteException;
 	List<BookDTO> showBooks() throws RemoteException;

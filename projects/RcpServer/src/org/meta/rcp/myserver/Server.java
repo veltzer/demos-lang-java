@@ -1,6 +1,5 @@
 package org.meta.rcp.myserver;
 
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.wst.server.core.IModule;
@@ -35,8 +34,7 @@ public class Server extends ServerDelegate {
 	}
 
 	@Override
-	public void saveConfiguration(IProgressMonitor monitor)
-			throws CoreException {
+	public void saveConfiguration(IProgressMonitor monitor) {
 		super.saveConfiguration(monitor);
 		trace("saveConfiguration");
 	}
@@ -63,14 +61,13 @@ public class Server extends ServerDelegate {
 	}
 
 	@Override
-	public IModule[] getRootModules(IModule arg0) throws CoreException {
+	public IModule[] getRootModules(IModule arg0) {
 		trace("getRootModules");
 		return null;
 	}
 
 	@Override
-	public void modifyModules(IModule[] modules, IModule[] arg1,
-			IProgressMonitor arg2) throws CoreException {
+	public void modifyModules(IModule[] modules, IModule[] arg1, IProgressMonitor arg2) {
 		trace("modifyModules");
 		for (IModule x : modules) {
 			trace("modules is " + x.getName());

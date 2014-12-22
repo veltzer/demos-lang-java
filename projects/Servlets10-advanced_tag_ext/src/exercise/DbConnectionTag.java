@@ -3,28 +3,18 @@ package exercise;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 
 @SuppressWarnings("serial")
 public class DbConnectionTag extends TagSupport {
-
-	/** Holds value of property driver. */
 	private String driver;
-
-	/** Holds value of property url. */
 	private String url;
-
-	/** Holds value of property user. */
 	private String user = null;
-
-	/** Holds value of property password. */
 	private String password = null;
 
-	public int doStartTag() throws JspException {
+	public int doStartTag() {
 		try {
 			Class.forName(driver);
-
 			Connection con = DriverManager.getConnection(url, user, password);
 			pageContext.setAttribute("connection", con);
 		} catch (Exception e) {
@@ -98,5 +88,4 @@ public class DbConnectionTag extends TagSupport {
 	public void setPassword(String ipassword) {
 		password = ipassword;
 	}
-
 }

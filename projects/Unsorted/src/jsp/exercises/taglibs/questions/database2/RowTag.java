@@ -11,7 +11,7 @@ public class RowTag extends TagSupport {
 	/** Holds value of property colName. */
 	private String colName;
 
-	public int doStartTag() throws JspException {
+	public int doStartTag() {
 		try {
 			TableTag table = (TableTag) getParent();
 			if (table == null) {

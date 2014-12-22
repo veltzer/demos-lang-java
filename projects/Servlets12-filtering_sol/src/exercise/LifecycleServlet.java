@@ -1,9 +1,6 @@
 package exercise;
 
-import java.io.IOException;
-
 import javax.servlet.GenericServlet;
-import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
@@ -15,12 +12,11 @@ public class LifecycleServlet extends GenericServlet {
 		System.out.println("Servlet instance created.");
 	}
 
-	public void init() throws ServletException {
+	public void init() {
 		System.out.println("Servlet initialized.");
 	}
 
-	public void service(ServletRequest request, ServletResponse response)
-			throws ServletException, IOException {
+	public void service(ServletRequest request, ServletResponse response) {
 		System.out.println("Servlet handling the request.");
 		response.getOutputStream().println("Hello World");
 	}

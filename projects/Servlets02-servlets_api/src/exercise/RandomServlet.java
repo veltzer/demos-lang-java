@@ -3,25 +3,22 @@ package exercise;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @SuppressWarnings("serial")
 public class RandomServlet extends HttpServlet {
-
 	private int max;
-
-	public void init() throws ServletException {
-		/**
-		 * Enter your code here
-		 */
+	public void init() {
 	}
-
-	public void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
+	public void doGet(HttpServletRequest request, HttpServletResponse response) {
+		PrintWriter out;
+		try {
+			out = response.getWriter();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 
 		out.println("<html>");
 		out.println("<head>");
@@ -41,15 +38,10 @@ public class RandomServlet extends HttpServlet {
 		out.println("</html>");
 	}
 
-	public void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) {
 		// PrintWriter out = response.getWriter();
 		/**
 		 * Enter your code here
 		 */
 	}
-	/*
-	 * private int createRandomNum() { int num=
-	 * (int)Math.ceil(Math.random()*max); return num; }
-	 */
 }

@@ -2,7 +2,6 @@ package ejbwl.exercises.solutions.source.shopping;
 
 //import java.util.*;
 
-import javax.ejb.CreateException;
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 import javax.sql.DataSource;
@@ -26,7 +25,7 @@ public class ShoppingCartBean implements SessionBean {
 		System.out.println(getClass().getName() + ".setSessionContext() was invoked...");
 		mySessionCtx = ctx;
 	}
-	public void ejbCreate(String icustomerId) throws CreateException {
+	public void ejbCreate(String icustomerId) {
 		System.out.println(getClass().getName() + ".ejbCreate() was invoked...");
 		customerId = icustomerId;
 		bookTitles = new LinkedList();

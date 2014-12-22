@@ -12,6 +12,16 @@
 	</taskdef>
 	<taskdef resource="checkstyletask.properties">
 		<classpath>
+			<fileset dir="lib">
+				<include name="*.jar"/>
+			</fileset>
+			<fileset dir="static">
+				<include name="*.jar"/>
+			</fileset>
+			<dirset dir="support"/>
+		</classpath>
+		<!--
+		<classpath>
 			<pathelement location="lib/checkstyle-6.1.1.jar"/>
 			<pathelement location="lib/guava-18.0.jar"/>
 			<pathelement location="lib/commons-beanutils-1.9.0.jar"/>
@@ -19,6 +29,7 @@
 			<pathelement location="lib/commons-collections-3.2.1.jar"/>
 			<pathelement location="lib/antlr-2.7.7.jar"/>
 		</classpath>
+		-->
 	</taskdef>
 	<!-- tools -->
 	<!-- see http://ant.apache.org/manual/Tasks/javac.html and search

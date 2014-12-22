@@ -3,7 +3,6 @@ package org.meta.rcp.myserver;
 import java.util.Iterator;
 import java.util.List;
 
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
@@ -55,16 +54,13 @@ public class ServerBehaviour extends ServerBehaviourDelegate {
 		}
 		setServerState(IServer.STATE_STOPPED);
 	}
-
 	@Override
 	public IStatus publish(int kind, IProgressMonitor monitor) {
 		trace("publish");
 		return super.publish(kind, monitor);
 	}
-
 	@Override
-	public void publish(int kind, List<IModule[]> modules,
-			IProgressMonitor monitor, IAdaptable info) throws CoreException {
+	public void publish(int kind, List<IModule[]> modules, IProgressMonitor monitor, IAdaptable info) {
 		super.publish(kind, modules, monitor, info);
 		trace("publish(int, list<IModule>");
 
@@ -75,17 +71,13 @@ public class ServerBehaviour extends ServerBehaviourDelegate {
 			}
 		}
 	}
-
 	private void trace(String string) {
 		System.out.println(string);
 	}
-
 	public void setServerStatePub(int stateStarted) {
 		setServerState(stateStarted);
 	}
-
 	public void setProcess(IProcess iProcess) {
 		process = iProcess;
 	}
-
 }

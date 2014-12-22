@@ -164,8 +164,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements
 	 * The <code>MultiPageEditorExample</code> implementation of this method
 	 * checks that the input is an instance of <code>IFileEditorInput</code>.
 	 */
-	public void init(IEditorSite site, IEditorInput editorInput)
-			throws PartInitException {
+	public void init(IEditorSite site, IEditorInput editorInput) {
 		if (!(editorInput instanceof IFileEditorInput)) {
 			throw new PartInitException(
 					"Invalid Input: Must be IFileEditorInput");

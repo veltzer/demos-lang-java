@@ -1,8 +1,5 @@
 package jsf.jsf_vs_jsp.jspclass.src.mycompany.servlets;
 
-import java.io.IOException;
-
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,8 +11,7 @@ import mycompany.business.GreetingRES;
 @SuppressWarnings("serial")
 public class GreetingServlet extends HttpServlet {
 
-	public void doGet(HttpServletRequest req, HttpServletResponse res)
-			throws ServletException, IOException {
+	public void doGet(HttpServletRequest req, HttpServletResponse res) {
 
 		// get request params
 		String name = (String) req.getParameter("name");

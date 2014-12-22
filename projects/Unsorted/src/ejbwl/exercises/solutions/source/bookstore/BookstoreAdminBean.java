@@ -2,7 +2,6 @@ package ejbwl.exercises.solutions.source.bookstore;
 
 //import java.util.*;
 
-import javax.ejb.CreateException;
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 import javax.sql.DataSource;
@@ -29,7 +28,7 @@ public class BookstoreAdminBean implements SessionBean {
 		mySessionCtx = ctx;
 	}
 
-	public void ejbCreate() throws CreateException {
+	public void ejbCreate() {
 		//declare locals
 		Object obj = null;
 		System.out.println(getClass().getName() + ".ejbCreate() was invoked...");

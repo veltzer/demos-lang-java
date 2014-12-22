@@ -3,7 +3,6 @@ package exercise;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,10 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 @SuppressWarnings("serial")
 public class FormServlet extends HttpServlet {
 
-	public void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
-
+	public void doGet(HttpServletRequest request, HttpServletResponse response) {
+		PrintWriter out;
+		try {
+			out = response.getWriter();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 		out.println("<html>");
 		out.println("<head>");
 		out.println("<title>Form Servlet</title>");
@@ -32,9 +34,13 @@ public class FormServlet extends HttpServlet {
 		out.println("</html>");
 	}
 
-	public void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
+	public void doPost(HttpServletRequest request, HttpServletResponse response) {
+		PrintWriter out;
+		try {
+			out = response.getWriter();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 
 		String fName = request.getParameter("fname");
 		String lName = request.getParameter("lname");
@@ -64,7 +70,5 @@ public class FormServlet extends HttpServlet {
 		out.println("<br><a href='exercise.FormServlet'>back</a>");
 		out.println("</body>");
 		out.println("</html>");
-
 	}
-
 }

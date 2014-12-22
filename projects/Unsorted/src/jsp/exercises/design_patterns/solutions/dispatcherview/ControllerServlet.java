@@ -3,11 +3,8 @@ package jsp.exercises.design_patterns.solutions.dispatcherview;
 import java.util.Map;
 import java.util.TreeMap;
 
-import java.io.IOException;
-
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ControllerServlet extends HttpServlet {
 	private Dispatcher dispatcher;
 
-	public void init(ServletConfig config) throws ServletException {
+	public void init(ServletConfig config) {
 		super.init(config);
 
 		// create the items list;
@@ -33,7 +30,7 @@ public class ControllerServlet extends HttpServlet {
 		dispatcher = new Dispatcher(ctx);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) {
 		String mode = request.getParameter("mode");
 		dispatcher.dispatch(request, response, mode);
 	}

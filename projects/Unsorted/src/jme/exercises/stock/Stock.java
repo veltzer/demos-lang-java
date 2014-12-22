@@ -3,11 +3,12 @@ package jme.exercises.stock;
 //import java.io.*;
 //import javax.microedition.io.*;
 //import javax.microedition.lcdui.*;
+//import javax.microedition.midlet.MIDlet;
 
 /**
  * Exercise 5: Stock ticker.
  */
-public class Stock extends javax.microedition.midlet.MIDlet implements CommandListener {
+public class Stock extends MIDlet implements CommandListener {
 	private static final String URL = "http://quote.yahoo.com/d/quotes.csv?f=g&s=";
 	private Form form; // Main form
 	private TextField textField; // Used to enter stock symbol

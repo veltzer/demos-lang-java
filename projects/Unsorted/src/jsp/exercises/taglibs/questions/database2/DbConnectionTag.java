@@ -21,7 +21,7 @@ public class DbConnectionTag extends TagSupport {
 	/** Holds value of property password. */
 	private String password = null;
 
-	public int doStartTag() throws JspException {
+	public int doStartTag() {
 		try {
 			Class.forName(driver);
 			Connection con = DriverManager.getConnection(url, user, password);

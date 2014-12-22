@@ -2,16 +2,12 @@ package exercise;
 
 import java.sql.ResultSet;
 
-import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 
 @SuppressWarnings("serial")
 public class RowTag extends TagSupport {
-
-	/** Holds value of property colName. */
 	private String colName;
-
-	public int doStartTag() throws JspException {
+	public int doStartTag() {
 		try {
 			TableTag table = (TableTag) getParent();
 			if (table == null) {
@@ -24,7 +20,6 @@ public class RowTag extends TagSupport {
 		}
 		return SKIP_BODY;
 	}
-
 	/**
 	 * Getter for property colName.
 	 * @return Value of property colName.
@@ -32,7 +27,6 @@ public class RowTag extends TagSupport {
 	public String getColName() {
 		return colName;
 	}
-
 	/**
 	 * Setter for property colName.
 	 * @param colName New value of property colName.
@@ -40,5 +34,4 @@ public class RowTag extends TagSupport {
 	public void setColName(String icolName) {
 		colName = icolName;
 	}
-
 }

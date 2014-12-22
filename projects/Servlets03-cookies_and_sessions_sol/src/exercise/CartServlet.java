@@ -1,6 +1,5 @@
 package exercise;
 
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -11,7 +10,6 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,7 +18,7 @@ import javax.servlet.http.HttpSession;
 @SuppressWarnings("serial")
 public class CartServlet extends HttpServlet {
 
-	public void init() throws ServletException {
+	public void init() {
 
 		// create the items list;
 		Map<String, Item> itemList = new TreeMap<String, Item>();
@@ -36,8 +34,7 @@ public class CartServlet extends HttpServlet {
 		System.out.println("Added items to list.");
 	}
 
-	public void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public void doGet(HttpServletRequest request, HttpServletResponse response) {
 		PrintWriter out = response.getWriter();
 
 		addItemToCart(request);
@@ -76,8 +73,7 @@ public class CartServlet extends HttpServlet {
 		}
 	}
 
-	private void printCart(HttpServletRequest request,
-			HttpServletResponse response) throws IOException {
+	private void printCart(HttpServletRequest request, HttpServletResponse response) {
 		PrintWriter out = response.getWriter();
 		HttpSession session = request.getSession();
 
@@ -104,8 +100,7 @@ public class CartServlet extends HttpServlet {
 		out.println("<br>");
 	}
 
-	private void printItems(HttpServletRequest request,
-			HttpServletResponse response) throws IOException {
+	private void printItems(HttpServletRequest request, HttpServletResponse response) {
 		PrintWriter out = response.getWriter();
 
 		out.println("<h4>Items for sale:</h4>");

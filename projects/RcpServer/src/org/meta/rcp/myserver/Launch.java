@@ -2,7 +2,6 @@ package org.meta.rcp.myserver;
 
 import java.io.File;
 
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
@@ -20,8 +19,7 @@ import org.eclipse.wst.server.core.model.ServerBehaviourDelegate;
 public class Launch extends AbstractJavaLaunchConfigurationDelegate {
 
 	@Override
-	public void launch(ILaunchConfiguration configuration, String mode,
-			ILaunch launch, IProgressMonitor monitor) throws CoreException {
+	public void launch(ILaunchConfiguration configuration, String mode, ILaunch launch, IProgressMonitor monitor) {
 		trace("launch in mode " + mode);
 
 		IServer server = ServerUtil.getServer(configuration);
@@ -93,9 +91,7 @@ public class Launch extends AbstractJavaLaunchConfigurationDelegate {
 		dlg.setProcess(launch.getProcesses()[0]);
 		dlg.setServerStatePub(IServer.STATE_STARTED);
 	}
-
 	private void trace(String string) {
 		System.out.println(string);
 	}
-
 }

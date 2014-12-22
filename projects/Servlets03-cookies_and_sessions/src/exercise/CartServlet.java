@@ -1,6 +1,5 @@
 package exercise;
 
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.NumberFormat;
 import java.util.Iterator;
@@ -8,7 +7,6 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 @SuppressWarnings("serial")
 public class CartServlet extends HttpServlet {
 
-	public void init() throws ServletException {
+	public void init() {
 
 		// create the items list;
 		Map<String, Item> itemList = new TreeMap<String, Item>();
@@ -32,35 +30,25 @@ public class CartServlet extends HttpServlet {
 		System.out.println("Added items to list.");
 	}
 
-	public void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
+	public void doGet(HttpServletRequest request, HttpServletResponse response) {
 		PrintWriter out = response.getWriter();
-
 		addItemToCart(request);
-
 		out.println("<html>");
 		out.println("<head>");
 		out.println("<title>Cart Servlet</title>");
 		out.println("</head>");
 		out.println("<body>");
 		out.println("<h2>Welcome to John's computer shop</h2>");
-
 		printCart(request, response);
 		printItems(request, response);
-
 		out.println("</body>");
 		out.println("</html>");
 	}
 
 	private void addItemToCart(HttpServletRequest request) {
-		/**
-		 * Enter your code here
-		 */
 	}
 
-	private void printCart(HttpServletRequest request,
-			HttpServletResponse response) throws IOException {
+	private void printCart(HttpServletRequest request, HttpServletResponse response) {
 		PrintWriter out = response.getWriter();
 		double total = 0;
 		out.println("Items currently in your cart:<br>");
@@ -73,8 +61,7 @@ public class CartServlet extends HttpServlet {
 		out.println("<br>");
 	}
 
-	private void printItems(HttpServletRequest request,
-			HttpServletResponse response) throws IOException {
+	private void printItems(HttpServletRequest request, HttpServletResponse response) {
 		PrintWriter out = response.getWriter();
 
 		out.println("<h4>Items for sale:</h4>");
