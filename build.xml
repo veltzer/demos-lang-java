@@ -100,6 +100,7 @@
 				-->
 					<compilerarg value="-Werror"/>
 					<compilerarg value="-Xlint:-path"/>
+					<compilerarg value="-Xlint:unchecked"/>
 					<compilerarg value="-Xlint:-options"/>
 					<classpath refid="external-jars"/>
 				</javac>
