@@ -6,7 +6,6 @@ import java.util.List;
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 import javax.sql.DataSource;
-import javax.ejb.CreateException;
 import javax.ejb.SessionContext;
 import javax.ejb.SessionBean;
 

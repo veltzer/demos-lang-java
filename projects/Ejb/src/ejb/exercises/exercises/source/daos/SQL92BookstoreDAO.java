@@ -180,7 +180,7 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 				itemStmt.setString(2, title);
 				itemStmt.executeUpdate();
 			}
-		} catch (SQLException ex) {
+		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		} finally {
 			try {

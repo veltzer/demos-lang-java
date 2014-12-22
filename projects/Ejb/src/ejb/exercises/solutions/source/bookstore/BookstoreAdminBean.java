@@ -2,7 +2,6 @@ package ejb.exercises.solutions.source.bookstore;
 
 import java.util.List;
 
-import javax.ejb.CreateException;
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 import javax.sql.DataSource;

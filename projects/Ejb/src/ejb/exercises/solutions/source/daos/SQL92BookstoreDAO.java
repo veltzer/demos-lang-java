@@ -332,7 +332,7 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 			}
 			CustomerDTO customer = new CustomerDTO(rs.getString("ID"), rs.getString("NAME"), rs.getString("EMAIL"), rs.getString("ADDRESS"));
 			return customer;
-		} catch (SQLException ex) {
+		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		} finally {
 			try {

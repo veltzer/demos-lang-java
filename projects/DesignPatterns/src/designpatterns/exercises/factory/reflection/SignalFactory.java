@@ -25,7 +25,6 @@ public abstract class SignalFactory {
 		} catch (ClassNotFoundException e) {
 			throw new RuntimeException(e);
 		}
-		return null;
 	}
 	public static void main(String[] args) {
 		try {
