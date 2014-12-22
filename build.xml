@@ -73,7 +73,7 @@
 	<target name="build" description="build all folders">
 		<for param="folder">
 			<path>
-			      <dirset dir="projects" includes="*"/>
+			      <dirset dir="projects" includes="*" excludes="Unsorted"/>
 			</path>
 			<sequential>
 				<echo>doing @{folder}</echo>
