@@ -2,6 +2,7 @@ package exercise;
 
 import java.sql.ResultSet;
 
+import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 
 @SuppressWarnings("serial")
@@ -16,7 +17,7 @@ public class RowTag extends TagSupport {
 			ResultSet rs = table.getRs();
 			pageContext.getOut().print(rs.getString(colName));
 		} catch (Exception e) {
-			throw new JspException(e);
+			throw new RuntimeException(e);
 		}
 		return SKIP_BODY;
 	}

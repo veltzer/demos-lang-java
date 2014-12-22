@@ -17,26 +17,23 @@ public class RowTag extends TagSupport {
 			if (table == null) {
 				throw new JspException("No parent table tag.");
 			}
-			ResultSet rs = table.rs;
+			ResultSet rs = table.getRs();
 			pageContext.getOut().print(rs.getString(colName));
 		} catch (Exception e) {
-			throw new JspException(e);
+			throw new RuntimeException(e);
 		}
 		return SKIP_BODY;
 	}
-
 	/** Getter for property colName.
 	 * @return Value of property colName.
 	 */
 	public String getColName() {
 		return colName;
 	}
-
 	/** Setter for property colName.
 	 * @param colName New value of property colName.
 	 */
 	public void setColName(String icolName) {
 		colName = icolName;
 	}
-
 }

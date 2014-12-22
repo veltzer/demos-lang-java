@@ -13,7 +13,7 @@ public class UpperFilterTag extends BodyTagSupport {
 			getBodyContent().print(newContent);
 			getBodyContent().writeOut(pageContext.getOut());
 		} catch (IOException e) {
-			throw new JspException(e);
+			throw new RuntimeException(e);
 		}
 		return EVAL_PAGE;
 	}

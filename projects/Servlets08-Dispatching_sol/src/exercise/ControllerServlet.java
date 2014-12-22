@@ -1,10 +1,12 @@
 package exercise;
 
+import java.io.IOException;
 import java.util.Map;
 import java.util.TreeMap;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -33,8 +35,14 @@ public class ControllerServlet extends HttpServlet {
 		} else if (mode.equalsIgnoreCase("item")) {
 			rd = request.getRequestDispatcher(ITEM_PAGE);
 		} else {
-			throw new ServletException("Illegal mode");
+			throw new RuntimeException(new ServletException("Illegal mode"));
 		}
-		rd.forward(request, response);
+		try {
+			rd.forward(request, response);
+		} catch (ServletException e) {
+			throw new RuntimeException(new ServletException("Illegal mode"));
+		} catch (IOException e) {
+			throw new RuntimeException(new ServletException("Illegal mode"));
+		}
 	}
 }

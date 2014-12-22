@@ -15,7 +15,7 @@ public class TableTag extends TagSupport {
 		try {
 			Connection con = (Connection) pageContext.getAttribute("connection");
 			if (con == null) {
-				throw new JspException("Connection not found.");
+				throw new RuntimeException("Connection not found.");
 			}
 			String sql = "SELECT * from " + tableName;
 			Statement stmt = con.createStatement();
@@ -24,7 +24,7 @@ public class TableTag extends TagSupport {
 				return EVAL_BODY_INCLUDE;
 			}
 		} catch (SQLException e) {
-			throw new JspException(e);
+			throw new RuntimeException(e);
 		}
 		return SKIP_BODY;
 	}
@@ -34,7 +34,7 @@ public class TableTag extends TagSupport {
 				return EVAL_BODY_AGAIN;
 			}
 		} catch (SQLException e) {
-			throw new JspException(e);
+			throw new RuntimeException(e);
 		}
 		return SKIP_BODY;
 

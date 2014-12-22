@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 
 @SuppressWarnings("serial")
@@ -12,11 +13,19 @@ public class TableTag extends TagSupport {
 	private String tableName;
 	private ResultSet rs;
 
+	public ResultSet getRs() {
+		return rs;
+	}
+
+	public void setRs(ResultSet irs) {
+		rs = irs;
+	}
+
 	public int doStartTag() {
 		try {
 			Connection con = (Connection) pageContext.getAttribute("connection");
 			if (con == null) {
-				throw new JspException("Connection not found.");
+				throw new RuntimeException(new JspException("Connection not found."));
 			}
 			String sql = "SELECT * from " + tableName;
 			Statement stmt = con.createStatement();
@@ -26,7 +35,7 @@ public class TableTag extends TagSupport {
 				return EVAL_BODY_INCLUDE;
 			}
 		} catch (SQLException e) {
-			throw new JspException(e);
+			throw new RuntimeException(new JspException(e));
 		}
 		return SKIP_BODY;
 	}
@@ -37,7 +46,7 @@ public class TableTag extends TagSupport {
 				return EVAL_BODY_AGAIN;
 			}
 		} catch (SQLException e) {
-			throw new JspException(e);
+			throw new RuntimeException(e);
 		}
 		return SKIP_BODY;
 

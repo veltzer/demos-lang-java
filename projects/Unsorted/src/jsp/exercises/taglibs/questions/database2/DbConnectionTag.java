@@ -3,7 +3,6 @@ package jsp.exercises.taglibs.questions.database2;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 
 @SuppressWarnings("serial")
@@ -28,7 +27,7 @@ public class DbConnectionTag extends TagSupport {
 			pageContext.setAttribute("connection", con);
 		} catch (Exception e) {
 			pageContext.removeAttribute("connection");
-			throw new JspException(e);
+			throw new RuntimeException(e);
 		}
 		return SKIP_BODY;
 	}

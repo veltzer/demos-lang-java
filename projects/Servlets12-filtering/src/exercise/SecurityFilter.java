@@ -29,7 +29,11 @@ public class SecurityFilter implements Filter {
 				throw new RuntimeException(e);
 			}
 		} else {
-			((HttpServletResponse) res).sendError(403, "I don't know you!");
+			try {
+				((HttpServletResponse) res).sendError(403, "I don't know you!");
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
 		}
 	}
 	public void destroy() {

@@ -19,7 +19,7 @@ public class DbConnectionTag extends TagSupport {
 			pageContext.setAttribute("connection", con);
 		} catch (Exception e) {
 			pageContext.removeAttribute("connection");
-			throw new JspException(e);
+			throw new RuntimeException(e);
 		}
 		return SKIP_BODY;
 
