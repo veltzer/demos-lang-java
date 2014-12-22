@@ -1,13 +1,16 @@
 package swing.advanced_swing;
 
+import java.awt.EventQueue;
 import java.util.regex.Pattern;
 
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
+import javax.swing.GroupLayout;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.WindowConstants;
 
 @SuppressWarnings("serial")
 public class DateForm extends JFrame {
@@ -116,7 +119,7 @@ public class DateForm extends JFrame {
 	 * @param args the command line arguments
 	 */
 	public static void main(String[] args) {
-		java.awt.EventQueue.invokeLater(new Runnable() {
+		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				new DateForm().setVisible(true);
 			}

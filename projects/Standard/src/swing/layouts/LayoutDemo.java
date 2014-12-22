@@ -53,11 +53,6 @@ public final class LayoutDemo {
 		c.add(button4);
 
 		mainFrame.addWindowListener(new WindowAdapter() {
-			/**
-			 * @see
-			 * java.awt.event.WindowAdapter#windowClosed(java.awt.event.WindowEvent
-			 * )
-			 */
 			@Override
 			public void windowClosing(WindowEvent e) {
 				System.exit(0);

@@ -13,6 +13,7 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 /**
  * FormattedTextFieldDemo.java is a 1.4 example that requires no other files. It

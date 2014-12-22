@@ -1,6 +1,9 @@
 package swing.look_and_feel;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -39,6 +42,7 @@ import javax.swing.JToggleButton;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.border.BevelBorder;
+import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -123,13 +127,13 @@ public class DvdCatalog extends JFrame implements Runnable {
 	}
 
 	private JComponent createTablePane() {
-		JPanel b = new JPanel(new java.awt.BorderLayout());
+		JPanel b = new JPanel(new BorderLayout());
 		table = new JTable(tableModel);
 		IconRenderer r = new IconRenderer();
 		table.setDefaultRenderer(Integer.class, r);
 		b.add("Center", new JScrollPane(table));
 
-		JPanel removePane = new JPanel(new java.awt.FlowLayout());
+		JPanel removePane = new JPanel(new FlowLayout());
 		JButton remove = new JButton(new RemoveAction());
 		removePane.add(remove);
 		b.add("South", removePane);
@@ -200,7 +204,7 @@ public class DvdCatalog extends JFrame implements Runnable {
 	}
 
 	static class IconRenderer extends DefaultTableCellRenderer {
-		public java.awt.Component getTableCellRendererComponent(JTable table,
+		public Component getTableCellRendererComponent(JTable table,
 				Object value, boolean isSelected, boolean hasFocus, int row,
 				int column) {
 			super.getTableCellRendererComponent(table, "", isSelected,
@@ -310,7 +314,7 @@ public class DvdCatalog extends JFrame implements Runnable {
 			table.getSelectionModel().addListSelectionListener(this);
 		}
 
-		public void actionPerformed(java.awt.event.ActionEvent actionEvent) {
+		public void actionPerformed(ActionEvent actionEvent) {
 			tableModel.remove(table.getSelectedRow());
 		}
 

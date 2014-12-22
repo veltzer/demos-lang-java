@@ -1,6 +1,7 @@
 package swing.i18n;
 
 import java.awt.ComponentOrientation;
+import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 import javax.swing.Box;
@@ -39,7 +40,7 @@ public class BiDiDemo extends JPanel {
 			putValue(NAME, "Flip");
 		}
 
-		public void actionPerformed(java.awt.event.ActionEvent actionEvent) {
+		public void actionPerformed(ActionEvent actionEvent) {
 			JFrame frm = (JFrame) JFrame.getFrames()[0];
 			ComponentOrientation o = frm.getComponentOrientation();
 			if (o == ComponentOrientation.LEFT_TO_RIGHT) {

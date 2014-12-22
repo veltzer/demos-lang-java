@@ -1,6 +1,8 @@
-package swing.java_beans;
+package swing.jbeans;
 
+import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -35,6 +37,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.JToggleButton;
 import javax.swing.SwingUtilities;
+import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -95,13 +98,13 @@ public class DvdCatalog extends JFrame implements Runnable {
 	}
 
 	private JComponent createTablePane() {
-		JPanel b = new JPanel(new java.awt.BorderLayout());
+		JPanel b = new JPanel(new BorderLayout());
 		table = new JTable(tableModel);
 		IconRenderer r = new IconRenderer();
 		table.setDefaultRenderer(Integer.class, r);
 		b.add("Center", new JScrollPane(table));
 
-		JPanel removePane = new JPanel(new java.awt.FlowLayout());
+		JPanel removePane = new JPanel(new FlowLayout());
 		JButton remove = new JButton(new RemoveAction());
 		removePane.add(remove);
 		b.add("South", removePane);
@@ -281,7 +284,7 @@ public class DvdCatalog extends JFrame implements Runnable {
 			table.getSelectionModel().addListSelectionListener(this);
 		}
 
-		public void actionPerformed(java.awt.event.ActionEvent actionEvent) {
+		public void actionPerformed(ActionEvent actionEvent) {
 			tableModel.remove(table.getSelectedRow());
 		}
 

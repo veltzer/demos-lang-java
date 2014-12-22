@@ -182,8 +182,8 @@ public final class ConstantSize implements Size, Serializable {
 	 * @param o the Object with which to compare
 	 * @return <code>true</code> if this object is the same as the obj argument;
 	 * <code>false</code> otherwise.
-	 * @see java.lang.Object#hashCode()
-	 * @see java.util.Hashtable
+	 * @see Object#hashCode()
+	 * @see Hashtable
 	 */
 	public boolean equals(Object o) {
 		if (this == o) {
@@ -199,10 +199,10 @@ public final class ConstantSize implements Size, Serializable {
 	/**
 	 * Returns a hash code value for the object. This method is supported for
 	 * the benefit of hashtables such as those provided by
-	 * <code>java.util.Hashtable</code>.
+	 * <code>Hashtable</code>.
 	 * @return a hash code value for this object.
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 * @see java.util.Hashtable
+	 * @see Object#equals(Object)
+	 * @see Hashtable
 	 */
 	public int hashCode() {
 		return new Double(value).hashCode() + 37 * unit.hashCode();

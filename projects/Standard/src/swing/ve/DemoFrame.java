@@ -2,7 +2,11 @@ package swing.ve;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -50,7 +54,7 @@ public class DemoFrame extends JFrame {
 	private JPanel getJPanel() {
 		if (jPanel == null) {
 			FlowLayout flowLayout = new FlowLayout();
-			flowLayout.setAlignment(java.awt.FlowLayout.RIGHT);
+			flowLayout.setAlignment(FlowLayout.RIGHT);
 			jPanel = new JPanel();
 			jPanel.setLayout(flowLayout);
 			jPanel.add(getJButton(), null);
@@ -66,8 +70,8 @@ public class DemoFrame extends JFrame {
 		if (jButton == null) {
 			jButton = new JButton();
 			jButton.setText("Delete");
-			jButton.addActionListener(new java.awt.event.ActionListener() {
-				public void actionPerformed(java.awt.event.ActionEvent e) {
+			jButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
 					System.out.println("actionPerformed()");
 				}
 			});
@@ -82,14 +86,14 @@ public class DemoFrame extends JFrame {
 		if (renameButton == null) {
 			renameButton = new JButton();
 			renameButton.setText("Rename");
-			renameButton.addMouseListener(new java.awt.event.MouseAdapter() {
+			renameButton.addMouseListener(new MouseAdapter() {
 				@Override
-				public void mouseExited(java.awt.event.MouseEvent e) {
+				public void mouseExited(MouseEvent e) {
 					renameButton.setText("Rename");
 				}
 
 				@Override
-				public void mouseEntered(java.awt.event.MouseEvent e) {
+				public void mouseEntered(MouseEvent e) {
 					renameButton.setText("Well...?");
 				}
 			});

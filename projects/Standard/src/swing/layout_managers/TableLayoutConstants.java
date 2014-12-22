@@ -29,7 +29,7 @@ public abstract class TableLayoutConstants {
 	 * justification means components are left justified if their container is
 	 * left-oriented and right justified if their container is right-oriented.
 	 * Trailing justification is opposite. see
-	 * java.awt.Component#getComponentOrientation
+	 * Component#getComponentOrientation
 	 */
 	public static final int LEADING = 4;
 
@@ -38,7 +38,7 @@ public abstract class TableLayoutConstants {
 	 * justification means components are right justified if their container is
 	 * left-oriented and left justified if their container is right-oriented.
 	 * Leading justification is opposite. see
-	 * java.awt.Component#getComponentOrientation
+	 * Component#getComponentOrientation
 	 */
 	public static final int TRAILING = 5;
 

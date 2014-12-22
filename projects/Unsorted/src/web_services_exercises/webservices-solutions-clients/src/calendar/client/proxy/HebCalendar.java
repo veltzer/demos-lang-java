@@ -40,7 +40,7 @@ public interface HebCalendar {
 	 * @param arg0
 	 * @param asyncHandler
 	 * @return
-	 *	 returns java.util.concurrent.Future<? extends java.lang.Object>
+	 *	 returns Future<? extends Object>
 	 */
 	@WebMethod(operationName = "hebDayOfWeek")
 	@RequestWrapper(localName = "hebDayOfWeek", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayOfWeek")
@@ -55,7 +55,7 @@ public interface HebCalendar {
 	 *
 	 * @param arg0
 	 * @return
-	 *	 returns java.lang.String
+	 *	 returns String
 	 */
 	@WebMethod
 	@WebResult(targetNamespace = "")
@@ -83,7 +83,7 @@ public interface HebCalendar {
 	 * @param arg0
 	 * @param asyncHandler
 	 * @return
-	 *	 returns java.util.concurrent.Future<? extends java.lang.Object>
+	 *	 returns Future<? extends Object>
 	 */
 	@WebMethod(operationName = "hebDayName")
 	@RequestWrapper(localName = "hebDayName", targetNamespace = "http://service.calendar/", className = "calendar.client.proxy.HebDayName")
@@ -98,7 +98,7 @@ public interface HebCalendar {
 	 *
 	 * @param arg0
 	 * @return
-	 *	 returns java.lang.String
+	 *	 returns String
 	 */
 	@WebMethod
 	@WebResult(targetNamespace = "")

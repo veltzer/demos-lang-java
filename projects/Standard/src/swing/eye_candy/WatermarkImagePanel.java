@@ -1,6 +1,7 @@
 package swing.eye_candy;
 
 import java.awt.AlphaComposite;
+import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -43,7 +44,7 @@ public class WatermarkImagePanel extends JPanel {
 	public static void main(String[] argv) {
 		URL url = WatermarkImagePanel.class.getResource("/duke.gif");
 		WatermarkImagePanel demo = new WatermarkImagePanel(url, 0.5f);
-		demo.setLayout(new java.awt.FlowLayout());
+		demo.setLayout(new FlowLayout());
 		demo.add(new JButton("Button"));
 		demo.add(new JLabel("Label"));
 		demo.add(new JTextField("Field"));

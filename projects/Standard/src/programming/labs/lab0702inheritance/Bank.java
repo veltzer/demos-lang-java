@@ -18,7 +18,7 @@ public final class Bank {
 	private Bank() {
 		customers = new Customer[MAX_CUSTOMERS];
 		// if there was no next line index would still be
-		// 0 (java guarantees this) but it looks much
+		// 0 (jvm guarantees this) but it looks much
 		// better this way
 		index = 0;
 	}

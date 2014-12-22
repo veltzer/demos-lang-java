@@ -86,7 +86,7 @@ final class BoundedSize implements Size, Serializable {
 	 * @return <code>true</code> if this object is the same as the object
 	 * argument, <code>false</code> otherwise.
 	 * @see Object#hashCode()
-	 * @see java.util.Hashtable
+	 * @see Hashtable
 	 */
 	public boolean equals(Object object) {
 		if (this == object) {
@@ -106,10 +106,10 @@ final class BoundedSize implements Size, Serializable {
 	/**
 	 * Returns a hash code value for the object. This method is supported for
 	 * the benefit of hashtables such as those provided by
-	 * <code>java.util.Hashtable</code>.
+	 * <code>Hashtable</code>.
 	 * @return a hash code value for this object.
 	 * @see Object#equals(Object)
-	 * @see java.util.Hashtable
+	 * @see Hashtable
 	 */
 	public int hashCode() {
 		int hashValue = basis.hashCode();

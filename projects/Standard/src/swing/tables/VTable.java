@@ -2,6 +2,7 @@ package swing.tables;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
 import java.awt.event.ActionEvent;
@@ -179,7 +180,7 @@ public class VTable extends JTable {
 			return size;
 		}
 
-		public void paintIcon(Component c, java.awt.Graphics g, int x, int y) {
+		public void paintIcon(Component c, Graphics g, int x, int y) {
 			Polygon p;
 			int[] xarray = new int[] {
 					0, size, size / 2

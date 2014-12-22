@@ -1,5 +1,6 @@
 package swing.desktop_integration;
 
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -153,7 +154,7 @@ public final class PlatformUtility {
 		@SuppressWarnings("serial")
 		Action action = new AbstractAction() {
 			public void actionPerformed(ActionEvent arg0) {
-				((java.awt.Window) wnd).dispose();
+				((Window) wnd).dispose();
 			}
 		};
 		JRootPane rootPane = wnd.getRootPane();

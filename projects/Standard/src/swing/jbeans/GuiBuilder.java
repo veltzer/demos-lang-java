@@ -1,5 +1,6 @@
-package swing.java_beans;
+package swing.jbeans;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
@@ -79,7 +80,7 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 	private ComponentPositioning positioner = null;
 
 	public GuiBuilder() {
-		super(new java.awt.BorderLayout());
+		super(new BorderLayout());
 		add("Center", content);
 		tree.setRootVisible(true);
 		tree.addTreeSelectionListener(treeModel);

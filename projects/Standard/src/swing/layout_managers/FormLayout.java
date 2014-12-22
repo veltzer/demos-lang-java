@@ -760,7 +760,7 @@ public final class FormLayout implements LayoutManager2, Serializable {
 	 * Removes the specified component from this layout. <p> Most applications
 	 * do not call this method directly.
 	 * @param comp the component to be removed.
-	 * @see Container#remove(java.awt.Component)
+	 * @see Container#remove(Component)
 	 * @see Container#removeAll()
 	 */
 	public void removeLayoutComponent(Component comp) {

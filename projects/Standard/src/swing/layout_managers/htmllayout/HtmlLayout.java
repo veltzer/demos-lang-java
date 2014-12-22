@@ -93,10 +93,6 @@ public class HtmlLayout implements LayoutManager {
 
 		labelsAdded = true;
 	}
-
-	/**
-	 * @see java.awt.LayoutManager#addLayoutComponent
-	 */
 	public void addLayoutComponent(String name, Component comp) {
 		prefDim.width = -1;
 		if (name == ANONLABELNAME) {
@@ -117,10 +113,6 @@ public class HtmlLayout implements LayoutManager {
 		compToCell.put(comp, c);
 		c.setComp(comp);
 	}
-
-	/**
-	 * @see java.awt.LayoutManager#removeLayoutComponent
-	 */
 	public void removeLayoutComponent(Component comp) {
 		prefDim.width = -1;
 		Cell c = compToCell.remove(comp);
@@ -128,17 +120,9 @@ public class HtmlLayout implements LayoutManager {
 			c.setComp(null);
 		}
 	}
-
-	/**
-	 * @see java.awt.LayoutManager#preferredLayoutSize
-	 */
 	public Dimension preferredLayoutSize(Container parent) {
 		return layoutSize(parent, PREF);
 	}
-
-	/**
-	 * @see java.awt.LayoutManager#minimumLayoutSize
-	 */
 	public Dimension minimumLayoutSize(Container parent) {
 		return layoutSize(parent, MIN);
 	}
@@ -197,10 +181,6 @@ public class HtmlLayout implements LayoutManager {
 		d.height += insets.top + insets.bottom;
 		return d;
 	}
-
-	/**
-	 * @see java.awt.LayoutManager#layoutContainer
-	 */
 	public void layoutContainer(Container parent) {
 		if (!labelsAdded) {
 			addLabels(parent);

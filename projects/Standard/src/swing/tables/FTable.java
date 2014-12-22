@@ -1,5 +1,6 @@
 package swing.tables;
 
+import java.awt.event.AdjustmentEvent;
 import java.awt.event.AdjustmentListener;
 import java.util.Arrays;
 
@@ -50,16 +51,14 @@ public class FTable extends JSplitPane {
 		setRightComponent(notFrozenPane);
 		notFrozenPane.getVerticalScrollBar().addAdjustmentListener(
 				new AdjustmentListener() {
-					public void adjustmentValueChanged(
-							java.awt.event.AdjustmentEvent ev) {
+					public void adjustmentValueChanged(AdjustmentEvent ev) {
 						frozenPane.getVerticalScrollBar().setValue(
 								ev.getValue());
 					}
 				});
 		frozenPane.getVerticalScrollBar().addAdjustmentListener(
 				new AdjustmentListener() {
-					public void adjustmentValueChanged(
-							java.awt.event.AdjustmentEvent ev) {
+					public void adjustmentValueChanged(AdjustmentEvent ev) {
 						notFrozenPane.getVerticalScrollBar().setValue(
 								ev.getValue());
 					}

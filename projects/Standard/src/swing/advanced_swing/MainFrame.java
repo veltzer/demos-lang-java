@@ -1,5 +1,7 @@
 package swing.advanced_swing;
 
+import java.awt.EventQueue;
+
 import javax.swing.JFrame;
 import javax.swing.JCheckBox;
 import javax.swing.JToolBar;
@@ -100,7 +102,7 @@ public class MainFrame extends JFrame {
 	 * @param args the command line arguments
 	 */
 	public static void main(String[] args) {
-		java.awt.EventQueue.invokeLater(new Runnable() {
+		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				new MainFrame().setVisible(true);
 			}

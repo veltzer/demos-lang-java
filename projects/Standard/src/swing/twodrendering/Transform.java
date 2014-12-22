@@ -1,4 +1,4 @@
-package swing.java2d_and_rendering;
+package swing.twodrendering;
 
 import java.awt.Color;
 import java.awt.Component;

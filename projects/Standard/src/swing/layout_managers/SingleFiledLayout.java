@@ -4,6 +4,8 @@ import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Insets;
+import java.awt.LayoutManager;
+import java.io.Serializable;
 
 /**
  * SingleFiledLayout lays out components singled filed. This layout manager is
@@ -11,8 +13,7 @@ import java.awt.Insets;
  * column.
  */
 @SuppressWarnings("serial")
-public class SingleFiledLayout implements java.awt.LayoutManager,
-		java.io.Serializable {
+public class SingleFiledLayout implements LayoutManager, Serializable {
 	/** Align components in a column */
 	public static final int COLUMN = 0;
 
@@ -101,10 +102,6 @@ public class SingleFiledLayout implements java.awt.LayoutManager,
 		justification = ijustification;
 		gap = igap;
 	}
-
-	// ******************************************************************************
-	// ** java.awt.event.LayoutManager methods ***
-	// ******************************************************************************
 
 	private static final String ERR_STRING1 = "bad justification";
 

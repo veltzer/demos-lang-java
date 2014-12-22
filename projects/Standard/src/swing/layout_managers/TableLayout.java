@@ -5,8 +5,11 @@ import java.awt.ComponentOrientation;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Insets;
+import java.awt.LayoutManager2;
+import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.ListIterator;
 
 /**
@@ -45,8 +48,7 @@ import java.util.ListIterator;
  * e) {} } ); <spc> // Show frame frame.show(); } </pre>
  */
 @SuppressWarnings("serial")
-public class TableLayout implements java.awt.LayoutManager2,
-		java.io.Serializable {
+public class TableLayout implements LayoutManager2, Serializable {
 
 	/*
 	 * Note: In this file, a cr refers to either a column or a row. cr[C] always
@@ -74,7 +76,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 	/**
 	 * Method used to get component orientation while preserving compatability
-	 * with earlier versions of java.awt.Container. Necessary for supporting
+	 * with earlier versions of Container. Necessary for supporting
 	 * older JDKs and MicroEdition versions of Java.
 	 */
 	private static Method methodGetComponentOrientation;
@@ -709,7 +711,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * @see #getOverlappingEntry
 	 */
 
-	public java.util.List<Object> getInvalidEntry() {
+	public List<Object> getInvalidEntry() {
 		LinkedList<Object> listInvalid = new LinkedList<Object>();
 
 		try {
@@ -738,7 +740,7 @@ public class TableLayout implements java.awt.LayoutManager2,
 	 * @see #getInvalidEntry
 	 */
 
-	public java.util.List<Object> getOverlappingEntry() {
+	public List<Object> getOverlappingEntry() {
 		LinkedList<Object> listOverlapping = new LinkedList<Object>();
 
 		try {
@@ -1065,10 +1067,6 @@ public class TableLayout implements java.awt.LayoutManager2,
 
 		return availableSize;
 	}
-
-	// ******************************************************************************
-	// ** java.awt.event.LayoutManager methods ***
-	// ******************************************************************************
 
 	/**
 	 * To lay out the specified container using this layout. This method
@@ -1529,10 +1527,6 @@ public class TableLayout implements java.awt.LayoutManager2,
 	public void addLayoutComponent(String name, Component component) {
 		addLayoutComponent(component, name);
 	}
-
-	// ******************************************************************************
-	// ** java.awt.event.LayoutManager2 methods ***
-	// ******************************************************************************
 
 	/**
 	 * Adds the specified component with the specified name to the layout.

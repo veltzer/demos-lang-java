@@ -2,6 +2,10 @@ package swing.ve;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -59,19 +63,19 @@ public class MyFrame extends JFrame {
 		if (playButton == null) {
 			playButton = new JButton();
 			playButton.setText("Play");
-			playButton.addMouseListener(new java.awt.event.MouseAdapter() {
+			playButton.addMouseListener(new MouseAdapter() {
 				@Override
-				public void mouseExited(java.awt.event.MouseEvent e) {
+				public void mouseExited(MouseEvent e) {
 					playButton.setText("Play");
 				}
 
 				@Override
-				public void mouseEntered(java.awt.event.MouseEvent e) {
+				public void mouseEntered(MouseEvent e) {
 					playButton.setText("Well?");
 				}
 			});
-			playButton.addActionListener(new java.awt.event.ActionListener() {
-				public void actionPerformed(java.awt.event.ActionEvent e) {
+			playButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
 					System.out.println("actionPerformed()");
 				}
 			});
@@ -86,8 +90,8 @@ public class MyFrame extends JFrame {
 		if (pauseButton == null) {
 			pauseButton = new JButton();
 			pauseButton.setText("Pause");
-			pauseButton.addActionListener(new java.awt.event.ActionListener() {
-				public void actionPerformed(java.awt.event.ActionEvent e) {
+			pauseButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
 					System.out.println("actionPerformed()");
 				}
 			});

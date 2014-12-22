@@ -1,5 +1,7 @@
 package swing.eye_candy;
 
+import java.awt.GridLayout;
+
 import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -9,7 +11,7 @@ import javax.swing.SwingConstants;
 @SuppressWarnings("serial")
 public class IconPositionDemo extends JPanel {
 	public IconPositionDemo() {
-		super(new java.awt.GridLayout(3, 6));
+		super(new GridLayout(3, 6));
 		add(createButton(SwingConstants.RIGHT, SwingConstants.CENTER));
 		add(createButton(SwingConstants.LEFT, SwingConstants.CENTER));
 		add(createButton(SwingConstants.CENTER, SwingConstants.CENTER));

@@ -1,5 +1,6 @@
 package swing.eye_candy;
 
+import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.MediaTracker;
@@ -37,7 +38,7 @@ public class StretchImagePanel extends JPanel {
 	public static void main(String[] argv) {
 		URL url = StretchImagePanel.class.getResource("/duke.gif");
 		StretchImagePanel demo = new StretchImagePanel(url);
-		demo.setLayout(new java.awt.FlowLayout());
+		demo.setLayout(new FlowLayout());
 		demo.add(new JButton("Button"));
 		demo.add(new JLabel("Label"));
 		demo.add(new JTextField("Field"));
