@@ -1,9 +1,10 @@
 package ejbwl.exercises.solutions.client_source.clients;
+
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 
-import shopping.ShoppingCart;
-import shopping.ShoppingCartHome;
+import ejbwl.exercises.solutions.source.shopping.ShoppingCartHome;
+import ejbwl.exercises.solutions.source.shopping.ShoppingCart;
 
 /**
  * A simple client for testing ShoppingCart. <br>
@@ -19,8 +20,7 @@ public abstract class ShoppingCartClient {
 		// Lookup:
 		InitialContext ictx = new InitialContext();
 		Object obj = ictx.lookup("ejb/shopping/ShoppingCartHome");
-		ShoppingCartHome home =
-			(ShoppingCartHome) PortableRemoteObject.narrow(
+		ShoppingCartHome home = (ShoppingCartHome) PortableRemoteObject.narrow(
 				obj,
 				ShoppingCartHome.class);
 		ShoppingCart cart = home.create("111");

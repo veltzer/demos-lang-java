@@ -2,9 +2,9 @@ package ejbwl.exercises.solutions.source.daos;
 
 import java.util.List;
 
-import dtos.BookDTO;
-import dtos.CustomerDTO;
-import dtos.OrderDetailsDTO;
+import ejbwl.exercises.solutions.source.dtos.BookDTO;
+import ejbwl.exercises.solutions.source.dtos.CustomerDTO;
+import ejbwl.exercises.solutions.source.dtos.OrderDetailsDTO;
 
 /**
  * Data Access Object for a book store. <br>
@@ -66,7 +66,7 @@ public interface BookstoreDAO {
 	 * by reading the books table, loading it into memory, then closing
 	 * the DB connection.
 	 */
-	List selectBooks();
+	List<BookDTO> selectBooks();
 
 	/**
 	 * Given a book title, returns book details.
@@ -96,7 +96,7 @@ public interface BookstoreDAO {
 	 * by reading the customers table, loading it into memory, then closing
 	 * the DB connection.
 	 */
-	List selectCustomers();
+	List<CustomerDTO> selectCustomers();
 
 	/**
 	 * Given a custoemr id, returns customer details.
@@ -129,7 +129,7 @@ public interface BookstoreDAO {
 		String orderId,
 		String customerId,
 		long timestamp,
-		List bookTitles);
+		List<String> bookTitles);
 
 	/**
 	 * Cancels a given order. If no such order exists, this method will

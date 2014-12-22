@@ -2,34 +2,36 @@ package ejbwl.exercises.solutions.source.shopping;
 
 //import java.util.*;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 import javax.sql.DataSource;
+import javax.ejb.CreateException;
 import javax.ejb.SessionContext;
 import javax.ejb.SessionBean;
 
-import daos.BookstoreDAO;
-import daos.BookstoreDaoFactory;
-import dtos.BookDTO;
+import ejbwl.exercises.solutions.source.daos.BookstoreDAO;
+import ejbwl.exercises.solutions.source.daos.BookstoreDaoFactory;
+import ejbwl.exercises.solutions.source.dtos.BookDTO;
 
 /**
  * Bean implementation class for Enterprise Bean: ShoppingCart
  */
 @SuppressWarnings("serial")
 public class ShoppingCartBean implements SessionBean {
-	private SessionContext mySessionCtx;
 	private BookstoreDAO dao;
-	private List bookTitles;
+	private List<String> bookTitles;
 	private String customerId;
 
 	public void setSessionContext(SessionContext ctx) {
 		System.out.println(getClass().getName() + ".setSessionContext() was invoked...");
-		mySessionCtx = ctx;
 	}
 	public void ejbCreate(String icustomerId) {
 		System.out.println(getClass().getName() + ".ejbCreate() was invoked...");
 		customerId = icustomerId;
-		bookTitles = new LinkedList();
+		bookTitles = new LinkedList<String>();
 		// Note initialization must be done in create(). Do not
 		// initialize bookTitles at declaration !
 
@@ -40,7 +42,7 @@ public class ShoppingCartBean implements SessionBean {
 			dao = BookstoreDaoFactory.getDAO(dataSrouce);
 		} catch (Exception ex) {
 			ex.printStackTrace();
-			throw new CreateException("Cannot create bean. " + ex);
+			throw new RuntimeException(new CreateException("Cannot create bean. " + ex));
 		}
 	}
 	public void ejbActivate() {
@@ -65,7 +67,7 @@ public class ShoppingCartBean implements SessionBean {
 		bookTitles.add(bookTitle);
 	}
 
-	public List getTitlesInCart() {
+	public List<String> getTitlesInCart() {
 		return bookTitles;
 	}
 

@@ -1,12 +1,19 @@
 package ejbwl.exercises.source.daos;
 
-//import java.sql.*;
-//import java.util.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 
 import javax.sql.DataSource;
-import dtos.BookDTO;
-import dtos.CustomerDTO;
-import dtos.OrderDetailsDTO;
+
+import ejbwl.exercises.solutions.source.dtos.CustomerDTO;
+import ejbwl.exercises.source.dtos.BookDTO;
+import ejbwl.exercises.source.dtos.OrderDetailsDTO;
+
 
 /**
  * A simple SQL implementation of BookstoreDAO. <br>
@@ -83,13 +90,13 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 		}
 	}
 
-	public List selectBooks() {
+	public List<BookDTO> selectBooks() {
 		Connection con = null;
 		try {
 			con = datasource.getConnection();
 			PreparedStatement stmt = con.prepareStatement(selectBooksSql);
 			ResultSet rs = stmt.executeQuery();
-			List books = new LinkedList();
+			List<BookDTO> books = new LinkedList<BookDTO>();
 			while (rs.next()) {
 				BookDTO book = new BookDTO(
 					rs.getString("TITLE"), rs.getString("AUTHOR"),
@@ -108,7 +115,6 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 			}
 		}
 	}
-
 
 	public void insertCustomer(String id, String name, String email, String address) {
 		Connection con = null;
@@ -132,11 +138,11 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 		}
 	}
 
-	public List selectCustomers() {
+	public List<CustomerDTO> selectCustomers() {
 		Connection con = null;
 		try {
 			con = datasource.getConnection();
-			List customers = new LinkedList();
+			List<CustomerDTO> customers = new LinkedList<CustomerDTO>();
 			PreparedStatement stmt = con.prepareStatement(selectCustomersSql);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
@@ -209,7 +215,7 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 			order.setTimestamp(orderRs.getLong("ORDER_TIME"));
 
 			// Get items for this order:
-			List bookTitles = new LinkedList();
+			List<String> bookTitles = new LinkedList<String>();
 			PreparedStatement itemStmt = con.prepareStatement(selectItemsByOrder);
 			itemStmt.setString(1, orderId);
 			ResultSet itemsRs = itemStmt.executeQuery();

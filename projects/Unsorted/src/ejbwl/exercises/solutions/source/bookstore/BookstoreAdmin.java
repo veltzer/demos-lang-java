@@ -2,8 +2,6 @@ package ejbwl.exercises.solutions.source.bookstore;
 
 import java.rmi.RemoteException;
 
-import dtos.BookDTO;
-import dtos.CustomerDTO;
 import java.util.List;
 import javax.ejb.EJBObject;
 
@@ -22,6 +20,6 @@ import javax.ejb.EJBObject;
 public interface BookstoreAdmin extends EJBObject {
 	void addNewBook(BookDTO book) throws RemoteException;
 	void addNewCustomer(CustomerDTO customer) throws RemoteException;
-	List showBooks() throws RemoteException;
-	List showCustomers() throws RemoteException;
+	List<BookDTO> showBooks() throws RemoteException;
+	List<CustomerDTO> showCustomers() throws RemoteException;
 }

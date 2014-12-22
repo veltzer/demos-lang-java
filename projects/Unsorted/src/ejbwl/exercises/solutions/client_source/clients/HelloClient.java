@@ -1,14 +1,14 @@
 package ejbwl.exercises.solutions.client_source.clients;
+
 import java.rmi.RemoteException;
 
-import hello.Greet;
-import hello.GreetHome;
-
-import javax.ejb.CreateException;
 import javax.ejb.RemoveException;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.rmi.PortableRemoteObject;
+
+import ejbwl.exercises.solutions.source.hello.Greet;
+import ejbwl.exercises.solutions.source.hello.GreetHome;
 
 /**
  * A test client for our Greet bean.
@@ -38,9 +38,6 @@ public abstract class HelloClient {
 		} catch (NamingException e) {
 			// This exception is thrown when the looked up name does not exist on
 			// the server
-			e.printStackTrace();
-		} catch (CreateException e) {
-			// This exception is thrown when EJB creation fails
 			e.printStackTrace();
 		} catch (RemoveException e) {
 			e.printStackTrace();

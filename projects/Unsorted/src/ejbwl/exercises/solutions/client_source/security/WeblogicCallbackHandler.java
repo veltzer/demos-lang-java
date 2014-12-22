@@ -24,7 +24,7 @@ class WeblogicCallbackHandler implements CallbackHandler {
 		System.out.println("Please login to WebLogic.");
 
 		for (int i = 0; i < callbacks.length; i++) {
-			bool found = false;
+			boolean found = false;
 			if (callbacks[i] instanceof TextOutputCallback) {
 				// Display the message according to the specified type
 				TextOutputCallback toc = (TextOutputCallback) callbacks[i];

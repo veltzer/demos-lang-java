@@ -1,7 +1,7 @@
 package ejbwl.exercises.solutions.source.shopping;
 
 @SuppressWarnings("serial")
-public class EmptyOrderException extends Exception {
+public class EmptyOrderException extends RuntimeException {
 	public EmptyOrderException(String msg) {
 		super(msg);
 	}

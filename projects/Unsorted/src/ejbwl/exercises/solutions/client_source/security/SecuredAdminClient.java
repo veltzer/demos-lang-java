@@ -1,5 +1,20 @@
 package ejbwl.exercises.solutions.client_source.security;
 
+import java.security.PrivilegedAction;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Properties;
+
+import javax.naming.InitialContext;
+import javax.rmi.PortableRemoteObject;
+import javax.security.auth.Subject;
+import javax.security.auth.login.LoginContext;
+import javax.security.auth.login.LoginException;
+
+import ejbwl.exercises.solutions.source.bookstore.BookstoreAdmin;
+import ejbwl.exercises.solutions.source.bookstore.BookstoreAdminHome;
+import ejbwl.exercises.solutions.source.dtos.CustomerDTO;
+
 //import java.security.*;
 //import java.util.*;
 
@@ -14,9 +29,9 @@ package ejbwl.exercises.solutions.client_source.security;
 public abstract class SecuredAdminClient {
 
 	public static void main(String[] args) {
-		String username = null;
-		String password = null;
-		String url = "t3://localhost:7001";
+		//String username = null;
+		//String password = null;
+		//String url = "t3://localhost:7001";
 
 		// Define the location of the configuration file
 		Properties props = System.getProperties();
@@ -26,7 +41,7 @@ public abstract class SecuredAdminClient {
 		LoginContext loginContext = null;
 		try {
 			// Create LoginContext; specify username/password login module
-			loginContext = new LoginContext("AdminClient", new WeblogicCallbackHandler(username, password, url));
+			loginContext = new LoginContext("AdminClient"); // new WeblogicCallbackHandler(username, password, url));
 		} catch (SecurityException se) {
 			se.printStackTrace();
 			System.exit(-1);
@@ -59,7 +74,7 @@ public abstract class SecuredAdminClient {
 	/**
 	 * Inner class representing the PrivilegedAction
 	 */
-	private static class AdminClientAction implements PrivilegedAction {
+	private static class AdminClientAction implements PrivilegedAction<Object> {
 
 		public Object run() {
 			try {
@@ -79,8 +94,8 @@ public abstract class SecuredAdminClient {
 
 			// view all customers:
 			System.out.println("All registered customers:");
-			List customers = admin.showCustomers();
-			for (Iterator it = customers.iterator(); it.hasNext();) {
+			List<CustomerDTO> customers = admin.showCustomers();
+			for (Iterator<CustomerDTO> it = customers.iterator(); it.hasNext();) {
 				CustomerDTO customer = (CustomerDTO) it.next();
 				System.out.println(customer);
 			}

@@ -1,15 +1,22 @@
 package ejbwl.exercises.solutions.source.book;
 
-//import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
 
-//import javax.ejb.*;
-//import javax.naming.*;
-//import javax.sql.*;
 import javax.ejb.EJBException;
+import javax.ejb.EntityBean;
+import javax.ejb.EntityContext;
+import javax.ejb.ObjectNotFoundException;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
 
-//import daos.*;
-//import dtos.*;
+import ejbwl.exercises.solutions.source.daos.BookstoreDAO;
+import ejbwl.exercises.solutions.source.daos.BookstoreDaoFactory;
+import ejbwl.exercises.solutions.source.dtos.BookDTO;
 
+@SuppressWarnings("serial")
 public class BookBean implements EntityBean {
 	private double price;
 	private String author;
@@ -70,13 +77,13 @@ public class BookBean implements EntityBean {
 		if (dao.selectBook(ititle) != null) {
 			return ititle;
 		}
-		throw new ObjectNotFoundException("Cannot find PK");
+		throw new RuntimeException(new ObjectNotFoundException("Cannot find PK"));
 	}
 
-	public Collection ejbFindAllBooks() {
-		List books = dao.selectBooks();
-		Collection result = new ArrayList();
-		Iterator it = books.iterator();
+	public Collection<String> ejbFindAllBooks() {
+		List<BookDTO> books = dao.selectBooks();
+		Collection<String> result = new ArrayList<String>();
+		Iterator<BookDTO> it = books.iterator();
 		while (it.hasNext()) {
 			BookDTO book = (BookDTO) it.next();
 			result.add(book.getTitle());

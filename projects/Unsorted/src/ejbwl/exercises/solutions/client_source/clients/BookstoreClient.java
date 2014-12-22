@@ -1,16 +1,15 @@
 package ejbwl.exercises.solutions.client_source.clients;
 
-//import java.util.*;
+import java.util.Iterator;
+import java.util.List;
 
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 
-import bookstore.BookstoreAdmin;
-import bookstore.BookstoreAdminHome;
-
-import dtos.BookDTO;
-import dtos.CustomerDTO;
-
+import ejbwl.exercises.solutions.source.bookstore.BookstoreAdmin;
+import ejbwl.exercises.solutions.source.bookstore.BookstoreAdminHome;
+import ejbwl.exercises.solutions.source.dtos.BookDTO;
+import ejbwl.exercises.solutions.source.dtos.CustomerDTO;
 
 /**
  * A test client for our bookstore's admin bean.
@@ -43,8 +42,8 @@ public abstract class BookstoreClient {
 
 		// view all books:
 		System.out.println("Books currently in inventory:");
-		List books = admin.showBooks();
-		for (Iterator it = books.iterator(); it.hasNext();) {
+		List<BookDTO> books = admin.showBooks();
+		for (Iterator<BookDTO> it = books.iterator(); it.hasNext();) {
 			book = (BookDTO) it.next();
 			System.out.println(book);
 		}
@@ -70,9 +69,9 @@ public abstract class BookstoreClient {
 
 		// view all customers:
 		System.out.println("All registered customers:");
-		List customers = admin.showCustomers();
-		for (Iterator it = customers.iterator(); it.hasNext();) {
-			customer = (CustomerDTO) it.next();
+		List<CustomerDTO> customers = admin.showCustomers();
+		for (Iterator<CustomerDTO> it = customers.iterator(); it.hasNext();) {
+			customer = it.next();
 			System.out.println(customer);
 		}
 
