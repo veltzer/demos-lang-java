@@ -30,6 +30,8 @@
 		<dependency org="net.java.dev.jna" name="jna" rev="latest.integration"/>
 		<dependency org="net.java.dev.jna" name="jna-platform" rev="latest.integration"/>
 		<dependency org="xerces" name="xercesImpl" rev="latest.integration"/>
+		<dependency org="xml-apis" name="xml-apis" rev="latest.integration"/>
+		<dependency org="ant" name="ant-jakarta-oro" rev="latest.integration"/>
 		<!--dependency org="org.eclipse.rap" name="org.eclipse.rap.jface" rev="latest.integration"/-->
 	</dependencies>
 </ivy-module>

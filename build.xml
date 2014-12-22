@@ -70,22 +70,22 @@
 				<javac
 					srcdir="@{folder}/src"
 					destdir="@{folder}/bin"
-					debug="on"
+					debug="off"
 					deprecation="on"
 					optimize="on"
 					failonerror="on"
-					verbose="on"
-					fork="yes"
+					verbose="off"
+					fork="no"
 					includeAntRuntime="no"
 					includeJavaRuntime="yes"
 					target="1.6"
 					source="1.6"
 				>
 				<!--
+					<compilerarg value="-Werror"/>
 				-->
 					<compilerarg value="-Xlint:all"/>
 					<compilerarg value="-Xlint:-options"/>
-					<compilerarg value="-Werror"/>
 					<classpath refid="external-jars"/>
 				</javac>
 			</sequential>
