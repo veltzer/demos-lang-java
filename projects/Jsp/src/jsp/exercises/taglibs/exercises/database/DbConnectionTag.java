@@ -1,4 +1,4 @@
-package jsp.exercises.taglibs.solutions.database;
+package jsp.exercises.taglibs.exercises.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -30,7 +30,6 @@ public class DbConnectionTag extends TagSupport {
 			throw new RuntimeException(e);
 		}
 		return SKIP_BODY;
-
 	}
 
 	/** Getter for property driver.

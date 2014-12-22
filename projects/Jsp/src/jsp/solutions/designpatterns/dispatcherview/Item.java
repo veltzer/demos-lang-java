@@ -1,4 +1,4 @@
-package jsp.exercises.designpatterns.exercises.dispatcherview;
+package jsp.solutions.designpatterns.dispatcherview;
 
 @SuppressWarnings("serial")
 public class Item implements java.io.Serializable {
@@ -63,5 +63,4 @@ public class Item implements java.io.Serializable {
 	public void setItemId(String iitemId) {
 		itemId = iitemId;
 	}
-
 }

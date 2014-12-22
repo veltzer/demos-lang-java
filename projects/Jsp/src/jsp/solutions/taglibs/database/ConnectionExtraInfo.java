@@ -1,4 +1,4 @@
-package jsp.exercises.taglibs.solutions.database;
+package jsp.solutions.taglibs.database;
 
 import javax.servlet.jsp.tagext.TagData;
 import javax.servlet.jsp.tagext.TagExtraInfo;

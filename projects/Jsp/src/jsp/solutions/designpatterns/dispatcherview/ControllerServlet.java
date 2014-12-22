@@ -1,4 +1,4 @@
-package jsp.exercises.designpatterns.solutions.dispatcherview;
+package jsp.solutions.designpatterns.dispatcherview;
 
 import java.util.Map;
 import java.util.TreeMap;

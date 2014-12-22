@@ -1,4 +1,4 @@
-package jsp.exercises.taglibs.solutions.uppercasefilter;
+package jsp.solutions.taglibs.uppercasefilter;
 
 import java.io.IOException;
 
