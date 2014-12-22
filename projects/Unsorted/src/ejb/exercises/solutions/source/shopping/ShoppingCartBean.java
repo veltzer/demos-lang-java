@@ -6,6 +6,7 @@ import java.util.List;
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 import javax.sql.DataSource;
+import javax.ejb.CreateException;
 import javax.ejb.SessionContext;
 import javax.ejb.SessionBean;
 
@@ -39,7 +40,7 @@ public class ShoppingCartBean implements SessionBean {
 			dao = BookstoreDaoFactory.getDAO(dataSrouce);
 		} catch (Exception ex) {
 			ex.printStackTrace();
-			throw new CreateException("Cannot create bean. " + ex);
+			throw new RuntimeException(new CreateException("Cannot create bean. " + ex));
 		}
 	}
 

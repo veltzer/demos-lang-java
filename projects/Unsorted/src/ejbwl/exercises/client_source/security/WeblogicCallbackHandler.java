@@ -19,7 +19,7 @@ class WeblogicCallbackHandler implements CallbackHandler {
 
 	private String username = null;
 	private String password = null;
-	private String url = null;
+	//private String url = null;
 
 	public WeblogicCallbackHandler() {
 	}
@@ -27,7 +27,7 @@ class WeblogicCallbackHandler implements CallbackHandler {
 	public WeblogicCallbackHandler(String pUsername, String pPassword, String pUrl) {
 		username = pUsername;
 		password = pPassword;
-		url = pUrl;
+		//url = pUrl;
 	}
 
 	@Override

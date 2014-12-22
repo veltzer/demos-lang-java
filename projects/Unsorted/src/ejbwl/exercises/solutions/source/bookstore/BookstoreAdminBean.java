@@ -14,6 +14,7 @@ import javax.ejb.SessionBean;
  * (For details, please consult the documentation of
  * interface BookStoreAdmin)
  */
+@SuppressWarnings("serial")
 public class BookstoreAdminBean implements SessionBean {
 	private javax.ejb.SessionContext mySessionCtx;
 	private BookstoreDAO dao;

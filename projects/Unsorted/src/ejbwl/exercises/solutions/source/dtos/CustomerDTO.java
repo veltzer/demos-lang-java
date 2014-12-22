@@ -2,6 +2,7 @@ package ejbwl.exercises.solutions.source.dtos;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class CustomerDTO implements Serializable {
 	private String id;
 	private String name;

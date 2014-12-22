@@ -1,7 +1,6 @@
 package ejb.exercises.solutions.client_source.clients;
 import java.rmi.RemoteException;
 
-import javax.ejb.CreateException;
 import javax.ejb.RemoveException;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -38,9 +37,6 @@ public abstract class HelloClient {
 		} catch (NamingException e) {
 			// This exception is thrown when the looked up name does not exist on
 			// the server
-			throw new RuntimeException(e);
-		} catch (CreateException e) {
-			// This exception is thrown when EJB creation fails
 			throw new RuntimeException(e);
 		} catch (RemoveException e) {
 			throw new RuntimeException(e);

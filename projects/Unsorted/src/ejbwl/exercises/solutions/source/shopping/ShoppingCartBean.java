@@ -15,6 +15,7 @@ import dtos.BookDTO;
 /**
  * Bean implementation class for Enterprise Bean: ShoppingCart
  */
+@SuppressWarnings("serial")
 public class ShoppingCartBean implements SessionBean {
 	private SessionContext mySessionCtx;
 	private BookstoreDAO dao;

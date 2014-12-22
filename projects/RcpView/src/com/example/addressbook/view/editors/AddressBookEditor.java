@@ -284,7 +284,11 @@ public class AddressBookEditor extends MultiPageEditorPart implements
 	}
 
 	public void init(IEditorSite site, IEditorInput editorInput) {
-		super.init(site, editorInput);
+		try {
+			super.init(site, editorInput);
+		} catch (PartInitException e) {
+			throw new RuntimeException(e);
+		}
 		ResourcesPlugin.getWorkspace().addResourceChangeListener(this,
 				IResourceChangeEvent.POST_CHANGE);
 		refreshPartName();

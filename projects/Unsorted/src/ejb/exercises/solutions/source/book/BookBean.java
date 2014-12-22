@@ -77,8 +77,7 @@ public class BookBean implements EntityBean {
 		if (dao.selectBook(ititle) != null) {
 			return ititle;
 		}
-
-		throw new ObjectNotFoundException("Cannot find PK");
+		throw new RuntimeException(new ObjectNotFoundException("Cannot find PK"));
 	}
 
 	public Collection<String> ejbFindAllBooks() {

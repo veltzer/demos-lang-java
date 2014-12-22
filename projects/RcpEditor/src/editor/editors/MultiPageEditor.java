@@ -166,10 +166,13 @@ public class MultiPageEditor extends MultiPageEditorPart implements
 	 */
 	public void init(IEditorSite site, IEditorInput editorInput) {
 		if (!(editorInput instanceof IFileEditorInput)) {
-			throw new PartInitException(
-					"Invalid Input: Must be IFileEditorInput");
+			throw new RuntimeException(new PartInitException("Invalid Input: Must be IFileEditorInput"));
 		}
-		super.init(site, editorInput);
+		try {
+			super.init(site, editorInput);
+		} catch (PartInitException e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 	public boolean isSaveAsAllowed() {
@@ -243,7 +246,7 @@ public class MultiPageEditor extends MultiPageEditorPart implements
 		Collections.sort(editorWords, Collator.getInstance());
 		StringWriter displayText = new StringWriter();
 		for (int i = 0; i < editorWords.size(); i++) {
-			displayText.write(((String) editorWords.get(i)));
+			displayText.write(editorWords.get(i));
 			displayText.write(System.getProperty("line.separator"));
 		}
 		text.setText(displayText.toString());

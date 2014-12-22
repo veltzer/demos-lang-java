@@ -3,6 +3,8 @@ package swing.desktop_integration;
 import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,6 +16,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import org.jdesktop.jdic.desktop.Desktop;
+import org.jdesktop.jdic.desktop.DesktopException;
 import org.jdesktop.jdic.desktop.Message;
 
 @SuppressWarnings("serial")
@@ -57,7 +60,11 @@ public class DesktopDemo extends JPanel {
 		}
 
 		protected void perform() {
-			Desktop.edit(chooser.getSelectedFile());
+			try {
+				Desktop.edit(chooser.getSelectedFile());
+			} catch (DesktopException e) {
+				throw new RuntimeException(e);
+			}
 		}
 	}
 
@@ -71,7 +78,11 @@ public class DesktopDemo extends JPanel {
 		}
 
 		protected void perform() {
-			Desktop.print(chooser.getSelectedFile());
+			try {
+				Desktop.print(chooser.getSelectedFile());
+			} catch (DesktopException e) {
+				throw new RuntimeException(e);
+			}
 		}
 	}
 
@@ -81,7 +92,13 @@ public class DesktopDemo extends JPanel {
 		}
 
 		protected void perform() {
-			Desktop.browse(chooser.getSelectedFile().toURI().toURL());
+			try {
+				Desktop.browse(chooser.getSelectedFile().toURI().toURL());
+			} catch (MalformedURLException e) {
+				throw new RuntimeException(e);
+			} catch (DesktopException e) {
+				throw new RuntimeException(e);
+			}
 		}
 	}
 
@@ -91,7 +108,11 @@ public class DesktopDemo extends JPanel {
 		}
 
 		protected void perform() {
-			Desktop.open(chooser.getSelectedFile());
+			try {
+				Desktop.open(chooser.getSelectedFile());
+			} catch (DesktopException e) {
+				throw new RuntimeException(e);
+			}
 		}
 	}
 
@@ -105,8 +126,16 @@ public class DesktopDemo extends JPanel {
 			m.setSubject("Swing says hello");
 			List<String> list = new ArrayList<String>();
 			list.add(chooser.getSelectedFile().getAbsolutePath());
-			m.setAttachments(list);
-			Desktop.mail(m);
+			try {
+				m.setAttachments(list);
+			} catch (IOException e) {
+				throw new RuntimeException(e);
+			}
+			try {
+				Desktop.mail(m);
+			} catch (DesktopException e) {
+				throw new RuntimeException(e);
+			}
 		}
 	}
 

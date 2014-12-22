@@ -1,5 +1,7 @@
 package exercise;
 
+import java.io.IOException;
+
 import javax.servlet.GenericServlet;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -8,6 +10,10 @@ import javax.servlet.ServletResponse;
 public class HelloWorldServlet extends GenericServlet {
 
 	public void service(ServletRequest request, ServletResponse response) {
-		response.getOutputStream().println("Hello World");
+		try {
+			response.getOutputStream().println("Hello World");
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 	}
 }

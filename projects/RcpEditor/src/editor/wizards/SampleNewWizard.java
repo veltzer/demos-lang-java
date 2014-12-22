@@ -10,6 +10,7 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
@@ -64,15 +65,9 @@ public class SampleNewWizard extends Wizard implements INewWizard {
 		final String containerName = page.getContainerName();
 		final String fileName = page.getFileName();
 		IRunnableWithProgress op = new IRunnableWithProgress() {
-			public void run(IProgressMonitor monitor)
-					throws InvocationTargetException {
-				try {
-					doFinish(containerName, fileName, monitor);
-				} catch (CoreException e) {
-					throw new InvocationTargetException(e);
-				} finally {
-					monitor.done();
-				}
+			public void run(IProgressMonitor monitor) {
+				doFinish(containerName, fileName, monitor);
+				monitor.done();
 			}
 		};
 		try {
@@ -108,9 +103,17 @@ public class SampleNewWizard extends Wizard implements INewWizard {
 		try {
 			InputStream stream = openContentStream();
 			if (file.exists()) {
-				file.setContents(stream, true, true, monitor);
+				try {
+					file.setContents(stream, true, true, monitor);
+				} catch (CoreException e) {
+					throw new RuntimeException(e);
+				}
 			} else {
-				file.create(stream, true, monitor);
+				try {
+					file.create(stream, true, monitor);
+				} catch (CoreException e) {
+					throw new RuntimeException(e);
+				}
 			}
 			stream.close();
 		} catch (IOException e) {
@@ -142,9 +145,8 @@ public class SampleNewWizard extends Wizard implements INewWizard {
 	}
 
 	private void throwCoreException(String message) {
-		IStatus status = new Status(IStatus.ERROR, "editor", IStatus.OK,
-				message, null);
-		throw new CoreException(status);
+		IStatus status = new Status(IStatus.ERROR, "editor", IStatus.OK, message, null);
+		throw new RuntimeException(new CoreException(status));
 	}
 
 	/**

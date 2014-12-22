@@ -5,6 +5,7 @@ package ejbwl.exercises.source.daos;
  * This approach is preferrable to directly throwing SQL exceptions,
  * since DAO's may use non-sql persistance.
  */
+@SuppressWarnings("serial")
 public class StorageException extends RuntimeException {
 	public StorageException(String msg) {
 		super(msg);

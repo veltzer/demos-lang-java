@@ -1,4 +1,4 @@
-package com.arcmind.jsfquickstart;
+package jsf.examples.src.com.arcmind.jsfquickstart;
 
 import java.util.ArrayList;
 import java.util.Collection;

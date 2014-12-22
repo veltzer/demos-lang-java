@@ -45,7 +45,7 @@ public class BookstoreAdminBean implements SessionBean {
 			obj = (BookHome) PortableRemoteObject.narrow(obj, BookHome.class);
 		} catch (Exception ex) {
 			ex.printStackTrace();
-			throw new CreateException("failed to create the bean. " + ex.getMessage());
+			throw new RuntimeException(new CreateException("failed to create the bean. " + ex.getMessage()));
 		}
 	}
 	public void ejbActivate() {
