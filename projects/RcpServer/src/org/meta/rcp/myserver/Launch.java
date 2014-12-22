@@ -2,6 +2,7 @@ package org.meta.rcp.myserver;
 
 import java.io.File;
 
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
@@ -22,7 +23,12 @@ public class Launch extends AbstractJavaLaunchConfigurationDelegate {
 	public void launch(ILaunchConfiguration configuration, String mode, ILaunch launch, IProgressMonitor monitor) {
 		trace("launch in mode " + mode);
 
-		IServer server = ServerUtil.getServer(configuration);
+		IServer server;
+		try {
+			server = ServerUtil.getServer(configuration);
+		} catch (CoreException e) {
+			throw new RuntimeException(e);
+		}
 		if (server == null) {
 			trace("Launch configuration could not find server");
 			// throw CoreException();
@@ -38,16 +44,28 @@ public class Launch extends AbstractJavaLaunchConfigurationDelegate {
 
 		String mainTypeName = "myclass";
 
-		IVMInstall vm = verifyVMInstall(configuration);
+		IVMInstall vm;
+		try {
+			vm = verifyVMInstall(configuration);
+		} catch (CoreException e) {
+			throw new RuntimeException(e);
+		}
 		IVMRunner runner = vm.getVMRunner(mode);
 		if (runner == null) {
 			runner = vm.getVMRunner(ILaunchManager.RUN_MODE);
 		}
 
 		// Program & VM args
-		String pgmArgs = getProgramArguments(configuration);
-		String vmArgs = getVMArguments(configuration);
-		String[] envp = getEnvironment(configuration);
+		String pgmArgs;
+		String vmArgs;
+		String[] envp;
+		try {
+			pgmArgs = getProgramArguments(configuration);
+			vmArgs = getVMArguments(configuration);
+			envp = getEnvironment(configuration);
+		} catch (CoreException e) {
+			throw new RuntimeException(e);
+		}
 
 		ExecutionArguments execArgs = new ExecutionArguments(vmArgs, pgmArgs);
 
@@ -61,7 +79,12 @@ public class Launch extends AbstractJavaLaunchConfigurationDelegate {
 		};
 
 		// Create VM config
-		File workingDir = verifyWorkingDirectory(configuration);
+		File workingDir;
+		try {
+			workingDir = verifyWorkingDirectory(configuration);
+		} catch (CoreException e) {
+			throw new RuntimeException(e);
+		}
 		String workingDirName = null;
 		if (workingDir != null) {
 			workingDirName = workingDir.getAbsolutePath();
@@ -76,7 +99,12 @@ public class Launch extends AbstractJavaLaunchConfigurationDelegate {
 		// runConfig.setVMSpecificAttributesMap(vmAttributesMap);
 
 		// Bootpath
-		String[] bootpath = getBootpath(configuration);
+		String[] bootpath;
+		try {
+			bootpath = getBootpath(configuration);
+		} catch (CoreException e) {
+			throw new RuntimeException(e);
+		}
 		if (bootpath != null && bootpath.length > 0) {
 			runConfig.setBootClassPath(bootpath);
 		}
@@ -86,8 +114,13 @@ public class Launch extends AbstractJavaLaunchConfigurationDelegate {
 		}
 		trace("finished print of class path...");
 
-		setDefaultSourceLocator(launch, configuration);
-		runner.run(runConfig, launch, monitor);
+		try {
+			setDefaultSourceLocator(launch, configuration);
+			runner.run(runConfig, launch, monitor);
+		} catch (CoreException e) {
+			throw new RuntimeException(e);
+		}
+
 		dlg.setProcess(launch.getProcesses()[0]);
 		dlg.setServerStatePub(IServer.STATE_STARTED);
 	}

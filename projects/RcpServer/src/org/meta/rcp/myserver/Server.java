@@ -1,5 +1,6 @@
 package org.meta.rcp.myserver;
 
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.wst.server.core.IModule;
@@ -35,7 +36,11 @@ public class Server extends ServerDelegate {
 
 	@Override
 	public void saveConfiguration(IProgressMonitor monitor) {
-		super.saveConfiguration(monitor);
+		try {
+			super.saveConfiguration(monitor);
+		} catch (CoreException e) {
+			throw new RuntimeException(e);
+		}
 		trace("saveConfiguration");
 	}
 
