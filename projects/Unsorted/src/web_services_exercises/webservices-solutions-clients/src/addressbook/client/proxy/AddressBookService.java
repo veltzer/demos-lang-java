@@ -23,7 +23,7 @@ public class AddressBookService extends Service {
 		try {
 			url = new URL("http://localhost:8080/services/addressbook?wsdl");
 		} catch (MalformedURLException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		ADDRESSBOOKSERVICE_WSDL_LOCATION = url;
 	}

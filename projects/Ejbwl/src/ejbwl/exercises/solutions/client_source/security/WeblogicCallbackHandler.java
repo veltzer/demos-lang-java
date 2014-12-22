@@ -2,11 +2,6 @@ package ejbwl.exercises.solutions.client_source.security;
 
 import java.io.IOException;
 import java.io.BufferedReader;
-//import weblogic.security.auth.callback.*;
-
-
-
-
 import java.io.InputStreamReader;
 
 import javax.security.auth.callback.Callback;

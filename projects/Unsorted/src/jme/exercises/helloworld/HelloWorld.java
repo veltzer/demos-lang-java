@@ -1,8 +1,5 @@
 package jme.exercises.helloworld;
 
-//import javax.microedition.lcdui.*;
-//import javax.microedition.midlet.MIDlet;
-
 /**
  * Exercise 1: Hello World Midlet.
  */

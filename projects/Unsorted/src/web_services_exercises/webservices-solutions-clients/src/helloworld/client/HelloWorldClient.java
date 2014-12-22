@@ -1,7 +1,5 @@
 package helloworld.client;
 
-//import helloworld.client.proxy.*;
-
 public abstract class HelloWorldClient {
 	public static void main(String[] args) {
 		HelloWorldService service = new HelloWorldService();

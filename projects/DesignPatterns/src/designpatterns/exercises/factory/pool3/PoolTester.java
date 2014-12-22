@@ -17,7 +17,7 @@ public class PoolTester implements Runnable {
 			try {
 				Thread.sleep((int) (Math.random() * 3000));
 			} catch (InterruptedException e) {
-				e.printStackTrace();
+				throw new RuntimeException(e);
 			}
 			for (Iterator<DataRecord> i = records.iterator(); i.hasNext();) {
 				DataRecord record = i.next();
@@ -45,7 +45,7 @@ public class PoolTester implements Runnable {
 					+ DataRecordPool.getInstance().getNumRequests());
 			System.out.println("Done");
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 

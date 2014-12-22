@@ -1,8 +1,5 @@
 package calculator.client;
 
-//import javax.xml.ws.*;
-//import calculator.client.proxy.*;
-
 public abstract class CalculatorClient {
 	public static void main(String[] args) {
 		StatefulCalculatorService service = new StatefulCalculatorService();

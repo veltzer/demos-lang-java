@@ -7,14 +7,7 @@ import javax.security.auth.Subject;
 import javax.security.auth.login.LoginContext;
 import javax.security.auth.login.LoginException;
 
-//import java.security.*;
-//import java.util.*;
-
-//import javax.security.auth.*;
-//import javax.security.auth.login.*;
-
 public abstract class SecuredAdminClient {
-
 	public static void main(String[] args) {
 		String username = null;
 		String password = null;
@@ -29,12 +22,10 @@ public abstract class SecuredAdminClient {
 		try {
 			// Create LoginContext; specify username/password login module
 			loginContext = new LoginContext("AdminClient", new WeblogicCallbackHandler(username, password, url));
-		} catch (SecurityException se) {
-			se.printStackTrace();
-			System.exit(-1);
-		} catch (LoginException le) {
-			le.printStackTrace();
-			System.exit(-1);
+		} catch (SecurityException e) {
+			throw new RuntimeException(e);
+		} catch (LoginException e) {
+			throw new RuntimeException(e);
 		}
 
 		/**
@@ -67,7 +58,7 @@ public abstract class SecuredAdminClient {
 			try {
 				callBookstoreAdmin();
 			} catch (Exception e) {
-				e.printStackTrace();
+				throw new RuntimeException(e);
 			}
 			return null;
 		}

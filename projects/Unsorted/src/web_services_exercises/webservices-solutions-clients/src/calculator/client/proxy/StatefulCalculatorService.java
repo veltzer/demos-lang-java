@@ -25,7 +25,7 @@ public class StatefulCalculatorService extends Service {
 		try {
 			url = new URL("http://localhost:8080/services/calculator?wsdl");
 		} catch (MalformedURLException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		STATEFULCALCULATORSERVICE_WSDL_LOCATION = url;
 	}

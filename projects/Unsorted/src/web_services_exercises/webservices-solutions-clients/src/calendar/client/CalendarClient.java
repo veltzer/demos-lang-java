@@ -1,9 +1,5 @@
 package calendar.client;
 
-//import java.util.*;
-//import javax.xml.datatype.*;
-//import calendar.client.proxy.*;
-
 public abstract class CalendarClient {
 	/**
 	 * @param args

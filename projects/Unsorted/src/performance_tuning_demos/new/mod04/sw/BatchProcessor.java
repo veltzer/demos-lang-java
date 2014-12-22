@@ -134,8 +134,8 @@ public abstract class BatchProcessor {
 
 		try {
 			Thread.sleep(testTime * 1000);
-		} catch (InterruptedException ex) {
-			ex.printStackTrace();
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
 		}
 
 		// calculate the stats

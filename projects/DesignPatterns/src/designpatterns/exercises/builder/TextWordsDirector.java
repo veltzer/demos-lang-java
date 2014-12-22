@@ -34,7 +34,7 @@ public class TextWordsDirector {
 			}
 			reader.close();
 		} catch (IOException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 
@@ -56,7 +56,7 @@ public class TextWordsDirector {
 
 			System.out.println("Done");
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 }

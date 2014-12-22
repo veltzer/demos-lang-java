@@ -98,7 +98,7 @@ public class SimpleEditor {
 			editor.demo();
 			System.out.println("Done");
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 }

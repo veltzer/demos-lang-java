@@ -15,7 +15,7 @@ public class MessageQueue extends Observable {
 						try {
 							queue.wait();
 						} catch (InterruptedException e) {
-							e.printStackTrace();
+							throw new RuntimeException(e);
 						}
 					}
 				}
@@ -57,7 +57,7 @@ public class MessageQueue extends Observable {
 			}
 			System.out.println("Done");
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 }

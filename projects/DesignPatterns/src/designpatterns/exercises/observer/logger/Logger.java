@@ -42,7 +42,7 @@ public class Logger {
 			logger.logMessage("info", "removed console logger");
 			System.out.println("Done");
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 }

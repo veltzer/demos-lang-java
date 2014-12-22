@@ -87,15 +87,14 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 			stmt.setString(2, author);
 			stmt.setDouble(3, price);
 			stmt.executeUpdate();
-		} catch (SQLException ex) {
-			ex.printStackTrace();
-			throw new StorageException("Failed to insert book " + title);
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
 		} finally {
 			try {
 				stmt.close();
 				con.close();
-			} catch (Exception ex) {
-				ex.printStackTrace();
+			} catch (Exception e) {
+				throw new RuntimeException(e);
 			}
 		}
 	}
@@ -110,15 +109,14 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 			stmt.setDouble(2, price);
 			stmt.setString(3, title);
 			stmt.executeUpdate();
-		} catch (SQLException ex) {
-			ex.printStackTrace();
-			throw new StorageException("Failed to update book " + title);
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
 		} finally {
 			try {
 				stmt.close();
 				con.close();
-			} catch (Exception ex) {
-				ex.printStackTrace();
+			} catch (Exception e) {
+				throw new RuntimeException(e);
 			}
 		}
 	}
@@ -131,15 +129,14 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 			stmt = con.prepareStatement(deleteBookSql);
 			stmt.setString(1, title);
 			stmt.executeUpdate();
-		} catch (SQLException ex) {
-			ex.printStackTrace();
-			throw new StorageException("Failed to delete book " + title);
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
 		} finally {
 			try {
 				stmt.close();
 				con.close();
-			} catch (Exception ex) {
-				ex.printStackTrace();
+			} catch (Exception e) {
+				throw new RuntimeException(e);
 			}
 		}
 	}
@@ -161,15 +158,14 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 				books.add(book);
 			}
 			return books;
-		} catch (SQLException ex) {
-			ex.printStackTrace();
-			throw new StorageException("Failed to select books " + ex.getMessage());
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
 		} finally {
 			try {
 				stmt.close();
 				con.close();
-			} catch (Exception ex) {
-				ex.printStackTrace();
+			} catch (Exception e) {
+				throw new RuntimeException(e);
 			}
 		}
 	}
@@ -184,14 +180,13 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 			stmt.setString(3, email);
 			stmt.setString(4, address);
 			stmt.executeUpdate();
-		} catch (SQLException ex) {
-			ex.printStackTrace();
-			throw new StorageException("Failed to insert CUSTOMER " + name);
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
 		} finally {
 			try {
 				con.close();
-			} catch (Exception ex) {
-				throw new RuntimeException(ex);
+			} catch (Exception e) {
+				throw new RuntimeException(e);
 			}
 		}
 	}
@@ -213,14 +208,13 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 				customers.add(cust);
 			}
 			return customers;
-		} catch (SQLException ex) {
-			ex.printStackTrace();
-			throw new StorageException("Failed to select customers " + ex.getMessage());
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
 		} finally {
 			try {
 				con.close();
-			} catch (Exception ex) {
-				throw new RuntimeException(ex);
+			} catch (Exception e) {
+				throw new RuntimeException(e);
 			}
 		}
 	}
@@ -250,14 +244,13 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 				itemStmt.setString(2, title);
 				itemStmt.executeUpdate();
 			}
-		} catch (SQLException ex) {
-			ex.printStackTrace();
-			throw new StorageException("Failed to select customers " + ex.getMessage());
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
 		} finally {
 			try {
 				con.close();
-			} catch (Exception ex) {
-				throw new RuntimeException(ex);
+			} catch (Exception e) {
+				throw new RuntimeException(e);
 			}
 		}
 	}
@@ -292,14 +285,13 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 			}
 			order.setBookTitles(bookTitles);
 			return order;
-		} catch (SQLException ex) {
-			ex.printStackTrace();
-			throw new StorageException("Failed to select customers " + ex.getMessage());
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
 		} finally {
 			try {
 				con.close();
-			} catch (Exception ex) {
-				throw new RuntimeException(ex);
+			} catch (Exception e) {
+				throw new RuntimeException(e);
 			}
 		}
 	}
@@ -316,14 +308,13 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 			}
 			BookDTO book = new BookDTO(rs.getString("TITLE"), rs.getString("AUTHOR"), rs.getDouble("PRICE"));
 			return book;
-		} catch (SQLException ex) {
-			ex.printStackTrace();
-			throw new StorageException("Failed to select customers " + ex.getMessage());
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
 		} finally {
 			try {
 				con.close();
-			} catch (Exception ex) {
-				throw new RuntimeException(ex);
+			} catch (Exception e) {
+				throw new RuntimeException(e);
 			}
 		}
 	}
@@ -342,13 +333,12 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 			CustomerDTO customer = new CustomerDTO(rs.getString("ID"), rs.getString("NAME"), rs.getString("EMAIL"), rs.getString("ADDRESS"));
 			return customer;
 		} catch (SQLException ex) {
-			ex.printStackTrace();
-			throw new StorageException("Failed to select customers " + ex.getMessage());
+			throw new RuntimeException(e);
 		} finally {
 			try {
 				con.close();
-			} catch (Exception ex) {
-				throw new RuntimeException(ex);
+			} catch (Exception e) {
+				throw new RuntimeException(e);
 			}
 		}
 	}
@@ -372,14 +362,13 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 			stmt.setString(1, orderId);
 			count = stmt.executeUpdate();
 			return true;
-		} catch (SQLException ex) {
-			ex.printStackTrace();
-			throw new StorageException("Failed to select customers " + ex.getMessage());
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
 		} finally {
 			try {
 				con.close();
-			} catch (Exception ex) {
-				throw new RuntimeException(ex);
+			} catch (Exception e) {
+				throw new RuntimeException(e);
 			}
 		}
 	}

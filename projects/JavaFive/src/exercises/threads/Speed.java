@@ -66,7 +66,7 @@ public class Speed {
 		try {
 			service.invokeAll(ps);
 		} catch (InterruptedException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		service.shutdown();
 	}

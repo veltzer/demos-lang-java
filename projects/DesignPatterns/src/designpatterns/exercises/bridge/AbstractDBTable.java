@@ -29,7 +29,7 @@ public abstract class AbstractDBTable {
 			System.out.println("data at 1: " + table.select(1));
 			System.out.println("data at 2: " + table.select(2));
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 }

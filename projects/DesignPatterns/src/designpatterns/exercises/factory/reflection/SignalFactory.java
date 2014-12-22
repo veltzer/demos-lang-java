@@ -19,11 +19,11 @@ public abstract class SignalFactory {
 			Object instance = signallerClass.newInstance();
 			return (Signaller) instance;
 		} catch (InstantiationException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		} catch (IllegalAccessException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		return null;
 	}
@@ -33,7 +33,7 @@ public abstract class SignalFactory {
 			signaller.signal();
 			System.out.println("Done");
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 }

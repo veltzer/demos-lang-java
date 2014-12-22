@@ -12,8 +12,6 @@ import javax.security.auth.callback.TextInputCallback;
 import javax.security.auth.callback.TextOutputCallback;
 import javax.security.auth.callback.UnsupportedCallbackException;
 
-//import weblogic.security.auth.callback.*;
-
 class WeblogicCallbackHandler implements CallbackHandler {
 
 	private String username = null;

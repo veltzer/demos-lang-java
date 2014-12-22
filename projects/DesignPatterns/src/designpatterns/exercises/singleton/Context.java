@@ -9,7 +9,7 @@ public abstract class Context {
 			System.out.println("s2 is " + s2);
 			System.out.println("done");
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 }

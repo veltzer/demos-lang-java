@@ -1,7 +1,5 @@
 package addressbook.client;
 
-//import addressbook.client.proxy.*;
-
 public abstract class AddressBookClient {
 	public static void main(String[] args) {
 		AddressBookService service = new AddressBookService();

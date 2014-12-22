@@ -25,7 +25,7 @@ public class HebCalendarService extends Service {
 		try {
 			url = new URL("http://localhost:8080/services/hebcalendar?wsdl");
 		} catch (MalformedURLException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		HEBCALENDARSERVICE_WSDL_LOCATION = url;
 	}

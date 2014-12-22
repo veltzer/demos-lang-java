@@ -1,7 +1,5 @@
 package jme.exercises.slideshow;
 
-//import javax.microedition.lcdui.*;
-
 /**
  * Canvas on which Slide Show images are displayed.
  */

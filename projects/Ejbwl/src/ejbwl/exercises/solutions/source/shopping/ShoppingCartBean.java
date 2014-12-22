@@ -1,7 +1,5 @@
 package ejbwl.exercises.solutions.source.shopping;
 
-//import java.util.*;
-
 import java.util.LinkedList;
 import java.util.List;
 
@@ -16,9 +14,6 @@ import ejbwl.exercises.solutions.source.daos.BookstoreDAO;
 import ejbwl.exercises.solutions.source.daos.BookstoreDaoFactory;
 import ejbwl.exercises.solutions.source.dtos.BookDTO;
 
-/**
- * Bean implementation class for Enterprise Bean: ShoppingCart
- */
 @SuppressWarnings("serial")
 public class ShoppingCartBean implements SessionBean {
 	private BookstoreDAO dao;
@@ -40,9 +35,8 @@ public class ShoppingCartBean implements SessionBean {
 			Object obj = ictx.lookup("jdbc/ds1");
 			DataSource dataSrouce = (DataSource) PortableRemoteObject.narrow(obj, DataSource.class);
 			dao = BookstoreDaoFactory.getDAO(dataSrouce);
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			throw new RuntimeException(new CreateException("Cannot create bean. " + ex));
+		} catch (Exception e) {
+			throw new RuntimeException(e);
 		}
 	}
 	public void ejbActivate() {

@@ -38,9 +38,8 @@ public class ShoppingCartBean implements SessionBean {
 			Object obj = ictx.lookup("jdbc/ds1");
 			DataSource dataSrouce = (DataSource) PortableRemoteObject.narrow(obj, DataSource.class);
 			dao = BookstoreDaoFactory.getDAO(dataSrouce);
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			throw new RuntimeException(new CreateException("Cannot create bean. " + ex));
+		} catch (Exception e) {
+			throw new RuntimeException(e);
 		}
 	}
 

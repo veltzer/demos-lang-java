@@ -1,7 +1,5 @@
 package ejb.exercises.solutions.client_source.clients;
 
-//import java.util.*;
-
 import java.util.Iterator;
 import java.util.List;
 
@@ -21,7 +19,6 @@ import ejb.exercises.solutions.source.dtos.CustomerDTO;
  * <li> Adding a book to inventory
  * <li> Adding a customer
  * <li> Viewing all books / all customers
- *
  */
 public abstract class BookstoreClient {
 

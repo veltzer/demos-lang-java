@@ -1,10 +1,5 @@
 package jme.exercises.stock;
 
-//import java.io.*;
-//import javax.microedition.io.*;
-//import javax.microedition.lcdui.*;
-//import javax.microedition.midlet.MIDlet;
-
 /**
  * Exercise 5: Stock ticker.
  */
@@ -94,8 +89,7 @@ public class Stock extends MIDlet implements CommandListener {
 
 			showMessage(symbol, buf.toString()); // Display result to user
 		} catch (Exception e) {
-			e.printStackTrace();
-			showMessage("Error", "Error retrieving quote: " + e);
+			throw new RuntimeException(e);
 		} finally {
 			try {
 				is.close();

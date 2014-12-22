@@ -31,9 +31,8 @@ public class BookBean implements EntityBean {
 			DataSource dataSource =
 				(DataSource) nctx.lookup("java:comp/env/jdbc/MyDS");
 			dao = BookstoreDaoFactory.getDAO(dataSource);
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			throw new EJBException("failed to set Entity context");
+		} catch (Exception e) {
+			throw new RuntimeException(e);
 		}
 	}
 

@@ -18,7 +18,7 @@ public class FileLogger extends AbstractLogger {
 			writer.write("\n");
 			writer.close();
 		} catch (IOException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 }

@@ -43,7 +43,7 @@ public class NetworkDevice implements INetworkDevice {
 			device.disable();
 			System.out.println("Done");
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 	public AbstractDeviceState getDisableState() {

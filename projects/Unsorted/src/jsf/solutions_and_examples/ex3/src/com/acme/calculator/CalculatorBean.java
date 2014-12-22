@@ -1,36 +1,23 @@
 package jsf.solutions_and_examples.ex3.src.com.acme.calculator;
 
-//import javax.faces.component.*;
-//import javax.faces.context.*;
-//import javax.faces.event.*;
-
 public class CalculatorBean {
 	private static final int NOP = 0;
-
 	private static final int PLUS = 1;
-
 	private static final int MINUS = 2;
-
 	private static final int DIV = 3;
-
 	private static final int TIMES = 4;
-
 	private static final int EQ = 5;
 
 	private double lastValue = 0.0;
-
 	private int lastOp = NOP;
-
 	private double displayValue;
 
 	public double getDisplayValue() {
 		return displayValue;
 	}
-
 	public void setDisplayValue(double idisplayValue) {
 		displayValue = idisplayValue;
 	}
-
 	private void calc(int newOp) {
 		/*
 		 * You can use a selected output component on the form for debug output,

@@ -50,7 +50,7 @@ public abstract class DynamicProxyDemo {
 			endTime = System.currentTimeMillis() - startTime;
 			System.out.println("Direct time: " + endTime);
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 }

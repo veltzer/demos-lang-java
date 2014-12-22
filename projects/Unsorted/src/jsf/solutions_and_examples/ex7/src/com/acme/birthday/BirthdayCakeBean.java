@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Locale;
 
 import javax.faces.application.FacesMessage;
-//import javax.faces.component.*;
 import javax.faces.component.html.HtmlGraphicImage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;

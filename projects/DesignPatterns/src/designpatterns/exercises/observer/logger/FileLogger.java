@@ -20,7 +20,7 @@ public class FileLogger implements LoggerObserver {
 			writer.write("\n");
 			writer.close();
 		} catch (IOException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 

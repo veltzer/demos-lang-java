@@ -37,7 +37,7 @@ public class XMLDirector {
 
 			System.out.println("Done");
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 }

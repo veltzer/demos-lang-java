@@ -15,17 +15,6 @@ import ejbwl.exercises.solutions.source.bookstore.BookstoreAdmin;
 import ejbwl.exercises.solutions.source.bookstore.BookstoreAdminHome;
 import ejbwl.exercises.solutions.source.dtos.CustomerDTO;
 
-//import java.security.*;
-//import java.util.*;
-
-//import javax.naming.*;
-//import javax.rmi.*;
-//import javax.security.auth.*;
-//import javax.security.auth.login.*;
-
-//import bookstore.*;
-//import dtos.*;
-
 public abstract class SecuredAdminClient {
 
 	public static void main(String[] args) {
@@ -42,12 +31,10 @@ public abstract class SecuredAdminClient {
 		try {
 			// Create LoginContext; specify username/password login module
 			loginContext = new LoginContext("AdminClient"); // new WeblogicCallbackHandler(username, password, url));
-		} catch (SecurityException se) {
-			se.printStackTrace();
-			System.exit(-1);
-		} catch (LoginException le) {
-			le.printStackTrace();
-			System.exit(-1);
+		} catch (SecurityException e) {
+			throw new RuntimeException(e);
+		} catch (LoginException e) {
+			throw new RuntimeException(e);
 		}
 
 		/**
@@ -80,7 +67,7 @@ public abstract class SecuredAdminClient {
 			try {
 				callBookstoreAdmin();
 			} catch (Exception e) {
-				e.printStackTrace();
+				throw new RuntimeException(e);
 			}
 			return null;
 		}

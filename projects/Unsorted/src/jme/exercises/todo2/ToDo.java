@@ -1,10 +1,6 @@
 package jme.exercises.todo2;
 
-//import java.io.*;
 import java.io.IOException;
-//import java.util.*;
-//import javax.microedition.lcdui.*;
-//import javax.microedition.rms.*;
 import javax.microedition.midlet.MIDlet;
 
 /**
@@ -71,8 +67,7 @@ public class ToDo extends MIDlet implements CommandListener {
 
 			enm.destroy(); // Frees internal resources used by RecordEnumeration
 		} catch (Exception e) {
-			e.printStackTrace();
-			showError("Error loading entries from storage: " + e);
+			throw new RuntimeException(e);
 		} finally {
 			try {
 				rs.closeRecordStore();
@@ -162,8 +157,7 @@ public class ToDo extends MIDlet implements CommandListener {
 			entries.addElement(newEntry); // Add to Vector
 			list.append(newEntry.toString(), null); // Add to List
 		} catch (Exception e) {
-			e.printStackTrace();
-			showError("Error adding entry: " + e);
+			throw new RuntimeException(e);
 		} finally {
 			try {
 				rs.closeRecordStore();
@@ -187,8 +181,7 @@ public class ToDo extends MIDlet implements CommandListener {
 			entries.removeElementAt(selectedIndex); // Delete from Vector
 			list.delete(selectedIndex); // Delete from List
 		} catch (Exception e) {
-			e.printStackTrace();
-			showError("Error deleting entry: " + e);
+			throw new RuntimeException(e);
 		} finally {
 			try {
 				rs.closeRecordStore();
@@ -214,8 +207,7 @@ public class ToDo extends MIDlet implements CommandListener {
 
 			list.set(editEntryIndex, entry.toString(), null); // Edit List item
 		} catch (Exception e) {
-			e.printStackTrace();
-			showError("Error editing entry: " + e);
+			throw new RuntimeException(e);
 		} finally {
 			try {
 				rs.closeRecordStore();

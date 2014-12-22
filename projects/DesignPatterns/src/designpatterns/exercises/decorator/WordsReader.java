@@ -52,7 +52,7 @@ public class WordsReader extends Reader {
 			System.out.println("Done");
 			reader.close();
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 }

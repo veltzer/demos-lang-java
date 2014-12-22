@@ -34,13 +34,13 @@ public abstract class HelloClient {
 			// This exception is thrown when there are network problems or a
 			// low level error in the application server (such as database connection
 			// failure)
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		} catch (NamingException e) {
 			// This exception is thrown when the looked up name does not exist on
 			// the server
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		} catch (RemoveException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 }

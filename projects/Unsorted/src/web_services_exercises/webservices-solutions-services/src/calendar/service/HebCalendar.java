@@ -1,8 +1,5 @@
 package calendar.service;
 
-//import java.util.*;
-//import javax.jws.*;
-
 @WebService
 public class HebCalendar {
 

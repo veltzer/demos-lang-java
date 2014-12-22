@@ -1,7 +1,5 @@
 package jme.exercises.todo;
 
-//import java.util.*;
-//import javax.microedition.lcdui.*;
 import javax.microedition.midlet.MIDlet;
 
 /**

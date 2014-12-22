@@ -32,7 +32,7 @@ public final class ThreadPool {
 							threads.push(this);
 							wait();
 						} catch (InterruptedException e) {
-							e.printStackTrace();
+							throw new RuntimeException(e);
 						}
 					}
 					// The thread is notified only when it gets a new runnable job. So at this
@@ -40,7 +40,7 @@ public final class ThreadPool {
 					runnableJob.run();
 					runnableJob = null;
 				} catch (Exception e) {
-					e.printStackTrace();
+					throw new RuntimeException(e);
 				}
 			}
 		}

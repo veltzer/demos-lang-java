@@ -1,7 +1,5 @@
 package jsf.solutions_and_examples.ex4.src.com.acme.calculator;
 
-//import javax.faces.component.*;
-//import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
 public class CalculatorBean {

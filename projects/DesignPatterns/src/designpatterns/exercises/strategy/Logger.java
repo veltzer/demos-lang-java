@@ -28,7 +28,7 @@ public class Logger {
 			logger.logMessage("info", "logger is active");
 			System.out.println("Done");
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 }

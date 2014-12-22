@@ -1,11 +1,5 @@
 package calculator.service;
 
-//import javax.annotation.*;
-//import javax.jws.*;
-//import javax.servlet.http.*;
-//import javax.xml.ws.*;
-//import javax.xml.ws.handler.*;
-
 @WebService
 public class StatefulCalculator {
 

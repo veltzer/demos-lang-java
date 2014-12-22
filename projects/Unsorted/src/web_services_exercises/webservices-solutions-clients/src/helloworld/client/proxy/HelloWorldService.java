@@ -25,7 +25,7 @@ public class HelloWorldService extends Service {
 		try {
 			url = new URL("http://localhost:8080/services/helloworld?wsdl");
 		} catch (MalformedURLException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 		HELLOWORLDSERVICE_WSDL_LOCATION = url;
 	}

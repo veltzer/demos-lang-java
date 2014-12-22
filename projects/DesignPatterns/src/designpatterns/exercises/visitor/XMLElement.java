@@ -75,7 +75,7 @@ public class XMLElement {
 			System.out.println("Number of tags: " + tagsCountVisitor.getCountTags());
 			System.out.println("Done");
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 }

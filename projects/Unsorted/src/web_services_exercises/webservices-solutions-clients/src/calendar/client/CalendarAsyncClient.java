@@ -1,10 +1,5 @@
 package calendar.client;
 
-//import java.util.*;
-//import javax.xml.datatype.*;
-//import javax.xml.ws.*;
-//import calendar.client.proxy.*;
-
 public abstract class CalendarAsyncClient {
 
 	/**
@@ -19,7 +14,7 @@ public abstract class CalendarAsyncClient {
 				try {
 					System.out.println("Response arrived: " + res.get().getReturn());
 				} catch (Exception e) {
-					e.printStackTrace();
+					throw new RuntimeException(e);
 				}
 			}
 		};

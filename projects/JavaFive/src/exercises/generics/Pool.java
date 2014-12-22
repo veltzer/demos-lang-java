@@ -21,7 +21,7 @@ public class Pool<T> {
 				arr.add(type.newInstance());
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 

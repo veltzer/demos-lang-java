@@ -35,9 +35,8 @@ public class CancelOrdersBean implements MessageListener, MessageDrivenBean {
 			Object obj = ictx.lookup("java:comp/env/jdbc/MyDS");
 			DataSource dataSrouce = (DataSource) PortableRemoteObject.narrow(obj, DataSource.class);
 			dao = BookstoreDaoFactory.getDAO(dataSrouce);
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			throw new RuntimeException("failed to set context");
+		} catch (Exception e) {
+			throw new RuntimeException(e);
 		}
 	}
 
@@ -82,8 +81,8 @@ public class CancelOrdersBean implements MessageListener, MessageDrivenBean {
 			System.out.println("*** About to cancel order:" + orderId);
 			dao.cancelOrder(orderId);
 			System.out.println("*** Successfully cancelled order:" + orderId);
-		} catch (Exception ex) {
-			ex.printStackTrace();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
 		}
 	}
 }

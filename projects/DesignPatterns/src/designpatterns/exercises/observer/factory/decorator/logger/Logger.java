@@ -53,7 +53,7 @@ public final class Logger {
 			logger.logMessage(2, "info", "logger is active");
 			System.out.println("Done");
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 }

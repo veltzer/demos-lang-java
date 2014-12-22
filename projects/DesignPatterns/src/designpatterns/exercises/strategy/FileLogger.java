@@ -18,7 +18,7 @@ public class FileLogger implements LoggerStrategy {
 			writer.write("\n");
 			writer.close();
 		} catch (IOException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 }

@@ -1,6 +1,5 @@
 package jme.exercises.slideshow;
 
-//import javax.microedition.lcdui.*;
 import javax.microedition.midlet.MIDlet;
 
 /**

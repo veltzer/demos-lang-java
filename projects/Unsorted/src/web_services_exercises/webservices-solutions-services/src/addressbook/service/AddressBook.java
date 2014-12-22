@@ -1,8 +1,5 @@
 package addressbook.service;
 
-//import java.util.*;
-//import javax.jws.*;
-
 @WebService
 @HandlerChain(file = "addressbook/service/handler-chains.xml")
 public class AddressBook {

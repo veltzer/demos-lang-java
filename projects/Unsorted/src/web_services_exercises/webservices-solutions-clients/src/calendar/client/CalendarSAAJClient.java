@@ -1,18 +1,12 @@
 package calendar.client;
 
-//import java.io.*;
-//import java.util.*;
-//import javax.xml.namespace.*;
-//import javax.xml.soap.*;
-//import calculator.client.proxy.*;
-
 public abstract class CalendarSAAJClient {
 	public static void main(String[] args) {
 		try {
 			String result = hebDayNum(7);
 			System.out.println("Result: " + result);
 		} catch (SOAPException e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 

@@ -22,8 +22,8 @@ public class ReadThread extends Thread {
 		Object workItem = null;
 		try {
 			workItem = itsQueue.dequeue();
-		} catch (InterruptedException ex) {
-			ex.printStackTrace();
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
 		}
 
 		return workItem;
@@ -42,8 +42,8 @@ public class ReadThread extends Thread {
 			if (iteration++ % 2000 == 0) { //System.err.println("Sleeping...");
 				try {
 					Thread.sleep(DEFAULT_SLEEP_TIME);
-				} catch (InterruptedException ex) {
-					ex.printStackTrace();
+				} catch (InterruptedException e) {
+					throw new RuntimeException(e);
 				}
 			}
 			laterTime = System.currentTimeMillis();
