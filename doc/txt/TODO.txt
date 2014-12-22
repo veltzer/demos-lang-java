@@ -1,6 +1,7 @@
 Now:
 ====
-- maybe run checkstyle with full classpath?
+- get to 'ant build' which is clean
+	(right now it's not clean because of jsp or something)
 - do a parser to checkstyle output which removes it's annoying prints.
 - get to full build of this project.
 
