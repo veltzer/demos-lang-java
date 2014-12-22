@@ -81,21 +81,24 @@
 				<javac
 					srcdir="@{folder}/src"
 					destdir="@{folder}/bin"
-					debug="off"
+					includeAntRuntime="no"
+					target="1.6"
+					source="1.6"
+					debug="on"
+					verbose="on"
+				>
+				<!--
 					deprecation="on"
 					optimize="on"
 					failonerror="on"
-					verbose="off"
 					fork="no"
-					includeAntRuntime="no"
 					includeJavaRuntime="yes"
-					target="1.6"
-					source="1.6"
-				>
-				<!--
-					<compilerarg value="-Werror"/>
 				-->
+				<!--
 					<compilerarg value="-Xlint:all"/>
+				-->
+					<compilerarg value="-Werror"/>
+					<compilerarg value="-Xlint:-path"/>
 					<compilerarg value="-Xlint:-options"/>
 					<classpath refid="external-jars"/>
 				</javac>
