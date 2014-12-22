@@ -1,5 +1,6 @@
 package exercise;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.http.Cookie;
@@ -11,8 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 public class CookiesServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) {
-		PrintWriter out = response.getWriter();
-
+		PrintWriter out;
+		try {
+			out = response.getWriter();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+		
 		out.println("<html>");
 		out.println("<head>");
 		out.println("<title>Cookies Servlet</title>");

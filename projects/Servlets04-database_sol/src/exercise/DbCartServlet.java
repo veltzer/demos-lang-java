@@ -1,6 +1,8 @@
 package exercise;
 
+import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -17,7 +19,13 @@ import javax.servlet.http.HttpSession;
 public class DbCartServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) {
-		PrintWriter out = response.getWriter();
+		PrintWriter out;
+		try {
+			out = response.getWriter();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+		
 		addItemToCart(request);
 		out.println("<html>");
 		out.println("<head>");
@@ -36,7 +44,7 @@ public class DbCartServlet extends HttpServlet {
 			ItemDAO itemDao = new ItemDAO();
 			return itemDao.findAllItems();
 		} catch (SQLException e) {
-			throw new ServletException(e);
+			throw new RuntimeException(e);
 		}
 	}
 	private void addItemToCart(HttpServletRequest request) {
@@ -58,7 +66,13 @@ public class DbCartServlet extends HttpServlet {
 	}
 
 	private void printCart(HttpServletRequest request, HttpServletResponse response) {
-		PrintWriter out = response.getWriter();
+		PrintWriter out;
+		try {
+			out = response.getWriter();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+		
 		HttpSession session = request.getSession();
 		@SuppressWarnings("unchecked")
 		List<Item> cart = (List<Item>) session.getAttribute("cart");
@@ -79,7 +93,13 @@ public class DbCartServlet extends HttpServlet {
 	}
 
 	private void printItems(HttpServletRequest request, HttpServletResponse response) {
-		PrintWriter out = response.getWriter();
+		PrintWriter out;
+		try {
+			out = response.getWriter();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+		
 		out.println("<h4>Items for sale:</h4>");
 		Map<String, Item> items = getItemsList();
 		Iterator<Item> it = items.values().iterator();

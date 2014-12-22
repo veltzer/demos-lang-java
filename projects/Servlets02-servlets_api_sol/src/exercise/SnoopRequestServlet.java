@@ -1,5 +1,6 @@
 package exercise;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
 
@@ -11,7 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 public class SnoopRequestServlet extends HttpServlet {
 
 	public void service(HttpServletRequest request, HttpServletResponse response) {
-		PrintWriter out = response.getWriter();
+		PrintWriter out;
+		try {
+			out = response.getWriter();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 		out.println("<h2>HTTP request is:</h2>");
 		out.println(request.getMethod() + " " + request.getRequestURI() + " " + request.getProtocol() + "<br>");
 		@SuppressWarnings("rawtypes")

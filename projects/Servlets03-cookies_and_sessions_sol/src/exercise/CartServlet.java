@@ -1,5 +1,6 @@
 package exercise;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -35,8 +36,13 @@ public class CartServlet extends HttpServlet {
 	}
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) {
-		PrintWriter out = response.getWriter();
-
+		PrintWriter out;
+		try {
+			out = response.getWriter();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+		
 		addItemToCart(request);
 
 		out.println("<html>");
@@ -74,7 +80,13 @@ public class CartServlet extends HttpServlet {
 	}
 
 	private void printCart(HttpServletRequest request, HttpServletResponse response) {
-		PrintWriter out = response.getWriter();
+		PrintWriter out;
+		try {
+			out = response.getWriter();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+		
 		HttpSession session = request.getSession();
 
 		@SuppressWarnings("unchecked")
@@ -101,8 +113,13 @@ public class CartServlet extends HttpServlet {
 	}
 
 	private void printItems(HttpServletRequest request, HttpServletResponse response) {
-		PrintWriter out = response.getWriter();
-
+		PrintWriter out;
+		try {
+			out = response.getWriter();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+		
 		out.println("<h4>Items for sale:</h4>");
 		@SuppressWarnings("unchecked")
 		Map<String, Item> items = (Map<String, Item>) getServletContext()

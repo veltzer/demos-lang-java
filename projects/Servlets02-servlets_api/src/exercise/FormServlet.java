@@ -1,5 +1,6 @@
 package exercise;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServlet;
@@ -9,7 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 @SuppressWarnings("serial")
 public class FormServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) {
-		PrintWriter out = response.getWriter();
+		PrintWriter out;
+		try {
+			out = response.getWriter();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 		out.println("<html>");
 		out.println("<head>");
 		out.println("<title>Form Servlet</title>");

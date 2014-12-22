@@ -1,5 +1,6 @@
 package exercise;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServlet;
@@ -14,12 +15,17 @@ public class RandomServlet extends HttpServlet {
 		try {
 			max = Integer.parseInt(maxNum);
 		} catch (NumberFormatException e) {
-			throw new ServletException("Illegal init parameter");
+			throw new RuntimeException("Illegal init parameter");
 		}
 	}
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) {
-		PrintWriter out = response.getWriter();
+		PrintWriter out;
+		try {
+			out = response.getWriter();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 
 		out.println("<html>");
 		out.println("<head>");
@@ -40,7 +46,12 @@ public class RandomServlet extends HttpServlet {
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) {
-		PrintWriter out = response.getWriter();
+		PrintWriter out;
+		try {
+			out = response.getWriter();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 		int randNum = createRandomNum();
 
 		String numParam = request.getParameter("number");
