@@ -42,7 +42,7 @@ public class Customer {
 
 	public Account getAccount(int index) {
 		if (index < accounts.size()) {
-			return (Account) accounts.get(index);
+			return accounts.get(index);
 		} else {
 			return null;
 		}

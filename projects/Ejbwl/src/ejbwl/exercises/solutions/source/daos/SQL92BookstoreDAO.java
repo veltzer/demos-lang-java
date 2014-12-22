@@ -244,7 +244,7 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 				con.prepareStatement(insertOrderItemSql);
 			itemStmt.setString(1, orderId);
 			for (Iterator<String> it = bookTitles.iterator(); it.hasNext();) {
-				String title = (String) it.next();
+				String title = it.next();
 				itemStmt.setString(2, title);
 				itemStmt.executeUpdate();
 			}

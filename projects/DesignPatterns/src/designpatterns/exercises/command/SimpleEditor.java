@@ -63,7 +63,7 @@ public class SimpleEditor {
 			return;
 		}
 		--currentCommandIndex;
-		EditorCommand command = (EditorCommand) commands.get(currentCommandIndex);
+		EditorCommand command = commands.get(currentCommandIndex);
 		command.unexecute();
 		System.out.println("Text: " + textBuffer);
 	}
@@ -72,7 +72,7 @@ public class SimpleEditor {
 		if (currentCommandIndex == commands.size()) {
 			return;
 		}
-		EditorCommand command = (EditorCommand) commands.get(currentCommandIndex);
+		EditorCommand command = commands.get(currentCommandIndex);
 		command.execute();
 		++currentCommandIndex;
 

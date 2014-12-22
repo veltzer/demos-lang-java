@@ -26,7 +26,7 @@ public final class Bank implements Business {
 
 	public Customer getCustomer(int index) {
 		if (index < customers.size()) {
-			return (Customer) customers.get(index);
+			return customers.get(index);
 		} else {
 			return null;
 		}

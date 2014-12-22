@@ -111,7 +111,7 @@ public class DbCartServlet extends HttpServlet {
 		Map<String, Item> items = getItemsList();
 		Iterator<Item> it = items.values().iterator();
 		while (it.hasNext()) {
-			Item item = (Item) it.next();
+			Item item = it.next();
 			out.println(item.getItemId()
 					+ " "
 					+ item.getName()

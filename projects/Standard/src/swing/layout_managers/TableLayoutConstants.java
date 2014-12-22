@@ -47,14 +47,14 @@ public abstract class TableLayoutConstants {
 
 	/**
 	 * Indicates that the row/column should be allocated just enough space to
-	 * accomidate the preferred size of all components contained completely
+	 * Accommodate the preferred size of all components contained completely
 	 * within this row/column.
 	 */
 	public static final double PREFERRED = -2.0;
 
 	/**
 	 * Indicates that the row/column should be allocated just enough space to
-	 * accomidate the minimum size of all components contained completely within
+	 * Accommodate the minimum size of all components contained completely within
 	 * this row/column.
 	 */
 	public static final double MINIMUM = -3.0;

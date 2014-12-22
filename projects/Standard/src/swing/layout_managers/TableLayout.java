@@ -1179,7 +1179,7 @@ public class TableLayout implements LayoutManager2, Serializable {
 			if (checkForComponentOrientationSupport) {
 				methodGetComponentOrientation = Class.forName(
 						"java.awt.Container").getMethod(
-						"getComponentOrientation", new Class[0]);
+						"getComponentOrientation", new Class<?>[0]);
 
 				checkForComponentOrientationSupport = false;
 			}

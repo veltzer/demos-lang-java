@@ -44,7 +44,7 @@ public abstract class BookstoreClient {
 		System.out.println("Books currently in inventory:");
 		List<BookDTO> books = admin.showBooks();
 		for (Iterator<BookDTO> it = books.iterator(); it.hasNext();) {
-			book = (BookDTO) it.next();
+			book = it.next();
 			System.out.println(book);
 		}
 

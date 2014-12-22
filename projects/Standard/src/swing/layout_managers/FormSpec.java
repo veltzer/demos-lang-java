@@ -100,8 +100,7 @@ public abstract class FormSpec implements Serializable {
 	 * @param resizeWeight the spec resize weight
 	 * @throws IllegalArgumentException if the resize weight is negative
 	 */
-	protected FormSpec(DefaultAlignment idefaultAlignment, Size isize,
-			double iresizeWeight) {
+	protected FormSpec(DefaultAlignment idefaultAlignment, Size isize, double iresizeWeight) {
 		defaultAlignment = idefaultAlignment;
 		size = isize;
 		resizeWeight = iresizeWeight;
@@ -117,8 +116,7 @@ public abstract class FormSpec implements Serializable {
 	 * @param defaultAlignment the default alignment
 	 * @param encodedDescription the encoded description
 	 */
-	protected FormSpec(DefaultAlignment idefaultAlignment,
-			String encodedDescription) {
+	protected FormSpec(DefaultAlignment idefaultAlignment, String encodedDescription) {
 		this(idefaultAlignment, Sizes.DEFAULT, NO_GROW);
 		parseAndInitValues(encodedDescription.toLowerCase());
 	}

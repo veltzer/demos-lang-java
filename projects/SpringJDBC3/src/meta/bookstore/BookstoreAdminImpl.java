@@ -22,13 +22,10 @@ public class BookstoreAdminImpl implements BookStoreAdminDAO, BeanFactoryAware {
 		jt.update("insert into BOOKS values(?,?,?)", params);
 	}
 
-	@SuppressWarnings({
-			"unchecked", "rawtypes"
-	})
 	public List<Book> showBooks() {
 		JdbcTemplate jt = (JdbcTemplate) bf.getBean("jt");
-		return jt.query("SELECT * from BOOKS", new RowMapper() {
-			public Object mapRow(ResultSet rs, int num) throws SQLException {
+		return jt.query("SELECT * from BOOKS", new RowMapper<Book>() {
+			public Book mapRow(ResultSet rs, int num) throws SQLException {
 				String title = rs.getString("title");
 				String author = rs.getString("author");
 				double price = rs.getDouble("price");
@@ -42,16 +39,13 @@ public class BookstoreAdminImpl implements BookStoreAdminDAO, BeanFactoryAware {
 		bf = ibf;
 	}
 
-	@SuppressWarnings({
-			"unchecked", "rawtypes"
-	})
 	public List<Book> showBooksBellow(double price) {
 		JdbcTemplate jt = (JdbcTemplate) bf.getBean("jt");
 		Object[] params = new Object[1];
 		params[0] = price;
 		return jt.query("SELECT * from BOOKS where price < ?", params,
-				new RowMapper() {
-					public Object mapRow(ResultSet rs, int num)
+				new RowMapper<Book>() {
+					public Book mapRow(ResultSet rs, int num)
 							throws SQLException {
 						String title = rs.getString("title");
 						String author = rs.getString("author");

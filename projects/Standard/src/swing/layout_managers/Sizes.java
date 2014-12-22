@@ -318,7 +318,7 @@ public final class Sizes {
 			}
 			int maximum = 0;
 			for (Iterator<Component> i = components.iterator(); i.hasNext();) {
-				Component c = (Component) i.next();
+				Component c = i.next();
 				maximum = Math.max(maximum, measure.sizeOf(c));
 			}
 			return maximum;

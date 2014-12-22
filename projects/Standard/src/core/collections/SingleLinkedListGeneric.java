@@ -63,7 +63,7 @@ public class SingleLinkedListGeneric<T> {
 		System.out.println("size of the list is " + li.size());
 		SingleLinkedListGeneric.Iterator<Integer> it = li.getIterator();
 		while (it.hasNext()) {
-			Integer i = (Integer) it.next();
+			Integer i = it.next();
 			System.out.println("i is " + i);
 		}
 	}

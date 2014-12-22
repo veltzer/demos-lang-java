@@ -202,7 +202,7 @@ public final class PlatformUtility {
 			if (MAC) {
 				Class<?> interfaceClass = Class.forName(intefaceName);
 				Object f = Proxy.newProxyInstance(getClass().getClassLoader(),
-						new Class[] {
+						new Class<?>[] {
 							interfaceClass
 						}, new InvocationHandler() {
 							public Object invoke(Object proxy, Method method,
@@ -213,7 +213,7 @@ public final class PlatformUtility {
 						});
 				Class<?> util = Class
 						.forName("com.apple.mrj.MRJApplicationUtils");
-				Method m = util.getMethod(methodName, new Class[] {
+				Method m = util.getMethod(methodName, new Class<?>[] {
 					interfaceClass
 				});
 				m.invoke(null, new Object[] {

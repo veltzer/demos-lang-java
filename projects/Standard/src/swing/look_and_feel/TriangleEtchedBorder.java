@@ -19,7 +19,7 @@ public class TriangleEtchedBorder extends EtchedBorder {
 		// the component structure this is also a very simplified preffered size
 		// calculation
 		JButton b = (JButton) c;
-		Icon icon = (Icon) b.getIcon();
+		Icon icon = b.getIcon();
 		String text = b.getText();
 		Font font = b.getFont();
 		FontMetrics fm = b.getToolkit().getFontMetrics(font);

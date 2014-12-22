@@ -96,12 +96,13 @@
 					includeJavaRuntime="yes"
 				-->
 				<!--
-					<compilerarg value="-Xlint:all"/>
 				-->
-					<compilerarg value="-Werror"/>
+					<compilerarg value="-Xlint:all"/>
 					<compilerarg value="-Xlint:-path"/>
 					<compilerarg value="-Xlint:unchecked"/>
 					<compilerarg value="-Xlint:-options"/>
+					<compilerarg value="-Xlint:-processing"/>
+					<compilerarg value="-Werror"/>
 					<classpath refid="external-jars"/>
 				</javac>
 			</sequential>

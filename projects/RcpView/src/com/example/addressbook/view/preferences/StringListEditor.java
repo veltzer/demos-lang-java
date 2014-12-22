@@ -51,7 +51,7 @@ public class StringListEditor extends ListEditor {
 		while (tokenizer.hasMoreTokens()) {
 			list.add(tokenizer.nextToken());
 		}
-		return (String[]) list.toArray(new String[0]);
+		return list.toArray(new String[0]);
 	}
 
 }

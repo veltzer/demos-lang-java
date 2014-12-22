@@ -65,7 +65,7 @@ import javax.swing.tree.TreePath;
 
 @SuppressWarnings("serial")
 public class GuiBuilder extends JPanel implements ExceptionListener {
-	private static final Class<?>[] SUPPORTED_WIDGETS = new Class[] {
+	private static final Class<?>[] SUPPORTED_WIDGETS = new Class<?>[] {
 			JButton.class, JRadioButton.class, JToggleButton.class,
 			JTextField.class, JTextArea.class
 	};
@@ -365,7 +365,7 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 		}
 	}
 
-	private static final Class<?>[] COLUMNS = new Class[] {
+	private static final Class<?>[] COLUMNS = new Class<?>[] {
 			String.class, Object.class
 	};
 	private static final String[] NAMES = new String[] {

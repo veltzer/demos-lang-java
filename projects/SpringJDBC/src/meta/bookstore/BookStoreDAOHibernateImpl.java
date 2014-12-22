@@ -20,8 +20,7 @@ public class BookStoreDAOHibernateImpl extends HibernateDaoSupport implements
 
 	@SuppressWarnings("unchecked")
 	public List<Book> showBooksBellow(double price) {
-		return (List<Book>) getHibernateTemplate().find(
-				"from Book as b where b.price < " + price);
+		return (List<Book>) getHibernateTemplate().find("from Book as b where b.price < " + price);
 	}
 
 	public void addCustomer(Customer customer) {
@@ -29,15 +28,12 @@ public class BookStoreDAOHibernateImpl extends HibernateDaoSupport implements
 
 	}
 
-	@SuppressWarnings({
-			"unchecked", "rawtypes"
-	})
 	public List<Customer> showCustomers() {
 		// return getHibernateTemplate().find("from Customer");
-		return (List<Customer>) getHibernateTemplate().execute(new HibernateCallback() {
+		return (List<Customer>) getHibernateTemplate().execute(new HibernateCallback<List<Customer>>() {
 
 			@Override
-			public Object doInHibernate(Session session) throws SQLException {
+			public List<Customer> doInHibernate(Session session) throws SQLException {
 				/*
 				 * List<Book> l =
 				 * (List<Book>)session.createQuery("from Book").list(); for
@@ -51,8 +47,7 @@ public class BookStoreDAOHibernateImpl extends HibernateDaoSupport implements
 
 	@SuppressWarnings("unchecked")
 	public List<Customer> showCustomersByName(String name) {
-		return (List<Customer>) getHibernateTemplate().find(
-				"from Customer as c where c.name = '" + name + "'");
+		return (List<Customer>) getHibernateTemplate().find("from Customer as c where c.name = '" + name + "'");
 	}
 
 	public void updateBook(Book book) {

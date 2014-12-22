@@ -33,7 +33,7 @@ public abstract class DynamicProxyDemo {
 	public static void main(String[] clargs) {
 		try {
 			Doable reference = new DoableAction();
-			Doable proxy = (Doable) Proxy.newProxyInstance(Doable.class.getClassLoader(), new Class[] {
+			Doable proxy = (Doable) Proxy.newProxyInstance(Doable.class.getClassLoader(), new Class<?>[] {
 				Doable.class
 			}, new DynamicDoableProxy(reference));
 			long startTime, endTime;

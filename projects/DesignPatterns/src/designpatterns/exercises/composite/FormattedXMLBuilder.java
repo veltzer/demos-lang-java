@@ -26,7 +26,7 @@ public class FormattedXMLBuilder implements XMLBuilder {
 		formattedXML.append("<").append(element.getName()).append(">").append("\n");
 		List<XMLElement> children = element.getChildren();
 		for (int i = 0; i < children.size(); ++i) {
-			build((XMLElement) children.get(i), level + 1);
+			build(children.get(i), level + 1);
 		}
 		if (element.getData() != null) {
 			indent(level + 1);

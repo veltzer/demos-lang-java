@@ -62,7 +62,6 @@ public abstract class SecuredAdminClient {
 	 * Inner class representing the PrivilegedAction
 	 */
 	private static class AdminClientAction implements PrivilegedAction<Object> {
-
 		public Object run() {
 			try {
 				callBookstoreAdmin();
@@ -71,7 +70,6 @@ public abstract class SecuredAdminClient {
 			}
 			return null;
 		}
-
 		public void callBookstoreAdmin() throws Exception {
 			// Lookup:
 			InitialContext ictx = new InitialContext();
@@ -83,13 +81,12 @@ public abstract class SecuredAdminClient {
 			System.out.println("All registered customers:");
 			List<CustomerDTO> customers = admin.showCustomers();
 			for (Iterator<CustomerDTO> it = customers.iterator(); it.hasNext();) {
-				CustomerDTO customer = (CustomerDTO) it.next();
+				CustomerDTO customer = it.next();
 				System.out.println(customer);
 			}
 
 			// release resources:
 			admin.remove();
-
 		}
 	}
 }

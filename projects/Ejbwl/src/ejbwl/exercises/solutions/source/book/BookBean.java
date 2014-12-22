@@ -83,7 +83,7 @@ public class BookBean implements EntityBean {
 		Collection<String> result = new ArrayList<String>();
 		Iterator<BookDTO> it = books.iterator();
 		while (it.hasNext()) {
-			BookDTO book = (BookDTO) it.next();
+			BookDTO book = it.next();
 			result.add(book.getTitle());
 		}
 		return result;

@@ -35,6 +35,7 @@ import javax.swing.text.AbstractDocument;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.DefaultEditorKit;
 import javax.swing.text.Document;
+import javax.swing.text.DocumentFilter;
 import javax.swing.text.JTextComponent;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
@@ -74,7 +75,7 @@ public class TextComponentDemo extends JFrame {
 		StyledDocument styledDoc = textPane.getStyledDocument();
 		if (styledDoc instanceof AbstractDocument) {
 			doc = (AbstractDocument) styledDoc;
-			doc.setDocumentFilter(new DocumentSizeFilter(MAX_CHARACTERS));
+			doc.setDocumentFilter(new DocumentFilter());
 		} else {
 			System.err
 					.println("Text pane's document isn't an AbstractDocument!");
@@ -341,7 +342,7 @@ public class TextComponentDemo extends JFrame {
 	}
 
 	private Action getActionByName(String name) {
-		return (Action) (actions.get(name));
+		return actions.get(name);
 	}
 
 	class UndoAction extends AbstractAction {

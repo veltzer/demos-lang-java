@@ -34,7 +34,7 @@ public class XMLElement {
 		private void findNext() {
 			currentElement = null;
 			while (elementsIterator.hasNext()) {
-				XMLElement element = (XMLElement) elementsIterator.next();
+				XMLElement element = elementsIterator.next();
 				if (element.getName().equals(elementName)) {
 					currentElement = element;
 					return;

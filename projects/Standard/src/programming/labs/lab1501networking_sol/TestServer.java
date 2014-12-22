@@ -64,8 +64,7 @@ public class TestServer {
 				try {
 					message = in.readUTF();
 					for (int i = 0; i < sockets.size(); i++) {
-						out = new DataOutputStream(
-								((Socket) sockets.get(i)).getOutputStream());
+						out = new DataOutputStream(sockets.get(i).getOutputStream());
 						out.writeUTF(message);
 					}
 

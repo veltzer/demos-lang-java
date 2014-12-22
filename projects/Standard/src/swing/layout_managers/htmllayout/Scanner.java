@@ -67,8 +67,9 @@ class Scanner {
 				if (inTag) {
 					setPos(getPos() + 1);
 					return EQ;
+				} else {
+					return doString();
 				}
-				// else fall through
 
 			default:
 				return doString();
