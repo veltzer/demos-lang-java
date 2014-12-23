@@ -114,6 +114,7 @@ check_interbit:
 	$(Q)git grep -l "Interbit" | make_helper wrapper-ok grep -v Makefile
 	$(Q)git grep -l "InterBit" | make_helper wrapper-ok grep -v Makefile
 	$(Q)find . -name "*Interbit*" -or -name "*interbit*"
+	$(Q)find . -name "*.docx" -or -name "*.doc" -or -name "*.pdf"
 
 .PHONY: check_all
 check_all: check_filenames_with_spaces check_imports check_serialid check_ws_eol check_tab_eol check_dbl_ws check_author check_version check_printstacktrace check_exceptionnames check_src check_names check_interbit
