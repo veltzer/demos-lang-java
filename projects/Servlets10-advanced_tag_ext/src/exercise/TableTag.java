@@ -9,13 +9,14 @@ import javax.servlet.jsp.tagext.TagSupport;
 
 @SuppressWarnings("serial")
 public class TableTag extends TagSupport {
+	private static final String ERR_STRING1 = "connection not found";
 	private String tableName;
 	private ResultSet rs;
 	public int doStartTag() {
 		try {
 			Connection con = (Connection) pageContext.getAttribute("connection");
 			if (con == null) {
-				throw new RuntimeException("Connection not found.");
+				throw new RuntimeException(ERR_STRING1);
 			}
 			String sql = "SELECT * from " + tableName;
 			Statement stmt = con.createStatement();

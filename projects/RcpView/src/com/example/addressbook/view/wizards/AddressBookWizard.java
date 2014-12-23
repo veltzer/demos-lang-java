@@ -152,7 +152,8 @@ public class AddressBookWizard extends Wizard implements INewWizard {
 	private void throwCoreException(String message) {
 		IStatus status = new Status(IStatus.ERROR,
 				"com.example.addressbook.view", IStatus.OK, message, null);
-		throw new RuntimeException(new CoreException(status));
+		Exception e = new CoreException(status);
+		throw new RuntimeException(e);
 	}
 
 	/**

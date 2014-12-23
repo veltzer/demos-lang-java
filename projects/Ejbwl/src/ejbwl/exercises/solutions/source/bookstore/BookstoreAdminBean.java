@@ -42,8 +42,8 @@ public class BookstoreAdminBean implements SessionBean {
 			dao = BookstoreDaoFactory.getDAO(dataSrouce);
 			obj = ictx.lookup("ejb/entity/BookLocalHome");
 			obj = (BookHome) PortableRemoteObject.narrow(obj, BookHome.class);
-		} catch (Exception ex) {
-			throw new RuntimeException("failed to create the bean. " + ex.getMessage());
+		} catch (Exception e) {
+			throw new RuntimeException(e);
 		}
 	}
 

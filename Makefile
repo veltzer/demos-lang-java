@@ -42,6 +42,11 @@ $(COMPILE_STAMP): $(IVY_STAMP) $(ALL_DEP)
 	$(Q)ant build
 	$(Q)touch $@
 
+.PHONY: check_extras
+check_extras:
+	$(info doing [$@])
+	$(Q)find projects/*/src -not -name "*.java" -and -type f
+
 .PHONY: check_filenames_with_spaces
 check_filenames_with_spaces:
 	$(info doing [$@])

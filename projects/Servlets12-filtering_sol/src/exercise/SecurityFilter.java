@@ -15,7 +15,8 @@ public class SecurityFilter implements Filter {
 	public void init(FilterConfig cfg) {
 		validUser = cfg.getInitParameter("validUser");
 		if (validUser == null) {
-			throw new RuntimeException(new ServletException("Must supply a 'validUser' init-param."));
+			Exception e = new ServletException("Must supply a 'validUser' init-param.");
+			throw new RuntimeException(e);
 		}
 	}
 	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) {
@@ -30,7 +31,8 @@ public class SecurityFilter implements Filter {
 			}
 		} else {
 			try {
-				((HttpServletResponse) res).sendError(403, "I don't know you!");
+				HttpServletResponse hres = (HttpServletResponse) res;
+				hres.sendError(403, "I don't know you!");
 			} catch (IOException e) {
 				throw new RuntimeException(e);
 			}

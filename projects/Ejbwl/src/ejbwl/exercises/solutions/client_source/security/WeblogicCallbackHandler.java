@@ -114,7 +114,8 @@ class WeblogicCallbackHandler implements CallbackHandler {
 				found = true;
 			}
 			if (!found) {
-				throw new RuntimeException(new UnsupportedCallbackException(callbacks[i], "Unrecognized Callback"));
+				Exception e = new UnsupportedCallbackException(callbacks[i], "Unrecognized Callback");
+				throw new RuntimeException(e);
 			}
 		}
 	}

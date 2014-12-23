@@ -15,7 +15,7 @@ public class RandomServlet extends HttpServlet {
 		try {
 			max = Integer.parseInt(maxNum);
 		} catch (NumberFormatException e) {
-			throw new RuntimeException("Illegal init parameter");
+			throw new RuntimeException(e);
 		}
 	}
 

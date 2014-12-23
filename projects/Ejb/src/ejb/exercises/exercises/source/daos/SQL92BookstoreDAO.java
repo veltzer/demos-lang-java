@@ -107,8 +107,8 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 		} finally {
 			try {
 				con.close();
-			} catch (Exception ex) {
-				throw new RuntimeException(ex);
+			} catch (Exception e) {
+				throw new RuntimeException(e);
 			}
 		}
 	}
@@ -154,8 +154,8 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 		} finally {
 			try {
 				con.close();
-			} catch (Exception ex) {
-				throw new RuntimeException(ex);
+			} catch (Exception e) {
+				throw new RuntimeException(e);
 			}
 		}
 	}

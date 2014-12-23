@@ -166,7 +166,8 @@ public class MultiPageEditor extends MultiPageEditorPart implements
 	 */
 	public void init(IEditorSite site, IEditorInput editorInput) {
 		if (!(editorInput instanceof IFileEditorInput)) {
-			throw new RuntimeException(new PartInitException("Invalid Input: Must be IFileEditorInput"));
+			Exception e = new PartInitException("Invalid Input: Must be IFileEditorInput");
+			throw new RuntimeException(e);
 		}
 		try {
 			super.init(site, editorInput);

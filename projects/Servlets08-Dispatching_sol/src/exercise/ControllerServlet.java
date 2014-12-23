@@ -35,14 +35,15 @@ public class ControllerServlet extends HttpServlet {
 		} else if (mode.equalsIgnoreCase("item")) {
 			rd = request.getRequestDispatcher(ITEM_PAGE);
 		} else {
-			throw new RuntimeException(new ServletException("Illegal mode"));
+			Exception e = new ServletException("Illegal mode");
+			throw new RuntimeException(e);
 		}
 		try {
 			rd.forward(request, response);
 		} catch (ServletException e) {
-			throw new RuntimeException(new ServletException("Illegal mode"));
+			throw new RuntimeException(e);
 		} catch (IOException e) {
-			throw new RuntimeException(new ServletException("Illegal mode"));
+			throw new RuntimeException(e);
 		}
 	}
 }

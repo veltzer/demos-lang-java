@@ -1,13 +1,14 @@
 package designpatterns.exercises.bridge;
 
 public class UniqueKeyDBTable extends AbstractDBTable {
+	private static final String ERR_STRING1 = "key exists";
 	public UniqueKeyDBTable(DataMap dataMapImpl) {
 		super(dataMapImpl);
 	}
 	public void insert(int id, String data) {
 		Integer key = new Integer(id);
 		if (select(id) != null) {
-			throw new RuntimeException("Key " + id + " already exists!");
+			throw new RuntimeException(ERR_STRING1);
 		}
 		getImpl().put(key, data);
 	}

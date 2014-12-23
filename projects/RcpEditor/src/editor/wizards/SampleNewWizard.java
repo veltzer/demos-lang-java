@@ -146,7 +146,8 @@ public class SampleNewWizard extends Wizard implements INewWizard {
 
 	private void throwCoreException(String message) {
 		IStatus status = new Status(IStatus.ERROR, "editor", IStatus.OK, message, null);
-		throw new RuntimeException(new CoreException(status));
+		Exception e = new CoreException(status);
+		throw new RuntimeException(e);
 	}
 
 	/**
