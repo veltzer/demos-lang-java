@@ -1,0 +1,21 @@
+Messaging
+Election Application
+Exercise description:
+Enclosed is a simple web application for managing elections. Each user can cast his vote to one
+of the candidates. The system counts and presents the number of votes for each candidate.
+Before accepting a vote, the system goes through a complex process of verifying the vote
+legitimacy (see VotingBean.vote()). This process may take a long time making it difficult for
+users to cast their votes. Under high loads, the voting request may even reach timeout, making it
+practically impossible to vote.
+Your mission is to use JMS to make the vote request asynchronous: the users vote will be saved
+as a message in a persistent queue for future processing and the user will not have to wait.
+
+Exercise directory:
+<exercises>\async\
+
+Files to use:
+<exercises>\async\com\async\web\VoteServlet.java
+<exercises>\async\com\async\ejb\VoteingMDBean.java
+
+Run:
+http://localhost:8080/vote/Vote?vote=”Yehuda Saado”

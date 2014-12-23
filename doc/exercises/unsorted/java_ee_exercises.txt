@@ -1,0 +1,337 @@
+Developing JavaEE
+Applications
+Exercise book
+
+Servlets
+JSP
+EJB 3.0
+Web-Services
+
+Servlets Basics (Chapter 03)
+Exercise 1 – Hello World Servlet
+Exercise description:
+Write a simple "Hello World" Servlet. The Servlet should be based on a
+GenericServlet class and print "Hello world" when called.
+Exercise directory:
+<exercises>\servlets basics\
+Files to use:
+\exercise\HelloWorldServlet.java
+Run:
+http://localhost:8080/01-servlets_basics/hello
+
+Exercise 2 – Life Cycle Servlet
+Exercise description:
+Write a Servlet which prints a message to the standard output (not to the
+client) on every lifecycle phase (Instantiation, Initialization, Service and
+Destruction). Complete the needed methods with the proper messages.
+Exercise directory:
+<exercises>\servlets basics\
+Files to use:
+\exercise\LifeCycleServlet.java
+Run:
+http://localhost:8080/01-servlets_basics/lifecycle
+
+Servlets API (Chapter 04)
+Exercise 3 – HTTP Request Snooping
+Exercise description:
+Write a Servlet which prints the details of the HTTP request that was sent
+from the browser. The Servlet should read the following request's parts
+(Request-Line, Request Headers) and send them back to the client as an
+HTML document.
+Exercise directory:
+<exercises>\servlets api\
+Files to use:
+\exercise\SnoopRequestServlet.java
+Run:
+http://localhost:8080/02-servlets_api/snoopRequest
+
+Exercise 4 – Simple Form Processing
+Exercise description:
+Write a Servlet that consists of a simple HTML form, which includes the
+following fields: First name, Last name, ID and Email. When the user
+submits the form, a POST request is sent to the Servlet, the Servlet reads
+the parameters from the request and sends them back to the client as an
+HTML table.
+Exercise directory:
+<exercises>\servlets api\
+Files to use:
+\exercise\FormServlet.java
+Run:
+http://localhost:8080/02-servlets_api/form
+
+Exercise 5 – Numbers Guessing
+Exercise description:
+Write a simple number-guessing game using a Servlet. While initializing,
+the Servlet creates a random number between 1 and a defined maximum
+value. The user is asked to guess the number. If the guess is too high or
+too low, a proper message is displayed. If the guess is correct, a "You are a
+winner" message is displayed.
+NOTE: The user can make only one guess, after which the result is printed
+out. For each request a new random number is generated.
+The Servlet should read the defined maximum value from the ServletConfig
+object, which is passed as a parameter to the init method. Add the needed
+element to the web.xml file.
+Exercise directory:
+<exercises>\servlets api\
+Files to use:
+\exercise\RandomServlet.java
+WEB-INF\web.xml
+Run:
+http://localhost:8080/02-servlets_api/random
+
+Cookies & Session Management (Chapter 06)
+Exercise 6 – Cookies Servlet
+Exercise Description:
+Write a Servlet that stores cookies on the user’s computer. The user enters
+the name and value of the cookies in an HTML form and submits them to
+the server. The Servlet reads the parameters sent by the user and adds a
+new cookie to the client according to the parameters. The server prints the
+cookies it receives in each request.
+Exercise directory:
+<exercises>\cookies and sessions\
+Files to use:
+\exercise\CookiesServlet.java
+Run:
+http://localhost:8080/03-cookies_and_sessions/cookies
+
+Exercise 7 – Logging in using a Cookie
+Exercise Description:
+Write a Servlet containing a Login form with two fields (Username and
+Password). When the user logs in, he can mark a “remember my user
+name” checkbox for future log-ins.
+The Servlet stores the user name in a persistent Cookie (saved forever),
+and uses this Cookie for the next log-in to welcome the user back to the
+application (the user still needs to enter his password in order to login).
+Exercise directory:
+<exercises>\cookies and sessions\
+Files to use:
+\exercise\CookieFormServlet.java
+Run:
+http://localhost:8080/03-cookies_and_sessions/cookieForm
+
+Exercise 8 – Shopping Cart
+Exercise Description:
+Write a shopping cart Servlet, based on HttpServlet. The Servlet will
+create an “Items list” (inventory) that the user can buy and stores it in the
+ServletContext. The user is allowed to add items from the inventory to
+his shopping cart, which is practically a list stored in the HttpSession. The
+Servlet shows the shopping cart’s content and the total price of all the
+items on the cart.
+Exercise directory:
+<exercises>\cookies and sessions\
+Files to use:
+\exercise\CartServlet.java
+\exercise\Item.java
+Run:
+http://localhost:8080/03-cookies_and_sessions/cart
+
+JSP Basics (Chapter 07)
+Exercise 10 – Hello World JSP
+Exercise Description:
+Write a simple “Hello World” JSP. Save and run it using the browser. Look
+for the generated Servlet, open it and find the "Hello World" text.
+Exercise directory:
+<exercises>\Jsp basic\
+Files to use:
+hello.jsp
+Run:
+http://localhost:8080/05-Jsp_basic/hello.jsp
+
+JSP Syntax & Semantics
+
+(Chapter 08)
+
+Exercise 11– Calendar
+Exercise Description:
+Write a JSP that shows the current calendar parameters. The parameters to
+show are: day, month, year, day of week, day of year, hours, minutes,
+seconds, milliseconds and time zone. Use the java.util.Calendar class.
+Exercise directory:
+<exercises>\Jsp syntax\
+Files to use:
+calendar.jsp
+Run:
+http://localhost:8080/06-Jsp_syntax/calendar.jsp
+
+EJB 3.0 Lab Setup
+Terminology:
+<labs_home> - Lab files installation root.
+Database setup:
+o Execute the SQL script tables.sql in your database.
+o Make sure that the following tables were created:
+BOOKS, CUSTOMERS, ORDERS, ORDER_ITEMS.
+Application server setup:
+Create JDBC Resources
+o Make sure you have a data source configured to work with your
+database with the following JNDI name: “DefaultDS”.
+Create JMS Resources
+Make sure you have configured the following JMS resources:
+o A queue connection factory under the JNDI name:
+“ConnectionFactory”.
+o A queue under the JNDI name: “jms/CancelQue”.
+o A queue under the JNDI name: “jms/LogQue”.
+General:
+Following exercises shall provide a partial functionality for an on-line
+bookstore.
+Minimal requirements should include:
+
+Administration:
+- Add books to inventory
+- Register new customers
+- View all books / customers currently in DB
+
+Customers interface:
+- Purchase books using a shopping cart
+- Canceling a previously-placed order
+
+Provided classes:
+We have provided the following auxiliary classes.
+Please feel free to include them in your project & use them when
+necessary.
+o interface BookstoreDAO
+class SQL92BookstoreDAO
+class BookstoreDaoFactory
+These classes provide simple persistence capabilities using SQL
+statements.
+Before using them, please make sure that
+o All required tables have been generated (DDL are supplied)
+o An appropriate DataSource has been registered under
+“jdbc/ds1”
+Usage example:
+// Obtain DAO:
+InitialConext ictx=new InitialContext();
+DataSource ds = (DataSource)ictx.lookup(“jdbc/ds1”);
+BookstoreDAO dao = BookstoreDaoFactory.getDAO(ds);
+// Insert book into DB:
+dao.insertBook(“The truth”, “T.Pratchett”, 100 );
+
+o BookDTO
+CustomerDTO
+OrderDetailsDTO (not used)
+Simple serializable classes for transferring Book/Customer information
+between client & server.
+
+Session Beans
+
+(Chapter 11)
+
+Exercise 1 - simple session bean deployment
+For this simple exercise, we shall create, deploy & test a very simple
+stateless session bean.
+Please follow the instructor’s demonstration for deployment procedure.
+
+Define a bean.
+Compile, deploy & run on server
+Write a simple client for testing your bean
+
+Exercise 2 – Stateless Session Bean
+This exercise involves the Administrator functionality only.
+Please create a stateless session bean which exposes the following
+interface:
+o void addNewBook(BookDTO book)
+throws InvalidBookDataException
+Adds a new book to inventory.
+BookDTO is a simple serializable class holding book details
+(provided).
+InvalidBookDataException is thrown if book data is invalid (e.g.
+negative price, empty title). It is sufficient to provide partial,
+example validity checks.
+o void addNewCustomer(CustomerDTO customer)
+Registers a new customer.
+The provided CustomerDTO is a serializable class holding
+customer details.
+
+o List showBooks()
+Allows the administrator to view all books in inventory.
+The returned list consists of BookDTO’s.
+o List showCustomers()
+Presents a list of all registered customers (list of CustomerDTO’s).
+Note:
+Please feel free to rely on provided classes:
+o BookstoreDAO for DB access
+o BookDTO, CustomerDTO
+For additional information, please consult:
+o The first page of this exercises book
+o The provided classes’ documentation
+Testing:
+Write a simple client to test your admin bean, by obtaining an Admin bean
+stub and invoking some methods (it is sufficient to use some simple, hardcoded data).
+
+Exercise 3 – Stateful Session Bean
+This exercise involves the ShoppingCart factionality.
+Please create a stateful session bean .
+This stateful session bean would hold the following data in
+memory:
+o Customer’s ID
+o List of book titles to purchase (initialized to an empty LinkedList).
+And would expose the following interface:
+o String getCustomerId()
+Returns the customer id, which was supplied during the bean’s
+creation.
+
+o void addToCart(String title)
+throws NoSuchBookException
+Adds a given title to the shopping cart.
+Note this manipulation is done in memory only. We shall write to the
+DB only when the user actually calls placeOrder.
+NoSuchBookException should be thrown when attempting to add an
+unknown book.
+o List getTitlesInCart()
+Returns the list of titles currently in the shopping cart.
+o String placeOrder()
+throws EmptyOrderException
+Actually places the order by saving it into the DB.
+An exception is thrown if the purchase list is currently empty.
+Note:
+Again, you may rely on BookstoreDAO for DB access.
+It already provides a method for placing an order with a list of items.
+Testing:
+Write a simple client to test your ShoppingCart bean, by obtaining a cart
+and adding some items to it.
+
+Message Driven Beans
+
+(Chapter 12)
+
+Exercise 4 – Message Driven Beans
+This exercise involves Order Cancellations.
+Design considerations
+For the sake of this exercise, we shall decide that clients, who wish to
+cancel previously-placed orders, would have to post asynchronous JMS
+messages into a dedicated queue.
+
+Advantages of this approach:
+o Non-blocking
+o Reliability: cancellation requests may be placed by a JMS server even
+which the application server is down.
+Important disadvantage:
+o No easy way to notify customer if cancellation fails (e.g. due to an
+unknown order or DB failure).
+Message format
+Cancellation requests would arrive as TextMessages , of the format
+“cancel <order-id>”
+For instance:
+“cancel 122333”
+Each such message should include a single order.
+Coding & deployment
+o Define a dedicated queue (and related resources, such as queue
+connection factory & port)
+o Create & deploy a message-driven bean with an appropriate
+onMessage() method.
+Implementation may rely on BookstoreDAO’s method for removing
+an order (this method already performs a cascade-delete)
+o Create a test client which would post some simple cancellation order.
+
+Interceptors
+
+(Chapter 13)
+
+Exercise 4 – Interceptors
+Add a logging interceptor to log each method call on any EJB.
+
+Entities
+
+(Chapter 15)
+
+Exercise 5 – Entity Objects
+Replace all DAOs and DTOs with Entity Objects
