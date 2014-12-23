@@ -1,6 +1,7 @@
 MIDlet-1: MetaHelloWorld, MetaHelloWorld.png, HelloWorld
+MIDlet-Jar-Size: 1632
+MIDlet-Jar-URL: MetaHelloWorld.jar
 MIDlet-Name: Meta Hello World
 MIDlet-Vendor: Sun Microsystems
 MIDlet-Version: 1.0
-MicroEdition-Configuration: CLDC-1.0
-MicroEdition-Profile: MIDP-1.0
+My-Property: Hello World!

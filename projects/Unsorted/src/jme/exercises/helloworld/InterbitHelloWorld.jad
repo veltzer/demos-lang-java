@@ -1,7 +1,0 @@
-MIDlet-1: InterbitHelloWorld, InterbitHelloWorld.png, HelloWorld
-MIDlet-Jar-Size: 1632
-MIDlet-Jar-URL: InterbitHelloWorld.jar
-MIDlet-Name: Interbit Hello World
-MIDlet-Vendor: Sun Microsystems
-MIDlet-Version: 1.0
-My-Property: Hello World!

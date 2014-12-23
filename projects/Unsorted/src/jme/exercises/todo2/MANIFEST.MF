@@ -1,5 +1,5 @@
-MIDlet-1: InterbitToDo, InterbitToDo.png, ToDo
-MIDlet-Name: InterbitToDo
+MIDlet-1: MetaToDo, MetaToDo.png, ToDo
+MIDlet-Name: MetaToDo
 MIDlet-Vendor: Sun Microsystems
 MIDlet-Version: 1.0
 MicroEdition-Configuration: CLDC-1.0

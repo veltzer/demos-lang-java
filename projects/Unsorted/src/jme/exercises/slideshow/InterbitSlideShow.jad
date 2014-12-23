@@ -1,7 +1,0 @@
-MIDlet-1: InterbitSlideShow, InterbitSlideShow.png, SlideShow
-MIDlet-Jar-Size: 100
-MIDlet-Jar-URL: InterbitSlideShow.jar
-MIDlet-Name: Interbit Slide Show
-MIDlet-Vendor: Sun Microsystems
-MIDlet-Version: 1.0
-Slide-Files: slide1.png,slide2.png,slide3.png

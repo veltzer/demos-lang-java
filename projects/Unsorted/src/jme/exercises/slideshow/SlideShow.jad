@@ -1,6 +1,7 @@
 MIDlet-1: MetaSlideShow, MetaSlideShow.png, SlideShow
+MIDlet-Jar-Size: 100
+MIDlet-Jar-URL: MetaSlideShow.jar
 MIDlet-Name: Meta Slide Show
 MIDlet-Vendor: Sun Microsystems
 MIDlet-Version: 1.0
-MicroEdition-Configuration: CLDC-1.0
-MicroEdition-Profile: MIDP-1.0
+Slide-Files: slide1.png,slide2.png,slide3.png
