@@ -1,0 +1,92 @@
+Advanced Web
+Topics
+Exercises
+
+Tag Extensions
+Exercise 01 – Upper Case Filter Tag
+Exercise Description:
+Write an upper case filter tag. The tag wraps static text (the text is wrapped by a starting and
+closing parts of the tag) and transforms it to upper case. No attributes are needed for the tag.
+
+Files to use:
+upperfilter.jsp
+\exercise\UpperFilterTag.java
+
+Exercise 02 – Database Tag Library
+Exercise Description:
+Write a database-viewing tag library. The library allows clients to view the rows and columns of
+any database table.
+Included tags:
+Tag name
+openconnection
+
+Attributes
+driver
+url
+user
+password
+
+table
+
+tableName
+
+row
+
+colName
+
+Description
+Opens a connection to the database using the given
+attributes, and stores it for the following tags to use.
+The tag should also create a scripting variable named
+"connection" which holds a reference to the Connection
+object (by using a TagExtraInfo class).
+Creates a SELECT Statement and fetches all the table's
+rows to a ResultSet object. Iterates over the ResultSet (as
+an IterationTag).
+Prints the column's data (identified by the colName
+attribute) on the current row. MUST be used inside the
+table tag.
+Hint: use the Tag.getParent() method.
+
+Files to use:
+dbview.jsp
+\exercise\DbConnectionTag.java
+\exercise\TableTag.java
+\exercise\RowTag.java
+\exercise\ConnectionExtraInfo.java
+
+Web Tier Design Patterns
+Exercise 01 – Composite View
+Exercise Description:
+Write a composite view JSP that simulates a portal front page. The JSP will be composed of the
+following parts:
+Header
+Navigation
+Body
+Menu
+
+Footer
+The header and footer are provided.
+The navigation menu should contain 3 options. Selecting an option must change the data shown
+in the data section.
+Note: Use simple pages, do not waste time in complicated JSPs!
+
+Files to use:
+Header.jsp
+Footer.jsp
+Composite.jsp
+
+Exercise 02 – DispatcherView
+Exercise Description:
+Write a simple catalog application. The user can select how he wants to see the items in the
+catalog: as a list of items or as separate items. A controller Servlet receives the request and uses a
+dispatcher that invokes the proper JSP: item.jsp or list.jsp.
+To create a sample catalog model with items, use the servlet's init() method and put the catalog
+(ViewHelper) in the ServletContext. The JSPs can then access the ViewHelper and format the
+items.
+
+Files to use:
+Item.java
+Index.jsp
+Item.jsp
+List.jsp
