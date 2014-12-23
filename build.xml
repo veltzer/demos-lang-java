@@ -52,7 +52,7 @@
 		</fileset>
 	</path>
 	<path id="projects">
-	      <dirset dir="projects" includes="*" excludes="Unsorted"/>
+	      <dirset dir="projects" includes="*" excludes="Unsorted,Jsp,Jsf"/>
 	</path>
 	<!-- targets -->
 	<target name="ivy_retrieve" description="retrieve dependencies with ivy">
