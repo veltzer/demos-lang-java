@@ -1,0 +1,54 @@
+EFFECTIVE JAVA, 2010
+EXERCISES
+
+1. Static factory methods, Object methods. Create Point.java class that contains 2
+final int fields x and y.
+a. Create factory methods
+Takes x and y parameters
+Only takes x, sets y to 0
+Only takes y, sets x to 0
+Takes no parameters, produces (0,0) point
+b. Reuse the same Point instance any time (0,0) point is requested
+c. Make Point serializable and implement readResolve
+d. Implement equals correctly
+e. Implement hashCode correctly
+f. Make Point Cloneable and implement clone correctly
+g. Make Point Comparable and implement compareTo
+2. Builder. Create Polygon class that holds array of Points. Create PolygonBuilder with
+point(int x, int y) method that builds the Polygon according to the pattern we learned.
+Use provided Builder interface.
+
+3. Numeric overflows. Implement ReverseComparator that takes a Comparator as
+parameter and returns the opposite result.
+a. Create an ExtremeNaturalOrderComparator, that returns Integer.MIN_VALUE,
+0, and Integer.MAX_VALUE only
+b. Sort a list using ExtremeNaturalOrderComparator
+c. Sort the list using your ReverseComparator, if it does not work – fix it.
+
+4. Decorator using interfaces. Create InstrumentedHashSet class that extends
+HashSet and counts additions to the set by overriding add and addAll methods.
+a. Test addAll – the additions are counted twice.
+b. Instead extending HashSet, extend ForwardingSet provided to you, sending
+new HashSet in the constructor
+c. Test addAll - now it works as expected
+d. Improve the class even further – rename it to InstrumentedSet, take Set in the
+constructor and pass it on to ForwardingSet
+e. Test with both TreeSet and HashSet
+
+5. Class initialization. What is wrong with Elvis? Can you fix it?
+
+6. Generics. Take HeapTemplate and add generics transforming the class to Heap – the
+definitions need to be as flexible as possible and the code has to compile,
+implementation is not important.
+
+7. Generics – THC. Go over Registry implementation – Service Locator pattern. Note
+Class.cast usage
+
+8. Multi-threading. Implement a thread-safe BoundedSet, a set that can hold at most
+CAPACITY elements.
+
+9. Annotations+Multithreading+THC+Builder+Varargs. AutoRegistry is an
+enhanced Registry which is capable of loading default implementation for service
+interface, if no implementation was registered. Use AutoRegistryTemplate, implement
+AnnotationBuilder and service initialization using ConcurrentMap.putIfAbsent. Test
+with RegistryTest.
