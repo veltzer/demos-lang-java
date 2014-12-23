@@ -51,6 +51,9 @@
 			<include name="*.jar"/>
 		</fileset>
 	</path>
+	<path id="projects">
+	      <dirset dir="projects" includes="*" excludes="Unsorted"/>
+	</path>
 	<!-- targets -->
 	<target name="ivy_retrieve" description="retrieve dependencies with ivy">
 		<delete dir="lib"/>
@@ -72,9 +75,7 @@
 	</target>
 	<target name="build" description="build all folders">
 		<for param="folder">
-			<path>
-			      <dirset dir="projects" includes="*" excludes="Unsorted"/>
-			</path>
+			<path refid="projects"/>
 			<sequential>
 				<echo>doing @{folder}</echo>
 				<mkdir dir="@{folder}/bin"/>
@@ -111,9 +112,7 @@
 	</target>
 	<target name="clean" description="clean projects">
 		<for param="folder">
-			<path>
-			      <dirset dir="projects" includes="*"/>
-			</path>
+			<path refid="projects"/>
 			<sequential>
 				<echo>doing @{folder}</echo>
 				<delete dir="@{folder}/bin"/>
