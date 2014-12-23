@@ -1,0 +1,87 @@
+Developing Java GUI using
+Swing
+Exercise Book
+
+Chapter 1 - Introduction to Swing
+o Investigate the Swing Components:
+Go to the directory JAVA_HOME\demo\jfc\SwingSet2
+Launch the SwingSet2 executable jar file
+Modify, Recompile, Run the "HelloWorld" example
+
+Chapter 2 – Swing Fundamentals
+We will build a single application, a Product Catalogue, throughout the
+course exercises
+Don't panic if you don't complete everything!
+o Start creating a product catalogue application
+Try out different fonts and colors by applying them to a JLabel
+Add a border
+Create and display a list of product items using JList
+How does the UI respond to window resizing?
+
+Chapter 3 – Containers, Components & Layout (1)
+o For your product catalogue:
+Add a button to remove an item from the catalogue
+Add a button to insert an item into the catalogue
+• When inserting a new product item, display a separate
+dialog to acquire the name of the item
+
+Synchronize the enabled state of the delete button with the
+selection state of the list
+
+Chapter 4 – Menus, Actions & Toolbars
+o For your product catalogue, replace buttons with menu items and a
+toolbar
+Add File and Edit menus
+Set some keyboard accelerators
+Write some corresponding Action classes
+
+Chapter 5 – UI Design
+o Consider the UI Design of your product catalogue
+What are the use cases? What do users want to do?
+What are the frequent operations?
+What are the different kinds of user?
+What do they search by?
+How can we minimize user-clicks/key presses?
+Error handling?
+Drill-down data?
+
+Chapter 6 – Containers, Components & Layout (2)
+o For your product catalogue:
+Acquire a price as well as a name for each product and use a
+custom rendering when displaying the JList
+Switch to a JTable for the list of products
+• Make the table sortable
+Add a JSplitPane as a Two-Panel Selector
+• Use a GridBagLayout for the content panel of the two-panel
+selector
+
+Chapter 7 – JFCUnit
+o For your product catalogue:
+Write some JFCUnit tests
+
+To remove a product from the catalogue
+To add a product to the catalogue
+To check that selecting a product changes the display of the
+two-panel selector
+
+Chapter 8 – Branding & Customization
+o For your product catalogue:
+Add a splash screen
+Change the logo, font, look and feel
+Add an About Box
+Set the menus to work in a different language
+Make Look and Feel and language choice configurable, and use
+the Java preferences framework to persist choices
+
+Chapter 9 – Containers, Components & Layout (3)
+o For your product catalogue:
+Use JOptionPane to display input validation errors
+Use JFileChooser to help select a photo image for each product
+• Or use JFileChooser to help serialize the contents of your
+product catalogue to a file
+
+Chapter 10 – Printing & Data Transfer
+o For your product catalogue:
+Add the facility to print out the catalogue's contents
+Accept a product's image in the product input form via drag and
+drop
