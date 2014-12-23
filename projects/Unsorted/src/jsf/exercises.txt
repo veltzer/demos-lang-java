@@ -1,0 +1,182 @@
+JavaServer Faces Exercise Book
+
+Exercise 1 – JSF Hello World
+Exercise Description:
+Set up a JSF-based application, as demonstrated by the teacher. Create a simple "Hello World"
+page using the <h:outputText> tag.
+
+Exercise directory:
+<exercises>\ JSF-Hello\
+
+Files to use:
+myfaces-core-1.1.3-bin.zip
+
+JavaServer Faces Exercise Book
+
+Exercise 2 – JSF Calculator Screen
+Exercise Description:
+Create a JSF calculator. The application's screen should look like this:
+
+In other words, an input box and five buttons. Make sure all components have proper IDs,
+including the form itself.
+
+Exercise directory:
+<exercises>\ JSF-Calculator\
+
+JavaServer Faces Exercise Book
+
+Exercise 3 – JSF Calculator Content
+Exercise Description:
+Now, update the calculator to work properly:
+
+Define a Backing Bean that will allow you to retrieve the value typed by the user.
+Define action listener methods, and wire them to the five different buttons.
+The backing bean should maintain the original value, so it can perform the calculation based
+on the previously-remembered value and the previously-entered operation.
+The calculation result should be stored as the display value.
+
+For example, if the user types in "13" and clicks "+", the backing bean should remember the "13"
+and the "+". Now, if the user types "16" and clicks "+", the display (input box) will be updated to
+"29".
+Ignore operator precedence issues; i.e., if the user types "13", "+", "16" and clicks "*", the
+displayed result will be "29", and this will be multiplied by whatever the user types next.
+
+Exercise directory:
+<exercises>\ JSF-Calculator\
+
+JavaServer Faces Exercise Book
+
+Exercise 4 – JSF Calculator, Continued
+Exercise Description:
+Add a link to the calculator; the link text should be "Scientific mode".
+When clicked, a set of new buttons will appear, for square-root and power-of-two. These are
+image buttons. In scientific mode, the link itself will change to "Standard mode" (see image).
+When "Standard mode" is clicked, the new buttons will disappear.
+
+There are several possible ways to add or remove the two buttons:
+
+Define them in the JSP file, with the rendered property set to false. Toggle the
+rendered property when the link is clicked.
+Define them in the JSP file, with the style property set to "display:none". Change the
+style property when the link is clicked.
+Do not define them in the JSP at all; add them to the component tree in the Java code
+which handles the link.
+Define them in the JSP inside a container, such as <h:panelGroup>. Toggle the
+rendered or style attributes of the panel group rather than of each individual button.
+
+The link itself should change its text when clicked, but it should not be replaced with a different
+link object (i.e., do not define two link objects, one visible and the other invisible at any given
+time. Use a single link that changes its caption).
+If you have sufficiently mastered the ideas behind JSF, you should be able to complete this
+without changing the component tree at all in the Java code; just export properties that the JSP
+will be able to use.
+
+Exercise directory:
+<exercises>\ JSF-Calculator\
+
+Files to use:
+sqrt.gif
+p2.gif
+
+JavaServer Faces Exercise Book
+
+Exercise 5 – Birthday Cake
+Exercise Description:
+In this exercise, you will directly manipulate the component tree.
+The main page should contain an input field for the user's age, and a button captioned "It's my
+birthday!".
+
+After the button is pressed, a birthday cake appears, with one candle per year of the user's age.
+Hint: Use <h:panelGroup> as a container for images.
+
+Exercise directory:
+<exercises>\ Birthday\
+
+Files to use:
+candle_on.gif
+cake_left.gif
+cake_right.gif
+
+JavaServer Faces Exercise Book
+
+Exercise 6 – JSF Validation
+Exercise Description:
+In this exercise, we will use both a simple validator and a validation method.
+(a) Add a validator object to the birthday cake "age" input box. Use the integer range validator,
+and specify a 1-to-120 range. Also make sure that the field is marked as "required".
+(b) Note that if a valid value is entered at first, and then an invalid value, the error message
+appear, but the cake (for the last valid value) remains.
+Replace the validator object with a validation method. The method should pose the same
+requirement but also clear the cake if validation fails.
+Note how using a validator method also allows you to specify a different error message for too
+low and too high values (e.g., "too young" and "too old", respectively).
+
+Exercise directory:
+<exercises>\ Birthday\
+
+JavaServer Faces Exercise Book
+
+Exercise 7 – Internationalization
+Exercise Description:
+We will now internationalize the birthday application. We will see how even extreme measures,
+such as replacing the screen with right-to-left writing direction (for Hebrew, Arabic or Farsi) can
+be achieved using resource bundles.
+Externalize all strings in the application to a resource bundle, named "birthday.properties". Then,
+create an alternative resource bundle, in some other language.
+Change the list of supported languages in JSF's setup, and add links on the top of the page for all
+the supported languages, that change the language the application is currently viewed.
+Use the UIViewRoot.setLocale() method.
+If the list of supported languages includes a right-to-left language, how will you go about
+supporting this change of direction?
+
+Hebrew support note (advanced):
+Hebrew (and any non-latin encoded language) is a bit more complicated. To use Hebrew you
+must follow these additional steps:
+1. Create a properties file that will hold the Hebrew strings, save it in UTF-8 format.
+2. Use the native2ascii utility to convert this properties file to ascii. Notice that all the
+Hebrew letters change to the escaping form (\uXXXX). E.g.
+native2ascii –encoding UTF-8 resource_iw_native.properties
+resource_iw.properties
+
+3.
+4.
+
+Make sure the converted properties file is saved with the iw language code.
+Update the JSP page to use UTF8 as the character encoding.
+
+Exercise directory:
+<exercises>\ Birthday\
+
+Files to use:
+properties_en.html
+
+JavaServer Faces Exercise Book
+
+Exercise 8 – JSF Navigation
+Exercise Description:
+In this exercise, a navigation and login system will be added to our birthday application.
+We will create 3 new screens; the links from one screen to the other must all be based on the
+navigation system.
+1. The homepage will contain some simple "welcome" text.
+2. The help page will contain a brief help text.
+3. The login page will ask the user for a login name and a password.
+The fourth screen remains the birthday-cake screen developed in the previous steps (this is the
+main page).
+The login page will include the usual username/password pair of fields. For simplicity, the
+program should accept any password that is identical to the login name. If the login is successful,
+the main page will be displayed; otherwise, the login page will re-display itself, with an error
+message, prompting the user to retry.
+The help page will contain a link titled "Enter", which should lead to the main page if the user is
+logged in, or to the login page if the user is not logged in.
+
+Advanced:
+If the user tries to access the birthday application screen directly without logging in, he should be
+transferred immediately to the login page.
+Hint: Use a PhaseListener
+
+Exercise directory:
+<exercises>\ Birthday\
+
+Files to use:
+homepage.html – contains the text that should appear in the homepage (without the links, etc.)
+help.html – contains the text for the help page (again, without the required links).
