@@ -1,0 +1,70 @@
+Java EE 5 Web Services Exercises
+General
+The exercises can run on any Java EE 5 compliant server (such as Sun’s Glassfish) or on
+Tomcat 5.5 with JDK 1.6.
+All web services related actions for server side deployment and client side artifacts are
+invoked using Ant scripts from within the eclipse IDE.
+Tomcat 5.5 +JDK 1.6 Setup
+JSK 1.6 already comes with support for the JAX-WS, JAXB and JAAS APIs. To run on
+tomcat, only the implementation of these APIs must be added to the server’s classpath in
+<tomcat_dir>\shared\lib.
+The 3 jars are provided with the exercises and are from the JAX-WS2.0 RI release.
+
+Exercise 1 – Hello World
+1. Write a simple Hello World service and client. The service will have a single
+method:
+String sayHello(String name)
+which returns another String with a greeting.
+2. Deploy the service and watch the generated WSDL.
+3. Write a client and test your service.
+
+Exercise 2 – Hebrew Calendar
+1. Write a Hebrew calendar service that has 2 methods:
+String hebDayName(int dayNum)
+that returns the current day name in Hebrew
+String hebDayOfWeek(Date date)
+that returns the day name of the provided date in Hebrew
+2. Write a client that tests the service.
+Check the generated proxy, what type is used to enable passing the date object?
+
+Exercise 3 – Address book
+1. Write an address book service that has 2 methods:
+void addAddress(String name,Address address)
+that enables adding a address to the address book
+Address getAddress(String name)
+that enables getting a address from the address book
+2. The service must keep a list of global addresses used by all clients
+3. Check the WSDL a find how the Address class is used.
+4. Write a client.
+Check the generated proxy classes, what new classes can you see?
+
+Exercise 4 – Stateful Calculator
+1. Write a calculator service that is stateful. The service will have 2 methods:
+void startCalc(float num)
+The starts a new calculation for a specific client
+float invokeOperation(Operation op, float num)
+That invokes an operation on the last stored number.
+2. The Operation is maintained as a Java enum with all 4 operations: ADD, SUB,
+MUL, DIV.
+
+3. The service must be stateful per client, which means different clients can use the
+same service with different numbers.
+4. Write a client to test your service.
+5. Check the generated classes and see how the enum is handled.
+
+Exercise 5 – Service Handler
+1. Add a server side SOAP handler to the address book service.
+2. The handler should log to the standard output every incoming and outgoing
+message.
+3. Register the handler using annotations.
+4. Run the client again and watch the output on the server’s console.
+
+Exercise 6 – Asynchronous Client
+1. Write a new calendar client that can invoke the service in a asynchronous way.
+2. Regenerate the client’s proxy using a special binding file so it will include async
+methods.
+3. Invoke the service using a AsyncHandler.
+
+Exercise 7 – SAAJ Client
+1. Write a SAAJ based clients to the hebcalendar service.
+2. For simplicity, invoke only the hebDayName() method.
