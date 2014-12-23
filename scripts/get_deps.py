@@ -12,6 +12,7 @@ import glob # for glob
 ##############
 # parameters #
 ##############
+do_verbose=False
 do_clean=True
 do_jdic=True
 do_eclipse=True
@@ -21,7 +22,8 @@ do_jna=False
 # functions #
 #############
 def file_msg(f):
-	print('creating file [{0}]'.format(f))
+	if do_verbose:
+		print('creating file [{0}]'.format(f))
 
 ########
 # code #
