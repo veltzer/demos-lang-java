@@ -1,18 +1,28 @@
 Now:
 ====
-- build the Unsorted folder too
-	(in ant build it is currently disabled).
+- build the three or four project which yet dont build
+	and remove them from the ant 'build.xml' exclusion list (yes, there is such a thing).
 - do a parser to checkstyle output which removes it's annoying prints.
-- get to full build of this project.
-
-- turn the install instructions into a script.
-- run checkstyle as part of ant.
+- get to full clean build of this project.
+- order the txt files in every project folder (exercises, tests and more).
+	set standards and so forth.
 - get ridd of the static jars in the static folder.
-	do that by either bringing them from maven
-	or by copying them from the eclipse installation.
+	we can do that by:
+	- bringing them from ivy
+	- bringing them from maven
+	- putting them in the ivy local cache
+	- putting them in the maven local cache
+	- getting them from ubuntu packages.
 	what ever, as long as they will no longer be source files.
-- separate this project to it's own tree and away from generic demos.
-	do it fresh, with no history (for obvious reasons)
+- get ridd of the .perl and .sh scripts I have in the scripts folder
+	settle on python for all scripting.
+- separate the Standard project into parts:
+	advanced (formerly extreme)
+	swing
+	spring
+	basic (formerly programming)
+	groovy
+	- each with it's own exercises, tests and examples.
 
 Build system:
 =============
@@ -25,7 +35,6 @@ Build system:
 	- make sure everything builds
 	- make sure that all projects have an src folder (even web ones).
 - see that all projects build from the command line (all lint with warnings).
-- get all eclipse plugins and jdic from the web (in any way).
 - separate the java project as a lean and mean project on it's own.
 - get ridd of deprecated APIs so that ant build with be with deprecation true.
 - get ridd of the jars in '/static' and use the ones from the OS
