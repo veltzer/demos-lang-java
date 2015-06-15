@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE class [
+	<!ELEMENT class (param*)>
+	<!ATTLIST class name CDATA #REQUIRED>
+	<!ELEMENT param ( #PCDATA | class )*>
+ 	<!ATTLIST param type (int|short|byte|boolean|long|float|double|string|object) #REQUIRED>
+ 	]>
+
+
+<class name="ExampleClass">
+<param type="string">Hello !!!</param>
+<param type="object">
+	<class name="java.util.Date">
+		<param type="int">12</param>
+		<param type="int">5</param>
+		<param type="int">1</param>
+	</class>
+</param>
+<param type="int">300</param>
+</class>
