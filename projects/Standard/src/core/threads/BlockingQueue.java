@@ -12,23 +12,19 @@ public class BlockingQueue<E> {
 		linkedList = new LinkedList<E>();
 	}
 
-	public E take() {
-		synchronized (this) {
-			while (linkedList.isEmpty()) {
-				try {
-					wait();
-				} catch (InterruptedException e) {
-					throw new RuntimeException(e);
-				}
+	public synchronized E take() {
+		while (linkedList.isEmpty()) {
+			try {
+				wait();
+			} catch (InterruptedException e) {
+				throw new RuntimeException(e);
 			}
-			return linkedList.removeFirst();
 		}
+		return linkedList.removeFirst();
 	}
 
-	public void put(E e) {
-		synchronized (this) {
-			linkedList.addLast(e);
-			notify();
-		}
+	public synchronized void put(E e) {
+		linkedList.addLast(e);
+		notify();
 	}
 }

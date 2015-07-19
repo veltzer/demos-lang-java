@@ -9,7 +9,7 @@ public abstract class CopyFile {
 	public static void main(String[] args) throws Exception {
 		boolean fast = true;
 		final int size = 1024 * 1024;
-		if (args.length < 2) {
+		if (args.length != 2) {
 			System.err.println("Usage: java CopyFile infile outfile");
 			System.exit(1);
 		}
