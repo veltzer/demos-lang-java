@@ -8,7 +8,7 @@ ubuntu to compile and work with this package.
 import subprocess # for check_call
 
 do_oracle=True
-do_templar=False
+do_templar=True
 
 # the application -> packages that I need are:
 # jvisualvm -> visualvm
