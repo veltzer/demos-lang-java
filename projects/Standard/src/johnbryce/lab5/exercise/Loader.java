@@ -3,7 +3,6 @@ import java.lang.reflect.Constructor;
 import javax.xml.parsers.*;
 import org.w3c.dom.*;
 
-
 public class Loader {
 	
 	private Document doc;
@@ -26,10 +25,9 @@ public class Loader {
 	
 	private Object instantiate (Element currClass) throws Exception{
 		Object[] params=null; //holds all values in objects and wrapper objects
-		Class [] paramsTypes=null;  //holds all types in class format including oprimitives like int.class
+		Class [] paramsTypes=null; //holds all types in class format including oprimitives like int.class
 		String className=currClass.getAttribute("name");
 		//getting constructor parameters
-
 		//enter text here
 	}
 }

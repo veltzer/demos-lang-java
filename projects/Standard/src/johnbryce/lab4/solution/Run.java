@@ -24,7 +24,7 @@ public class Run {
 	public static void main(String[] args) {
 		long start=System.currentTimeMillis();
 		Collection<String> files=new Vector<>();
-		DirectorySearch search=new DirectorySearchargs[0],args[1],files);
+		DirectorySearch search=new DirectorySearch(args[0],args[1],files);
 		ForkJoinPool pool=new ForkJoinPool();
 		
 		System.out.println("Searching Directories: \n");

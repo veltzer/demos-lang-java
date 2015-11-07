@@ -1,4 +1,4 @@
-public class Consumer  
+public class Consumer implements Runnable
 {
 	Stack s;
 

@@ -10,21 +10,21 @@ public class FormBundle_iw_IL extends ListResourceBundle {
 
 	private static final Object[][] content={
 		{"align",SwingConstants.RIGHT},
-		{"title","פרטי הזמנה"},
-		{"dateMsg","תאריך ההזמנה"},
-		{"date","יום"},
+		{"title","title"},
+		{"dateMsg","dateMsg"},
+		{"date","date"},
 		{"dateVal",DateFormat.getDateInstance(DateFormat.SHORT)},
-		{"time","שעה"},
+		{"time","time"},
 		{"timeVal",DateFormat.getTimeInstance(DateFormat.SHORT)},
-		{"orderMsg","פרטי הפריט"},
-		{"item","קוד פריט"},
-		{"units","מס' יחידות"},
+		{"orderMsg","orderMsg"},
+		{"item","item"},
+		{"units","units"},
 		{"unitsVal",NumberFormat.getNumberInstance()},
-		{"unitPrice","מחיר ליחידה"},
+		{"unitPrice","unitPrice"},
 		{"unitPriceVal",NumberFormat.getCurrencyInstance()},
-		{"total","סה\"כ לתשלום"},
-		{"ok","אישור"},
-		{"cancel","ביטול"}
+		{"total","total"},
+		{"ok","ok"},
+		{"cancel","cancel"}
 	};
 	
 	@Override

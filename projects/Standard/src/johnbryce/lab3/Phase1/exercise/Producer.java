@@ -1,4 +1,4 @@
-public class Producer 
+public class Producer implements Runnable
 {
 	Stack s;
 

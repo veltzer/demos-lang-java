@@ -8,6 +8,7 @@ ubuntu to compile and work with this package.
 import subprocess # for check_call
 
 do_oracle=True
+do_templar=False
 
 # the application -> packages that I need are:
 # jvisualvm -> visualvm
@@ -59,9 +60,13 @@ packs=[
 	'eclipse-rcp',
 	'eclipse-xsd',
 
-	# for my make helper
-	'templar',
 ]
+
+if do_templar:
+	packs.extend([
+		# for my make helper
+		'templar',
+	])
 
 if do_oracle:
 	packs.extend([
@@ -72,4 +77,7 @@ if do_oracle:
 
 args=['sudo','apt-get','install','--assume-yes']
 args.extend(packs)
-subprocess.check_call(args)
+try:
+	subprocess.check_call(args)
+except:
+	pass
