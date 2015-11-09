@@ -1,4 +1,4 @@
-package bad;
+package johnbryce.lab8.solution.bad;
 public class Person {
 	
 	private String name;
@@ -45,5 +45,4 @@ public class Person {
 	public void setWeight(float weight) {
 		this.weight = weight;
 	}
-
 }

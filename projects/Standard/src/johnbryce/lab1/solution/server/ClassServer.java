@@ -1,11 +1,22 @@
-import java.net.*;
-import java.io.*;
+package johnbryce.lab1.solution.server;
+
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
 
 public class ClassServer {
 
 	public static void main(String[] args) {
 		ServerSocket server=null;
-		try {server = new ServerSocket(5555);} catch (IOException e) {System.out.println("could not listen on 5555 port");} 
+		try {
+			server = new ServerSocket(5555);
+		} catch (IOException e) {
+			System.out.println("could not listen on 5555 port");
+		}
 		DataInputStream in=null;
 		ObjectOutputStream out=null;
 		String className=null;

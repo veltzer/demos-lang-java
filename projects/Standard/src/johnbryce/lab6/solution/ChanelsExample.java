@@ -1,10 +1,9 @@
-package channels;
+package johnbryce.lab6.solution;
 
 import java.nio.channels.Pipe;
 import java.nio.channels.spi.SelectorProvider;
 
 public class ChanelsExample {
-
 	public static void main(String[] args) throws Exception {
 		Pipe p=SelectorProvider.provider().openPipe();
 		
@@ -13,9 +12,5 @@ public class ChanelsExample {
 		writer.start();
 		Thread.sleep(1000);
 		reader.start();
-        
-		
-
 	}
-
 }

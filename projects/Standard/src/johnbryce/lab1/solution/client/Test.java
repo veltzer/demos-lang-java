@@ -1,5 +1,4 @@
-package client;
-
+package johnbryce.lab1.solution.client;
 
 public class Test {
 
@@ -8,7 +7,7 @@ public class Test {
 		try {
 			loader.loadClass("RemoteClass").newInstance();
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 }

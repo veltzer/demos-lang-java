@@ -1,4 +1,4 @@
-package good;
+package johnbryce.lab8.solution.good;
 public class Person {
 	
 	private String name;

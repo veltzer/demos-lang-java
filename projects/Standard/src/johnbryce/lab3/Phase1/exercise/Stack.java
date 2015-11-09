@@ -9,12 +9,10 @@ public class Stack
 	public int pop()
 	{
 		//enter text here
+		return 0;
 	}
-
 	public  synchronized void  push(int num)
 	{
 		//enter text here
 	}
-
-
 }

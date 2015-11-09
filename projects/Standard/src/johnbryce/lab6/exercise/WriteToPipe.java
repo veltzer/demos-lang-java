@@ -1,10 +1,8 @@
-package channels;
-import java.nio.channels.*;
-import java.nio.channels.Pipe.*;
-import java.nio.*;
+package johnbryce.lab6.exercise;
+
+import java.nio.channels.Pipe;
 
 public class WriteToPipe implements Runnable {
-	
 	//enter text here
 	
 	public WriteToPipe(Pipe p){
@@ -13,14 +11,9 @@ public class WriteToPipe implements Runnable {
 
 	public void run(){
 		try{
-			
 			//enter text here
-			
-			
-			
-		}catch(Exception e){
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 	}
 }

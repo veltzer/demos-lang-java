@@ -1,6 +1,7 @@
-package client;
-import java.io.*;
-import java.net.*;
+package johnbryce.lab1.solution.client;
+import java.io.DataOutputStream;
+import java.io.ObjectInputStream;
+import java.net.Socket;
 
 public class RemoteClassLoader extends ClassLoader {
 	
@@ -14,7 +15,7 @@ public class RemoteClassLoader extends ClassLoader {
 		this.port=port;
 	}
 	
-	public Class findClass (String className){
+	public Class<?> findClass (String className){
 		
 		try {
 			Socket s=new Socket(host,port);
@@ -22,14 +23,13 @@ public class RemoteClassLoader extends ClassLoader {
 			out.writeUTF(className);
 			in=new ObjectInputStream(s.getInputStream());
 			byte[] classData=(byte[])in.readObject();
+			s.close();
 			if(classData==null){
 				throw new NoClassDefFoundError();
 			}
 			return defineClass(className,classData, 0, classData.length);
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
-		
-		return null;
 	}
 }

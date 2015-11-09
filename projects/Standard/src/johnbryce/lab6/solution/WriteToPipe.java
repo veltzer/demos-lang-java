@@ -1,4 +1,4 @@
-package channels;
+package johnbryce.lab6.solution;
 import java.nio.channels.*;
 import java.nio.channels.Pipe.*;
 import java.nio.*;
