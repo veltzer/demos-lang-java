@@ -1,3 +1,5 @@
+package johnbryce.lab3.Phase1.solution;
+
 public class Consumer implements Runnable 
 {
 	String consumerId;

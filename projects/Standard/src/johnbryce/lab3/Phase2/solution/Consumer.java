@@ -1,3 +1,5 @@
+package johnbryce.lab3.Phase2.solution;
+
 import java.util.concurrent.Callable;
 
 public class Consumer<T> implements Callable<Integer> 

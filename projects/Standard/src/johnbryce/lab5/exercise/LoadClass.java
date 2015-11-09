@@ -1,3 +1,4 @@
+package johnbryce.lab5.exercise;
 
 public class LoadClass {
 

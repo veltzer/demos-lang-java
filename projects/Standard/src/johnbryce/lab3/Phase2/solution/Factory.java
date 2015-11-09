@@ -1,5 +1,10 @@
-import java.util.*;
-import java.util.concurrent.*;
+package johnbryce.lab3.Phase2.solution;
+
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 
 public class Factory 

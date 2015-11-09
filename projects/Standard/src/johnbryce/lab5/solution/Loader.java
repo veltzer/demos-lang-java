@@ -1,6 +1,9 @@
+package johnbryce.lab5.solution;
+
 import java.lang.reflect.Constructor;
 
 import javax.xml.parsers.*;
+
 import org.w3c.dom.*;
 
 
@@ -26,13 +29,13 @@ public class Loader {
 	
 	private Object instantiate (Element currClass) throws Exception{
 		Object[] params=null;
-		Class [] paramsTypes=null;
+		Class<?> [] paramsTypes=null;
 		String className=currClass.getAttribute("name");
 		//getting constructor parameters
 		NodeList paramList=currClass.getChildNodes();
 		if(paramList.getLength()==0){return Class.forName(className).newInstance();}
 		params=new Object[paramList.getLength()];
-		paramsTypes=new Class[paramList.getLength()];
+		paramsTypes=new Class<?>[paramList.getLength()];
 		Element currParam=null;
 		String type=null;
 		for(int i=0;i<params.length;i++){
@@ -67,7 +70,7 @@ public class Loader {
 				paramsTypes[i]=params[i].getClass();
 			}
 		}
-		Constructor c=Class.forName(className).getConstructor(paramsTypes);
+		Constructor<?> c=Class.forName(className).getConstructor(paramsTypes);
 		return c.newInstance(params);
 	}
 }

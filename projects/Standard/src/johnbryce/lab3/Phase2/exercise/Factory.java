@@ -1,12 +1,10 @@
-import java.util.*;
-import java.util.concurrent.*;
-
+package johnbryce.lab3.Phase2.exercise;
 
 public class Factory 
 {
 	public static void main(String[] args) 
 	{
-		final Stack myStack = new Stack();
+		//final Stack myStack = new Stack();
 		//enter text here
 	}
 }

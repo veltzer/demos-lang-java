@@ -1,3 +1,5 @@
+package johnbryce.lab2.solution;
+
 
 public class Word implements Comparable<Word>{
 	private String word;

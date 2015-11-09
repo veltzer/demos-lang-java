@@ -1,10 +1,14 @@
+package johnbryce.lab2.exercise;
+
 import java.util.Comparator;
 
 
-public class LetterCountComperator implements Comparator {
+public class LetterCountComperator implements Comparator<Word> {
 
-	public int compare(Object o1, Object o2) {
-		//enter text here
+	@Override
+	public int compare(Word o1, Word o2) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

@@ -1,3 +1,5 @@
+package johnbryce.lab3.Phase2.solution;
+
 import java.util.concurrent.Callable;
 
 public class Producer<T> implements Callable<Integer> 

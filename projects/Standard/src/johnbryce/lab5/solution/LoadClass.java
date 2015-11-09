@@ -1,3 +1,5 @@
+package johnbryce.lab5.solution;
+
 
 public class LoadClass {
 

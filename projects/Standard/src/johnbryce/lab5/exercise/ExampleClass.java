@@ -1,3 +1,5 @@
+package johnbryce.lab5.exercise;
+
 import java.util.*;
 
 public class ExampleClass {

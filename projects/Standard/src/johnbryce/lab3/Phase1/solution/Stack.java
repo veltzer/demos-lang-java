@@ -1,3 +1,5 @@
+package johnbryce.lab3.Phase1.solution;
+
 import java.util.ArrayList;
 
 public class Stack 
@@ -14,7 +16,7 @@ public class Stack
 			}catch(Exception ex){}
 		}
 		System.out.println(Thread.currentThread().getName()+" poped number "+arrayList.get(arrayList.size()-1));
-		return (Integer)arrayList.remove(arrayList.size()-1);
+		return arrayList.remove(arrayList.size()-1);
 		
 
 	}

@@ -1,3 +1,5 @@
+package johnbryce.lab3.Phase1.exercise;
+
 import java.util.ArrayList;
 
 public class Stack 

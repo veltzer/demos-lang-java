@@ -1,5 +1,6 @@
-import java.util.Comparator;
+package johnbryce.lab2.solution;
 
+import java.util.Comparator;
 
 public class LetterCountComperator implements Comparator<Word> {
 	

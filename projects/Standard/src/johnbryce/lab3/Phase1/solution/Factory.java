@@ -1,3 +1,5 @@
+package johnbryce.lab3.Phase1.solution;
+
 public class Factory 
 {
 	public static void main(String[] args) 

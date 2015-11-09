@@ -1,6 +1,7 @@
-import java.lang.reflect.Constructor;
+package johnbryce.lab5.exercise;
 
 import javax.xml.parsers.*;
+
 import org.w3c.dom.*;
 
 public class Loader {
@@ -24,10 +25,11 @@ public class Loader {
 	}
 	
 	private Object instantiate (Element currClass) throws Exception{
-		Object[] params=null; //holds all values in objects and wrapper objects
-		Class [] paramsTypes=null; //holds all types in class format including oprimitives like int.class
-		String className=currClass.getAttribute("name");
+		//Object[] params=null; //holds all values in objects and wrapper objects
+		//Class<?> [] paramsTypes=null; //holds all types in class format including oprimitives like int.class
+		//String className=currClass.getAttribute("name");
 		//getting constructor parameters
 		//enter text here
+		return null;
 	}
 }

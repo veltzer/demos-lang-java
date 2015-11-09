@@ -1,8 +1,12 @@
+package johnbryce.lab3.Phase1.exercise;
+
 public class Consumer implements Runnable
 {
+	String consumerId;
 	Stack s;
 
 	public Consumer(String consumerId, Stack s){
+		this.consumerId=consumerId;
 		this.s = s;
 	}
 

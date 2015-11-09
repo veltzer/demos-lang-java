@@ -1,19 +1,7 @@
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.FileSystem;
-import java.nio.file.FileSystems;
-import java.nio.file.Path;
-import java.nio.file.StandardWatchEventKinds;
-import java.nio.file.WatchEvent;
-import java.nio.file.WatchKey;
-import java.nio.file.WatchService;
+package johnbryce.lab4.exercise;
+
 import java.util.Collection;
-import java.util.EnumSet;
-import java.util.List;
-import java.util.Set;
 import java.util.Vector;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ForkJoinPool;
 
 public class Run {
 
@@ -24,7 +12,7 @@ public class Run {
 	public static void main(String[] args) {
 		long start=System.currentTimeMillis();
 		Collection<String> files=new Vector<>();
-		DirectorySearch search=new DirectorySearch(args[0],args[1],files);
+		//DirectorySearch search=new DirectorySearch(args[0],args[1],files);
 
 		//create the fork join pool 
 		//enter text here

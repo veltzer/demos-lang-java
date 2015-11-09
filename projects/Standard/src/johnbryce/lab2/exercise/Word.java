@@ -1,3 +1,4 @@
+package johnbryce.lab2.exercise;
 
 public class Word implements Comparable<Word>{
 	private String word;
