@@ -17,10 +17,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-public abstract class FormApproval {
+public final class FormApproval {
 	private JFrame f;
 
-	public FormApproval() {
+	private FormApproval() {
 		f = new JFrame();
 		f.setLocation(100, 250);
 		f.setSize(230, 300);

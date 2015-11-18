@@ -14,10 +14,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-public abstract class BadUI {
+public final class BadUI {
 	private JFrame f;
 
-	public BadUI() {
+	private BadUI() {
 		f = new JFrame();
 		f.setLocation(100, 250);
 		f.setSize(230, 300);
