@@ -1,6 +1,7 @@
 package johnbryce.lab8.solution.good;
+
 public class Person {
-	
+
 	private String name;
 	private int age;
 	private float height;
@@ -47,9 +48,6 @@ public class Person {
 	}
 
 	public String toString(){
-		return "Name: "+name+
-		       " Age: "+age+
-		       " Height: "+height+
-		       " Weight: "+weight;
+		return "Name: "+name+" Age: "+age+" Height: "+height+" Weight: "+weight;
 	}
 }

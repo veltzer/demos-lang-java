@@ -1,6 +1,6 @@
 package johnbryce.lab3.Phase1.solution;
 
-public class Consumer implements Runnable 
+public class Consumer implements Runnable
 {
 	String consumerId;
 	Stack s;
@@ -10,14 +10,15 @@ public class Consumer implements Runnable
 		this.s = s;
 	}
 
-	public void run(){
+	public void run() {
 		for(int i = 0; i <20; i++){
 			long sleepTime=(long)(Math.random()*1500+500);
 			try {
 				Thread.sleep(sleepTime);
-		}catch(Exception ex){ex.printStackTrace();}
-
-			s.pop();			
+			} catch(Exception ex) {
+				throw new RuntimeException(ex);
+			}
+			s.pop();
 		}
 	}
 }

@@ -20,7 +20,7 @@ public class WordCounter {
 			in = new BufferedReader(new FileReader(fileName));
 		} catch (FileNotFoundException e1) {
 			throw new RuntimeException(e1);
-		}		
+		}
 		Map<Word,Integer> count=new TreeMap<Word,Integer>();
 		String line;
 		try {
@@ -38,15 +38,15 @@ public class WordCounter {
 		while(line!=null){
 			StringTokenizer token=new StringTokenizer(line);
 			while (token.hasMoreTokens()) {
-				curr=token.nextToken();				
+				curr=token.nextToken();
 				Word w=new Word(curr.toLowerCase());
-				try{
+				try {
 					frequency=count.get(new Word(curr));
 					frequency=frequency+1;
-				}catch(NullPointerException e){
+				} catch(NullPointerException e) {
 					frequency=1;
-				}	
-				count.put(w,frequency);	
+				}
+				count.put(w,frequency);
 			}
 			try {
 				line=in.readLine();
@@ -54,7 +54,7 @@ public class WordCounter {
 				try {
 					in.close();
 				} catch (IOException e1) {
-                    throw new RuntimeException(e1);
+					throw new RuntimeException(e1);
 				}
 				throw new RuntimeException(e);
 			}
@@ -66,7 +66,7 @@ public class WordCounter {
 		}
 		//print no 1
 		System.out.println(count);
-		
+
 		List<Word> words=new ArrayList<Word>(count.keySet());
 		LetterCountComperator letterCountComperator = new LetterCountComperator();
 		Collections.sort(words,letterCountComperator);

@@ -1,7 +1,12 @@
 package johnbryce.lab1.exercise.server;
 
-import java.net.*;
-import java.io.*;
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
 
 public class ClassServer {
 
@@ -9,7 +14,9 @@ public class ClassServer {
 		ServerSocket server=null;
 		try {
 			server = new ServerSocket(5555);
-		} catch (IOException e) {System.out.println("could not listen on 5555 port");} 
+		} catch (IOException e) {
+			System.out.println("could not listen on 5555 port");
+		}
 		DataInputStream in=null;
 		ObjectOutputStream out=null;
 		String className=null;
@@ -30,10 +37,10 @@ public class ClassServer {
 				FileInputStream fileIn;
 				try {
 					fileIn = new FileInputStream(className+".class");
-				fileIn.read(data,0,data.length);	
-				out.writeObject(data);
-				out.close();
-				in.close();
+					fileIn.read(data,0,data.length);
+					out.writeObject(data);
+					out.close();
+					in.close();
 				} catch (IOException e) {
 					try {
 						out.writeObject(null);

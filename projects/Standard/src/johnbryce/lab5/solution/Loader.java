@@ -2,15 +2,18 @@ package johnbryce.lab5.solution;
 
 import java.lang.reflect.Constructor;
 
-import javax.xml.parsers.*;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 
-import org.w3c.dom.*;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
 
 
 public class Loader {
-	
+
 	private Document doc;
-	
+
 	public Loader(String xmlFile) throws Exception{
 		//loading & parsing XML file
 		DocumentBuilderFactory dbf=DocumentBuilderFactory.newInstance();
@@ -19,14 +22,13 @@ public class Loader {
 		DocumentBuilder db=dbf.newDocumentBuilder();
 		doc=db.parse(xmlFile);
 	}
-	
-	
+
 	public Object load() throws Exception{
 		//getting root class name
-		Element currClass=doc.getDocumentElement();		
+		Element currClass=doc.getDocumentElement();
 		return instantiate(currClass);
 	}
-	
+
 	private Object instantiate (Element currClass) throws Exception{
 		Object[] params=null;
 		Class<?> [] paramsTypes=null;

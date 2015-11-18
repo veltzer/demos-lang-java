@@ -1,9 +1,9 @@
 package johnbryce.lab8.exercise;
 
 public class BadImplementation {
-	private  int index=1;
+	private int index=1;
 	private Person youngest;
-	
+
 	public String print(Person...people){
 		String result="";
 		for(Person curr:people){
@@ -14,7 +14,7 @@ public class BadImplementation {
 		index=1;
 		return result;
 	}
-	
+
 	private String printData(Person person){
 		String result="";
 		result+="Name: "+person.getName()+" ";
@@ -23,7 +23,7 @@ public class BadImplementation {
 		result+="Weight: "+person.getWeight();
 		return result;
 	}
-	
+
 	public String printYoungest(Person...people){
 		for(Person curr:people){
 			if(youngest==null){
@@ -34,7 +34,7 @@ public class BadImplementation {
 		}
 		return youngest.getName();
 	}
-	
+
 	private void check(Person curr){
 		int youngestAge=youngest.getAge();
 		int currAge=curr.getAge();

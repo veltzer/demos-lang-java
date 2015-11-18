@@ -6,7 +6,6 @@ import java.nio.channels.spi.SelectorProvider;
 public class ChanelsExample {
 	public static void main(String[] args) throws Exception {
 		Pipe p=SelectorProvider.provider().openPipe();
-		
 		Thread writer=new Thread (new WriteToPipe(p));
 		Thread reader=new Thread (new ReadFromPipe(p));
 		writer.start();

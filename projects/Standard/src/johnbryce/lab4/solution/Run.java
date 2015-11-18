@@ -15,16 +15,16 @@ public class Run {
 		Collection<String> files=new Vector<>();
 		DirectorySearch search=new DirectorySearch(args[0],args[1],files);
 		ForkJoinPool pool=new ForkJoinPool();
-		
+
 		System.out.println("Searching Directories: \n");
-		
+
 		pool.invoke(search);
-		
+
 		System.out.println("\n\nFounded Files: \n");
 		for(String file:files){
 			System.out.println(file);
 		}
-		
+
 		System.out.println(System.currentTimeMillis()-start+" milis");
 
 	}

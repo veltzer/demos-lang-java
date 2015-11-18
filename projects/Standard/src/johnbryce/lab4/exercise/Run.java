@@ -14,21 +14,19 @@ public class Run {
 		Collection<String> files=new Vector<>();
 		//DirectorySearch search=new DirectorySearch(args[0],args[1],files);
 
-		//create the fork join pool 
+		//create the fork join pool
 		//enter text here
-		
+
 		System.out.println("Searching Directories: \n");
-		
+
 		//invoke your first task with the pool
 		//enter text here
-		
+
 		System.out.println("\n\nFounded Files: \n");
 		for(String file:files){
 			System.out.println(file);
 		}
-		
 		System.out.println(System.currentTimeMillis()-start+" milis");
-
 	}
 
 }

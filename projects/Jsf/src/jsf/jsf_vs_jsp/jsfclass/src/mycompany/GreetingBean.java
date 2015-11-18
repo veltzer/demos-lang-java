@@ -1,4 +1,4 @@
-package mycompany;
+package jsf.jsf_vs_jsp.jsfclass.src.mycompany;
 
 import java.io.Serializable;
 

@@ -4,7 +4,7 @@ import java.nio.channels.Pipe;
 
 public class WriteToPipe implements Runnable {
 	//enter text here
-	
+
 	public WriteToPipe(Pipe p){
 		 //enter test here
 	}
@@ -13,7 +13,7 @@ public class WriteToPipe implements Runnable {
 		try{
 			//enter text here
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 }

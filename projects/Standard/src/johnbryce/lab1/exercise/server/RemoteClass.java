@@ -13,4 +13,3 @@ public class RemoteClass {
 		System.out.println("And I can even work now !");
 	}
 }
- 

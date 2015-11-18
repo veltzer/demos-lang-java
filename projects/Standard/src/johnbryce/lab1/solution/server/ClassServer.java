@@ -36,7 +36,7 @@ public class ClassServer {
 				FileInputStream fileIn;
 				try {
 					fileIn = new FileInputStream(className+".class");
-				fileIn.read(data,0,data.length);	
+				fileIn.read(data,0,data.length);
 				out.writeObject(data);
 				out.close();
 				in.close();
@@ -44,7 +44,7 @@ public class ClassServer {
 					try {
 						out.writeObject(null);
 					} catch (IOException e1) {
-						e1.printStackTrace();
+						throw new RuntimeException(e1);
 					}
 				}
 			}

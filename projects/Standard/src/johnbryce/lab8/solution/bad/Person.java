@@ -1,6 +1,7 @@
 package johnbryce.lab8.solution.bad;
+
 public class Person {
-	
+
 	private String name;
 	private int age;
 	private float height;

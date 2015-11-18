@@ -1,7 +1,8 @@
 package johnbryce.lab7.solution;
 
 
-	import java.text.*;
+	import java.text.DateFormat;
+import java.text.NumberFormat;
 import java.util.ListResourceBundle;
 
 import javax.swing.SwingConstants;
@@ -26,7 +27,7 @@ import javax.swing.SwingConstants;
 			{"ok","OK"},
 			{"cancel","Cancel"}
 		};
-		
+
 		@Override
 		protected Object[][] getContents() {
 			return content;

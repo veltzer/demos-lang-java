@@ -5,7 +5,7 @@ import java.text.NumberFormat;
 import java.util.ListResourceBundle;
 
 import javax.swing.SwingConstants;
- 
+
 public class FormBundle_iw_IL extends ListResourceBundle {
 
 	private static final Object[][] content={
@@ -26,7 +26,7 @@ public class FormBundle_iw_IL extends ListResourceBundle {
 		{"ok","ok"},
 		{"cancel","cancel"}
 	};
-	
+
 	@Override
 	protected Object[][] getContents() {
 		return content;

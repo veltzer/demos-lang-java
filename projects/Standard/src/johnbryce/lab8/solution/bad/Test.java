@@ -26,21 +26,21 @@ public class Test {
 		people[19]=new Person("TTT",11,20.0F,1.49F);
 
 		BadImplementation bi=new BadImplementation();
-		
+
 		long start=System.currentTimeMillis();
-		
+
 		//starting !
 		for(int i=0;i<100;i++){
 			bi.print(people);
 			bi.printYoungest(people);
 		}
 		//ending !
-		
+
 		long end=System.currentTimeMillis();
 		System.out.println("Total Execution Time : "+(end-start)+" ms");
-		
+
 	}
-	
+
 	public static void testGood(){
 		Person[]people=new Person[20];
 		people[0]=new Person("AAA",45,65.5F,1.56F);
@@ -66,19 +66,19 @@ public class Test {
 
 		BadImplementation gi=new BadImplementation();
 		//GoodImplementation gi=new GoodImplementation();
-		
+
 		long start=System.currentTimeMillis();
-		
+
 		//starting !
 		for(int i=0;i<100;i++){
 			gi.print(people);
 			gi.printYoungest(people);
 		}
 		//ending !
-		
+
 		long end=System.currentTimeMillis();
 		System.out.println("Total Execution Time : "+(end-start)+" ms");
-		
+
 	}
 	public static void main(String[] args) {
 		testBad();

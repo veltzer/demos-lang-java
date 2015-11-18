@@ -2,8 +2,7 @@ package johnbryce.lab3.Phase2.solution;
 
 import java.util.concurrent.Callable;
 
-public class Consumer<T> implements Callable<Integer> 
-{
+public class Consumer<T> implements Callable<Integer> {
 	String consumerId;
 	Stack s;
 
@@ -17,9 +16,10 @@ public class Consumer<T> implements Callable<Integer>
 			long sleepTime=(long)(Math.random()*1500+500);
 			try {
 				Thread.sleep(sleepTime);
-		}catch(Exception ex){ex.printStackTrace(); return 1;}
-
-			s.pop();			
+			} catch(Exception e) {
+				throw new RuntimeException(e);
+			}
+			s.pop();
 		}
 		return 0;
 	}

@@ -1,9 +1,21 @@
 package johnbryce.lab7.solution;
 
-import java.awt.*;
-import java.text.*;
-import java.util.*;
-import javax.swing.*;
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.text.DateFormat;
+import java.text.NumberFormat;
+import java.util.Date;
+import java.util.Locale;
+import java.util.ResourceBundle;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 public class FormApproval {
 	JFrame f;
@@ -19,15 +31,15 @@ public class FormApproval {
 	}
 
 	private void setComponents(String itemID, int units ){
-		
+
 		ResourceBundle labels = ResourceBundle.getBundle("uiBundle.FormBundle");
-	
+
 		//title
 		JLabel title=new JLabel(labels.getString("title"),SwingConstants.CENTER);
 		Font header=new Font("Arial",Font.BOLD,20);
 		title.setFont(header);
 		f.getContentPane().add(BorderLayout.NORTH,title);
-		
+
 		//center
 		//date & time of order
 		JPanel center=new JPanel(new GridLayout(8,2));
@@ -66,7 +78,7 @@ public class FormApproval {
 		if((Integer)labels.getObject("align")==SwingConstants.RIGHT)
 			flip(center);
 		f.getContentPane().add(center);
-		
+
 		//buttons
 		JButton okButton=new JButton(labels.getString("ok"));
 		JButton cancelButton=new JButton(labels.getString("cancel"));
@@ -75,7 +87,7 @@ public class FormApproval {
 		panel.add(cancelButton);
 		f.getContentPane().add(BorderLayout.SOUTH,panel);
 	}
-	 
+
 	private void flip(Container cont){
 		//returns a mirror view of the given grid component
 		Component[] comp=cont.getComponents();
@@ -84,21 +96,17 @@ public class FormApproval {
 			cont.add(comp[i]);
 			cont.add(comp[i-1]);
 		}
-		
 	}
 	private double getUnitPrice(){
 		return Math.random()*300;
 	}
 	public static void main(String[] args) throws Exception{
 		Locale[] supportedLocales = {
-				new Locale ("iw","IL"),
-			    new Locale ("en","US")
-			};
+			new Locale ("iw","IL"),
+			new Locale ("en","US")
+		};
 		Locale currentLocale=supportedLocales[0];
 		Locale.setDefault(currentLocale);
 		new FormApproval();
-		
-
 	}
-
 }

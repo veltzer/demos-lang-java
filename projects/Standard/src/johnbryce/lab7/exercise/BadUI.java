@@ -1,8 +1,18 @@
 package johnbryce.lab7.exercise;
 
-	import java.awt.*;
-	import java.util.*;
-	import javax.swing.*;
+	import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 	public class BadUI {
 		JFrame f;
@@ -16,47 +26,47 @@ package johnbryce.lab7.exercise;
 			setComponents("aaa",23);
 			f.setVisible(true);
 		}
-		
+
 		//edit this method to use resource bundles
 		//this method takes the chosen item and the no' of pieces to generage a complete order view
 		private void setComponents(String itemID, int units ){
-			
+
 			//title
-			JLabel title=new JLabel("Order Details",SwingConstants.CENTER);     //not locale sensitive !
+			JLabel title=new JLabel("Order Details",SwingConstants.CENTER); //not locale sensitive !
 			Font header=new Font("Arial",Font.BOLD,20);
 			title.setFont(header);
 			f.getContentPane().add(BorderLayout.NORTH,title);
-			
+
 			//center
 			//date & time of order
 			JPanel center=new JPanel(new GridLayout(8,2));
-			JLabel dateLabel=new JLabel("Date of issue");     //not locale sensitive !
+			JLabel dateLabel=new JLabel("Date of issue"); //not locale sensitive !
 			center.add(dateLabel);
 			center.add(new JLabel(""));
-			JLabel date=new JLabel("Date");     //not locale sensitive !
+			JLabel date=new JLabel("Date"); //not locale sensitive !
 			GregorianCalendar calendar=new GregorianCalendar();
-			JLabel dateVal=new JLabel((calendar.get(Calendar.MONTH)+1)+"."+calendar.get(Calendar.YEAR));    //not locale sensitive !
+			JLabel dateVal=new JLabel((calendar.get(Calendar.MONTH)+1)+"."+calendar.get(Calendar.YEAR)); //not locale sensitive !
 			center.add(date);
 			center.add(dateVal);
-			JLabel time=new JLabel("Time");     //not locale sensitive !
-			JLabel timeVal=new JLabel(calendar.get(Calendar.HOUR)+":"+calendar.get(Calendar.MINUTE));    //not locale sensitive !
+			JLabel time=new JLabel("Time"); //not locale sensitive !
+			JLabel timeVal=new JLabel(calendar.get(Calendar.HOUR)+":"+calendar.get(Calendar.MINUTE)); //not locale sensitive !
 			center.add(time);
 			center.add(timeVal);
 			//order item details
-			JLabel orderLabel=new JLabel("Item details");    //not locale sensitive !
+			JLabel orderLabel=new JLabel("Item details"); //not locale sensitive !
 			center.add(orderLabel);
 			center.add(new JLabel(""));
-			JLabel item=new JLabel("Item ID");     //not locale sensitive !
+			JLabel item=new JLabel("Item ID"); //not locale sensitive !
 			JLabel itemVal=new JLabel(itemID);
 			center.add(item);
 			center.add(itemVal);
-			JLabel unitsLabel=new JLabel("Units");     //not locale sensitive !
-			JLabel unitsVal=new JLabel(units+"");      //not locale sensitive !
+			JLabel unitsLabel=new JLabel("Units"); //not locale sensitive !
+			JLabel unitsVal=new JLabel(units+""); //not locale sensitive !
 			center.add(unitsLabel);
 			center.add(unitsVal);
-			JLabel unitPrice=new JLabel("Unit Price");      //not locale sensitive !
+			JLabel unitPrice=new JLabel("Unit Price"); //not locale sensitive !
 			double unitPriceValue=getUnitPrice();
-			JLabel unitPriceVal=new JLabel(unitPriceValue+"");   //not locale sensitive !
+			JLabel unitPriceVal=new JLabel(unitPriceValue+""); //not locale sensitive !
 			center.add(unitPrice);
 			center.add(unitPriceVal);
 			JLabel total=new JLabel("Total");
@@ -64,16 +74,16 @@ package johnbryce.lab7.exercise;
 			center.add(total);
 			center.add(totalVal);
 			f.getContentPane().add(center);
-			
+
 			//buttons
-			JButton okButton=new JButton("OK");            //not locale sensitive !
-			JButton cancelButton=new JButton("Cancel");    //not locale sensitive !
+			JButton okButton=new JButton("OK"); //not locale sensitive !
+			JButton cancelButton=new JButton("Cancel"); //not locale sensitive !
 			JPanel panel =new JPanel();
 			panel.add(okButton);
 			panel.add(cancelButton);
 			f.getContentPane().add(BorderLayout.SOUTH,panel);
 		}
-		 
+
 		@SuppressWarnings("unused")
 		private void flip(Container cont) {
 			//returns a mirror view of the given grid component
@@ -83,12 +93,12 @@ package johnbryce.lab7.exercise;
 				cont.add(comp[i]);
 				cont.add(comp[i-1]);
 			}
-			
+
 		}
 		private double getUnitPrice(){
 			return Math.random()*300;
 		}
-		
+
 		public static void main(String[] args) throws Exception{
 			new BadUI();
 		}

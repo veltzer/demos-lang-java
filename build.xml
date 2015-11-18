@@ -85,8 +85,8 @@
 					includeAntRuntime="no"
 				>
 				<!--
-					target="1.6"
-					source="1.6"
+					target="1.7"
+					source="1.8"
 
 					debug="on"
 					verbose="on"

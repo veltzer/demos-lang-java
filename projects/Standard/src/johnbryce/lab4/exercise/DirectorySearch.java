@@ -9,7 +9,7 @@ public class DirectorySearch extends RecursiveAction {
 	private String directory;
 	private String fileExt;
 	private Collection<String> fileList;
-	
+
 	public DirectorySearch(String directory, String fileExt,Collection<String> fileList) {
 		super();
 		this.directory = directory;
