@@ -1,3 +1,4 @@
+package johnbryce.lab1.exercise.server;
 
 public class RemoteClass {
 	static{

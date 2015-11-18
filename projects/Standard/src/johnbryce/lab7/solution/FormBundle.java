@@ -1,4 +1,4 @@
-package uiBundle;
+package johnbryce.lab7.solution;
 
 
 	import java.text.*;

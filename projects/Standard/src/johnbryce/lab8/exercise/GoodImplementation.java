@@ -1,4 +1,4 @@
-package johnbryce.lab8.exercise.good;
+package johnbryce.lab8.exercise;
 
 public class GoodImplementation {
 	private  int index=1;

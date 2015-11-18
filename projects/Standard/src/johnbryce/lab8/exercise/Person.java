@@ -1,4 +1,6 @@
-package johnbryce.lab8.exercise.bad;
+package johnbryce.lab8.exercise;
+
+
 public class Person {
 	
 	private String name;

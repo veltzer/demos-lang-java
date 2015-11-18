@@ -1,6 +1,6 @@
-package johnbryce.lab8.exercise.good;
+package johnbryce.lab8.exercise;
 
-public class GoodImplementation {
+public class BadImplementation {
 	private  int index=1;
 	private Person youngest;
 	

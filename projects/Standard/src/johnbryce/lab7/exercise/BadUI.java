@@ -1,4 +1,4 @@
-package uiBundle;
+package johnbryce.lab7.exercise;
 
 	import java.awt.*;
 	import java.util.*;
@@ -74,7 +74,8 @@ package uiBundle;
 			f.getContentPane().add(BorderLayout.SOUTH,panel);
 		}
 		 
-		private void flip(Container cont){
+		@SuppressWarnings("unused")
+		private void flip(Container cont) {
 			//returns a mirror view of the given grid component
 			Component[] comp=cont.getComponents();
 			cont.removeAll();

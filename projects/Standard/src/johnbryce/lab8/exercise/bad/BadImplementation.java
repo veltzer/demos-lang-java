@@ -1,4 +1,4 @@
-package bad;
+package johnbryce.lab8.exercise.bad;
 
 public class BadImplementation {
 	private  int index=1;
