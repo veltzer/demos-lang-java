@@ -1,10 +1,8 @@
 package johnbryce.lab3.Phase1.exercise;
 
-import java.util.ArrayList;
-
 public class Stack 
 {
-	private ArrayList<Integer> arrayList = new ArrayList<Integer>();
+	//private ArrayList<Integer> arrayList = new ArrayList<Integer>();
 	
 	public int pop()
 	{

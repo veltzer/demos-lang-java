@@ -7,7 +7,9 @@ public class ClassServer {
 
 	public static void main(String[] args) {
 		ServerSocket server=null;
-		try {server = new ServerSocket(5555);} catch (IOException e) {System.out.println("could not listen on 5555 port");} 
+		try {
+			server = new ServerSocket(5555);
+		} catch (IOException e) {System.out.println("could not listen on 5555 port");} 
 		DataInputStream in=null;
 		ObjectOutputStream out=null;
 		String className=null;
@@ -19,7 +21,8 @@ public class ClassServer {
 				out=new ObjectOutputStream(s.getOutputStream());
 				className=in.readUTF();
 			} catch (IOException e) {
-				System.out.println("IO Exception when working with remote client");
+				break;
+				//throw new RuntimeException(e);
 			}
 			if(className!=null){
 				int length=(int)(new File(className+".class")).length();
@@ -35,10 +38,15 @@ public class ClassServer {
 					try {
 						out.writeObject(null);
 					} catch (IOException e1) {
-						e1.printStackTrace();
+						throw new RuntimeException(e1);
 					}
 				}
 			}
+		}
+		try {
+			server.close();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
 		}
 	}
 }

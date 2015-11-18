@@ -91,7 +91,6 @@ public class SampleView extends ViewPart {
 
 		@Override
 		public <T> T getAdapter(Class<T> arg0) {
-			// TODO Auto-generated method stub
 			return null;
 		}
 

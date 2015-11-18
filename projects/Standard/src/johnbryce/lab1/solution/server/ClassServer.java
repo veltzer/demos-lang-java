@@ -15,7 +15,7 @@ public class ClassServer {
 		try {
 			server = new ServerSocket(5555);
 		} catch (IOException e) {
-			System.out.println("could not listen on 5555 port");
+			throw new RuntimeException(e);
 		}
 		DataInputStream in=null;
 		ObjectOutputStream out=null;
@@ -28,7 +28,7 @@ public class ClassServer {
 				out=new ObjectOutputStream(s.getOutputStream());
 				className=in.readUTF();
 			} catch (IOException e) {
-				System.out.println("IO Exception when working with remote client");
+				break;
 			}
 			if(className!=null){
 				int length=(int)(new File(className+".class")).length();
@@ -48,6 +48,11 @@ public class ClassServer {
 					}
 				}
 			}
+		}
+		try {
+			server.close();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
 		}
 	}
 }
