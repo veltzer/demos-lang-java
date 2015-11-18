@@ -89,11 +89,12 @@ public class SampleView extends ViewPart {
 			return getName();
 		}
 
-		@SuppressWarnings({ "rawtypes", "unchecked" })
 		@Override
-		public Object getAdapter(Class adapter) {
+		public <T> T getAdapter(Class<T> arg0) {
+			// TODO Auto-generated method stub
 			return null;
 		}
+
 	}
 
 	class TreeParent extends TreeObject {
