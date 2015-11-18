@@ -12,7 +12,8 @@ public class FormattedXMLBuilder implements XMLBuilder {
 
 	@Override
 	public void buildVersion(String xmlVersion) {
-		formattedXML.append("<xml version=\"").append(xmlVersion).append("\">\n");
+		formattedXML.append("<xml version=\"").append(xmlVersion)
+				.append("\">\n");
 	}
 
 	private void indent(int level) {
@@ -23,7 +24,8 @@ public class FormattedXMLBuilder implements XMLBuilder {
 
 	public void build(XMLElement element, int level) {
 		indent(level);
-		formattedXML.append("<").append(element.getName()).append(">").append("\n");
+		formattedXML.append("<").append(element.getName()).append(">")
+				.append("\n");
 		List<XMLElement> children = element.getChildren();
 		for (int i = 0; i < children.size(); ++i) {
 			build(children.get(i), level + 1);
@@ -33,7 +35,8 @@ public class FormattedXMLBuilder implements XMLBuilder {
 			formattedXML.append(element.getData()).append("\n");
 		}
 		indent(level);
-		formattedXML.append("</").append(element.getName()).append(">").append("\n");
+		formattedXML.append("</").append(element.getName()).append(">")
+				.append("\n");
 	}
 
 	@Override

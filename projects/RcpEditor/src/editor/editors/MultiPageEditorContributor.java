@@ -24,8 +24,8 @@ import org.eclipse.ui.texteditor.ITextEditorActionConstants;
  * editor. Multi-page contributor replaces the contributors for the individual
  * editors in the multi-page editor.
  */
-public class MultiPageEditorContributor extends
-		MultiPageEditorActionBarContributor {
+public class MultiPageEditorContributor
+		extends MultiPageEditorActionBarContributor {
 	private IEditorPart activeEditorPart;
 	private Action sampleAction;
 
@@ -59,8 +59,8 @@ public class MultiPageEditorContributor extends
 		IActionBars actionBars = getActionBars();
 		if (actionBars != null) {
 
-			ITextEditor editor = (part instanceof ITextEditor) ? (ITextEditor) part
-					: null;
+			ITextEditor editor = (part instanceof ITextEditor)
+					? (ITextEditor) part : null;
 
 			actionBars.setGlobalActionHandler(ActionFactory.DELETE.getId(),
 					getAction(editor, ITextEditorActionConstants.DELETE));
@@ -78,8 +78,7 @@ public class MultiPageEditorContributor extends
 					getAction(editor, ITextEditorActionConstants.SELECT_ALL));
 			actionBars.setGlobalActionHandler(ActionFactory.FIND.getId(),
 					getAction(editor, ITextEditorActionConstants.FIND));
-			actionBars.setGlobalActionHandler(
-					IDEActionFactory.BOOKMARK.getId(),
+			actionBars.setGlobalActionHandler(IDEActionFactory.BOOKMARK.getId(),
 					getAction(editor, IDEActionFactory.BOOKMARK.getId()));
 			actionBars.updateActionBars();
 		}
@@ -94,9 +93,9 @@ public class MultiPageEditorContributor extends
 		};
 		sampleAction.setText("Sample Action");
 		sampleAction.setToolTipText("Sample Action tool tip");
-		sampleAction.setImageDescriptor(PlatformUI.getWorkbench()
-				.getSharedImages()
-				.getImageDescriptor(IDE.SharedImages.IMG_OBJS_TASK_TSK));
+		sampleAction.setImageDescriptor(
+				PlatformUI.getWorkbench().getSharedImages().getImageDescriptor(
+						IDE.SharedImages.IMG_OBJS_TASK_TSK));
 	}
 
 	public void contributeToMenu(IMenuManager manager) {

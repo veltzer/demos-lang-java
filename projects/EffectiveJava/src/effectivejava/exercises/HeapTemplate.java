@@ -9,8 +9,12 @@ public abstract class HeapTemplate<T> implements Iterable<T> {
 	}
 
 	abstract Object pop();
+
 	abstract void add(Object o);
+
 	abstract void addAll(Collection<T> c);
+
 	abstract void popAll(Collection<T> c);
+
 	public abstract Iterator<T> iterator();
 }

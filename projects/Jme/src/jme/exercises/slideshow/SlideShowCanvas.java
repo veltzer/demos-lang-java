@@ -12,7 +12,10 @@ public class SlideShowCanvas extends Canvas {
 		images = iimages;
 	}
 
-	/** Renders the Canvas. The application must implement this method in order to paint any graphics. */
+	/**
+	 * Renders the Canvas. The application must implement this method in order
+	 * to paint any graphics.
+	 */
 	public void paint(Graphics g) {
 		clear(g);
 		draw(g);
@@ -31,12 +34,15 @@ public class SlideShowCanvas extends Canvas {
 
 	/** Draw current image, centered horizontally and vertically. */
 	private void draw(Graphics g) {
-		g.drawImage(images[currentImageIndex], getWidth() / 2, getHeight() / 2, Graphics.HCENTER | Graphics.VCENTER);
+		g.drawImage(images[currentImageIndex], getWidth() / 2, getHeight() / 2,
+				Graphics.HCENTER | Graphics.VCENTER);
 	}
 
 	/** Handle user key press event. */
 	protected void keyPressed(int keyCode) {
-		int action = getGameAction(keyCode); // Translate key code to game action for maximum portability
+		int action = getGameAction(keyCode); // Translate key code to game
+												// action for maximum
+												// portability
 
 		if (action == LEFT) {
 			advanceBackward();

@@ -14,17 +14,22 @@ public class TextWordsDirector {
 	}
 
 	public void produceCollection(File textFile) {
-		// We can begin with a predefined array of words (skip the file reading...)
-		// We simply iterate through this array as if these are the words we read from file.
-		//String[] myWords = { "the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog" } ;
+		// We can begin with a predefined array of words (skip the file
+		// reading...)
+		// We simply iterate through this array as if these are the words we
+		// read from file.
+		// String[] myWords = { "the", "quick", "brown", "fox", "jumps", "over",
+		// "the", "lazy", "dog" } ;
 
 		// Hint: the following code splits a text line into words:
 		// String[] words = line.split("[\\W]+");
 
 		try {
 			// Bug here: empty lines are considered as a word...
-			// Can you think of an alternative way for reading words from a file?
-			BufferedReader reader = new BufferedReader(new FileReader(textFile));
+			// Can you think of an alternative way for reading words from a
+			// file?
+			BufferedReader reader = new BufferedReader(
+					new FileReader(textFile));
 			String line = null;
 			while ((line = reader.readLine()) != null) {
 				String[] words = line.split("[^\\w]+");
@@ -39,7 +44,8 @@ public class TextWordsDirector {
 	}
 
 	public void printCollection() {
-		for (Iterator<String> i = builder.getCollection().iterator(); i.hasNext();) {
+		for (Iterator<String> i = builder.getCollection().iterator(); i
+				.hasNext();) {
 			System.out.println("" + i.next());
 		}
 	}
@@ -48,7 +54,7 @@ public class TextWordsDirector {
 		try {
 			File inputFile = new File("/tmp/words.txt");
 			WordsBuilder builder = new WordsCounterBuilder();
-			//WordsBuilder builder = new DictionaryBuilder();
+			// WordsBuilder builder = new DictionaryBuilder();
 
 			TextWordsDirector director = new TextWordsDirector(builder);
 			director.produceCollection(inputFile);

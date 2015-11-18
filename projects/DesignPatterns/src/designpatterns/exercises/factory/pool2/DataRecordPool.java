@@ -5,9 +5,8 @@ import java.util.List;
 
 /**
  * A minimal object pool. This pool is a factory which manages the creation of
- * DataRecord objects.
- * Locking is provided.
- * Flyweight is used to allow for multiple objects creation, no arguments needed.
+ * DataRecord objects. Locking is provided. Flyweight is used to allow for
+ * multiple objects creation, no arguments needed.
  */
 public final class DataRecordPool {
 	private static DataRecordPool instance = new DataRecordPool();
@@ -18,8 +17,10 @@ public final class DataRecordPool {
 	private DataRecordPool() {
 		pool = new LinkedList<DataRecord>();
 		// a maxSize of 0 means "unlimited"
-		maxSize = Integer.parseInt(System.getProperty("datarecord.pool.maxsize", "0"));
-		minSize = Integer.parseInt(System.getProperty("datarecord.pool.minsize", "0"));
+		maxSize = Integer
+				.parseInt(System.getProperty("datarecord.pool.maxsize", "0"));
+		minSize = Integer
+				.parseInt(System.getProperty("datarecord.pool.minsize", "0"));
 
 		ensureCapacity();
 	}
@@ -60,7 +61,8 @@ public final class DataRecordPool {
 
 	public synchronized void release(DataRecord record) {
 		record.reset();
-		// There should be a safety check: perhaps this record is already in the pool?
+		// There should be a safety check: perhaps this record is already in the
+		// pool?
 		if ((maxSize == 0) || (pool.size() < maxSize)) {
 			pool.add(record);
 		}

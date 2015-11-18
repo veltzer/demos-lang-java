@@ -19,16 +19,10 @@ public class TestSuite {
 
 	public static void main(String... argv) {
 		TestSuite suite = new TestSuite();
-		suite.execute(
-				new Empty(),
-				new AddInteger(),
-				new AddPrimitive(),
-				new EqualsInteger(),
-				new EqualsInteger2(),
-				new EqualsPrimitive(),
-				new ToStringInteger(),
-				new ToStringPrimitive()
-				);
+		suite.execute(new Empty(), new AddInteger(), new AddPrimitive(),
+				new EqualsInteger(), new EqualsInteger2(),
+				new EqualsPrimitive(), new ToStringInteger(),
+				new ToStringPrimitive());
 
 	}
 }

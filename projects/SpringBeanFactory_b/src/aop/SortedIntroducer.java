@@ -1,6 +1,5 @@
 package aop;
 
-
 import meta.sorter.Sorted;
 
 import org.aopalliance.intercept.MethodInvocation;

@@ -12,14 +12,9 @@ import ejbwl.exercises.solutions.source.dtos.BookDTO;
 import ejbwl.exercises.solutions.source.dtos.CustomerDTO;
 
 /**
- * A test client for our bookstore's admin bean.
- *
- * This simple test obtains a BookStoreAdmin stub and invokes
- * methods such as: <ul>
- * <li> Adding a book to inventory
- * <li> Adding a customer
- * <li> Viewing all books / all customers
- *
+ * A test client for our bookstore's admin bean. This simple test obtains a
+ * BookStoreAdmin stub and invokes methods such as: <ul> <li> Adding a book to
+ * inventory <li> Adding a customer <li> Viewing all books / all customers
  */
 public abstract class BookstoreClient {
 
@@ -27,7 +22,8 @@ public abstract class BookstoreClient {
 		// Lookup:
 		InitialContext ictx = new InitialContext();
 		Object obj = ictx.lookup("ejb/admin/BookstoreAdminHome");
-		BookstoreAdminHome adminHome = (BookstoreAdminHome) PortableRemoteObject.narrow(obj, BookstoreAdminHome.class);
+		BookstoreAdminHome adminHome = (BookstoreAdminHome) PortableRemoteObject
+				.narrow(obj, BookstoreAdminHome.class);
 		BookstoreAdmin admin = adminHome.create();
 
 		// Add books:
@@ -51,18 +47,10 @@ public abstract class BookstoreClient {
 		// Add customers:
 		CustomerDTO customer;
 		try {
-			admin.addNewCustomer(
-				new CustomerDTO(
-					"1111",
-					"John Williams",
-					"john@yahoo.com",
-					"5th avenu, NYC"));
-			admin.addNewCustomer(
-				new CustomerDTO(
-					"222",
-					"Paul Smith",
-					"paul@yahoo.com",
-					"5th avenu, NYC"));
+			admin.addNewCustomer(new CustomerDTO("1111", "John Williams",
+					"john@yahoo.com", "5th avenu, NYC"));
+			admin.addNewCustomer(new CustomerDTO("222", "Paul Smith",
+					"paul@yahoo.com", "5th avenu, NYC"));
 		} catch (Exception e) {
 			System.err.println("Failed to enter customers. " + e);
 		}

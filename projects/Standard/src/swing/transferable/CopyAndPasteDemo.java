@@ -19,8 +19,8 @@ import javax.swing.TransferHandler;
 
 @SuppressWarnings("serial")
 public class CopyAndPasteDemo extends JPanel {
-	abstract static class TransferableAction extends AbstractAction implements
-			PropertyChangeListener {
+	abstract static class TransferableAction extends AbstractAction
+			implements PropertyChangeListener {
 		private JComponent current;
 
 		public TransferableAction() {
@@ -43,11 +43,8 @@ public class CopyAndPasteDemo extends JPanel {
 		}
 
 		protected void paste() {
-			current.getTransferHandler()
-					.importData(
-							current,
-							current.getToolkit().getSystemClipboard()
-									.getContents(null));
+			current.getTransferHandler().importData(current, current
+					.getToolkit().getSystemClipboard().getContents(null));
 		}
 
 		protected boolean enableAction(JComponent cmp) {
@@ -102,9 +99,8 @@ public class CopyAndPasteDemo extends JPanel {
 		protected boolean enableAction(JComponent cmp) {
 			Transferable t = cmp.getToolkit().getSystemClipboard()
 					.getContents(null);
-			return (t != null)
-					&& (cmp.getTransferHandler().canImport(cmp,
-							t.getTransferDataFlavors()));
+			return (t != null) && (cmp.getTransferHandler().canImport(cmp,
+					t.getTransferDataFlavors()));
 		}
 
 		public void actionPerformed(ActionEvent ev) {

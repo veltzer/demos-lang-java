@@ -10,18 +10,26 @@ public class HebCalendar {
 		int dayNum = c.get(Calendar.DAY_OF_WEEK);
 		return hebDayName(dayNum);
 	}
+
 	@WebMethod
 	public String hebDayName(int dayNum) {
 		switch (dayNum) {
-			case 1: return "ראשון";
-			case 2: return "שני";
-			case 3: return "שלישי";
-			case 4: return "רביעי";
-			case 5: return "חמישי";
-			case 6: return "שישי";
-			case 7: return "שבת";
-			default:
-				return null;
+		case 1:
+			return "ראשון";
+		case 2:
+			return "שני";
+		case 3:
+			return "שלישי";
+		case 4:
+			return "רביעי";
+		case 5:
+			return "חמישי";
+		case 6:
+			return "שישי";
+		case 7:
+			return "שבת";
+		default:
+			return null;
 		}
 		return null;
 	}

@@ -12,7 +12,8 @@ final class RedoAction extends AbstractAction {
 	private static final RedoAction INSTANCE = new RedoAction();
 
 	private RedoAction() {
-		super("Redo", new ImageIcon(UndoAction.class.getResource("Redo24.gif")));
+		super("Redo",
+				new ImageIcon(UndoAction.class.getResource("Redo24.gif")));
 		setEnabled(false);
 	}
 
@@ -34,8 +35,8 @@ final class RedoAction extends AbstractAction {
 	void update() {
 		if (UndoAction.getManager().canRedo()) {
 			setEnabled(true);
-			putValue(Action.NAME, UndoAction.getManager()
-					.getRedoPresentationName());
+			putValue(Action.NAME,
+					UndoAction.getManager().getRedoPresentationName());
 		} else {
 			setEnabled(false);
 			putValue(Action.NAME, "Redo");

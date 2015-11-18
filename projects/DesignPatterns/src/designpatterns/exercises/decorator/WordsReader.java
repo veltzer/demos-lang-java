@@ -43,7 +43,7 @@ public class WordsReader extends Reader {
 	public static void main(String[] args) {
 		try {
 			File inputFile = new File("/tmp/words.txt");
-			//WordsBuilder builder = new WordsCounterBuilder();
+			// WordsBuilder builder = new WordsCounterBuilder();
 			WordsReader reader = new WordsReader(new FileReader(inputFile));
 			String word = null;
 			while ((word = reader.readWord()) != null) {

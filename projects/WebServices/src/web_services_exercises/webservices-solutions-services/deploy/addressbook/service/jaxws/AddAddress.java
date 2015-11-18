@@ -10,8 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "addAddress", namespace = "http://service.addressbook/")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "addAddress", namespace = "http://service.addressbook/", propOrder = {
-	"arg0",
-	"arg1"
+		"arg0", "arg1"
 })
 public class AddAddress {
 
@@ -23,12 +22,15 @@ public class AddAddress {
 	public String getArg0() {
 		return arg0;
 	}
+
 	public void setArg0(String iarg0) {
 		arg0 = iarg0;
 	}
+
 	public addressbook.service.Address getArg1() {
 		return arg1;
 	}
+
 	public void setArg1(addressbook.service.Address iarg1) {
 		arg1 = iarg1;
 	}

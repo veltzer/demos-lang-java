@@ -16,14 +16,15 @@ public class MaskedFieldDemo extends JPanel {
 				.setDocumentFilter(new DocumentFilter() {
 					public void insertString(DocumentFilter.FilterBypass fb,
 							int offset, String string, AttributeSet attr)
-							throws BadLocationException {
+									throws BadLocationException {
 						if (isValid(string)) {
 							fb.insertString(offset, string, attr);
 						}
 					}
 
 					public void remove(DocumentFilter.FilterBypass fb,
-							int offset, int length) throws BadLocationException {
+							int offset, int length)
+									throws BadLocationException {
 						fb.remove(offset, length);
 					}
 

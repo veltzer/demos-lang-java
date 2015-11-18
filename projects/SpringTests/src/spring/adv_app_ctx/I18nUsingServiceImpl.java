@@ -5,8 +5,8 @@ import java.util.Locale;
 import org.springframework.context.MessageSource;
 import org.springframework.context.MessageSourceAware;
 
-public class I18nUsingServiceImpl implements MessageSourceAware,
-		I18nUsingService {
+public class I18nUsingServiceImpl
+		implements MessageSourceAware, I18nUsingService {
 	private MessageSource messageSource;
 	private Locale locale = Locale.getDefault();
 
@@ -20,7 +20,7 @@ public class I18nUsingServiceImpl implements MessageSourceAware,
 	 */
 	public void doSomething() {
 		System.out.println(messageSource.getMessage("msg1", new Object[] {
-			"Ido"
+				"Ido"
 		}, locale));
 	}
 

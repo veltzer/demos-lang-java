@@ -28,8 +28,9 @@ public class ReflectionProxy implements InvocationHandler {
 			if (JFrame.getFrames().length > 0) {
 				frm = (JFrame) JFrame.getFrames()[0];
 			}
-			JOptionPane.showMessageDialog(frm, e.getClass().getName() + ": "
-					+ e.getMessage() + "\n" + new String(writer.toCharArray()),
+			JOptionPane.showMessageDialog(frm,
+					e.getClass().getName() + ": " + e.getMessage() + "\n"
+							+ new String(writer.toCharArray()),
 					"Exception", JOptionPane.ERROR_MESSAGE);
 			throw (e);
 		}

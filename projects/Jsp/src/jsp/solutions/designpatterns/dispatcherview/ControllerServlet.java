@@ -35,7 +35,8 @@ public class ControllerServlet extends HttpServlet {
 		dispatcher = new Dispatcher(ctx);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) {
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) {
 		String mode = request.getParameter("mode");
 		dispatcher.dispatch(request, response, mode);
 	}

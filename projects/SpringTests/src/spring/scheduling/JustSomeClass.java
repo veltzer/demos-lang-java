@@ -8,8 +8,8 @@ public class JustSomeClass {
 	}
 
 	public void doIt() {
-		System.out.println(name
-				+ " being called directly, not through interface");
+		System.out.println(
+				name + " being called directly, not through interface");
 	}
 
 }

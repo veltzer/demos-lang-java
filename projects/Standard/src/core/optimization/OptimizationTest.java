@@ -64,8 +64,8 @@ public final class OptimizationTest {
 		/*
 		 * startTime = System.currentTimeMillis(); for
 		 * (@SuppressWarnings("unused") int i : l) { } endtime =
-		 * System.currentTimeMillis();
-		 * System.out.println("time for local size: " + (endtime - startTime));
+		 * System.currentTimeMillis(); System.out.println(
+		 * "time for local size: " + (endtime - startTime));
 		 */
 	}
 
@@ -85,15 +85,15 @@ public final class OptimizationTest {
 			f();
 		}
 		long endtime = System.currentTimeMillis();
-		System.out.println("time for non-synchronized f(): "
-				+ (endtime - startTime));
+		System.out.println(
+				"time for non-synchronized f(): " + (endtime - startTime));
 		startTime = System.currentTimeMillis();
 		for (int i = 0; i < COUNT; ++i) {
 			g();
 		}
 		endtime = System.currentTimeMillis();
-		System.out.println("time for synchronized g(): "
-				+ (endtime - startTime));
+		System.out
+				.println("time for synchronized g(): " + (endtime - startTime));
 	}
 
 	/**

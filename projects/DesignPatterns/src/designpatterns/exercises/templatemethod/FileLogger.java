@@ -6,10 +6,12 @@ import java.io.IOException;
 
 public class FileLogger extends AbstractLogger {
 	private File logFile;
+
 	public FileLogger(String fileName) {
 		super();
 		logFile = new File(fileName);
 	}
+
 	protected void logMessageLine(String messageLine) {
 		try {
 			// Open in append mode.

@@ -9,7 +9,8 @@ public class CustomerDTO implements Serializable {
 	private String email;
 	private String address;
 
-	public CustomerDTO(String iid, String iname, String iemail, String iaddress) {
+	public CustomerDTO(String iid, String iname, String iemail,
+			String iaddress) {
 		id = iid;
 		name = iname;
 		email = iemail;
@@ -73,6 +74,7 @@ public class CustomerDTO implements Serializable {
 	}
 
 	public String toString() {
-		return "CustomerDTO id:" + id + " name:" + name + " email:" + email + " address:" + address;
+		return "CustomerDTO id:" + id + " name:" + name + " email:" + email
+				+ " address:" + address;
 	}
 }

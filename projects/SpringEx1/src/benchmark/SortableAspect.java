@@ -1,6 +1,5 @@
 package benchmark;
 
-
 import meta.sorter.Sorted;
 import meta.sorter.SortedImpl;
 

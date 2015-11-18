@@ -10,7 +10,8 @@ public class OrderDetailsDTO implements Serializable {
 	private long timestamp;
 	private List<String> bookTitles;
 
-	public OrderDetailsDTO(String iid, long itimestamp, List<String> ibookTitles) {
+	public OrderDetailsDTO(String iid, long itimestamp,
+			List<String> ibookTitles) {
 		id = iid;
 		timestamp = itimestamp;
 		bookTitles = ibookTitles;
@@ -18,27 +19,35 @@ public class OrderDetailsDTO implements Serializable {
 
 	public OrderDetailsDTO() {
 	}
+
 	public List<String> getBookTitles() {
 		return bookTitles;
 	}
+
 	public String getId() {
 		return id;
 	}
+
 	public long getTimestamp() {
 		return timestamp;
 	}
+
 	public void setBookTitles(List<String> list) {
 		bookTitles = list;
 	}
+
 	public void setId(String string) {
 		id = string;
 	}
+
 	public void setTimestamp(long l) {
 		timestamp = l;
 	}
+
 	public String getCustomerId() {
 		return customerId;
 	}
+
 	public void setCustomerId(String string) {
 		customerId = string;
 	}

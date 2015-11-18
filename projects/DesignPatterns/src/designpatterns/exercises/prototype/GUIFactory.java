@@ -8,9 +8,11 @@ public class GUIFactory {
 		button = ibutton;
 		combo = icombo;
 	}
+
 	public Button createButton() {
 		return (Button) button.clone();
 	}
+
 	public ComboBox createComboBox() {
 		return (ComboBox) combo.clone();
 	}

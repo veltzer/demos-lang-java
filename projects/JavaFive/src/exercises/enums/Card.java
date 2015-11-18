@@ -2,8 +2,13 @@ package exercises.enums;
 
 public class Card {
 
-	public enum Rank { TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE }
-	public enum Suit { DIAMOND, HEART, SPADE, CLUB }
+	public enum Rank {
+		TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE
+	}
+
+	public enum Suit {
+		DIAMOND, HEART, SPADE, CLUB
+	}
 
 	private Rank rank;
 	private Suit suit;

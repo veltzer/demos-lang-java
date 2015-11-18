@@ -31,8 +31,8 @@ public class NaturalGridLayout implements LayoutManager {
 	}
 
 	public void layoutContainer(Container parent) {
-		boolean rToL = ComponentOrientation.RIGHT_TO_LEFT.equals(parent
-				.getComponentOrientation());
+		boolean rToL = ComponentOrientation.RIGHT_TO_LEFT
+				.equals(parent.getComponentOrientation());
 		Insets insets = parent.getInsets();
 		Dimension size = parent.getSize();
 
@@ -113,7 +113,7 @@ public class NaturalGridLayout implements LayoutManager {
 		for (int iter = 0; iter < columns; iter++) {
 			height = Math.max(height, heights[iter]);
 		}
-		return (new Dimension(insets.left + insets.right + width, insets.top
-				+ insets.bottom + height));
+		return (new Dimension(insets.left + insets.right + width,
+				insets.top + insets.bottom + height));
 	}
 }

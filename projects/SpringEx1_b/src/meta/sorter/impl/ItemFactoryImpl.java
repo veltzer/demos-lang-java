@@ -5,7 +5,6 @@ import meta.sorter.ItemFactory;
 
 import org.springframework.beans.factory.FactoryBean;
 
-
 public class ItemFactoryImpl implements ItemFactory, FactoryBean<Object> {
 
 	private int counter = 0;

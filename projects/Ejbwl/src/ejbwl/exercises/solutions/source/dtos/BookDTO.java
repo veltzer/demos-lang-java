@@ -13,6 +13,7 @@ public class BookDTO implements Serializable {
 		author = iauthor;
 		price = iprice;
 	}
+
 	public BookDTO() {
 	}
 
@@ -22,7 +23,6 @@ public class BookDTO implements Serializable {
 	public String getAuthor() {
 		return author;
 	}
-
 
 	/**
 	 * @return

@@ -60,8 +60,8 @@ public class TimerDemo extends JPanel {
 				String password = new String(passwordField.getPassword());
 				boolean passwordValid = login.equals(password);
 				if (passwordValid) {
-					JOptionPane.showMessageDialog(TimerDemo.this, "Welcome, "
-							+ login + "!");
+					JOptionPane.showMessageDialog(TimerDemo.this,
+							"Welcome, " + login + "!");
 					resetFields();
 				} else {
 					loginField.setEnabled(false);

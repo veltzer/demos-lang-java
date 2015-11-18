@@ -4,10 +4,7 @@ package calculator.service;
 public class StatefulCalculator {
 
 	public enum Operation {
-		ADD,
-		SUB,
-		MUL,
-		DIV
+		ADD, SUB, MUL, DIV
 	};
 
 	@Resource
@@ -25,20 +22,20 @@ public class StatefulCalculator {
 		System.out.println("Current num: " + curNum);
 
 		switch (op) {
-			case ADD:
-				curNum += num;
-				break;
-			case SUB:
-				curNum -= num;
-				break;
-			case MUL:
-				curNum *= num;
-				break;
-			case DIV:
-				curNum /= num;
-				break;
-			default:
-				break;
+		case ADD:
+			curNum += num;
+			break;
+		case SUB:
+			curNum -= num;
+			break;
+		case MUL:
+			curNum *= num;
+			break;
+		case DIV:
+			curNum /= num;
+			break;
+		default:
+			break;
 		}
 		System.out.println("After op " + op + " " + num + ": " + curNum);
 
@@ -49,7 +46,8 @@ public class StatefulCalculator {
 
 	private HttpSession getSession() {
 		MessageContext mc = wsContext.getMessageContext();
-		HttpSession session = ((HttpServletRequest) mc.get(MessageContext.SERVLET_REQUEST)).getSession();
+		HttpSession session = ((HttpServletRequest) mc
+				.get(MessageContext.SERVLET_REQUEST)).getSession();
 		return session;
 	}
 }

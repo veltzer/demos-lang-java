@@ -33,8 +33,8 @@ public class Transform extends Component {
 		g.setColor(Color.BLUE);
 		Shape rect = new Rectangle(20, 20, 50, 50);
 		g2d.fill(rect);
-		AffineTransform rotate = AffineTransform.getRotateInstance(
-				Math.PI / 4.0, 20, 20);
+		AffineTransform rotate = AffineTransform
+				.getRotateInstance(Math.PI / 4.0, 20, 20);
 		g2d.transform(rotate);
 		g2d.setColor(new Color(0xff, 0x7f, 0x7f, 0x7f));
 		g2d.fill(rect);

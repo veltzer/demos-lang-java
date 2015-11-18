@@ -15,9 +15,11 @@ public class CalculatorBean {
 	public double getDisplayValue() {
 		return displayValue;
 	}
+
 	public void setDisplayValue(double idisplayValue) {
 		displayValue = idisplayValue;
 	}
+
 	private void calc(int newOp) {
 		/*
 		 * You can use a selected output component on the form for debug output,
@@ -25,9 +27,9 @@ public class CalculatorBean {
 		 * out in the HTML.)
 		 */
 
-//		UIComponent root = FacesContext.getCurrentInstance().getViewRoot();
-//		UIOutput output = (UIOutput) root.findComponent("calc:debug");
-//		output.setValue("newOp = " + newOp);
+		// UIComponent root = FacesContext.getCurrentInstance().getViewRoot();
+		// UIOutput output = (UIOutput) root.findComponent("calc:debug");
+		// output.setValue("newOp = " + newOp);
 
 		switch (lastOp) {
 		case PLUS:

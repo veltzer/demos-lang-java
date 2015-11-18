@@ -23,7 +23,7 @@ public abstract class AbstractTemplate implements Template {
 
 	public void setAction(String location, Action action) {
 		setComponents(location, new JComponent[] {
-			new JButton(action)
+				new JButton(action)
 		});
 	}
 
@@ -39,5 +39,6 @@ public abstract class AbstractTemplate implements Template {
 		setComponents(location, arr);
 	}
 
-	public abstract void setComponents(String location, JComponent[] components);
+	public abstract void setComponents(String location,
+			JComponent[] components);
 }

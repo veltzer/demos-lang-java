@@ -12,9 +12,11 @@ public class TableTag extends TagSupport {
 	private static final String ERR_STRING1 = "connection not found";
 	private String tableName;
 	private ResultSet rs;
+
 	public int doStartTag() {
 		try {
-			Connection con = (Connection) pageContext.getAttribute("connection");
+			Connection con = (Connection) pageContext
+					.getAttribute("connection");
 			if (con == null) {
 				throw new RuntimeException(ERR_STRING1);
 			}
@@ -29,6 +31,7 @@ public class TableTag extends TagSupport {
 		}
 		return SKIP_BODY;
 	}
+
 	public int doAfterBody() {
 		try {
 			if (getRs().next()) {
@@ -40,10 +43,12 @@ public class TableTag extends TagSupport {
 		return SKIP_BODY;
 
 	}
+
 	public int doEndTag() {
 		setRs(null);
 		return EVAL_PAGE;
 	}
+
 	/**
 	 * Getter for property tableName.
 	 * @return Value of property tableName.
@@ -51,6 +56,7 @@ public class TableTag extends TagSupport {
 	public String getTableName() {
 		return tableName;
 	}
+
 	/**
 	 * Setter for property tableName.
 	 * @param tableName New value of property tableName.
@@ -58,9 +64,11 @@ public class TableTag extends TagSupport {
 	public void setTableName(String itableName) {
 		tableName = itableName;
 	}
+
 	public ResultSet getRs() {
 		return rs;
 	}
+
 	public void setRs(ResultSet irs) {
 		rs = irs;
 	}

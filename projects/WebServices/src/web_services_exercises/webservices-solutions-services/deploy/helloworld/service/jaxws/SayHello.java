@@ -15,18 +15,14 @@ public class SayHello {
 	private String arg0;
 
 	/**
-	 *
-	 * @return
-	 *	 returns String
+	 * @return returns String
 	 */
 	public String getArg0() {
 		return this.arg0;
 	}
 
 	/**
-	 *
-	 * @param arg0
-	 * the value for the arg0 property
+	 * @param arg0 the value for the arg0 property
 	 */
 	public void setArg0(String iarg0) {
 		arg0 = iarg0;

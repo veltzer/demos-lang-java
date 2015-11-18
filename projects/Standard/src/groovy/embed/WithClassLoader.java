@@ -14,8 +14,8 @@ public abstract class WithClassLoader {
 		GroovyClassLoader loader = new GroovyClassLoader(parent);
 		Class<?> groovyClass;
 		try {
-			groovyClass = loader.parseClass(new File(
-					"src/groovy/embed/HelloWorld.groovy"));
+			groovyClass = loader
+					.parseClass(new File("src/groovy/embed/HelloWorld.groovy"));
 		} catch (CompilationFailedException e) {
 			throw new RuntimeException(e);
 		} catch (IOException e) {

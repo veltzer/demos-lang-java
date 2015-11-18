@@ -1,6 +1,5 @@
 package meta.sorter.impl;
 
-
 import meta.sorter.Item;
 import meta.sorter.ItemFactory;
 

@@ -6,7 +6,7 @@ public class DoableAction implements Doable {
 	}
 
 	public void doIt() {
-		//System.out.println("Doing it...");
+		// System.out.println("Doing it...");
 	}
 
 	public void doItAgain(String how) {

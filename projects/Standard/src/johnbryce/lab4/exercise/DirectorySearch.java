@@ -10,39 +10,40 @@ public class DirectorySearch extends RecursiveAction {
 	private String fileExt;
 	private Collection<String> fileList;
 
-	public DirectorySearch(String directory, String fileExt,Collection<String> fileList) {
+	public DirectorySearch(String idirectory, String ifileExt,
+			Collection<String> ifileList) {
 		super();
-		this.directory = directory;
-		this.setFileExt(fileExt);
-		this.setFileList(fileList);
+		directory = idirectory;
+		setFileExt(ifileExt);
+		setFileList(ifileList);
 	}
 
 	public String getDirectory() {
 		return directory;
 	}
 
-	public void setDirectory(String directory) {
-		this.directory = directory;
+	public void setDirectory(String idirectory) {
+		directory = idirectory;
 	}
 
 	@Override
 	protected void compute() {
-		//enter text here
+		// enter text here
 	}
 
 	public String getFileExt() {
 		return fileExt;
 	}
 
-	public void setFileExt(String fileExt) {
-		this.fileExt = fileExt;
+	public void setFileExt(String ifileExt) {
+		fileExt = ifileExt;
 	}
 
 	public Collection<String> getFileList() {
 		return fileList;
 	}
 
-	public void setFileList(Collection<String> fileList) {
-		this.fileList = fileList;
+	public void setFileList(Collection<String> ifileList) {
+		fileList = ifileList;
 	}
 }

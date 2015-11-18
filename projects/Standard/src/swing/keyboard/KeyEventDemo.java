@@ -17,8 +17,8 @@ public class KeyEventDemo extends JPanel implements KeyListener {
 	}
 
 	private String keyToString(KeyEvent e) {
-		return (KeyEvent.getKeyText(e.getKeyCode()) + " " + KeyEvent
-				.getKeyModifiersText(e.getModifiers()));
+		return (KeyEvent.getKeyText(e.getKeyCode()) + " "
+				+ KeyEvent.getKeyModifiersText(e.getModifiers()));
 	}
 
 	public void keyPressed(KeyEvent e) {

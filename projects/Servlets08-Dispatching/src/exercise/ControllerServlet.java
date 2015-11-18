@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ControllerServlet extends HttpServlet {
 	protected static final String CATALOG_PAGE = "/list.jsp";
 	protected static final String ITEM_PAGE = "/item.jsp";
+
 	public void init() {
 		Map<String, Item> itemList = new TreeMap<String, Item>();
 		itemList.put("1", new Item("1", "Monitor", 250));
@@ -23,6 +24,8 @@ public class ControllerServlet extends HttpServlet {
 		ServletContext ctx = getServletConfig().getServletContext();
 		ctx.setAttribute("items", itemList);
 	}
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) {
+
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) {
 	}
 }

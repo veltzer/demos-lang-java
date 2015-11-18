@@ -26,8 +26,8 @@ public class HtmlLayoutTestApplet extends Applet {
 	public void init() {
 		htmlURL = getParameter("htmlURL");
 		if (htmlURL == null) {
-			System.err
-					.println("HtmlLayoutTestApplet: htmlURL param must be specified");
+			System.err.println(
+					"HtmlLayoutTestApplet: htmlURL param must be specified");
 		} else {
 			try {
 				URL url = new URL(getCodeBase(), htmlURL);

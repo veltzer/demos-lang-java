@@ -10,8 +10,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "invokeOperation", namespace = "http://service.calculator/")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "invokeOperation", namespace = "http://service.calculator/", propOrder = {
-	"arg0",
-	"arg1"
+		"arg0", "arg1"
 })
 public class InvokeOperation {
 	@XmlElement(name = "arg0", namespace = "")
@@ -22,12 +21,15 @@ public class InvokeOperation {
 	public calculator.service.StatefulCalculator.Operation getArg0() {
 		return arg0;
 	}
+
 	public void setArg0(calculator.service.StatefulCalculator.Operation iarg0) {
 		arg0 = iarg0;
 	}
+
 	public float getArg1() {
 		return arg1;
 	}
+
 	public void setArg1(float iarg1) {
 		arg1 = iarg1;
 	}

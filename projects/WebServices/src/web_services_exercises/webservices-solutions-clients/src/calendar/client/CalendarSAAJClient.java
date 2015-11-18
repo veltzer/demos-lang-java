@@ -14,7 +14,7 @@ public abstract class CalendarSAAJClient {
 		MessageFactory messageFactory = MessageFactory.newInstance();
 		SOAPMessage message = messageFactory.createMessage();
 
-		//Create objects for the message parts
+		// Create objects for the message parts
 		SOAPPart soapPart = message.getSOAPPart();
 		SOAPEnvelope envelope = soapPart.getEnvelope();
 		SOAPBody body = envelope.getBody();
@@ -23,18 +23,21 @@ public abstract class CalendarSAAJClient {
 
 		SOAPBodyElement bodyElement = body.addBodyElement(bodyName);
 
-		//Add content
+		// Add content
 		bodyElement.addChildElement("dayNum").addTextNode(dayNum + "");
 
 		String destination = "http://localhost:8080/services/hebcalendar";
 
-		SOAPConnectionFactory soapConnFactory = SOAPConnectionFactory.newInstance();
+		SOAPConnectionFactory soapConnFactory = SOAPConnectionFactory
+				.newInstance();
 		SOAPConnection connection = soapConnFactory.createConnection();
 
 		SOAPMessage response = connection.call(message, destination);
 
 		body = response.getSOAPBody();
-		SOAPElement resElement = (SOAPElement) body.getChildElements(new QName("http://service.calendar/", "hebDayNameResponse")).next();
+		SOAPElement resElement = (SOAPElement) body.getChildElements(
+				new QName("http://service.calendar/", "hebDayNameResponse"))
+				.next();
 
 		return resElement.getTextContent();
 	}

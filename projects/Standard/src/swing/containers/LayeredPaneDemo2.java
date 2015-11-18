@@ -62,7 +62,8 @@ public class LayeredPaneDemo2 extends JFrame {
 				comp.setAlignmentX(Component.CENTER_ALIGNMENT);
 				comp.setAlignmentY(Component.CENTER_ALIGNMENT);
 				comp.setOpaque(true);
-				comp.setBackground(colors[(int) (Math.random() * colors.length)]);
+				comp.setBackground(
+						colors[(int) (Math.random() * colors.length)]);
 				comp.setBorder(BorderFactory.createLineBorder(Color.GREEN, 4));
 				comp.setBounds(e.getX(), e.getY(),
 						comp.getPreferredSize().width * 2,

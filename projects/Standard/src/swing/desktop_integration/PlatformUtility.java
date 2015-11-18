@@ -33,7 +33,8 @@ public final class PlatformUtility {
 	private static final String OS_NAME = System.getProperty("os.name")
 			.toUpperCase();
 	private static final boolean WINDOWS = OS_NAME.indexOf("WINDOWS") > -1;
-	private static final boolean MAC = System.getProperty("mrj.version") != null;
+	private static final boolean MAC = System
+			.getProperty("mrj.version") != null;
 	private static final boolean LINUX = OS_NAME.indexOf("LINUX") > -1;
 	private static final boolean UNIX = (!MAC) && (!LINUX)
 			&& (File.separatorChar == '/');
@@ -92,8 +93,8 @@ public final class PlatformUtility {
 
 	public ResourceBundle getBundle(String name) {
 		try {
-			ResourceBundle bundle = ResourceBundle.getBundle(PLATFORM_NAME
-					+ name);
+			ResourceBundle bundle = ResourceBundle
+					.getBundle(PLATFORM_NAME + name);
 			return new MultiResourceBundle(new ResourceBundle[] {
 					bundle, ResourceBundle.getBundle(name)
 			});
@@ -104,8 +105,8 @@ public final class PlatformUtility {
 
 	public ResourceBundle getBundle(String name, Locale locale) {
 		try {
-			ResourceBundle bundle = ResourceBundle.getBundle(PLATFORM_NAME
-					+ name, locale);
+			ResourceBundle bundle = ResourceBundle
+					.getBundle(PLATFORM_NAME + name, locale);
 			return new MultiResourceBundle(new ResourceBundle[] {
 					bundle, ResourceBundle.getBundle(name, locale)
 			});
@@ -203,21 +204,21 @@ public final class PlatformUtility {
 				Class<?> interfaceClass = Class.forName(intefaceName);
 				Object f = Proxy.newProxyInstance(getClass().getClassLoader(),
 						new Class<?>[] {
-							interfaceClass
-						}, new InvocationHandler() {
-							public Object invoke(Object proxy, Method method,
-									Object[] args) {
-								listener.actionPerformed(null);
-								return null;
-							}
-						});
+								interfaceClass
+				}, new InvocationHandler() {
+					public Object invoke(Object proxy, Method method,
+							Object[] args) {
+						listener.actionPerformed(null);
+						return null;
+					}
+				});
 				Class<?> util = Class
 						.forName("com.apple.mrj.MRJApplicationUtils");
 				Method m = util.getMethod(methodName, new Class<?>[] {
-					interfaceClass
+						interfaceClass
 				});
 				m.invoke(null, new Object[] {
-					f
+						f
 				});
 			}
 		} catch (Exception e) {

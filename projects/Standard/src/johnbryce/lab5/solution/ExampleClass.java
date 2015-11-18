@@ -7,13 +7,14 @@ public class ExampleClass {
 	private String value;
 	private int num;
 
-	public ExampleClass (String value,Date date, int num){
-		this.value=value;
-		this.date=date;
-		this.num=num;
+	public ExampleClass(String ivalue, Date idate, int inum) {
+		value = ivalue;
+		date = idate;
+		num = inum;
 	}
 
-	public String toString(){
-		return "String value: "+value +"\n"+"Date: "+date+"\n"+"Int value: "+num;
+	public String toString() {
+		return "String value: " + value + "\n" + "Date: " + date + "\n"
+				+ "Int value: " + num;
 	}
 }

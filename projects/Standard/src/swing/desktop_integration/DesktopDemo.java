@@ -23,8 +23,8 @@ import org.jdesktop.jdic.desktop.Message;
 public class DesktopDemo extends JPanel {
 	private JFileChooser chooser = new JFileChooser();
 
-	abstract class DesktopAction extends AbstractAction implements
-			PropertyChangeListener {
+	abstract class DesktopAction extends AbstractAction
+			implements PropertyChangeListener {
 		public DesktopAction() {
 			setEnabled(false);
 			chooser.addPropertyChangeListener(
@@ -32,7 +32,8 @@ public class DesktopDemo extends JPanel {
 		}
 
 		public final void propertyChange(PropertyChangeEvent evt) {
-			setEnabled((chooser.getSelectedFile() != null) && secondCondition());
+			setEnabled(
+					(chooser.getSelectedFile() != null) && secondCondition());
 		}
 
 		protected boolean secondCondition() {

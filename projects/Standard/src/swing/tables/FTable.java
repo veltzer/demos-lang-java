@@ -31,10 +31,10 @@ public class FTable extends JSplitPane {
 		setContinuousLayout(true);
 		int[] notFrozen = getNotFrozen(model.getColumnCount(), frozenColumns);
 
-		JTable frozenTable = new JTable(new HiddenColumnsProxy(model,
-				frozenColumns));
-		JTable notFrozenTable = new JTable(new HiddenColumnsProxy(model,
-				notFrozen));
+		JTable frozenTable = new JTable(
+				new HiddenColumnsProxy(model, frozenColumns));
+		JTable notFrozenTable = new JTable(
+				new HiddenColumnsProxy(model, notFrozen));
 		setBorder(frozenTable.getBorder());
 		frozenTable.setBorder(null);
 		notFrozenTable.setBorder(null);
@@ -49,18 +49,18 @@ public class FTable extends JSplitPane {
 		setOrientation(HORIZONTAL_SPLIT);
 		setLeftComponent(frozenPane);
 		setRightComponent(notFrozenPane);
-		notFrozenPane.getVerticalScrollBar().addAdjustmentListener(
-				new AdjustmentListener() {
+		notFrozenPane.getVerticalScrollBar()
+				.addAdjustmentListener(new AdjustmentListener() {
 					public void adjustmentValueChanged(AdjustmentEvent ev) {
-						frozenPane.getVerticalScrollBar().setValue(
-								ev.getValue());
+						frozenPane.getVerticalScrollBar()
+								.setValue(ev.getValue());
 					}
 				});
-		frozenPane.getVerticalScrollBar().addAdjustmentListener(
-				new AdjustmentListener() {
+		frozenPane.getVerticalScrollBar()
+				.addAdjustmentListener(new AdjustmentListener() {
 					public void adjustmentValueChanged(AdjustmentEvent ev) {
-						notFrozenPane.getVerticalScrollBar().setValue(
-								ev.getValue());
+						notFrozenPane.getVerticalScrollBar()
+								.setValue(ev.getValue());
 					}
 				});
 		frozenTable.setSelectionModel(notFrozenTable.getSelectionModel());

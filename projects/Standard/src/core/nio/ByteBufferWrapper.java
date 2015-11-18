@@ -27,8 +27,8 @@ public class ByteBufferWrapper implements Externalizable {
 	/**
 	 * @see java.io.Externalizable#readExternal(java.io.ObjectInput)
 	 */
-	public void readExternal(ObjectInput in) throws IOException,
-			ClassNotFoundException {
+	public void readExternal(ObjectInput in)
+			throws IOException, ClassNotFoundException {
 		boolean isDirect = in.readBoolean();
 		int capacity = in.readInt();
 		int limit = in.readInt();
@@ -122,8 +122,8 @@ public class ByteBufferWrapper implements Externalizable {
 	private static void testSimpleRead() throws Exception {
 		File serialFile = new File("serial.ser");
 
-		ObjectInputStream input = new ObjectInputStream(new FileInputStream(
-				serialFile));
+		ObjectInputStream input = new ObjectInputStream(
+				new FileInputStream(serialFile));
 		ByteBufferWrapper wrapper = (ByteBufferWrapper) input.readObject();
 		input.close();
 

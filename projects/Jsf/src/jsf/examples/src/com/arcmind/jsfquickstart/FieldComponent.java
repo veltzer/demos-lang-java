@@ -34,19 +34,16 @@ public class FieldComponent extends UIInput {
 	}
 
 	/**
-	 * @param label
-	 * The label to set.
+	 * @param label The label to set.
 	 */
 	public void setLabel(String ilabel) {
 		label = ilabel;
 	}
 
-
 	@Override
 	public String getFamily() {
 		return "arcmind.Field";
 	}
-
 
 	public boolean isError() {
 		return !this.isValid();

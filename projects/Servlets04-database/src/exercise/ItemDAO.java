@@ -9,6 +9,7 @@ import java.util.Map;
 @SuppressWarnings("serial")
 public class ItemDAO implements Serializable {
 	protected static final String URL = "jdbc:odbc:CartServlet";
+
 	static {
 		try {
 			Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");

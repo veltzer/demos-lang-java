@@ -1,22 +1,21 @@
 package johnbryce.lab3.Phase1.solution;
 
-public class Consumer implements Runnable
-{
-	String consumerId;
-	Stack s;
+public class Consumer implements Runnable {
+	private String consumerId;
+	private Stack s;
 
-	public Consumer(String consumerId, Stack s){
-		this.consumerId = consumerId;
-		this.s = s;
+	public Consumer(String iconsumerId, Stack is) {
+		consumerId = iconsumerId;
+		s = is;
 	}
 
 	public void run() {
-		for(int i = 0; i <20; i++){
-			long sleepTime=(long)(Math.random()*1500+500);
+		for (int i = 0; i < 20; i++) {
+			long sleepTime = (long) (Math.random() * 1500 + 500);
 			try {
 				Thread.sleep(sleepTime);
-			} catch(Exception ex) {
-				throw new RuntimeException(ex);
+			} catch (Exception e1) {
+				throw new RuntimeException(e1);
 			}
 			s.pop();
 		}

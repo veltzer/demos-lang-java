@@ -28,8 +28,7 @@ public abstract class TableLayoutConstants {
 	 * Indicates that the component is leading justified in its cell. Leading
 	 * justification means components are left justified if their container is
 	 * left-oriented and right justified if their container is right-oriented.
-	 * Trailing justification is opposite. see
-	 * Component#getComponentOrientation
+	 * Trailing justification is opposite. see Component#getComponentOrientation
 	 */
 	public static final int LEADING = 4;
 
@@ -37,8 +36,7 @@ public abstract class TableLayoutConstants {
 	 * Indicates that the component is trailing justified in its cell. Trailing
 	 * justification means components are right justified if their container is
 	 * left-oriented and left justified if their container is right-oriented.
-	 * Leading justification is opposite. see
-	 * Component#getComponentOrientation
+	 * Leading justification is opposite. see Component#getComponentOrientation
 	 */
 	public static final int TRAILING = 5;
 
@@ -54,8 +52,8 @@ public abstract class TableLayoutConstants {
 
 	/**
 	 * Indicates that the row/column should be allocated just enough space to
-	 * Accommodate the minimum size of all components contained completely within
-	 * this row/column.
+	 * Accommodate the minimum size of all components contained completely
+	 * within this row/column.
 	 */
 	public static final double MINIMUM = -3.0;
 

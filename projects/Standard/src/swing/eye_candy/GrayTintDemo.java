@@ -11,8 +11,8 @@ import javax.swing.JPanel;
 public class GrayTintDemo extends JPanel {
 	public GrayTintDemo() {
 		ImageIcon duke = new ImageIcon(getClass().getResource("/duke.gif"));
-		Icon disabled = new ImageIcon(GrayFilter.createDisabledImage(duke
-				.getImage()));
+		Icon disabled = new ImageIcon(
+				GrayFilter.createDisabledImage(duke.getImage()));
 		add(new JLabel(duke));
 		add(new JLabel(disabled));
 	}

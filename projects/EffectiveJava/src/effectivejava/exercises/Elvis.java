@@ -6,12 +6,13 @@ public class Elvis {
 
 	public static final Elvis INSTANCE = new Elvis();
 	private final int beltSize;
-	private static final int CURRENT_YEAR =
-					Calendar.getInstance().get(Calendar.YEAR);
+	private static final int CURRENT_YEAR = Calendar.getInstance()
+			.get(Calendar.YEAR);
 
 	public Elvis() {
 		beltSize = CURRENT_YEAR - 1930;
 	}
+
 	public int beltSize() {
 		return beltSize;
 	}

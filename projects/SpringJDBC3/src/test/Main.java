@@ -1,6 +1,5 @@
 package test;
 
-
 import java.io.PrintStream;
 
 import meta.bookstore.Book;

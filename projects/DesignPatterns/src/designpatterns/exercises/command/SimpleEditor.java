@@ -28,15 +28,18 @@ public class SimpleEditor {
 		private int fromIndex;
 		private int endIndex;
 		private String deletedText;
+
 		public DeleteCommand(int ifromIndex, int iendIndex) {
 			deletedText = "";
 			fromIndex = ifromIndex;
 			endIndex = iendIndex;
 		}
+
 		public void execute() {
 			deletedText = textBuffer.substring(fromIndex, endIndex);
 			textBuffer.delete(fromIndex, endIndex);
 		}
+
 		public void unexecute() {
 			textBuffer.insert(fromIndex, deletedText);
 		}

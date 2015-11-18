@@ -19,8 +19,8 @@ public class LoadingIndicatorDemo extends JPanel {
 		JTable table = new JTable(m);
 		table.setDefaultRenderer(Icon.class, new DefaultTableCellRenderer() {
 			public Component getTableCellRendererComponent(JTable table,
-					Object value, boolean isSelected, boolean hasFocus,
-					int row, int column) {
+					Object value, boolean isSelected, boolean hasFocus, int row,
+					int column) {
 				super.getTableCellRendererComponent(table, "", isSelected,
 						hasFocus, row, column);
 				setIcon((Icon) value);

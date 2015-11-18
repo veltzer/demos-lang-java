@@ -12,6 +12,7 @@ public class LifecycleServlet extends GenericServlet {
 		super();
 		System.out.println("Servlet instance created.");
 	}
+
 	public void service(ServletRequest request, ServletResponse response) {
 		System.out.println("Servlet handling the request.");
 		try {

@@ -31,8 +31,8 @@ class Cell {
 	void addToNameTable(Hashtable<String, Cell> nameToCell) {
 		if (getName() != null) {
 			if (nameToCell.put(getName(), this) != null) {
-				throw new BadTableHtmlException("Duplicate component name: "
-						+ getName());
+				throw new BadTableHtmlException(
+						"Duplicate component name: " + getName());
 			}
 		} else if (getNested() != null) {
 			getNested().addCellsToTable(nameToCell);
@@ -211,29 +211,14 @@ class Cell {
 	}
 
 	private String descString() {
-		return " pos = "
-				+ getRow()
-				+ ", "
-				+ getCol()
-				+ " span = "
-				+ getRowspan()
-				+ ", "
-				+ getColspan()
-				+ " fill = "
-				+ getHfill()
-				+ ", "
-				+ getVfill()
-				+ " gap = "
-				+ getHgap()
-				+ ", "
-				+ getVgap()
-				+ " pad = "
-				+ getHpad()
-				+ ", "
-				+ getVpad()
+		return " pos = " + getRow() + ", " + getCol() + " span = "
+				+ getRowspan() + ", " + getColspan() + " fill = " + getHfill()
+				+ ", " + getVfill() + " gap = " + getHgap() + ", " + getVgap()
+				+ " pad = " + getHpad() + ", " + getVpad()
 				+ (getName() != null ? (" name = " + getName())
 						: (getNested() != null ? (" nested = ")
-								: (getLabelText() != null ? (" label = " + getLabelText())
+								: (getLabelText() != null
+										? (" label = " + getLabelText())
 										: " empty ")));
 	}
 

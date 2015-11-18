@@ -16,24 +16,28 @@ public class FancyLabelTag extends UIComponentTag {
 	public String getFor() {
 		return forComponent;
 	}
+
 	/**
 	 * @param forComponent The forComponent to set.
 	 */
 	public void setFor(String iforComponent) {
 		forComponent = iforComponent;
 	}
+
 	/**
 	 * @return Returns the label.
 	 */
 	public String getLabel() {
 		return label;
 	}
+
 	/**
 	 * @param label The label to set.
 	 */
 	public void setLabel(String ilabel) {
 		label = ilabel;
 	}
+
 	@Override
 	protected void setProperties(UIComponent component) {
 		/* you have to call the super class */
@@ -44,10 +48,12 @@ public class FancyLabelTag extends UIComponentTag {
 		((FancyLabelComponent) component).setErrorStyle(errorStyle);
 
 	}
+
 	@Override
 	public String getComponentType() {
 		return "arcmind.Label";
 	}
+
 	@Override
 	public String getRendererType() {
 		return null;
@@ -59,6 +65,7 @@ public class FancyLabelTag extends UIComponentTag {
 	public String getErrorStyleClass() {
 		return errorStyleClass;
 	}
+
 	/**
 	 * @param errorStyleClass The errorStyleClass to set.
 	 */

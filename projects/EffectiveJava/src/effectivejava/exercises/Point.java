@@ -48,7 +48,7 @@ public final class Point implements Serializable, Cloneable, Comparable<Point> {
 		return result;
 	}
 
-	//FACTORY METHODS
+	// FACTORY METHODS
 	public static Point point(int x, int y) {
 		return isZero(x, y) ? ZERO : new Point(x, y);
 	}
@@ -66,10 +66,8 @@ public final class Point implements Serializable, Cloneable, Comparable<Point> {
 	}
 
 	/*
-	private static boolean isZero(int t) {
-		return t == 0;
-	}
-	*/
+	 * private static boolean isZero(int t) { return t == 0; }
+	 */
 
 	private static boolean isZero(int x, int y) {
 		return x == 0 && y == 0;
@@ -79,19 +77,18 @@ public final class Point implements Serializable, Cloneable, Comparable<Point> {
 		return equals(ZERO) ? ZERO : this;
 	}
 
-	@Override public String toString() {
-		return new StringBuilder().
-						 append('[').
-								append(x).
-											append(',').
-								 append(y).
-						 append(']').toString();
+	@Override
+	public String toString() {
+		return new StringBuilder().append('[').append(x).append(',').append(y)
+				.append(']').toString();
 	}
-	@Override public Point clone() {
+
+	@Override
+	public Point clone() {
 		try {
 			return (Point) super.clone();
 		} catch (CloneNotSupportedException e) {
-			throw new RuntimeException(e); //this will never happen
+			throw new RuntimeException(e); // this will never happen
 		}
 	}
 
@@ -105,13 +102,15 @@ public final class Point implements Serializable, Cloneable, Comparable<Point> {
 	}
 
 	public static void main(String[] args) {
-		Set<Point> h = Collections.newSetFromMap(
-						new IdentityHashMap<Point, Boolean>()); //new HashSet<Point>();
+		Set<Point> h = Collections
+				.newSetFromMap(new IdentityHashMap<Point, Boolean>()); // new
+																		// HashSet<Point>();
 		Point p = Point.point(1, 2);
 		h.add(p);
 		System.out.println("Contains=" + h.contains(p.clone()));
 
-		List<Point> l = Arrays.asList(Point.point(1, 2), Point.point(1, 1), Point.point(3, 2));
+		List<Point> l = Arrays.asList(Point.point(1, 2), Point.point(1, 1),
+				Point.point(3, 2));
 		Collections.sort(l);
 		System.out.println(l);
 	}

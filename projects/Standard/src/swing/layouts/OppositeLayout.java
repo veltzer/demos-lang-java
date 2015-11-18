@@ -19,8 +19,8 @@ public class OppositeLayout implements LayoutManager {
 	}
 
 	public void layoutContainer(Container parent) {
-		boolean isRtl = ComponentOrientation.RIGHT_TO_LEFT.equals(parent
-				.getComponentOrientation());
+		boolean isRtl = ComponentOrientation.RIGHT_TO_LEFT
+				.equals(parent.getComponentOrientation());
 		Insets insets = parent.getInsets();
 		Dimension size = parent.getSize();
 
@@ -34,8 +34,9 @@ public class OppositeLayout implements LayoutManager {
 		leftComponent.setBounds(insets.left, insets.top,
 				leftComponent.getPreferredSize().width,
 				leftComponent.getPreferredSize().height);
-		rightComponent.setBounds(size.width
-				- rightComponent.getPreferredSize().width - insets.right,
+		rightComponent.setBounds(
+				size.width - rightComponent.getPreferredSize().width
+						- insets.right,
 				insets.top, rightComponent.getPreferredSize().width,
 				rightComponent.getPreferredSize().height);
 	}

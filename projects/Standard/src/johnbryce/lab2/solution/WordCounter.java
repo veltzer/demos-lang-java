@@ -11,17 +11,17 @@ import java.util.Map;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
 
-public class WordCounter {
+public abstract class WordCounter {
 
 	public static void main(String[] args) {
-		String fileName="text.txt";
+		String fileName = "text.txt";
 		BufferedReader in;
 		try {
 			in = new BufferedReader(new FileReader(fileName));
 		} catch (FileNotFoundException e1) {
 			throw new RuntimeException(e1);
 		}
-		Map<Word,Integer> count=new TreeMap<Word,Integer>();
+		Map<Word, Integer> count = new TreeMap<Word, Integer>();
 		String line;
 		try {
 			line = in.readLine();
@@ -33,23 +33,23 @@ public class WordCounter {
 			}
 			throw new RuntimeException(e1);
 		}
-		String curr=null;
-		int frequency=0;
-		while(line!=null){
-			StringTokenizer token=new StringTokenizer(line);
+		String curr = null;
+		int frequency = 0;
+		while (line != null) {
+			StringTokenizer token = new StringTokenizer(line);
 			while (token.hasMoreTokens()) {
-				curr=token.nextToken();
-				Word w=new Word(curr.toLowerCase());
+				curr = token.nextToken();
+				Word w = new Word(curr.toLowerCase());
 				try {
-					frequency=count.get(new Word(curr));
-					frequency=frequency+1;
-				} catch(NullPointerException e) {
-					frequency=1;
+					frequency = count.get(new Word(curr));
+					frequency = frequency + 1;
+				} catch (NullPointerException e) {
+					frequency = 1;
 				}
-				count.put(w,frequency);
+				count.put(w, frequency);
 			}
 			try {
-				line=in.readLine();
+				line = in.readLine();
 			} catch (IOException e) {
 				try {
 					in.close();
@@ -64,13 +64,13 @@ public class WordCounter {
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
-		//print no 1
+		// print no 1
 		System.out.println(count);
 
-		List<Word> words=new ArrayList<Word>(count.keySet());
+		List<Word> words = new ArrayList<Word>(count.keySet());
 		LetterCountComperator letterCountComperator = new LetterCountComperator();
-		Collections.sort(words,letterCountComperator);
-		//print no 2
+		Collections.sort(words, letterCountComperator);
+		// print no 2
 		System.out.println(words);
 	}
 }

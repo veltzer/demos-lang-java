@@ -49,8 +49,8 @@ public class GreetingServlet extends HttpServlet {
 			destinationResource = "/WEB-INF/jsp/info.jsp";
 		}
 
-		getServletConfig().getServletContext().getRequestDispatcher(
-				destinationResource).forward(req, res);
+		getServletConfig().getServletContext()
+				.getRequestDispatcher(destinationResource).forward(req, res);
 
 	}
 }

@@ -42,8 +42,8 @@ import org.eclipse.ui.part.MultiPageEditorPart;
  * to change the font used in page 2 <li>page 2 shows the words in page 0 in
  * sorted order </ul>
  */
-public class MultiPageEditor extends MultiPageEditorPart implements
-		IResourceChangeListener {
+public class MultiPageEditor extends MultiPageEditorPart
+		implements IResourceChangeListener {
 
 	/** The text editor used in page 0. */
 	private TextEditor editor;
@@ -166,7 +166,8 @@ public class MultiPageEditor extends MultiPageEditorPart implements
 	 */
 	public void init(IEditorSite site, IEditorInput editorInput) {
 		if (!(editorInput instanceof IFileEditorInput)) {
-			Exception e = new PartInitException("Invalid Input: Must be IFileEditorInput");
+			Exception e = new PartInitException(
+					"Invalid Input: Must be IFileEditorInput");
 			throw new RuntimeException(e);
 		}
 		try {
@@ -203,8 +204,8 @@ public class MultiPageEditor extends MultiPageEditorPart implements
 						if (((FileEditorInput) editor.getEditorInput())
 								.getFile().getProject()
 								.equals(event.getResource())) {
-							IEditorPart editorPart = pages[i].findEditor(editor
-									.getEditorInput());
+							IEditorPart editorPart = pages[i]
+									.findEditor(editor.getEditorInput());
 							pages[i].closeEditor(editorPart, true);
 						}
 					}

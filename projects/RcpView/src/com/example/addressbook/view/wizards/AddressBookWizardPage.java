@@ -40,7 +40,8 @@ public class AddressBookWizardPage extends WizardPage {
 	public AddressBookWizardPage(ISelection iselection) {
 		super("File Selection Page");
 		setTitle("Select File");
-		setDescription("This wizard creates a new file with *.adb extension that can be opened by the Address Book file editor.");
+		setDescription(
+				"This wizard creates a new file with *.adb extension that can be opened by the Address Book file editor.");
 		selection = iselection;
 	}
 
@@ -143,8 +144,8 @@ public class AddressBookWizardPage extends WizardPage {
 			updateStatus("File container must be specified");
 			return;
 		}
-		if (container == null
-				|| (container.getType() & (IResource.PROJECT | IResource.FOLDER)) == 0) {
+		if (container == null || (container.getType()
+				& (IResource.PROJECT | IResource.FOLDER)) == 0) {
 			updateStatus("File container must exist");
 			return;
 		}

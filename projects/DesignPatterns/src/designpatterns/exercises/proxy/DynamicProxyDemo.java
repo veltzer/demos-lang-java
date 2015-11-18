@@ -12,29 +12,28 @@ public abstract class DynamicProxyDemo {
 			reference = ireference;
 		}
 
-		public Object invoke(Object proxy, Method method, Object[] args) throws Exception {
-			//System.out.println("InvocationHandler called:" + "\n\tmethod = " + method);
+		public Object invoke(Object proxy, Method method, Object[] args)
+				throws Exception {
+			// System.out.println("InvocationHandler called:" + "\n\tmethod = "
+			// + method);
 			// we can change any argument we like
 
 			/*
-			 if (args != null)
-			 {
-			 System.out.println("\targs = ");
-			 for (int i = 0; i < args.length; i++)
-			 System.out.println("\t\t" + args[i]);
-			 }
+			 * if (args != null) { System.out.println("\targs = "); for (int i =
+			 * 0; i < args.length; i++) System.out.println("\t\t" + args[i]); }
 			 */
 			// We can choose how to invoke the reference
 			return method.invoke(reference, args);
-			//return null ;
+			// return null ;
 		}
 	}
 
 	public static void main(String[] clargs) {
 		try {
 			Doable reference = new DoableAction();
-			Doable proxy = (Doable) Proxy.newProxyInstance(Doable.class.getClassLoader(), new Class<?>[] {
-				Doable.class
+			Doable proxy = (Doable) Proxy.newProxyInstance(
+					Doable.class.getClassLoader(), new Class<?>[] {
+							Doable.class
 			}, new DynamicDoableProxy(reference));
 			long startTime, endTime;
 			startTime = System.currentTimeMillis();

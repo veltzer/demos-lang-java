@@ -11,10 +11,13 @@ public abstract class PerformaceTest implements Test {
 		}
 		time += System.nanoTime();
 		done();
-		System.out.format("%-50sduration %f%n", this.getClass().getName(), (double) time / TIMES);
+		System.out.format("%-50sduration %f%n", this.getClass().getName(),
+				(double) time / TIMES);
 	}
 
 	public abstract void init();
+
 	public abstract void cycle();
+
 	public abstract void done();
 }

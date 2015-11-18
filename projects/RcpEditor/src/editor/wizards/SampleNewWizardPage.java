@@ -40,7 +40,8 @@ public class SampleNewWizardPage extends WizardPage {
 	public SampleNewWizardPage(ISelection iselection) {
 		super("wizardPage");
 		setTitle("Multi-page Editor File");
-		setDescription("This wizard creates a new file with *.mpe extension that can be opened by a multi-page editor.");
+		setDescription(
+				"This wizard creates a new file with *.mpe extension that can be opened by a multi-page editor.");
 		selection = iselection;
 	}
 
@@ -143,8 +144,8 @@ public class SampleNewWizardPage extends WizardPage {
 			updateStatus("File container must be specified");
 			return;
 		}
-		if (container == null
-				|| (container.getType() & (IResource.PROJECT | IResource.FOLDER)) == 0) {
+		if (container == null || (container.getType()
+				& (IResource.PROJECT | IResource.FOLDER)) == 0) {
 			updateStatus("File container must exist");
 			return;
 		}

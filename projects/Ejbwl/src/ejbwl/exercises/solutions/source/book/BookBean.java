@@ -27,8 +27,8 @@ public class BookBean implements EntityBean {
 		ctx = ictx;
 		try {
 			InitialContext nctx = new InitialContext();
-			DataSource dataSource =
-				(DataSource) nctx.lookup("java:comp/env/jdbc/MyDS");
+			DataSource dataSource = (DataSource) nctx
+					.lookup("java:comp/env/jdbc/MyDS");
 			dao = BookstoreDaoFactory.getDAO(dataSource);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
@@ -93,18 +93,23 @@ public class BookBean implements EntityBean {
 	public String getTitle() {
 		return title;
 	}
+
 	public void setTitle(String ititle) {
 		title = ititle;
 	}
+
 	public String getAuthor() {
 		return author;
 	}
+
 	public void setAuthor(String iauthor) {
 		author = iauthor;
 	}
+
 	public double getPrice() {
 		return price;
 	}
+
 	public void setPrice(double iprice) {
 		price = iprice;
 	}

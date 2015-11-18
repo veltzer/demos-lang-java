@@ -28,8 +28,8 @@ public class FileTypeRenderer extends DefaultTableCellRenderer {
 	 */
 	public Component getTableCellRendererComponent(JTable table, Object value,
 			boolean selected, boolean hasFocus, int row, int column) {
-		Component cmp = super.getTableCellRendererComponent(table, "",
-				selected, hasFocus, row, column);
+		Component cmp = super.getTableCellRendererComponent(table, "", selected,
+				hasFocus, row, column);
 		setIcon(fileSystem.getSystemIcon((File) value));
 		return (cmp);
 	}

@@ -27,8 +27,8 @@ public class Book extends Item {
 	@Override
 	public void fromConsole() {
 		try {
-			BufferedReader br = new BufferedReader(new InputStreamReader(
-					System.in));
+			BufferedReader br = new BufferedReader(
+					new InputStreamReader(System.in));
 			System.out.print("Enter book name: ");
 			bookname = br.readLine();
 			System.out.print("Enter author: ");

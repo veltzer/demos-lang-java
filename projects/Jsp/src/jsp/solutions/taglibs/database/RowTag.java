@@ -25,14 +25,16 @@ public class RowTag extends TagSupport {
 		return SKIP_BODY;
 	}
 
-	/** Getter for property colName.
+	/**
+	 * Getter for property colName.
 	 * @return Value of property colName.
 	 */
 	public String getColName() {
 		return colName;
 	}
 
-	/** Setter for property colName.
+	/**
+	 * Setter for property colName.
 	 * @param colName New value of property colName.
 	 */
 	public void setColName(String icolName) {

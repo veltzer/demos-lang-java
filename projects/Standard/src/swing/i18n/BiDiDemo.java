@@ -44,9 +44,11 @@ public class BiDiDemo extends JPanel {
 			JFrame frm = (JFrame) JFrame.getFrames()[0];
 			ComponentOrientation o = frm.getComponentOrientation();
 			if (o == ComponentOrientation.LEFT_TO_RIGHT) {
-				frm.applyComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+				frm.applyComponentOrientation(
+						ComponentOrientation.RIGHT_TO_LEFT);
 			} else {
-				frm.applyComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+				frm.applyComponentOrientation(
+						ComponentOrientation.LEFT_TO_RIGHT);
 			}
 			frm.validate();
 			frm.repaint();

@@ -22,7 +22,7 @@ public abstract class AbstractDBTable {
 		try {
 			DataMap map = new HashDataMap();
 			AbstractDBTable table = new NormalDBTable(map);
-			//AbstractDBTable table = new ReadOnlyDBTable(map);
+			// AbstractDBTable table = new ReadOnlyDBTable(map);
 			table.insert(1, "a");
 			table.insert(2, "b");
 			table.insert(2, "c");

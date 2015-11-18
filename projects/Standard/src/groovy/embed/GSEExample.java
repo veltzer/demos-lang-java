@@ -14,7 +14,7 @@ public abstract class GSEExample {
 	 */
 	public static void main(String[] args) {
 		String[] roots = new String[] {
-			"src/groovy/embed"
+				"src/groovy/embed"
 		};
 		GroovyScriptEngine gse;
 		try {

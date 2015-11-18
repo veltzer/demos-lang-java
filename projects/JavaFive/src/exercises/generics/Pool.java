@@ -7,13 +7,13 @@ public class Pool<T> {
 	private List<T> arr;
 
 	/**
-	 * Creates a new instance of Pool
-	 * Class<T> is used to make sure that the Class instance passed as a
-	 * parameter is of type T.
+	 * Creates a new instance of Pool Class<T> is used to make sure that the
+	 * Class instance passed as a parameter is of type T.
 	 */
 	public Pool(Class<T> type, int capacity) {
 		if (capacity < 1) {
-			throw new IllegalArgumentException("capacity must be greater then one");
+			throw new IllegalArgumentException(
+					"capacity must be greater then one");
 		}
 		arr = new ArrayList<T>(capacity);
 		try {

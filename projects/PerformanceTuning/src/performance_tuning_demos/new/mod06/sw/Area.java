@@ -60,4 +60,3 @@ public abstract class Area {
 		System.out.println("Measurement intervals done.");
 	}
 }
-

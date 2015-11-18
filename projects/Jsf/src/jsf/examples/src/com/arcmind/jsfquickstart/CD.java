@@ -10,26 +10,33 @@ public class CD implements Serializable {
 
 	public CD() {
 	}
+
 	public CD(String ititle, String iartist, float iprice) {
 		title = ititle;
 		artist = iartist;
 		price = iprice;
 	}
+
 	public String getArtist() {
 		return artist;
 	}
+
 	public void setArtist(String iartist) {
 		artist = iartist;
 	}
+
 	public float getPrice() {
 		return price;
 	}
+
 	public void setPrice(float iprice) {
 		price = iprice;
 	}
+
 	public String getTitle() {
 		return title;
 	}
+
 	public void setTitle(String ititle) {
 		title = ititle;
 	}

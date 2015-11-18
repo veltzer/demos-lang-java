@@ -101,7 +101,7 @@ public class ReaderWriterLock {
 	public synchronized void writeLeave() {
 		writers--;
 		/* notifyAll(); */
-		if (readersWaiting >0) {
+		if (readersWaiting > 0) {
 			notifyAll();
 		} else {
 			notify();

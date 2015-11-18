@@ -9,7 +9,10 @@ import javax.ejb.EJBObject;
  */
 public interface ShoppingCart extends EJBObject {
 	String getCustomerId() throws RemoteException;
+
 	void addToCart(String title) throws RemoteException;
+
 	List<String> getTitlesInCart() throws RemoteException;
+
 	String placeOrder() throws RemoteException;
 }

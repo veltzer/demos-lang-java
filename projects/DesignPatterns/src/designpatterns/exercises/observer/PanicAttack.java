@@ -6,10 +6,8 @@ import java.util.TimerTask;
 
 public class PanicAttack extends Observable {
 	private static final String[] PANIC_MESSAGES = {
-		"Lunch is over",
-		"Another design pattern!",
-		"I have to go to the dentist",
-		"Where's my Bamba?",
+			"Lunch is over", "Another design pattern!",
+			"I have to go to the dentist", "Where's my Bamba?",
 	};
 
 	public PanicAttack() {

@@ -11,7 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 @SuppressWarnings("serial")
 public class SnoopRequestServlet extends HttpServlet {
 
-	public void service(HttpServletRequest request, HttpServletResponse response) {
+	public void service(HttpServletRequest request,
+			HttpServletResponse response) {
 		PrintWriter out;
 		try {
 			out = response.getWriter();
@@ -19,7 +20,8 @@ public class SnoopRequestServlet extends HttpServlet {
 			throw new RuntimeException(e);
 		}
 		out.println("<h2>HTTP request is:</h2>");
-		out.println(request.getMethod() + " " + request.getRequestURI() + " " + request.getProtocol() + "<br>");
+		out.println(request.getMethod() + " " + request.getRequestURI() + " "
+				+ request.getProtocol() + "<br>");
 		Enumeration<String> e = request.getHeaderNames();
 		while (e.hasMoreElements()) {
 			String hName = e.nextElement();

@@ -41,8 +41,8 @@ public class VCellRenderer extends JLabel implements Border, TableCellRenderer {
 			value = "";
 		} else {
 			if (value instanceof Date) {
-				value = DateFormat.getDateInstance(DateFormat.SHORT).format(
-						(Date) value);
+				value = DateFormat.getDateInstance(DateFormat.SHORT)
+						.format((Date) value);
 			} else {
 				if (value instanceof Currency) {
 					Currency currency = (Currency) value;
@@ -140,8 +140,8 @@ public class VCellRenderer extends JLabel implements Border, TableCellRenderer {
 
 	private Map<Cell, JLabel> cells = new HashMap<Cell, JLabel>();
 
-	public JComponent span(int row, int column, JComponent cmp,
-			SpanModel model, JTable table) {
+	public JComponent span(int row, int column, JComponent cmp, SpanModel model,
+			JTable table) {
 		if (model.isSpanRoot(row, column)) {
 			int spanRows = row;
 			int spanColumns = column;

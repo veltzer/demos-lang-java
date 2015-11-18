@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 @SuppressWarnings("serial")
 public class FormServlet extends HttpServlet {
-	public void doGet(HttpServletRequest request, HttpServletResponse response) {
+	public void doGet(HttpServletRequest request,
+			HttpServletResponse response) {
 		PrintWriter out;
 		try {
 			out = response.getWriter();

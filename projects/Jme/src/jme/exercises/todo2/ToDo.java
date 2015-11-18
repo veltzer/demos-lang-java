@@ -9,10 +9,13 @@ import javax.microedition.midlet.MIDlet;
 public class ToDo extends MIDlet implements CommandListener {
 	private List list; // List to display all entries
 	private TextBox textBox; // Text box to add and edit entries
-	private Command addEntryCmd, deleteEntryCmd, editEntryCmd, helpCmd, aboutCmd, exitCmd, okCmd, cancelCmd;
+	private Command addEntryCmd, deleteEntryCmd, editEntryCmd, helpCmd,
+			aboutCmd, exitCmd, okCmd, cancelCmd;
 	private Vector entries = new Vector(); // List of all Entry objects
-	private Displayable pausedDisplayable; // Last Displayble object visible before Midlet paused
-	private int editEntryIndex; // Index of entry currently being edited, or -1 if none
+	private Displayable pausedDisplayable; // Last Displayble object visible
+											// before Midlet paused
+	private int editEntryIndex; // Index of entry currently being edited, or -1
+								// if none
 
 	/** Constructor. */
 	public ToDo() {
@@ -37,7 +40,10 @@ public class ToDo extends MIDlet implements CommandListener {
 		list.addCommand(exitCmd);
 
 		// Initialize text box.
-		textBox = new TextBox(null, null, 500, TextField.ANY); // Allow up to 500 characters per entry
+		textBox = new TextBox(null, null, 500, TextField.ANY); // Allow up to
+																// 500
+																// characters
+																// per entry
 		textBox.setCommandListener(this);
 		textBox.addCommand(okCmd);
 		textBox.addCommand(cancelCmd);
@@ -45,7 +51,9 @@ public class ToDo extends MIDlet implements CommandListener {
 		initEntries();
 	}
 
-	/** Initialize persistent entries by loading from RecordStore, if one exists. */
+	/**
+	 * Initialize persistent entries by loading from RecordStore, if one exists.
+	 */
 	private void initEntries() {
 		RecordStore rs = null;
 
@@ -53,16 +61,43 @@ public class ToDo extends MIDlet implements CommandListener {
 			rs = RecordStore.openRecordStore("entries", false);
 
 			// Iterate through all records and add them to Vector and List.
-			RecordEnumeration enm = rs.enumerateRecords(null, null, true); // @todo If both the filter and comparator are null, the enumeration will traverse all records in the record store in an undefined order.
+			RecordEnumeration enm = rs.enumerateRecords(null, null, true); // @todo
+																			// If
+																			// both
+																			// the
+																			// filter
+																			// and
+																			// comparator
+																			// are
+																			// null,
+																			// the
+																			// enumeration
+																			// will
+																			// traverse
+																			// all
+																			// records
+																			// in
+																			// the
+																			// record
+																			// store
+																			// in
+																			// an
+																			// undefined
+																			// order.
 
 			while (enm.hasNextElement()) {
 				int nextRecordId = enm.nextRecordId();
 				byte[] nextRecord = rs.getRecord(nextRecordId);
 
-				Entry entry = new Entry(nextRecordId, nextRecord); // Create new Entry object from record
+				Entry entry = new Entry(nextRecordId, nextRecord); // Create new
+																	// Entry
+																	// object
+																	// from
+																	// record
 
 				entries.insertElementAt(entry, 0); // Add to beginning of Vector
-				list.insert(0, entry.toString(), null); // Add to beginning of List
+				list.insert(0, entry.toString(), null); // Add to beginning of
+														// List
 			}
 
 			enm.destroy(); // Frees internal resources used by RecordEnumeration
@@ -83,13 +118,23 @@ public class ToDo extends MIDlet implements CommandListener {
 
 	/** Signals the MIDlet to stop and enter the Paused state. */
 	protected void pauseApp() {
-		pausedDisplayable = Display.getDisplay(this).getCurrent(); // Save reference to current displayable.
+		pausedDisplayable = Display.getDisplay(this).getCurrent(); // Save
+																	// reference
+																	// to
+																	// current
+																	// displayable.
 	}
 
 	/** Signals the MIDlet that it has entered the Active state. */
 	protected void startApp() {
 		if (pausedDisplayable != null) {
-			Display.getDisplay(this).setCurrent(pausedDisplayable); // Re-display last previously shown displayable if available.
+			Display.getDisplay(this).setCurrent(pausedDisplayable); // Re-display
+																	// last
+																	// previously
+																	// shown
+																	// displayable
+																	// if
+																	// available.
 			pausedDisplayable = null;
 		} else {
 			Display.getDisplay(this).setCurrent(list);
@@ -111,7 +156,8 @@ public class ToDo extends MIDlet implements CommandListener {
 				deleteEntry(list.getSelectedIndex());
 			}
 		} else if (c == editEntryCmd) {
-			// Edit currently selected entry by displaying text box with entry contents.
+			// Edit currently selected entry by displaying text box with entry
+			// contents.
 			if (list.getSelectedIndex() > -1) {
 				editEntryIndex = list.getSelectedIndex();
 				Entry entry = (Entry) entries.elementAt(editEntryIndex);
@@ -221,11 +267,12 @@ public class ToDo extends MIDlet implements CommandListener {
 	private void showHelp() {
 		Alert helpAlert = new Alert("Help");
 		helpAlert.setTimeout(Alert.FOREVER);
-		helpAlert.setString("A simple to do list application. Use the available commands to add, delete or edit entries in the list.");
+		helpAlert.setString(
+				"A simple to do list application. Use the available commands to add, delete or edit entries in the list.");
 		Display.getDisplay(this).setCurrent(helpAlert);
 	}
 
- 	/** Display about dialog. */
+	/** Display about dialog. */
 	private void showAbout() {
 		Alert aboutAlert = new Alert("About");
 		aboutAlert.setTimeout(Alert.FOREVER);
@@ -234,7 +281,8 @@ public class ToDo extends MIDlet implements CommandListener {
 		StringBuffer sb = new StringBuffer(75);
 		sb.append(getAppProperty("MIDlet-Name"));
 		sb.append("\nversion ").append(getAppProperty("MIDlet-Version"));
-		sb.append("\nlocale ").append(System.getProperty("microedition.locale"));
+		sb.append("\nlocale ")
+				.append(System.getProperty("microedition.locale"));
 		sb.append("\nby Jamie Hall");
 
 		aboutAlert.setString(sb.toString());
@@ -261,7 +309,10 @@ public class ToDo extends MIDlet implements CommandListener {
 			date = new Date();
 		}
 
-		/** Constructor - used when creating a new Entry from a persistent record. */
+		/**
+		 * Constructor - used when creating a new Entry from a persistent
+		 * record.
+		 */
 		public Entry(int irecordId, byte[] bytes) throws IOException {
 			recordId = irecordId;
 
@@ -275,11 +326,21 @@ public class ToDo extends MIDlet implements CommandListener {
 		public String toString() {
 			Calendar calendar = Calendar.getInstance();
 			calendar.setTime(date);
-			String dateString = calendar.get(Calendar.YEAR) + "-" + (calendar.get(Calendar.MONTH) + 1) + "-" + calendar.get(Calendar.DATE) + " " + calendar.get(Calendar.HOUR_OF_DAY) + ":" + (calendar.get(Calendar.MINUTE) < 10 ? "0" + calendar.get(Calendar.MINUTE) : "" + calendar.get(Calendar.MINUTE));
-			return text.substring(0, Math.min(text.length(), 10)) + " [" + dateString + "]";
+			String dateString = calendar.get(Calendar.YEAR) + "-"
+					+ (calendar.get(Calendar.MONTH) + 1) + "-"
+					+ calendar.get(Calendar.DATE) + " "
+					+ calendar.get(Calendar.HOUR_OF_DAY) + ":"
+					+ (calendar.get(Calendar.MINUTE) < 10
+							? "0" + calendar.get(Calendar.MINUTE)
+							: "" + calendar.get(Calendar.MINUTE));
+			return text.substring(0, Math.min(text.length(), 10)) + " ["
+					+ dateString + "]";
 		}
 
-		/** Return a byte[] representation of this Entry - convenient when saving to RecordStore. */
+		/**
+		 * Return a byte[] representation of this Entry - convenient when saving
+		 * to RecordStore.
+		 */
 		public byte[] toBytes() {
 			try {
 				ByteArrayOutputStream bos = new ByteArrayOutputStream();

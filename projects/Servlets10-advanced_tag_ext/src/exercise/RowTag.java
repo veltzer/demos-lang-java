@@ -8,6 +8,7 @@ import javax.servlet.jsp.tagext.TagSupport;
 @SuppressWarnings("serial")
 public class RowTag extends TagSupport {
 	private String colName;
+
 	public int doStartTag() {
 		try {
 			TableTag table = (TableTag) getParent();
@@ -21,6 +22,7 @@ public class RowTag extends TagSupport {
 		}
 		return SKIP_BODY;
 	}
+
 	/**
 	 * Getter for property colName.
 	 * @return Value of property colName.
@@ -28,6 +30,7 @@ public class RowTag extends TagSupport {
 	public String getColName() {
 		return colName;
 	}
+
 	/**
 	 * Setter for property colName.
 	 * @param colName New value of property colName.

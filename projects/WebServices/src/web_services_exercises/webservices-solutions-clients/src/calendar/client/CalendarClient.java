@@ -9,7 +9,8 @@ public abstract class CalendarClient {
 		HebCalendarService service = new HebCalendarService();
 		HebCalendar port = service.getHebCalendarPort();
 		DatatypeFactory factory = DatatypeFactory.newInstance();
-		XMLGregorianCalendar date = factory.newXMLGregorianCalendar((GregorianCalendar) GregorianCalendar.getInstance());
+		XMLGregorianCalendar date = factory.newXMLGregorianCalendar(
+				(GregorianCalendar) GregorianCalendar.getInstance());
 		String day = port.hebDayOfWeek(date);
 		System.out.println("Today is " + day);
 		day = port.hebDayName(7);

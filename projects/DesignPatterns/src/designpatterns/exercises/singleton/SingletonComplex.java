@@ -8,6 +8,7 @@ public final class SingletonComplex {
 	private SingletonComplex() {
 		System.out.println("Singleton created");
 	}
+
 	public static synchronized Object getInstance(String classname) {
 		if (!hash.containsKey(classname)) {
 			// this actually runs a no argument constructor

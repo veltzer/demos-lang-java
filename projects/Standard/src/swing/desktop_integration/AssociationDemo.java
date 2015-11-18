@@ -58,9 +58,8 @@ public class AssociationDemo extends JPanel {
 			public void actionPerformed(ActionEvent ev) {
 				try {
 					org.jdesktop.jdic.filetypes.Action action = new org.jdesktop.jdic.filetypes.Action(
-							associationName.getText(), chooser
-									.getSelectedFile().getAbsolutePath()
-									+ " "
+							associationName.getText(),
+							chooser.getSelectedFile().getAbsolutePath() + " "
 									+ parameters.getText());
 
 					Association assoc = new Association();
@@ -79,9 +78,8 @@ public class AssociationDemo extends JPanel {
 		fileExtension.getDocument().addDocumentListener(new DocumentProxy() {
 			protected void update() {
 				if (fileExtension.getText().length() > 0) {
-					Association asso = svc
-							.getFileExtensionAssociation(fileExtension
-									.getText());
+					Association asso = svc.getFileExtensionAssociation(
+							fileExtension.getText());
 					if (asso != null) {
 						mimeType.setText(asso.getMimeType());
 					}

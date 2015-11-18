@@ -27,8 +27,7 @@ public class FancyLabelComponent extends UIOutput {
 	}
 
 	/**
-	 * @param errorStyle
-	 * The errorStyle to set.
+	 * @param errorStyle The errorStyle to set.
 	 */
 	public void setErrorStyle(String ierrorStyle) {
 		errorStyle = ierrorStyle;
@@ -42,8 +41,7 @@ public class FancyLabelComponent extends UIOutput {
 	}
 
 	/**
-	 * @param label
-	 * The label to set.
+	 * @param label The label to set.
 	 */
 	public void setLabel(String ilabel) {
 		label = ilabel;
@@ -113,8 +111,7 @@ public class FancyLabelComponent extends UIOutput {
 	}
 
 	/**
-	 * @param forComponent
-	 * The forComponent to set.
+	 * @param forComponent The forComponent to set.
 	 */
 	public void setFor(String iforComponent) {
 		forComponent = iforComponent;
@@ -128,8 +125,7 @@ public class FancyLabelComponent extends UIOutput {
 	}
 
 	/**
-	 * @param errorStyleClass
-	 * The errorStyleClass to set.
+	 * @param errorStyleClass The errorStyleClass to set.
 	 */
 	public void setErrorStyleClass(String ierrorStyleClass) {
 		errorStyleClass = ierrorStyleClass;

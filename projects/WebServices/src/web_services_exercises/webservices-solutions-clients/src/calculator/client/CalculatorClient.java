@@ -5,7 +5,8 @@ public abstract class CalculatorClient {
 		StatefulCalculatorService service = new StatefulCalculatorService();
 		StatefulCalculator port = service.getStatefulCalculatorPort();
 
-		((BindingProvider) port).getRequestContext().put(BindingProvider.SESSION_MAINTAIN_PROPERTY, true);
+		((BindingProvider) port).getRequestContext()
+				.put(BindingProvider.SESSION_MAINTAIN_PROPERTY, true);
 
 		port.startCalc(11);
 

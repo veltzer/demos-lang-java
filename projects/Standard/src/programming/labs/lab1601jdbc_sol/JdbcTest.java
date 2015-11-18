@@ -33,8 +33,8 @@ public class JdbcTest {
 
 	public void sqlStatements() {
 		try {
-			statement
-					.executeUpdate("CREATE TABLE chat(name STRING , id NUMBER)");
+			statement.executeUpdate(
+					"CREATE TABLE chat(name STRING , id NUMBER)");
 			statement.executeUpdate("INSERT INTO chat VALUES ('yossi',1111)");
 			statement.executeUpdate("INSERT INTO chat VALUES ('pasi',2222)");
 			statement.executeUpdate("INSERT INTO chat VALUES ('moshe',3333)");

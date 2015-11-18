@@ -18,7 +18,8 @@ public class Customer {
 		accounts = new Account[100];
 	}
 
-	public Customer(String iname, String iid, int iage, CheckingAccount account) {
+	public Customer(String iname, String iid, int iage,
+			CheckingAccount account) {
 		setName(iname);
 		setId(iid);
 		setAge(iage);

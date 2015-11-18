@@ -16,18 +16,14 @@ public class HebDayNameResponse {
 	private String vreturn;
 
 	/**
-	 *
-	 * @return
-	 *	 returns String
+	 * @return returns String
 	 */
 	public String getReturn() {
 		return vreturn;
 	}
 
 	/**
-	 *
-	 * @param _return
-	 *	 the value for the _return property
+	 * @param _return the value for the _return property
 	 */
 	public void setReturn(String ireturn) {
 		vreturn = ireturn;

@@ -11,7 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 @SuppressWarnings("serial")
 public class CookieFormServlet extends HttpServlet {
 
-	public void doGet(HttpServletRequest request, HttpServletResponse response) {
+	public void doGet(HttpServletRequest request,
+			HttpServletResponse response) {
 		PrintWriter out;
 		try {
 			out = response.getWriter();
@@ -34,14 +35,16 @@ public class CookieFormServlet extends HttpServlet {
 		out.println("User Name: <input type=text name=uname value=" + uName
 				+ "><br>");
 		out.println("Password: <input type=password name=pass><br>");
-		out.println("<input type=checkbox name=remember>Remember my user name<br>");
+		out.println(
+				"<input type=checkbox name=remember>Remember my user name<br>");
 		out.println("<input type=submit value=Login>");
 		out.println("</form>");
 		out.println("</body>");
 		out.println("</html>");
 	}
 
-	public void doPost(HttpServletRequest request, HttpServletResponse response) {
+	public void doPost(HttpServletRequest request,
+			HttpServletResponse response) {
 		PrintWriter out;
 		try {
 			out = response.getWriter();

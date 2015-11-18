@@ -41,8 +41,8 @@ public class HtmlLayout implements LayoutManager {
 	static final int MIN = 0, PREF = 1;
 
 	// alignment
-	static final int LEFT = 0, RIGHT = 1, CENTER = 2, FIT = 3, MAX = 4,
-			TOP = 5, BOTTOM = 6;
+	static final int LEFT = 0, RIGHT = 1, CENTER = 2, FIT = 3, MAX = 4, TOP = 5,
+			BOTTOM = 6;
 
 	static final String[] ALIGNNAMES = {
 			"LEFT", "RIGHT", "CENTER", "FIT", "MAX", "TOP", "BOTTOM"
@@ -93,6 +93,7 @@ public class HtmlLayout implements LayoutManager {
 
 		labelsAdded = true;
 	}
+
 	public void addLayoutComponent(String name, Component comp) {
 		prefDim.width = -1;
 		if (name == ANONLABELNAME) {
@@ -113,6 +114,7 @@ public class HtmlLayout implements LayoutManager {
 		compToCell.put(comp, c);
 		c.setComp(comp);
 	}
+
 	public void removeLayoutComponent(Component comp) {
 		prefDim.width = -1;
 		Cell c = compToCell.remove(comp);
@@ -120,9 +122,11 @@ public class HtmlLayout implements LayoutManager {
 			c.setComp(null);
 		}
 	}
+
 	public Dimension preferredLayoutSize(Container parent) {
 		return layoutSize(parent, PREF);
 	}
+
 	public Dimension minimumLayoutSize(Container parent) {
 		return layoutSize(parent, MIN);
 	}
@@ -181,6 +185,7 @@ public class HtmlLayout implements LayoutManager {
 		d.height += insets.top + insets.bottom;
 		return d;
 	}
+
 	public void layoutContainer(Container parent) {
 		if (!labelsAdded) {
 			addLabels(parent);
@@ -316,8 +321,8 @@ public class HtmlLayout implements LayoutManager {
 		int max = limit[rule];
 
 		for (int i = 0; i < count[rule]; i++) {
-			int othermax = maxSqueeze(touch[rule][i], touch, count, limit,
-					vals, scale);
+			int othermax = maxSqueeze(touch[rule][i], touch, count, limit, vals,
+					scale);
 
 			if (othermax < max) {
 				max = othermax;

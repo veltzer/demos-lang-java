@@ -70,7 +70,8 @@ public abstract class MethodInvoker {
 	 * This method is much more general and can handle any object type Using
 	 * auto boxing you can even pass primitives. Isn't life grand?
 	 */
-	public static void setObjectValue(Object o, String valName, Object newValue) {
+	public static void setObjectValue(Object o, String valName,
+			Object newValue) {
 		try {
 			Class<?> c = o.getClass();
 			Method m = c.getMethod(getSetMethodName(valName),

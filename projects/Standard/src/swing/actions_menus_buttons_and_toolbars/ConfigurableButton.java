@@ -17,7 +17,8 @@ public class ConfigurableButton extends JButton {
 		}
 	}
 
-	protected PropertyChangeListener createActionPropertyChangeListener(Action a) {
+	protected PropertyChangeListener createActionPropertyChangeListener(
+			Action a) {
 		return new MultiPropertyChangeListener(
 				super.createActionPropertyChangeListener(a));
 	}

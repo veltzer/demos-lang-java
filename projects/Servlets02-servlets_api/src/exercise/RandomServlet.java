@@ -10,9 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 @SuppressWarnings("serial")
 public class RandomServlet extends HttpServlet {
 	private int max;
+
 	public void init() {
 	}
-	public void doGet(HttpServletRequest request, HttpServletResponse response) {
+
+	public void doGet(HttpServletRequest request,
+			HttpServletResponse response) {
 		PrintWriter out;
 		try {
 			out = response.getWriter();
@@ -38,7 +41,8 @@ public class RandomServlet extends HttpServlet {
 		out.println("</html>");
 	}
 
-	public void doPost(HttpServletRequest request, HttpServletResponse response) {
+	public void doPost(HttpServletRequest request,
+			HttpServletResponse response) {
 		// PrintWriter out = response.getWriter();
 		/**
 		 * Enter your code here

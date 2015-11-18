@@ -8,14 +8,15 @@ import javax.swing.JFrame;
 import javax.swing.JTable;
 
 public final class TemplateNestingDemo {
-	private Template template = new RightNavigationTemplate(new TableTemplate());
+	private Template template = new RightNavigationTemplate(
+			new TableTemplate());
 
 	private TemplateNestingDemo() {
 		FileTableModel m = new FileTableModel();
 		File directory = new File(".");
 		m.setDirectory(directory);
 		template.setComponents("table", new JComponent[] {
-			new JTable(m)
+				new JTable(m)
 		});
 		template.setComponents("buttons", new JComponent[] {
 				new JButton("Button 1"), new JButton("Button 2"),

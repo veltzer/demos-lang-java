@@ -29,14 +29,16 @@ public class IconPositionDemo extends JPanel {
 	}
 
 	private AbstractButton createButton(int hAlign, int vAlign) {
-		AbstractButton b = new JButton("Text", IconManager.getIcon("/duke.gif"));
+		AbstractButton b = new JButton("Text",
+				IconManager.getIcon("/duke.gif"));
 		b.setHorizontalAlignment(hAlign);
 		b.setVerticalAlignment(vAlign);
 		return (b);
 	}
 
 	private AbstractButton createTextButton(int hAlign, int vAlign) {
-		AbstractButton b = new JButton("Text", IconManager.getIcon("/duke.gif"));
+		AbstractButton b = new JButton("Text",
+				IconManager.getIcon("/duke.gif"));
 		b.setHorizontalTextPosition(hAlign);
 		b.setVerticalTextPosition(vAlign);
 		return (b);

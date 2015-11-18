@@ -1,6 +1,5 @@
 package meta.sorter.comparators;
 
-
 import java.util.Comparator;
 
 import meta.sorter.Item;

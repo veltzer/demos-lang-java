@@ -42,8 +42,8 @@ import com.example.addressbook.view.preferences.AddressBookPreferences;
  * to change the font used in page 2 <li>page 2 shows the words in page 0 in
  * sorted order </ul>
  */
-public class AddressBookEditor extends MultiPageEditorPart implements
-		IResourceChangeListener {
+public class AddressBookEditor extends MultiPageEditorPart
+		implements IResourceChangeListener {
 	// Widgets for the Contact page:
 	private Form contactForm;
 	// Name section
@@ -158,7 +158,8 @@ public class AddressBookEditor extends MultiPageEditorPart implements
 			// Build the Phones section:
 			section = toolkit.createSection(contactForm.getBody(), SWT.DEFAULT);
 			section.setText("Phones");
-			section.setDescription("How to contact this person, the old-fashioned way.");
+			section.setDescription(
+					"How to contact this person, the old-fashioned way.");
 
 			gd = new GridData();
 			gd.verticalAlignment = SWT.TOP;
@@ -327,8 +328,8 @@ public class AddressBookEditor extends MultiPageEditorPart implements
 
 	private void updateContactFromSource() {
 		try {
-			BufferedReader in = new BufferedReader(new StringReader(
-					getDocumentSource().get()));
+			BufferedReader in = new BufferedReader(
+					new StringReader(getDocumentSource().get()));
 			firstName.setText(in.readLine());
 			lastName.setText(in.readLine());
 			email.setText(in.readLine());
@@ -348,8 +349,8 @@ public class AddressBookEditor extends MultiPageEditorPart implements
 	}
 
 	private IDocument getDocumentSource() {
-		return sourceEditor.getDocumentProvider().getDocument(
-				sourceEditor.getEditorInput());
+		return sourceEditor.getDocumentProvider()
+				.getDocument(sourceEditor.getEditorInput());
 	}
 
 	public boolean isDirty() {

@@ -49,7 +49,8 @@ public abstract class AddressBookManager {
 				writer.println(friend.getNumber());
 			}
 			List<Company> companies = instance.getCompanies();
-			for (Iterator<Company> iter = companies.iterator(); iter.hasNext();) {
+			for (Iterator<Company> iter = companies.iterator(); iter
+					.hasNext();) {
 				Company company = iter.next();
 				writer.print("COMPANY\t");
 				writer.print(company.getName());
@@ -114,7 +115,8 @@ public abstract class AddressBookManager {
 				Company company = new Company(name, number);
 				instance.addCompany(company);
 			} else {
-				throw new IllegalArgumentException("Unknown line type: " + type);
+				throw new IllegalArgumentException(
+						"Unknown line type: " + type);
 			}
 		} catch (Exception e) {
 			// Should log the error...

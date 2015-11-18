@@ -8,9 +8,11 @@ public class ToStringInteger extends PerformaceTest {
 	public void init() {
 		i = 0;
 	}
+
 	public void cycle() {
 		i.toString();
 	}
+
 	public void done() {
 	}
 }

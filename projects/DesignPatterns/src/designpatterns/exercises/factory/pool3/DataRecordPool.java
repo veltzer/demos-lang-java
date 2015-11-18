@@ -5,8 +5,8 @@ import java.util.List;
 
 /**
  * A minimal object pool. This pool is a factory which manages the creation of
- * DataRecord objects.
- * Locking is provided. Minimal capacity ensurance is provided using an external thread.
+ * DataRecord objects. Locking is provided. Minimal capacity ensurance is
+ * provided using an external thread.
  */
 public final class DataRecordPool {
 	private static DataRecordPool instance = new DataRecordPool();
@@ -30,8 +30,10 @@ public final class DataRecordPool {
 	private DataRecordPool() {
 		pool = new LinkedList<DataRecord>();
 		// a maxSize of 0 means "unlimited"
-		maxSize = Integer.parseInt(System.getProperty("datarecord.pool.maxsize", "0"));
-		minSize = Integer.parseInt(System.getProperty("datarecord.pool.minsize", "0"));
+		maxSize = Integer
+				.parseInt(System.getProperty("datarecord.pool.maxsize", "0"));
+		minSize = Integer
+				.parseInt(System.getProperty("datarecord.pool.minsize", "0"));
 		numRequests = 0;
 		ensureCapacity();
 	}

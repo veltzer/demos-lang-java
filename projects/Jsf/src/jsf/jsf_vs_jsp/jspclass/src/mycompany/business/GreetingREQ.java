@@ -7,12 +7,15 @@ public class GreetingREQ {
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String iname) {
 		name = iname;
 	}
+
 	public Integer getCell() {
 		return cell;
 	}
+
 	public void setCell(Integer icell) {
 		cell = icell;
 	}

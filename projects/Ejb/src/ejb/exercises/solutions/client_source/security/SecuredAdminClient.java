@@ -29,7 +29,8 @@ public abstract class SecuredAdminClient {
 		LoginContext loginContext = null;
 		try {
 			// Create LoginContext; specify username/password login module
-			loginContext = new LoginContext("AdminClient", new WeblogicCallbackHandler(username, password, url));
+			loginContext = new LoginContext("AdminClient",
+					new WeblogicCallbackHandler(username, password, url));
 		} catch (SecurityException e) {
 			throw new RuntimeException(e);
 		} catch (LoginException e) {
@@ -50,7 +51,8 @@ public abstract class SecuredAdminClient {
 		 * Retrieve authenticated subject, perform AdminClientAction as Subject
 		 */
 		Subject subject = loginContext.getSubject();
-		System.out.println(subject.getPrincipals() + " has logged in successfully.");
+		System.out.println(
+				subject.getPrincipals() + " has logged in successfully.");
 
 		AdminClientAction adminAction = new AdminClientAction();
 		Subject.doAs(subject, adminAction);
@@ -75,13 +77,15 @@ public abstract class SecuredAdminClient {
 			// Lookup:
 			InitialContext ictx = new InitialContext();
 			Object obj = ictx.lookup("ejb/admin/BookstoreAdminHome");
-			BookstoreAdminHome adminHome = (BookstoreAdminHome) PortableRemoteObject.narrow(obj, BookstoreAdminHome.class);
+			BookstoreAdminHome adminHome = (BookstoreAdminHome) PortableRemoteObject
+					.narrow(obj, BookstoreAdminHome.class);
 			BookstoreAdmin admin = adminHome.create();
 
 			// view all customers:
 			System.out.println("All registered customers:");
 			List<CustomerDTO> customers = admin.showCustomers();
-			for (Iterator<CustomerDTO> it = customers.iterator(); it.hasNext();) {
+			for (Iterator<CustomerDTO> it = customers.iterator(); it
+					.hasNext();) {
 				CustomerDTO customer = it.next();
 				System.out.println(customer);
 			}

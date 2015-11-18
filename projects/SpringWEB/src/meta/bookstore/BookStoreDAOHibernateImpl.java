@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-public class BookStoreDAOHibernateImpl extends HibernateDaoSupport implements
-		BookStoreAdminDAO {
+public class BookStoreDAOHibernateImpl extends HibernateDaoSupport
+		implements BookStoreAdminDAO {
 	public void addNewBook(Book book) {
 		getHibernateTemplate().persist(book);
 
@@ -17,8 +17,8 @@ public class BookStoreDAOHibernateImpl extends HibernateDaoSupport implements
 
 	@SuppressWarnings("unchecked")
 	public List<Book> showBooksBellow(double price) {
-		return (List<Book>) getHibernateTemplate().find(
-				"from Book as b where b.price < " + price);
+		return (List<Book>) getHibernateTemplate()
+				.find("from Book as b where b.price < " + price);
 	}
 
 	public void addCustomer(Customer customer) {
@@ -33,8 +33,8 @@ public class BookStoreDAOHibernateImpl extends HibernateDaoSupport implements
 
 	@SuppressWarnings("unchecked")
 	public List<Customer> showCustomersByName(String name) {
-		return (List<Customer>) getHibernateTemplate().find(
-				"from Customer as c where c.name = '" + name + "'");
+		return (List<Customer>) getHibernateTemplate()
+				.find("from Customer as c where c.name = '" + name + "'");
 	}
 
 	public void updateBook(Book book) {

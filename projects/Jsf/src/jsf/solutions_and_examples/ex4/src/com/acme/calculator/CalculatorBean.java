@@ -17,11 +17,10 @@ public class CalculatorBean {
 	private static final int MODE_NORMAL = 0;
 	private static final int MODE_SCI = 1;
 
-	private static final String[] CHANGE_MODE_MESSAGE =
-		new String[] {
+	private static final String[] CHANGE_MODE_MESSAGE = new String[] {
 			"Scientific mode", // Shown in normal mode
 			"Normal mode" // Shown in scientific mode
-		};
+	};
 
 	private double lastValue = 0.0;
 	private int lastOp = NOP;
@@ -56,13 +55,14 @@ public class CalculatorBean {
 	}
 
 	private void calc(int newOp) {
-		/* You can use a selected output component on the form
-		 * for debug output, as shown here (commented out; the
-		 * component itself is also commented out in the HTML.)
+		/*
+		 * You can use a selected output component on the form for debug output,
+		 * as shown here (commented out; the component itself is also commented
+		 * out in the HTML.)
 		 */
-//		UIComponent root = FacesContext.getCurrentInstance().getViewRoot();
-//		UIOutput output = (UIOutput) root.findComponent("calc:debug");
-//		output.setValue("newOp = " + newOp);
+		// UIComponent root = FacesContext.getCurrentInstance().getViewRoot();
+		// UIOutput output = (UIOutput) root.findComponent("calc:debug");
+		// output.setValue("newOp = " + newOp);
 
 		switch (lastOp) {
 		case PLUS:

@@ -357,8 +357,9 @@ class TableParser {
 				Math.max(0, getIn().getPos() - 10),
 				Math.min(getIn().getPos() + 1, getIn().getSource().length()));
 
-		throw new BadTableHtmlException("Bad html at or before character "
-				+ getIn().getPos() + " : " + message + " : " + context + " <--");
+		throw new BadTableHtmlException(
+				"Bad html at or before character " + getIn().getPos() + " : "
+						+ message + " : " + context + " <--");
 	}
 
 	void scan(int tok) {

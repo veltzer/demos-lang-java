@@ -11,5 +11,4 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "startCalcResponse", namespace = "http://service.calculator/")
 public class StartCalcResponse {
 
-
 }

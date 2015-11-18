@@ -14,9 +14,12 @@ import javax.servlet.http.HttpServletRequest;
 public class AuditFilter implements Filter {
 	public void init(FilterConfig cfg) {
 	}
-	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) {
+
+	public void doFilter(ServletRequest req, ServletResponse res,
+			FilterChain chain) {
 		HttpServletRequest httpReq = (HttpServletRequest) req;
-		System.out.println(new Date() + " URL:" + httpReq.getRequestURI() + " Remote addr:" + httpReq.getRemoteAddr());
+		System.out.println(new Date() + " URL:" + httpReq.getRequestURI()
+				+ " Remote addr:" + httpReq.getRemoteAddr());
 		try {
 			chain.doFilter(req, res);
 		} catch (IOException e) {
@@ -25,6 +28,7 @@ public class AuditFilter implements Filter {
 			throw new RuntimeException(e);
 		}
 	}
+
 	public void destroy() {
 	}
 }

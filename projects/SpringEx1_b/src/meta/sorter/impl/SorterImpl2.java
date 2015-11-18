@@ -10,7 +10,6 @@ import meta.sorter.Sorter;
 
 import org.springframework.beans.factory.annotation.Configurable;
 
-
 @Configurable
 public abstract class SorterImpl2 implements Sorter, SorterImplMBean {
 

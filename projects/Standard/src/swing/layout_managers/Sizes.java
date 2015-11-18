@@ -56,7 +56,8 @@ public final class Sizes {
 	/**
 	 * Use the maximum of all component preferred sizes as column or row size.
 	 */
-	public static final ComponentSize PREFERRED = new ComponentSize("preferred");
+	public static final ComponentSize PREFERRED = new ComponentSize(
+			"preferred");
 
 	/**
 	 * Use the maximum of all component sizes as column or row size; measures

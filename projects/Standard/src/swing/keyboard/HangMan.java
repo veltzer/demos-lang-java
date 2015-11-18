@@ -70,8 +70,8 @@ public class HangMan extends JFrame {
 		fileMenu.add(newGameItem);
 		JMenuItem exitItem = new JMenuItem("Exit");
 		exitItem.setMnemonic('x');
-		exitItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_X,
-				InputEvent.CTRL_MASK));
+		exitItem.setAccelerator(
+				KeyStroke.getKeyStroke(KeyEvent.VK_X, InputEvent.CTRL_MASK));
 		exitItem.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {

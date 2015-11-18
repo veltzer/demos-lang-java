@@ -7,7 +7,8 @@ public class GreetingBO {
 		GreetingRES greetingRES = new GreetingRES();
 
 		// create the greeting text
-		String greetText = "welcome dear " + greetingREQ.getName() + " you cell is " + greetingREQ.getCell();
+		String greetText = "welcome dear " + greetingREQ.getName()
+				+ " you cell is " + greetingREQ.getCell();
 
 		// populate the response object
 		greetingRES.setGreetText(greetText);

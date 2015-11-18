@@ -35,10 +35,9 @@ public class DateForm extends JFrame {
 			public void insertString(int offs, String str, AttributeSet a)
 					throws BadLocationException {
 				if (getLength() != 0) {
-					String proposed = getText(0, offs)
-							+ str
-							+ getText(offs + str.length(), getLength() - offs
-									- str.length());
+					String proposed = getText(0, offs) + str
+							+ getText(offs + str.length(),
+									getLength() - offs - str.length());
 					if (check(proposed)) {
 						super.remove(offs, str.length());
 						super.insertString(offs, str, a);
@@ -83,34 +82,27 @@ public class DateForm extends JFrame {
 
 		jLabel1.setText("Please enter your birthdate");
 
-		GroupLayout layout = new GroupLayout(
-				getContentPane());
+		GroupLayout layout = new GroupLayout(getContentPane());
 		getContentPane().setLayout(layout);
-		layout.setHorizontalGroup(layout.createParallelGroup(
-				GroupLayout.Alignment.LEADING).addGroup(
-				layout.createSequentialGroup()
-						.addGap(46, 46, 46)
-						.addComponent(jLabel1)
-						.addGap(18, 18, 18)
-						.addComponent(jTextField1,
-								GroupLayout.PREFERRED_SIZE, 176,
-								GroupLayout.PREFERRED_SIZE)
+		layout.setHorizontalGroup(layout
+				.createParallelGroup(GroupLayout.Alignment.LEADING)
+				.addGroup(layout.createSequentialGroup().addGap(46, 46, 46)
+						.addComponent(jLabel1).addGap(18, 18, 18)
+						.addComponent(jTextField1, GroupLayout.PREFERRED_SIZE,
+								176, GroupLayout.PREFERRED_SIZE)
 						.addContainerGap(33, Short.MAX_VALUE)));
 		layout.setVerticalGroup(layout
 				.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGroup(
-						layout.createSequentialGroup()
-								.addGap(73, 73, 73)
-								.addGroup(
-										layout.createParallelGroup(
-												GroupLayout.Alignment.BASELINE)
-												.addComponent(
-														jTextField1,
-														GroupLayout.PREFERRED_SIZE,
-														GroupLayout.DEFAULT_SIZE,
-														GroupLayout.PREFERRED_SIZE)
-												.addComponent(jLabel1))
-								.addContainerGap(202, Short.MAX_VALUE)));
+				.addGroup(layout.createSequentialGroup().addGap(73, 73, 73)
+						.addGroup(layout
+								.createParallelGroup(
+										GroupLayout.Alignment.BASELINE)
+								.addComponent(jTextField1,
+										GroupLayout.PREFERRED_SIZE,
+										GroupLayout.DEFAULT_SIZE,
+										GroupLayout.PREFERRED_SIZE)
+								.addComponent(jLabel1))
+						.addContainerGap(202, Short.MAX_VALUE)));
 
 		pack();
 	} // </editor-fold>//GEN-END:initComponents

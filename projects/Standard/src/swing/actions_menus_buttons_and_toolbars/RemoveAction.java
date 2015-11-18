@@ -9,8 +9,8 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 @SuppressWarnings("serial")
-public class RemoveAction extends AbstractAction implements
-		ListSelectionListener {
+public class RemoveAction extends AbstractAction
+		implements ListSelectionListener {
 	private JTable table;
 
 	public RemoveAction(JTable itable) {

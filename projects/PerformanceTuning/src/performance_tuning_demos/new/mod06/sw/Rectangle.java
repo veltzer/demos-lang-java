@@ -6,9 +6,11 @@ public class Rectangle implements Shape {
 		length = ilength;
 		width = iwidth;
 	}
+
 	private Rectangle() {
 		length = width = 0;
 	}
+
 	public double area() {
 		return length * width;
 	}

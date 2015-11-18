@@ -5,8 +5,8 @@ public abstract class Test {
 	public static void main(String[] args) {
 		Bank bank = Bank.getBank();
 		bank.addCustomer(new Customer("Sharon", "1234", 21, new Account(5000)));
-		bank.addCustomer(new Customer("Anat", "1235", 21, new BusinessAccount(
-				5000)));
+		bank.addCustomer(
+				new Customer("Anat", "1235", 21, new BusinessAccount(5000)));
 
 		bank.getCustomer(0).getAccount().withdraw(2000);
 		bank.getCustomer(1).getAccount().withdraw(2000);

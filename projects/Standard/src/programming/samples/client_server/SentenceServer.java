@@ -21,10 +21,10 @@ public abstract class SentenceServer {
 			Socket socket = serverSocket.accept();
 			InputStream in = socket.getInputStream();
 			OutputStream out = socket.getOutputStream();
-			BufferedReader reader = new BufferedReader(new InputStreamReader(
-					in, "latin1"));
-			PrintWriter writer = new PrintWriter(new OutputStreamWriter(out,
-					"latin1"));
+			BufferedReader reader = new BufferedReader(
+					new InputStreamReader(in, "latin1"));
+			PrintWriter writer = new PrintWriter(
+					new OutputStreamWriter(out, "latin1"));
 			String sentence = reader.readLine();
 			String reply = makeReply(sentence);
 			writer.println(reply);

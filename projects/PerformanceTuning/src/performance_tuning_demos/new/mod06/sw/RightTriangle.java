@@ -7,9 +7,11 @@ public class RightTriangle implements Shape {
 		base = ibase;
 		height = iheight;
 	}
+
 	private RightTriangle() {
 		base = height = 0;
 	}
+
 	public double area() {
 		return .5 * base * height;
 	}

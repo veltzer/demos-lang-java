@@ -8,10 +8,13 @@ import javax.microedition.midlet.MIDlet;
 public class ToDo extends MIDlet implements CommandListener {
 	private List list; // List to display all entries
 	private TextBox textBox; // Text box to add and edit entries
-	private Command addEntryCmd, deleteEntryCmd, editEntryCmd, helpCmd, aboutCmd, exitCmd, okCmd, cancelCmd;
+	private Command addEntryCmd, deleteEntryCmd, editEntryCmd, helpCmd,
+			aboutCmd, exitCmd, okCmd, cancelCmd;
 	private Vector entries = new Vector(); // List of all Entry objects
-	private Displayable pausedDisplayable; // Last Displayble object visible before Midlet paused
-	private int editEntryIndex; // Index of entry currently being edited, or -1 if none
+	private Displayable pausedDisplayable; // Last Displayble object visible
+											// before Midlet paused
+	private int editEntryIndex; // Index of entry currently being edited, or -1
+								// if none
 
 	/** Constructor. */
 	public ToDo() {
@@ -36,7 +39,10 @@ public class ToDo extends MIDlet implements CommandListener {
 		list.addCommand(exitCmd);
 
 		// Initialize text box.
-		textBox = new TextBox(null, null, 500, TextField.ANY); // Allow up to 500 characters per entry
+		textBox = new TextBox(null, null, 500, TextField.ANY); // Allow up to
+																// 500
+																// characters
+																// per entry
 		textBox.setCommandListener(this);
 		textBox.addCommand(okCmd);
 		textBox.addCommand(cancelCmd);
@@ -48,13 +54,23 @@ public class ToDo extends MIDlet implements CommandListener {
 
 	/** Signals the MIDlet to stop and enter the Paused state. */
 	protected void pauseApp() {
-		pausedDisplayable = Display.getDisplay(this).getCurrent(); // Save reference to current displayable.
+		pausedDisplayable = Display.getDisplay(this).getCurrent(); // Save
+																	// reference
+																	// to
+																	// current
+																	// displayable.
 	}
 
 	/** Signals the MIDlet that it has entered the Active state. */
 	protected void startApp() {
 		if (pausedDisplayable != null) {
-			Display.getDisplay(this).setCurrent(pausedDisplayable); // Re-display last previously shown displayable if available.
+			Display.getDisplay(this).setCurrent(pausedDisplayable); // Re-display
+																	// last
+																	// previously
+																	// shown
+																	// displayable
+																	// if
+																	// available.
 			pausedDisplayable = null;
 		} else {
 			Display.getDisplay(this).setCurrent(list);
@@ -76,7 +92,8 @@ public class ToDo extends MIDlet implements CommandListener {
 				deleteEntry(list.getSelectedIndex());
 			}
 		} else if (c == editEntryCmd) {
-			// Edit currently selected entry by displaying text box with entry contents.
+			// Edit currently selected entry by displaying text box with entry
+			// contents.
 			if (list.getSelectedIndex() > -1) {
 				editEntryIndex = list.getSelectedIndex();
 				Entry entry = (Entry) entries.elementAt(editEntryIndex);
@@ -130,11 +147,12 @@ public class ToDo extends MIDlet implements CommandListener {
 	private void showHelp() {
 		Alert helpAlert = new Alert("Help");
 		helpAlert.setTimeout(Alert.FOREVER);
-		helpAlert.setString("A simple to do list application. Use the available commands to add, delete or edit entries in the list.");
+		helpAlert.setString(
+				"A simple to do list application. Use the available commands to add, delete or edit entries in the list.");
 		Display.getDisplay(this).setCurrent(helpAlert);
 	}
 
- 	/** Display about dialog. */
+	/** Display about dialog. */
 	private void showAbout() {
 		Alert aboutAlert = new Alert("About");
 		aboutAlert.setTimeout(Alert.FOREVER);
@@ -143,7 +161,8 @@ public class ToDo extends MIDlet implements CommandListener {
 		StringBuffer sb = new StringBuffer(75);
 		sb.append(getAppProperty("MIDlet-Name"));
 		sb.append("\nversion ").append(getAppProperty("MIDlet-Version"));
-		sb.append("\nlocale ").append(System.getProperty("microedition.locale"));
+		sb.append("\nlocale ")
+				.append(System.getProperty("microedition.locale"));
 		sb.append("\nby Jamie Hall");
 
 		aboutAlert.setString(sb.toString());
@@ -165,8 +184,15 @@ public class ToDo extends MIDlet implements CommandListener {
 		public String toString() {
 			Calendar calendar = Calendar.getInstance();
 			calendar.setTime(date);
-			String dateString = calendar.get(Calendar.YEAR) + "-" + (calendar.get(Calendar.MONTH) + 1) + "-" + calendar.get(Calendar.DATE) + " " + calendar.get(Calendar.HOUR_OF_DAY) + ":" + (calendar.get(Calendar.MINUTE) < 10 ? "0" + calendar.get(Calendar.MINUTE) : "" + calendar.get(Calendar.MINUTE));
-			return text.substring(0, Math.min(text.length(), 10)) + " [" + dateString + "]";
+			String dateString = calendar.get(Calendar.YEAR) + "-"
+					+ (calendar.get(Calendar.MONTH) + 1) + "-"
+					+ calendar.get(Calendar.DATE) + " "
+					+ calendar.get(Calendar.HOUR_OF_DAY) + ":"
+					+ (calendar.get(Calendar.MINUTE) < 10
+							? "0" + calendar.get(Calendar.MINUTE)
+							: "" + calendar.get(Calendar.MINUTE));
+			return text.substring(0, Math.min(text.length(), 10)) + " ["
+					+ dateString + "]";
 		}
 	}
 }

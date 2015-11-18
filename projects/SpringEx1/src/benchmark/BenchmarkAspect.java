@@ -11,9 +11,8 @@ public class BenchmarkAspect {
 		long startTime = System.currentTimeMillis();
 		Object result = pjp.proceed();
 		long endTime = System.currentTimeMillis();
-		System.out.println("Time took for: "
-				+ pjp.getSignature().toLongString() + " was: "
-				+ (endTime - startTime) + " Milliseconds.");
+		System.out.println("Time took for: " + pjp.getSignature().toLongString()
+				+ " was: " + (endTime - startTime) + " Milliseconds.");
 		return result;
 	}
 }

@@ -48,8 +48,8 @@ public class LayoutQuiz1 extends JFrame {
 				long startTime = System.currentTimeMillis();
 				super.paintDirtyRegions();
 				long endTime = System.currentTimeMillis();
-				System.out.println("paint took " + (endTime - startTime)
-						+ " millis");
+				System.out.println(
+						"paint took " + (endTime - startTime) + " millis");
 			}
 
 		});

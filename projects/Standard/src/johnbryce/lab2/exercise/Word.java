@@ -1,31 +1,32 @@
 package johnbryce.lab2.exercise;
 
-public class Word implements Comparable<Word>{
+public class Word implements Comparable<Word> {
 	private String word;
 
-	public Word (String word){
-		this.word=word;
+	public Word(String iword) {
+		word = iword;
 	}
 
-	public String toString(){
+	public String toString() {
 		return word;
 	}
 
-	public boolean equals(Object o){
-		if(o instanceof Word && o.toString().equals(word))
+	public boolean equals(Object o) {
+		if (o instanceof Word && o.toString().equals(word)) {
 			return true;
+		}
 		return false;
 	}
 
-	public int hashCode(){
+	public int hashCode() {
 		return word.hashCode();
 	}
 
-	public int length(){
+	public int length() {
 		return word.length();
 	}
 
-	public int compareTo(Word word) {
-		return this.word.compareTo(word.toString());
+	public int compareTo(Word iword) {
+		return word.compareTo(iword.toString());
 	}
 }

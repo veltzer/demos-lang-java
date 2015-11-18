@@ -62,8 +62,8 @@ public class MultiSortableTableModel extends ProxyTableModel {
 					.isAssignableFrom(getColumnClass(icolumns[compIter]))) {
 				comparators.add(new Comparator<Object>() {
 					public int compare(Object o1, Object o2) {
-						return (((Number) o1).intValue() - ((Number) o2)
-								.intValue());
+						return (((Number) o1).intValue()
+								- ((Number) o2).intValue());
 					}
 				});
 			} else {
@@ -79,8 +79,8 @@ public class MultiSortableTableModel extends ProxyTableModel {
 			rows.add(new Integer(iter));
 		}
 
-		Collections.sort(rows, new TableComparator(comparators, columns,
-				ascending));
+		Collections.sort(rows,
+				new TableComparator(comparators, columns, ascending));
 
 		if ((sortedOffsets == null) || (sortedOffsets.length != rowCount)) {
 			sortedOffsets = new int[rowCount];

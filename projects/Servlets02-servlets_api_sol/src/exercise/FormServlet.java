@@ -10,7 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 @SuppressWarnings("serial")
 public class FormServlet extends HttpServlet {
 
-	public void doGet(HttpServletRequest request, HttpServletResponse response) {
+	public void doGet(HttpServletRequest request,
+			HttpServletResponse response) {
 		PrintWriter out;
 		try {
 			out = response.getWriter();
@@ -34,7 +35,8 @@ public class FormServlet extends HttpServlet {
 		out.println("</html>");
 	}
 
-	public void doPost(HttpServletRequest request, HttpServletResponse response) {
+	public void doPost(HttpServletRequest request,
+			HttpServletResponse response) {
 		PrintWriter out;
 		try {
 			out = response.getWriter();
@@ -53,7 +55,8 @@ public class FormServlet extends HttpServlet {
 		out.println("</head>");
 		out.println("<body>");
 		if (fName.equals("") || lName.equals("")) {
-			out.println("<font color='red'>First name and Last name must be provided!</font>");
+			out.println(
+					"<font color='red'>First name and Last name must be provided!</font>");
 		} else {
 			out.println("<b>Welcome " + fName + " " + lName + "!</b>");
 			out.println("<table border=1>");

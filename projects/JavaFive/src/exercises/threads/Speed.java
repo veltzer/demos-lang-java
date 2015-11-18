@@ -25,27 +25,22 @@ public class Speed {
 	public Speed() {
 		System.err.println("INITIALIZING");
 
-		//CREATE A SHUFFLED DECK
+		// CREATE A SHUFFLED DECK
 		Deck deck = new Deck();
-		//System.err.println("Deck: "+deck);
+		// System.err.println("Deck: "+deck);
 
-		//CREATE FOUR PLAYERS AND DEAL EACH PLAYER 13 CARDS
+		// CREATE FOUR PLAYERS AND DEAL EACH PLAYER 13 CARDS
 		int size = deck.size();
 		int cardPerPlayer = size / PLAYERS;
 		for (int idx = 0; idx < deck.size(); idx += cardPerPlayer) {
-			players.add(
-				new Player(
-					"p" + Integer.toString(idx),
-					this,
-					new Deck(deck.subList(idx, idx + cardPerPlayer))
-				)
-			);
+			players.add(new Player("p" + Integer.toString(idx), this,
+					new Deck(deck.subList(idx, idx + cardPerPlayer))));
 		}
 
-		//WRITE TO SCREEN THE STATUS OF THE GAME
+		// WRITE TO SCREEN THE STATUS OF THE GAME
 		moved();
 
-		//START PLAYING
+		// START PLAYING
 		launch();
 	}
 
@@ -62,7 +57,8 @@ public class Speed {
 	public void launch() {
 		System.err.println("PLAYING");
 		ExecutorService service = Executors.newFixedThreadPool(PLAYERS);
-		Collection<Callable<Player>> ps = new ArrayList<Callable<Player>>(players);
+		Collection<Callable<Player>> ps = new ArrayList<Callable<Player>>(
+				players);
 		try {
 			service.invokeAll(ps);
 		} catch (InterruptedException e) {
@@ -83,7 +79,8 @@ public class Speed {
 	}
 
 	/**
-	 * This method writes to standard-error a single line describing the state of the game
+	 * This method writes to standard-error a single line describing the state
+	 * of the game
 	 */
 	public void moved() {
 		System.err.printf("piles: %s players:%s\n", getPiles(), players);

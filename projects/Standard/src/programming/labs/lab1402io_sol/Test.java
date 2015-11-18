@@ -18,8 +18,8 @@ public abstract class Test {
 	public static void writeObject(Object o, String filename) {
 		ObjectOutputStream out = null;
 		try {
-			out = new ObjectOutputStream(new BufferedOutputStream(
-					new FileOutputStream(filename)));
+			out = new ObjectOutputStream(
+					new BufferedOutputStream(new FileOutputStream(filename)));
 			out.writeObject(o);
 
 		} catch (FileNotFoundException e) {
@@ -42,8 +42,8 @@ public abstract class Test {
 	public static Object readObject(String filename) {
 		ObjectInputStream in = null;
 		try {
-			in = new ObjectInputStream(new BufferedInputStream(
-					new FileInputStream(filename)));
+			in = new ObjectInputStream(
+					new BufferedInputStream(new FileInputStream(filename)));
 			Object o = in.readObject();
 			return o;
 		} catch (FileNotFoundException e) {

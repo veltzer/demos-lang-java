@@ -100,7 +100,8 @@ public abstract class FormSpec implements Serializable {
 	 * @param resizeWeight the spec resize weight
 	 * @throws IllegalArgumentException if the resize weight is negative
 	 */
-	protected FormSpec(DefaultAlignment idefaultAlignment, Size isize, double iresizeWeight) {
+	protected FormSpec(DefaultAlignment idefaultAlignment, Size isize,
+			double iresizeWeight) {
 		defaultAlignment = idefaultAlignment;
 		size = isize;
 		resizeWeight = iresizeWeight;
@@ -116,7 +117,8 @@ public abstract class FormSpec implements Serializable {
 	 * @param defaultAlignment the default alignment
 	 * @param encodedDescription the encoded description
 	 */
-	protected FormSpec(DefaultAlignment idefaultAlignment, String encodedDescription) {
+	protected FormSpec(DefaultAlignment idefaultAlignment,
+			String encodedDescription) {
 		this(idefaultAlignment, Sizes.DEFAULT, NO_GROW);
 		parseAndInitValues(encodedDescription.toLowerCase());
 	}
@@ -166,7 +168,8 @@ public abstract class FormSpec implements Serializable {
 	 * is otherwise invalid
 	 */
 	private void parseAndInitValues(String encodedDescription) {
-		StringTokenizer tokenizer = new StringTokenizer(encodedDescription, ":");
+		StringTokenizer tokenizer = new StringTokenizer(encodedDescription,
+				":");
 		if (!tokenizer.hasMoreTokens()) {
 			throw new IllegalArgumentException(
 					"The form spec must not be empty.");
@@ -287,7 +290,8 @@ public abstract class FormSpec implements Serializable {
 		if (token.equals("g") || token.equals("grow")) {
 			return DEFAULT_GROW;
 		}
-		if (token.equals("n") || token.equals("nogrow") || token.equals("none")) {
+		if (token.equals("n") || token.equals("nogrow")
+				|| token.equals("none")) {
 			return NO_GROW;
 		}
 		// Must have format: grow(<double>)
@@ -298,11 +302,9 @@ public abstract class FormSpec implements Serializable {
 			String substring = token.substring(leftParen + 1, rightParen);
 			return Double.parseDouble(substring);
 		}
-		throw new IllegalArgumentException(
-				"The resize argument '"
-						+ token
-						+ "' is invalid. "
-						+ " Must be one of: grow, g, none, n, grow(<double>), g(<double>)");
+		throw new IllegalArgumentException("The resize argument '" + token
+				+ "' is invalid. "
+				+ " Must be one of: grow, g, none, n, grow(<double>), g(<double>)");
 	}
 
 	// Misc *****************************************************************
@@ -415,7 +417,8 @@ public abstract class FormSpec implements Serializable {
 		 * @param isHorizontal indicates the values orientation
 		 * @return the corresponding DefaultAlignment or null
 		 */
-		private static DefaultAlignment valueOf(String str, boolean isHorizontal) {
+		private static DefaultAlignment valueOf(String str,
+				boolean isHorizontal) {
 			if (str.equals("f") || str.equals("fill")) {
 				return FILL_ALIGN;
 			} else if (str.equals("c") || str.equals("center")) {

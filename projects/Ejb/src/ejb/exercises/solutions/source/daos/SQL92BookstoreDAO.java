@@ -15,10 +15,8 @@ import ejb.exercises.solutions.source.dtos.CustomerDTO;
 import ejb.exercises.solutions.source.dtos.OrderDetailsDTO;
 
 /**
- * A simple SQL implementation of BookstoreDAO. <br>
- *
- * For more information, please refer to the documentation of
- * interface BookstoreDAO.
+ * A simple SQL implementation of BookstoreDAO. <br> For more information,
+ * please refer to the documentation of interface BookstoreDAO.
  */
 public class SQL92BookstoreDAO implements BookstoreDAO {
 
@@ -31,7 +29,7 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 	/** Customer record: id, name, email, address */
 	private String insertCustomerSql = "insert into CUSTOMERS values(?,?,?,?)";
 
-	/** Order details : orderId, timestamp , customerId*/
+	/** Order details : orderId, timestamp , customerId */
 	private String insertOrderSql = "insert into ORDERS values(?,?,?)";
 
 	/** order-item: orderId, bookTitle */
@@ -53,8 +51,7 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 	private String selectOrdersById = "select * from ORDERS where ID=?";
 
 	/** Select items by orderId */
-	private String selectItemsByOrder =
-		"select * from ORDER_ITEMS where ORDER_ID=?";
+	private String selectItemsByOrder = "select * from ORDER_ITEMS where ORDER_ID=?";
 
 	/** delete order by orderId */
 	private String deleteOrder = "delete from ORDERS where ID=?";
@@ -63,12 +60,10 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 	private String deleteBookSql = "delete from BOOKS where TITLE=?";
 
 	/** delete orderItems by orderId */
-	private String deleteOrderItems =
-		"delete from ORDER_ITEMS where ORDER_ID=?";
+	private String deleteOrderItems = "delete from ORDER_ITEMS where ORDER_ID=?";
 
 	/** update book fields */
-	private String updateBookSql =
-		"update BOOKS set AUTHOR=?, PRICE=? where TITLE=?";
+	private String updateBookSql = "update BOOKS set AUTHOR=?, PRICE=? where TITLE=?";
 
 	/**
 	 * Constructs a DAO that would use the given datasource.
@@ -150,11 +145,8 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 			ResultSet rs = stmt.executeQuery();
 			List<BookDTO> books = new LinkedList<BookDTO>();
 			while (rs.next()) {
-				BookDTO book =
-					new BookDTO(
-						rs.getString("TITLE"),
-						rs.getString("AUTHOR"),
-						rs.getDouble("PRICE"));
+				BookDTO book = new BookDTO(rs.getString("TITLE"),
+						rs.getString("AUTHOR"), rs.getDouble("PRICE"));
 				books.add(book);
 			}
 			return books;
@@ -170,7 +162,8 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 		}
 	}
 
-	public void insertCustomer(String id, String name, String email, String address) {
+	public void insertCustomer(String id, String name, String email,
+			String address) {
 		Connection con = null;
 		try {
 			con = datasource.getConnection();
@@ -199,11 +192,8 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 			PreparedStatement stmt = con.prepareStatement(selectCustomersSql);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
-				CustomerDTO cust =
-					new CustomerDTO(
-						rs.getString("ID"),
-						rs.getString("NAME"),
-						rs.getString("EMAIL"),
+				CustomerDTO cust = new CustomerDTO(rs.getString("ID"),
+						rs.getString("NAME"), rs.getString("EMAIL"),
 						rs.getString("ADDRESS"));
 				customers.add(cust);
 			}
@@ -219,11 +209,8 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 		}
 	}
 
-	public void insertOrder(
-		String orderId,
-		String customerId,
-		long timestamp,
-		List<String> bookTitles) {
+	public void insertOrder(String orderId, String customerId, long timestamp,
+			List<String> bookTitles) {
 		Connection con = null;
 		try {
 			con = datasource.getConnection();
@@ -236,8 +223,8 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 			orderStmt.executeUpdate();
 
 			// Insert order items:
-			PreparedStatement itemStmt =
-				con.prepareStatement(insertOrderItemSql);
+			PreparedStatement itemStmt = con
+					.prepareStatement(insertOrderItemSql);
 			itemStmt.setString(1, orderId);
 			for (Iterator<String> it = bookTitles.iterator(); it.hasNext();) {
 				String title = it.next();
@@ -262,8 +249,8 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 			OrderDetailsDTO order = new OrderDetailsDTO();
 
 			// Get order information (id, customerId, timestamp):
-			PreparedStatement orderStmt =
-				con.prepareStatement(selectOrdersById);
+			PreparedStatement orderStmt = con
+					.prepareStatement(selectOrdersById);
 			orderStmt.setString(1, orderId);
 			ResultSet orderRs = orderStmt.executeQuery();
 			if (!orderRs.next()) {
@@ -275,8 +262,8 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 
 			// Get items for this order:
 			List<String> bookTitles = new LinkedList<String>();
-			PreparedStatement itemStmt =
-				con.prepareStatement(selectItemsByOrder);
+			PreparedStatement itemStmt = con
+					.prepareStatement(selectItemsByOrder);
 			itemStmt.setString(1, orderId);
 			ResultSet itemsRs = itemStmt.executeQuery();
 			while (itemsRs.next()) {
@@ -306,7 +293,8 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 			if (!rs.next()) {
 				return null;
 			}
-			BookDTO book = new BookDTO(rs.getString("TITLE"), rs.getString("AUTHOR"), rs.getDouble("PRICE"));
+			BookDTO book = new BookDTO(rs.getString("TITLE"),
+					rs.getString("AUTHOR"), rs.getDouble("PRICE"));
 			return book;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
@@ -323,14 +311,16 @@ public class SQL92BookstoreDAO implements BookstoreDAO {
 		Connection con = null;
 		try {
 			con = datasource.getConnection();
-			PreparedStatement stmt =
-				con.prepareStatement(selectCustomerByIdSql);
+			PreparedStatement stmt = con
+					.prepareStatement(selectCustomerByIdSql);
 			stmt.setString(1, customerId);
 			ResultSet rs = stmt.executeQuery();
 			if (!rs.next()) {
 				return null;
 			}
-			CustomerDTO customer = new CustomerDTO(rs.getString("ID"), rs.getString("NAME"), rs.getString("EMAIL"), rs.getString("ADDRESS"));
+			CustomerDTO customer = new CustomerDTO(rs.getString("ID"),
+					rs.getString("NAME"), rs.getString("EMAIL"),
+					rs.getString("ADDRESS"));
 			return customer;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);

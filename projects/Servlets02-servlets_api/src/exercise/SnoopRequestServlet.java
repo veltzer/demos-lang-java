@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 @SuppressWarnings("serial")
 public class SnoopRequestServlet extends HttpServlet {
-	public void service(HttpServletRequest request, HttpServletResponse response) {
+	public void service(HttpServletRequest request,
+			HttpServletResponse response) {
 		PrintWriter out;
 		try {
 			out = response.getWriter();

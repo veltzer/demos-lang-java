@@ -16,7 +16,8 @@ public class LogInjectingBeanPostProcessor implements BeanPostProcessor {
 	}
 
 	@Override
-	public Object postProcessBeforeInitialization(Object bean, String beanName) {
+	public Object postProcessBeforeInitialization(Object bean,
+			String beanName) {
 
 		if (bean instanceof LogAware) {
 			((LogAware) bean).setLog(log);

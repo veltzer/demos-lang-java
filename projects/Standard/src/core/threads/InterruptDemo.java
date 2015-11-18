@@ -6,17 +6,15 @@ import java.io.InputStreamReader;
 import java.net.ServerSocket;
 
 /**
- * This demo explores the behavior of the interruption system for thread interruption
- * in Java.
- *
- * Conclusions:
- * - A CPU intensive thread that never does sleep, wait, IO or anything cannot be
- * stopped using interruption (see thread T1).
- * - A thread that calls sleep or wait a lot will be stopped (see thread T2).
- * - A thread doing sleep or wait will be stopped IN MID SLEEP (see thread T3).
- * - A thread that does Socket listening and is stuck on it will not be stopped (see thread T4).
- * - A thread that does IO on standard input will not be stopped (see thread T5).
- * - Closing a stream will not stop a thread stuck on it (see thread T6).
+ * This demo explores the behavior of the interruption system for thread
+ * interruption in Java. Conclusions: - A CPU intensive thread that never does
+ * sleep, wait, IO or anything cannot be stopped using interruption (see thread
+ * T1). - A thread that calls sleep or wait a lot will be stopped (see thread
+ * T2). - A thread doing sleep or wait will be stopped IN MID SLEEP (see thread
+ * T3). - A thread that does Socket listening and is stuck on it will not be
+ * stopped (see thread T4). - A thread that does IO on standard input will not
+ * be stopped (see thread T5). - Closing a stream will not stop a thread stuck
+ * on it (see thread T6).
  */
 public abstract class InterruptDemo {
 	// This thread runs forever and always consumes CPU
@@ -103,7 +101,8 @@ public abstract class InterruptDemo {
 		@Override
 		public void run() {
 			System.out.print("Enter your name: ");
-			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+			BufferedReader br = new BufferedReader(
+					new InputStreamReader(System.in));
 			try {
 				br.readLine();
 			} catch (IOException e) {

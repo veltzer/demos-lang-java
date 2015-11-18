@@ -14,9 +14,11 @@ public class HebDayName {
 
 	@XmlElement(name = "arg0", namespace = "")
 	private int arg0;
+
 	public int getArg0() {
 		return arg0;
 	}
+
 	public void setArg0(int iarg0) {
 		arg0 = iarg0;
 	}

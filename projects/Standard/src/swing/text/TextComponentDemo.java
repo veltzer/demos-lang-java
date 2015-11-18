@@ -270,7 +270,8 @@ public class TextComponentDemo extends JFrame {
 		menu.addSeparator();
 
 		menu.add(new StyledEditorKit.FontFamilyAction("Serif", "Serif"));
-		menu.add(new StyledEditorKit.FontFamilyAction("SansSerif", "SansSerif"));
+		menu.add(
+				new StyledEditorKit.FontFamilyAction("SansSerif", "SansSerif"));
 
 		menu.addSeparator();
 

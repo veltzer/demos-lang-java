@@ -18,10 +18,10 @@ public class ColorAwareTableCellRenderer extends DefaultTableCellRenderer
 		MyTable myTable = (MyTable) table;
 
 		if (isSelected) {
-			setBackground(myTable.getTableColorModel().getSelectedBgColor(
-					value, row, column));
-			setForeground(myTable.getTableColorModel().getSelectedFgColor(
-					value, row, column));
+			setBackground(myTable.getTableColorModel().getSelectedBgColor(value,
+					row, column));
+			setForeground(myTable.getTableColorModel().getSelectedFgColor(value,
+					row, column));
 		} else {
 			setBackground(myTable.getTableColorModel().getBgColor(value, row,
 					column));

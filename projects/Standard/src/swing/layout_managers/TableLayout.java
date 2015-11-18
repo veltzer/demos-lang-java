@@ -76,8 +76,8 @@ public class TableLayout implements LayoutManager2, Serializable {
 
 	/**
 	 * Method used to get component orientation while preserving compatability
-	 * with earlier versions of Container. Necessary for supporting
-	 * older JDKs and MicroEdition versions of Java.
+	 * with earlier versions of Container. Necessary for supporting older JDKs
+	 * and MicroEdition versions of Java.
 	 */
 	private static Method methodGetComponentOrientation;
 
@@ -626,9 +626,9 @@ public class TableLayout implements LayoutManager2, Serializable {
 	protected void deleteCr(int z, int i) {
 		// Make sure position is valid
 		if ((i < 0) || (i >= crSpec[z].length)) {
-			throw new IllegalArgumentException("Parameter i is invalid. i = "
-					+ i + ". Valid range is [0, " + (crSpec[z].length - 1)
-					+ "].");
+			throw new IllegalArgumentException(
+					"Parameter i is invalid. i = " + i + ". Valid range is [0, "
+							+ (crSpec[z].length - 1) + "].");
 		}
 
 		// Copy rows
@@ -760,10 +760,12 @@ public class TableLayout implements LayoutManager2, Serializable {
 				for (int checking = knowUnique - 1; checking >= 0; checking--) {
 					if (((entry[checking].cr1[C] >= entry[knowUnique].cr1[C])
 							&& (entry[checking].cr1[C] <= entry[knowUnique].cr2[C])
-							&& (entry[checking].cr1[R] >= entry[knowUnique].cr1[R]) && (entry[checking].cr1[R] <= entry[knowUnique].cr2[R]))
+							&& (entry[checking].cr1[R] >= entry[knowUnique].cr1[R])
+							&& (entry[checking].cr1[R] <= entry[knowUnique].cr2[R]))
 							|| ((entry[checking].cr2[C] >= entry[knowUnique].cr1[C])
 									&& (entry[checking].cr2[C] <= entry[knowUnique].cr2[C])
-									&& (entry[checking].cr2[R] >= entry[knowUnique].cr1[R]) && (entry[checking].cr2[R] <= entry[knowUnique].cr2[R]))) {
+									&& (entry[checking].cr2[R] >= entry[knowUnique].cr1[R])
+									&& (entry[checking].cr2[R] <= entry[knowUnique].cr2[R]))) {
 						listOverlapping.add(entry[checking].copy());
 					}
 				}
@@ -878,7 +880,8 @@ public class TableLayout implements LayoutManager2, Serializable {
 
 		for (int counter = 0; counter < numCr; counter++) {
 			if ((crSpec[z][counter] > 0.0) && (crSpec[z][counter] < 1.0)) {
-				crSize[z][counter] = (int) (crSpec[z][counter] * relativeSize + 0.5);
+				crSize[z][counter] = (int) (crSpec[z][counter] * relativeSize
+						+ 0.5);
 
 				availableSize -= crSize[z][counter];
 			}
@@ -930,7 +933,8 @@ public class TableLayout implements LayoutManager2, Serializable {
 
 		// Assign one pixel of slack to each FILL cr, starting at the last one,
 		// until all slack has been consumed
-		for (int counter = numCr - 1; (counter >= 0) && (slackSize > 0); counter--) {
+		for (int counter = numCr - 1; (counter >= 0)
+				&& (slackSize > 0); counter--) {
 			if (crSpec[z][counter] == TableLayoutConstants.FILL) {
 				crSize[z][counter]++;
 				slackSize--;
@@ -969,7 +973,8 @@ public class TableLayout implements LayoutManager2, Serializable {
 	 * assigned sizes
 	 */
 
-	protected int assignPrefMinSize(int z, int availableSize, double typeOfSize) {
+	protected int assignPrefMinSize(int z, int availableSize,
+			double typeOfSize) {
 		// Get variables referring to columns or rows (crs)
 		int numCr = crSpec[z].length;
 
@@ -994,14 +999,15 @@ public class TableLayout implements LayoutManager2, Serializable {
 
 					// Find the maximum desired size of this cr based on all crs
 					// the current component occupies
-					if ((entry.cr1[z] <= counter) && (entry.cr2[z] >= counter)) {
+					if ((entry.cr1[z] <= counter)
+							&& (entry.cr2[z] >= counter)) {
 						// Setup size and number of adjustable crs
-						Dimension p = (typeOfSize == TableLayoutConstants.PREFERRED) ? entry.component
-								.getPreferredSize() : entry.component
-								.getMinimumSize();
+						Dimension p = (typeOfSize == TableLayoutConstants.PREFERRED)
+								? entry.component.getPreferredSize()
+								: entry.component.getMinimumSize();
 
-						int size = (p == null) ? 0 : ((z == C) ? p.width
-								: p.height);
+						int size = (p == null) ? 0
+								: ((z == C) ? p.width : p.height);
 						int numAdjustable = 0;
 
 						// Calculate for preferred size
@@ -1167,7 +1173,8 @@ public class TableLayout implements LayoutManager2, Serializable {
 	 * supported
 	 */
 
-	protected ComponentOrientation getComponentOrientation(Container container) {
+	protected ComponentOrientation getComponentOrientation(
+			Container container) {
 		// This method is implemented to only get the class and method objects
 		// once so as to reduce expensive reflection operations. If the
 		// reflection
@@ -1177,9 +1184,9 @@ public class TableLayout implements LayoutManager2, Serializable {
 
 		try {
 			if (checkForComponentOrientationSupport) {
-				methodGetComponentOrientation = Class.forName(
-						"java.awt.Container").getMethod(
-						"getComponentOrientation", new Class<?>[0]);
+				methodGetComponentOrientation = Class
+						.forName("java.awt.Container")
+						.getMethod("getComponentOrientation", new Class<?>[0]);
 
 				checkForComponentOrientationSupport = false;
 			}
@@ -1213,9 +1220,9 @@ public class TableLayout implements LayoutManager2, Serializable {
 		int entryAlignment = isColumn ? entry.alignment[C] : entry.alignment[R];
 
 		// Determine cell set size
-		int cellSetSize = isColumn ? icrOffset[entry.cr2[C] + 1]
-				- icrOffset[entry.cr1[C]] : icrOffset[entry.cr2[R] + 1]
-				- icrOffset[entry.cr1[R]];
+		int cellSetSize = isColumn
+				? icrOffset[entry.cr2[C] + 1] - icrOffset[entry.cr1[C]]
+				: icrOffset[entry.cr2[R] + 1] - icrOffset[entry.cr1[R]];
 
 		// Determine the size of the component
 		int size;
@@ -1338,9 +1345,9 @@ public class TableLayout implements LayoutManager2, Serializable {
 		Dimension[] prefMinSize = new Dimension[numEntry];
 
 		for (int i = 0; i < numEntry; i++) {
-			prefMinSize[i] = (typeOfSize == TableLayoutConstants.PREFERRED) ? entryList[i].component
-					.getPreferredSize() : entryList[i].component
-					.getMinimumSize();
+			prefMinSize[i] = (typeOfSize == TableLayoutConstants.PREFERRED)
+					? entryList[i].component.getPreferredSize()
+					: entryList[i].component.getMinimumSize();
 		}
 
 		// Calculate sizes

@@ -98,14 +98,18 @@ public class XMLElement {
 		try {
 			XMLElement root = new XMLElement("Root");
 			XMLElement courseElement = new XMLElement("Course");
-			courseElement.addElement(new XMLElement("name").setData("Design Patterns"));
-			courseElement.addElement(new XMLElement("duration").setData("4 days"));
+			courseElement.addElement(
+					new XMLElement("name").setData("Design Patterns"));
+			courseElement
+					.addElement(new XMLElement("duration").setData("4 days"));
 			root.addElement(courseElement);
 			root.addElement(new XMLElement("dummy"));
 
 			courseElement = new XMLElement("Course");
-			courseElement.addElement(new XMLElement("name").setData("Java Programming"));
-			courseElement.addElement(new XMLElement("duration").setData("5 days"));
+			courseElement.addElement(
+					new XMLElement("name").setData("Java Programming"));
+			courseElement
+					.addElement(new XMLElement("duration").setData("5 days"));
 			root.addElement(courseElement);
 
 			for (Iterator<XMLElement> i = root.getChildren(); i.hasNext();) {

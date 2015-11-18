@@ -6,27 +6,18 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for getAddressResponse complex type.
- *
- * <p>The following schema fragment specifies the expected content contained within this class.
- *
- * <pre>
- * &lt;complexType name="getAddressResponse">
- * &lt;complexContent>
+ * <p>Java class for getAddressResponse complex type. <p>The following schema
+ * fragment specifies the expected content contained within this class. <pre>
+ * &lt;complexType name="getAddressResponse"> &lt;complexContent>
  * &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- * &lt;sequence>
- * &lt;element name="return" type="{http://service.addressbook/}address" minOccurs="0"/>
- * &lt;/sequence>
- * &lt;/restriction>
- * &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
+ * &lt;sequence> &lt;element name="return"
+ * type="{http://service.addressbook/}address" minOccurs="0"/> &lt;/sequence>
+ * &lt;/restriction> &lt;/complexContent> &lt;/complexType> </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "getAddressResponse", propOrder = {
-	"vreturn"
+		"vreturn"
 })
 public class GetAddressResponse {
 
@@ -35,11 +26,7 @@ public class GetAddressResponse {
 
 	/**
 	 * Gets the value of the return property.
-	 *
-	 * @return
-	 *	 possible object is
-	 *	 {@link Address }
-	 *
+	 * @return possible object is {@link Address }
 	 */
 	public Address getReturn() {
 		return vreturn;
@@ -47,11 +34,7 @@ public class GetAddressResponse {
 
 	/**
 	 * Sets the value of the return property.
-	 *
-	 * @param value
-	 *	 allowed object is
-	 *	 {@link Address }
-	 *
+	 * @param value allowed object is {@link Address }
 	 */
 	public void setReturn(Address value) {
 		vreturn = value;

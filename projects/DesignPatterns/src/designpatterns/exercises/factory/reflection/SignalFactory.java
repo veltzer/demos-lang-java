@@ -1,15 +1,18 @@
 package designpatterns.exercises.factory.reflection;
 
 /**
- * Following the factory design pattern, this class allows for objects of Signaller type.
- * Creation is performed via reflection, and using system properties to determine the desired type.
+ * Following the factory design pattern, this class allows for objects of
+ * Signaller type. Creation is performed via reflection, and using system
+ * properties to determine the desired type.
  */
 public abstract class SignalFactory {
 	public SignalFactory() {
 		super();
 	}
+
 	public static Signaller createSignaller() {
-		String signallerClassName = System.getProperty("factory.signaller", "FlashSignaller");
+		String signallerClassName = System.getProperty("factory.signaller",
+				"FlashSignaller");
 
 		String packageName = SignalFactory.class.getPackage().getName();
 		signallerClassName = packageName + "." + signallerClassName;
@@ -26,6 +29,7 @@ public abstract class SignalFactory {
 			throw new RuntimeException(e);
 		}
 	}
+
 	public static void main(String[] args) {
 		try {
 			Signaller signaller = createSignaller();

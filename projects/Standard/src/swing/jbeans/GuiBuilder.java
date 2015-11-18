@@ -88,8 +88,8 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 			public Component getTreeCellRendererComponent(JTree itree,
 					Object value, boolean selected, boolean expanded,
 					boolean leaf, int row, boolean hasFocus) {
-				Component cmp = super.getTreeCellRendererComponent(itree,
-						value, selected, expanded, leaf, row, hasFocus);
+				Component cmp = super.getTreeCellRendererComponent(itree, value,
+						selected, expanded, leaf, row, hasFocus);
 				try {
 					BeanInfo info = Introspector.getBeanInfo(value.getClass());
 					setText(info.getBeanDescriptor().getDisplayName());
@@ -120,58 +120,66 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 		if (propertySheet == null) {
 			propertySheet = new JTable(propertyModel);
 
-			propertySheet.setDefaultEditor(Object.class, new DefaultCellEditor(
-					new JTextField()) {
-				private PropertyEditor editor;
-				private boolean asText = false;
-				private DefaultCellEditor alternative;
+			propertySheet.setDefaultEditor(Object.class,
+					new DefaultCellEditor(new JTextField()) {
+						private PropertyEditor editor;
+						private boolean asText = false;
+						private DefaultCellEditor alternative;
 
-				public Component getTableCellEditorComponent(JTable table,
-						Object value, boolean isSelected, int row, int column) {
-					asText = false;
-					alternative = null;
-					editor = PropertyEditorManager.findEditor(value.getClass());
-					if (editor != null) {
-						if (editor.supportsCustomEditor()) {
-							return editor.getCustomEditor();
+						public Component getTableCellEditorComponent(
+								JTable table, Object value, boolean isSelected,
+								int row, int column) {
+							asText = false;
+							alternative = null;
+							editor = PropertyEditorManager
+									.findEditor(value.getClass());
+							if (editor != null) {
+								if (editor.supportsCustomEditor()) {
+									return editor.getCustomEditor();
+								}
+								asText = true;
+								editor.setValue(value);
+								value = editor.getAsText();
+							} else {
+								if (value instanceof Boolean) {
+									alternative = new DefaultCellEditor(
+											new JCheckBox());
+									return alternative
+											.getTableCellEditorComponent(table,
+													value, isSelected, row,
+													column);
+								}
+								if (value instanceof Number) {
+									alternative = new DefaultCellEditor(
+											new JFormattedTextField(value));
+									return alternative
+											.getTableCellEditorComponent(table,
+													value, isSelected, row,
+													column);
+								}
+							}
+							return super.getTableCellEditorComponent(table,
+									value, isSelected, row, column);
 						}
-						asText = true;
-						editor.setValue(value);
-						value = editor.getAsText();
-					} else {
-						if (value instanceof Boolean) {
-							alternative = new DefaultCellEditor(new JCheckBox());
-							return alternative.getTableCellEditorComponent(
-									table, value, isSelected, row, column);
+
+						public Object getCellEditorValue() {
+							if (alternative != null) {
+								return alternative.getCellEditorValue();
+							}
+
+							if (editor == null) {
+								return super.getCellEditorValue();
+							}
+
+							if (asText) {
+								editor.setAsText(
+										(String) super.getCellEditorValue());
+							}
+
+							Object value = editor.getValue();
+							return value;
 						}
-						if (value instanceof Number) {
-							alternative = new DefaultCellEditor(
-									new JFormattedTextField(value));
-							return alternative.getTableCellEditorComponent(
-									table, value, isSelected, row, column);
-						}
-					}
-					return super.getTableCellEditorComponent(table, value,
-							isSelected, row, column);
-				}
-
-				public Object getCellEditorValue() {
-					if (alternative != null) {
-						return alternative.getCellEditorValue();
-					}
-
-					if (editor == null) {
-						return super.getCellEditorValue();
-					}
-
-					if (asText) {
-						editor.setAsText((String) super.getCellEditorValue());
-					}
-
-					Object value = editor.getValue();
-					return value;
-				}
-			});
+					});
 
 			JFrame frm = (JFrame) SwingUtilities.windowForComponent(this);
 			JDialog dlg = new JDialog();
@@ -204,15 +212,15 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 				oldEditComponent.removeMouseListener(positioner);
 			}
 
-			XMLEncoder enc = new XMLEncoder(new BufferedOutputStream(
-					new FileOutputStream(DATA_FILE)));
+			XMLEncoder enc = new XMLEncoder(
+					new BufferedOutputStream(new FileOutputStream(DATA_FILE)));
 			enc.setExceptionListener(this);
 			enc.writeObject(content);
 			enc.close();
 
 			if (oldEditComponent != null) {
-				oldEditComponent.setBorder(BorderFactory.createLineBorder(
-						Color.BLACK, 4));
+				oldEditComponent.setBorder(
+						BorderFactory.createLineBorder(Color.BLACK, 4));
 				oldEditComponent.addMouseMotionListener(positioner);
 				oldEditComponent.addMouseListener(positioner);
 			}
@@ -224,8 +232,8 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 	public static void main(String[] argv) throws IOException {
 		GuiBuilder layout = new GuiBuilder();
 		if (DATA_FILE.exists()) {
-			XMLDecoder d = new XMLDecoder(new BufferedInputStream(
-					new FileInputStream(DATA_FILE)));
+			XMLDecoder d = new XMLDecoder(
+					new BufferedInputStream(new FileInputStream(DATA_FILE)));
 			d.setExceptionListener(new GuiBuilder());
 			layout.remove(layout.content);
 			layout.content = (JPanel) d.readObject();
@@ -314,7 +322,7 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 
 		public void fireTreeStructureChanged() {
 			TreeModelEvent e = new TreeModelEvent(this, new Object[] {
-				getRoot()
+					getRoot()
 			});
 			TreeModelListener[] array = new TreeModelListener[listeners.size()];
 			listeners.toArray(array);
@@ -430,11 +438,11 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 				Method w = descriptors[rowIndex].getWriteMethod();
 				if (w != null) {
 					w.invoke(current, new Object[] {
-						aValue
+							aValue
 					});
 				} else {
-					info.getBeanDescriptor().setValue(
-							descriptors[rowIndex].getName(), aValue);
+					info.getBeanDescriptor()
+							.setValue(descriptors[rowIndex].getName(), aValue);
 				}
 				store();
 			} catch (Exception e) {
@@ -443,8 +451,8 @@ public class GuiBuilder extends JPanel implements ExceptionListener {
 		}
 	}
 
-	class ComponentPositioning extends MouseAdapter implements
-			MouseMotionListener {
+	class ComponentPositioning extends MouseAdapter
+			implements MouseMotionListener {
 		private boolean resizeNorth = false;
 		private boolean resizeSouth = false;
 		private boolean resizeEast = false;

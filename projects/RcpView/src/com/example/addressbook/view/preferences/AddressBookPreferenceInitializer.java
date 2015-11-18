@@ -8,8 +8,8 @@ import com.example.addressbook.view.ViewPlugin;
 /**
  * Class used to initialize default preference values.
  */
-public class AddressBookPreferenceInitializer extends
-		AbstractPreferenceInitializer {
+public class AddressBookPreferenceInitializer
+		extends AbstractPreferenceInitializer {
 	public void initializeDefaultPreferences() {
 		IPreferenceStore store = ViewPlugin.getDefault().getPreferenceStore();
 		store.setDefault(AddressBookPreferences.P_SHOW_PHONE, true);

@@ -27,7 +27,9 @@ public class ControllerServlet extends HttpServlet {
 		ServletContext ctx = getServletConfig().getServletContext();
 		ctx.setAttribute("items", itemList);
 	}
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) {
+
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) {
 		String mode = request.getParameter("mode");
 		RequestDispatcher rd;
 		if (mode.equalsIgnoreCase("cat")) {

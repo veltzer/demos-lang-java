@@ -68,8 +68,9 @@ public class Graphics2dDemo extends JPanel {
 		Shape polygon = new Polygon(xPoints, yPoints, xPoints.length);
 		for (int i = 0; i < 20; ++i) {
 
-			g2.setPaint(new Color((int) (Math.random() * 256), (int) (Math
-					.random() * 256), (int) (Math.random() * 256), 255));
+			g2.setPaint(new Color((int) (Math.random() * 256),
+					(int) (Math.random() * 256), (int) (Math.random() * 256),
+					255));
 			g2.rotate(Math.PI / 10);
 
 			g2.fill(polygon);

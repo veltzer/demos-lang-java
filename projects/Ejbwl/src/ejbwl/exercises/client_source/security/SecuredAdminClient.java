@@ -9,9 +9,9 @@ import javax.security.auth.login.LoginException;
 
 public abstract class SecuredAdminClient {
 	public static void main(String[] args) {
-		//String username = null;
-		//String password = null;
-		//String url = "t3://localhost:7001";
+		// String username = null;
+		// String password = null;
+		// String url = "t3://localhost:7001";
 
 		// Define the location of the configuration file
 		Properties props = System.getProperties();
@@ -20,7 +20,9 @@ public abstract class SecuredAdminClient {
 		LoginContext loginContext = null;
 		try {
 			// Create LoginContext; specify username/password login module
-			loginContext = new LoginContext("AdminClient"); // new WeblogicCallbackHandler(username, password, url));
+			loginContext = new LoginContext("AdminClient"); // new
+															// WeblogicCallbackHandler(username,
+															// password, url));
 		} catch (SecurityException e) {
 			throw new RuntimeException(e);
 		} catch (LoginException e) {
@@ -41,7 +43,8 @@ public abstract class SecuredAdminClient {
 		 * Retrieve authenticated subject, perform AdminClientAction as Subject
 		 */
 		Subject subject = loginContext.getSubject();
-		System.out.println(subject.getPrincipals() + " has logged in successfully.");
+		System.out.println(
+				subject.getPrincipals() + " has logged in successfully.");
 
 		AdminClientAction adminAction = new AdminClientAction();
 		Subject.doAs(subject, adminAction);
@@ -64,23 +67,17 @@ public abstract class SecuredAdminClient {
 
 		public void callBookstoreAdmin() throws Exception {
 			/*
-			// Lookup:
-			InitialContext ictx = new InitialContext();
-			Object obj = ictx.lookup("ejb/admin/BookstoreAdminHome");
-			BookstoreAdminHome adminHome = (BookstoreAdminHome) PortableRemoteObject.narrow(obj, BookstoreAdminHome.class);
-			BookstoreAdmin admin = adminHome.create();
-
-			// view all customers:
-			System.out.println("All registered customers:");
-			List customers = admin.showCustomers();
-			for (Iterator it = customers.iterator(); it.hasNext();) {
-				CustomerDTO customer = (CustomerDTO) it.next();
-				System.out.println(customer);
-			}
-
-			// release resources:
-			admin.remove();
-			*/
+			 * // Lookup: InitialContext ictx = new InitialContext(); Object obj
+			 * = ictx.lookup("ejb/admin/BookstoreAdminHome"); BookstoreAdminHome
+			 * adminHome = (BookstoreAdminHome) PortableRemoteObject.narrow(obj,
+			 * BookstoreAdminHome.class); BookstoreAdmin admin =
+			 * adminHome.create(); // view all customers: System.out.println(
+			 * "All registered customers:"); List customers =
+			 * admin.showCustomers(); for (Iterator it = customers.iterator();
+			 * it.hasNext();) { CustomerDTO customer = (CustomerDTO) it.next();
+			 * System.out.println(customer); } // release resources:
+			 * admin.remove();
+			 */
 		}
 	}
 }

@@ -12,9 +12,8 @@ public abstract class Test {
 		 * if(business.getCustomer(0).getAccount(i) instanceof BusinessAccount)
 		 * business.getCustomer(0).getAccount(i).withdraw(5000); else
 		 * business.getCustomer(0).getAccount(i).withdraw(1000);
-		 * System.out.println
-		 * ("Account1 balance:"+business.getCustomer(0).getAccount
-		 * (i).getBalance()); }
+		 * System.out.println ("Account1 balance:"
+		 * +business.getCustomer(0).getAccount (i).getBalance()); }
 		 */
 	}
 }

@@ -17,7 +17,6 @@ public class ShoppingCartBean {
 		FacesContext context = FacesContext.getCurrentInstance();
 		Map map = context.getExternalContext().getRequestParameterMap();
 
-
 		/* Make sure we don't add the same title twice */
 		String title = (String) map.get("title");
 		CD cd = (CD) itemMap.get(title);
@@ -42,8 +41,10 @@ public class ShoppingCartBean {
 		FacesContext context = FacesContext.getCurrentInstance();
 		Map map = context.getExternalContext().getRequestParameterMap();
 
-		/* Grab the title from the request parameter.
-		 * Use the title to remove the CD from the collection and map.*/
+		/*
+		 * Grab the title from the request parameter. Use the title to remove
+		 * the CD from the collection and map.
+		 */
 		String title = (String) map.get("title");
 		CD cd = (CD) itemMap.get(title);
 		itemMap.remove(cd.getTitle());
@@ -57,6 +58,5 @@ public class ShoppingCartBean {
 	public Collection getItems() {
 		return items;
 	}
-
 
 }

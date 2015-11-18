@@ -20,12 +20,14 @@ public class FieldTag extends UIComponentTag {
 	public String getLabel() {
 		return label;
 	}
+
 	/**
 	 * @param label The label to set.
 	 */
 	public void setLabel(String ilabel) {
 		label = ilabel;
 	}
+
 	@Override
 	protected void setProperties(UIComponent component) {
 		/* You have to call the super class */
@@ -35,17 +37,20 @@ public class FieldTag extends UIComponentTag {
 		component.getAttributes().put("errorStyle", errorStyle);
 		((FieldComponent) component).setRequired(required);
 
-
 		FacesContext context = FacesContext.getCurrentInstance();
 		Application application = context.getApplication();
 		ValueBinding binding = application.createValueBinding(value);
-		System.out.printf("setProperties class=%s expression=%s\n", binding.getType(FacesContext.getCurrentInstance()), binding.getExpressionString());
+		System.out.printf("setProperties class=%s expression=%s\n",
+				binding.getType(FacesContext.getCurrentInstance()),
+				binding.getExpressionString());
 		component.setValueBinding("value", binding);
 	}
+
 	@Override
 	public String getComponentType() {
 		return "arcmind.Field";
 	}
+
 	@Override
 	public String getRendererType() {
 		return "arcmind.Field";
@@ -57,6 +62,7 @@ public class FieldTag extends UIComponentTag {
 	public String getErrorStyleClass() {
 		return errorStyleClass;
 	}
+
 	/**
 	 * @param errorStyleClass The errorStyleClass to set.
 	 */
@@ -70,6 +76,7 @@ public class FieldTag extends UIComponentTag {
 	public String getErrorStyle() {
 		return errorStyle;
 	}
+
 	/**
 	 * @param errorStyle The errorStyle to set.
 	 */
@@ -83,6 +90,7 @@ public class FieldTag extends UIComponentTag {
 	public boolean isRequired() {
 		return required;
 	}
+
 	/**
 	 * @param required The required to set.
 	 */
@@ -96,6 +104,7 @@ public class FieldTag extends UIComponentTag {
 	public String getValue() {
 		return value;
 	}
+
 	/**
 	 * @param value The value to set.
 	 */

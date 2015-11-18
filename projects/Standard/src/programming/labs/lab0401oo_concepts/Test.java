@@ -9,9 +9,9 @@ public abstract class Test {
 		 * System.out.println("Customer 1: "+customer1.getName());
 		 * System.out.println("Customer 2: "+customer2.getName()+"\n");
 		 * customer1.setName("Moshe"); customer2.setName("Avi");
-		 * System.out.println("New names\n*********");
-		 * System.out.println("Customer 1: "+customer1.getName());
-		 * System.out.println("Customer 2: "+customer2.getName());
+		 * System.out.println("New names\n*********"); System.out.println(
+		 * "Customer 1: "+customer1.getName()); System.out.println(
+		 * "Customer 2: "+customer2.getName());
 		 */
 	}
 }

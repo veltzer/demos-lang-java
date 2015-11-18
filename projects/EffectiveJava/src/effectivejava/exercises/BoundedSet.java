@@ -16,20 +16,23 @@ public class BoundedSet<T> extends AbstractSet<T> {
 		semaphore = new Semaphore(capacity);
 	}
 
-	@Override public Iterator<T> iterator() {
+	@Override
+	public Iterator<T> iterator() {
 		return data.iterator();
 	}
 
-	@Override public int size() {
+	@Override
+	public int size() {
 		return data.size();
 	}
 
-	@Override public boolean add(T element) {
+	@Override
+	public boolean add(T element) {
 		try {
-		semaphore.acquire();
-	} catch (InterruptedException e) {
-		throw new RuntimeException(e);
-	}
+			semaphore.acquire();
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
 		boolean wasAdded = false;
 		try {
 			return wasAdded = data.add(element);
@@ -40,7 +43,8 @@ public class BoundedSet<T> extends AbstractSet<T> {
 		}
 	}
 
-	@Override public boolean remove(Object element) {
+	@Override
+	public boolean remove(Object element) {
 		boolean wasRemoved = data.remove(element);
 		if (wasRemoved) {
 			semaphore.release();

@@ -29,8 +29,8 @@ public class TotalProxyTableModel extends ProxyTableModel {
 			if (col == totalColumn) {
 				BigDecimal total = new BigDecimal(0);
 				for (int iter = 0; iter < row; iter++) {
-					total = total.add(((Currency) getValueAt(iter, col))
-							.getValue());
+					total = total
+							.add(((Currency) getValueAt(iter, col)).getValue());
 				}
 				return new Currency(total);
 			}

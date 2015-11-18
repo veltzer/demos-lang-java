@@ -12,14 +12,18 @@ import javax.servlet.http.HttpServletResponse;
 
 public class SecurityFilter implements Filter {
 	private String validUser;
+
 	public void init(FilterConfig cfg) {
 		validUser = cfg.getInitParameter("validUser");
 		if (validUser == null) {
-			Exception e = new ServletException("Must supply a 'validUser' init-param.");
+			Exception e = new ServletException(
+					"Must supply a 'validUser' init-param.");
 			throw new RuntimeException(e);
 		}
 	}
-	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) {
+
+	public void doFilter(ServletRequest req, ServletResponse res,
+			FilterChain chain) {
 		String username = req.getParameter("username");
 		if (username != null && username.equals(validUser)) {
 			try {
@@ -38,6 +42,7 @@ public class SecurityFilter implements Filter {
 			}
 		}
 	}
+
 	public void destroy() {
 	}
 }

@@ -9,7 +9,8 @@ public class SlideShow extends MIDlet implements CommandListener {
 
 	private SlideShowCanvas slideShowCanvas; // Used to display images.
 	private Command nextCmd, prevCmd, helpCmd, aboutCmd, exitCmd;
-	private Displayable pausedDisplayable; // Last Displayble object visible before Midlet paused
+	private Displayable pausedDisplayable; // Last Displayble object visible
+											// before Midlet paused
 
 	public SlideShow() {
 		// Intialize commands.
@@ -19,11 +20,18 @@ public class SlideShow extends MIDlet implements CommandListener {
 		aboutCmd = new Command("ABOUT", Command.HELP, 4);
 		exitCmd = new Command("EXIT", Command.EXIT, 5);
 
-		// Load all images in sequence (slide1.png, slide2.png, etc.) until we can't load any more.
+		// Load all images in sequence (slide1.png, slide2.png, etc.) until we
+		// can't load any more.
 		Vector imagesVector = new Vector();
 		try {
 			for (int i = 0;; i++) {
-				Image img = Image.createImage("/slide" + (i + 1) + ".png"); // If this fails, we exit from loop
+				Image img = Image.createImage("/slide" + (i + 1) + ".png"); // If
+																			// this
+																			// fails,
+																			// we
+																			// exit
+																			// from
+																			// loop
 				imagesVector.addElement(img);
 			}
 		} catch (Exception e) {
@@ -48,13 +56,23 @@ public class SlideShow extends MIDlet implements CommandListener {
 
 	/** Signals the MIDlet to stop and enter the Paused state. */
 	protected void pauseApp() {
-		pausedDisplayable = Display.getDisplay(this).getCurrent(); // Save reference to current displayable.
+		pausedDisplayable = Display.getDisplay(this).getCurrent(); // Save
+																	// reference
+																	// to
+																	// current
+																	// displayable.
 	}
 
 	/** Signals the MIDlet that it has entered the Active state. */
 	protected void startApp() {
 		if (pausedDisplayable != null) {
-			Display.getDisplay(this).setCurrent(pausedDisplayable); // Re-display last previously shown displayable if available.
+			Display.getDisplay(this).setCurrent(pausedDisplayable); // Re-display
+																	// last
+																	// previously
+																	// shown
+																	// displayable
+																	// if
+																	// available.
 			pausedDisplayable = null;
 		} else {
 			Display.getDisplay(this).setCurrent(slideShowCanvas);
@@ -66,7 +84,8 @@ public class SlideShow extends MIDlet implements CommandListener {
 		if (c == nextCmd) {
 			slideShowCanvas.advanceForward(); // Display next image in sequence.
 		} else if (c == prevCmd) {
-			slideShowCanvas.advanceBackward(); // Display previous image in sequence.
+			slideShowCanvas.advanceBackward(); // Display previous image in
+												// sequence.
 		} else if (c == helpCmd) {
 			showHelp();
 		} else if (c == aboutCmd) {
@@ -81,11 +100,12 @@ public class SlideShow extends MIDlet implements CommandListener {
 	private void showHelp() {
 		Alert helpAlert = new Alert("Help");
 		helpAlert.setTimeout(Alert.FOREVER);
-		helpAlert.setString("A simple slide show application. Use the available commands or keyboard shortcuts to advance through the images.");
+		helpAlert.setString(
+				"A simple slide show application. Use the available commands or keyboard shortcuts to advance through the images.");
 		Display.getDisplay(this).setCurrent(helpAlert);
 	}
 
- 	/** Display about dialog. */
+	/** Display about dialog. */
 	private void showAbout() {
 		Alert aboutAlert = new Alert("About");
 		aboutAlert.setTimeout(Alert.FOREVER);
@@ -94,7 +114,8 @@ public class SlideShow extends MIDlet implements CommandListener {
 		StringBuffer sb = new StringBuffer(75);
 		sb.append(getAppProperty("MIDlet-Name"));
 		sb.append("\nversion ").append(getAppProperty("MIDlet-Version"));
-		sb.append("\nlocale ").append(System.getProperty("microedition.locale"));
+		sb.append("\nlocale ")
+				.append(System.getProperty("microedition.locale"));
 		sb.append("\nby Jamie Hall");
 
 		aboutAlert.setString(sb.toString());

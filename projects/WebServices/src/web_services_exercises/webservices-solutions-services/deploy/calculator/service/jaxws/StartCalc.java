@@ -16,16 +16,14 @@ public class StartCalc {
 	private float arg0;
 
 	/**
-	 * @return
-	 *	 returns float
+	 * @return returns float
 	 */
 	public float getArg0() {
 		return arg0;
 	}
 
 	/**
-	 * @param arg0
-	 *	 the value for the arg0 property
+	 * @param arg0 the value for the arg0 property
 	 */
 	public void setArg0(float iarg0) {
 		arg0 = iarg0;

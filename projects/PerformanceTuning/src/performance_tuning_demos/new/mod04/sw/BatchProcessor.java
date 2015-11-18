@@ -14,20 +14,35 @@ public abstract class BatchProcessor {
 	private static WriteThread[] writeThreads = null;
 
 	private static void printUsage() {
-		System.err.println("Usage: java [-DhighServiceTimeW=r] [-DlowServiceTimeW=s] [-DhighServiceTimeR=t] [-DlowServiceTimeR=u] [-DreaderThreads=w] [-DwriterThreads=x] [-DqueueDepth=y] [-DtestTime=z] BatchProcessor [-help]");
-		System.err.println("\tr is the upper bound on the writer service time in ms, default = " + hiSrvTimeW);
-		System.err.println("\ts is the lower bound on the writer service time in ms, default = " + loSrvTimeW);
-		System.err.println("\tt is the upper bound on the reader service time in ms, default = " + hiSrvTimeR);
-		System.err.println("\tu is the lower bound on the reader service time in ms, default = " + loSrvTimeR);
-		System.err.println("\tw is number of reader threads to run, default = " + DEFAULT_NUMBER_OF_READERS);
-		System.err.println("\tx is number of writer threads to run, default = " + DEFAULT_NUMBER_OF_WRITERS);
-		System.err.println("\ty is the queue depth, default = " + DEFAULT_MAX_QUEUE_DEPTH);
-		System.err.println("\tz is the length of time to run test in seconds, default = " + DEFAULT_TEST_TIME);
+		System.err.println(
+				"Usage: java [-DhighServiceTimeW=r] [-DlowServiceTimeW=s] [-DhighServiceTimeR=t] [-DlowServiceTimeR=u] [-DreaderThreads=w] [-DwriterThreads=x] [-DqueueDepth=y] [-DtestTime=z] BatchProcessor [-help]");
+		System.err.println(
+				"\tr is the upper bound on the writer service time in ms, default = "
+						+ hiSrvTimeW);
+		System.err.println(
+				"\ts is the lower bound on the writer service time in ms, default = "
+						+ loSrvTimeW);
+		System.err.println(
+				"\tt is the upper bound on the reader service time in ms, default = "
+						+ hiSrvTimeR);
+		System.err.println(
+				"\tu is the lower bound on the reader service time in ms, default = "
+						+ loSrvTimeR);
+		System.err.println("\tw is number of reader threads to run, default = "
+				+ DEFAULT_NUMBER_OF_READERS);
+		System.err.println("\tx is number of writer threads to run, default = "
+				+ DEFAULT_NUMBER_OF_WRITERS);
+		System.err.println(
+				"\ty is the queue depth, default = " + DEFAULT_MAX_QUEUE_DEPTH);
+		System.err.println(
+				"\tz is the length of time to run test in seconds, default = "
+						+ DEFAULT_TEST_TIME);
 		System.err.println("\t-help prints this message");
 	}
 
-	private static void runReaderWriterThreads(int theNumberOfWriters, int theNumberOfReaders,
-			int ihiSrvTimeR, int iloSrvTimeR, int ihiSrvTimeW, int iloSrvTimeW) {
+	private static void runReaderWriterThreads(int theNumberOfWriters,
+			int theNumberOfReaders, int ihiSrvTimeR, int iloSrvTimeR,
+			int ihiSrvTimeW, int iloSrvTimeW) {
 
 		readThreads = new ReadThread[theNumberOfReaders];
 		writeThreads = new WriteThread[theNumberOfWriters];
@@ -38,18 +53,24 @@ public abstract class BatchProcessor {
 		}
 
 		for (int y = 0; y < theNumberOfWriters; y++) {
-			writeThreads[y] = new WriteThread(itsQueue, ihiSrvTimeR, iloSrvTimeR, ihiSrvTimeW, iloSrvTimeW);
+			writeThreads[y] = new WriteThread(itsQueue, ihiSrvTimeR,
+					iloSrvTimeR, ihiSrvTimeW, iloSrvTimeW);
 			writeThreads[y].setName("Writer Thread-" + (y + 1));
 		}
 
 		// start the threads
-		for (int z = 0, a = 0; a < theNumberOfWriters || z < theNumberOfReaders; a++, z++) {
+		for (int z = 0, a = 0; a < theNumberOfWriters
+				|| z < theNumberOfReaders; a++, z++) {
 			if (a < theNumberOfWriters) {
-				//System.err.println("Starting " + Thread.currentThread().getName() + " writer thread (" + x + ")...");
+				// System.err.println("Starting " +
+				// Thread.currentThread().getName() + " writer thread (" + x +
+				// ")...");
 				writeThreads[a].start();
 			}
 			if (z < theNumberOfReaders) {
-				//System.err.println("Starting " + Thread.currentThread().getName() + " reader thread (" + y + ")...");
+				// System.err.println("Starting " +
+				// Thread.currentThread().getName() + " reader thread (" + y +
+				// ")...");
 				readThreads[z].start();
 			}
 		}
@@ -119,18 +140,25 @@ public abstract class BatchProcessor {
 			testTime = testTimeInt.intValue();
 		}
 
-		System.err.println("Starting (" + readerThreads + ") reader threads on 'read' side of the queue...");
-		System.err.println("Starting (" + writerThreads + ") writer threads on 'write' side of the queue...");
-		System.err.println("Reader threads service times range is between (" + loSrvTimeR + ") and (" + hiSrvTimeR + ") ms...");
-		System.err.println("Writer threads service times range is between (" + loSrvTimeW + ") and (" + hiSrvTimeW + ") ms...");
-		System.err.println("Setting the queue depth to (" + queueDepth + ")...");
-		System.err.println("Running the test for (" + testTime + ") seconds...");
+		System.err.println("Starting (" + readerThreads
+				+ ") reader threads on 'read' side of the queue...");
+		System.err.println("Starting (" + writerThreads
+				+ ") writer threads on 'write' side of the queue...");
+		System.err.println("Reader threads service times range is between ("
+				+ loSrvTimeR + ") and (" + hiSrvTimeR + ") ms...");
+		System.err.println("Writer threads service times range is between ("
+				+ loSrvTimeW + ") and (" + hiSrvTimeW + ") ms...");
+		System.err
+				.println("Setting the queue depth to (" + queueDepth + ")...");
+		System.err
+				.println("Running the test for (" + testTime + ") seconds...");
 
 		// create the reader / writer queue
 		itsQueue = new Queue(queueDepth);
 
 		// create & start reader / writer threads
-		runReaderWriterThreads(writerThreads, readerThreads, hiSrvTimeR, loSrvTimeR, hiSrvTimeW, loSrvTimeW);
+		runReaderWriterThreads(writerThreads, readerThreads, hiSrvTimeR,
+				loSrvTimeR, hiSrvTimeW, loSrvTimeW);
 
 		try {
 			Thread.sleep(testTime * 1000);
@@ -147,9 +175,12 @@ public abstract class BatchProcessor {
 		float enqueueRate = totalEnqueueCount / testTime;
 		float dequeueRate = totalDequeueCount / testTime;
 		System.err.println();
-		System.err.println("Maximum queue depth reached on Queue: " + itsQueue.getMaxOperationalDepth());
-		System.err.println("Total number of items enqueued: " + totalEnqueueCount);
-		System.err.println("Total number of items dequeued: " + totalDequeueCount);
+		System.err.println("Maximum queue depth reached on Queue: "
+				+ itsQueue.getMaxOperationalDepth());
+		System.err.println(
+				"Total number of items enqueued: " + totalEnqueueCount);
+		System.err.println(
+				"Total number of items dequeued: " + totalDequeueCount);
 		System.err.println("Enqueued rate: " + enqueueRate + "/sec");
 		System.err.println("Deqeueud rate: " + dequeueRate + "/sec");
 

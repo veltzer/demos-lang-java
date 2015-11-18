@@ -20,10 +20,13 @@ public class ShoppingCartBean implements SessionBean {
 	private String customerId;
 
 	public void setSessionContext(SessionContext ctx) {
-		System.out.println(getClass().getName() + ".setSessionContext() was invoked...");
+		System.out.println(
+				getClass().getName() + ".setSessionContext() was invoked...");
 	}
+
 	public void ejbCreate(String icustomerId) {
-		System.out.println(getClass().getName() + ".ejbCreate() was invoked...");
+		System.out
+				.println(getClass().getName() + ".ejbCreate() was invoked...");
 		customerId = icustomerId;
 		bookTitles = new LinkedList<String>();
 		// Note initialization must be done in create(). Do not
@@ -32,22 +35,30 @@ public class ShoppingCartBean implements SessionBean {
 		try {
 			InitialContext ictx = new InitialContext();
 			Object obj = ictx.lookup("jdbc/ds1");
-			DataSource dataSrouce = (DataSource) PortableRemoteObject.narrow(obj, DataSource.class);
+			DataSource dataSrouce = (DataSource) PortableRemoteObject
+					.narrow(obj, DataSource.class);
 			dao = BookstoreDaoFactory.getDAO(dataSrouce);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
 	}
+
 	public void ejbActivate() {
-		System.out.println(this.getClass().getName() + ".ejbActivate() was invoked...");
+		System.out.println(
+				this.getClass().getName() + ".ejbActivate() was invoked...");
 	}
+
 	public void ejbPassivate() {
-		System.out.println(this.getClass().getName() + ".ejbPassivate() was invoked...");
+		System.out.println(
+				this.getClass().getName() + ".ejbPassivate() was invoked...");
 	}
+
 	public void ejbRemove() {
-		System.out.println(this.getClass().getName() + ".ejbRemove() was invoked...");
+		System.out.println(
+				this.getClass().getName() + ".ejbRemove() was invoked...");
 		bookTitles = null;
 	}
+
 	public String getCustomerId() {
 		return customerId;
 	}

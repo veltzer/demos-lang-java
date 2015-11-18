@@ -83,8 +83,9 @@ public class FontPicker {
 		}
 
 		try {
-			font = new Font(null, fontName.getText(), Integer.parseInt(fontSize
-					.getText()), ((Integer) (fontStyle.getData())).intValue());
+			font = new Font(null, fontName.getText(),
+					Integer.parseInt(fontSize.getText()),
+					((Integer) (fontStyle.getData())).intValue());
 			fontShow.setFont(font);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
@@ -161,8 +162,8 @@ public class FontPicker {
 		Label lbl = new Label(fontStyleCol, SWT.LEFT);
 		lbl.setText("Font style");
 
-		fontStyle = new Text(fontStyleCol, SWT.SINGLE | SWT.READ_ONLY
-				| SWT.BORDER);
+		fontStyle = new Text(fontStyleCol,
+				SWT.SINGLE | SWT.READ_ONLY | SWT.BORDER);
 		fontStyle.setText("Normal");
 		fontStyle.setData(new Integer(SWT.NORMAL));
 

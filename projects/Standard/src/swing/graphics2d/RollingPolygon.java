@@ -103,14 +103,17 @@ public class RollingPolygon extends JPanel {
 				RenderingHints.VALUE_ANTIALIAS_ON);
 
 		int redColor = gradientStartColor.getRed()
-				+ (int) ((gradientEndColor.getRed() - gradientStartColor
-						.getRed()) * gradientPercent / 100.0);
+				+ (int) ((gradientEndColor.getRed()
+						- gradientStartColor.getRed()) * gradientPercent
+						/ 100.0);
 		int greenColor = gradientStartColor.getGreen()
-				+ (int) ((gradientEndColor.getGreen() - gradientStartColor
-						.getGreen()) * gradientPercent / 100.0);
+				+ (int) ((gradientEndColor.getGreen()
+						- gradientStartColor.getGreen()) * gradientPercent
+						/ 100.0);
 		int blueColor = gradientStartColor.getBlue()
-				+ (int) ((gradientEndColor.getBlue() - gradientStartColor
-						.getBlue()) * gradientPercent / 100.0);
+				+ (int) ((gradientEndColor.getBlue()
+						- gradientStartColor.getBlue()) * gradientPercent
+						/ 100.0);
 		Color color = new Color(redColor, greenColor, blueColor);
 
 		g2.setColor(color);

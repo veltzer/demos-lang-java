@@ -20,7 +20,8 @@ public class Customer {
 		accounts = new ArrayList<Account>();
 	}
 
-	public Customer(String iname, String iid, int iage, CheckingAccount account) {
+	public Customer(String iname, String iid, int iage,
+			CheckingAccount account) {
 		setName(iname);
 		setId(iid);
 		setAge(iage);

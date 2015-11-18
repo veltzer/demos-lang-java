@@ -31,12 +31,14 @@ public class LabelComponent extends UIOutput {
 	public String getLabel() {
 		return label;
 	}
+
 	/**
 	 * @param label The label to set.
 	 */
 	public void setLabel(String ilabel) {
 		label = ilabel;
 	}
+
 	@Override
 	public void encodeBegin(FacesContext context) throws IOException {
 		ResponseWriter writer = context.getResponseWriter();
@@ -50,10 +52,12 @@ public class LabelComponent extends UIOutput {
 	public String getFamily() {
 		return "arcmind.Label";
 	}
+
 	@Override
 	public void encodeEnd(FacesContext context) throws IOException {
 		return;
 	}
+
 	@Override
 	public void decode(FacesContext context) {
 		return;

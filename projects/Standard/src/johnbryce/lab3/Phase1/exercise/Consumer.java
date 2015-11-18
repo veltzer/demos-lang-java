@@ -1,18 +1,15 @@
 package johnbryce.lab3.Phase1.exercise;
 
-public class Consumer implements Runnable
-{
-	String consumerId;
-	Stack s;
+public class Consumer implements Runnable {
+	private String consumerId;
+	private Stack s;
 
-	public Consumer(String consumerId, Stack s){
-		this.consumerId=consumerId;
-		this.s = s;
+	public Consumer(String iconsumerId, Stack is) {
+		consumerId = iconsumerId;
+		s = is;
 	}
 
-	public void run(){
-		for(int i = 0; i <20; i++){
-			//enter text here
-		}
+	public void run() {
+		// enter text here
 	}
 }

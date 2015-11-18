@@ -8,7 +8,6 @@ import meta.sorter.Item;
 import meta.sorter.ItemFactory;
 import meta.sorter.Sorter;
 
-
 public abstract class SorterImpl implements Sorter {
 
 	private int itemCount;

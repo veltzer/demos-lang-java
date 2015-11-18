@@ -37,7 +37,8 @@ public final class Logger {
 
 	public void logMessage(String header, String body) {
 		Date currentDate = new Date();
-		String messageLine = currentDate.toString() + "," + name + "," + header + "," + body;
+		String messageLine = currentDate.toString() + "," + name + "," + header
+				+ "," + body;
 		for (Iterator<LoggerObserver> i = observers.iterator(); i.hasNext();) {
 			LoggerObserver observer = i.next();
 			observer.onLogRequest(messageLine);

@@ -51,7 +51,8 @@ public class BirthdayCakeBean {
 		cake.getChildren().clear();
 	}
 
-	public void validateAge(FacesContext context, UIComponent component, Object newValue) {
+	public void validateAge(FacesContext context, UIComponent component,
+			Object newValue) {
 		int newVal = ((Integer) newValue).intValue();
 		if (newVal < MIN_AGE) {
 			clearCake();
@@ -72,6 +73,4 @@ public class BirthdayCakeBean {
 		FacesContext.getCurrentInstance().getViewRoot().setLocale(locale);
 	}
 
-
 }
-

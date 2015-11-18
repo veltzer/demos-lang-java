@@ -8,12 +8,15 @@ public class XMLDocument {
 		super();
 		rootElement = irootElement;
 	}
+
 	public XMLElement getRootElement() {
 		return rootElement;
 	}
+
 	public String getVersion() {
 		return version;
 	}
+
 	public void setVersion(String iversion) {
 		version = iversion;
 	}

@@ -18,18 +18,20 @@ class WeblogicCallbackHandler implements CallbackHandler {
 
 	private String username = null;
 	private String password = null;
-	//private String url = null;
+	// private String url = null;
 
 	public WeblogicCallbackHandler() {
 	}
 
-	public WeblogicCallbackHandler(String pUsername, String pPassword, String pUrl) {
+	public WeblogicCallbackHandler(String pUsername, String pPassword,
+			String pUrl) {
 		username = pUsername;
 		password = pPassword;
-		//url = pUrl;
+		// url = pUrl;
 	}
 
-	public void handle(Callback[] callbacks) throws IOException, UnsupportedCallbackException {
+	public void handle(Callback[] callbacks)
+			throws IOException, UnsupportedCallbackException {
 		System.out.println("Please login to WebLogic.");
 
 		for (int i = 0; i < callbacks.length; i++) {
@@ -38,27 +40,30 @@ class WeblogicCallbackHandler implements CallbackHandler {
 				// Display the message according to the specified type
 				TextOutputCallback toc = (TextOutputCallback) callbacks[i];
 				switch (toc.getMessageType()) {
-					case TextOutputCallback.INFORMATION :
-						System.out.println(toc.getMessage());
-						break;
-					case TextOutputCallback.ERROR :
-						System.out.println("ERROR: " + toc.getMessage());
-						break;
-					case TextOutputCallback.WARNING :
-						System.out.println("WARNING: " + toc.getMessage());
-						break;
-					default :
-						throw new IOException("Unsupported message type: " + toc.getMessageType());
+				case TextOutputCallback.INFORMATION:
+					System.out.println(toc.getMessage());
+					break;
+				case TextOutputCallback.ERROR:
+					System.out.println("ERROR: " + toc.getMessage());
+					break;
+				case TextOutputCallback.WARNING:
+					System.out.println("WARNING: " + toc.getMessage());
+					break;
+				default:
+					throw new IOException("Unsupported message type: "
+							+ toc.getMessageType());
 				}
 				found = true;
 			}
 			if (callbacks[i] instanceof NameCallback) {
-				// If username not supplied on cmd line, prompt the user for the username.
+				// If username not supplied on cmd line, prompt the user for the
+				// username.
 				NameCallback nc = (NameCallback) callbacks[i];
 				if (username == null || username.equals("")) {
 					System.err.print(nc.getPrompt());
 					System.err.flush();
-					nc.setName((new BufferedReader(new InputStreamReader(System.in))).readLine());
+					nc.setName((new BufferedReader(
+							new InputStreamReader(System.in))).readLine());
 				} else {
 					System.out.println("username: " + username);
 					nc.setName(username);
@@ -66,31 +71,29 @@ class WeblogicCallbackHandler implements CallbackHandler {
 				found = true;
 			}
 			/*
-			if (callbacks[i] instanceof URLCallback) {
-				// If url not supplied on cmd line, prompt the user for the url.
-				// This example requires the url.
-				URLCallback uc = (URLCallback) callbacks[i];
-				if (url == null || url.equals("")) {
-					System.err.print(uc.getPrompt());
-					System.err.flush();
-					uc.setURL((new BufferedReader(new InputStreamReader(System.in))).readLine());
-				} else {
-					System.out.println("URL: " + url);
-					uc.setURL(url);
-				}
-				found = true;
-			}
-			*/
+			 * if (callbacks[i] instanceof URLCallback) { // If url not supplied
+			 * on cmd line, prompt the user for the url. // This example
+			 * requires the url. URLCallback uc = (URLCallback) callbacks[i]; if
+			 * (url == null || url.equals("")) {
+			 * System.err.print(uc.getPrompt()); System.err.flush();
+			 * uc.setURL((new BufferedReader(new
+			 * InputStreamReader(System.in))).readLine()); } else {
+			 * System.out.println("URL: " + url); uc.setURL(url); } found =
+			 * true; }
+			 */
 			if (callbacks[i] instanceof PasswordCallback) {
 				PasswordCallback pc = (PasswordCallback) callbacks[i];
 
-				// If password not supplied on cmd line, prompt the user for the password.
+				// If password not supplied on cmd line, prompt the user for the
+				// password.
 				if (password == null || password.equals("")) {
 					System.err.print(pc.getPrompt());
 					System.err.flush();
 
-					// Note: JAAS specifies that the password is a char[] rather than a String
-					String tmpPassword = (new BufferedReader(new InputStreamReader(System.in))).readLine();
+					// Note: JAAS specifies that the password is a char[] rather
+					// than a String
+					String tmpPassword = (new BufferedReader(
+							new InputStreamReader(System.in))).readLine();
 					int passLen = tmpPassword.length();
 					char[] passwordArray = new char[passLen];
 					for (int passIdx = 0; passIdx < passLen; passIdx++) {
@@ -112,11 +115,14 @@ class WeblogicCallbackHandler implements CallbackHandler {
 				TextInputCallback callback = (TextInputCallback) callbacks[i];
 				System.err.print(callback.getPrompt());
 				System.err.flush();
-				callback.setText((new BufferedReader(new InputStreamReader(System.in))).readLine());
+				callback.setText(
+						(new BufferedReader(new InputStreamReader(System.in)))
+								.readLine());
 				found = true;
 			}
 			if (!found) {
-				throw new UnsupportedCallbackException(callbacks[i], "Unrecognized Callback");
+				throw new UnsupportedCallbackException(callbacks[i],
+						"Unrecognized Callback");
 			}
 		}
 	}

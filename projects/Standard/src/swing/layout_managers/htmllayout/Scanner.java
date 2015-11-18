@@ -124,8 +124,8 @@ class Scanner {
 
 	/* I'm avoiding Character.isWhitespace because it's JDK1.1 */
 	private boolean isWhitespace(char c) {
-		return c <= ' '
-				&& (c == ' ' || c == '\t' || c == '\n' || c == '\r' || c == '\f');
+		return c <= ' ' && (c == ' ' || c == '\t' || c == '\n' || c == '\r'
+				|| c == '\f');
 	}
 
 	public String getCurrentString() {

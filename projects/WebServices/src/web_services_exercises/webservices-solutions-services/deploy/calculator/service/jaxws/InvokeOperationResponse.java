@@ -16,18 +16,14 @@ public class InvokeOperationResponse {
 	private float vreturn;
 
 	/**
-	 *
-	 * @return
-	 *	 returns float
+	 * @return returns float
 	 */
 	public float getReturn() {
 		return vreturn;
 	}
 
 	/**
-	 *
-	 * @param vreturn
-	 *	 the value for the vreturn property
+	 * @param vreturn the value for the vreturn property
 	 */
 	public void setReturn(float ireturn) {
 		vreturn = ireturn;

@@ -7,12 +7,9 @@ import ejb.exercises.solutions.source.shopping.ShoppingCartHome;
 import ejb.exercises.solutions.source.shopping.ShoppingCart;
 
 /**
- * A simple client for testing ShoppingCart. <br>
- *
- * This client would: <ul>
- * <li> Obtain a stub to a shopping cart
- * <li> Add some book titles to it
- * <li> Place the order (Receiving a confimration id)
+ * A simple client for testing ShoppingCart. <br> This client would: <ul> <li>
+ * Obtain a stub to a shopping cart <li> Add some book titles to it <li> Place
+ * the order (Receiving a confimration id)
  */
 public abstract class ShoppingCartClient {
 
@@ -20,10 +17,8 @@ public abstract class ShoppingCartClient {
 		// Lookup:
 		InitialContext ictx = new InitialContext();
 		Object obj = ictx.lookup("ejb/shopping/ShoppingCartHome");
-		ShoppingCartHome home =
-			(ShoppingCartHome) PortableRemoteObject.narrow(
-				obj,
-				ShoppingCartHome.class);
+		ShoppingCartHome home = (ShoppingCartHome) PortableRemoteObject
+				.narrow(obj, ShoppingCartHome.class);
 		ShoppingCart cart = home.create("111");
 
 		// Add books (Assuming these books are in the DB !

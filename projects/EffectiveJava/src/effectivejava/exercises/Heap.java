@@ -8,33 +8,40 @@ import java.util.List;
 
 public class Heap<E> implements Iterable<E> {
 	@SuppressWarnings("unused")
-private Comparator<? super E> comparator;
+	private Comparator<? super E> comparator;
+
 	public Heap(Comparator<? super E> c) {
 		comparator = c;
 	}
 
 	public E pop() {
-		return null; //todo
+		return null; // todo
 	}
+
 	public void add(E elem) {
-		//todo
+		// todo
 	}
+
 	public void addAll(Collection<? extends E> c) {
-		for (E e: c) {
+		for (E e : c) {
 			add(e);
 		}
 	}
+
 	public void popAll(Collection<? super E> c) {
 		while (!isEmpty()) {
 			c.add(pop());
 		}
 	}
+
 	public boolean isEmpty() {
-		return true; //todo
+		return true; // todo
 	}
+
 	public Iterator<E> iterator() {
-		return null; //todo
+		return null; // todo
 	}
+
 	public boolean contains(Object o) {
 		return false;
 	}
@@ -47,8 +54,8 @@ private Comparator<? super E> comparator;
 		Comparator<Object> co = new Comparator<Object>() {
 			@Override
 			public int compare(Object o1, Object o2) {
-				return Integer.valueOf(System.identityHashCode(o1)).
-								compareTo(System.identityHashCode(o2));
+				return Integer.valueOf(System.identityHashCode(o1))
+						.compareTo(System.identityHashCode(o2));
 			}
 		};
 		Heap<Number> h = new Heap<Number>(co);

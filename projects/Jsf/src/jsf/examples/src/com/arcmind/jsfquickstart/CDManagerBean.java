@@ -20,49 +20,55 @@ public class CDManagerBean {
 		cdModel.setWrappedData(cds);
 	}
 
-
 	/**
 	 * @return Returns the artist.
 	 */
 	public String getArtist() {
 		return artist;
 	}
+
 	/**
 	 * @param artist The artist to set.
 	 */
 	public void setArtist(String iartist) {
 		artist = iartist;
 	}
+
 	/**
 	 * @return Returns the cds.
 	 */
 	public DataModel getCds() {
 		return cdModel;
 	}
+
 	/**
 	 * @param cds The cds to set.
 	 */
 	public void setCds(List icds) {
 		cds = icds;
 	}
+
 	/**
 	 * @return Returns the price.
 	 */
 	public Float getPrice() {
 		return price;
 	}
+
 	/**
 	 * @param price The price to set.
 	 */
 	public void setPrice(Float iprice) {
 		price = iprice;
 	}
+
 	/**
 	 * @return Returns the title.
 	 */
 	public String getTitle() {
 		return title;
 	}
+
 	/**
 	 * @param title The title to set.
 	 */
@@ -96,7 +102,7 @@ public class CDManagerBean {
 	}
 
 	{
-		//instance initializer to generate some sample data
+		// instance initializer to generate some sample data
 		cds.add(new CD("Scarecrow", "Garth Brooks", 15.89f));
 		cds.add(new CD("Downward Spiral", "NIN", 19.89f));
 		cds.add(new CD("Meat is Murder", "Smiths", 12.89f));
@@ -109,18 +115,21 @@ public class CDManagerBean {
 	public boolean isEditMode() {
 		return editMode;
 	}
+
 	/**
 	 * @param editMode The editMode to set.
 	 */
 	public void setEditMode(boolean ieditMode) {
 		editMode = ieditMode;
 	}
+
 	/**
 	 * @return Returns the rowIndex.
 	 */
 	public int getRowIndex() {
 		return rowIndex;
 	}
+
 	/**
 	 * @param rowIndex The rowIndex to set.
 	 */

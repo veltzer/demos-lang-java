@@ -112,13 +112,11 @@ public class ImageBorder implements Border {
 		bottomLeftCorner.paintIcon(c, g, x,
 				y + height - bottomLeftCorner.getIconHeight());
 		bottomRightCorner.paintIcon(c, g,
-				x + width - bottomRightCorner.getIconWidth(), y + height
-						- bottomRightCorner.getIconHeight());
+				x + width - bottomRightCorner.getIconWidth(),
+				y + height - bottomRightCorner.getIconHeight());
 
 		if (!(top instanceof NullIcon)) {
-			Graphics clipped = g.create(
-					x + topLeftCorner.getIconWidth(),
-					y,
+			Graphics clipped = g.create(x + topLeftCorner.getIconWidth(), y,
 					width - topLeftCorner.getIconWidth()
 							- topRightCorner.getIconWidth(),
 					top.getIconHeight());
@@ -129,8 +127,7 @@ public class ImageBorder implements Border {
 		}
 
 		if (!(bottom instanceof NullIcon)) {
-			Graphics clipped = g.create(
-					x + bottomLeftCorner.getIconWidth(),
+			Graphics clipped = g.create(x + bottomLeftCorner.getIconWidth(),
 					y + height - bottom.getIconHeight(),
 					width - bottomLeftCorner.getIconWidth()
 							- bottomRightCorner.getIconWidth(),
@@ -153,10 +150,10 @@ public class ImageBorder implements Border {
 		}
 
 		if (!(right instanceof NullIcon)) {
-			Graphics clipped = g.create(x + width - right.getIconWidth(), y
-					+ topRightCorner.getIconHeight(), right.getIconWidth(), y
-					+ height - bottomRightCorner.getIconHeight()
-					- topRightCorner.getIconHeight());
+			Graphics clipped = g.create(x + width - right.getIconWidth(),
+					y + topRightCorner.getIconHeight(), right.getIconWidth(),
+					y + height - bottomRightCorner.getIconHeight()
+							- topRightCorner.getIconHeight());
 			int heightInc = right.getIconHeight();
 			for (int iright = 0; iright < height; iright += heightInc) {
 				right.paintIcon(c, clipped, 0, iright);

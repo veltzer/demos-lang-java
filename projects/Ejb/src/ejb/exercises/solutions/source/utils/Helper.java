@@ -15,7 +15,7 @@ public abstract class Helper {
 	 * @return A string in the format "DD/MM/YYY HH:MM:SS:ss"
 	 */
 	public static String getCurrentDateTime() {
-		//declare locals
+		// declare locals
 		String ret = "";
 		String day = "";
 		String month = "";
@@ -26,10 +26,10 @@ public abstract class Helper {
 		String milliseconds = "";
 		Calendar cal = null;
 
-		//create a new Calendar object with the current date and time
+		// create a new Calendar object with the current date and time
 		cal = Calendar.getInstance();
 
-		//get the current time's tokens
+		// get the current time's tokens
 		day = "" + cal.get(Calendar.DAY_OF_MONTH);
 		if (day.length() < 2) {
 			day = "0" + day;
@@ -53,10 +53,11 @@ public abstract class Helper {
 		}
 		milliseconds = "" + cal.get(Calendar.MILLISECOND);
 
-		//format the return value
-		ret = day + "/" + month + "/" + year + " " + hours + ":" + minutes + ":" + seconds + ":" + milliseconds;
+		// format the return value
+		ret = day + "/" + month + "/" + year + " " + hours + ":" + minutes + ":"
+				+ seconds + ":" + milliseconds;
 
-		//return the method's value
+		// return the method's value
 		return ret;
 	}
 }

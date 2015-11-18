@@ -10,7 +10,7 @@ public class ConnectionExtraInfo extends TagExtraInfo {
 		VariableInfo conInfo = new VariableInfo("connection",
 				"java.sql.Connection", true, VariableInfo.AT_END);
 		VariableInfo[] vars = {
-			conInfo
+				conInfo
 		};
 		return vars;
 	}

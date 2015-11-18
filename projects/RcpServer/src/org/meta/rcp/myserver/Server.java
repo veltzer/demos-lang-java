@@ -72,7 +72,8 @@ public class Server extends ServerDelegate {
 	}
 
 	@Override
-	public void modifyModules(IModule[] modules, IModule[] arg1, IProgressMonitor arg2) {
+	public void modifyModules(IModule[] modules, IModule[] arg1,
+			IProgressMonitor arg2) {
 		trace("modifyModules");
 		for (IModule x : modules) {
 			trace("modules is " + x.getName());

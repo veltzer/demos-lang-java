@@ -20,7 +20,8 @@ import org.eclipse.wst.server.core.model.ServerBehaviourDelegate;
 public class Launch extends AbstractJavaLaunchConfigurationDelegate {
 
 	@Override
-	public void launch(ILaunchConfiguration configuration, String mode, ILaunch launch, IProgressMonitor monitor) {
+	public void launch(ILaunchConfiguration configuration, String mode,
+			ILaunch launch, IProgressMonitor monitor) {
 		trace("launch in mode " + mode);
 
 		IServer server;
@@ -34,8 +35,8 @@ public class Launch extends AbstractJavaLaunchConfigurationDelegate {
 			// throw CoreException();
 			return;
 		}
-		ServerBehaviour dlg = (ServerBehaviour) server.loadAdapter(
-				ServerBehaviourDelegate.class, null);
+		ServerBehaviour dlg = (ServerBehaviour) server
+				.loadAdapter(ServerBehaviourDelegate.class, null);
 		dlg.setServerStatePub(IServer.STATE_STARTING);
 
 		if (server.shouldPublish() && ServerCore.isAutoPublishing()) {
@@ -75,7 +76,7 @@ public class Launch extends AbstractJavaLaunchConfigurationDelegate {
 		// Classpath
 		// String[] classpath = getClasspath(configuration);
 		String[] classpath = {
-			"/home/mark/tmp"
+				"/home/mark/tmp"
 		};
 
 		// Create VM config
@@ -124,6 +125,7 @@ public class Launch extends AbstractJavaLaunchConfigurationDelegate {
 		dlg.setProcess(launch.getProcesses()[0]);
 		dlg.setServerStatePub(IServer.STATE_STARTED);
 	}
+
 	private void trace(String string) {
 		System.out.println(string);
 	}

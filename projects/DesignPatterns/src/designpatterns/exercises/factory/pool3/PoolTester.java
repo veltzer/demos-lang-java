@@ -41,7 +41,8 @@ public class PoolTester implements Runnable {
 				testers[i].join();
 			}
 
-			System.out.println("Total pool size: " + DataRecordPool.getInstance().size() + ", numRequests="
+			System.out.println("Total pool size: "
+					+ DataRecordPool.getInstance().size() + ", numRequests="
 					+ DataRecordPool.getInstance().getNumRequests());
 			System.out.println("Done");
 		} catch (Exception e) {

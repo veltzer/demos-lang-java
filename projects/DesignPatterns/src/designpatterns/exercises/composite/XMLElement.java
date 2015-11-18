@@ -12,19 +12,24 @@ public class XMLElement {
 		name = iname;
 		children = new ArrayList<XMLElement>();
 	}
+
 	public List<XMLElement> getChildren() {
 		return children;
 	}
+
 	public XMLElement addElement(XMLElement element) {
 		children.add(element);
 		return this;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public String getData() {
 		return data;
 	}
+
 	public XMLElement setData(String idata) {
 		data = idata;
 		return this;

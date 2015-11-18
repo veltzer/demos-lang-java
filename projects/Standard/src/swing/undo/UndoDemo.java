@@ -81,8 +81,8 @@ public class UndoDemo extends JPanel {
 		return d;
 	}
 
-	public static class Drawable extends AbstractUndoableEdit implements
-			Serializable {
+	public static class Drawable extends AbstractUndoableEdit
+			implements Serializable {
 		private Color color;
 		private Shape shape;
 		private boolean filled;
@@ -215,7 +215,8 @@ public class UndoDemo extends JPanel {
 		JToggleButton rectModeB = new JToggleButton(new DrawRectModeAction());
 		rectModeB.setSelected(true);
 		toolbar.add(rectModeB);
-		JToggleButton circleMode = new JToggleButton(new DrawCircleModeAction());
+		JToggleButton circleMode = new JToggleButton(
+				new DrawCircleModeAction());
 		toolbar.add(circleMode);
 		ButtonGroup group = new ButtonGroup();
 		group.add(rectModeB);

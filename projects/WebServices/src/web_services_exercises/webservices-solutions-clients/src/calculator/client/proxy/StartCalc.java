@@ -5,27 +5,17 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-
 /**
- * <p>Java class for startCalc complex type.
- *
- * <p>The following schema fragment specifies the expected content contained within this class.
- *
- * <pre>
- * &lt;complexType name="startCalc">
- * &lt;complexContent>
- * &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- * &lt;sequence>
- * &lt;element name="arg0" type="{http://www.w3.org/2001/XMLSchema}float"/>
- * &lt;/sequence>
- * &lt;/restriction>
- * &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
+ * <p>Java class for startCalc complex type. <p>The following schema fragment
+ * specifies the expected content contained within this class. <pre>
+ * &lt;complexType name="startCalc"> &lt;complexContent> &lt;restriction
+ * base="{http://www.w3.org/2001/XMLSchema}anyType"> &lt;sequence> &lt;element
+ * name="arg0" type="{http://www.w3.org/2001/XMLSchema}float"/> &lt;/sequence>
+ * &lt;/restriction> &lt;/complexContent> &lt;/complexType> </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "startCalc", propOrder = {
-	"arg0"
+		"arg0"
 })
 public class StartCalc {
 
@@ -33,7 +23,6 @@ public class StartCalc {
 
 	/**
 	 * Gets the value of the arg0 property.
-	 *
 	 */
 	public float getArg0() {
 		return arg0;
@@ -41,7 +30,6 @@ public class StartCalc {
 
 	/**
 	 * Sets the value of the arg0 property.
-	 *
 	 */
 	public void setArg0(float value) {
 		this.arg0 = value;

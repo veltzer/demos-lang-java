@@ -12,9 +12,11 @@ public class LifecycleServlet extends GenericServlet {
 		super();
 		System.out.println("Servlet instance created.");
 	}
+
 	public void init() {
 		System.out.println("Servlet initialized.");
 	}
+
 	public void service(ServletRequest request, ServletResponse response) {
 		System.out.println("Servlet handling the request.");
 		try {
@@ -23,6 +25,7 @@ public class LifecycleServlet extends GenericServlet {
 			throw new RuntimeException(e);
 		}
 	}
+
 	public void destroy() {
 		System.out.println("Servlet destroyed.");
 	}

@@ -18,8 +18,8 @@ public abstract class ProcHtml {
 		try {
 			if (args.length == 0 || args[0].length() == 0) {
 				System.err.println("ProcHtml [-numtabs] filename [...]");
-				System.err
-						.println("\tReads in each file \"filename\" and writes it out to a file"
+				System.err.println(
+						"\tReads in each file \"filename\" and writes it out to a file"
 								+ "\n\t\"filename.out\" in a Java String suitable for embedding"
 								+ "\n\tin a Java source file.");
 			}
@@ -35,8 +35,8 @@ public abstract class ProcHtml {
 			for (int i = firstArg; i < args.length; i++) {
 				RandomAccessFile in;
 				in = new RandomAccessFile(args[i], "r");
-				BufferedWriter out = new BufferedWriter(new FileWriter(args[i]
-						+ ".out"));
+				BufferedWriter out = new BufferedWriter(
+						new FileWriter(args[i] + ".out"));
 
 				String s;
 				boolean first = true;

@@ -88,8 +88,8 @@ public abstract class PersonProxy {
 	 * object. Notice that we synchronized on the proxy object and not on the
 	 * object itself although that is an option too.
 	 */
-	private static class SynchronizedInvocationHandler implements
-			InvocationHandler {
+	private static class SynchronizedInvocationHandler
+			implements InvocationHandler {
 		private Object obj;
 
 		public SynchronizedInvocationHandler(Object iobj) {
@@ -116,9 +116,10 @@ public abstract class PersonProxy {
 	@SuppressWarnings("unchecked")
 	private static <T> T syncIt(Object o) {
 		Class<?>[] interfaces = {
-			o.getClass()
+				o.getClass()
 		};
-		SynchronizedInvocationHandler sih = new SynchronizedInvocationHandler(o);
+		SynchronizedInvocationHandler sih = new SynchronizedInvocationHandler(
+				o);
 		Object proxy = Proxy.newProxyInstance(o.getClass().getClassLoader(),
 				interfaces, sih);
 		return (T) proxy;
@@ -155,7 +156,7 @@ public abstract class PersonProxy {
 	 */
 	public static void main(String[] args) {
 		Class<?>[] interfaces = {
-			IPerson.class
+				IPerson.class
 		};
 		Person p = new Person();
 		p.setName("mark");

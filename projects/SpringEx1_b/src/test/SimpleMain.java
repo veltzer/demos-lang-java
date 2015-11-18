@@ -1,6 +1,5 @@
 package test;
 
-
 import java.util.List;
 
 import meta.sorter.Item;
@@ -29,8 +28,8 @@ public abstract class SimpleMain {
 			y += item.getPrice();
 			// System.out.println(item);
 		}
-		System.out.println("item count: " + sortedItems.size()
-				+ ", total price " + y);
+		System.out.println(
+				"item count: " + sortedItems.size() + ", total price " + y);
 		((AbstractApplicationContext) bf).close();
 	}
 

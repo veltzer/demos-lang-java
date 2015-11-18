@@ -22,7 +22,8 @@ public class Customer implements Serializable {
 		setAge(iage);
 	}
 
-	public Customer(String iname, String iid, int iage, CheckingAccount account) {
+	public Customer(String iname, String iid, int iage,
+			CheckingAccount account) {
 		this(iname, iid, iage);
 		addAccount(account);
 	}

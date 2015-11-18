@@ -47,53 +47,34 @@ public class MainFrame extends JFrame {
 		jRadioButton1.setVerticalTextPosition(SwingConstants.BOTTOM);
 		jToolBar1.add(jRadioButton1);
 
-		GroupLayout layout = new GroupLayout(
-				getContentPane());
+		GroupLayout layout = new GroupLayout(getContentPane());
 		getContentPane().setLayout(layout);
 		layout.setHorizontalGroup(layout
 				.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGroup(
-						layout.createSequentialGroup()
-								.addGroup(
-										layout.createParallelGroup(
-												GroupLayout.Alignment.LEADING)
-												.addGroup(
-														layout.createSequentialGroup()
-																.addGap(67, 67,
-																		67)
-																.addComponent(
-																		jCheckBox1)
-																.addGap(46, 46,
-																		46)
-																.addComponent(
-																		jCheckBox2))
-												.addGroup(
-														layout.createSequentialGroup()
-																.addContainerGap()
-																.addComponent(
-																		jToolBar1,
-																		GroupLayout.PREFERRED_SIZE,
-																		332,
-																		GroupLayout.PREFERRED_SIZE)))
-								.addContainerGap(56, Short.MAX_VALUE)));
+				.addGroup(layout.createSequentialGroup().addGroup(layout
+						.createParallelGroup(GroupLayout.Alignment.LEADING)
+						.addGroup(layout.createSequentialGroup()
+								.addGap(67, 67, 67).addComponent(jCheckBox1)
+								.addGap(46, 46, 46).addComponent(jCheckBox2))
+						.addGroup(layout.createSequentialGroup()
+								.addContainerGap().addComponent(jToolBar1,
+										GroupLayout.PREFERRED_SIZE, 332,
+										GroupLayout.PREFERRED_SIZE)))
+						.addContainerGap(56, Short.MAX_VALUE)));
 		layout.setVerticalGroup(layout
 				.createParallelGroup(GroupLayout.Alignment.LEADING)
-				.addGroup(
-						GroupLayout.Alignment.TRAILING,
-						layout.createSequentialGroup()
-								.addComponent(jToolBar1,
-										GroupLayout.PREFERRED_SIZE,
-										45,
-										GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(
-										ComponentPlacement.RELATED,
-										150, Short.MAX_VALUE)
-								.addGroup(
-										layout.createParallelGroup(
-												GroupLayout.Alignment.BASELINE)
-												.addComponent(jCheckBox1)
-												.addComponent(jCheckBox2))
-								.addGap(83, 83, 83)));
+				.addGroup(GroupLayout.Alignment.TRAILING, layout
+						.createSequentialGroup()
+						.addComponent(jToolBar1, GroupLayout.PREFERRED_SIZE, 45,
+								GroupLayout.PREFERRED_SIZE)
+						.addPreferredGap(ComponentPlacement.RELATED, 150,
+								Short.MAX_VALUE)
+						.addGroup(layout
+								.createParallelGroup(
+										GroupLayout.Alignment.BASELINE)
+								.addComponent(jCheckBox1)
+								.addComponent(jCheckBox2))
+						.addGap(83, 83, 83)));
 
 		pack();
 	} // </editor-fold>//GEN-END:initComponents

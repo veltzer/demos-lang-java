@@ -36,8 +36,8 @@ public class WatermarkImagePanel extends JPanel {
 		g.setColor(getBackground());
 		g.fillRect(0, 0, getWidth(), getHeight());
 		super.paintChildren(g);
-		((Graphics2D) g).setComposite(AlphaComposite.getInstance(
-				AlphaComposite.SRC_OVER, alpha));
+		((Graphics2D) g).setComposite(
+				AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha));
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
 	}
 

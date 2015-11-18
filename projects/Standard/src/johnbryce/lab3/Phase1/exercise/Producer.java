@@ -1,18 +1,15 @@
 package johnbryce.lab3.Phase1.exercise;
 
-public class Producer implements Runnable
-{
-	String producerId;
-	Stack s;
+public class Producer implements Runnable {
+	private String producerId;
+	private Stack s;
 
-	public Producer(String producerId, Stack s){
-		this.producerId=producerId;
-		this.s = s;
+	public Producer(String iproducerId, Stack is) {
+		producerId = iproducerId;
+		s = is;
 	}
 
-	public void run(){
-		for(int i = 0; i <20; i++){
-			//enter text here
-		}
+	public void run() {
+		// enter text here
 	}
 }

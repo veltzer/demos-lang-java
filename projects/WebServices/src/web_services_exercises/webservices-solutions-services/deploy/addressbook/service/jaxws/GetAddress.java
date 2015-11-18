@@ -14,9 +14,11 @@ public class GetAddress {
 
 	@XmlElement(name = "arg0", namespace = "")
 	private String arg0;
+
 	public String getArg0() {
 		return arg0;
 	}
+
 	public void setArg0(String iarg0) {
 		arg0 = iarg0;
 	}

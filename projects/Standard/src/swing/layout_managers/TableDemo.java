@@ -16,8 +16,7 @@ public class TableDemo extends JPanel {
 						0.05, TableLayoutConstants.PREFERRED, 0.05,
 						TableLayoutConstants.PREFERRED,
 						TableLayoutConstants.FILL, 0.05
-				},
-				{
+				}, {
 						0.05, TableLayoutConstants.PREFERRED, 0.05,
 						TableLayoutConstants.PREFERRED, 0.05,
 						TableLayoutConstants.PREFERRED,

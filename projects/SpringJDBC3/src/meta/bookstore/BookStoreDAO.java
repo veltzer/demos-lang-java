@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-public class BookStoreDAO extends HibernateDaoSupport implements
-		BookStoreAdminDAO {
+public class BookStoreDAO extends HibernateDaoSupport
+		implements BookStoreAdminDAO {
 	public void addNewBook(Book book) {
 		getHibernateTemplate().persist(book);
 
@@ -17,7 +17,7 @@ public class BookStoreDAO extends HibernateDaoSupport implements
 
 	@SuppressWarnings("unchecked")
 	public List<Book> showBooksBellow(double price) {
-		return (List<Book>) getHibernateTemplate().find(
-				"from Book as b where b.price < " + price);
+		return (List<Book>) getHibernateTemplate()
+				.find("from Book as b where b.price < " + price);
 	}
 }

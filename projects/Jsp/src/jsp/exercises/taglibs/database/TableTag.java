@@ -23,7 +23,8 @@ public class TableTag extends TagSupport {
 
 	public int doStartTag() {
 		try {
-			Connection con = (Connection) pageContext.getAttribute("connection");
+			Connection con = (Connection) pageContext
+					.getAttribute("connection");
 			if (con == null) {
 				Exception e = new JspException("connection not found");
 				throw new RuntimeException(e);
@@ -58,14 +59,16 @@ public class TableTag extends TagSupport {
 		return EVAL_PAGE;
 	}
 
-	/** Getter for property tableName.
+	/**
+	 * Getter for property tableName.
 	 * @return Value of property tableName.
 	 */
 	public String getTableName() {
 		return tableName;
 	}
 
-	/** Setter for property tableName.
+	/**
+	 * Setter for property tableName.
 	 * @param tableName New value of property tableName.
 	 */
 	public void setTableName(String itableName) {

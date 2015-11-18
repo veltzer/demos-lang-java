@@ -7,8 +7,8 @@ import java.util.List;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
-public class BookstoreAdminJDBCImpl extends JdbcDaoSupport implements
-		BookStoreAdminDAO {
+public class BookstoreAdminJDBCImpl extends JdbcDaoSupport
+		implements BookStoreAdminDAO {
 
 	public void addNewBook(Book book) {
 		Object[] params = new Object[3];
@@ -19,14 +19,16 @@ public class BookstoreAdminJDBCImpl extends JdbcDaoSupport implements
 	}
 
 	public List<Book> showBooks() {
-		return getJdbcTemplate().query("SELECT * from BOOKS", new RowMapper<Book>() {
-			public Book mapRow(ResultSet rs, int num) throws SQLException {
-				String title = rs.getString("title");
-				String author = rs.getString("author");
-				double price = rs.getDouble("price");
-				return new Book(title, author, price);
-			}
-		});
+		return getJdbcTemplate().query("SELECT * from BOOKS",
+				new RowMapper<Book>() {
+					public Book mapRow(ResultSet rs, int num)
+							throws SQLException {
+						String title = rs.getString("title");
+						String author = rs.getString("author");
+						double price = rs.getDouble("price");
+						return new Book(title, author, price);
+					}
+				});
 
 	}
 
@@ -71,29 +73,28 @@ public class BookstoreAdminJDBCImpl extends JdbcDaoSupport implements
 	}
 
 	public List<Customer> showCustomersByName(String name) {
-		return getJdbcTemplate().query(
-				"SELECT * from CUSTOMERS where name = ?", new Object[] {
-					name
-				}, new RowMapper<Customer>() {
-					public Customer mapRow(ResultSet rs, int num)
-							throws SQLException {
-						String id = rs.getString("ID");
-						String name = rs.getString("NAME");
-						String email = rs.getString("EMAIL");
-						String address = rs.getString("ADDRESS");
-						return new Customer(id, name, email, address);
-					}
-				});
+		return getJdbcTemplate().query("SELECT * from CUSTOMERS where name = ?",
+				new Object[] {
+						name
+		}, new RowMapper<Customer>() {
+			public Customer mapRow(ResultSet rs, int num) throws SQLException {
+				String id = rs.getString("ID");
+				String name = rs.getString("NAME");
+				String email = rs.getString("EMAIL");
+				String address = rs.getString("ADDRESS");
+				return new Customer(id, name, email, address);
+			}
+		});
 	}
 
 	public void updateBook(Book book) {
 		System.out.println("Updating Book");
-		getJdbcTemplate()
-				.update("update Books set title = ?, author = ?, price = ? where title = ?",
-						new Object[] {
-								book.getTitle(), book.getAuthor(),
-								book.getPrice(), book.getTitle()
-						});
+		getJdbcTemplate().update(
+				"update Books set title = ?, author = ?, price = ? where title = ?",
+				new Object[] {
+						book.getTitle(), book.getAuthor(), book.getPrice(),
+						book.getTitle()
+		});
 
 	}
 

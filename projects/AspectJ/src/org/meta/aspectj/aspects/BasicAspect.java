@@ -15,12 +15,12 @@ public class BasicAspect {
 	/*
 	 * @Before("call(void java.io.PrintStream.println(String)) " +
 	 * "&& !within(org.meta.aspectj.aspects..*)") public void
-	 * beforePrintlnCall(JoinPoint jp) {
-	 * System.out.println("About to make call to print Hello World "+jp); }
+	 * beforePrintlnCall(JoinPoint jp) { System.out.println(
+	 * "About to make call to print Hello World "+jp); }
 	 * @After("call(void java.io.PrintStream.println(String)) " +
 	 * "&& !within(org.meta.aspectj.aspects..*)") public void
-	 * afterPrintlnCall(JoinPoint jp) {
-	 * System.out.println("Just made call to print Hello World "+jp); }
+	 * afterPrintlnCall(JoinPoint jp) { System.out.println(
+	 * "Just made call to print Hello World "+jp); }
 	 */
 	/*
 	 * @Before("call(* *.*(..)) && !within(org.meta.aspectj.aspects..*)") public

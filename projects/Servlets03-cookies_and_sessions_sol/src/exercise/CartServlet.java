@@ -35,7 +35,8 @@ public class CartServlet extends HttpServlet {
 		System.out.println("Added items to list.");
 	}
 
-	public void doGet(HttpServletRequest request, HttpServletResponse response) {
+	public void doGet(HttpServletRequest request,
+			HttpServletResponse response) {
 		PrintWriter out;
 		try {
 			out = response.getWriter();
@@ -78,7 +79,8 @@ public class CartServlet extends HttpServlet {
 		}
 	}
 
-	private void printCart(HttpServletRequest request, HttpServletResponse response) {
+	private void printCart(HttpServletRequest request,
+			HttpServletResponse response) {
 		PrintWriter out;
 		try {
 			out = response.getWriter();
@@ -98,10 +100,9 @@ public class CartServlet extends HttpServlet {
 			Iterator<Item> it = cart.iterator();
 			while (it.hasNext()) {
 				Item item = it.next();
-				out.println(item.getName()
-						+ " - "
-						+ NumberFormat.getCurrencyInstance(Locale.US).format(
-								item.getPrice()) + "<br>");
+				out.println(item.getName() + " - " + NumberFormat
+						.getCurrencyInstance(Locale.US).format(item.getPrice())
+						+ "<br>");
 				total += item.getPrice();
 			}
 		}
@@ -111,7 +112,8 @@ public class CartServlet extends HttpServlet {
 		out.println("<br>");
 	}
 
-	private void printItems(HttpServletRequest request, HttpServletResponse response) {
+	private void printItems(HttpServletRequest request,
+			HttpServletResponse response) {
 		PrintWriter out;
 		try {
 			out = response.getWriter();
@@ -125,15 +127,14 @@ public class CartServlet extends HttpServlet {
 		Iterator<Item> it = items.values().iterator();
 		while (it.hasNext()) {
 			Item item = it.next();
-			out.println(item.getItemId()
-					+ " "
-					+ item.getName()
-					+ " - "
-					+ NumberFormat.getCurrencyInstance(Locale.US).format(
-							item.getPrice()));
-			out.println("<a href='"
-					+ response.encodeURL(request.getRequestURI() + "?itemid="
-							+ item.getItemId()) + "'>Buy now!</a><br>");
+			out.println(item.getItemId() + " " + item.getName() + " - "
+					+ NumberFormat.getCurrencyInstance(Locale.US)
+							.format(item.getPrice()));
+			out.println(
+					"<a href='"
+							+ response.encodeURL(request.getRequestURI()
+									+ "?itemid=" + item.getItemId())
+					+ "'>Buy now!</a><br>");
 		}
 	}
 }

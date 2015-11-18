@@ -17,6 +17,7 @@ public class GetAddressResponse {
 	public addressbook.service.Address getReturn() {
 		return vreturn;
 	}
+
 	public void setReturn(addressbook.service.Address ivreturn) {
 		vreturn = ivreturn;
 	}

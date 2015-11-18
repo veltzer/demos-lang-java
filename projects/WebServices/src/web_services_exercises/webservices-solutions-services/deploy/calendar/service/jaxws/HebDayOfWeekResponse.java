@@ -17,6 +17,7 @@ public class HebDayOfWeekResponse {
 	public String getReturn() {
 		return vreturn;
 	}
+
 	public void setReturn(String ireturn) {
 		vreturn = ireturn;
 	}

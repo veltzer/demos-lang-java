@@ -78,8 +78,8 @@ public class AddressBookBrowser extends ViewPart {
 	 * it.
 	 */
 	public void createPartControl(Composite parent) {
-		viewer = new TableViewer(parent, SWT.MULTI | SWT.H_SCROLL
-				| SWT.V_SCROLL | SWT.FULL_SELECTION);
+		viewer = new TableViewer(parent,
+				SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL | SWT.FULL_SELECTION);
 
 		// Construct the table
 		viewer.getTable().setHeaderVisible(true);
@@ -87,7 +87,8 @@ public class AddressBookBrowser extends ViewPart {
 		nameColumn.setText(Messages.getString("AddressBookBrowser.name")); //$NON-NLS-1$
 		nameColumn.setWidth(200);
 
-		TableColumn numberColumn = new TableColumn(viewer.getTable(), SWT.RIGHT);
+		TableColumn numberColumn = new TableColumn(viewer.getTable(),
+				SWT.RIGHT);
 		numberColumn.setText(Messages.getString("AddressBookBrowser.number")); //$NON-NLS-1$
 		numberColumn.setWidth(100);
 
@@ -112,7 +113,8 @@ public class AddressBookBrowser extends ViewPart {
 		});
 
 		viewer.setColumnProperties(new String[] {
-				"name", "number"}); //$NON-NLS-1$ //$NON-NLS-2$
+				"name", "number" //$NON-NLS-1$ //$NON-NLS-2$
+		});
 		viewer.setUseHashlookup(true);
 
 		CellEditor[] editors = new CellEditor[2];
@@ -219,18 +221,18 @@ public class AddressBookBrowser extends ViewPart {
 			public void run() {
 				TableItem[] selected = viewer.getTable().getSelection();
 				for (int i = 0; i < selected.length; i++) {
-					AddressBookManager.getInstance().remove(
-							selected[i].getData());
+					AddressBookManager.getInstance()
+							.remove(selected[i].getData());
 				}
 				viewer.refresh();
 			}
 		};
 		deleteAction.setEnabled(!viewer.getSelection().isEmpty());
-		deleteAction.setToolTipText(Messages
-				.getString("AddressBookBrowser.delete.tooltip")); //$NON-NLS-1$
-		deleteAction.setImageDescriptor(PlatformUI.getWorkbench()
-				.getSharedImages()
-				.getImageDescriptor(ISharedImages.IMG_TOOL_DELETE));
+		deleteAction.setToolTipText(
+				Messages.getString("AddressBookBrowser.delete.tooltip")); //$NON-NLS-1$
+		deleteAction
+				.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages()
+						.getImageDescriptor(ISharedImages.IMG_TOOL_DELETE));
 
 		editAction = new Action(Messages.getString("AddressBookBrowser.edit")) { //$NON-NLS-1$
 			public void run() {
@@ -239,39 +241,43 @@ public class AddressBookBrowser extends ViewPart {
 			}
 		};
 		editAction.setEnabled(viewer.getTable().getSelectionCount() == 1);
-		editAction.setToolTipText(Messages
-				.getString("AddressBookBrowser.edit.tooltip")); //$NON-NLS-1$
-		editAction.setImageDescriptor(PlatformUI.getWorkbench()
-				.getSharedImages()
-				.getImageDescriptor(ISharedImages.IMG_OBJ_ELEMENT));
+		editAction.setToolTipText(
+				Messages.getString("AddressBookBrowser.edit.tooltip")); //$NON-NLS-1$
+		editAction
+				.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages()
+						.getImageDescriptor(ISharedImages.IMG_OBJ_ELEMENT));
 
 		newAction = new Action(Messages.getString("AddressBookBrowser.new")) { //$NON-NLS-1$
 			public void run() {
-				boolean newCompany = MessageDialog
-						.openQuestion(viewer.getControl().getShell(),
-								Messages.getString("AddressBookBrowser.title"), //$NON-NLS-1$
-								Messages.getString("AddressBookBrowser.create.question")); //$NON-NLS-1$
+				boolean newCompany = MessageDialog.openQuestion(
+						viewer.getControl().getShell(),
+						Messages.getString("AddressBookBrowser.title"), //$NON-NLS-1$
+						Messages.getString(
+								"AddressBookBrowser.create.question")); //$NON-NLS-1$
 				Object newRecord;
 				if (newCompany) {
-					newRecord = new Company(
-							Messages.getString("AddressBookBrowser.company.default"), ""); //$NON-NLS-1$ //$NON-NLS-2$
-					AddressBookManager.getInstance().addCompany(
-							(Company) newRecord);
+					newRecord = new Company(Messages.getString(
+							"AddressBookBrowser.company.default"), ""); //$NON-NLS-1$ //$NON-NLS-2$
+					AddressBookManager.getInstance()
+							.addCompany((Company) newRecord);
 				} else {
 					newRecord = new Person(
-							Messages.getString("AddressBookBrowser.friend.default.1"), Messages.getString("AddressBookBrowser.friend.default.2"), ""); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-					AddressBookManager.getInstance().addFriend(
-							(Person) newRecord);
+							Messages.getString(
+									"AddressBookBrowser.friend.default.1"), //$NON-NLS-1$
+							Messages.getString(
+									"AddressBookBrowser.friend.default.2"), //$NON-NLS-1$
+							""); //$NON-NLS-1$
+					AddressBookManager.getInstance()
+							.addFriend((Person) newRecord);
 				}
 
 				viewer.refresh();
 				viewer.editElement(newRecord, 0);
 			}
 		};
-		newAction.setToolTipText(Messages
-				.getString("AddressBookBrowser.new.tooltip")); //$NON-NLS-1$
-		newAction.setImageDescriptor(PlatformUI.getWorkbench()
-				.getSharedImages()
+		newAction.setToolTipText(
+				Messages.getString("AddressBookBrowser.new.tooltip")); //$NON-NLS-1$
+		newAction.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages()
 				.getImageDescriptor(ISharedImages.IMG_TOOL_NEW_WIZARD));
 
 		class ToggleFilterAction extends Action {
@@ -305,8 +311,8 @@ public class AddressBookBrowser extends ViewPart {
 				Messages.getString("AddressBookBrowser.show.friends")); //$NON-NLS-1$
 		showFriends.setImageDescriptor(ViewPlugin.getFriendIconDescriptor());
 		showFriends.setChecked(true);
-		showFriends.setToolTipText(Messages
-				.getString("AddressBookBrowser.show.friends.tooltip")); //$NON-NLS-1$
+		showFriends.setToolTipText(
+				Messages.getString("AddressBookBrowser.show.friends.tooltip")); //$NON-NLS-1$
 	}
 
 	/**

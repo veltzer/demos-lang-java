@@ -19,11 +19,13 @@ abstract class ReadWriteReordering {
 
 	private static class FirstThread extends Thread {
 		private volatile int rint;
+
 		@Override
 		public void run() {
 			ThreadAffinity.setCurrentThreadAffinityMask(1);
 			final Core currentCore = ThreadAffinity.currentCore();
-			System.out.printf("first thread running on core -> %s\n", currentCore);
+			System.out.printf("first thread running on core -> %s\n",
+					currentCore);
 			int mycount = COUNT;
 			Random r = new Random();
 			while (mycount > 0) {
@@ -42,7 +44,7 @@ abstract class ReadWriteReordering {
 					throw new RuntimeException(e);
 				}
 				mycount--;
-				//System.out.println("count 1 is "+mycount);
+				// System.out.println("count 1 is "+mycount);
 			}
 			System.out.println("thread 1 terminated");
 		}
@@ -50,11 +52,13 @@ abstract class ReadWriteReordering {
 
 	private static class SecondThread extends Thread {
 		private volatile int rint;
+
 		@Override
 		public void run() {
 			ThreadAffinity.setCurrentThreadAffinityMask(2);
 			final Core currentCore = ThreadAffinity.currentCore();
-			System.out.printf("second thread running on core -> %s\n", currentCore);
+			System.out.printf("second thread running on core -> %s\n",
+					currentCore);
 			int mycount = COUNT;
 			Random r = new Random();
 			while (mycount > 0) {
@@ -73,7 +77,7 @@ abstract class ReadWriteReordering {
 					throw new RuntimeException(e);
 				}
 				mycount--;
-				//System.out.println("count 2 is "+mycount);
+				// System.out.println("count 2 is "+mycount);
 			}
 			System.out.println("thread 2 terminated");
 		}
@@ -101,7 +105,7 @@ abstract class ReadWriteReordering {
 				errors++;
 			}
 			mycount--;
-			//System.out.println("main count is "+mycount);
+			// System.out.println("main count is "+mycount);
 		}
 		try {
 			firstThread.join();

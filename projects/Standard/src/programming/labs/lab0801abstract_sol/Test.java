@@ -10,7 +10,8 @@ public abstract class Test {
 		business.getCustomer(0).addAccount(new BusinessAccount(2000));
 
 		for (int i = 0; i < business.getCustomer(0).getNumOfAccounts(); i++) {
-			if (business.getCustomer(0).getAccount(i) instanceof BusinessAccount) {
+			if (business.getCustomer(0)
+					.getAccount(i) instanceof BusinessAccount) {
 				business.getCustomer(0).getAccount(i).withdraw(5000);
 			} else {
 				business.getCustomer(0).getAccount(i).withdraw(1000);

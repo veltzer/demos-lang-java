@@ -47,8 +47,8 @@ public class HtmlLayoutTest extends Frame {
 	public static void main(String[] args) throws IOException {
 		if (args.length == 0) {
 			System.err.println("HtmlLayoutTest filename [...]");
-			System.err
-					.println("\tReads in each file \"filename\" containing table html\n"
+			System.err.println(
+					"\tReads in each file \"filename\" containing table html\n"
 							+ "\tand creates a window layed out according to that html.\n"
 							+ "\tButtons are created to fill in for the components.");
 		}

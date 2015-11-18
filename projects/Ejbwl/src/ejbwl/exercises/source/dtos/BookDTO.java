@@ -13,6 +13,7 @@ public class BookDTO implements Serializable {
 		author = iauthor;
 		price = iprice;
 	}
+
 	public BookDTO() {
 	}
 

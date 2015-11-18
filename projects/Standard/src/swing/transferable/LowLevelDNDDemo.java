@@ -19,9 +19,8 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class LowLevelDNDDemo extends JPanel {
 	private static final DataFlavor[] FLAVORS = new DataFlavor[] {
-			DataFlavor.stringFlavor,
-			new DataFlavor("application/vnd-vPrise-LowLevelDNDDemo",
-					"DnD demo flavor")
+			DataFlavor.stringFlavor, new DataFlavor(
+					"application/vnd-vPrise-LowLevelDNDDemo", "DnD demo flavor")
 	};
 	private DragSource source = DragSource.getDefaultDragSource();
 	private Transferable transferable = new Transferable() {
@@ -63,36 +62,38 @@ public class LowLevelDNDDemo extends JPanel {
 					}
 				});
 
-		new DropTarget(this, DnDConstants.ACTION_COPY
-				| DnDConstants.ACTION_MOVE, new DropTargetListener() {
-			public void dragEnter(DropTargetDragEvent dtde) {
-				int action = dtde.getDropAction();
-				if (action == DnDConstants.ACTION_COPY
-						|| action == DnDConstants.ACTION_MOVE) {
-					dtde.acceptDrag(action);
-				}
-			}
+		new DropTarget(this,
+				DnDConstants.ACTION_COPY | DnDConstants.ACTION_MOVE,
+				new DropTargetListener() {
+					public void dragEnter(DropTargetDragEvent dtde) {
+						int action = dtde.getDropAction();
+						if (action == DnDConstants.ACTION_COPY
+								|| action == DnDConstants.ACTION_MOVE) {
+							dtde.acceptDrag(action);
+						}
+					}
 
-			public void dragExit(DropTargetEvent dte) {
-			}
+					public void dragExit(DropTargetEvent dte) {
+					}
 
-			public void dragOver(DropTargetDragEvent dtde) {
-			}
+					public void dragOver(DropTargetDragEvent dtde) {
+					}
 
-			public void drop(DropTargetDropEvent dtde) {
-				int action = dtde.getDropAction();
-				if (action == DnDConstants.ACTION_COPY
-						|| action == DnDConstants.ACTION_MOVE) {
-					dtde.acceptDrop(action);
-				}
-				String flavors = dtde.getCurrentDataFlavorsAsList().toString();
-				dtde.dropComplete(true);
-				System.out.println("Drop flavors: " + flavors);
-			}
+					public void drop(DropTargetDropEvent dtde) {
+						int action = dtde.getDropAction();
+						if (action == DnDConstants.ACTION_COPY
+								|| action == DnDConstants.ACTION_MOVE) {
+							dtde.acceptDrop(action);
+						}
+						String flavors = dtde.getCurrentDataFlavorsAsList()
+								.toString();
+						dtde.dropComplete(true);
+						System.out.println("Drop flavors: " + flavors);
+					}
 
-			public void dropActionChanged(DropTargetDragEvent dtde) {
-			}
-		}, true);
+					public void dropActionChanged(DropTargetDragEvent dtde) {
+					}
+				}, true);
 	}
 
 	public static void main(String[] argv) {

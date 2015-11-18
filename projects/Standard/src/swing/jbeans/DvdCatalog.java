@@ -71,8 +71,8 @@ public class DvdCatalog extends JFrame implements Runnable {
 	public DvdCatalog() throws IOException {
 		super("DVD/CD Catalog");
 		if (CD_DATA_FILE.exists()) {
-			XMLDecoder d = new XMLDecoder(new BufferedInputStream(
-					new FileInputStream(CD_DATA_FILE)));
+			XMLDecoder d = new XMLDecoder(
+					new BufferedInputStream(new FileInputStream(CD_DATA_FILE)));
 			tableModel = (DvdModel) d.readObject();
 			d.close();
 		} else {
@@ -148,8 +148,8 @@ public class DvdCatalog extends JFrame implements Runnable {
 		btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ev) {
 				tableModel.add(title.getText(), by.getText(),
-						featuring.getText(), year.getText(),
-						keywords.getText(), dvd.isSelected(), cd.isSelected());
+						featuring.getText(), year.getText(), keywords.getText(),
+						dvd.isSelected(), cd.isSelected());
 				title.setText("");
 				by.setText("");
 				featuring.setText("");
@@ -178,15 +178,15 @@ public class DvdCatalog extends JFrame implements Runnable {
 		public Component getTableCellRendererComponent(JTable table,
 				Object value, boolean isSelected, boolean hasFocus, int row,
 				int column) {
-			super.getTableCellRendererComponent(table, "", isSelected,
-					hasFocus, row, column);
+			super.getTableCellRendererComponent(table, "", isSelected, hasFocus,
+					row, column);
 			setIcon(ICONS[((Number) value).intValue()]);
 			return (this);
 		}
 	}
 
-	public static class DvdModel extends AbstractTableModel implements
-			TableModel, Serializable, ExceptionListener {
+	public static class DvdModel extends AbstractTableModel
+			implements TableModel, Serializable, ExceptionListener {
 		static final transient String[] COLUMN_NAMES = {
 				"Title", "By", "Featuring", "Year", "Keywords", "Media"
 		};
@@ -213,13 +213,11 @@ public class DvdCatalog extends JFrame implements Runnable {
 			} else {
 				if (isCd) {
 					tableData.add(new Object[] {
-							title, by, featuring, year, keywords,
-							new Integer(1)
+							title, by, featuring, year, keywords, new Integer(1)
 					});
 				} else {
 					tableData.add(new Object[] {
-							title, by, featuring, year, keywords,
-							new Integer(2)
+							title, by, featuring, year, keywords, new Integer(2)
 					});
 				}
 			}

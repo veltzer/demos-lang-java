@@ -97,10 +97,12 @@ final class BoundedSize implements Size, Serializable {
 		}
 		BoundedSize size = (BoundedSize) object;
 		return basis.equals(size.basis)
-				&& ((lowerBound == null && size.lowerBound == null) || (lowerBound != null && lowerBound
-						.equals(size.lowerBound)))
-				&& ((upperBound == null && size.upperBound == null) || (upperBound != null && upperBound
-						.equals(size.upperBound)));
+				&& ((lowerBound == null && size.lowerBound == null)
+						|| (lowerBound != null
+								&& lowerBound.equals(size.lowerBound)))
+				&& ((upperBound == null && size.upperBound == null)
+						|| (upperBound != null
+								&& upperBound.equals(size.upperBound)));
 	}
 
 	/**

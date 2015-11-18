@@ -27,8 +27,8 @@ public class ShadowBorder implements Border {
 	public void paintBorder(Component c, Graphics graphics, int x, int y,
 			int width, int height) {
 
-		Graphics2D g = (Graphics2D) graphics
-				.create(1, 1, width - 1, height - 1);
+		Graphics2D g = (Graphics2D) graphics.create(1, 1, width - 1,
+				height - 1);
 
 		if (c.getComponentOrientation() == ComponentOrientation.RIGHT_TO_LEFT) {
 			g.scale(-1, 1);

@@ -71,7 +71,8 @@ public final class CellConstraints implements Cloneable, Serializable {
 	/**
 	 * Put the component in the top.
 	 */
-	public static final Alignment TOP = new Alignment("top", Alignment.VERTICAL);
+	public static final Alignment TOP = new Alignment("top",
+			Alignment.VERTICAL);
 
 	/**
 	 * Put the component in the bottom.
@@ -517,7 +518,8 @@ public final class CellConstraints implements Cloneable, Serializable {
 	 * @throws IllegalArgumentException if an alignment orientation is invalid
 	 */
 	private void setAlignments(String encodedAlignments) {
-		StringTokenizer tokenizer = new StringTokenizer(encodedAlignments, " ,");
+		StringTokenizer tokenizer = new StringTokenizer(encodedAlignments,
+				" ,");
 		hAlign = decodeAlignment(tokenizer.nextToken());
 		vAlign = decodeAlignment(tokenizer.nextToken());
 		ensureValidOrientations(hAlign, vAlign);
@@ -557,13 +559,12 @@ public final class CellConstraints implements Cloneable, Serializable {
 	 */
 	public void ensureValidGridBounds(int colCount, int rowCount) {
 		if (getGridX() <= 0) {
-			throw new IndexOutOfBoundsException("The column index "
-					+ getGridX() + " must be positive.");
+			throw new IndexOutOfBoundsException(
+					"The column index " + getGridX() + " must be positive.");
 		}
 		if (getGridX() > colCount) {
-			throw new IndexOutOfBoundsException("The column index "
-					+ getGridX() + " must be less than or equal to " + colCount
-					+ ".");
+			throw new IndexOutOfBoundsException("The column index " + getGridX()
+					+ " must be less than or equal to " + colCount + ".");
 		}
 		if (getGridX() + getGridWidth() - 1 > colCount) {
 			throw new IndexOutOfBoundsException("The grid width "
@@ -571,8 +572,8 @@ public final class CellConstraints implements Cloneable, Serializable {
 					+ (colCount - getGridX() + 1) + ".");
 		}
 		if (getGridY() <= 0) {
-			throw new IndexOutOfBoundsException("The row index " + getGridY()
-					+ " must be positive.");
+			throw new IndexOutOfBoundsException(
+					"The row index " + getGridY() + " must be positive.");
 		}
 		if (getGridY() > rowCount) {
 			throw new IndexOutOfBoundsException("The row index " + getGridY()
@@ -688,7 +689,8 @@ public final class CellConstraints implements Cloneable, Serializable {
 	 * @param formSpec the associated column or row specification
 	 * @return the alignment used
 	 */
-	private Alignment usedAlignment(Alignment cellAlignment, FormSpec formSpec) {
+	private Alignment usedAlignment(Alignment cellAlignment,
+			FormSpec formSpec) {
 		if (cellAlignment != CellConstraints.DEFAULT) {
 			// Cell alignments other than DEFAULT override col/row alignments
 			return cellAlignment;
@@ -911,8 +913,7 @@ public final class CellConstraints implements Cloneable, Serializable {
 				return BOTTOM;
 			} else {
 				throw new IllegalArgumentException(
-						"Invalid alignment "
-								+ nameOrAbbreviation
+						"Invalid alignment " + nameOrAbbreviation
 								+ ". Must be one of: left, center, right, top, bottom, "
 								+ "fill, default, l, c, r, t, b, f, d.");
 			}

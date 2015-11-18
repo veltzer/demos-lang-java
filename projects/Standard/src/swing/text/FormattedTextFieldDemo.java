@@ -20,8 +20,8 @@ import javax.swing.SwingUtilities;
  * implements a mortgage calculator that uses four JFormattedTextFields.
  */
 @SuppressWarnings("serial")
-public class FormattedTextFieldDemo extends JPanel implements
-		PropertyChangeListener {
+public class FormattedTextFieldDemo extends JPanel
+		implements PropertyChangeListener {
 	// Values for the fields
 	private double amount = 100000;
 

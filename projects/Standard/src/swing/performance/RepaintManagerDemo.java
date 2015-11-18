@@ -10,8 +10,8 @@ public abstract class RepaintManagerDemo {
 			public void paintDirtyRegions() {
 				long time = System.currentTimeMillis();
 				super.paintDirtyRegions();
-				System.out.println("Paint took: "
-						+ (System.currentTimeMillis() - time));
+				System.out.println(
+						"Paint took: " + (System.currentTimeMillis() - time));
 			}
 		});
 		JFrame frm = new JFrame("Hello World");

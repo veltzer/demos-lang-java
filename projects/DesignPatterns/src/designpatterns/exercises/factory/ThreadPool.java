@@ -35,7 +35,8 @@ public final class ThreadPool {
 							throw new RuntimeException(e);
 						}
 					}
-					// The thread is notified only when it gets a new runnable job. So at this
+					// The thread is notified only when it gets a new runnable
+					// job. So at this
 					// point there is a valid runnable job!
 					runnableJob.run();
 					runnableJob = null;
@@ -58,7 +59,8 @@ public final class ThreadPool {
 		} catch (EmptyStackException e) {
 			// No threads available.
 			new PooledThread(runnable);
-			// This code for demontsration only. It is usually not such a good idea to put
+			// This code for demontsration only. It is usually not such a good
+			// idea to put
 			// program logic into exception handling mechanism.
 		}
 	}

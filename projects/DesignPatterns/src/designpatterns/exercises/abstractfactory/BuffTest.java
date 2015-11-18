@@ -4,6 +4,7 @@ public abstract class BuffTest {
 	public BuffTest() {
 		super();
 	}
+
 	public static void main(String[] args) {
 		int numObjects = 100000;
 		Object[] array = new Object[numObjects];
@@ -27,7 +28,8 @@ public abstract class BuffTest {
 		long endFreeMem = Runtime.getRuntime().freeMemory();
 		System.out.println("start memory: " + freeMem);
 		System.out.println("end memory: " + endFreeMem);
-		System.out.println("Memory per object: " + ((freeMem - endFreeMem) / numObjects));
+		System.out.println(
+				"Memory per object: " + ((freeMem - endFreeMem) / numObjects));
 		System.out.println("array length: " + array.length);
 		System.out.println("array length: " + array2.length);
 

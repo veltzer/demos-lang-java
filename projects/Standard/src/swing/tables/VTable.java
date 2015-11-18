@@ -60,11 +60,11 @@ public class VTable extends JTable {
 			boolean selected = isTheColumnSelected(iter);
 			String columnName = model.getColumnName(iter);
 			if (selected) {
-				columnMenus[iter] = new JCheckBoxMenuItem(new HideAction(
-						columnName, iter));
+				columnMenus[iter] = new JCheckBoxMenuItem(
+						new HideAction(columnName, iter));
 			} else {
-				columnMenus[iter] = new JCheckBoxMenuItem(new ShowAction(
-						columnName, iter));
+				columnMenus[iter] = new JCheckBoxMenuItem(
+						new ShowAction(columnName, iter));
 			}
 			columnMenus[iter].setSelected(selected);
 			menu.add(columnMenus[iter]);
@@ -81,13 +81,15 @@ public class VTable extends JTable {
 					columnsPopup(ev);
 					return;
 				}
-				int column = convertColumnIndexToModel(columnAtPoint(ev
-						.getPoint()));
-				if ((columns != null)
-						&& (ev.getModifiers() & KeyEvent.SHIFT_MASK) == KeyEvent.SHIFT_MASK) {
+				int column = convertColumnIndexToModel(
+						columnAtPoint(ev.getPoint()));
+				if ((columns != null) && (ev.getModifiers()
+						& KeyEvent.SHIFT_MASK) == KeyEvent.SHIFT_MASK) {
 					if (!toggleAscending(column)) {
-						int[] icolumns = new int[VTable.this.columns.length + 1];
-						boolean[] iascending = new boolean[VTable.this.ascending.length + 1];
+						int[] icolumns = new int[VTable.this.columns.length
+								+ 1];
+						boolean[] iascending = new boolean[VTable.this.ascending.length
+								+ 1];
 						System.arraycopy(VTable.this.columns, 0, icolumns, 0,
 								icolumns.length - 1);
 						System.arraycopy(VTable.this.ascending, 0, iascending,
@@ -99,10 +101,10 @@ public class VTable extends JTable {
 					}
 				} else {
 					columns = new int[] {
-						column
+							column
 					};
 					ascending = new boolean[] {
-						true
+							true
 					};
 				}
 				sortModel.sort(columns, ascending);

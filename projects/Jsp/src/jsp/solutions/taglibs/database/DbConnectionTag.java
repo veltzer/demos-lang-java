@@ -33,56 +33,64 @@ public class DbConnectionTag extends TagSupport {
 
 	}
 
-	/** Getter for property driver.
+	/**
+	 * Getter for property driver.
 	 * @return Value of property driver.
 	 */
 	public String getDriver() {
 		return driver;
 	}
 
-	/** Setter for property driver.
+	/**
+	 * Setter for property driver.
 	 * @param driver New value of property driver.
 	 */
 	public void setDriver(String idriver) {
 		driver = idriver;
 	}
 
-	/** Getter for property url.
+	/**
+	 * Getter for property url.
 	 * @return Value of property url.
 	 */
 	public String getUrl() {
 		return url;
 	}
 
-	/** Setter for property url.
+	/**
+	 * Setter for property url.
 	 * @param url New value of property url.
 	 */
 	public void setUrl(String iurl) {
 		url = iurl;
 	}
 
-	/** Getter for property user.
+	/**
+	 * Getter for property user.
 	 * @return Value of property user.
 	 */
 	public String getUser() {
 		return user;
 	}
 
-	/** Setter for property user.
+	/**
+	 * Setter for property user.
 	 * @param user New value of property user.
 	 */
 	public void setUser(String iuser) {
 		user = iuser;
 	}
 
-	/** Getter for property password.
+	/**
+	 * Getter for property password.
 	 * @return Value of property password.
 	 */
 	public String getPassword() {
 		return password;
 	}
 
-	/** Setter for property password.
+	/**
+	 * Setter for property password.
 	 * @param password New value of property password.
 	 */
 	public void setPassword(String ipassword) {

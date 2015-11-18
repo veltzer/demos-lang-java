@@ -6,10 +6,12 @@ import java.io.IOException;
 
 public class FileLogger implements LoggerStrategy {
 	private File logFile;
+
 	public FileLogger(String fileName) {
 		super();
 		logFile = new File(fileName);
 	}
+
 	public void logMessageLine(String messageLine) {
 		try {
 			// Open in append mode.

@@ -42,12 +42,9 @@ public class LFComboModel implements ComboBoxModel<UIManager.LookAndFeelInfo> {
 			JFrame.getFrames()[0].validate();
 			JFrame.getFrames()[0].repaint();
 		} catch (Exception err) {
-			JOptionPane
-					.showMessageDialog(
-							JFrame.getFrames()[0],
-							"This Look and Feel isn't\nsupported by the current platform",
-							"Look And Feel Not Supported",
-							JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(JFrame.getFrames()[0],
+					"This Look and Feel isn't\nsupported by the current platform",
+					"Look And Feel Not Supported", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 

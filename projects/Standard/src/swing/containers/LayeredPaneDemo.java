@@ -27,8 +27,8 @@ import javax.swing.SwingUtilities;
  * images/dukeWaveRed.gif.
  */
 @SuppressWarnings("serial")
-public class LayeredPaneDemo extends JPanel implements ActionListener,
-		MouseMotionListener {
+public class LayeredPaneDemo extends JPanel
+		implements ActionListener, MouseMotionListener {
 	private String[] layerStrings = {
 			"Yellow (0)", "Magenta (1)", "Cyan (2)", "Red (3)", "Green (4)"
 	};
@@ -91,8 +91,8 @@ public class LayeredPaneDemo extends JPanel implements ActionListener,
 					icon.getIconHeight());
 		}
 		/*
-		 * else { System.err
-		 * .println("Duke icon not found; using black square instead.");
+		 * else { System.err .println(
+		 * "Duke icon not found; using black square instead.");
 		 * dukeLabel.setBounds(15, 225, 30, 30); dukeLabel.setOpaque(true);
 		 * dukeLabel.setBackground(Color.BLACK); }
 		 */

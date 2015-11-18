@@ -16,8 +16,8 @@ public class ResourceUsingService implements ResourceLoaderAware {
 	}
 
 	public void doSomething() {
-		Resource r = resourceLoader
-				.getResource("classpath:spring/adv_app_ctx/messages.properties");
+		Resource r = resourceLoader.getResource(
+				"classpath:spring/adv_app_ctx/messages.properties");
 
 		try {
 			FileCopyUtils.copy(r.getInputStream(), System.out);

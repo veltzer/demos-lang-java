@@ -5,8 +5,8 @@ public abstract class Test {
 	public static void main(String[] args) {
 		Customer customer1 = new Customer();
 		Customer customer2 = new Customer("Vera", "is-112", 60);
-		Customer customer3 = new Customer("Yossi", "is-112", 60, new Account(
-				"8565/44", 35000));
+		Customer customer3 = new Customer("Yossi", "is-112", 60,
+				new Account("8565/44", 35000));
 
 		customer2.setAccount(customer3.getAccount());
 

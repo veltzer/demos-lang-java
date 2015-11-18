@@ -79,7 +79,8 @@ public class WordProcessorDemo extends JPanel {
 
 		public void actionPerformed(ActionEvent actionEvent) {
 			JFileChooser chooser = new JFileChooser();
-			if (chooser.showOpenDialog((Component) actionEvent.getSource()) == JOptionPane.OK_OPTION) {
+			if (chooser.showOpenDialog((Component) actionEvent
+					.getSource()) == JOptionPane.OK_OPTION) {
 				File file = chooser.getSelectedFile();
 				pane.insertIcon(new ImageIcon(file.getAbsolutePath()));
 			}

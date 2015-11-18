@@ -32,8 +32,8 @@ public class FormattedDemo extends JPanel {
 		textBox.add(new JLabel("Please enter date: MM/dd/yyyy hh:mm"));
 
 		try {
-			dateField = new JFormattedTextField(new MaskFormatter(
-					"##/##/#### ##:##"));
+			dateField = new JFormattedTextField(
+					new MaskFormatter("##/##/#### ##:##"));
 		} catch (ParseException e) {
 			throw new RuntimeException(e);
 		}
@@ -83,9 +83,9 @@ public class FormattedDemo extends JPanel {
 
 	/*
 	 * private MaskFormatter createFormatter(String s) { MaskFormatter formatter
-	 * = null; try { formatter = new MaskFormatter(s); } catch
-	 * (ParseException exc) { System.err.println("formatter is bad: "
-	 * + exc.getMessage()); System.exit(-1); } return formatter; }
+	 * = null; try { formatter = new MaskFormatter(s); } catch (ParseException
+	 * exc) { System.err.println("formatter is bad: " + exc.getMessage());
+	 * System.exit(-1); } return formatter; }
 	 */
 	/**
 	 * @param args

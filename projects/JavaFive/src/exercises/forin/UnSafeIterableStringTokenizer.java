@@ -3,19 +3,20 @@ package exercises.forin;
 import java.util.Iterator;
 import java.util.StringTokenizer;
 
-public class UnSafeIterableStringTokenizer
-	extends StringTokenizer implements Iterable<Object> {
+public class UnSafeIterableStringTokenizer extends StringTokenizer
+		implements Iterable<Object> {
 
-	public UnSafeIterableStringTokenizer(String str, String delim, boolean returnDelims) {
-		 super(str, delim, returnDelims);
+	public UnSafeIterableStringTokenizer(String str, String delim,
+			boolean returnDelims) {
+		super(str, delim, returnDelims);
 	}
 
 	public UnSafeIterableStringTokenizer(String str, String delim) {
-		 super(str, delim);
+		super(str, delim);
 	}
 
 	public UnSafeIterableStringTokenizer(String str) {
-		 super(str);
+		super(str);
 	}
 
 	public Iterator<Object> iterator() {
@@ -23,11 +24,14 @@ public class UnSafeIterableStringTokenizer
 			public boolean hasNext() {
 				return hasMoreTokens();
 			}
+
 			public Object next() {
 				return nextToken();
 			}
+
 			public void remove() {
-				throw new UnsupportedOperationException("remove() not supported");
+				throw new UnsupportedOperationException(
+						"remove() not supported");
 			}
 		};
 	}
@@ -35,7 +39,7 @@ public class UnSafeIterableStringTokenizer
 	public static void main(String[] args) {
 		String s = "Hello World, how are you?";
 		UnSafeIterableStringTokenizer si = new UnSafeIterableStringTokenizer(s);
-		for (Object w: si) {
+		for (Object w : si) {
 			System.out.println(w);
 		}
 	}

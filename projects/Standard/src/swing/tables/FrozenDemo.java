@@ -12,7 +12,7 @@ public class FrozenDemo extends JPanel {
 		File directory = new File(".");
 		m.setDirectory(directory);
 		add(new FTable(m, new int[] {
-			0
+				0
 		}));
 	}
 

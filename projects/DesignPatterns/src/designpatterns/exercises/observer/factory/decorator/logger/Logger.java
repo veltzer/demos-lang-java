@@ -37,7 +37,8 @@ public final class Logger {
 
 	public void logMessage(int priority, String header, String body) {
 		Date currentDate = new Date();
-		String messageLine = currentDate.toString() + "," + name + "," + header + "," + body;
+		String messageLine = currentDate.toString() + "," + name + "," + header
+				+ "," + body;
 		for (Iterator<LoggerObserver> i = observers.iterator(); i.hasNext();) {
 			LoggerObserver observer = i.next();
 			observer.onLogRequest(priority, messageLine);
@@ -48,7 +49,8 @@ public final class Logger {
 		try {
 			Logger logger = Logger.getLogger("default");
 			logger.addObserver(new ConsoleLogger());
-			logger.addObserver(new LoggerObserverFilter(new StdErrorLogger(), 3));
+			logger.addObserver(
+					new LoggerObserverFilter(new StdErrorLogger(), 3));
 			logger.logMessage(3, "alert", "memory is low");
 			logger.logMessage(2, "info", "logger is active");
 			System.out.println("Done");

@@ -30,8 +30,8 @@ public class SpringDemo extends JPanel {
 		SpringLayout.Constraints nameCons = layout.getConstraints(nameText);
 		SpringLayout.Constraints passwordCons = layout
 				.getConstraints(passwordText);
-		Spring spring = Spring
-				.max(nameCons.getWidth(), passwordCons.getWidth());
+		Spring spring = Spring.max(nameCons.getWidth(),
+				passwordCons.getWidth());
 		nameCons.setWidth(spring);
 		passwordCons.setWidth(spring);
 		JButton login = new JButton("Login");

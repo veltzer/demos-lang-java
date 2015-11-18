@@ -52,9 +52,9 @@ public class SyntaxHighlightDemo extends JPanel {
 		StyleConstants.setForeground(stringAttr, Color.RED);
 		StyleConstants.setItalic(stringAttr, true);
 		((AbstractDocument) doc).setDocumentFilter(new DocumentFilter() {
-			public void insertString(DocumentFilter.FilterBypass fb,
-					int offset, String string, AttributeSet attr)
-					throws BadLocationException {
+			public void insertString(DocumentFilter.FilterBypass fb, int offset,
+					String string, AttributeSet attr)
+							throws BadLocationException {
 				fb.insertString(offset, string, attr);
 				update();
 			}
@@ -67,7 +67,7 @@ public class SyntaxHighlightDemo extends JPanel {
 
 			public void replace(DocumentFilter.FilterBypass fb, int offset,
 					int length, String text, AttributeSet attrs)
-					throws BadLocationException {
+							throws BadLocationException {
 				fb.replace(offset, length, text, attrs);
 				update();
 			}

@@ -89,14 +89,15 @@ public class SampleNewWizard extends Wizard implements INewWizard {
 	 * file.
 	 */
 
-	private void doFinish(String containerName, String fileName, IProgressMonitor monitor) {
+	private void doFinish(String containerName, String fileName,
+			IProgressMonitor monitor) {
 		// create a sample file
 		monitor.beginTask("Creating " + fileName, 2);
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
 		IResource resource = root.findMember(new Path(containerName));
 		if (!resource.exists() || !(resource instanceof IContainer)) {
-			throwCoreException("Container \"" + containerName
-					+ "\" does not exist.");
+			throwCoreException(
+					"Container \"" + containerName + "\" does not exist.");
 		}
 		IContainer container = (IContainer) resource;
 		final IFile file = container.getFile(new Path(fileName));
@@ -145,7 +146,8 @@ public class SampleNewWizard extends Wizard implements INewWizard {
 	}
 
 	private void throwCoreException(String message) {
-		IStatus status = new Status(IStatus.ERROR, "editor", IStatus.OK, message, null);
+		IStatus status = new Status(IStatus.ERROR, "editor", IStatus.OK,
+				message, null);
 		Exception e = new CoreException(status);
 		throw new RuntimeException(e);
 	}

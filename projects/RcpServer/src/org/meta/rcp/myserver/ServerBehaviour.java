@@ -55,13 +55,16 @@ public class ServerBehaviour extends ServerBehaviourDelegate {
 		}
 		setServerState(IServer.STATE_STOPPED);
 	}
+
 	@Override
 	public IStatus publish(int kind, IProgressMonitor monitor) {
 		trace("publish");
 		return super.publish(kind, monitor);
 	}
+
 	@Override
-	public void publish(int kind, List<IModule[]> modules, IProgressMonitor monitor, IAdaptable info) {
+	public void publish(int kind, List<IModule[]> modules,
+			IProgressMonitor monitor, IAdaptable info) {
 		try {
 			super.publish(kind, modules, monitor, info);
 		} catch (CoreException e) {
@@ -76,12 +79,15 @@ public class ServerBehaviour extends ServerBehaviourDelegate {
 			}
 		}
 	}
+
 	private void trace(String string) {
 		System.out.println(string);
 	}
+
 	public void setServerStatePub(int stateStarted) {
 		setServerState(stateStarted);
 	}
+
 	public void setProcess(IProcess iProcess) {
 		process = iProcess;
 	}

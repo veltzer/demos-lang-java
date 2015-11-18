@@ -6,8 +6,8 @@ import java.nio.channels.FileChannel;
 
 public abstract class FileSplitter {
 
-	public static void split(FileChannel fileIn, int size,
-			FileChannel fileOut1, FileChannel fileOut2) throws IOException {
+	public static void split(FileChannel fileIn, int size, FileChannel fileOut1,
+			FileChannel fileOut2) throws IOException {
 		ByteBuffer buffer = ByteBuffer.allocateDirect(size);
 
 		while (true) {

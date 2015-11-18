@@ -258,8 +258,8 @@ public final class DefaultUnitConverter extends AbstractUnitConverter {
 	private DialogBaseUnits computeGlobalDialogBaseUnits() {
 		logInfo("Computing global dialog base units...");
 		Font dialogFont = getDefaultDialogFont();
-		FontMetrics metrics = createDefaultGlobalComponent().getFontMetrics(
-				dialogFont);
+		FontMetrics metrics = createDefaultGlobalComponent()
+				.getFontMetrics(dialogFont);
 		DialogBaseUnits globalDialogBaseUnits = computeDialogBaseUnits(metrics);
 		return globalDialogBaseUnits;
 	}
@@ -342,10 +342,8 @@ public final class DefaultUnitConverter extends AbstractUnitConverter {
 	 * no exception is thrown and no action is performed.
 	 * @param propertyName one of the property names listed above
 	 * @param listener the PropertyChangeListener to be added
-	 * @see #removePropertyChangeListener(String,
-	 * PropertyChangeListener)
-	 * @see #addPropertyChangeListener(String,
-	 * PropertyChangeListener)
+	 * @see #removePropertyChangeListener(String, PropertyChangeListener)
+	 * @see #addPropertyChangeListener(String, PropertyChangeListener)
 	 */
 	public synchronized void addPropertyChangeListener(String propertyName,
 			PropertyChangeListener listener) {
@@ -359,8 +357,7 @@ public final class DefaultUnitConverter extends AbstractUnitConverter {
 	 * null, no exception is thrown and no action is performed.
 	 * @param propertyName a valid property name
 	 * @param listener the PropertyChangeListener to be removed
-	 * @see #addPropertyChangeListener(String,
-	 * PropertyChangeListener)
+	 * @see #addPropertyChangeListener(String, PropertyChangeListener)
 	 * @see #removePropertyChangeListener(PropertyChangeListener)
 	 */
 	public synchronized void removePropertyChangeListener(String propertyName,

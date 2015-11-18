@@ -50,11 +50,10 @@ public class AddressBookPropertyPage extends PropertyPage {
 	private void loadValues() {
 		try {
 			IResource src = (IResource) getElement();
-			commentText.setText(src.getPersistentProperty(new QualifiedName(
-					PROPERTY_QUALIFIER, COMMENTS_PROPERTY)));
-			niceCheckbox.setSelection("true".equals(src
-					.getPersistentProperty(new QualifiedName(
-							PROPERTY_QUALIFIER, NICE_PROPERTY))));
+			commentText.setText(src.getPersistentProperty(
+					new QualifiedName(PROPERTY_QUALIFIER, COMMENTS_PROPERTY)));
+			niceCheckbox.setSelection("true".equals(src.getPersistentProperty(
+					new QualifiedName(PROPERTY_QUALIFIER, NICE_PROPERTY))));
 		} catch (CoreException e) {
 			throw new RuntimeException(e);
 		}
@@ -68,10 +67,11 @@ public class AddressBookPropertyPage extends PropertyPage {
 	public boolean performOk() {
 		try {
 			IResource src = (IResource) getElement();
-			src.setPersistentProperty(new QualifiedName(PROPERTY_QUALIFIER,
-					COMMENTS_PROPERTY), commentText.getText());
-			src.setPersistentProperty(new QualifiedName(PROPERTY_QUALIFIER,
-					COMMENTS_PROPERTY),
+			src.setPersistentProperty(
+					new QualifiedName(PROPERTY_QUALIFIER, COMMENTS_PROPERTY),
+					commentText.getText());
+			src.setPersistentProperty(
+					new QualifiedName(PROPERTY_QUALIFIER, COMMENTS_PROPERTY),
 					new Boolean(niceCheckbox.getSelection()).toString());
 			return true;
 		} catch (CoreException e) {

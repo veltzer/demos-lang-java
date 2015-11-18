@@ -11,7 +11,8 @@ public abstract class AddressBookClient {
 		addr1.setNum(42);
 		port.addAddress("John", addr1);
 		Address addr2 = port.getAddress("John");
-		System.out.format("John's address is: %s %s, %s, %s", addr2.getNum(), addr2.getStreet(), addr2.getCity(), addr2.getCountry());
+		System.out.format("John's address is: %s %s, %s, %s", addr2.getNum(),
+				addr2.getStreet(), addr2.getCity(), addr2.getCountry());
 	}
 
 }

@@ -18,6 +18,7 @@ public class Dispatcher {
 	Dispatcher(ServletContext ictx) {
 		ctx = ictx;
 	}
+
 	void dispatch(ServletRequest req, ServletResponse res, String mode) {
 		RequestDispatcher rd = null;
 		if (mode.equalsIgnoreCase("cat")) {

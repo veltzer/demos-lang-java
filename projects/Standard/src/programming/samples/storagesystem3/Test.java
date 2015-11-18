@@ -24,7 +24,8 @@ public class Test {
 
 	public int getNumber(String message) {
 		System.out.print(message);
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedReader br = new BufferedReader(
+				new InputStreamReader(System.in));
 		try {
 			String input = br.readLine();
 			return Integer.parseInt(input);

@@ -48,8 +48,9 @@ public abstract class FileTable {
 		combo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ev) {
 				try {
-					UIManager.setLookAndFeel(((LookAndFeelInfo) combo
-							.getSelectedItem()).getClassName());
+					UIManager.setLookAndFeel(
+							((LookAndFeelInfo) combo.getSelectedItem())
+									.getClassName());
 					UIManager.getLookAndFeel().getDefaults()
 							.put("button.border", Color.red);
 					SwingUtilities.updateComponentTreeUI(frm);

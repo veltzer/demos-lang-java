@@ -4,7 +4,8 @@ import java.util.LinkedList;
 
 /**
  * A minimal object pool. This pool is a factory which manages the creation of
- * DataRecord objects. No locking is provided. The pool may hava a max-size limit.
+ * DataRecord objects. No locking is provided. The pool may hava a max-size
+ * limit.
  */
 public final class DataRecordPool {
 	private static DataRecordPool instance = new DataRecordPool();
@@ -14,7 +15,8 @@ public final class DataRecordPool {
 	private DataRecordPool() {
 		pool = new LinkedList<DataRecord>();
 		// a maxSize of 0 means "unlimited"
-		maxSize = Integer.parseInt(System.getProperty("datarecord.pool.size", "0"));
+		maxSize = Integer
+				.parseInt(System.getProperty("datarecord.pool.size", "0"));
 	}
 
 	public static DataRecordPool getInstance() {
@@ -33,7 +35,8 @@ public final class DataRecordPool {
 	}
 
 	public void release(DataRecord record) {
-		// There should be a safety check: perhaps this record is already in the pool?
+		// There should be a safety check: perhaps this record is already in the
+		// pool?
 		if ((maxSize == 0) || (pool.size() < maxSize)) {
 			pool.add(record);
 		}

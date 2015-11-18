@@ -15,9 +15,11 @@ public class HebDayOfWeek {
 
 	@XmlElement(name = "arg0", namespace = "")
 	private Date arg0;
+
 	public Date getArg0() {
 		return arg0;
 	}
+
 	public void setArg0(Date iarg0) {
 		arg0 = iarg0;
 	}

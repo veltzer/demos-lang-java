@@ -76,9 +76,10 @@ Finally, it is worth reading the documentation.
 	<!-- <property name="fileExtensions" value="java"/> -->
 	<!-- </module> -->
 	
-	<module name="SuppressionFilter">
-		<property name="file" value="support/suppressions.xml"/>
-	</module>
+	<!--
+	<module name="SuppressionCommentFilter"/>
+	-->
+	<module name="SuppressWarningsFilter" />
 
 	<module name="TreeWalker">
 		<!-- Checks for Javadoc comments. -->
@@ -189,5 +190,6 @@ Finally, it is worth reading the documentation.
 			<module name="TodoComment"/>
 		-->
 		<module name="UpperEll"/>
+		<module name="SuppressWarningsHolder" />
 	</module>
 </module>

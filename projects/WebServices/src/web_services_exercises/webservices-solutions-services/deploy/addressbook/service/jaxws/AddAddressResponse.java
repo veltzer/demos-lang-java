@@ -11,5 +11,4 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "addAddressResponse", namespace = "http://service.addressbook/")
 public class AddAddressResponse {
 
-
 }

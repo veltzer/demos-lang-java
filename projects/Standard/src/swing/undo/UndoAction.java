@@ -36,7 +36,8 @@ final class UndoAction extends AbstractAction {
 	private UndoManager manager = new UndoManager();
 
 	private UndoAction() {
-		super("Undo", new ImageIcon(UndoAction.class.getResource("Undo24.gif")));
+		super("Undo",
+				new ImageIcon(UndoAction.class.getResource("Undo24.gif")));
 		setEnabled(false);
 	}
 
@@ -83,8 +84,8 @@ final class UndoAction extends AbstractAction {
 
 	class RecordAction extends AbstractAction {
 		RecordAction() {
-			super("Record", new ImageIcon(
-					UndoAction.class.getResource("Movie24.gif")));
+			super("Record",
+					new ImageIcon(UndoAction.class.getResource("Movie24.gif")));
 		}
 
 		public void actionPerformed(ActionEvent ev) {
@@ -100,8 +101,8 @@ final class UndoAction extends AbstractAction {
 
 	class StopAction extends AbstractAction {
 		StopAction() {
-			super("Stop", new ImageIcon(
-					UndoAction.class.getResource("Stop24.gif")));
+			super("Stop",
+					new ImageIcon(UndoAction.class.getResource("Stop24.gif")));
 		}
 
 		public void actionPerformed(ActionEvent ev) {
@@ -117,8 +118,8 @@ final class UndoAction extends AbstractAction {
 
 	class PlayAction extends AbstractAction {
 		PlayAction() {
-			super("Play", new ImageIcon(
-					UndoAction.class.getResource("Play24.gif")));
+			super("Play",
+					new ImageIcon(UndoAction.class.getResource("Play24.gif")));
 		}
 
 		public void actionPerformed(ActionEvent ev) {
@@ -136,8 +137,8 @@ final class UndoAction extends AbstractAction {
 
 	class StoreAction extends AbstractAction implements ExceptionListener {
 		StoreAction() {
-			super("Store", new ImageIcon(
-					UndoAction.class.getResource("Save24.gif")));
+			super("Store",
+					new ImageIcon(UndoAction.class.getResource("Save24.gif")));
 		}
 
 		public void actionPerformed(ActionEvent ev) {
@@ -167,8 +168,8 @@ final class UndoAction extends AbstractAction {
 
 	class LoadAction extends AbstractAction {
 		LoadAction() {
-			super("Load", new ImageIcon(
-					UndoAction.class.getResource("Open24.gif")));
+			super("Load",
+					new ImageIcon(UndoAction.class.getResource("Open24.gif")));
 		}
 
 		@SuppressWarnings("unchecked")

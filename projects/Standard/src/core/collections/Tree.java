@@ -93,12 +93,12 @@ public class Tree<D> {
 
 	public static void main(String[] args) {
 		Tree<DirOrFile> t = new Tree<DirOrFile>(new Dir("/", 5656, Color.red));
-		Tree<DirOrFile> td1 = new Tree<DirOrFile>(new Dir("tmp", 54656,
-				Color.white));
+		Tree<DirOrFile> td1 = new Tree<DirOrFile>(
+				new Dir("tmp", 54656, Color.white));
 		t.add(td1);
 		td1.add(new File("soffice", 3454, Color.red));
-		Tree<DirOrFile> td2 = new Tree<DirOrFile>(new Dir("etc", 4656,
-				Color.blue));
+		Tree<DirOrFile> td2 = new Tree<DirOrFile>(
+				new Dir("etc", 4656, Color.blue));
 		t.add(td2);
 		td2.add(new File("passwd", 3454, Color.red));
 		td2.add(new File("hosts", 3454, Color.red));

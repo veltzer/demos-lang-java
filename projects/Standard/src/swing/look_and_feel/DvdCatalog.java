@@ -85,9 +85,9 @@ public class DvdCatalog extends JFrame implements Runnable {
 		super("DVD/CD Catalog");
 		Color buttonColor = new Color(138, 207, 234);
 		UIManager.put("Button.background", buttonColor);
-		UIManager.put("Button.border", BorderFactory.createBevelBorder(
-				BevelBorder.LOWERED, buttonColor.darker(),
-				buttonColor.brighter()));
+		UIManager.put("Button.border",
+				BorderFactory.createBevelBorder(BevelBorder.LOWERED,
+						buttonColor.darker(), buttonColor.brighter()));
 		UIManager.put("RadioButton.background", Color.WHITE);
 		UIManager.put("Panel.background", Color.WHITE);
 		UIManager.put("TabbedPane.background", Color.BLUE);
@@ -100,8 +100,8 @@ public class DvdCatalog extends JFrame implements Runnable {
 		}
 
 		if (CD_DATA_FILE.exists()) {
-			XMLDecoder d = new XMLDecoder(new BufferedInputStream(
-					new FileInputStream(CD_DATA_FILE)));
+			XMLDecoder d = new XMLDecoder(
+					new BufferedInputStream(new FileInputStream(CD_DATA_FILE)));
 			tableModel = (DvdModel) d.readObject();
 			d.close();
 		} else {
@@ -177,8 +177,8 @@ public class DvdCatalog extends JFrame implements Runnable {
 		btn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent ev) {
 				tableModel.add(title.getText(), by.getText(),
-						featuring.getText(), year.getText(),
-						keywords.getText(), dvd.isSelected(), cd.isSelected());
+						featuring.getText(), year.getText(), keywords.getText(),
+						dvd.isSelected(), cd.isSelected());
 				title.setText("");
 				by.setText("");
 				featuring.setText("");
@@ -207,8 +207,8 @@ public class DvdCatalog extends JFrame implements Runnable {
 		public Component getTableCellRendererComponent(JTable table,
 				Object value, boolean isSelected, boolean hasFocus, int row,
 				int column) {
-			super.getTableCellRendererComponent(table, "", isSelected,
-					hasFocus, row, column);
+			super.getTableCellRendererComponent(table, "", isSelected, hasFocus,
+					row, column);
 			setIcon(ICONS[((Number) value).intValue()]);
 			return (this);
 		}
@@ -222,8 +222,8 @@ public class DvdCatalog extends JFrame implements Runnable {
 			String.class, Integer.class
 	};
 
-	public static class DvdModel extends AbstractTableModel implements
-			TableModel, Serializable, ExceptionListener {
+	public static class DvdModel extends AbstractTableModel
+			implements TableModel, Serializable, ExceptionListener {
 		private List<Object[]> tableData = new ArrayList<Object[]>();
 
 		public List<Object[]> getTableData() {
@@ -243,13 +243,11 @@ public class DvdCatalog extends JFrame implements Runnable {
 			} else {
 				if (isCd) {
 					tableData.add(new Object[] {
-							title, by, featuring, year, keywords,
-							new Integer(1)
+							title, by, featuring, year, keywords, new Integer(1)
 					});
 				} else {
 					tableData.add(new Object[] {
-							title, by, featuring, year, keywords,
-							new Integer(2)
+							title, by, featuring, year, keywords, new Integer(2)
 					});
 				}
 			}
