@@ -89,7 +89,7 @@ public class SampleView extends ViewPart {
 			return getName();
 		}
 
-		@SuppressWarnings("rawtypes")
+		@SuppressWarnings({ "rawtypes", "unchecked" })
 		@Override
 		public Object getAdapter(Class adapter) {
 			return null;
