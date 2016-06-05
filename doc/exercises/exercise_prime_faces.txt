@@ -1,0 +1,8 @@
+- Show a table with data.
+- Show a button which is titled "Delete element by random"
+- When the button is pressed, choose a random data row
+	from the table and remove it.
+
+Use prime faces!!!
+
+HTML in this exercise is prohibited!!!
