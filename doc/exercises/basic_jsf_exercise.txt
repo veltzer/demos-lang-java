@@ -1,0 +1,20 @@
+First part:
+	create a JSF form with the following attributes:
+		- Name - just a single single with no spaces
+		- Surname - same as name
+		- Gender - select one out of male female
+		- Birth year - int between 1900 and 2020
+		- Submit button.
+	Write a server side single bean to hold this info.
+	At this phase do no validations.
+
+Second part:
+	Add validations to the above (use google).
+	See that the validations prevent injection of data
+	into your bean.
+
+Third part:
+	Style errors for your page, in specfic terms,
+	make them all appear purple instead of what ever
+	color they appear.
+
