@@ -1,0 +1,15 @@
+create a multi pages wizard.
+
+Lets say pages are called a,b,c,...,e
+
+Regular flow is:
+	a -> b -> c -> d -> e
+
+If you answer a certain question in the negative in a,
+ you will pass from c to e directly.
+	a -> b -> c -> e
+
+If you answer a certain question in the position in b,
+	you will be redirected to f after d and then back
+	to the regular flow (e)
+	a -> b -> c -> d -> f -> e

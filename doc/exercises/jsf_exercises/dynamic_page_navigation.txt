@@ -1,0 +1,18 @@
+dynamic page navigation exercise
+=================================
+- create three pages a, b and c (a.xhtml, b.xhtml and c.xhtml).
+- create a button on page 'a'.
+- when the button is pressed navigate to 'b' 50 percent of the time
+and to 'c' in the remaining 50 percent.
+
+second phase:
+- now use faces-config.xml and make dynamic descision be followed
+by a static rule in faces-config.xml.
+- your dyamic method will return "ok" and "error"
+- "ok" will route to c.xhtml
+- "error" will route to b.xhtml
+
+NOTE: "ok" and "error" are called in JSF2.0 terminology "outcomes".
+
+Question:
+what if you press the browsers "back" button? Do you go back?
