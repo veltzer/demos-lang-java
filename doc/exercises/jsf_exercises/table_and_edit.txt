@@ -1,0 +1,10 @@
+Show a table of cars.
+The table should show a list of cars and their various
+properties: model, year, color, license plate...
+Once you select a specific row of the table and click "edit"
+you switch view to a view that allows you to edit
+the properties of that specific car.
+Once I press "OK" after editing the car details I get transferred
+to the table again.
+
+* use prime faces!
