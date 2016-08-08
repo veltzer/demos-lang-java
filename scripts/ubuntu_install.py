@@ -18,12 +18,12 @@ do_templar=True
 
 packs=[
 	# jdks and jres
-	'openjdk-6-jre',
-	'openjdk-6-jdk',
-	'openjdk-6-doc',
-	'openjdk-7-jre',
-	'openjdk-7-jdk',
-	'openjdk-7-doc',
+	'openjdk-8-jre',
+	'openjdk-8-jdk',
+	'openjdk-8-doc',
+	'openjdk-9-jre',
+	'openjdk-9-jdk',
+	'openjdk-9-doc',
 	# default jdk, jre
 	'default-jre',
 	'default-jre-headless',
@@ -42,7 +42,6 @@ packs=[
 
 	# maven stuff
 	'maven',
-	'maven2',
 
 	# groovy stuff
 	'groovy',
