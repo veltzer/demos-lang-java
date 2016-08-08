@@ -74,7 +74,14 @@ if do_oracle:
 		'oracle-java8-installer',
 	])
 
-args=['sudo','apt-get','install','--assume-yes']
+args=[
+	'sudo',
+	'apt',
+	'-o',
+	'Dpkg::Options::=--force-overwrite',
+	'install',
+	'--assume-yes',
+]
 args.extend(packs)
 try:
 	subprocess.check_call(args)
