@@ -32,6 +32,13 @@
 		<dependency org="xerces" name="xercesImpl" rev="latest.integration"/>
 		<dependency org="xml-apis" name="xml-apis" rev="latest.integration"/>
 		<dependency org="ant" name="ant-jakarta-oro" rev="latest.integration"/>
-		<!--dependency org="org.eclipse.rap" name="org.eclipse.rap.jface" rev="latest.integration"/-->
+		<dependency org="org.mod4j.org.eclipse" name="jface" rev="latest.integration"/>
+		<!-- eclipse -->
+		<!--
+		<dependency org="org.eclipse.rap" name="org.eclipse.rap.jface" rev="latest.integration"/>
+		<dependency org="org.eclipse.core" name="runtime" rev="latest.integration"/>
+		<dependency org="javax.annotation" name="javax.annotation-api" rev="latest.integration"/>
+		<dependency org="javax.inject" name="javax.inject" rev="latest.integration"/>
+		-->
 	</dependencies>
 </ivy-module>

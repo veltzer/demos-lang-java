@@ -34,8 +34,8 @@ all: $(ALL)
 $(IVY_STAMP): $(ALL_DEP)
 	$(info doing [$@])
 	$(Q)ant ivy_retrieve_local > /dev/null
-	$(Q)scripts/get_deps.py
 	$(Q)touch $@
+#	$(Q)scripts/get_deps.py
 
 $(COMPILE_STAMP): $(IVY_STAMP) $(ALL_DEP)
 	$(info doing [$@])
