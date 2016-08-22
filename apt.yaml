@@ -1,0 +1,47 @@
+---
+packages:
+        # jdks and jres (for jmap, jhat, jconsole)
+        - name: openjdk-8-jre
+        - name: openjdk-8-jdk
+        - name: openjdk-8-doc
+        - name: openjdk-9-jre
+        - name: openjdk-9-jdk
+        - name: openjdk-9-doc
+        # default jdk, jre
+        - name: default-jre
+        - name: default-jre-headless
+        - name: default-jdk
+        - name: default-jdk-doc
+        # libraries
+        - name: libjna-java
+        # tools
+        - name: visualvm
+          reason: for jvisualvm
+        - name: ivy
+        - name: ivy-doc
+        - name: ant
+        - name: ant-doc
+        - name: ant-optional
+        - name: ant-contrib
+
+        # maven stuff
+        - name: maven
+
+        # groovy stuff
+        - name: groovy
+        - name: groovy-doc
+
+        # development environments
+        - name: netbeans
+        - name: eclipse-cdt
+        - name: eclipse-emf
+        - name: eclipse-wtp
+        - name: eclipse-jdt
+        - name: eclipse-egit
+        - name: eclipse-mylyn
+        - name: eclipse-gef
+        - name: eclipse-rcp
+        - name: eclipse-xsd
+        - name: oracle-java6-installer
+        - name: oracle-java7-installer
+        - name: oracle-java8-installer
