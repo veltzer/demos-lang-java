@@ -7,6 +7,8 @@ DO_MKDBG:=0
 IVY_STAMP:=ivy.stamp
 # what is the compile stamp file?
 COMPILE_STAMP:=compile.stamp
+# do the tools?
+DO_TOOLS:=1
 
 ########
 # code #
@@ -25,6 +27,10 @@ Q:=@
 #.SILENT:
 endif # DO_MKDBG
 
+ifeq ($(DO_TOOLS),1)
+ALL_DEP+=tools.stamp
+endif # DO_TOOLS
+
 ###########
 # targets #
 ###########
@@ -41,6 +47,11 @@ $(COMPILE_STAMP): $(IVY_STAMP) $(ALL_DEP)
 	$(info doing [$@])
 	$(Q)ant build
 	$(Q)touch $@
+
+tools.stamp:
+	$(info doing [$@])
+	$(Q)templar_cmd install_deps
+	$(Q)make_helper touch-mkdir $@
 
 .PHONY: check_extras
 check_extras:
