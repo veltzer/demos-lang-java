@@ -5,6 +5,8 @@
 DO_MKDBG:=0
 # what is the java stamp file?
 IVY_STAMP:=ivy.stamp
+# compile java?
+DO_JAVA:=0
 # what is the compile stamp file?
 COMPILE_STAMP:=compile.stamp
 # do the tools?
@@ -15,7 +17,7 @@ DO_TOOLS:=1
 ########
 JAVA_SOURCES:=$(shell find . -name "*.java")
 MAINCLASS_CHECKSTYLE:=com.puppycrawl.tools.checkstyle.Main
-ALL:=$(IVY_STAMP) $(COMPILE_STAMP)
+ALL:=$(IVY_STAMP)
 BIN_FOLDERS:=$(shell find . \( -name "bin" -or -name "build" -or -name "classes" -or -name "dist" \) -and -type d)
 
 # silent stuff
@@ -31,11 +33,16 @@ ifeq ($(DO_TOOLS),1)
 ALL_DEP+=tools.stamp
 endif # DO_TOOLS
 
+ifeq ($(DO_JAVA),1)
+ALL+=$(COMPILE_STAMP)
+endif # DO_JAVA
+
 ###########
 # targets #
 ###########
 .PHONY: all
 all: $(ALL)
+	@true
 
 $(IVY_STAMP): $(ALL_DEP)
 	$(info doing [$@])
