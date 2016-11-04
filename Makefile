@@ -55,7 +55,7 @@ $(COMPILE_STAMP): $(IVY_STAMP) $(ALL_DEP)
 	$(Q)ant build
 	$(Q)touch $@
 
-tools.stamp:
+tools.stamp: templardefs/deps.py
 	$(info doing [$@])
 	$(Q)templar_cmd install_deps
 	$(Q)make_helper touch-mkdir $@

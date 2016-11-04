@@ -16,4 +16,6 @@ java.hprof.txt
 /C:\\nppdf32Log\\debuglog.txt
 /jxl.log
 /hs_err_pid*.log
-
+__pycache__
+*.pyo
+*.pyc
