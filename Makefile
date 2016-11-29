@@ -57,7 +57,7 @@ $(COMPILE_STAMP): $(IVY_STAMP) $(ALL_DEP)
 
 tools.stamp: templardefs/deps.py
 	$(info doing [$@])
-	$(Q)templar_cmd install_deps
+	$(Q)templar install_deps
 	$(Q)make_helper touch-mkdir $@
 
 .PHONY: check_extras
