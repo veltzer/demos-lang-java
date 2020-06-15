@@ -87,18 +87,18 @@
 					srcdir="@{folder}/src"
 					destdir="@{folder}/bin"
 					includeAntRuntime="no"
+					target="1.6"
+					source="1.6"
+					deprecation="off"
+					fork="no"
 				>
 				<!--
-					target="1.7"
-					source="1.8"
 
 					debug="on"
 					verbose="on"
 
-					deprecation="on"
 					optimize="on"
 					failonerror="on"
-					fork="no"
 					includeJavaRuntime="yes"
 				-->
 				<!--
@@ -106,11 +106,12 @@
 					<compilerarg value="-Xlint:-options"/>
 					<compilerarg value="-Xlint:-processing"/>
 				-->
+					<compilerarg value="-Xlint:-options"/>
 					<!-- to suppress warnings about jars not being in the path
 					still need to investigate this -->
 					<compilerarg value="-Xlint:-path"/>
 					<compilerarg value="-Xlint:all"/>
-					<compilerarg value="-Werror"/>
+					<!-- compilerarg value="-Werror"/ -->
 					<!-- to suppress java6 annotation warnings -->
 					<compilerarg value="-proc:none"/>
 					<classpath refid="external-jars"/>

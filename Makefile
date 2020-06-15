@@ -3,14 +3,11 @@
 ##############
 # do you want to show the commands executed ?
 DO_MKDBG:=0
-# what is the java stamp file?
-IVY_STAMP:=ivy.stamp
 # compile java?
-DO_JAVA:=0
-# what is the compile stamp file?
-COMPILE_STAMP:=compile.stamp
+DO_JAVA:=1
 # do the tools?
 DO_TOOLS:=1
+
 
 ########
 # code #
@@ -19,6 +16,11 @@ JAVA_SOURCES:=$(shell find . -name "*.java")
 MAINCLASS_CHECKSTYLE:=com.puppycrawl.tools.checkstyle.Main
 ALL:=$(IVY_STAMP)
 BIN_FOLDERS:=$(shell find . \( -name "bin" -or -name "build" -or -name "classes" -or -name "dist" \) -and -type d)
+
+# what is the java stamp file?
+IVY_STAMP:=ivy.stamp
+# what is the compile stamp file?
+COMPILE_STAMP:=compile.stamp
 
 # silent stuff
 ifeq ($(DO_MKDBG),1)
@@ -48,7 +50,7 @@ $(IVY_STAMP): $(ALL_DEP)
 	$(info doing [$@])
 	$(Q)ant ivy_retrieve_local > /dev/null
 	$(Q)touch $@
-#	$(Q)scripts/get_deps.py
+	$(Q)scripts/get_deps.py
 
 $(COMPILE_STAMP): $(IVY_STAMP) $(ALL_DEP)
 	$(info doing [$@])

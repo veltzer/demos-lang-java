@@ -41,4 +41,7 @@ packages=[
     'oracle-java6-installer',
     'oracle-java7-installer',
     'oracle-java8-installer',
+    # checkstyle
+    'checkstyle',
+    'checkstyle-doc',
 ]
