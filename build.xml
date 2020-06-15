@@ -2,7 +2,8 @@
 	<!-- tasks -->
 	<taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant">
 		<classpath>
-			<pathelement location="/usr/share/java/ivy.jar" />
+			<!--pathelement location="/usr/share/java/ivy.jar" /-->
+			<pathelement location="/home/mark/install/apache-ivy-2.5.0/ivy-2.5.0.jar" />
 		</classpath>
 	</taskdef>
 	<taskdef resource="net/sf/antcontrib/antlib.xml">
@@ -10,15 +11,9 @@
 			<pathelement location="/usr/share/java/ant-contrib.jar"/>
 		</classpath>
 	</taskdef>
-	<taskdef resource="checkstyletask.properties">
+	<taskdef resource="com/puppycrawl/tools/checkstyle/ant/checkstyle-ant-task.properties">
 		<classpath>
-			<fileset dir="lib" erroronmissingdir="false">
-				<include name="*.jar"/>
-			</fileset>
-			<fileset dir="static" erroronmissingdir="false">
-				<include name="*.jar"/>
-			</fileset>
-			<dirset dir="support"/>
+			<pathelement location="/usr/share/java/checkstyle.jar"/>
 		</classpath>
 		<!--
 		<classpath>
@@ -52,24 +47,39 @@
 		</fileset>
 	</path>
 	<path id="projects">
-	      <dirset dir="projects" includes="*" excludes="PerformanceTuning,Jsp,Jsf,Jme,WebServices"/>
+		<dirset
+			dir="projects"
+			includes="*"
+			excludes="RcpView,RcpTree,RcpServer,RcpMisc,RcpEditor,RcpDemo2,RcpDemo,PerformanceTuning,Jsp,Jsf,Jme,WebServices"
+			/>
 	</path>
 	<!-- targets -->
 	<target name="ivy_retrieve" description="retrieve dependencies with ivy">
 		<!--
 		<delete dir="lib" failonerror="no"/>
 		-->
+		<!--
+		<ivy:settings file="ivysettings.xml" />
+		-->
 		<ivy:resolve refresh="true" showprogress="true"/>
 		<ivy:retrieve sync="true" symlink="true"/>
 	</target>
 	<target name="ivy_retrieve_local" description="retrieve dependencies with ivy from local">
-		<!--
 		<delete dir="lib" failonerror="no"/>
+		<!--
+		<ivy:settings file="ivysettings.xml" />
 		-->
-		<ivy:resolve useCacheOnly="true" showprogress="true"/>
+		<ivy:resolve
+			useCacheOnly="false"
+			showprogress="true"
+			haltonfailure="false"
+		/>
 		<ivy:retrieve sync="true" symlink="true"/>
 	</target>
 	<target name="ivy_cleancache" depends="" description="purge ivy cache">
+		<!--
+		<ivy:settings file="ivysettings.xml" />
+		-->
 		<ivy:cleancache/>
 	</target>
 	<target name="checkstyle" description="check the style of the files">

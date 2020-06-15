@@ -46,7 +46,7 @@ endif # DO_JAVA
 all: $(ALL)
 	@true
 
-$(IVY_STAMP): $(ALL_DEP)
+$(IVY_STAMP): $(ALL_DEP) scripts/get_deps.py
 	$(info doing [$@])
 	$(Q)ant ivy_retrieve_local > /dev/null
 	$(Q)touch $@

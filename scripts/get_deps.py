@@ -14,7 +14,7 @@ import glob # for glob
 ##############
 do_verbose=False
 do_clean=True
-do_jdic=True
+do_jdic=False
 do_eclipse=True
 do_jna=False
 
