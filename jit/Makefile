@@ -2,8 +2,8 @@
 compile:
 	javac InlineMe.java
 
-# this will run your class with profiliing turned on.
-# you can see time measuremenets which shows how to do profiling
+# this will run your class with profiling turned on.
+# you can see time measurements which shows how to do profiling
 # using the standard Sun VM. You can also see if your methods are
 # inlined by the jit or not since if you don't see them in the output
 # they have been inlined.

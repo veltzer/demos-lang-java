@@ -4,6 +4,7 @@ import java.util.Observable;
 import java.util.Timer;
 import java.util.TimerTask;
 
+@SuppressWarnings("deprecation")
 public class PanicAttack extends Observable {
 	private static final String[] PANIC_MESSAGES = {
 			"Lunch is over", "Another design pattern!",

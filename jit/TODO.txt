@@ -1,0 +1,2 @@
+- _JIT_ARGS does not work. I do not see any jit traces.
+- -Xrunhprof:cpu does not work.

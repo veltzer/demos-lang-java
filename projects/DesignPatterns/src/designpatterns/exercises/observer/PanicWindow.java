@@ -39,6 +39,7 @@ public class PanicWindow extends Frame {
 		setVisible(true);
 	}
 
+	@SuppressWarnings("deprecation")
 	public void setPanicGenerator(Observable panicGenerator) {
 		panicGenerator.addObserver(new Observer() {
 			public void update(Observable o, Object arg) {

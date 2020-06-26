@@ -18,7 +18,7 @@ public class Pool<T> {
 		arr = new ArrayList<T>(capacity);
 		try {
 			for (int i = 0; i < capacity; i++) {
-				arr.add(type.newInstance());
+				arr.add(type.getDeclaredConstructor().newInstance());
 			}
 		} catch (Exception e) {
 			throw new RuntimeException(e);

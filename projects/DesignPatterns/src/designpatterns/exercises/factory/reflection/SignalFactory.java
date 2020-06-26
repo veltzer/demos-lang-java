@@ -1,5 +1,7 @@
 package designpatterns.exercises.factory.reflection;
 
+import java.lang.reflect.InvocationTargetException;
+
 /**
  * Following the factory design pattern, this class allows for objects of
  * Signaller type. Creation is performed via reflection, and using system
@@ -19,7 +21,14 @@ public abstract class SignalFactory {
 
 		try {
 			Class<?> signallerClass = Class.forName(signallerClassName);
-			Object instance = signallerClass.newInstance();
+			Object instance = null;
+			try {
+				instance = signallerClass.getDeclaredConstructor().newInstance();
+			} catch (InvocationTargetException e) {
+				throw new RuntimeException(e);
+			} catch (NoSuchMethodException e) {
+				throw new RuntimeException(e);
+			}
 			return (Signaller) instance;
 		} catch (InstantiationException e) {
 			throw new RuntimeException(e);

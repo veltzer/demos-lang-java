@@ -6,18 +6,18 @@ public class NormalDBTable extends AbstractDBTable {
 	}
 
 	public void insert(int id, String data) {
-		Integer key = new Integer(id);
+		Integer key = Integer.valueOf(id);
 		getImpl().put(key, data);
 	}
 
 	public void update(int id, String data) {
-		Integer key = new Integer(id);
+		Integer key = Integer.valueOf(id);
 		if (getImpl().keyExists(key)) {
 			getImpl().put(key, data);
 		}
 	}
 
 	public String select(int id) {
-		return (String) getImpl().get(new Integer(id));
+		return (String) getImpl().get(Integer.valueOf(id));
 	}
 }

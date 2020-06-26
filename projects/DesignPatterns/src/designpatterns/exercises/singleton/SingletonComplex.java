@@ -1,5 +1,6 @@
 package designpatterns.exercises.singleton;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 
 public final class SingletonComplex {
@@ -14,7 +15,15 @@ public final class SingletonComplex {
 			// this actually runs a no argument constructor
 			Object newobj;
 			try {
-				newobj = Class.forName(classname).newInstance();
+				Class<?> c=Class.forName(classname);
+				try {
+					newobj = c.getDeclaredConstructor().newInstance();
+					hash.put(classname, newobj);
+				} catch (InvocationTargetException e) {
+					throw new RuntimeException(e);
+				} catch (NoSuchMethodException e) {
+					throw new RuntimeException(e);
+				}
 			} catch (InstantiationException e) {
 				throw new RuntimeException(e);
 			} catch (IllegalAccessException e) {
@@ -22,7 +31,6 @@ public final class SingletonComplex {
 			} catch (ClassNotFoundException e) {
 				throw new RuntimeException(e);
 			}
-			hash.put(classname, newobj);
 		}
 		return hash.get(classname);
 	}

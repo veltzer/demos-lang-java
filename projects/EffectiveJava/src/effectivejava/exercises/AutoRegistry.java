@@ -65,7 +65,7 @@ public abstract class AutoRegistry {
 			}
 			Class<?> implementingClass = to.value();
 			try {
-				return intf.cast(implementingClass.newInstance());
+				return intf.cast(implementingClass.getDeclaredConstructor().newInstance());
 			} catch (Exception e) {
 				throw new RuntimeException(e);
 			}

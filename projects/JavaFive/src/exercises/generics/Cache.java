@@ -29,7 +29,7 @@ public class Cache<K, V> {
 
 	public static void main(String[] args) {
 		Cache<Integer, String> c = new Cache<Integer, String>(3);
-		c.offer(new Integer(1), "*One*");
+		c.offer(Integer.valueOf(1), "*One*");
 		c.offer(2, "*Two*");
 		c.offer(3, "*Three*");
 		c.offer(4, "*Four*");

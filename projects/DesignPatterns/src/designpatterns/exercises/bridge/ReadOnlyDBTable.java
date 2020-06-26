@@ -16,6 +16,6 @@ public class ReadOnlyDBTable extends AbstractDBTable {
 	}
 
 	public String select(int id) {
-		return (String) getImpl().get(new Integer(id));
+		return (String) getImpl().get(Integer.valueOf(id));
 	}
 }
