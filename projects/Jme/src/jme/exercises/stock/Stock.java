@@ -8,12 +8,12 @@ public class Stock extends MIDlet implements CommandListener {
 	private Form form; // Main form
 	private TextField textField; // Used to enter stock symbol
 	private Command submitCmd, helpCmd, aboutCmd, exitCmd;
-	private Displayable pausedDisplayable; // Last Displayble object visible
+	private Displayable pausedDisplayable; // Last Displayable object visible
 											// before Midlet paused
 
 	/** Constructor. */
 	public Stock() {
-		// Intialize commands.
+		// Initialize commands.
 		submitCmd = new Command("SUBMIT", Command.SCREEN, 1);
 		helpCmd = new Command("HELP", Command.HELP, 2);
 		aboutCmd = new Command("ABOUT", Command.HELP, 3);
