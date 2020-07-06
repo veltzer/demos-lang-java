@@ -1,3 +1,9 @@
+Examples to build:
+=================
+- https://www.journaldev.com/861/java-copy-file
+- http://b010.blogspot.com/2009/05/speed-comparison-of-1-javas-built-in.html
+
+
 Now:
 ====
 - build the three or four project which yet dont build
