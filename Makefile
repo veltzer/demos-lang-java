@@ -75,47 +75,47 @@ check_filenames_with_spaces:
 .PHONY: check_imports
 check_imports:
 	$(info doing [$@])
-	$(Q)make_helper wrapper-ok git grep -e "import .*\.\*" -- "*.java"
+	$(Q)pymakehelper only_print_on_error git grep -e "import .*\.\*" -- "*.java"
 
 .PHONY: check_serialid
 check_serialid:
 	$(info doing [$@])
-	$(Q)make_helper wrapper-ok git grep -l serialVersionUID -- "*.java"
+	$(Q)pymakehelper only_print_on_error git grep -l serialVersionUID -- "*.java"
 
 .PHONY: check_ws_eol
 check_ws_eol:
 	$(info doing [$@])
-	$(Q)make_helper wrapper-ok git grep "[[:space:]]$$" -- *.java
+	$(Q)pymakehelper only_print_on_error git grep "[[:space:]]$$" -- *.java
 
 .PHONY: check_tab_eol
 check_tab_eol:
 	$(info doing [$@])
-	$(Q)make_helper wrapper-ok git grep -l "\s$$" -- "*.java"
+	$(Q)pymakehelper only_print_on_error git grep -l "\s$$" -- "*.java"
 
 .PHONY: check_dbl_ws
 check_dbl_ws:
 	$(info doing [$@])
-	$(Q)make_helper wrapper-ok git grep "  " -- "*.java"
+	$(Q)pymakehelper only_print_on_error git grep "  " -- "*.java"
 
 .PHONY: check_author
 check_author:
 	$(info doing [$@])
-	$(Q)make_helper wrapper-ok git grep -e "@author" --and --not -e "Mark Veltzer <mark@veltzer.net>" -- "*.java"
+	$(Q)pymakehelper only_print_on_error git grep -e "@author" --and --not -e "Mark Veltzer <mark@veltzer.net>" -- "*.java"
 
 .PHONY: check_version
 check_version:
 	$(info doing [$@])
-	$(Q)make_helper wrapper-ok git grep -l "@version" -- "*.java"
+	$(Q)pymakehelper only_print_on_error git grep -l "@version" -- "*.java"
 
 .PHONY: check_printstacktrace
 check_printstacktrace:
 	$(info doing [$@])
-	$(Q)make_helper wrapper-ok git grep -l "printStackTrace()" -- "*.java"
+	$(Q)pymakehelper only_print_on_error git grep -l "printStackTrace()" -- "*.java"
 
 .PHONY: check_exceptionnames
 check_exceptionnames:
 	$(info doing [$@])
-	$(Q)make_helper wrapper-ok git grep -l -e "throw new RuntimeException" --and --not -e "(e)" --and --not -e "(e1)" --and --not -e "ERR_STRING" --and --not -e "errString" -- "*.java"
+	$(Q)pymakehelper only_print_on_error git grep -l -e "throw new RuntimeException" --and --not -e "(e)" --and --not -e "(e1)" --and --not -e "ERR_STRING" --and --not -e "errString" -- "*.java"
 
 .PHONY: check_src
 check_src:
@@ -130,9 +130,9 @@ check_names:
 .PHONY: check_interbit
 check_interbit:
 	$(info doing [$@])
-	$(Q)git grep -l "interbit" | make_helper wrapper-ok grep -v Makefile
-	$(Q)git grep -l "Interbit" | make_helper wrapper-ok grep -v Makefile
-	$(Q)git grep -l "InterBit" | make_helper wrapper-ok grep -v Makefile
+	$(Q)git grep -l "interbit" | pymakehelper only_print_on_error grep -v Makefile
+	$(Q)git grep -l "Interbit" | pymakehelper only_print_on_error grep -v Makefile
+	$(Q)git grep -l "InterBit" | pymakehelper only_print_on_error grep -v Makefile
 	$(Q)find . -name "*Interbit*" -or -name "*interbit*"
 	$(Q)find . -name "*.docx" -or -name "*.doc" -or -name "*.pdf"
 
