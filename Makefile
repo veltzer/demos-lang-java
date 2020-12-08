@@ -178,7 +178,7 @@ clean_soft:
 .PHONY: clean
 clean:
 	$(info doing [$@])
-	$(Q)git clean -xdf > /dev/null
+	$(Q)git clean -qffxd
 
 # code measurements
 
