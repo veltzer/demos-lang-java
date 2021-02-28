@@ -14,7 +14,7 @@
 	In this case it is an instance of 'cmd_line_args'.
 */
 
-println "Hello, World!i "+this
+println "Hello, World! "+this
 for (a in this.args) {
 	println("Argument: " + a)
 }
