@@ -59,7 +59,6 @@ $(COMPILE_STAMP): $(IVY_STAMP) $(ALL_DEP)
 
 tools.stamp: config/deps.py
 	$(info doing [$@])
-	# $(Q)templar install_deps
 	$(Q)touch $@
 
 .PHONY: check_extras
