@@ -7,7 +7,8 @@ DO_MKDBG:=0
 DO_JAVA:=1
 # do the tools?
 DO_TOOLS:=1
-
+# do you want dependency on the Makefile itself ?
+DO_ALLDEP:=1
 
 ########
 # code #
@@ -31,8 +32,13 @@ Q:=@
 #.SILENT:
 endif # DO_MKDBG
 
+# dependency on the makefile itself
+ifeq ($(DO_ALLDEP),1)
+.EXTRA_PREREQS+=$(foreach mk, ${MAKEFILE_LIST},$(abspath ${mk}))
+endif
+
 ifeq ($(DO_TOOLS),1)
-ALL_DEP+=tools.stamp
+.EXTRA_PREREQS+=tools.stamp
 endif # DO_TOOLS
 
 ifeq ($(DO_JAVA),1)
@@ -46,13 +52,13 @@ endif # DO_JAVA
 all: $(ALL)
 	@true
 
-$(IVY_STAMP): $(ALL_DEP) scripts/get_deps.py
+$(IVY_STAMP): scripts/get_deps.py
 	$(info doing [$@])
 	$(Q)ant ivy_retrieve_local > /dev/null
 	$(Q)touch $@
 	$(Q)scripts/get_deps.py
 
-$(COMPILE_STAMP): $(IVY_STAMP) $(ALL_DEP)
+$(COMPILE_STAMP): $(IVY_STAMP)
 	$(info doing [$@])
 	$(Q)ant build
 	$(Q)touch $@
