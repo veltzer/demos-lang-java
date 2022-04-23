@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+//import javax.servlet.jsp.tagext.IterationTag;
 import javax.servlet.jsp.tagext.TagSupport;
 
 @SuppressWarnings("serial")
@@ -35,7 +36,9 @@ public class TableTag extends TagSupport {
 	public int doAfterBody() {
 		try {
 			if (getRs().next()) {
-				return EVAL_BODY_AGAIN;
+				// FIXME
+				return 0;
+				//return EVAL_BODY_BUFFERED;
 			}
 		} catch (SQLException e) {
 			throw new RuntimeException(e);

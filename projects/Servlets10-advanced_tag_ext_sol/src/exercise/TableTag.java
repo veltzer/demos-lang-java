@@ -35,7 +35,9 @@ public class TableTag extends TagSupport {
 	public int doAfterBody() {
 		try {
 			if (getRs().next()) {
-				return EVAL_BODY_AGAIN;
+				// FIXME
+				return 0;
+				// return EVAL_BODY_AGAIN;
 			}
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
