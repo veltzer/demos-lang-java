@@ -57,10 +57,6 @@ $(COMPILE_STAMP): $(IVY_STAMP)
 	$(Q)ant build
 	$(Q)touch $@
 
-tools.stamp: config/deps.py
-	$(info doing [$@])
-	$(Q)touch $@
-
 .PHONY: check_extras
 check_extras:
 	$(info doing [$@])
