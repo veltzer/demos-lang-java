@@ -5,8 +5,6 @@
 DO_MKDBG:=0
 # compile java?
 DO_JAVA:=1
-# do the tools?
-DO_TOOLS:=1
 # do you want dependency on the Makefile itself ?
 DO_ALLDEP:=1
 
@@ -36,10 +34,6 @@ endif # DO_MKDBG
 ifeq ($(DO_ALLDEP),1)
 .EXTRA_PREREQS+=$(foreach mk, ${MAKEFILE_LIST},$(abspath ${mk}))
 endif
-
-ifeq ($(DO_TOOLS),1)
-.EXTRA_PREREQS+=tools.stamp
-endif # DO_TOOLS
 
 ifeq ($(DO_JAVA),1)
 ALL+=$(COMPILE_STAMP)
