@@ -2,7 +2,7 @@ name: make
 on: [push, pull_request]
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: docker://ubuntu:impish
     steps:
     - uses: actions/checkout@v3    
     - name: Set up Python 3.9
