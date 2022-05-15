@@ -4,7 +4,7 @@
 # do you want to show the commands executed ?
 DO_MKDBG:=0
 # compile java?
-DO_JAVA:=1
+DO_JAVA:=0
 # do you want dependency on the Makefile itself ?
 DO_ALLDEP:=1
 
