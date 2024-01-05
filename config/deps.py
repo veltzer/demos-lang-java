@@ -1,4 +1,6 @@
-java_version=22
+# I use version 22 on my desktop which is 23.10
+# but CI/CD on github is 22.10
+java_version=21
 
 packages=[
     # jdks and jres (for jmap, jhat, jconsole)
