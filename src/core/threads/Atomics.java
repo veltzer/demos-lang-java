@@ -22,8 +22,7 @@ public abstract class Atomics {
 			int i = 0;
 			while (i < iter) {
 				if (at.compareAndSet(myVal, myVal + 1)) {
-					System.out
-							.println("thread " + Thread.currentThread().getId()
+					System.out.println("thread " + Thread.currentThread()
 									+ ": myVal is " + myVal);
 					myVal += 2;
 					i++;

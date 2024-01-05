@@ -35,7 +35,7 @@ public class Loader {
 		// getting constructor parameters
 		NodeList paramList = currClass.getChildNodes();
 		if (paramList.getLength() == 0) {
-			return Class.forName(className).newInstance();
+			return Class.forName(className).getDeclaredConstructor().newInstance();
 		}
 		params = new Object[paramList.getLength()];
 		paramsTypes = new Class<?>[paramList.getLength()];

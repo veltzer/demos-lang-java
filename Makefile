@@ -3,17 +3,22 @@
 ##############
 # do you want to show the commands executed ?
 DO_MKDBG:=0
+# do ivy styff?
+DO_IVY:=0
 # compile java?
-DO_JAVA:=0
+DO_COMPILE:=1
 # do you want dependency on the Makefile itself ?
 DO_ALLDEP:=1
 
 ########
 # code #
 ########
-JAVA_SOURCES:=$(shell find . -name "*.java")
+JAVA_SOURCES:=$(shell find src -name "*.java")
+JAVA_OUTPUT:=$(shell find out -name "*.class")
 MAINCLASS_CHECKSTYLE:=com.puppycrawl.tools.checkstyle.Main
-ALL:=$(IVY_STAMP)
+ALL:=
+REMOVE_FILES:=
+REMOVE_FOLDERS:=
 BIN_FOLDERS:=$(shell find . \( -name "bin" -or -name "build" -or -name "classes" -or -name "dist" \) -and -type d)
 
 # what is the java stamp file?
@@ -35,9 +40,17 @@ ifeq ($(DO_ALLDEP),1)
 .EXTRA_PREREQS+=$(foreach mk, ${MAKEFILE_LIST},$(abspath ${mk}))
 endif
 
-ifeq ($(DO_JAVA),1)
+COMPILE_DEPS=
+ifeq ($(DO_IVY),1)
+ALL+=$(IVY_STAMP)
+COMPILE_DEPS+=$(IVY_STAMP)
+endif # DO_IVY
+
+ifeq ($(DO_COMPILE),1)
 ALL+=$(COMPILE_STAMP)
-endif # DO_JAVA
+REMOVE_FILES+=$(JAVA_OUTPUT)
+REMOVE_FOLDERS+=out/src
+endif # DO_COMPILE
 
 ###########
 # targets #
@@ -52,15 +65,15 @@ $(IVY_STAMP): scripts/get_deps.py
 	$(Q)touch $@
 	$(Q)scripts/get_deps.py
 
-$(COMPILE_STAMP): $(IVY_STAMP)
+$(COMPILE_STAMP): $(COMPILE_DEPS)
 	$(info doing [$@])
-	$(Q)ant build
+	$(Q)javac -Werror -Xlint:deprecation $(JAVA_SOURCES) -d out
 	$(Q)touch $@
 
 .PHONY: check_extras
 check_extras:
 	$(info doing [$@])
-	$(Q)find projects/*/src -not -name "*.java" -and -type f
+	$(Q)find src/*/src -not -name "*.java" -and -type f
 
 .PHONY: check_filenames_with_spaces
 check_filenames_with_spaces:
@@ -157,21 +170,22 @@ build_eclipse:
 .PHONY: debug
 debug:
 	$(info doing [$@])
+	$(info ALL is $(ALL))
 	$(info JAVA_SOURCES is $(JAVA_SOURCES))
-	$(info HOME is $(HOME))
 	$(info BIN_FOLDERS is $(BIN_FOLDERS))
 	$(info MAINCLASS_CHECKSTYLE is $(MAINCLASS_CHECKSTYLE))
 
 # cleaning
 
-.PHONY: clean_soft
-clean_soft:
-	$(info doing [$@])
-	$(Q)rm -f $(ALL)
-	$(Q)rm -rf $(BIN_FOLDERS)
-	
 .PHONY: clean
 clean:
+	$(info doing [$@])
+	$(Q)rm -f $(ALL)
+	$(Q)rm -f $(REMOVE_FILES)
+# $(Q)rm -rf $(REMOVE_FOLDERS)
+
+.PHONY: clean_herd
+clean_hard:
 	$(info doing [$@])
 	$(Q)git clean -qffxd
 

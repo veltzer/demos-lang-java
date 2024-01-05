@@ -33,7 +33,7 @@ public class TestServer {
 		}
 	}
 
-	public void finalize() {
+	public void finalize_it() {
 		try {
 			for (int i = 0; i < sockets.size(); i++) {
 				sockets.get(i).close();

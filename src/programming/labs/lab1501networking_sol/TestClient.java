@@ -42,7 +42,7 @@ public class TestClient implements ActionListener {
 		}
 	}
 
-	public void finalize() {
+	public void finalize_it() {
 		try {
 			socket.close();
 		} catch (Exception e) {

@@ -22,8 +22,7 @@ public class Account {
 		super();
 		balance = ibalance;
 		typeOfAccount = itypeOfAccount;
-		Integer i = new Integer(counter);
-		id = i.toString();
+		id = String.valueOf(counter);
 		counter++;
 	}
 

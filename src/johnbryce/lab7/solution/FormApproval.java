@@ -128,7 +128,8 @@ public final class FormApproval {
 
 	public static void main(String[] args) throws Exception {
 		Locale[] supportedLocales = {
-				new Locale("iw", "IL"), new Locale("en", "US")
+			Locale.forLanguageTag("iw-IL"),
+			Locale.forLanguageTag("en-US"),
 		};
 		Locale currentLocale = supportedLocales[0];
 		Locale.setDefault(currentLocale);
