@@ -1,3 +1,5 @@
+- do a command line "jrun" just like "pyrun".
+
 Examples to build:
 =================
 - https://www.journaldev.com/861/java-copy-file

@@ -202,6 +202,12 @@ count_files:
 	$(info doing [$@])
 	$(Q)echo number of Java files: `find . -name "*.java" | wc -l`
 
+.PHONY: run
+run:
+	$(info doing [$@])
+	$(Q)java -classpath out core.basic.HelloWorld
+	$(Q)cd out; java core.basic.HelloWorld
+
 #########
 # rules #
 #########
