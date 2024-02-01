@@ -61,6 +61,7 @@
 			pattern="lib/[artifact]-[conf].[ext]"
 			pattern="lib/[type]/[artifact]-[conf]-[revision].[ext]"
 			pattern="lib/[type]/[artifact]-[conf].[ext]"
+			pattern="lib/[type]/[artifact]-[revision].[ext]"
 		-->
 		<ivy:retrieve
 			sync="true"
