@@ -10,13 +10,15 @@ packages=[
     "libjna-java",
     # tools
     "visualvm",
+    "groovy",
+    "checkstyle",
+    # build tools
     "ivy",
     "ant",
     "ant-optional",
     "ant-contrib",
+    "gradle",
     "maven",
-    "groovy",
-    "checkstyle",
 ]
 
 packages_development_environments=[
@@ -36,6 +38,7 @@ packages_development_environments=[
 package_docs=[
     "checkstyle-doc",
     "groovy-doc",
+    "gradle-doc",
     "ant-doc",
     "ivy-doc",
 ]
