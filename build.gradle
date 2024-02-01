@@ -5,16 +5,11 @@ plugins {
 sourceSets {
     main {
         java {
-            srcDir 'projects/Standard/src/core'
+            srcDir 'src'
         }
     }
 }
 
 configurations {
 	runtime
-}
-
-dependencies {
-	runtime 'me.bazhenov.groovy-shell:groovy-shell-server:2.1.0'
-	runtime 'com.sun.jna:jna:3.0.9'
 }

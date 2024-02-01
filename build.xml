@@ -46,11 +46,10 @@
 			<include name="*.jar"/>
 		</fileset>
 	</path>
-	<path id="projects">
+	<path id="src">
 		<dirset
-			dir="projects"
+			dir="src"
 			includes="*"
-			excludes="RcpView,RcpTree,RcpServer,RcpMisc,RcpEditor,RcpDemo2,RcpDemo,PerformanceTuning,Jsp,Jsf,Jme,WebServices"
 			/>
 	</path>
 	<!-- targets -->
@@ -88,57 +87,31 @@
 		</checkstyle>
 	</target>
 	<target name="build" description="build all folders">
-		<for param="folder">
-			<path refid="projects"/>
-			<sequential>
-				<echo>doing @{folder}</echo>
-				<mkdir dir="@{folder}/bin"/>
-				<javac
-					srcdir="@{folder}/src"
-					destdir="@{folder}/bin"
-					includeAntRuntime="no"
-					target="1.6"
-					source="1.6"
-					deprecation="off"
-					fork="no"
-				>
-				<!--
-
-					debug="on"
-					verbose="on"
-
-					optimize="on"
-					failonerror="on"
-					includeJavaRuntime="yes"
-				-->
-				<!--
-					<compilerarg value="-Xlint:unchecked"/>
-					<compilerarg value="-Xlint:-options"/>
-					<compilerarg value="-Xlint:-processing"/>
-				-->
-					<compilerarg value="-Xlint:-options"/>
-					<!-- to suppress warnings about jars not being in the path
-					still need to investigate this -->
-					<compilerarg value="-Xlint:-path"/>
-					<compilerarg value="-Xlint:all"/>
-					<!-- compilerarg value="-Werror"/ -->
-					<!-- to suppress java6 annotation warnings -->
-					<compilerarg value="-proc:none"/>
-					<classpath refid="external-jars"/>
-				</javac>
-			</sequential>
-		</for>
+		<javac
+			srcdir="src"
+			destdir="out"
+			includeAntRuntime="no"
+			deprecation="on"
+			fork="no"
+		>
+		<!-- debug="on" verbose="on" optimize="on" failonerror="on" includeJavaRuntime="yes" -->
+		<!-- <compilerarg value="-Xlint:unchecked"/>
+			<compilerarg value="-Xlint:-options"/>
+			<compilerarg value="-Xlint:-processing"/>
+		-->
+			<!-- compilerarg value="-Xlint:-options" -->
+			<!-- compilerarg value="-Xlint:all" -->
+			<!-- to suppress warnings about jars not being in the path
+			still need to investigate this -->
+			<!--compilerarg value="-Xlint:-path"/-->
+			<!-- compilerarg value="-Werror"/ -->
+			<!-- to suppress java6 annotation warnings -->
+			<!--compilerarg value="-proc:none"/-->
+			<!--classpath refid="external-jars"/-->
+		</javac>
 	</target>
 	<target name="clean" description="clean projects">
-		<for param="folder">
-			<path refid="projects"/>
-			<sequential>
-				<echo>doing @{folder}</echo>
-				<delete dir="@{folder}/bin"/>
-				<delete dir="@{folder}/WEB-INF/classes"/>
-				<delete dir="@{folder}/WebContent/WEB-INF/classes"/>
-			</sequential>
-		</for>
+		<delete dir="out"/>
 	</target>
 	<target name="dist-clean" description="clean everything" depends="clean">
 		<delete file="jxl.log"/>
