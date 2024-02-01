@@ -97,10 +97,10 @@
 		</checkstyle>
 	</target>
 	<target name="build_javac" description="build all folders">
-		<mkdir dir="out"/>
+		<mkdir dir="out/classes"/>
 		<javac
 			srcdir="src/main"
-			destdir="out"
+			destdir="out/classes"
 			includeAntRuntime="no"
 			deprecation="on"
 			fork="no"

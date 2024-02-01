@@ -14,11 +14,8 @@ DO_ALLDEP:=1
 # code #
 ########
 JAVA_SOURCES:=$(shell find src -name "*.java")
-JAVA_OUTPUT:=$(shell find out -name "*.class")
 MAINCLASS_CHECKSTYLE:=com.puppycrawl.tools.checkstyle.Main
 ALL:=
-REMOVE_FILES:=
-REMOVE_FOLDERS:=
 BIN_FOLDERS:=$(shell find . \( -name "bin" -or -name "build" -or -name "classes" -or -name "dist" \) -and -type d)
 
 # what is the java stamp file?
@@ -48,8 +45,6 @@ endif # DO_IVY
 
 ifeq ($(DO_COMPILE),1)
 ALL+=$(COMPILE_STAMP)
-REMOVE_FILES+=$(JAVA_OUTPUT)
-REMOVE_FOLDERS+=out/src
 endif # DO_COMPILE
 
 ###########
@@ -67,7 +62,8 @@ $(IVY_STAMP): scripts/get_deps.py
 
 $(COMPILE_STAMP): $(COMPILE_DEPS)
 	$(info doing [$@])
-	$(Q)javac -Werror -Xlint:all $(JAVA_SOURCES) -d out
+	$(Q)mkdir -p out/classes
+	$(Q)javac -Werror -Xlint:all $(JAVA_SOURCES) -d out/classes
 	$(Q)touch $@
 
 .PHONY: check_extras
@@ -180,9 +176,7 @@ debug:
 .PHONY: clean
 clean:
 	$(info doing [$@])
-	$(Q)rm -f $(ALL)
-	$(Q)rm -f $(REMOVE_FILES)
-# $(Q)rm -rf $(REMOVE_FOLDERS)
+	$(Q)rm -rf out
 
 .PHONY: clean_herd
 clean_hard:
@@ -205,8 +199,8 @@ count_files:
 .PHONY: run
 run:
 	$(info doing [$@])
-	$(Q)java -classpath out core.basic.HelloWorld
-	$(Q)cd out; java core.basic.HelloWorld
+	$(Q)java -classpath out/classes core.basic.HelloWorld
+	$(Q)cd out/classes; java core.basic.HelloWorld
 
 #########
 # rules #
