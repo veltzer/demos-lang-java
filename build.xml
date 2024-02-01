@@ -1,9 +1,11 @@
 <project xmlns:ivy="antlib:org.apache.ivy.ant" name="hello-ivy" default="build">
+	<property name="checkstyle.config.location" value="support/checkstyle_config.xml"/>
 	<!-- tasks -->
 	<taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant">
 		<classpath>
-			<!--pathelement location="/usr/share/java/ivy.jar" /-->
-			<pathelement location="/home/mark/install/apache-ivy-2.5.0/ivy-2.5.0.jar" />
+			<!--pathelement location="/usr/share/maven-repo/org/apache/ivy/ivy/2.5.0/ivy-2.5.0.jar"/-->
+			<pathelement location="/usr/share/java/ivy.jar"/>
+			<!--pathelement location="/home/mark/install/apache-ivy-2.5.0/ivy-2.5.0.jar" /-->
 		</classpath>
 	</taskdef>
 	<taskdef resource="net/sf/antcontrib/antlib.xml">
@@ -12,19 +14,17 @@
 		</classpath>
 	</taskdef>
 	<taskdef resource="com/puppycrawl/tools/checkstyle/ant/checkstyle-ant-task.properties">
-		<classpath>
+		<!--classpath>
 			<pathelement location="/usr/share/java/checkstyle.jar"/>
-		</classpath>
-		<!--
+		</classpath-->
 		<classpath>
-			<pathelement location="lib/checkstyle-6.1.1.jar"/>
-			<pathelement location="lib/guava-18.0.jar"/>
+			<pathelement location="lib/checkstyle-10.13.0.jar"/>
+			<!--pathelement location="lib/guava-18.0.jar"/>
 			<pathelement location="lib/commons-beanutils-1.9.0.jar"/>
 			<pathelement location="lib/commons-logging-1.2.jar"/>
 			<pathelement location="lib/commons-collections-3.2.1.jar"/>
-			<pathelement location="lib/antlr-2.7.7.jar"/>
+			<pathelement location="lib/antlr-2.7.7.jar"/-->
 		</classpath>
-		-->
 	</taskdef>
 	<!-- tools -->
 	<!-- see http://ant.apache.org/manual/Tasks/javac.html and search
@@ -57,9 +57,7 @@
 		<!--
 		<delete dir="lib" failonerror="no"/>
 		-->
-		<!--
 		<ivy:settings file="ivysettings.xml" />
-		-->
 		<ivy:resolve refresh="true" showprogress="true"/>
 		<ivy:retrieve sync="true" symlink="true"/>
 	</target>
@@ -82,8 +80,8 @@
 		<ivy:cleancache/>
 	</target>
 	<target name="checkstyle" description="check the style of the files">
-		<checkstyle config="support/checkstyle_config.xml">
-			<fileset dir="." includes="**/*.java"/>
+		<checkstyle config="${checkstyle.config.location}">
+			<fileset dir="src"/>
 		</checkstyle>
 	</target>
 	<target name="build" description="build all folders">
@@ -110,8 +108,12 @@
 			<!--classpath refid="external-jars"/-->
 		</javac>
 	</target>
+	<target name="build_ivy" description="build with Ivy">
+		 <ivy:compile/>
+	</target>
 	<target name="clean" description="clean projects">
 		<delete dir="out"/>
+		<delete dir="lib"/>
 	</target>
 	<target name="dist-clean" description="clean everything" depends="clean">
 		<delete file="jxl.log"/>
