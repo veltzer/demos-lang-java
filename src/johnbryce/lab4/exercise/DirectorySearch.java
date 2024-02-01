@@ -10,6 +10,7 @@ public class DirectorySearch extends RecursiveAction {
 	private String fileExt;
 	private Collection<String> fileList;
 
+	@SuppressWarnings("this-escape")
 	public DirectorySearch(String idirectory, String ifileExt,
 			Collection<String> ifileList) {
 		super();

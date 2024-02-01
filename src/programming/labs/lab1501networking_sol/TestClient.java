@@ -12,6 +12,7 @@ public class TestClient implements ActionListener {
 	private DataOutputStream out;
 	private ChatClientFrame frame;
 
+	@SuppressWarnings("this-escape")
 	public TestClient() {
 		try {
 			socket = new Socket("localhost", 2525);

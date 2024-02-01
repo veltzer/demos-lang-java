@@ -6,6 +6,7 @@ public class Account {
 	private static int nextId = 1001;
 	private static final double COMMITION = 0.05;
 
+	@SuppressWarnings("this-escape")
 	public Account(double ibalance) {
 		id = "" + nextId++;
 		setBalance(ibalance);

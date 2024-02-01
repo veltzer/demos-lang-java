@@ -6,9 +6,10 @@ import java.io.OutputStream;
 import java.nio.ByteBuffer;
 
 public class BuffersAwareObjectOutputStream extends ObjectOutputStream {
+	@SuppressWarnings("this-escape")
 	public BuffersAwareObjectOutputStream(OutputStream out) throws IOException {
 		super(out);
-		this.enableReplaceObject(true);
+		enableReplaceObject(true);
 	}
 
 	@Override

@@ -5,6 +5,7 @@ public class RemoteClass {
 		System.out.println("Hi ! I'm loaded !");
 	}
 
+	@SuppressWarnings("this-escape")
 	public RemoteClass() {
 		aMethod();
 	}

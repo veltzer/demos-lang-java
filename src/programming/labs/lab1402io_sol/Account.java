@@ -8,6 +8,7 @@ public abstract class Account implements Serializable {
 	private double balance;
 	private static int nextId = 1001;
 
+	@SuppressWarnings("this-escape")
 	public Account(double ibalance) {
 		id = "" + nextId++;
 		setBalance(ibalance);

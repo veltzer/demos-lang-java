@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 public class TestClient implements ActionListener {
 	private ChatClientFrame frame;
 
+	@SuppressWarnings("this-escape")
 	public TestClient() {
 		frame = new ChatClientFrame();
 		frame.init(this);

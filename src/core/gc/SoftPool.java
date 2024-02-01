@@ -13,6 +13,7 @@ import java.util.LinkedList;
 public class SoftPool {
 	private LinkedList<SoftReference<PooledObject>> pooledObjects;
 
+	@SuppressWarnings("this-escape")
 	public SoftPool(int initialSize) {
 		pooledObjects = new LinkedList<SoftReference<PooledObject>>();
 		for (int i = 0; i < initialSize; ++i) {

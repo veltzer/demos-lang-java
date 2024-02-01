@@ -25,9 +25,9 @@ public abstract class InterruptDemo {
 		@Override
 		public void run() {
 			try {
-				float result = 0;
+				double result = 0;
 				while (!over) {
-					float f = 1;
+					double f = 1;
 					result += Math.sin(f);
 					f++;
 					// This is to trick the smart ass

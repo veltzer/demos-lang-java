@@ -15,6 +15,7 @@ public class Customer implements Serializable {
 		accounts = new ArrayList<Account>();
 	}
 
+	@SuppressWarnings("this-escape")
 	public Customer(String iname, String iid, int iage) {
 		this();
 		setName(iname);
@@ -22,8 +23,8 @@ public class Customer implements Serializable {
 		setAge(iage);
 	}
 
-	public Customer(String iname, String iid, int iage,
-			CheckingAccount account) {
+	@SuppressWarnings("this-escape")
+	public Customer(String iname, String iid, int iage, CheckingAccount account) {
 		this(iname, iid, iage);
 		addAccount(account);
 	}

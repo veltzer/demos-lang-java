@@ -67,7 +67,7 @@ $(IVY_STAMP): scripts/get_deps.py
 
 $(COMPILE_STAMP): $(COMPILE_DEPS)
 	$(info doing [$@])
-	$(Q)javac -Werror -Xlint:deprecation $(JAVA_SOURCES) -d out
+	$(Q)javac -Werror -Xlint:all $(JAVA_SOURCES) -d out
 	$(Q)touch $@
 
 .PHONY: check_extras

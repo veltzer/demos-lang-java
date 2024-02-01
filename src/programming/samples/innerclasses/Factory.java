@@ -22,6 +22,7 @@ public class Factory {
 		 * @param name
 		 * @param id
 		 */
+		@SuppressWarnings("this-escape")
 		public Worker(String iname, int iid) {
 			super();
 			name = iname;

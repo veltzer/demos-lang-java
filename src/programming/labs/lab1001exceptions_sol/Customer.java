@@ -11,6 +11,7 @@ public class Customer {
 		this("John", "is-111", 30);
 	}
 
+	@SuppressWarnings("this-escape")
 	public Customer(String iname, String iid, int iage) {
 		setName(iname);
 		setId(iid);
@@ -18,8 +19,8 @@ public class Customer {
 		accounts = new Account[100];
 	}
 
-	public Customer(String iname, String iid, int iage,
-			CheckingAccount account) {
+	@SuppressWarnings("this-escape")
+	public Customer(String iname, String iid, int iage, CheckingAccount account) {
 		setName(iname);
 		setId(iid);
 		setAge(iage);

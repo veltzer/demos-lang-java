@@ -5,9 +5,10 @@ import java.io.InputStream;
 import java.io.ObjectInputStream;
 
 public class BuffersAwareObjectInputStream extends ObjectInputStream {
+	@SuppressWarnings("this-escape")
 	public BuffersAwareObjectInputStream(InputStream in) throws IOException {
 		super(in);
-		this.enableResolveObject(true);
+		enableResolveObject(true);
 	}
 
 	@Override

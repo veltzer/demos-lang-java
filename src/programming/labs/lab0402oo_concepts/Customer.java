@@ -9,6 +9,7 @@ public class Customer {
 		this("John", "is-111", 30);
 	}
 
+	@SuppressWarnings("this-escape")
 	public Customer(String iname, String iid, int iage) {
 		setName(iname);
 		setId(iid);

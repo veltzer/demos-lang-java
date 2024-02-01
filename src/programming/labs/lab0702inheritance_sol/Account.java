@@ -10,6 +10,7 @@ public class Account {
 		this(0);
 	}
 
+	@SuppressWarnings("this-escape")
 	public Account(double ibalance) {
 		super();
 		id = "" + nextId++;
