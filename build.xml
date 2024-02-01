@@ -18,12 +18,13 @@
 			<pathelement location="/usr/share/java/checkstyle.jar"/>
 		</classpath-->
 		<classpath>
-			<pathelement location="lib/checkstyle-10.13.0.jar"/>
-			<!--pathelement location="lib/guava-18.0.jar"/>
-			<pathelement location="lib/commons-beanutils-1.9.0.jar"/>
-			<pathelement location="lib/commons-logging-1.2.jar"/>
-			<pathelement location="lib/commons-collections-3.2.1.jar"/>
-			<pathelement location="lib/antlr-2.7.7.jar"/-->
+			<pathelement location="lib/jar/checkstyle.jar"/>
+			<pathelement location="lib/jar/guava.jar"/>
+			<pathelement location="lib/jar/commons-beanutils.jar"/>
+			<pathelement location="lib/jar/commons-logging.jar"/>
+			<pathelement location="lib/jar/commons-collections.jar"/>
+			<pathelement location="lib/jar/antlr.jar"/>
+			<pathelement location="lib/jar/antlr4-runtime.jar"/>
 		</classpath>
 	</taskdef>
 	<!-- tools -->
@@ -89,12 +90,13 @@
 	</target>
 	<target name="checkstyle" description="check the style of the files">
 		<checkstyle config="${checkstyle.config.location}">
-			<fileset dir="src"/>
+			<fileset dir="src/main"/>
 		</checkstyle>
 	</target>
 	<target name="build" description="build all folders">
+		<mkdir dir="out"/>
 		<javac
-			srcdir="src"
+			srcdir="src/main"
 			destdir="out"
 			includeAntRuntime="no"
 			deprecation="on"
