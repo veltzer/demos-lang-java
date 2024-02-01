@@ -1,4 +1,4 @@
-<project xmlns:ivy="antlib:org.apache.ivy.ant" name="hello-ivy" default="build">
+<project xmlns:ivy="antlib:org.apache.ivy.ant" name="demos-java" default="notask">
 	<property name="checkstyle.config.location" value="support/checkstyle_config.xml"/>
 	<!-- tasks -->
 	<taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant">
@@ -18,13 +18,13 @@
 			<pathelement location="/usr/share/java/checkstyle.jar"/>
 		</classpath-->
 		<classpath>
-			<pathelement location="lib/jar/checkstyle.jar"/>
-			<pathelement location="lib/jar/guava.jar"/>
-			<pathelement location="lib/jar/commons-beanutils.jar"/>
-			<pathelement location="lib/jar/commons-logging.jar"/>
-			<pathelement location="lib/jar/commons-collections.jar"/>
-			<pathelement location="lib/jar/antlr.jar"/>
-			<pathelement location="lib/jar/antlr4-runtime.jar"/>
+			<pathelement location="out/lib/jar/checkstyle.jar"/>
+			<pathelement location="out/lib/jar/guava.jar"/>
+			<pathelement location="out/lib/jar/commons-beanutils.jar"/>
+			<pathelement location="out/lib/jar/commons-logging.jar"/>
+			<pathelement location="out/lib/jar/commons-collections.jar"/>
+			<pathelement location="out/lib/jar/antlr.jar"/>
+			<pathelement location="out/lib/jar/antlr4-runtime.jar"/>
 		</classpath>
 	</taskdef>
 	<!-- tools -->
@@ -40,7 +40,7 @@
 	-->
 	<!-- paths -->
 	<path id="external-jars">
-		<fileset dir="lib">
+		<fileset dir="out/lib/jar">
 			<include name="*.jar"/>
 		</fileset>
 		<fileset dir="static">
@@ -55,37 +55,40 @@
 	</path>
 	<!-- targets -->
 	<target name="ivy_retrieve" description="retrieve dependencies with ivy">
+		<!-- <ivy:settings file="ivysettings.xml" /> -->
+		<ivy:resolve
+			refresh="true"
+			showprogress="true"
+		/>
+		<delete dir="out/lib" failonerror="no"/>
 		<!--
-		<delete dir="lib" failonerror="no"/>
-		<ivy:settings file="ivysettings.xml"/>
-		<ivy:resolve refresh="true" showprogress="true"/>
-			pattern="lib/[artifact]-[conf].[ext]"
-			pattern="lib/[type]/[artifact]-[conf]-[revision].[ext]"
-			pattern="lib/[type]/[artifact]-[conf].[ext]"
-			pattern="lib/[type]/[artifact]-[revision].[ext]"
+			pattern="out/lib/[artifact]-[conf].[ext]"
+			pattern="out/lib/[type]/[artifact]-[conf]-[revision].[ext]"
+			pattern="out/lib/[type]/[artifact]-[conf].[ext]"
+			pattern="out/lib/[type]/[artifact]-[revision].[ext]"
 		-->
 		<ivy:retrieve
 			sync="true"
 			symlink="true"
-			pattern="lib/[type]/[artifact].[ext]"
+			pattern="out/lib/[type]/[artifact].[ext]"
 		/>
 	</target>
 	<target name="ivy_retrieve_local" description="retrieve dependencies with ivy from local">
-		<delete dir="lib" failonerror="no"/>
-		<!--
-		<ivy:settings file="ivysettings.xml" />
-		-->
+		<!-- <ivy:settings file="ivysettings.xml" /> -->
 		<ivy:resolve
 			useCacheOnly="false"
 			showprogress="true"
 			haltonfailure="false"
 		/>
-		<ivy:retrieve sync="true" symlink="true"/>
+		<delete dir="out/lib" failonerror="no"/>
+		<ivy:retrieve
+			sync="true"
+			symlink="true"
+			pattern="out/lib/[type]/[artifact].[ext]"
+		/>
 	</target>
 	<target name="ivy_cleancache" depends="" description="purge ivy cache">
-		<!--
-		<ivy:settings file="ivysettings.xml" />
-		-->
+		<!-- <ivy:settings file="ivysettings.xml" /> -->
 		<ivy:cleancache/>
 	</target>
 	<target name="checkstyle" description="check the style of the files">
@@ -93,7 +96,7 @@
 			<fileset dir="src/main"/>
 		</checkstyle>
 	</target>
-	<target name="build" description="build all folders">
+	<target name="build_javac" description="build all folders">
 		<mkdir dir="out"/>
 		<javac
 			srcdir="src/main"
@@ -118,19 +121,10 @@
 			<!--classpath refid="external-jars"/-->
 		</javac>
 	</target>
-	<target name="build_ivy" description="build with Ivy">
-		 <ivy:compile/>
-	</target>
 	<target name="clean" description="clean projects">
 		<delete dir="out"/>
-		<delete dir="lib"/>
 	</target>
-	<target name="dist-clean" description="clean everything" depends="clean">
-		<delete file="jxl.log"/>
-		<delete>
-			<fileset dir="." includes="**/.ant-targets-build.xml"/>
-		</delete>
-		<delete dir="lib"/>
-		<delete dir="static"/>
+	<target name="notask" description="dont do anything">
+		<echo message="tell me what to do"/>
 	</target>
 </project>

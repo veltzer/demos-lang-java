@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivysettings version="1.4">
+	<settings defaultResolver="main"/>
+	<!--caches defaultCacheDir="${ivy.settings.dir}/cache"/-->
+	<!--caches defaultCacheDir="${cache.dir}" checkUpToDate="true"/-->
+	<resolvers>
+		<ibiblio name="main" m2compatible="true"/>
+		<ibiblio name="central" m2compatible="true"/>
+	</resolvers>
+	<!--
+	<settings defaultResolver="default"/>
+	<settings defaultResolver="default">
+		<retrieval pattern="${artifactId}-[classifier].[ext]" />
+	</settings>
+	<resolvers>
+		<ibiblio name="ibiblio"/>
+		<ibiblio name="default"/>
+	</resolvers>
+	<properties file="${ivy.settings.dir}/ivysettings-file.properties"/>
+	<resolvers>
+		<filesystem name="internal">
+			<ivy pattern="${repository.dir}/[module]/ivy-[revision].xml"/>
+			<artifact pattern="${repository.dir}/[module]/[artifact]-[revision].[ext]"/>
+		</filesystem>
+	</resolvers>
+	<modules>
+		<module organisation="jayasoft" name=".*" resolver="internal"/>
+	</modules>
+	-->
+</ivysettings>

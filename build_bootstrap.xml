@@ -8,7 +8,7 @@
 		<ivy:retrieve
 			sync="true"
 			symlink="true"
-			pattern="lib/[type]/[artifact].[ext]"
+			pattern="out/lib/[type]/[artifact].[ext]"
 		/>
 	</target>
 </project>
