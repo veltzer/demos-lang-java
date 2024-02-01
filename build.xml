@@ -94,13 +94,13 @@
 			deprecation="on"
 			fork="no"
 		>
+			<compilerarg value="-Xlint:-options"/>
+			<compilerarg value="-Xlint:all"/>
 		<!-- debug="on" verbose="on" optimize="on" failonerror="on" includeJavaRuntime="yes" -->
 		<!-- <compilerarg value="-Xlint:unchecked"/>
 			<compilerarg value="-Xlint:-options"/>
 			<compilerarg value="-Xlint:-processing"/>
 		-->
-			<!-- compilerarg value="-Xlint:-options" -->
-			<!-- compilerarg value="-Xlint:all" -->
 			<!-- to suppress warnings about jars not being in the path
 			still need to investigate this -->
 			<!--compilerarg value="-Xlint:-path"/-->
