@@ -56,10 +56,17 @@
 	<target name="ivy_retrieve" description="retrieve dependencies with ivy">
 		<!--
 		<delete dir="lib" failonerror="no"/>
-		-->
-		<ivy:settings file="ivysettings.xml" />
+		<ivy:settings file="ivysettings.xml"/>
 		<ivy:resolve refresh="true" showprogress="true"/>
-		<ivy:retrieve sync="true" symlink="true"/>
+			pattern="lib/[artifact]-[conf].[ext]"
+			pattern="lib/[type]/[artifact]-[conf]-[revision].[ext]"
+			pattern="lib/[type]/[artifact]-[conf].[ext]"
+		-->
+		<ivy:retrieve
+			sync="true"
+			symlink="true"
+			pattern="lib/[type]/[artifact].[ext]"
+		/>
 	</target>
 	<target name="ivy_retrieve_local" description="retrieve dependencies with ivy from local">
 		<delete dir="lib" failonerror="no"/>

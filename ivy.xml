@@ -6,6 +6,7 @@
 	-->
 	<info organisation="org.meta" module="demos-java"/>
 	<dependencies>
+		<!-- spring -->
 		<dependency org="org.springframework" name="spring-context" rev="latest.integration"/>
 		<dependency org="org.springframework" name="spring-core" rev="latest.integration"/>
 		<dependency org="org.springframework" name="spring-aop" rev="latest.integration"/>
@@ -13,8 +14,7 @@
 		<dependency org="org.springframework" name="spring-orm" rev="latest.integration"/>
 		<dependency org="org.springframework" name="spring-test" rev="latest.integration"/>
 		<dependency org="org.springframework.security" name="spring-security-core" rev="latest.integration"/>
-		<dependency org="org.eclipse.persistence" name="org.eclipse.persistence.core" rev="latest.integration"/>
-		<dependency org="org.eclipse.persistence" name="org.eclipse.persistence.jpa" rev="latest.integration"/>
+		<!-- misc -->
 		<dependency org="junit" name="junit" rev="latest.integration"/>
 		<dependency org="bsf" name="bsf" rev="latest.integration"/>
 		<dependency org="struts" name="struts" rev="latest.integration"/>
@@ -23,32 +23,30 @@
 		<dependency org="org.apache.tomcat" name="tomcat-catalina" rev="latest.integration"/>
 		<dependency org="org.quartz-scheduler" name="quartz" rev="latest.integration"/>
 		<dependency org="com.puppycrawl.tools" name="checkstyle" rev="latest.integration"/>
-		<!--
-		<dependency org="org.apache.logging.log4j" name="log4j-core" rev="2.12.1"/>
+		<dependency org="org.apache.logging.log4j" name="log4j-core" rev="latest.integration"/>
 		<dependency org="org.apache.logging.log4j" name="log4j-api" rev="latest.integration"/>
-		-->
 		<dependency org="net.jcip" name="jcip-annotations" rev="latest.integration"/>
 		<dependency org="net.java.dev.jna" name="jna" rev="latest.integration"/>
 		<dependency org="net.java.dev.jna" name="jna-platform" rev="latest.integration"/>
 		<dependency org="xerces" name="xercesImpl" rev="latest.integration"/>
-		<dependency org="xml-apis" name="xml-apis" rev="latest.integration"/>
+		<!--dependency org="xml-apis" name="xml-apis" rev="latest.integration"/-->
 		<dependency org="ant" name="ant-jakarta-oro" rev="latest.integration"/>
 		<dependency org="org.mod4j.org.eclipse" name="jface" rev="latest.integration"/>
-
+		<!-- jee -->
+		<!--dependency org="javax.inject" name="javax.inject" rev="latest.integration"/-->
+		<dependency org="javax.annotation" name="javax.annotation-api" rev="latest.integration"/>
 		<dependency org="javax.ejb" name="ejb-api" rev="latest.integration"/>
 		<!--dependency org="javax.jms" name="jms" rev="latest.integration"/-->
 		<dependency org="javax.jms" name="javax.jms-api" rev="latest.integration"/>
 		<!-- eclipse -->
 		<!--
 		<dependency org="org.eclipse.core" name="runtime" rev="latest.integration"/>
-		-->
-		<!--
 		<dependency org="org.eclipse.rap" name="org.eclipse.rap.jface" rev="latest.integration"/>
 		<dependency org="org.eclipse.platform" name="org.eclipse.rcp" rev="latest.integration"/>
 		<dependency org="org.eclipse.platform" name="org.eclipse.ui" rev="latest.integration"/>
 		<dependency org="org.eclipse.platform" name="org.eclipse.swt" rev="latest.integration"/>
-		<dependency org="javax.inject" name="javax.inject" rev=""/>
-		<dependency org="javax.annotation" name="javax.annotation-api" rev="latest.integration"/>
+		<dependency org="org.eclipse.persistence" name="org.eclipse.persistence.core" rev="latest.integration"/>
+		<dependency org="org.eclipse.persistence" name="org.eclipse.persistence.jpa" rev="latest.integration"/>
 		-->
 	</dependencies>
 </ivy-module>
