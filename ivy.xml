@@ -6,6 +6,8 @@
 	-->
 	<info organisation="org.meta" module="demos-java"/>
 	<dependencies>
+		<!-- maven tasks for ant -->
+		<dependency org="org.apache.maven.artifact" name="maven-ant-tasks" rev="latest.integration"/>
 		<!-- spring -->
 		<dependency org="org.springframework" name="spring-context" rev="latest.integration"/>
 		<dependency org="org.springframework" name="spring-core" rev="latest.integration"/>

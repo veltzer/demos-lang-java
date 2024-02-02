@@ -1,32 +1,41 @@
 <project xmlns:ivy="antlib:org.apache.ivy.ant" name="demos-java" default="notask">
 	<property name="checkstyle.config.location" value="support/checkstyle_config.xml"/>
 	<!-- tasks -->
-	<taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant">
-		<classpath>
-			<!--pathelement location="/usr/share/maven-repo/org/apache/ivy/ivy/2.5.0/ivy-2.5.0.jar"/-->
-			<pathelement location="/usr/share/java/ivy.jar"/>
-			<!--pathelement location="/home/mark/install/apache-ivy-2.5.0/ivy-2.5.0.jar" /-->
-		</classpath>
-	</taskdef>
-	<taskdef resource="net/sf/antcontrib/antlib.xml">
-		<classpath>
-			<pathelement location="/usr/share/java/ant-contrib.jar"/>
-		</classpath>
-	</taskdef>
-	<taskdef resource="com/puppycrawl/tools/checkstyle/ant/checkstyle-ant-task.properties">
-		<!--classpath>
-			<pathelement location="/usr/share/java/checkstyle.jar"/>
-		</classpath-->
-		<classpath>
-			<pathelement location="out/lib/jar/checkstyle.jar"/>
-			<pathelement location="out/lib/jar/guava.jar"/>
-			<pathelement location="out/lib/jar/commons-beanutils.jar"/>
-			<pathelement location="out/lib/jar/commons-logging.jar"/>
-			<pathelement location="out/lib/jar/commons-collections.jar"/>
-			<pathelement location="out/lib/jar/antlr.jar"/>
-			<pathelement location="out/lib/jar/antlr4-runtime.jar"/>
-		</classpath>
-	</taskdef>
+	<target name="tasks">
+		<taskdef resource="org/apache/ivy/ant/antlib.xml" uri="antlib:org.apache.ivy.ant">
+			<classpath>
+				<!--pathelement location="/usr/share/maven-repo/org/apache/ivy/ivy/2.5.0/ivy-2.5.0.jar"/-->
+				<pathelement location="/usr/share/java/ivy.jar"/>
+				<!--pathelement location="/home/mark/install/apache-ivy-2.5.0/ivy-2.5.0.jar" /-->
+			</classpath>
+		</taskdef>
+		<taskdef resource="net/sf/antcontrib/antlib.xml">
+			<classpath>
+				<pathelement location="/usr/share/java/ant-contrib.jar"/>
+			</classpath>
+		</taskdef>
+		<taskdef resource="org/apache/maven/artifact/ant/antlib.xml"
+			uri="antlib:org.apache.maven.artifact.ant"
+			>
+			<classpath>
+				<pathelement location="out/lib/jar/maven-ant-tasks.jar"/>
+			</classpath>
+		</taskdef>
+		<taskdef resource="com/puppycrawl/tools/checkstyle/ant/checkstyle-ant-task.properties">
+			<!--classpath>
+				<pathelement location="/usr/share/java/checkstyle.jar"/>
+			</classpath-->
+			<classpath>
+				<pathelement location="out/lib/jar/checkstyle.jar"/>
+				<pathelement location="out/lib/jar/guava.jar"/>
+				<pathelement location="out/lib/jar/commons-beanutils.jar"/>
+				<pathelement location="out/lib/jar/commons-logging.jar"/>
+				<pathelement location="out/lib/jar/commons-collections.jar"/>
+				<pathelement location="out/lib/jar/antlr.jar"/>
+				<pathelement location="out/lib/jar/antlr4-runtime.jar"/>
+			</classpath>
+		</taskdef>
+	</target>
 	<!-- tools -->
 	<!-- see http://ant.apache.org/manual/Tasks/javac.html and search
 	     for openjdk -->
@@ -96,12 +105,18 @@
 			<fileset dir="src/main"/>
 		</checkstyle>
 	</target>
+	<target name="build_maven" description="build with maven">
+		<artifact:pom id="pom" file="pom.xml"/>
+		<artifact:mvn pomRefId="pom">
+			<arg value="compile"/>
+		</artifact:mvn>
+	</target>
 	<target name="build_gradle" description="build with gradle">
 		<exec executable="gradle" failonerror="true">
 			<arg value="build" />
 		</exec>
 	</target>
-	<target name="build_javac" description="build all folders">
+	<target name="build_javac" description="build with javac">
 		<mkdir dir="out/classes"/>
 		<javac
 			srcdir="src/main"

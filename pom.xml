@@ -1,0 +1,30 @@
+<project>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>meta</groupId>
+  <artifactId>demos-java</artifactId>
+  <version>latest</version>
+
+  <dependencies>
+    <!--No dependencies required for this simple app-->
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
