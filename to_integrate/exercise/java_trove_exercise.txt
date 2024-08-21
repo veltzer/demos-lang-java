@@ -1,0 +1,10 @@
+
+Create an array of 10*10^6 floating point objects with standard java.
+
+Claculate something with that array.
+
+Do the same with Trove array
+
+Claculate something with that array.
+
+What is the difference and how do you explain it?

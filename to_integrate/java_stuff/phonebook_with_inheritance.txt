@@ -1,0 +1,13 @@
+
+Modify the phonebook project and add different types of contacts:
+	BasicContact -> this is the parent contact which only has phone and name.
+	ArmyBuddy -> BasicContact + army id
+	WorkRelated -> BasicContact + company
+	ServiceProvider -> BasicContact + occupation (plumber, car repairman)
+
+Take note of the following:
+- now each line in your "address" on disk should be different according
+to the type of contact.
+- when the user enters a new contact, first ask the user what type of contact
+he/she is about to enter.
+- use polymorphism wherever you can.

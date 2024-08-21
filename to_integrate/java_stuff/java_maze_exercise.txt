@@ -1,0 +1,26 @@
+
+	You receive a maze like this (double array of type char):
+
+		***************************
+		       ****************   *
+		* **** **     ********* * *
+		* **** ****** ***     * * *
+		* **** ****** ******* * * *
+		* ****        ***     * * *
+		* *************** ***** * *
+		*              ** ***** * *
+		* ************ ** ***** * *
+		*           ** ***      * *
+		**************     ****** *
+		************************* *
+
+		S=0,1 (sx=0, sy=1)
+		F=25,11 (fx=25, fy=11)
+
+	void solve(char[][] board, int sx, int sy, int fx, int fy) {
+	}
+
+	if there is a solution to the maze, then print just one of the ways to solve the maze (doesn't have to
+	be the most optimal or shortest). Printing the solution means printing every location I have to go
+	through to get from S to F.
+	if there is no solution to the maze, then print an error message to that effect.
