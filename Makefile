@@ -104,7 +104,7 @@ check_dbl_ws:
 .PHONY: check_author
 check_author:
 	$(info doing [$@])
-	$(Q)pymakehelper only_print_on_error git grep -e "@author" --and --not -e "Mark Veltzer <mark@veltzer.net>" -- "*.java"
+	$(Q)pymakehelper only_print_on_error git grep -e "@author" --and --not -e "Mark Veltzer <mark.veltzer@gmail.com>" -- "*.java"
 
 .PHONY: check_version
 check_version:
