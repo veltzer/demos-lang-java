@@ -13,7 +13,7 @@ DO_ALLDEP:=1
 ########
 # code #
 ########
-JAVA_SOURCES:=$(shell find src -name "*.java")
+JAVA_SOURCES:=$(shell find src -type f -and -name "*.java")
 MAINCLASS_CHECKSTYLE:=com.puppycrawl.tools.checkstyle.Main
 ALL:=
 BIN_FOLDERS:=$(shell find . \( -name "bin" -or -name "build" -or -name "classes" -or -name "dist" \) -and -type d)
