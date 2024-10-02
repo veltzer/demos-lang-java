@@ -3,12 +3,12 @@
 ##############
 # do you want to show the commands executed ?
 DO_MKDBG:=0
+# do you want dependency on the Makefile itself ?
+DO_ALLDEP:=1
 # do ivy styff?
 DO_IVY:=0
 # compile java?
 DO_COMPILE:=1
-# do you want dependency on the Makefile itself ?
-DO_ALLDEP:=1
 
 ########
 # code #
@@ -32,11 +32,6 @@ Q:=@
 #.SILENT:
 endif # DO_MKDBG
 
-# dependency on the makefile itself
-ifeq ($(DO_ALLDEP),1)
-.EXTRA_PREREQS+=$(foreach mk, ${MAKEFILE_LIST},$(abspath ${mk}))
-endif
-
 COMPILE_DEPS=
 ifeq ($(DO_IVY),1)
 ALL+=$(IVY_STAMP)
@@ -47,9 +42,9 @@ ifeq ($(DO_COMPILE),1)
 ALL+=$(COMPILE_STAMP)
 endif # DO_COMPILE
 
-###########
-# targets #
-###########
+#########
+# rules #
+#########
 .PHONY: all
 all: $(ALL)
 	@true
@@ -202,6 +197,9 @@ run:
 	$(Q)java -classpath out/classes core.basic.HelloWorld
 	$(Q)cd out/classes; java core.basic.HelloWorld
 
-#########
-# rules #
-#########
+##########
+# alldep #
+##########
+ifeq ($(DO_ALLDEP),1)
+.EXTRA_PREREQS+=$(foreach mk, ${MAKEFILE_LIST},$(abspath ${mk}))
+endif # DO_ALLDEP
