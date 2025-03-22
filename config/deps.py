@@ -1,11 +1,15 @@
+"""
+Ubuntu system level depenencies for this project
+"""
+
 # I use version 22 on my desktop which is 23.10
 # but CI/CD on github is 22.10
-java_version=21
+JAVA_VERSION=21
 
 packages=[
     # jdks and jres (for jmap, jhat, jconsole)
-    f"openjdk-{java_version}-jre-headless",
-    f"openjdk-{java_version}-jdk-headless",
+    f"openjdk-{JAVA_VERSION}-jre-headless",
+    f"openjdk-{JAVA_VERSION}-jdk-headless",
     # java libraries
     "libjna-java",
     # tools
