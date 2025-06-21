@@ -52,14 +52,14 @@ all: $(ALL)
 $(IVY_STAMP): scripts/get_deps.py
 	$(info doing [$@])
 	$(Q)ant ivy_retrieve_local > /dev/null
-	$(Q)touch $@
 	$(Q)scripts/get_deps.py
+	$(Q)pymakehelper touch_mkdir $@
 
 $(COMPILE_STAMP): $(COMPILE_DEPS)
 	$(info doing [$@])
 	$(Q)mkdir -p out/classes
 	$(Q)javac -Werror -Xlint:all $(JAVA_SOURCES) -d out/classes
-	$(Q)touch $@
+	$(Q)pymakehelper touch_mkdir $@
 
 .PHONY: check_extras
 check_extras:
