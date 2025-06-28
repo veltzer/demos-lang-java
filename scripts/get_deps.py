@@ -23,7 +23,7 @@ do_jna=False
 #############
 def file_msg(f):
     if do_verbose:
-        print('creating file [{0}]'.format(f))
+        print(f'creating file [{f}]')
 
 ########
 # code #
