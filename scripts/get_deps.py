@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+""" Fetch/copy the jar dependencies of this project into static/. """
+
 ###########
 # imports #
 ###########
@@ -12,90 +14,102 @@ import glob # for glob
 ##############
 # parameters #
 ##############
-do_verbose=False
-do_clean=True
-do_jdic=False
-do_eclipse=True
-do_jna=False
+DO_VERBOSE=False
+DO_CLEAN=True
+DO_JDIC=False
+DO_ECLIPSE=True
+DO_JNA=False
+
+# eclipse plugins needed and where they live
+ECLIPSE_PLUGINS=[
+    'org.eclipse.core.commands',
+    'org.eclipse.core.contenttype',
+    'org.eclipse.core.filebuffers',
+    'org.eclipse.core.jobs',
+    'org.eclipse.core.resources',
+    'org.eclipse.core.runtime',
+    'org.eclipse.debug.core',
+    'org.eclipse.e4.ui.workbench3',
+    'org.eclipse.equinox.app',
+    'org.eclipse.equinox.common',
+    'org.eclipse.equinox.preferences',
+    'org.eclipse.equinox.registry',
+    'org.eclipse.jdt.launching',
+    'org.eclipse.jface',
+    'org.eclipse.jface.text',
+    'org.eclipse.osgi',
+    #'org.eclipse.persistence.jpa.equinox.weaving',
+    'org.eclipse.swt',
+    'org.eclipse.swt.gtk.linux.x86',
+    'org.eclipse.text',
+    'org.eclipse.ui',
+    'org.eclipse.ui.editors',
+    'org.eclipse.ui.forms',
+    'org.eclipse.ui.ide',
+    'org.eclipse.ui.views',
+    'org.eclipse.ui.workbench',
+    'org.eclipse.ui.workbench.texteditor',
+    'org.eclipse.wst.server.core',
+]
+ECLIPSE_PATH='/home/mark/install/eclipse-jee/plugins'
+
+JNA_FILES=[
+    '/usr/share/java/jna.jar',
+    '/usr/share/java/jna-platform.jar',
+]
 
 #############
 # functions #
 #############
 def file_msg(f):
-    if do_verbose:
+    """ Report a file about to be created. """
+    if DO_VERBOSE:
         print(f'creating file [{f}]')
 
-########
-# code #
-########
-if do_clean:
+def clean():
+    """ Recreate the static/ folder. """
     shutil.rmtree('static', True)
     os.mkdir('static')
 
-# jdic jar
-
-if do_jdic:
+def fetch_jdic():
+    """ Download the jdic jar. """
     target='static/jdic.jar'
     if not os.path.isfile(target):
         file_msg(target)
-        subprocess.check_call(['wget','http://maven.repository.paxle.net/org/jdesktop/jdic/jdic/0.9.5/jdic-0.9.5.jar','-O',target], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        subprocess.check_call([
+            'wget',
+            'http://maven.repository.paxle.net/org/jdesktop/jdic/jdic/0.9.5/jdic-0.9.5.jar',
+            '-O', target,
+        ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
-# eclipse jars
-
-if do_eclipse:
-    l=[
-        'org.eclipse.core.commands',
-        'org.eclipse.core.contenttype',
-        'org.eclipse.core.filebuffers',
-        'org.eclipse.core.jobs',
-        'org.eclipse.core.resources',
-        'org.eclipse.core.runtime',
-        'org.eclipse.debug.core',
-        'org.eclipse.e4.ui.workbench3',
-        'org.eclipse.equinox.app',
-        'org.eclipse.equinox.common',
-        'org.eclipse.equinox.preferences',
-        'org.eclipse.equinox.registry',
-        'org.eclipse.jdt.launching',
-        'org.eclipse.jface',
-        'org.eclipse.jface.text',
-        'org.eclipse.osgi',
-        #'org.eclipse.persistence.jpa.equinox.weaving',
-        'org.eclipse.swt',
-        'org.eclipse.swt.gtk.linux.x86',
-        'org.eclipse.text',
-        'org.eclipse.ui',
-        'org.eclipse.ui.editors',
-        'org.eclipse.ui.forms',
-        'org.eclipse.ui.ide',
-        'org.eclipse.ui.views',
-        'org.eclipse.ui.workbench',
-        'org.eclipse.ui.workbench.texteditor',
-        'org.eclipse.wst.server.core',
-    ]
-
-    epath='/home/mark/install/eclipse-jee/plugins'
-    for x in l:
-        candidates=glob.glob(os.path.join(epath,x+'_*.jar'))
+def copy_eclipse_jars():
+    """ Copy the needed eclipse plugin jars into static/. """
+    for x in ECLIPSE_PLUGINS:
+        candidates=glob.glob(os.path.join(ECLIPSE_PATH, x+'_*.jar'))
         if len(candidates)<1:
             raise ValueError('too few candidates for '+x)
-        '''
-        if len(candidates)>1:
-            raise ValueError('too many candidates for '+x+str(candidates))
-        '''
         filename=candidates[0]
-        target=os.path.join('static',os.path.split(filename)[1])
+        target=os.path.join('static', os.path.split(filename)[1])
         if not os.path.isfile(target):
             file_msg(target)
             shutil.copyfile(filename, target)
 
-if do_jna:
-    files=[
-        '/usr/share/java/jna.jar',
-        '/usr/share/java/jna-platform.jar',
-    ]
-    for x in files:
-        target=os.path.join('static',os.path.split(x)[1])
+def copy_jna_jars():
+    """ Copy the system jna jars into static/. """
+    for x in JNA_FILES:
+        target=os.path.join('static', os.path.split(x)[1])
         if not os.path.isfile(target):
             file_msg(target)
-            shutil.copyfile(x,os.path.join('static',os.path.split(x)[1]))
+            shutil.copyfile(x, target)
+
+########
+# code #
+########
+if DO_CLEAN:
+    clean()
+if DO_JDIC:
+    fetch_jdic()
+if DO_ECLIPSE:
+    copy_eclipse_jars()
+if DO_JNA:
+    copy_jna_jars()

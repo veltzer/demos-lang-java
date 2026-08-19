@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 
-# create the classpath for this project
+""" Create the classpath for this project. """
 
 import glob # for glob
 
-l=[]
-l.extend(glob.glob('lib/*.jar'))
-l.extend(glob.glob('static/*.jar'))
-l.append('support')
+PARTS = []
+PARTS.extend(glob.glob('lib/*.jar'))
+PARTS.extend(glob.glob('static/*.jar'))
+PARTS.append('support')
 
-print(':'.join(l))
+print(':'.join(PARTS))
