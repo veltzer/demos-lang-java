@@ -1,1 +1,11 @@
 # Repo-specific overlay. Deep-merged over the canonical rsconstruct.toml.
+
+# The Makefile compiled all src/**/*.java together with
+# `javac -Werror -Xlint:all <sources> -d out/classes` (one batched build --
+# the types reference each other). scripts/javac_build.py runs that exact
+# command; the explicit processor triggers it on any .java change. DO_IVY was 0,
+# so the ivy dependency-fetch step was off and is not reproduced.
+[processor.explicit.java]
+command = "scripts/javac_build.py"
+src_dirs = ["src"]
+src_extensions = [".java"]
