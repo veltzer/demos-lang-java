@@ -7,5 +7,5 @@
 # so the ivy dependency-fetch step was off and is not reproduced.
 [processor.explicit.java]
 command = "scripts/javac_build.py"
-src_dirs = ["src"]
-src_extensions = [".java"]
+input_globs = ["src/**/*.java"]
+output_dirs = ["out/classes"]
