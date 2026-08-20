@@ -9,8 +9,8 @@ TODO
 - Use a more robust XML parsing method if the .classpath file structure is complex.
 """
 
-import sys
 import os
+import sys
 import xml.etree.ElementTree as ET
 
 
@@ -34,9 +34,7 @@ def main():
             result.append(os.path.splitext(os.path.basename(entry))[0])
         elif command == "jnlp":
             result.append(f'<jar href="{os.path.basename(entry)}"/>')
-        elif command == "classpath":
-            result.append(entry)
-        elif command == "jars":
+        elif command in ("classpath", "jars"):
             result.append(entry)
 
     if command in ["jars", "base_jars"]:

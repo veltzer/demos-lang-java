@@ -2,9 +2,9 @@
 
 """ Check every eclipse .project file names its own folder. """
 
-import glob # for glob
-import xml.etree.ElementTree # for ElementTree
-import os.path # for split
+import glob  # for glob
+import os.path  # for split
+import xml.etree.ElementTree  # for ElementTree
 
 DEBUG = False
 

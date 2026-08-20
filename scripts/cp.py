@@ -2,7 +2,7 @@
 
 """ Create the classpath for this project. """
 
-import glob # for glob
+import glob  # for glob
 
 PARTS = []
 PARTS.extend(glob.glob('lib/*.jar'))

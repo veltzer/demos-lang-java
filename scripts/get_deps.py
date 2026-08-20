@@ -5,11 +5,11 @@
 ###########
 # imports #
 ###########
-import subprocess # for check_call
-import shutil # for rmtree, copyfile
-import os.path # for join, split, isfile
-import os # for mkdir
-import glob # for glob
+import glob  # for glob
+import os  # for mkdir
+import os.path  # for join, split, isfile
+import shutil  # for rmtree, copyfile
+import subprocess  # for check_call
 
 ##############
 # parameters #

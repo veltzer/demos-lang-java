@@ -8,9 +8,9 @@ Deliberately disabled: running it exits with the message below. The logic is
 kept in plant() for reference only and is never called.
 """
 
-import glob # for glob
-import sys # for exit
-import xml.dom.minidom # for parse
+import glob  # for glob
+import sys  # for exit
+import xml.dom.minidom  # for parse
 
 ADD_JARS=False
 
@@ -41,9 +41,8 @@ def plant():
         # remove white space
         remove_list=[]
         for child in iterate_children(document.firstChild):
-            if child.nodeType==child.TEXT_NODE:
-                if child.nodeValue.strip()=="":
-                    remove_list.append(child)
+            if child.nodeType==child.TEXT_NODE and child.nodeValue.strip()=="":
+                remove_list.append(child)
         for node in remove_list:
             node.parentNode.removeChild(node)
         # write the output file
