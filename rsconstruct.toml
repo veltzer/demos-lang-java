@@ -1,38 +1,7 @@
 # rsconstruct configuration for this repository — shared defaults plus
 # repo-specific config (merged from the former rsconstruct.local.toml).
 
-# ─── analyzers ───────────────────────────────────────────────────────────────
-
-[analyzer.tera]
-
-[analyzer.markdown]
-
 [analyzer.python]
-
-# ─── templating ──────────────────────────────────────────────────────────────
-
-# Convention: tera configs are Lua (config/*.lua). dep_auto entries are
-# silently skipped where absent. Repos still on config/*.py keep a
-# dep_inputs override in their local overlay until converted.
-[processor.tera]
-dep_auto = [
-	"config/project.lua",
-	"config/personal.lua",
-	"config/version.lua",
-	"config/github.lua",
-	"config/python.lua",
-	"config/shared.lua",
-]
-
-# ─── markdown ────────────────────────────────────────────────────────────────
-
-[processor.rumdl]
-src_dirs = ["src", "exercises"]
-
-[processor.zspell]
-src_dirs = ["src", "exercises"]
-
-# ─── python ──────────────────────────────────────────────────────────────────
 
 [processor.ruff]
 src_dirs = ["src", "scripts", "exercises"]
@@ -56,11 +25,6 @@ args = ["--severity=error", "--shell=bash"]
 
 [processor.taplo]
 src_dirs = ["."]
-
-# ─── web ─────────────────────────────────────────────────────────────────────
-
-[processor.stylelint]
-src_dirs = ["resources"]
 
 [processor.htmlhint]
 src_dirs = ["src"]
