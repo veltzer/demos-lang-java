@@ -12,9 +12,6 @@ src_dirs = ["src", "scripts", "exercises"]
 [processor.mypy]
 src_dirs = ["src", "scripts", "exercises"]
 
-[processor.requirements]
-src_dirs = ["src", "scripts"]
-
 # ─── shell ───────────────────────────────────────────────────────────────────
 
 [processor.shellcheck]
