@@ -1,5 +1,4 @@
-# rsconstruct configuration for this repository — shared defaults plus
-# repo-specific config (merged from the former rsconstruct.local.toml).
+# rsconstruct build configuration for this repository.
 
 [analyzer.python]
 
@@ -29,7 +28,7 @@ src_dirs = ["src"]
 [processor.tidy]
 src_dirs = ["src"]
 
-# ─── merged from rsconstruct.local.toml ─────────────────────────────────────
+# ─── repo-specific configuration ────────────────────────────────────────────
 
 # The Makefile compiled all src/**/*.java together with
 # `javac -Werror -Xlint:all <sources> -d out/classes` (one batched build --
