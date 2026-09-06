@@ -16,7 +16,7 @@ import javax.swing.text.html.HTMLFrameHyperlinkEvent;
 
 @SuppressWarnings("serial")
 public class BrowserDemo extends JPanel {
-	private JTextField address = new JTextField("http://www.vprise.com/");;
+	private JTextField address = new JTextField("http://www.vprise.com/");
 	private JEditorPane pane = new JEditorPane();
 
 	public BrowserDemo() {

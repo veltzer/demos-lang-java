@@ -14,8 +14,8 @@ src_dirs = ["src", "scripts", "exercises"]
 # ─── shell ───────────────────────────────────────────────────────────────────
 
 [processor.shellcheck]
-src_dirs = ["scripts", "src", "exercises"]
-args = ["--severity=error", "--shell=bash"]
+src_dirs = ["scripts", "src", "exercises", "to_integrate/AspectJ/scripts"]
+src_files = ["build_maven.sh"]
 
 # ─── toml / yaml / json ──────────────────────────────────────────────────────
 
@@ -23,7 +23,7 @@ args = ["--severity=error", "--shell=bash"]
 src_dirs = ["."]
 
 [processor.htmlhint]
-src_dirs = ["src"]
+src_dirs = ["src", "to_integrate/RcpView/html"]
 
 [processor.tidy]
 src_dirs = ["src"]
@@ -43,3 +43,25 @@ output_dirs = ["out/classes"]
 # lint the GitHub Actions workflow files with actionlint
 [processor.actionlint]
 src_dirs = [".github/workflows"]
+
+# ─── markdown ────────────────────────────────────────────────────────────────
+
+[processor.rumdl]
+src_files = ["README.md"]
+
+# ─── xml / svg ───────────────────────────────────────────────────────────────
+
+[processor.xmllint]
+src_dirs = ["ivy", "resources/Standard/src/johnbryce/lab5", "src/main/resources", "support", "to_integrate"]
+src_files = ["build_bootstrap.xml", "ivysettings.xml"]
+
+# ─── java ────────────────────────────────────────────────────────────────────
+
+[processor.checkstyle]
+src_dirs = ["jit", "src/main/java", "to_integrate"]
+args = ["-c", "checkstyle.xml"]
+
+# ─── css ─────────────────────────────────────────────────────────────────────
+
+[processor.stylelint]
+src_dirs = ["to_integrate/Jsf/resources/jsf/examples/webapp"]

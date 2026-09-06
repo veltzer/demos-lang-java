@@ -1,4 +1,4 @@
-<?xml version = '1.0'>
+<?xml version='1.0'?>
 <project xmlns="http://xmlns.oracle.com/jdeveloper/903/jproject" nselem="project" class="oracle.jdeveloper.model.JProject">
    <defaultPackage>mypackage12</defaultPackage>
    <defaultPackages class="java.util.ArrayList">

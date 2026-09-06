@@ -7,7 +7,7 @@
 PS3="please select java version> "
 select item in sun openjdk auto quit
 do
-	case $item in
+	case ${item} in
 		sun)
 			sudo update-java-alternatives --set java-7-sun
 			exit 0

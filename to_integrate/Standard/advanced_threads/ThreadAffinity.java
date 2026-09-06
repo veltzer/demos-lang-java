@@ -149,8 +149,9 @@ abstract class ThreadAffinity {
 						core.attachTo();
 						System.out.printf("currentCore() -> %s\n",
 								currentCore());
-						for (int i = 0; i < Integer.MAX_VALUE; i++) {
-							i--;
+						// spin forever so the thread keeps this core busy
+						while (true) {
+							Thread.onSpinWait();
 						}
 					} catch (Exception e) {
 						throw new RuntimeException(e);

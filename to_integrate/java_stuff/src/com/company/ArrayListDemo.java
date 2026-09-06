@@ -1,7 +1,6 @@
 package com.company;
 
 import java.util.Map;
-import java.util.HashMap;
 import java.util.TreeMap;
 
 public class ArrayListDemo {

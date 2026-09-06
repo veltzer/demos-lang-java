@@ -15,7 +15,7 @@ public final class ProfileTest2 {
 	private LogCache logCache;
 
 	private class LogCache {
-		private Map<Integer, Double> logValues;;
+		private Map<Integer, Double> logValues;
 
 		public LogCache() {
 			logValues = new HashMap<Integer, Double>();

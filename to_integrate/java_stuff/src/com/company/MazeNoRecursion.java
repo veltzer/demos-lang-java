@@ -2,7 +2,7 @@ package com.company;
 
 public class MazeNoRecursion {
 
-    private static char maze[][] = {
+    private static char[][] maze = {
             {' ', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*'},
             {'*', ' ', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*'},
             {'*', ' ', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*', '*'},
@@ -102,7 +102,7 @@ public class MazeNoRecursion {
 
     public static void main(String[] args) {
         MazeNoRecursion m = new MazeNoRecursion(23, 11);
-        if(m.solve(1, 1)==false) {
+        if(!m.solve(1, 1)) {
             System.out.println("Cant solve");
         } else {
             m.print_path();
