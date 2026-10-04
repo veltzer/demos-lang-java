@@ -6,25 +6,25 @@ reject_dot_src_dirs = true
 
 [analyzer.python]
 
-[processor.ruff]
+[processor.checker.ruff]
 src_dirs = ["src", "scripts", "exercises"]
 
 
-[processor.mypy]
+[processor.checker.mypy]
 src_dirs = ["src", "scripts", "exercises"]
 
 # ─── shell ───────────────────────────────────────────────────────────────────
 
-[processor.shellcheck]
+[processor.checker.shellcheck]
 src_dirs = ["scripts", "src", "exercises", "to_integrate/AspectJ/scripts"]
 src_files = ["build_maven.sh"]
 
 # ─── toml / yaml / json ──────────────────────────────────────────────────────
 
-[processor.taplo]
+[processor.checker.taplo]
 src_files = [".rumdl.toml", "pyproject.toml", "rsconstruct.toml"]
 
-[processor.tidy]
+[processor.checker.tidy]
 src_dirs = ["src", "to_integrate/RcpView/html"]
 
 # ─── repo-specific configuration ────────────────────────────────────────────
@@ -34,29 +34,29 @@ src_dirs = ["src", "to_integrate/RcpView/html"]
 # the types reference each other). scripts/javac_build.py runs that exact
 # command; the explicit processor triggers it on any .java change. DO_IVY was 0,
 # so the ivy dependency-fetch step was off and is not reproduced.
-[processor.explicit.java]
+[processor.explicit.generic.java]
 command = "scripts/javac_build.py"
 input_globs = ["src/**/*.java"]
 output_dirs = ["out/classes"]
 
 # lint the GitHub Actions workflow files with actionlint
-[processor.actionlint]
+[processor.checker.actionlint]
 src_dirs = [".github/workflows"]
 
 # ─── markdown ────────────────────────────────────────────────────────────────
 
-[processor.rumdl]
+[processor.checker.rumdl]
 src_files = ["README.md"]
 
 # ─── xml / svg ───────────────────────────────────────────────────────────────
 
-[processor.xmllint]
+[processor.checker.xmllint]
 src_dirs = ["ivy", "resources/Standard/src/johnbryce/lab5", "src/main/resources", "support", "to_integrate"]
 src_files = ["build_bootstrap.xml", "ivysettings.xml"]
 
 # ─── java ────────────────────────────────────────────────────────────────────
 
-[processor.checkstyle]
+[processor.checker.checkstyle]
 src_dirs = ["jit", "src/main/java", "to_integrate"]
 args = ["-c", "checkstyle.xml"]
 
@@ -64,6 +64,6 @@ args = ["-c", "checkstyle.xml"]
 
 # Only .css is passed: biome.jsonc turns biome's JavaScript and JSON linters
 # off, oxlint covers JavaScript and ijsonlint covers JSON.
-[processor.biome]
+[processor.checker.biome]
 src_dirs = ["to_integrate/Jsf/resources/jsf/examples/webapp"]
 src_extensions = [".css"]
