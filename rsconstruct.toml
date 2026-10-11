@@ -15,7 +15,7 @@ src_dirs = ["src", "scripts", "exercises"]
 
 # ─── shell ───────────────────────────────────────────────────────────────────
 
-[processor.checker.shellcheck]
+[processor.checker.ishellcheck]
 src_dirs = ["scripts", "src", "exercises", "to_integrate/AspectJ/scripts"]
 src_files = ["build_maven.sh"]
 
@@ -56,9 +56,8 @@ src_files = ["build_bootstrap.xml", "ivysettings.xml"]
 
 # ─── java ────────────────────────────────────────────────────────────────────
 
-[processor.checker.checkstyle]
+[processor.checker.icheckstyle]
 src_dirs = ["jit", "src/main/java", "to_integrate"]
-args = ["-c", "checkstyle.xml"]
 
 # ─── css ─────────────────────────────────────────────────────────────────────
 
