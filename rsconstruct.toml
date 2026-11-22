@@ -56,6 +56,8 @@ src_files = ["README.md"]
 # ─── xml / svg ───────────────────────────────────────────────────────────────
 
 [processor.checker.ixmllint]
+# warnings fail too, not only fatal errors
+strict = true
 src_dirs = ["ivy", "resources/Standard/src/johnbryce/lab5", "src/main/resources", "support", "to_integrate"]
 src_files = ["build_bootstrap.xml", "ivysettings.xml"]
 
