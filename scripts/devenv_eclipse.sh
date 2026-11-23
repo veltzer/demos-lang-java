@@ -6,8 +6,8 @@
 VERSION=jee
 #VERSION=java
 #VERSION=rcp
-if test -d ~/workspace-${VERSION} -a -f ~/install/eclipse-${VERSION}/eclipse; then
-	~/install/eclipse-${VERSION}/eclipse -data ~/workspace-${VERSION} 2> /dev/null 1> /dev/null &
+if test -d "${HOME}/workspace-${VERSION}" -a -f "${HOME}/install/eclipse-${VERSION}/eclipse"; then
+	"${HOME}/install/eclipse-${VERSION}/eclipse" -data "${HOME}/workspace-${VERSION}" 2> /dev/null 1> /dev/null &
 else
 	echo "you have a problem with the version [${VERSION}]..."
 fi

@@ -23,5 +23,8 @@ do
 		quit)
 			exit 0
 			;;
+		*)
+			echo "invalid selection: ${REPLY}" >&2
+			;;
 	esac
 done

@@ -20,7 +20,7 @@ def main():
         return
     os.makedirs(OUT, exist_ok=True)
     sys.exit(subprocess.call(
-        ["javac", "-Werror", "-Xlint:all"] + sources + ["-d", OUT]))
+        ["javac", "-Werror", "-Xlint:all", *sources, "-d", OUT]))
 
 
 if __name__ == "__main__":

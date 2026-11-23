@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python
 
 """
 This script will remove all jars from .classpath files and will plant new
@@ -29,22 +29,23 @@ def plant():
         document = xml.dom.minidom.parse(filename)
         # remove all classpathentry elements with attribute kind=lib
         for node in document.getElementsByTagName('classpathentry'):
-            if node.getAttribute('kind')=='lib':
+            if node.getAttribute('kind')=='lib' and node.parentNode is not None:
                 node.parentNode.removeChild(node)
         # add all the jars
-        if ADD_JARS:
+        if ADD_JARS and document.firstChild is not None:
             for jar in jar_list:
                 e=document.createElementNS(None,'classpathentry')
                 e.setAttribute('kind','lib')
                 e.setAttribute('path','../../'+jar)
                 document.firstChild.appendChild(e)
         # remove white space
-        remove_list=[]
-        for child in iterate_children(document.firstChild):
-            if child.nodeType==child.TEXT_NODE and child.nodeValue.strip()=="":
-                remove_list.append(child)
+        remove_list=[
+            child for child in iterate_children(document.firstChild)
+            if child.nodeType==child.TEXT_NODE and child.nodeValue.strip()==""
+        ]
         for node in remove_list:
-            node.parentNode.removeChild(node)
+            if node.parentNode is not None:
+                node.parentNode.removeChild(node)
         # write the output file
         with open(filename, "w", encoding="utf-8") as f:
             f.write(document.toprettyxml(indent="\t"))

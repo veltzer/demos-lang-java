@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 """
 This script reads an Eclipse .classpath file, finds all lib entries
@@ -26,7 +26,10 @@ def main():
     root = tree.getroot()
 
     # Find all 'classpathentry' elements with kind="lib"
-    lib_entries = [entry.get('path') for entry in root.findall(".//classpathentry[@kind='lib']")]
+    lib_entries = [
+        path for path in (entry.get('path') for entry in root.findall(".//classpathentry[@kind='lib']"))
+        if path is not None
+    ]
 
     result = []
     for entry in lib_entries:
