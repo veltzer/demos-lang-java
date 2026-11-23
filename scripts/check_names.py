@@ -4,7 +4,7 @@
 
 import glob  # for glob
 import os.path  # for split
-import xml.etree.ElementTree  # for ElementTree
+import xml.etree.ElementTree as ET  # for ElementTree
 
 DEBUG = False
 
@@ -17,7 +17,7 @@ def main():
         (_path2, folder2) = os.path.split(path)
         if DEBUG:
             print(folder2)
-        document = xml.etree.ElementTree.ElementTree(file=project)
+        document = ET.ElementTree(file=project)
         counter = 0
         for element in document.findall('./name'):
             name = element.text or ""
