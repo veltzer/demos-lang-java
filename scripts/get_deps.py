@@ -68,7 +68,7 @@ def file_msg(f):
 
 def clean():
     """ Recreate the static/ folder. """
-    shutil.rmtree('static', True)
+    shutil.rmtree('static', ignore_errors=True)
     os.mkdir('static')
 
 def fetch_jdic():
