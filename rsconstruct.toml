@@ -22,7 +22,7 @@ src_files = ["build_maven.sh"]
 # ─── toml / yaml / json ──────────────────────────────────────────────────────
 
 [processor.checker.taplo]
-src_files = [".rumdl.toml", "pyproject.toml", "rsconstruct.toml"]
+src_files = [".ruff.toml", ".rumdl.toml", "pyproject.toml", "rsconstruct.toml"]
 
 [processor.checker.itidy]
 src_dirs = ["src", "to_integrate/RcpView/html"]
