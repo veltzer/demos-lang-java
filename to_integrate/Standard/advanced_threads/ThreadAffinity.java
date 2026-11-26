@@ -124,7 +124,8 @@ abstract class ThreadAffinity {
 	private interface CLibrary extends Library {
 		CLibrary INSTANCE = (CLibrary) Native.loadLibrary("c", CLibrary.class);
 
-		// CHECKSTYLE.OFF:
+		// the method names below are the C library's own
+		// CHECKSTYLE.OFF: MethodName
 		int nice(final int increment);
 
 		int sched_setaffinity(final int pid, final int cpusetsize,
