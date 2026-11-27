@@ -11,17 +11,21 @@ kept in plant() for reference only and is never called.
 import glob  # for glob
 import sys  # for exit
 import xml.dom.minidom  # for parse
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from xml.dom.minidom import Node
 
 ADD_JARS=False
 
-def iterate_children(parent):
+def iterate_children(parent: Node | None):
     """ Yield the direct children of a DOM node. """
-    child = parent.firstChild
+    child = parent.firstChild if parent is not None else None
     while child is not None:
         yield child
         child = child.nextSibling
 
-def plant():
+def plant() -> None:
     """ Rewrite every projects/*/.classpath (kept for reference, not called). """
     jar_list=glob.glob('lib/*.jar')
     jar_list.extend(glob.glob('static/*.jar'))

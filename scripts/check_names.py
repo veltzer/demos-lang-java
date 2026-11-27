@@ -8,7 +8,7 @@ import xml.etree.ElementTree as ET  # for ElementTree
 
 DEBUG = False
 
-def main():
+def main() -> None:
     """ main entry point """
     for project in glob.glob('projects/*/.project'):
         if DEBUG:

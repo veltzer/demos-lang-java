@@ -58,17 +58,17 @@ JNA_FILES=[
 #############
 # functions #
 #############
-def file_msg(f):
+def file_msg(f: str) -> None:
     """ Report a file about to be created. """
     if DO_VERBOSE:
         print(f'creating file [{f}]')
 
-def clean():
+def clean() -> None:
     """ Recreate the static/ folder. """
     shutil.rmtree('static', ignore_errors=True)
     os.mkdir('static')
 
-def fetch_jdic():
+def fetch_jdic() -> None:
     """ Download the jdic jar. """
     target='static/jdic.jar'
     if not os.path.isfile(target):
@@ -79,7 +79,7 @@ def fetch_jdic():
             '-O', target,
         ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
-def copy_eclipse_jars():
+def copy_eclipse_jars() -> None:
     """ Copy the needed eclipse plugin jars into static/. """
     for x in ECLIPSE_PLUGINS:
         candidates=glob.glob(os.path.join(ECLIPSE_PATH, x+'_*.jar'))
@@ -91,7 +91,7 @@ def copy_eclipse_jars():
             file_msg(target)
             shutil.copyfile(filename, target)
 
-def copy_jna_jars():
+def copy_jna_jars() -> None:
     """ Copy the system jna jars into static/. """
     for x in JNA_FILES:
         target=os.path.join('static', os.path.split(x)[1])

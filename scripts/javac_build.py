@@ -13,7 +13,7 @@ import sys
 OUT = os.path.join("out", "classes")
 
 
-def main():
+def main() -> None:
     """ main entry point """
     sources = sorted(glob.glob(os.path.join("src", "**", "*.java"), recursive=True))
     if not sources:

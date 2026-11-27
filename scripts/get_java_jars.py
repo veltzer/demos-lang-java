@@ -14,7 +14,7 @@ import sys
 import xml.etree.ElementTree as ET
 
 
-def main():
+def main() -> None:
     """ main code """
     if len(sys.argv) != 2:
         print("Usage: python script.py [base_jars|jnlp|jars|classpath]")
