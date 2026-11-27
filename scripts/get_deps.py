@@ -2,9 +2,6 @@
 
 """ Fetch/copy the jar dependencies of this project into static/. """
 
-###########
-# imports #
-###########
 import glob  # for glob
 import os  # for mkdir
 import os.path  # for join, split, isfile
